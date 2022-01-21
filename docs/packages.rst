@@ -1,5 +1,5 @@
-Some Feature A
-==============
+Packages
+========
 
 Subsection
 ----------

@@ -1,5 +1,5 @@
-Some Feature A
-==============
+Isolated environments
+=====================
 
 Subsection
 ----------

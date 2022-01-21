@@ -1,4 +1,4 @@
-Some Feature A
+Introduction
 ==============
 
 Subsection
