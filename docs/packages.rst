@@ -1,7 +1,7 @@
 Packages
 ========
 
-Check current
+Check current available packages
 -------------
 
 Install with pip
