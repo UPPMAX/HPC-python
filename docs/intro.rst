@@ -29,13 +29,12 @@ What to do if you need other packages?
 Outline
 ----------
 
-Exciting documentation in here.
-Let's make a list (empty surrounding lines required):
+.. note:: 
+   - Loading and running Python
+   - Packages/modules
+   - How to install packages
+   - Isolated environments
+   - Not this time:
+     - jupyter notebook
+     - parallel jobs
 
-- item 1
-
-  - nested item 1
-  - nested item 2
-
-- item 2
-- item 3
