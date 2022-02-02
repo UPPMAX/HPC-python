@@ -1,16 +1,14 @@
 Packages
 ========
 
-Subsection
-----------
+Check current
+-------------
 
-Exciting documentation in here.
-Let's make a list (empty surrounding lines required):
+Install with pip
+-------
 
-- item 1
+Install with Conda
+------------------
 
-  - nested item 1
-  - nested item 2
-
-- item 2
-- item 3
+On Bianca cluster
+-----------------
