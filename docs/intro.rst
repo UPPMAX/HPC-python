@@ -34,7 +34,5 @@ Outline
    - Packages/modules
    - How to install packages
    - Isolated environments
-   - Not this time:
-     - jupyter notebook
-     - parallel jobs
+   - Not this time: jupyter notebook parallel jobs
 
