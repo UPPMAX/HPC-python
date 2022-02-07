@@ -15,7 +15,7 @@ Welcome to Python-at-UPPMAX's documentation!
    packages.rst
    isolated.rst
    summary.rst
-
+   test.md
 
 Indices and tables
 ==================
