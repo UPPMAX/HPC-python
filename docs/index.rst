@@ -10,7 +10,6 @@ Welcome to Python-at-UPPMAX's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   intro.rst
    intro2.md
    load_run.rst
    packages.rst
