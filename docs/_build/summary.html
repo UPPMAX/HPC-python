@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Some Feature A &mdash; Python-at-UPPMAX 0.1 documentation</title>
+  <title>Summary &mdash; Python-at-UPPMAX 0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -15,10 +19,15 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/togglebutton.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/minipres.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Some Feature A" href="isolated.html" /> 
+    <link rel="prev" title="Isolated environments" href="isolated.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,14 +47,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Some Feature A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="load_run.html">Some Feature A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packages.html">Some Feature A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="isolated.html">Some Feature A</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Some Feature A</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#subsection">Subsection</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_run.html">Load and run Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isolated.html">Isolated environments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Summary</a></li>
 </ul>
 
         </div>
@@ -62,7 +68,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Some Feature A</li>
+      <li>Summary</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/summary.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -72,36 +78,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="some-feature-a">
-<h1>Some Feature A<a class="headerlink" href="#some-feature-a" title="Permalink to this headline"></a></h1>
-<section id="subsection">
-<h2>Subsection<a class="headerlink" href="#subsection" title="Permalink to this headline"></a></h2>
-<p>Exciting documentation in here.
-Let’s make a list (empty surrounding lines required):</p>
-<ul class="simple">
-<li><p>item 1</p>
-<ul>
-<li><p>nested item 1</p></li>
-<li><p>nested item 2</p></li>
-</ul>
-</li>
-<li><p>item 2</p></li>
-<li><p>item 3</p></li>
-</ul>
-</section>
-</section>
+  <div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use python from module system
+Check for preinstalled packages
+Try to install locally
+- Rackham: Pip or secondary conda
+- Bianca: conda and secondary wharf+(pip or conda)
+Use isolated environment for projects requiring certain versions of Python and packages</p>
+</div>
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="isolated.html" class="btn btn-neutral float-left" title="Some Feature A" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="isolated.html" class="btn btn-neutral float-left" title="Isolated environments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Björn Claremar et al..</p>
+    <p>&#169; Copyright UPPMAX.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

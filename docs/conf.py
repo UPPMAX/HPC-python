@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Python-at-UPPMAX'
-copyright = '2022, Björn Claremar et al.'
-author = 'Björn Claremar et al.'
+copyright = 'UPPMAX'
+author = 'UPPMAX'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'
@@ -30,7 +30,7 @@ release = '0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
+extensions = ["sphinx_lesson"
 ]
 
 # Add any paths that contain templates here, relative to this directory.

@@ -1,16 +1,10 @@
-Some Feature A
+Summary
 ==============
 
-Subsection
-----------
-
-Exciting documentation in here.
-Let's make a list (empty surrounding lines required):
-
-- item 1
-
-  - nested item 1
-  - nested item 2
-
-- item 2
-- item 3
+.. note::
+   Use python from module system
+   Check for preinstalled packages
+   Try to install locally
+   - Rackham: Pip or secondary conda
+   - Bianca: conda and secondary wharf+(pip or conda)
+   Use isolated environment for projects requiring certain versions of Python and packages
