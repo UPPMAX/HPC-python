@@ -18,7 +18,7 @@ Welcome to Python-at-UPPMAX's documentation!
    summary.rst
    
 .. toctree::
-   :wq:hidden:
+   :hidden:
    
    test.md
 
