@@ -11,11 +11,12 @@ Welcome to Python-at-UPPMAX's documentation!
    :caption: Contents:
 
    intro.rst
+   intro.md
    load_run.rst
    packages.rst
    isolated.rst
    summary.rst
-   test.md
+
 
 Indices and tables
 ==================
