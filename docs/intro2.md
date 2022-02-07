@@ -22,7 +22,7 @@ What to do if you need other packages?
    To distinguish these modules from the python modules that work as libraries we refer to the later ones as packages.
 ```
 
-```{Outline} 
+```{discussion} Outline
    - Loading and running Python
    - Packages/modules
    - How to install packages
