@@ -10,7 +10,6 @@
 
 [inline link](https://example.com)
 
-[link to page](relative-page-path)
 
 ```
 code block
