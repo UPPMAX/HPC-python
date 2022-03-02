@@ -6,15 +6,24 @@ https://www.uppmax.uu.se/resources/software/module-system/
 
 Load
 ----------
-Load latest Python module by
+Load latest Python module by:
+
 .. prompt:: bash $
 
     module load python
     
 Check all available version with:
-module available python
+
+.. prompt:: bash $
+
+    module available python
+
 Load specific version with:
-module load python/X.Y.Z
+
+.. prompt:: bash $
+
+    module load python/X.Y.Z
+
 Warning: Don’t use system-installed Python/2.7.5
 ALWAYS use Python module
 
@@ -27,10 +36,30 @@ Run
 ---
 
 You can run a python script in the shell by:
-python example.py
+
+.. prompt:: bash $
+
+    python example.py
+
 or, if you loaded a python3 module:
-python3 example.py
+
+.. prompt:: bash $
+
+    python3 example.py
+
 You start a python session/prompt ( >>> ) by typing:
-python or python3
-ipython or ipython3 (interactive)
+
+.. prompt:: bash $
+
+    python  # or python3
+
+    #for interactive 
+    ipython # or ipython3 
+    
 Exit with <Ctrl-D>, "quit()" or 'exit()’ in python prompt
+
+.. prompt:: python >>>
+
+    <Ctrl-D>
+    quit()
+    exit()
