@@ -7,7 +7,10 @@ https://www.uppmax.uu.se/resources/software/module-system/
 Load
 ----------
 Load latest Python module by
-module load python
+.. prompt:: bash $
+
+    module load python
+    
 Check all available version with:
 module available python
 Load specific version with:
