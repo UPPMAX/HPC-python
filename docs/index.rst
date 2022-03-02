@@ -6,11 +6,13 @@
 Welcome to Python-at-UPPMAX's documentation!
 ============================================
 
+Here you will find the content of the introduction to python packages at UPPMAX.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   intro2.md
+   intro.rst
    load_run.rst
    packages.rst
    isolated.rst
@@ -19,7 +21,7 @@ Welcome to Python-at-UPPMAX's documentation!
 .. toctree::
    :hidden:
    
-   intro.rst
+   intro2.md
    test.md
 
 
