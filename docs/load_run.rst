@@ -58,8 +58,8 @@ You start a python session/prompt ( >>> ) by typing:
     
 Exit with <Ctrl-D>, "quit()" or 'exit()’ in python prompt
 
-.. prompt:: python >>>
+.. codeblock:: python
 
-    <Ctrl-D>
-    quit()
-    exit()
+    >>> <Ctrl-D>
+    >>> quit()
+    >>> exit()
