@@ -1,10 +1,13 @@
 Packages
 ========
 
-Python packages broadens the use of python too almost infinity! Instead of writing codes yourself there may be others that has done the same.
-Many scientific tools are distributed as python packages making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
+- Python packages broadens the use of python to almost infinity! 
 
-A nice introduction can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
+- Instead of writing codes yourself there may be others that has done the same!
+
+- Many scientific tools are distributed as python packages making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
+
+- A nice introduction to packagescan be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
 
 Check current available packages
@@ -99,7 +102,9 @@ Install with Conda
 
 	conda activate python36-env
 
-Deactivate
+5. Do your work!
+
+6. Deactivate
 
     .. prompt:: bash $
 
@@ -114,28 +119,32 @@ On Bianca cluster
 
 - First try Conda, as above.
 
+
 - If packages are not available, follow the guideline below.
+
 
 - Make an installation on Rackham and then use the wharf to copy it over to your directory on Bianca
 
-- (~/.local/lib/python<version>/site-packages/ ). 
+  - (~/.local/lib/python<version>/site-packages/ ). 
 
 - You may have to:
+
+  - in source directory:
 
     .. prompt:: bash $
 
         cp –a
 	
-- … or tar/untar to include all possible symbolic links:
+  - … or tar/untar to include all possible symbolic links:
 
     .. prompt:: bash $
 
         tar cfz <tarfile.tar.gz> <files> 	
 	
-    in source dir, and 
+  - and in target directory:
     
         .. prompt:: bash $
 
              tar xfz <tarfile.tar.gz> 		
 	     
-    in target dir
+
