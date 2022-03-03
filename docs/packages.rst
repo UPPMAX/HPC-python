@@ -1,21 +1,26 @@
 Packages
 ========
 
+Python packages broadens the use of python too almost infinity! Instead of writing codes yourself there may be others that has done the same.
+Many scientific tools are distributed as python packages making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
+
+A nice introduction can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
+
+
 Check current available packages
 --------------------------------
 
-Check the pre-installed packages of a specific python
+Check the pre-installed packages of a specific python module
+
 .. prompt:: bash $
 
-  module version
-  module help python/<version> 
+    module help python/<version> 
   
 or with python module loaded, in shell 
+
 .. prompt:: bash $
 
     pip list
-
-Very nice introduction can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
 To make sure that the package is not already installed, type in python:
 
@@ -73,11 +78,15 @@ Install with Conda
 
      conda init bash
 
+3. Create the conda environment
 
+  - Example:
+  
+    .. prompt:: bash $
 
- 
-Example: conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
-Activate the Conda environment by:
+        conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
+
+4. Activate the Conda environment by:
 	conda activate python36-env
 For older version of Conda, try:
 	source activate python36-env
