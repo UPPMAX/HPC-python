@@ -49,7 +49,9 @@ Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
 Install with Conda
 ------------------
 
-1. .. prompt:: bash $
+1. First load our conda module (there is no need to install you own miniconda, for instance)
+
+  .. prompt:: bash $
 
         module load conda
     
@@ -61,10 +63,15 @@ Install with Conda
 2. First time
 
   - output when conda is loaded: 
+  
     - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
+
     - Otherwise, the default is ~/.conda/envs. 
+
     - You may run "source conda_init.sh" to initialise your shell to be able to run "conda activate" and "conda deactivate" etc.
+
     - Just remember that this command adds stuff to your shell outside the scope of the module system.
+
     - REMEMBER TO 'conda clean -a' once in a while to remove unused and unnecessary files
     
  .. prompt:: bash $
@@ -87,11 +94,17 @@ Install with Conda
         conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
 
 4. Activate the Conda environment by:
+
+    .. prompt:: bash $
+
 	conda activate python36-env
-For older version of Conda, try:
-	source activate python36-env
+
 Deactivate
+
+    .. prompt:: bash $
+
 	conda deactivate
+
 More info
 https://uppmax.uu.se/support/user-guides/conda-user-guide/ 
 
@@ -99,11 +112,30 @@ https://uppmax.uu.se/support/user-guides/conda-user-guide/
 On Bianca cluster
 -----------------
 
-First try Conda, as above.
-If packages are not available, follow the guideline below.
-Make an installation on Rackham and then use the wharf to copy it over to your directory on Bianca
-(~/.local/lib/python<version>/site-packages/ ). 
-You may have to:
-cp –a
-… or tar/untar to include all possible symbolic links:
-tar cfz <tarfile.tar.gz> <files> 	in source dirtar xfz <tarfile.tar.gz> 			in target dir
+- First try Conda, as above.
+
+- If packages are not available, follow the guideline below.
+
+- Make an installation on Rackham and then use the wharf to copy it over to your directory on Bianca
+
+- (~/.local/lib/python<version>/site-packages/ ). 
+
+- You may have to:
+
+    .. prompt:: bash $
+
+        cp –a
+	
+- … or tar/untar to include all possible symbolic links:
+
+    .. prompt:: bash $
+
+        tar cfz <tarfile.tar.gz> <files> 	
+	
+    in source dir, and 
+    
+        .. prompt:: bash $
+
+             tar xfz <tarfile.tar.gz> 		
+	     
+    in target dir
