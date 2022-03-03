@@ -135,15 +135,15 @@ On Bianca cluster
 
         cp –a
 	
-  - … or tar/untar to include all possible symbolic links:
+    - … or tar/untar to include all possible symbolic links:
 
-    .. prompt:: bash $
+      .. prompt:: bash $
 
         tar cfz <tarfile.tar.gz> <files> 	
 	
   - and in target directory:
     
-        .. prompt:: bash $
+    .. prompt:: bash $
 
              tar xfz <tarfile.tar.gz> 		
 	     
