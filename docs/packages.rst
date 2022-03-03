@@ -4,15 +4,25 @@ Packages
 Check current available packages
 --------------------------------
 
-Check the pre-installed packages of a specific python module version
-module help python/<version> 
+Check the pre-installed packages of a specific python
+.. prompt:: bash $
+
+  module version
+  module help python/<version> 
+  
 or with python module loaded, in shell 
-pip list
+.. prompt:: bash $
+
+    pip list
 
 Very nice introduction can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
 To make sure that the package is not already installed, type in python:
->>> import <package>
+
+.. prompt:: python >>>
+
+    import <package>
+    
 Does it work? Then it is there!
 Otherwise, you can either use "pip" or "Conda".
 
@@ -20,7 +30,12 @@ Otherwise, you can either use "pip" or "Conda".
 Install with pip
 ----------------
 
-You use pip this way, in Linux shell or python shell: pip install –user <package>
+You use pip this way, in Linux shell or python shell: 
+
+.. prompt:: bash $
+
+    pip install –user <package>
+    
 Use pip3 if you loaded python3
 
 Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
@@ -29,20 +44,38 @@ Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
 Install with Conda
 ------------------
 
-module load condaThis grants you access to the latest version of Conda and all major repositories on all UPPMAX systems.
-Check the text output as conda is loaded, see next page!
-First time
-export CONDA_ENVS_PATH=/a/path/to/a /place/in/your/project/
-example: export CONDA_ENVS_PATH=/proj/...
+1. .. prompt:: bash $
 
-The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
-Otherwise, the default is ~/.conda/envs. 
+        module load conda
+    
+  - This grants you access to the latest version of Conda and all major repositories on all UPPMAX systems.
 
-You may run "source conda_init.sh" to initialise your shell to be able to run "conda activate" and "conda deactivate" etc.
-Just remember that this command adds stuff to your shell outside the scope of the module system.
+  - Check the text output as conda is loaded, especially the first time, see below:
+  
 
-REMEMBER TO 'conda clean -a' once in a while to remove unused and unnecessary files
+2. First time
 
+  - output when conda is loaded: 
+    - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
+    - Otherwise, the default is ~/.conda/envs. 
+    - You may run "source conda_init.sh" to initialise your shell to be able to run "conda activate" and "conda deactivate" etc.
+    - Just remember that this command adds stuff to your shell outside the scope of the module system.
+    - REMEMBER TO 'conda clean -a' once in a while to remove unused and unnecessary files
+    
+ .. prompt:: bash $
+      export CONDA_ENVS_PATH=/a/path/to/a /place/in/your/project-dir/
+ 
+ - example: export CONDA_ENVS_PATH=/proj/snic2020-5-XXX
+ 
+ - run 'conda init bash' to initialise your shell (bash) to be able to run "conda activate" and "conda deactivate" etc...
+
+ .. prompt:: bash $
+
+     conda init bash
+
+
+
+ 
 Example: conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
 Activate the Conda environment by:
 	conda activate python36-env
