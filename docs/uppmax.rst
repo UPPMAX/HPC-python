@@ -52,7 +52,7 @@ Packages not centrally installed
 
 - adjustText
 
-- DeepLabCut (https://deeplabcut.github.io/DeepLabCut/docs/installation.html).
+- DeepLabCut 
 
 - ete3
 
@@ -60,13 +60,13 @@ Packages not centrally installed
 
 - KiwiDist
 
-- Rdkit (https://www.rdkit.org/)
+- Rdkit 
 
 - Pygraphviz/1.9
 
 - ScanPy
 
-- venndiagram
+- venndiagram (venn/matplotlib-venn)
 
 - puma 
 
