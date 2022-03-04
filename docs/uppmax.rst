@@ -6,7 +6,7 @@ The packages you mentioned in your registration
 Packages included in the python/3.9.5 module
 --------------------------------------------
 
-- Jupyter Note book
+- Jupyter Notebook
 
 - matplotlib
 
@@ -23,29 +23,29 @@ Packages included in the python/3.9.5 module
 Packages that can be loaded with 'module load'
 ----------------------------------------------
 
-module load bioinfo-tools biopython
+- module load bioinfo-tools biopython
 
-- biopython
+  - biopython
 
-module load python_ML_packages
+- module load python_ML_packages
 
-- sklearn/scikit-learn
-- TensorFlow 
-- torch
-- mpi
-- mpi4py
+  - sklearn/scikit-learn
+  - TensorFlow 
+  - torch
+  - mpi
+  - mpi4py
 
-module load bwa
+- module load bwa
 
-module load Graphviz/2.40.1
+- module load Graphviz/2.40.1
 
-module load HiChipper
+-  module load HiChipper
 
-module load Homer
+-  module load Homer
 
-module load pysam
+-  module load pysam
 
-module load samtools
+-  module load samtools
 
 Packages not centrally installed
 --------------------------------
