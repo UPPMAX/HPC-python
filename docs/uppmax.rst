@@ -1,5 +1,7 @@
-The packages you mentioned in your registration
+UPPMAX packages
 ===============================================
+
+The packages you mentioned in your registration
 
 Packages included in the python/3.9.5 module
 --------------------------------------------
@@ -35,6 +37,8 @@ module load python_ML_packages
 
 module load bwa
 
+module load Graphviz/2.40.1
+
 module load HiChipper
 
 module load Homer
@@ -42,3 +46,28 @@ module load Homer
 module load pysam
 
 module load samtools
+
+Packages not centrally installed
+--------------------------------
+
+- adjustText
+
+- DeepLabCut (https://deeplabcut.github.io/DeepLabCut/docs/installation.html).
+
+- ete3
+
+- Google Colab
+
+- KiwiDist
+
+- Rdkit (https://www.rdkit.org/)
+
+- Pygraphviz/1.9
+
+- ScanPy
+
+- venndiagram
+
+- puma 
+
+- pyspark
