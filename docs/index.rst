@@ -17,13 +17,8 @@ Here you will find the content of the introduction to python packages at UPPMAX.
    packages.rst
    isolated.rst
    summary.rst
+   uppmax.rst
    
-.. toctree::
-   :hidden:
-   
-   intro2.md
-   test.md
-
 
 Indices and tables
 ==================
