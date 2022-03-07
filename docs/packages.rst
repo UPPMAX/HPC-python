@@ -1,31 +1,33 @@
 Packages
 ========
 
-- Python packages broadens the use of python to almost infinity! 
+.. Note::
 
-- Instead of writing codes yourself there may be others that has done the same!
+    - Python packages broadens the use of python to almost infinity! 
 
-- Many scientific tools are distributed as python packages making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
+    - Instead of writing codes yourself there may be others that has done the same!
 
-- A nice introduction to packagescan be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
+    - Many scientific tools are distributed as python packages making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
+
+    - A nice introduction to packagescan be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
 
 Check current available packages
 --------------------------------
 
-Check the pre-installed packages of a specific python module
+Check the pre-installed packages of a specific python module:
 
 .. prompt:: bash $
 
     module help python/<version> 
   
-or with python module loaded, in shell 
+or with python module loaded (more certain), in shell:
 
 .. prompt:: bash $
 
     pip list
 
-To make sure that the package is not already installed, type in python:
+You can also test from within python to make sure that the package is not already installed:
 
 .. prompt:: python >>>
 
@@ -38,19 +40,37 @@ Otherwise, you can either use "pip" or "Conda".
 Install with pip
 ----------------
 
-You use pip this way, in Linux shell or python shell: 
+You use pip this way, in Linux shell OR python shell: 
 
 .. prompt:: bash $
 
-    pip install –user <package>
+    pip install –-user <package>
     
 Use pip3 if you loaded python3
 
 Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
 
-
 Install with Conda
 ------------------
+
+.. Note::
+
+    We have mirrored all major conda repositories directly on UPPMAX, on both Rackham and Bianca. These are updated every third day.
+    We have the following channels available:
+    
+    - bioconda
+    - biocore
+    - conda-forge
+    - dranew
+    - free
+    - main
+    - pro
+    - qiime2
+    - r
+    - r2018.11
+    - scilifelab-lts
+    
+    You reach them all by loading the conda module. You don't have to state the specific channel.
 
 1. First load our conda module (there is no need to install you own miniconda, for instance)
 
@@ -116,6 +136,11 @@ https://uppmax.uu.se/support/user-guides/conda-user-guide/
 
 On Bianca cluster
 -----------------
+
+.. Note::
+
+    Since we have mirrored conda repositoires locally Conda will work also on Bianca!
+
 
 - First try Conda, as above.
 
