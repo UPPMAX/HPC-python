@@ -1,7 +1,10 @@
 UPPMAX packages
 ===============================================
 
-The packages you mentioned in your registration
+.. Note ::
+    
+    What about the packages you mentioned in your registration?
+    
 
 Packages included in the python/3.9.5 module
 --------------------------------------------
