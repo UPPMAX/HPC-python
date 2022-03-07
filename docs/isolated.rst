@@ -12,20 +12,32 @@ venv
 
 Example with virtual environment
 Create a "venv". First load the python version you want to base your virtual environment on.
-module load python/x.y.z
-python –m venv Example
+
+.. prompt:: bash $
+
+    module load python/x.y.z
+    python –m venv Example
 
 Example is the name of the virtual environment.
 It creates the directory “Example”
 
 Activate it.
-	source Example/bin/activate
+
+.. prompt:: bash $
+
+    source Example/bin/activate
 
 Install your packages with pip and the correct versions, like:
-pip install numpy==1.13.1 matplotlib==2.2.2
+
+.. prompt:: bash $
+
+    pip install numpy==1.13.1 matplotlib==2.2.2
 
 Deactivate it.
-	deactivate
+
+.. prompt:: bash $
+
+    deactivate
 
 Everytime you need the tools available in the virtual environment you activate it as above.
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
