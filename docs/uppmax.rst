@@ -60,6 +60,8 @@ Packages not centrally installed
 
 - KiwiDist
 
+- rpack
+
 - Rdkit 
 
 - Pygraphviz/1.9
@@ -71,3 +73,5 @@ Packages not centrally installed
 - puma 
 
 - pyspark
+
+- vtk/vtkmodules
