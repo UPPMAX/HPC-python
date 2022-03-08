@@ -21,6 +21,7 @@ What is python?
     - There are interfaces to many system calls and libraries, as well as to various windowing systems. …“
 
 Documentation is found here https://www.python.org/doc/ .
+
 Python forum is found here https://python-forum.io/ .
 
 .. seealso::
@@ -47,6 +48,7 @@ Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
 .. objectives:: 
 
     We will:
+    
     - guide through the python ecosystem on UPPMAX
     - look at the package handlers pip and Conda
     - explain how to create isolated environment 
@@ -56,12 +58,7 @@ Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
    https://www.uppmax.uu.se/resources/software/module-system/ 
    To distinguish these modules from the python modules that work as libraries we refer to the later ones as packages.
 
-
-Outline
-----------
-
-.. note:: 
-Outline
+.. admonition:: Outline
 
    - Loading and running Python
    - Packages/modules
