@@ -6,6 +6,7 @@ What is python?
 ---------------
 
 .. info::
+
     As you probably already know…!
     - “Python combines remarkable power with very clear syntax.
     - It has modules, classes, exceptions, very high level dynamic data types, and dynamic typing. 
@@ -21,14 +22,16 @@ The python application at UPPMAX comes with several preinstalled packages.
 A very small selection of these are:
 Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
 
-.. questions::
+.. questions:: Questions
+
     - What to do if you need other packages?
     - How does it work on Bianca without internet?
     - What if I have projects with different requirements in terms of python and packages versions?
     
-.. objectives::
+.. objectives:: Objectives
+
     We will:
-    - guide through the python ecosystem on UPPMAX
+        - guide through the python ecosystem on UPPMAX
     - look at the package handlers pip and Conda
     - explain how to create isolated environmet 
 
@@ -42,6 +45,7 @@ Outline
 ----------
 
 .. note:: Outline
+
    - Loading and running Python
    - Packages/modules
    - How to install packages
