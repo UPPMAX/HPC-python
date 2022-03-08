@@ -50,13 +50,13 @@ Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
     We will:
     
     - guide through the python ecosystem on UPPMAX
-    - look at the package handlers pip and Conda
+    - look at the package handlers **pip** and **Conda**
     - explain how to create isolated environment 
 
 .. warning:: 
-   At UPPMAX we call the applications available via the module system modules. 
+   At UPPMAX we call the applications available via the *module system* **modules**. 
    https://www.uppmax.uu.se/resources/software/module-system/ 
-   To distinguish these modules from the python modules that work as libraries we refer to the later ones as packages.
+   To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
 
 .. admonition:: Outline
 
