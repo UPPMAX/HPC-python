@@ -9,7 +9,7 @@ What is python?
     As you probably already know…!
     - “Python combines remarkable power with very clear syntax.
     - It has modules, classes, exceptions, very high level dynamic data types, and dynamic typing. 
-     - There are interfaces to many system calls and libraries, as well as to various windowing systems. …“
+    - There are interfaces to many system calls and libraries, as well as to various windowing systems. …“
 
 Documentation is found here https://www.python.org/doc/ .
 Python forum is found here https://python-forum.io/ .
