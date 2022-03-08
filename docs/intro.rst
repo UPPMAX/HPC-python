@@ -15,6 +15,14 @@ What is python?
 Documentation is found here https://www.python.org/doc/ .
 Python forum is found here https://python-forum.io/ .
 
+.. note::
+
+    - For other topics, see python documentation https://www.python.org/doc/.
+    - Python forum is found here https://python-forum.io/.
+    - A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/
+    - CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Ther material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
+
+
 Python at UPPMAX
 ----------------
 
