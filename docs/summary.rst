@@ -1,7 +1,7 @@
 Summary
 ==============
 
-.. note::
+.. keypoints::
 
    - Use python from module system
    - Check for preinstalled packages
