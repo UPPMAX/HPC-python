@@ -10,7 +10,7 @@ Summary
      - Bianca: conda and secondary wharf+(pip or conda)
    - Use isolated environment for projects requiring certain versions of Python and packages
 
-.. note::
+.. seealso::
 
     - For other topics, see python documentation https://www.python.org/doc/. 
     - Python forum is found here https://python-forum.io/.
