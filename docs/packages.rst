@@ -139,7 +139,7 @@ On Bianca cluster
 
 .. Note::
 
-    Since we have mirrored conda repositoires locally Conda will work also on Bianca!
+    Since we have mirrored conda repositories locally Conda will work also on Bianca!
 
 
 - First try Conda, as above.
