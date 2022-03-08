@@ -1,13 +1,21 @@
 Introduction
 ==============
 
+.. admonition:: Welcome!
+
+    - There is a new documentation for UPPMAX at: https://uppmax.uu.se/support/user-guides/python-user-guide/ 
+    - We hope that it will be helpful for your future reference
+    - We will approximately follow the outline of it today
+    - We hope also to identify improvements of the page for today´s interactions with you!
+
 
 What is python?
 ---------------
 
 .. info::
 
-    As you probably already know…!
+    As you probably already know…
+    
     - “Python combines remarkable power with very clear syntax.
     - It has modules, classes, exceptions, very high level dynamic data types, and dynamic typing. 
     - There are interfaces to many system calls and libraries, as well as to various windowing systems. …“
@@ -15,7 +23,7 @@ What is python?
 Documentation is found here https://www.python.org/doc/ .
 Python forum is found here https://python-forum.io/ .
 
-.. note::
+.. seealso::
 
     - For other topics, see python documentation https://www.python.org/doc/.
     - Python forum is found here https://python-forum.io/.
@@ -30,18 +38,18 @@ The python application at UPPMAX comes with several preinstalled packages.
 A very small selection of these are:
 Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
 
-.. questions:: Questions
+.. questions:: 
 
     - What to do if you need other packages?
     - How does it work on Bianca without internet?
     - What if I have projects with different requirements in terms of python and packages versions?
     
-.. objectives:: Objectives
+.. objectives:: 
 
     We will:
-        - guide through the python ecosystem on UPPMAX
+    - guide through the python ecosystem on UPPMAX
     - look at the package handlers pip and Conda
-    - explain how to create isolated environmet 
+    - explain how to create isolated environment 
 
 .. warning:: 
    At UPPMAX we call the applications available via the module system modules. 
@@ -52,7 +60,8 @@ Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
 Outline
 ----------
 
-.. note:: Outline
+.. note:: 
+Outline
 
    - Loading and running Python
    - Packages/modules
