@@ -3,10 +3,6 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
    
-.. note::
-
-    We test this format. That's why we allow ads provded by ReadTheDocs this time. `Ad info <https://docs.readthedocs.io/en/latest/advertising/ethical-advertising.html#community-ads>`_
-
 Welcome to Python-at-UPPMAX's documentation!
 ============================================
 
@@ -18,6 +14,9 @@ Here you will find the content of the workshop Introduction to python packages a
 
     - 2nd hour: bring your particular software request for discussion with the UPPMAX application experts.
     
+.. note::
+
+    We test this format. That's why we allow ads provded by ReadTheDocs this time. `Ad info <https://docs.readthedocs.io/en/latest/advertising/ethical-advertising.html#community-ads>`_
 
 .. toctree::
    :maxdepth: 2
