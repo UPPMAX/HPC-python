@@ -15,6 +15,14 @@ Packages
 Check current available packages
 --------------------------------
 
+Some python packages are working as dstand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:
+
+.. prompt:: bash $
+
+    module spider <tool-name or tool-name part> 
+    
+Using 'module spider' lets you search regardless of upper- or lowercase characters.
+
 Check the pre-installed packages of a specific python module:
 
 .. prompt:: bash $
