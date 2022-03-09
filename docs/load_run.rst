@@ -53,7 +53,7 @@ Load specific version with:
 .. note::
 
     + Note that there are both 'python' and 'python3' modules for version '3.X.Y'.
-    + You can run two python modules at the same time if ONE of the module is 'python/**2**.X.X'. The other module has then to be 'python3/3.Y.Z' (not python/3.X.Y).
+    + You can run two python modules at the same time if ONE of the module is 'python/**2**.X.X'. The other module has then to be 'python**3**/3.Y.Z' (not python/3.X.Y).
     + Sometimes necessary in pipelines and other toolchains where the different tools require different python versions.
 
 Run
