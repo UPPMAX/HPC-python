@@ -35,7 +35,7 @@ Check all available versions with:
           Where:
           D:  Default Module
 
-        Use "module spider" to find all possible modules and extensions.
+        Use module spider" to find all possible modules and extensions.
         Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 
 
@@ -50,12 +50,11 @@ Load specific version (recommendation for reproducibility) with:
     + Don’t use system-installed python/2.7.5
     + ALWAYS use python module
 
-.. warning:: 
+.. admonition:: Why are there both python/3.X.Y and python3/3.X.Y modules?
 
     Sometimes existing software might use python2 and there's nothing you can do about that. In pipelines and other toolchains the different tools may together require both python2 and python3.
     Here's how you handle that situation:
     
-    + Note that there are both 'python' and 'python3' modules for version '3.X.Y'.
     + You can run two python modules at the same time if ONE of the module is 'python/**2**.X.X' and the other module is 'python**3**/3.Y.Z' (not python/3.X.Y).
 
 Run
