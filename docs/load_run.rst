@@ -52,8 +52,8 @@ Load specific version with:
 
 .. note::
 
-    + You can run two python modules at the same time if one of the module names is python3/3.Y.Z and the other is python/X2.Y2.Z2.
-    + Otherwise, the previous one will be unloaded
+    + Note that there are both 'python' and 'python3' modules for version '3.X.Y'.
+    + You can run two python modules at the same time if ONE of the module is 'python/**2**.X.X'. The other module has then to be 'python3/3.Y.Z' (not python/3.X.Y).
     + Sometimes necessary in pipelines and other toolchains where the different tools require different python versions.
 
 Run
