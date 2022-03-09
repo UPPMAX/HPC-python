@@ -55,6 +55,7 @@ Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
 .. warning:: 
    At UPPMAX we call the applications available via the *module system* **modules**. 
    https://www.uppmax.uu.se/resources/software/module-system/ 
+   
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
 
 .. admonition:: Outline
