@@ -67,14 +67,16 @@ Packages not centrally installed at the moment from the list of....
 
 - Rdkit 
 
+- plink
+
+- puma 
+
 - Pygraphviz/1.9
+
+- pyspark
 
 - ScanPy
 
 - venndiagram (venn/matplotlib-venn)
-
-- puma 
-
-- pyspark
 
 - vtk/vtkmodules
