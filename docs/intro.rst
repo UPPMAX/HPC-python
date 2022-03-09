@@ -3,9 +3,9 @@ Introduction
 
 .. admonition:: Welcome!
 
-    - There is a new documentation for UPPMAX at: https://uppmax.uu.se/support/user-guides/python-user-guide/ 
-    - We hope that it will be helpful for your future reference
-    - We will approximately follow the outline of it today
+    - There is a *rather* new documentation for python at UPPMAX at: https://uppmax.uu.se/support/user-guides/python-user-guide/ 
+    - We hope that it will be helpful for your future reference.
+    - We will approximately follow the outline of it today.
     - We hope also to identify improvements of the page for today´s interactions with you!
 
 
@@ -39,7 +39,7 @@ Python at UPPMAX
 
 The python application at UPPMAX comes with several preinstalled packages.
 A very small selection of these are:
-Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
+``Numpy``,``Pandas``, ``Scipy``, ``Matplotlib``, ``Jupyter notebook``, ``pip``, ``cython``, ``ipython``
 
 .. questions:: 
 
@@ -52,7 +52,7 @@ Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
     We will:
     
     - guide through the python ecosystem on UPPMAX
-    - look at the package handlers **pip** and **Conda**
+    - look at the package handlers ``**pip**`` and ``**conda**``
     - explain how to create isolated environment 
 
 .. warning:: 
