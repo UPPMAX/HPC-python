@@ -17,24 +17,33 @@ Create a "venv". First load the python version you want to base your virtual env
 
     module load python/3.6.0
     python -m venv Example
-
+    #This places a directory in present directory 
+    
 Example is the name of the virtual environment. The directory “Example” is created.
+
+If you want it in a certain place like "~/test/":
+
+.. prompt:: bash $
+
+    python -m venv ~/test/Example 
 
 Activate it.
 
 .. prompt:: bash $
 
-    source Example/bin/activate
+    source <path/>Example/bin/activate
 
-Install your packages with pip and the correct versions, like:
+Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
-.. prompt:: bash $
+Install your packages with 'pip' and the correct versions, like:
+
+.. prompt:: bash "(Example) $"
 
     pip install numpy==1.13.1 matplotlib==2.2.2
 
 Deactivate it.
 
-.. prompt:: bash $
+.. prompt:: bash "(Example) $"
 
     deactivate
 
@@ -42,7 +51,7 @@ Everytime you need the tools available in the virtual environment you activate i
 
 .. prompt:: bash $
 
-    source Example/bin/activate
+    source <path/>Example/bin/activate
 
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
