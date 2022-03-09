@@ -6,7 +6,14 @@
 Welcome to Python-at-UPPMAX's documentation!
 ============================================
 
-Here you will find the content of the introduction to python packages at UPPMAX.
+Here you will find the content of the workshop Introduction to python packages at UPPMAX.
+
+.. admonition:: Content
+
+    - 1+1 hour interactive introduction on how to run and install additional Python packages on the UPPMAX resources
+
+    - 2nd hour: bring your particular software request for discussion with the UPPMAX application experts.
+    
 
 .. toctree::
    :maxdepth: 2
@@ -20,9 +27,9 @@ Here you will find the content of the introduction to python packages at UPPMAX.
    uppmax.rst
    
 
-Indices and tables
-==================
+#Indices and tables
+#==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+#* :ref:`genindex`
+#* :ref:`modindex`
+#* :ref:`search`
