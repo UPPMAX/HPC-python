@@ -27,9 +27,9 @@ Here you will find the content of the workshop Introduction to python packages a
    uppmax.rst
    
 
-#Indices and tables
-#==================
+.. Indices and tables
+.. ==================
 
-#* :ref:`genindex`
-#* :ref:`modindex`
-#* :ref:`search`
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
