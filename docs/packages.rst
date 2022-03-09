@@ -1,15 +1,14 @@
 Packages
 ========
 
-.. Note::
 
-    - Python packages broadens the use of python to almost infinity! 
+- Python packages broadens the use of python to almost infinity! 
 
-    - Instead of writing codes yourself there may be others that has done the same!
+- Instead of writing codes yourself there may be others that has done the same!
 
-    - Many scientific tools are distributed as python packages making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
+- Many scientific tools are distributed as python packages making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
 
-    - A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
+- A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
 .. admonition:: There are two package installation systems
 
@@ -23,13 +22,13 @@ Packages
 Check current available packages
 --------------------------------
 
-Some python packages are working as dstand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:
+Some python packages are working as stand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:
 
 .. prompt:: bash $
 
     module spider <tool-name or tool-name part> 
     
-Using 'module spider' lets you search regardless of upper- or lowercase characters.
+Using ``module spider`` lets you search regardless of upper- or lowercase characters.
 
 Check the pre-installed packages of a specific python module:
 
@@ -50,23 +49,23 @@ You can also test from within python to make sure that the package is not alread
     import <package>
     
 Does it work? Then it is there!
-Otherwise, you can either use "pip" or "Conda".
+Otherwise, you can either use ``pip`` or ``conda``.
 
 
 Install with pip
 ----------------
 
-You use pip this way, in Linux shell OR python shell: 
+You use ``pip`` this way, in Linux shell OR python shell: 
 
 .. prompt:: bash $
 
     pip install –-user <package>
     
-Use pip3 if you loaded python3.
+Use ``pip3`` if you loaded python3.
 
 Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
 
-Install with Conda
+Install with conda
 ------------------
 
 .. Note::
@@ -107,18 +106,18 @@ Install with Conda
 
     - Otherwise, the default is ~/.conda/envs. 
 
-    - You may run "source conda_init.sh" to initialise your shell to be able to run "conda activate" and "conda deactivate" etc.
+    - You may run ``source conda_init.sh`` to initialise your shell to be able to run ``conda activate`` and ``conda deactivate`` etc.
 
     - Just remember that this command adds stuff to your shell outside the scope of the module system.
 
-    - REMEMBER TO 'conda clean -a' once in a while to remove unused and unnecessary files
+    - REMEMBER TO ``conda clean -a`` once in a while to remove unused and unnecessary files
     
  .. prompt:: bash $
       export CONDA_ENVS_PATH=/a/path/to/a /place/in/your/project-dir/
  
  - example: export CONDA_ENVS_PATH=/proj/snic2020-5-XXX
  
- - run 'conda init bash' to initialise your shell (bash) to be able to run "conda activate" and "conda deactivate" etc...
+ - run ``conda init bash`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etc...
 
  .. prompt:: bash $
 
@@ -132,13 +131,13 @@ Install with Conda
 
         conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
 
-4. Activate the Conda environment by:
+4. Activate the conda environment by:
 
     .. prompt:: bash $
 
 	conda activate python36-env
 
-    - You will see that your prompt is changing to start with (python-36-env) to show that you are within an environment.
+    - You will see that your prompt is changing to start with ``(python-36-env)`` to show that you are within an environment.
     
     
 5. Now do your work!
@@ -160,10 +159,10 @@ On Bianca cluster
 
 .. Note::
 
-    Since we have mirrored conda repositories locally Conda will work also on Bianca!
+    Since we have mirrored conda repositories locally conda will work also on Bianca!
 
 
-- First try Conda, as above.
+- First try conda, as above.
 
 
 - If packages are not available, follow the guideline below, while looking at https://uppmax.uu.se/support-sv/user-guides/bianca-user-guide .
