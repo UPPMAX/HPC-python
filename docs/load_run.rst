@@ -47,8 +47,8 @@ Load specific version with:
 
 .. warning::
 
-    + Don’t use system-installed Python/2.7.5
-    + ALWAYS use Python module
+    + Don’t use system-installed python/2.7.5
+    + ALWAYS use python module
 
 .. note::
 
