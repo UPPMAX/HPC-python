@@ -48,7 +48,6 @@ Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
 .. objectives:: 
 
     We will:
-    
     - guide through the python ecosystem on UPPMAX
     - look at the package handlers **pip** and **Conda**
     - explain how to create isolated environment 
@@ -64,5 +63,5 @@ Numpy, Pandas, Scipy, Matplotlib, Jupyter notebook, pip, cython, ipython
    - Packages/modules
    - How to install packages
    - Isolated environments
-   - Not this time: jupyter notebook parallel jobs
+   - Not this time: jupyter notebook & parallel jobs
 
