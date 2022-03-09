@@ -7,11 +7,13 @@ Isolated environments
    - You can install specific, also older, versions into them.
    - You can create one for each project and no problem if the two projects require different versions.
    - You can remove the environment and create a new one, if not needed or with errors.
+   
+``conda`` works as an isolated environment. Below we present the ``pip`` way!
 
-venv
+Virtual environment - venv
 ----
 
-Create a "venv". First load the python version you want to base your virtual environment on:
+Create a ``venv``. First load the python version you want to base your virtual environment on:
 
 .. prompt:: bash $
 
