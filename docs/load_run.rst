@@ -55,7 +55,7 @@ Load specific version (recommendation for reproducibility) with:
     Sometimes existing software might use python2 and there's nothing you can do about that. In pipelines and other toolchains the different tools may together require both python2 and python3.
     Here's how you handle that situation:
     
-    + You can run two python modules at the same time if ONE of the module is 'python/**2**.X.X' and the other module is 'python**3**/3.Y.Z' (not python/3.X.Y).
+    + You can run two python modules at the same time if ONE of the module is ``python/**2**.X.Y`` and the other module is ``python**3**/**3*.X.Y`` (not python/3.X.Y).
 
 Run
 ---
