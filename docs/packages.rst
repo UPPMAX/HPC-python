@@ -166,12 +166,12 @@ On Bianca cluster
 - First try Conda, as above.
 
 
-- If packages are not available, follow the guideline below.
+- If packages are not available, follow the guideline below, while looking at https://uppmax.uu.se/support-sv/user-guides/bianca-user-guide .
 
 
-- Make an installation on Rackham and then use the wharf to copy it over to your directory on Bianca
+- Make an installation on Rackham and then use the wharf to copy it over to your directory on Bianca.
 
-  - (~/.local/lib/python<version>/site-packages/ ). 
+  - Path on Rackham and Bianca could be (~/.local/lib/python<version>/site-packages/ ). 
 
 - You may have to:
 
@@ -179,13 +179,13 @@ On Bianca cluster
 
     .. prompt:: bash $
 
-        cp –a
+        cp –a <package>
 	
     - … or tar/untar to include all possible symbolic links:
 
       .. prompt:: bash $
 
-        tar cfz <tarfile.tar.gz> <files> 	
+        tar cfz <tarfile.tar.gz> <package> 	
 	
   - and in target directory:
     
