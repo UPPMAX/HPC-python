@@ -50,8 +50,8 @@ Packages that can be loaded with 'module load'
 
 -  module load samtools
 
-Packages not centrally installed at the moment
---------------------------------
+Packages not centrally installed at the moment from the list of....
+-------------------------------------------------------------------
 
 - adjustText
 
