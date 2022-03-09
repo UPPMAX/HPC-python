@@ -138,11 +138,16 @@ Install with Conda
 
 	conda activate python36-env
 
-5. Do your work!
+    - You will see that your prompt is changing to start with (python-36-env) to show that you are within an environment.
+    
+    
+5. Now do your work!
 
 6. Deactivate
 
-    .. prompt:: bash $
+ .. prompt:: 
+    :language: bash
+    :prompts: (python-36-env) $
 
 	conda deactivate
 
