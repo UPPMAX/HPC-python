@@ -148,7 +148,7 @@ Install with conda
     :language: bash
     :prompts: (python-36-env) $
     
-        conda deactivate
+    conda deactivate
 
 More info
 https://uppmax.uu.se/support/user-guides/conda-user-guide/ 
