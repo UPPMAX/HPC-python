@@ -36,13 +36,17 @@ Note that your prompt is changing to start with (Example) to show that you are w
 
 Install your packages with 'pip' and the correct versions, like:
 
-.. prompt:: bash '(Example) $'
+.. prompt:: 
+    :language: bash
+    :prompts: (Example) $
 
     pip install numpy==1.13.1 matplotlib==2.2.2
 
 Deactivate it.
 
-.. prompt:: bash (Example) $'
+.. prompt:: 
+    :language: bash
+    :prompts: (Example) $
 
     deactivate
 
