@@ -39,7 +39,7 @@ Python at UPPMAX
 
 The python application at UPPMAX comes with several preinstalled packages.
 A very small selection of these are:
-``Numpy``, ``Pandas``, ``Scipy``, ``Matplotlib``, ```Jupyter notebook```, ``pip``, ``cython``, ``ipython``
+``Numpy``, ``Pandas``, ``Scipy``, ``Matplotlib``, ``Jupyter notebook``, ``pip``, ``cython``, ``ipython``
 
 .. questions:: 
 
