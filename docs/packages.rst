@@ -54,7 +54,7 @@ You use pip this way, in Linux shell OR python shell:
 
     pip install –-user <package>
     
-Use pip3 if you loaded python3
+Use pip3 if you loaded python3.
 
 Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
 
