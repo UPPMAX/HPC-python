@@ -12,7 +12,7 @@ Load latest Python module by:
 
     module load python
     
-Check all available version with:
+Check all available versions with:
 
 .. prompt:: bash $
 
@@ -21,21 +21,22 @@ Check all available version with:
 .. admonition:: Output as of March 9 2022
     :class: dropdown
     
-    .. prompt:: bash $
-    -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
-       python_ML_packages/3.9.5    wrf-python/1.3.1
+    .. prompt:: bash 
+    
+        -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
+           python_ML_packages/3.9.5    wrf-python/1.3.1
 
-    --------------------------------------- /sw/mf/rackham/compilers ----------------------------------------
-       python/2.7.6     python/3.3      python/3.6.0    python/3.9.5  (D)    python3/3.8.7
-       python/2.7.9     python/3.3.1    python/3.6.8    python3/3.6.0        python3/3.9.5 (D)
-       python/2.7.11    python/3.4.3    python/3.7.2    python3/3.6.8
-       python/2.7.15    python/3.5.0    python/3.8.7    python3/3.7.2
+        --------------------------------------- /sw/mf/rackham/compilers ----------------------------------------
+           python/2.7.6     python/3.3      python/3.6.0    python/3.9.5  (D)    python3/3.8.7
+           python/2.7.9     python/3.3.1    python/3.6.8    python3/3.6.0        python3/3.9.5 (D)
+           python/2.7.11    python/3.4.3    python/3.7.2    python3/3.6.8
+           python/2.7.15    python/3.5.0    python/3.8.7    python3/3.7.2
 
-      Where:
-       D:  Default Module
+          Where:
+          D:  Default Module
 
-    Use "module spider" to find all possible modules and extensions.
-    Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
+        Use "module spider" to find all possible modules and extensions.
+        Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 
 
 Load specific version with:
@@ -44,13 +45,16 @@ Load specific version with:
 
     module load python/X.Y.Z
 
-Warning: Don’t use system-installed Python/2.7.5
-ALWAYS use Python module
+.. warning::
 
-Note that you can run two python modules at the same time if one of the module names is python3/3.Y.Z and the other is python/X2.Y2.Z2.
-Otherwise, the previous one will be unloaded
+    + Don’t use system-installed Python/2.7.5
+    + ALWAYS use Python module
 
-Sometimes necessary in pipelines and other toolchains where the different tools require different python versions.
+.. note::
+
+    + You can run two python modules at the same time if one of the module names is python3/3.Y.Z and the other is python/X2.Y2.Z2.
+    + Otherwise, the previous one will be unloaded
+    + Sometimes necessary in pipelines and other toolchains where the different tools require different python versions.
 
 Run
 ---
