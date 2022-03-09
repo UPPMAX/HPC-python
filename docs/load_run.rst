@@ -21,7 +21,7 @@ Check all available versions with:
 .. admonition:: Output as of March 9 2022
     :class: dropdown
     
-    .. prompt:: bash 
+    .. prompt::  text
     
         -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
            python_ML_packages/3.9.5    wrf-python/1.3.1
