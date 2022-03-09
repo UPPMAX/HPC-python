@@ -11,7 +11,7 @@ Packages
 
     - A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
-.. admonition: There are two package installation systems
+.. admonition:: There are two package installation systems
 
     + PyPI is traditionally for Python-only packages but it is no problem to also distribute packages written in other languages as long as they provide a Python interface.
 
