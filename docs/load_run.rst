@@ -1,4 +1,4 @@
-Load and run Python
+Load and run python
 ===================
 
 At UPPMAX we call the applications available via the module system modules. 
@@ -6,7 +6,7 @@ https://www.uppmax.uu.se/resources/software/module-system/
 
 Load
 ----------
-Load latest Python module by:
+Load latest python module by:
 
 .. prompt:: bash $
 
