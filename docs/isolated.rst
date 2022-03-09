@@ -3,23 +3,22 @@ Isolated environments
 
 .. note::
    Isolated environments solve a couple of problems:
-   You can install specific, also older, versions into them.
-   You can create one for each project and no problem if the two projects require different versions.
-   You can remove the environment and create a new one, if not needed or with errors.
+   
+   - You can install specific, also older, versions into them.
+   - You can create one for each project and no problem if the two projects require different versions.
+   - You can remove the environment and create a new one, if not needed or with errors.
 
 venv
 ----
 
-Example with virtual environment
-Create a "venv". First load the python version you want to base your virtual environment on.
+Create a "venv". First load the python version you want to base your virtual environment on:
 
 .. prompt:: bash $
 
-    module load python/x.y.z
+    module load python/3.6.0
     python –m venv Example
 
-Example is the name of the virtual environment.
-It creates the directory “Example”
+Example is the name of the virtual environment. The directory “Example” is created.
 
 Activate it.
 
@@ -40,9 +39,16 @@ Deactivate it.
     deactivate
 
 Everytime you need the tools available in the virtual environment you activate it as above.
+
+.. prompt:: bash $
+
+    source Example/bin/activate
+
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
 pyenv
 -----
 
-This approach allows you to install your own python version and much more… have a look on this manual https://www.uppmax.uu.se/support/user-guides/python-modules-guide/
+This approach allows you to install your **own python version** and much more… 
+
+Have a look on this manual https://www.uppmax.uu.se/support/user-guides/python-modules-guide/
