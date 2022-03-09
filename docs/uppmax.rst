@@ -1,9 +1,9 @@
 UPPMAX packages
-===============================================
+===============
 
 .. Note ::
     
-    What about the packages you mentioned in your registration?
+    What about the packages you suggested/requested in your registration?
     
 
 Packages included in the python/3.9.5 module
@@ -50,8 +50,8 @@ Packages that can be loaded with 'module load'
 
 -  module load samtools
 
-Packages not centrally installed at the moment from the list of....
--------------------------------------------------------------------
+Packages not centrally installed at the moment
+----------------------------------------------
 
 - adjustText
 
