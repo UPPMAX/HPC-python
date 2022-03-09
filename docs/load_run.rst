@@ -52,10 +52,10 @@ Load specific version (recommendation for reproducibility) with:
 
 .. admonition:: Why are there both python/3.X.Y and python3/3.X.Y modules?
 
-    Sometimes existing software might use python2 and there's nothing you can do about that. In pipelines and other toolchains the different tools may together require both python2 and python3.
+    Sometimes existing software might use `python2` and there's nothing you can do about that. In pipelines and other toolchains the different tools may together require both `python2` and `python3`.
     Here's how you handle that situation:
     
-    + You can run two python modules at the same time if ONE of the module is ``python/**2**.X.Y`` and the other module is ``python**3**/**3*.X.Y`` (not python/3.X.Y).
+    + You can run two python modules at the same time if ONE of the module is ``python/2.X.Y`` and the other module is ``python3/3.X.Y`` (not ``python/3.X.Y``).
 
 Run
 ---
