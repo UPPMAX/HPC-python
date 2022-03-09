@@ -50,11 +50,13 @@ Load specific version with:
     + Don’t use system-installed python/2.7.5
     + ALWAYS use python module
 
-.. note::
+.. warning:: 
 
+    Sometimes existing software might use python2 and there's nothing you can do about that. But other software needs a python3. In pipelines and other toolchains the different tools may require different python versions.
+    Here's how you handle that situation.
+    
     + Note that there are both 'python' and 'python3' modules for version '3.X.Y'.
-    + You can run two python modules at the same time if ONE of the module is 'python/**2**.X.X'. The other module has then to be 'python**3**/3.Y.Z' (not python/3.X.Y).
-    + Sometimes necessary in pipelines and other toolchains where the different tools require different python versions.
+    + You can run two python modules at the same time if ONE of the module is 'python/**2**.X.X'. The other module must then be 'python**3**/3.Y.Z' (not python/3.X.Y).
 
 Run
 ---
