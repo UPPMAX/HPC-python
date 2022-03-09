@@ -18,6 +18,26 @@ Check all available version with:
 
     module available python
 
+.. admonition:: Output as of March 9 2022
+    :class: dropdown
+    
+    .. prompt:: bash $
+    -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
+       python_ML_packages/3.9.5    wrf-python/1.3.1
+
+    --------------------------------------- /sw/mf/rackham/compilers ----------------------------------------
+       python/2.7.6     python/3.3      python/3.6.0    python/3.9.5  (D)    python3/3.8.7
+       python/2.7.9     python/3.3.1    python/3.6.8    python3/3.6.0        python3/3.9.5 (D)
+       python/2.7.11    python/3.4.3    python/3.7.2    python3/3.6.8
+       python/2.7.15    python/3.5.0    python/3.8.7    python3/3.7.2
+
+      Where:
+       D:  Default Module
+
+    Use "module spider" to find all possible modules and extensions.
+    Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
+
+
 Load specific version with:
 
 .. prompt:: bash $
