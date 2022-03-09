@@ -16,7 +16,7 @@ Create a "venv". First load the python version you want to base your virtual env
 .. prompt:: bash $
 
     module load python/3.6.0
-    python –m venv Example
+    python -m venv Example
 
 Example is the name of the virtual environment. The directory “Example” is created.
 
