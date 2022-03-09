@@ -36,7 +36,7 @@ Activate it.
 
 Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
-Install your packages with 'pip' and the correct versions, like:
+Install your packages with ``pip`` and the correct versions, like:
 
 .. prompt:: 
     :language: bash
