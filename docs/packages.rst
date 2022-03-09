@@ -115,7 +115,7 @@ Install with conda
  .. prompt:: bash $
       export CONDA_ENVS_PATH=/a/path/to/a /place/in/your/project-dir/
  
- - example: export CONDA_ENVS_PATH=/proj/snic2020-5-XXX
+ - example: ``export CONDA_ENVS_PATH=/proj/snic2020-5-XXX``
  
  - run ``conda init bash`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etc...
 
