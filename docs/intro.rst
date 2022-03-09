@@ -52,7 +52,7 @@ A very small selection of these are:
     We will:
     
     - guide through the python ecosystem on UPPMAX
-    - look at the package handlers ``pip`` and ``conda``
+    - look at the package handlers **pip** and **conda**
     - explain how to create isolated environment 
 
 .. warning:: 
