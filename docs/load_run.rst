@@ -39,7 +39,7 @@ Check all available versions with:
         Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 
 
-Load specific version with:
+Load specific version (recommendation for reproducibility) with:
 
 .. prompt:: bash $
 
@@ -52,8 +52,8 @@ Load specific version with:
 
 .. warning:: 
 
-    Sometimes existing software might use python2 and there's nothing you can do about that. But other software needs a python3. In pipelines and other toolchains the different tools may require different python versions.
-    Here's how you handle that situation.
+    Sometimes existing software might use python2 and there's nothing you can do about that. In pipelines and other toolchains the different tools may together require both python3 and python3.
+    Here's how you handle that situation:
     
     + Note that there are both 'python' and 'python3' modules for version '3.X.Y'.
     + You can run two python modules at the same time if ONE of the module is 'python/**2**.X.X'. The other module must then be 'python**3**/3.Y.Z' (not python/3.X.Y).
