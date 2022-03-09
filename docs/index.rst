@@ -17,14 +17,20 @@ Here you will find the content of the workshop Introduction to python packages a
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Guide:
 
    intro.rst
    load_run.rst
    packages.rst
    isolated.rst
    summary.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Workshop 2nd hour:
+   
    uppmax.rst
+
    
 
 .. Indices and tables
