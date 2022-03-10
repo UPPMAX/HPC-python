@@ -97,7 +97,7 @@ Install with conda
 
   - Check the text output as conda is loaded, especially the first time, see below
   
-   .. admonition:: output
+   .. admonition:: Conda load output
        :class: dropdown
 
        - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
@@ -111,24 +111,20 @@ Install with conda
        - REMEMBER TO ``conda clean -a`` once in a while to remove unused and unnecessary files
 
 
-
 2. First time
-    
-    - You may run ``source conda_init.sh`` to initialise your shell to be able to run ``conda activate`` and ``conda deactivate`` etc.
-
-    - Just remember that this command adds stuff to your shell outside the scope of the module system.
-
-    - REMEMBER TO ``conda clean -a`` once in a while to remove unused and unnecessary files
-    
- .. prompt:: bash $
-      export CONDA_ENVS_PATH=/a/path/to/a /place/in/your/project-dir/
+        
+  - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
+  - Otherwise, the default is ~/.conda/envs. 
+  - Example:
+  
+  .. prompt:: bash $
  
- - example: ``export CONDA_ENVS_PATH=/proj/snic2020-5-XXX``
+      export CONDA_ENVS_PATH=/proj/snic2020-5-XXX
+  
+  .. admonition:: By choice
+      :class: dropdown
  
- .. admonition:: By choice
-     :class: dropdown
- 
-     Run ``conda init bash`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
+      Run ``conda init bash`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
 
 
 3. Create the conda environment
@@ -150,7 +146,6 @@ Install with conda
 
     - You will see that your prompt is changing to start with ``(python-36-env)`` to show that you are within an environment.
     
-    
 5. Now do your work!
 
 6. Deactivate
@@ -161,6 +156,13 @@ Install with conda
     
     conda deactivate
 
+.. warning::
+ 
+    - Conda is known to create **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically 300000 in $home). 
+    - Check your disk usage and quota limit with ``uquota``
+    - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
+    
+    
 More info
 https://uppmax.uu.se/support/user-guides/conda-user-guide/ 
 
