@@ -198,18 +198,18 @@ On Bianca cluster
 
     .. prompt:: bash $
 
-        cp –a <package>
+        cp –a <package_dir> <wharf_mnt_path>
 	
-    - … or tar/untar to include all possible symbolic links:
+    - you may want to ``tar`` before copying to include all possible symbolic links:
 
       .. prompt:: bash $
 
         tar cfz <tarfile.tar.gz> <package> 	
 	
-  - and in target directory:
+  - and in target directory (``wharf_mnt``) on Bianca:
     
     .. prompt:: bash $
 
-             tar xfz <tarfile.tar.gz> 		
-	     
+        tar xfz <tarfile.tar.gz> #if there is a tar file!		
+	mv –a  <file(s)> ~/.local/lib/python<version>/site-packages/ 
 
