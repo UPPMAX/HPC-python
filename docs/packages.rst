@@ -121,7 +121,7 @@ Install with conda
  
           export CONDA_ENVS_PATH=/proj/snic2020-5-XXX
   
-  .. admonition:: By choice
+   .. admonition:: By choice
       :class: dropdown
  
       Run ``conda init bash`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
