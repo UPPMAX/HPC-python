@@ -114,12 +114,6 @@ Install with conda
 
 2. First time
     
-  
-     
-    - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
-
-    - Otherwise, the default is ~/.conda/envs. 
-
     - You may run ``source conda_init.sh`` to initialise your shell to be able to run ``conda activate`` and ``conda deactivate`` etc.
 
     - Just remember that this command adds stuff to your shell outside the scope of the module system.
@@ -131,11 +125,11 @@ Install with conda
  
  - example: ``export CONDA_ENVS_PATH=/proj/snic2020-5-XXX``
  
- - run ``conda init bash`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etc...
+ .. admonition:: By choice
+     :class: dropdown
+ 
+     Run ``conda init bash`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
 
- .. prompt:: bash $
-
-     conda init bash
 
 3. Create the conda environment
 
@@ -144,12 +138,15 @@ Install with conda
     .. prompt:: bash $
 
         conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
+	
+    .. admonition:: The ``mamba`` alternative 
+	``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
 
 4. Activate the conda environment by:
 
     .. prompt:: bash $
 
-	conda activate python36-env
+	source activate python36-env
 
     - You will see that your prompt is changing to start with ``(python-36-env)`` to show that you are within an environment.
     
