@@ -48,7 +48,6 @@ Packages that can be loaded with 'module load'
 
 -  module load pysam
 
--  module load samtools
 
 Packages not centrally installed at the moment
 ----------------------------------------------
