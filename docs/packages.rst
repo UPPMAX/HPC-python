@@ -136,13 +136,14 @@ Install with conda
         conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
 	
     .. admonition:: The ``mamba`` alternative 
+        :class: dropdown
     
 	- ``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
 	- Example:  
 	
           .. prompt:: bash $
 
-	`     `mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2``.
+	      mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
 
 4. Activate the conda environment by:
 
