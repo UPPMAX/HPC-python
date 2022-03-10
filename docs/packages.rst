@@ -117,9 +117,9 @@ Install with conda
   - Otherwise, the default is ~/.conda/envs. 
   - Example:
   
-  .. prompt:: bash $
+      .. prompt:: bash $
  
-      export CONDA_ENVS_PATH=/proj/snic2020-5-XXX
+          export CONDA_ENVS_PATH=/proj/snic2020-5-XXX
   
   .. admonition:: By choice
       :class: dropdown
