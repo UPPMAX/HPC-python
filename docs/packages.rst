@@ -185,7 +185,7 @@ On Bianca cluster
 - First try conda, as above.
 
 
-- If packages are not available, follow the guideline below, while looking at https://uppmax.uu.se/support-sv/user-guides/bianca-user-guide .
+- If packages are not available, follow the guideline below, while looking at https://uppmax.uu.se/support-sv/user-guides/bianca-user-guide and https://www.uppmax.uu.se/support/user-guides/transit-user-guide/.
 
 
 - Make an installation on Rackham and then use the wharf to copy it over to your directory on Bianca.
