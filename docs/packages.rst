@@ -2,7 +2,7 @@ Packages
 ========
 
 
-- Python packages broadens the use of python to almost infinity! 
+- Python packages broaden the use of python to almost infinity! 
 
 - Instead of writing codes yourself there may be others that has done the same!
 
