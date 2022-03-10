@@ -158,7 +158,7 @@ Install with conda
 
 .. warning::
  
-    - Conda is known to create **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically 300000 in $home). 
+    - Conda is known to create **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically ``300000`` in $home). 
     - Check your disk usage and quota limit with ``uquota``
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
     
