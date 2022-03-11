@@ -63,6 +63,7 @@ More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 pyenv
 -----
 
+This approach is more advanced and should be, in our opinion, used only if the above are not enough for the purpose. 
 This approach allows you to install your **own python version** and much more… 
 
 Have a look on this manual https://www.uppmax.uu.se/support/user-guides/python-modules-guide/
