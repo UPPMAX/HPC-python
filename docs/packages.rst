@@ -124,7 +124,7 @@ Install with conda
    .. admonition:: By choice
       :class: dropdown
  
-      Run ``conda init bash`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
+      Run ``source conda_init.sh`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
 
 
 3. Create the conda environment
