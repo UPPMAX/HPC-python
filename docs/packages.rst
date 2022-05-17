@@ -11,12 +11,12 @@ Packages
 
 .. admonition:: There are two package installation systems
 
-    + **PyPI** (``pip``) is traditionally for Python-only packages but it is no problem to also distribute packages written in other languages as long as they provide a Python interface.
+    - **PyPI** (``pip``) is traditionally for Python-only packages but it is no problem to also distribute packages written in other languages as long as they provide a Python interface.
 
-    + **Conda** (``conda``) is more general and while it contains many Python packages and packages with a Python interface, it is often used to also distribute packages which do not contain any Python (e.g. C or C++ packages).
+    - **Conda** (``conda``) is more general and while it contains many Python packages and packages with a Python interface, it is often used to also distribute packages which do not contain any Python (e.g. C or C++ packages).
     	- Creates its own environment that does not interact with other python installations
 
-    + Many libraries and tools are distributed in both ecosystems.
+    - Many libraries and tools are distributed in both ecosystems.
 
 
 Check current available packages
