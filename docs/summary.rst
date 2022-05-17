@@ -12,9 +12,10 @@ Summary
      
    - Use isolated environment for projects requiring certain versions of Python and packages
 
-.. admonition:: Exercise
+.. challenge:: Not really clear? (5 min)
 
-    Discuss in breakout rooms
+    - Discuss in breakout rooms
+    - Learn from each other
 
 .. seealso::
 
