@@ -10,54 +10,60 @@ Introduction
 
 .. admonition:: **Learning outcomes**
    
-    - load and run python
-    - find installed packages
-    - install package with pip
-    - install package with conda
-    - Understand and create virtual environments
+    - **load** and **run** python
+    - **find** installed packages
+    - install package with **pip**
+    - install package with **conda**
+    - Understand and create **virtual environments**
     - best practice
 
 .. admonition:: **Your expectations?**
    
     - find best practices for using Python at UPPMAX
     - using Conda
+    - using Bianca
     
     **Not covered**
     - improve python *coding* skills 
     - Tetralith
     - Kebnekaise
-    
+
+.. prerequisities::
+
+    - It is good to have a familiarity with the LINUX command line. 
+    - Short introductions may be found here: https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632
+    - UPPMAX software library: https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641
+    - Whole intro course material can be reached here: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
+
+.. admonition:: Prepare your environment now!
+  
+   - Please log in to Rackham or other cluster.
+     e.g. ``ssh <user>@rackham.uppmax.uu.se``
+   - Create a working directory (e.g. "pythonUPPMAX") where you can code along.
+
     
 What is python?
 ---------------
 
-.. info::
-
-    As you probably already know…
+As you probably already know…
     
     - “Python combines remarkable power with very clear syntax.
     - It has modules, classes, exceptions, very high level dynamic data types, and dynamic typing. 
     - There are interfaces to many system calls and libraries, as well as to various windowing systems. …“
 
-Documentation is found here https://www.python.org/doc/ .
-
-Python forum is found here https://python-forum.io/ .
-
-.. seealso::
-
-    - For other python topics, see python documentation https://www.python.org/doc/.
-    - Python forum is found here https://python-forum.io/.
-    - A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/
-    - CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Ther material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
+- Documentation is found here https://www.python.org/doc/ .
+- Python forum is found here https://python-forum.io/ .
+- A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/
+- CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Ther material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
     
     - And, if you feel a little unfamiliar to the LINUX world, have a look at the Introduction to UPPMAX course material here: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
+    
+More python?
+-----------
 
-
-.. admonition:: Prepare your environment!
-  
-   - Please log in to Rackham or other cluster.
-     e.g. ``ssh <user>@rackham.uppmax.uu.se``
-   - Create a working directory (e.g. "pythonUPPMAX") where you can code along.
+- CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Their material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
+- Introduction to Python at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
+- Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in September. More info to come!
 
 
 Python at UPPMAX
