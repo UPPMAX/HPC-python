@@ -1,20 +1,20 @@
 Packages
 ========
 
+- Python **packages broaden the use of python** to almost infinity! 
 
-- Python packages broaden the use of python to almost infinity! 
+- Instead of writing code yourself there may be others that have done the same!
 
-- Instead of writing codes yourself there may be others that has done the same!
+- Many **scientific tools** are distributed as **python package**s making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
 
-- Many scientific tools are distributed as python packages making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
-
-- A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
+- A nice **introduction to packages** can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
 .. admonition:: There are two package installation systems
 
     + **PyPI** (``pip``) is traditionally for Python-only packages but it is no problem to also distribute packages written in other languages as long as they provide a Python interface.
 
     + **Conda** (``conda``) is more general and while it contains many Python packages and packages with a Python interface, it is often used to also distribute packages which do not contain any Python (e.g. C or C++ packages).
+    	- Creates its own environment that does not interact with other python installations
 
     + Many libraries and tools are distributed in both ecosystems.
 
