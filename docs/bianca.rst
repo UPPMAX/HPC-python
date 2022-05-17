@@ -3,7 +3,9 @@ On Bianca cluster
 
 .. Note::
 
-    Since we have mirrored conda repositories locally conda will work also on Bianca!
+    Bianca has no Internet! ``pip`` will not work!
+    
+    Since we have mirrored conda repositories locally `conda` will work also on Bianca!
 
 
 - First try conda, as above.
