@@ -26,6 +26,7 @@ Here you will find the content of the workshop Introduction to python packages a
    load_run.rst
    packages.rst
    isolated.rst
+   bianca.rst
    summary.rst
 
 .. toctree::
