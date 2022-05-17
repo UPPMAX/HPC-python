@@ -1,14 +1,33 @@
 Introduction
 ==============
 
-.. admonition:: Welcome!
+.. admonition:: **Welcome!**
 
     - There is a *rather* new documentation for python at UPPMAX at: https://uppmax.uu.se/support/user-guides/python-user-guide/ 
     - We hope that it will be helpful for your future reference.
     - We will approximately follow the outline of it today.
     - We hope also to identify improvements of the page for today´s interactions with you!
 
+.. admonition:: **Learning outcomes**
+   
+    - load and run python
+    - find installed packages
+    - install package with pip
+    - install package with conda
+    - Understand and create virtual environments
+    - best practice
 
+.. admonition:: **Your expectations?**
+   
+    - find best practices for using Python at UPPMAX
+    - using Conda
+    
+    **Not covered**
+    - improve python *coding* skills 
+    - Tetralith
+    - Kebnekaise
+    
+    
 What is python?
 ---------------
 
@@ -32,6 +51,13 @@ Python forum is found here https://python-forum.io/ .
     - CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Ther material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
     
     - And, if you feel a little unfamiliar to the LINUX world, have a look at the Introduction to UPPMAX course material here: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
+
+
+.. admonition:: Prepare your environment!
+  
+   - Please log in to Rackham or other cluster.
+     e.g. ``ssh <user>@rackham.uppmax.uu.se``
+   - Create a working directory (e.g. "pythonUPPMAX") where you can code along.
 
 
 Python at UPPMAX
