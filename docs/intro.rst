@@ -24,6 +24,7 @@ Introduction
     - using Bianca
     
     **Not covered**
+    
     - improve python *coding* skills 
     - Tetralith
     - Kebnekaise
