@@ -101,4 +101,5 @@ A very small selection of these are:
    - How to install packages
    - Isolated environments
    - Not this time: jupyter notebook & parallel jobs
+        - Check the next SNIC training letter about new collaboration workshop in beginning of September.
 
