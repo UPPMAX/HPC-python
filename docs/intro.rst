@@ -28,7 +28,7 @@ Introduction
     - Tetralith
     - Kebnekaise
 
-.. prerequisities::
+.. warning::
 
     - It is good to have a familiarity with the LINUX command line. 
     - Short introductions may be found here: https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632
