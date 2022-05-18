@@ -16,6 +16,13 @@ Introduction
     - install package with **conda**
     - Understand and create **virtual environments**
     - best practice
+    
+.. admonition:: Collabration document HackMD
+
+    - Use the HackMD page for the workshop with your questions
+    - https://hackmd.io/EW_atH_vR5iq-uBFV-CiTw?both
+    - Type in left frame (don't focus too much on the formattiong if you are new to "Markdown", but "-" means new bullet and <tab> indents the level.
+    - **Have a try with the Icebreaker question**
 
 .. admonition:: **Your expectations?**
    
