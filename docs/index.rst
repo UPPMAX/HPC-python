@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
    
-Welcome to Python-at-UPPMAX's documentation
-===========================================
+Welcome to HPC python documentation
+===================================
 
-Here you will find the content of the workshop Introduction to python packages at UPPMAX.
+Here you will find the content of the workshop Using Python in an HPC environment.
 
 .. admonition:: Content
 
