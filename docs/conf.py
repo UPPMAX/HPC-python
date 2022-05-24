@@ -18,9 +18,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Python-at-UPPMAX'
-copyright = 'UPPMAX'
-author = 'UPPMAX'
+project = 'Using Python in an HPC environment'
+copyright = ''
+author = 'UPPMAX/HPC2N'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'
