@@ -132,7 +132,8 @@ jobs:
         #if: ${{ success() && github.event_name == 'push' && github.ref == 'refs/heads/$defaultBranch' }}
         with:
           hugo-version: '0.87.0'
-          extended: true          publish_branch: gh-pages
+          extended: true
+          publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _gh-pages/
           force_orphan: true
