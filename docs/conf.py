@@ -35,7 +35,6 @@ release = '0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ["sphinx_lesson",
-              'sphinx-prompt'
     "sphinx.ext.githubpages",
     "sphinx_rtd_theme_ext_color_contrast",
 ]
