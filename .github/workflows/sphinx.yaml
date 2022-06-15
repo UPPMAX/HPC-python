@@ -128,9 +128,6 @@ jobs:
       # https://github.com/peaceiris/actions-gh-pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        with:
-          hugo-version: '0.87.0'
-          extended: true
         if: ${{ github.event_name == 'push' }}
         #if: ${{ success() && github.event_name == 'push' && github.ref == 'refs/heads/$defaultBranch' }}
         with:
@@ -138,3 +135,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _gh-pages/
           force_orphan: true
+          hugo-version: '0.87.0'
+          extended: true
