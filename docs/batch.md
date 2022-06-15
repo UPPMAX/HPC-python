@@ -1,1 +1,1 @@
-# Running jupyter in batch mode
+# Running Python in batch mode
