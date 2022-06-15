@@ -1,1 +1,1 @@
-# Run Jupyter on compute nodes
+# Running Jupyter on compute nodes
