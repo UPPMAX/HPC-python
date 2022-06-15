@@ -35,11 +35,11 @@ This course will consist of lectures interspersed with hands-on sessions where y
    parallel.md
    summary.rst
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Workshop 2nd hour:
-   
-   uppmax.rst
+# .. toctree::
+#    :maxdepth: 2
+#   :caption: Workshop 2nd hour:
+#   
+#   uppmax.rst
 
    
 
