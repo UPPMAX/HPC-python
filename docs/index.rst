@@ -29,6 +29,10 @@ This course will consist of lectures interspersed with hands-on sessions where y
    isolated.rst
    bianca.rst
    kebnekaise.md
+   interactive.md
+   jupyter.md
+   batch.md
+   parallel.md
    summary.rst
 
 .. toctree::
