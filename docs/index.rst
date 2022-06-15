@@ -28,6 +28,7 @@ This course will consist of lectures interspersed with hands-on sessions where y
    packages.rst
    isolated.rst
    bianca.rst
+   kebnekaise.md
    summary.rst
 
 .. toctree::
