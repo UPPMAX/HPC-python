@@ -66,8 +66,8 @@ jobs:
 #          #   https://github.com/sphinx-doc/sphinx/pull/8524
 #          #   https://github.com/readthedocs/sphinx_rtd_theme/pull/1025
 #          sed -i 's/url_root="#"/url_root=""/' _build/dirhtml/index.html || true
-#      # The following supports building all branches and combining on
-#      # gh-pages
+      # The following supports building all branches and combining on
+      # gh-pages
 
       # Clone and set up the old gh-pages branch
       - name: Clone old gh-pages
