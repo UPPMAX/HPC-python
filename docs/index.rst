@@ -15,9 +15,6 @@ This course aims to give a brief, but comprehensive introduction to using Python
 The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise) and will focus on the compute systems at both centres. For the site-specific part of the course you will be divided into groups depending on which center you will be running your code, as the approach is somewhat different. 
 
 This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
-.. note::
-
-    We test this format. That's why we allow ads provded by ReadTheDocs this time. `Ad info <https://docs.readthedocs.io/en/latest/advertising/ethical-advertising.html#community-ads>`_
 
 .. toctree::
    :maxdepth: 2
