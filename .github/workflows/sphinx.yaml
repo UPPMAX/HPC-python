@@ -68,6 +68,10 @@ jobs:
     #        sed -i 's/url_root="#"/url_root=""/' _build/dirhtml/index.html || true
       # The following supports building all branches and combining on
       # gh-pages
+      
+      - name: Sphinx build
+        run: |
+          sphinx-build docs _build
 
       # Clone and set up the old gh-pages branch
       - name: Clone old gh-pages
