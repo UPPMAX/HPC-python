@@ -3,10 +3,6 @@ Introduction
 
 .. admonition:: **Welcome!**
 
-    - There is a *rather* new documentation for python at UPPMAX at: https://uppmax.uu.se/support/user-guides/python-user-guide/ 
-    - We hope that it will be helpful for your future reference.
-    - We will approximately follow the outline of it today.
-    - We hope also to identify improvements of the page for today´s interactions with you!
 
 .. admonition:: **Learning outcomes**
    
