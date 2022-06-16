@@ -54,7 +54,8 @@ jobs:
       - uses: ammaraskar/sphinx-problem-matcher@master
       - name: Build Sphinx docs
         run: |
-          make dirhtml
+          cd docs
+          make html
       # The following supports building all branches and combining on
       # gh-pages
 
