@@ -63,7 +63,7 @@ Preliminary schedule
 
 .. toctree::
    :maxdepth: 2
-   :caption: Guide:
+   :caption: Lessons:
 
    intro.rst
    load_run.rst
@@ -72,9 +72,10 @@ Preliminary schedule
    bianca.rst
    kebnekaise.md
    interactive.md
-   jupyter.md
    batch.md
    parallel.md
+   ml.md
+   gpu.md
    summary.rst
 
   
