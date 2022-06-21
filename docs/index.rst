@@ -27,31 +27,39 @@ Preliminary schedule
      - Topic
      - Activity
    * - 9:15
-     -
-     -
-   * - 
      - Introduction to Python on UPPMAX and HPC2N systems 
-     -
+     - Lecture
    * - 
      - Loading modules and running Python codes 
+     - Lecture+code along
+   * - 
+     - Dealing with packages  
+     - Lecture+code along
+   * - 
+     - Creating isolated environments
+     - Lecture+code along
+   * - 
+     - Separated session for Kebnekaise/Bianca
+     - Lecture
+   * - 12:00
+     - LUNCH 
      -
-     
-     
-
-| Time | Topic | Activity | Description | Goal |
-| -----| ----- | -------- |------------ | ---- |
-**Morning 2 hours**| 45 + 40m
-10	|Intro	|Lecture |	Outline	| Get overview and LOs
-10	|Load and run|	Lecture+code along	| Show modules |	Learn how to load a python version
-25	|packages	|Lecture + code along + (exercise)	|Check current, Pip, Conda | 	List packages, do pip installation,do conda installation 
-10	|Isolated environ	|Lecture + code along |	Venv |	Understand virtual environ
-25	| Kebnekaise/Bianca separated session| Lecture | Cluster specific practice and installed packages, User interaction | Understand cluster limitations		
-5	|Summary|	Lecture|	Describe when to do what|	Keypoints
-**Afternoon 2 hours** | 45+45m
-30|   batch with python and conda |Lecture+code along + exercise | python with batch | write batch script with right envs
-15|   interactive jupyter| Lecture + code along +exercise | run jupyter on calculation nodes| run jupyter on calculation nodes
-30|   workflows?
-15|  Summary
+   * - 13:15
+     - Batch scripts for Python jobs  
+     - Lecture+code along + exercise
+   * - 
+     - Parallelising a simple Python code  
+     - Lecture+code along + exercise
+   * - 
+     - Using Python for Machine Learning jobs
+     - Lecture+code along
+   * - 
+     - Using GPUs with Python
+     - Lecture+code along + exercise
+   * - 
+     - Q&A on-demand and Summary 
+     -
+    
 
 .. toctree::
    :maxdepth: 2
