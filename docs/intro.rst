@@ -18,7 +18,7 @@ Introduction
     - Use the HackMD page for the workshop with your questions.
     - Depending on how many helpers we'll see how fast there are answers. 
         - Some answers may come after workshop.
-    - https://hackmd.io/EW_atH_vR5iq-uBFV-CiTw?both
+ 
     - Type in left frame 
         - "-" means new bullet and <tab> indents the level.
         - don't focus too much on the formattiong if you are new to "Markdown" language!
@@ -26,15 +26,16 @@ Introduction
 
 .. admonition:: **Your expectations?**
    
-    - find best practices for using Python at UPPMAX
-    - using Conda
-    - using Bianca
+    - find best practices for using Python at UPPMAX and HPC2N
+    - packages
+    - use the HPC peformance with Python
+
     
     **Not covered**
     
     - improve python *coding* skills 
     - Tetralith
-    - Kebnekaise
+
 
 .. warning::
 
