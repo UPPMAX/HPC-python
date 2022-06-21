@@ -16,6 +16,37 @@ The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (K
 
 This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
 
+Preliminary schedule
+====================
+
+.. list-table:: Preliminary schedule
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Time
+     - Topic
+     - Activity
+   * - 9:15
+     -
+     -
+   * - 
+     - Introduction to Python on UPPMAX and HPC2N systems 
+
+| Time | Topic | Activity | Description | Goal |
+| -----| ----- | -------- |------------ | ---- |
+**Morning 2 hours**| 45 + 40m
+10	|Intro	|Lecture |	Outline	| Get overview and LOs
+10	|Load and run|	Lecture+code along	| Show modules |	Learn how to load a python version
+25	|packages	|Lecture + code along + (exercise)	|Check current, Pip, Conda | 	List packages, do pip installation,do conda installation 
+10	|Isolated environ	|Lecture + code along |	Venv |	Understand virtual environ
+25	| Kebnekaise/Bianca separated session| Lecture | Cluster specific practice and installed packages, User interaction | Understand cluster limitations		
+5	|Summary|	Lecture|	Describe when to do what|	Keypoints
+**Afternoon 2 hours** | 45+45m
+30|   batch with python and conda |Lecture+code along + exercise | python with batch | write batch script with right envs
+15|   interactive jupyter| Lecture + code along +exercise | run jupyter on calculation nodes| run jupyter on calculation nodes
+30|   workflows?
+15|  Summary
+
 .. toctree::
    :maxdepth: 2
    :caption: Guide:
