@@ -31,6 +31,12 @@ Preliminary schedule
      -
    * - 
      - Introduction to Python on UPPMAX and HPC2N systems 
+     -
+   * - 
+     - Loading modules and running Python codes 
+     -
+     
+     
 
 | Time | Topic | Activity | Description | Goal |
 | -----| ----- | -------- |------------ | ---- |
