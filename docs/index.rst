@@ -77,13 +77,7 @@ Preliminary schedule
    parallel.md
    summary.rst
 
-# .. toctree::
-#    :maxdepth: 2
-#   :caption: Workshop 2nd hour:
-#   
-#   uppmax.rst
-
-   
+  
 
 .. Indices and tables
 .. ==================
