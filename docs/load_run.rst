@@ -1,11 +1,12 @@
 Load and run python
 ===================
 
-At UPPMAX we call the applications available via the module system modules. 
-https://www.uppmax.uu.se/resources/software/module-system/ 
+At both UPPMAX and HPC2N we call the applications available via the module system modules. 
+    - https://www.uppmax.uu.se/resources/software/module-system/ 
+    - https://www.hpc2n.umu.se/documentation/environment/lmod 
 
-Load
-----------
+Load (UPPMAX)
+-------------
 Load latest python module by:
 
 .. prompt:: bash $
@@ -56,6 +57,80 @@ Load specific version (recommendation for reproducibility) with:
     Here's how you handle that situation:
     
     + You can run two python modules at the same time if ONE of the module is ``python/2.X.Y`` and the other module is ``python3/3.X.Y`` (not ``python/3.X.Y``).
+    
+Load (HPC2N)
+------------
+For reproducibility, at HPC2N we recommend ALWAYS loading a specific module instad of using the default version! 
+
+For this course, we recommend using Python 3.9.5 at HPC2N. To load this version, load the prerequisites and then the module: 
+
+```bash
+module load GCC/10.3.0 Python/3.9.5
+```
+
+For short, you can also use: 
+
+```bash
+ml GCC/10.3.0 Python/3.9.5
+```
+
+Check all available version Python versions with:
+
+.. prompt:: bash $
+
+    module spider Python
+
+.. admonition:: Output as of 27 July 2022
+    :class: dropdown
+    
+    .. prompt::  text
+    
+b-an01 [~]$ module spider Python
+
+----------------------------------------------------------------------------
+  Python:
+----------------------------------------------------------------------------
+    Description:
+      Python is a programming language that lets you work more quickly and
+      integrate your systems more effectively.
+
+     Versions:
+        Python/2.7.15
+        Python/2.7.16
+        Python/2.7.18-bare
+        Python/2.7.18
+        Python/3.7.2
+        Python/3.7.4
+        Python/3.8.2
+        Python/3.8.6
+        Python/3.9.5-bare
+        Python/3.9.5
+        Python/3.9.6-bare
+        Python/3.9.6
+     Other possible modules matches:
+        Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
+
+----------------------------------------------------------------------------
+  To find other possible module matches execute:
+
+      $ module -r spider '.*Python.*'
+
+----------------------------------------------------------------------------
+  For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
+  Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider Python/3.9.6
+----------------------------------------------------------------------------
+
+.. warning::
+
+    + Do not use the system-installed Python 2.7.18
+    + ALWAYS use a Python module
+
+.. admonition:: Why are there both Python/2.X.Y and Python/3.Z.W modules?
+
+    Some existing software might use `Python2` and some will use `Python3`. Some of the Python packages have both `Python2` and `Python3` versions. Check what your software as well as the installed modules need when you pick!   
 
 Run
 ---
