@@ -116,6 +116,15 @@ Check all available version Python versions with:
 
             $ module spider Python/3.9.6
         ----------------------------------------------------------------------------
+    ..
+
+To see how to load a specific version of Python, including the prerequisites, do 
+
+    ``module spider Python/<version>``
+
+Example for Python 3.9.5
+
+    ``module spider Python/3.9.6``
 
 .. warning::
 
