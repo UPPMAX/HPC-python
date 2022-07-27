@@ -85,43 +85,43 @@ Check all available version Python versions with:
     
     .. prompt::  text
     
-b-an01 [~]$ module spider Python
+    b-an01 [~]$ module spider Python
 
-----------------------------------------------------------------------------
-  Python:
-----------------------------------------------------------------------------
-    Description:
-      Python is a programming language that lets you work more quickly and
-      integrate your systems more effectively.
+    ----------------------------------------------------------------------------
+    Python:
+    ----------------------------------------------------------------------------
+        Description:
+        Python is a programming language that lets you work more quickly and
+        integrate your systems more effectively.
+    
+         Versions:
+            Python/2.7.15
+            Python/2.7.16
+            Python/2.7.18-bare
+            Python/2.7.18
+            Python/3.7.2
+            Python/3.7.4
+            Python/3.8.2
+            Python/3.8.6
+            Python/3.9.5-bare
+            Python/3.9.5
+            Python/3.9.6-bare
+            Python/3.9.6
+        Other possible modules matches:
+            Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
 
-     Versions:
-        Python/2.7.15
-        Python/2.7.16
-        Python/2.7.18-bare
-        Python/2.7.18
-        Python/3.7.2
-        Python/3.7.4
-        Python/3.8.2
-        Python/3.8.6
-        Python/3.9.5-bare
-        Python/3.9.5
-        Python/3.9.6-bare
-        Python/3.9.6
-     Other possible modules matches:
-        Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
+    ----------------------------------------------------------------------------
+    To find other possible module matches execute:
 
-----------------------------------------------------------------------------
-  To find other possible module matches execute:
+        $ module -r spider '.*Python.*'
 
-      $ module -r spider '.*Python.*'
+    ----------------------------------------------------------------------------
+    For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
+    Note that names that have a trailing (E) are extensions provided by other modules.
+    For example:
 
-----------------------------------------------------------------------------
-  For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
-  Note that names that have a trailing (E) are extensions provided by other modules.
-  For example:
-
-     $ module spider Python/3.9.6
-----------------------------------------------------------------------------
+         $ module spider Python/3.9.6
+    ----------------------------------------------------------------------------
 
 .. warning::
 
