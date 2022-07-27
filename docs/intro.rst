@@ -16,19 +16,19 @@ Introduction
 .. admonition:: Collabration document HackMD
 
     - Use the HackMD page for the workshop with your questions.
-    - Depending on how many helpers we'll see how fast there are answers. 
-        - Some answers may come after workshop.
+    - Depending on how many helpers there are we'll see how fast there are answers. 
+        - Some answers may come after the workshop.
  
-    - Type in left frame 
+    - Type in the left frame 
         - "-" means new bullet and <tab> indents the level.
-        - don't focus too much on the formattiong if you are new to "Markdown" language!
+        - don't focus too much on the formatting if you are new to "Markdown" language!
     - **Have a try with the Icebreaker question**
 
 .. admonition:: **Your expectations?**
    
     - find best practices for using Python at UPPMAX and HPC2N
     - packages
-    - use the HPC peformance with Python
+    - use the HPC performance with Python
 
     
     **Not covered**
@@ -41,14 +41,16 @@ Introduction
 
     - It is good to have a familiarity with the LINUX command line. 
     - Short introductions may be found here: https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632
+    - Linux "cheat sheet"; https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet
     - UPPMAX software library: https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641
-    - Whole intro course material can be reached here: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
+    - Whole intro course material (UPPMAX) can be reached here: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
+    - HPC2N's intro course material (including link to recordings) may be found here: https://github.com/hpc2n/intro-course
 
 .. admonition:: Prepare your environment now!
   
-   - Please log in to Rackham or other cluster.
-     e.g. ``ssh <user>@rackham.uppmax.uu.se``
-   - Create a working directory (e.g. "pythonUPPMAX") where you can code along.
+   - Please log in to Rackham, Kebnekaise or other cluster that you are using 
+     e.g. ``ssh <user>@rackham.uppmax.uu.se`` or ``<user>@kebnekaise.hpc2n.umu.se`` 
+   - Create a working directory (e.g. "pythonUPPMAX" or "pythonHPC2N") where you can code along.
 
     
 What is python?
@@ -111,3 +113,54 @@ A very small selection of these are:
    - Not this time: jupyter notebook & parallel jobs
         - Check the next SNIC training letter about new collaboration workshop in beginning of September.
 
+Python at HPC2N
+----------------
+
+The python application at HPC2N comes with several preinstalled packages - check first before installing yourself!. HPC2N has both Python 2.7.x and Python 3.x installed. We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.9.5
+
+NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: https://www.hpc2n.umu.se/documentation/guides/anaconda
+
+A selection of the Python packages and libraries installed on HPC2N are:
+   - ASE
+   - Keras
+   - PyTorch
+   - SciPy-bundle (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
+   - TensorFlow
+   - Theano
+   - matplotlib
+   - scikit-learn
+   - scikit-image
+   - pip
+   - iPython
+   - Cython
+
+.. questions:: 
+
+   - How do I find you which packages and versions are available?
+   - What to do if you need other packages?
+   - What if I need a graphical interface?
+   - What if I have projects with different requirements in terms of python and packages versions?
+    
+.. objectives:: 
+
+    We will:
+    
+    - teach you how to navigate the module system at HPC2N
+    - show you how to find out which versions of Python and packages are installed
+    - look at the package handler **pip** 
+    - explain how to create and use virtual environments
+    - show you how to run batch jobs 
+
+.. warning:: 
+   At HPC2N we call the applications available via the *module system* **modules**. 
+   https://www.hpc2n.umu.se/documentation/environment/lmod
+   
+   To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
+
+.. admonition:: Outline
+
+   - Loading and running Python
+   - Packages/modules
+   - How to install packages
+   - Isolated/virtual environments
+   - Parallel Python? (will we have this ?????????) 
