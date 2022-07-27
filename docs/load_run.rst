@@ -64,27 +64,24 @@ For reproducibility, at HPC2N we recommend ALWAYS loading a specific module inst
 
 For this course, we recommend using Python 3.9.5 at HPC2N. To load this version, load the prerequisites and then the module: 
 
-```bash
+``
 module load GCC/10.3.0 Python/3.9.5
-```
+``
 
 For short, you can also use: 
 
-```bash
+``
 ml GCC/10.3.0 Python/3.9.5
-```
+``
 
 Check all available version Python versions with:
 
-.. prompt:: bash $
-
-    module spider Python
+``
+module spider Python
+``
 
 .. admonition:: Output as of 27 July 2022
     :class: dropdown
-    
-    .. prompt::  text
-    
     b-an01 [~]$ module spider Python
 
     ----------------------------------------------------------------------------
