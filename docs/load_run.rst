@@ -104,18 +104,18 @@ Check all available version Python versions with:
             integrate your systems more effectively.
     
          Versions:
-             Python/2.7.15 
-             Python/2.7.16
-             Python/2.7.18-bare
-             Python/2.7.18
-             Python/3.7.2
-             Python/3.7.4
-             Python/3.8.2
-             Python/3.8.6
-             Python/3.9.5-bare
-             Python/3.9.5
-             Python/3.9.6-bare
-             Python/3.9.6
+             Python/2.7.15   
+             Python/2.7.16  
+             Python/2.7.18-bare 
+             Python/2.7.18  
+             Python/3.7.2   
+             Python/3.7.4   
+             Python/3.8.2   
+             Python/3.8.6   
+             Python/3.9.5-bare  
+             Python/3.9.5   
+             Python/3.9.6-bare  
+             Python/3.9.6   
          Other possible modules matches:
              Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
 
