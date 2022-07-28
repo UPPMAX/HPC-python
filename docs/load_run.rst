@@ -95,6 +95,7 @@ Check all available version Python versions with:
 
     .. prompt::  text
  
+    ``
     b-an01 [~]$ module spider Python
 
     ----------------------------------------------------------------------------
@@ -130,6 +131,7 @@ Check all available version Python versions with:
      For example:
          $ module spider Python/3.9.6
      ----------------------------------------------------------------------------
+     ``
  ..
 
 To see how to load a specific version of Python, including the prerequisites, do 
