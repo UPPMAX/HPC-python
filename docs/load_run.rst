@@ -90,17 +90,6 @@ Check all available version Python versions with:
 
     ``module spider Python``
 
-.. admonition:: test
-    :class: dropdown
-            :code-block: 
-        
-        <import header.h>
-        main {}
-        -------------------------
-        if
-        {   
-        }
-
 .. admonition:: Output as of 27 July 2022
     :class: dropdown
         :verbatim:
