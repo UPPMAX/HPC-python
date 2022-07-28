@@ -5,6 +5,22 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
     - https://www.uppmax.uu.se/resources/software/module-system/ 
     - https://www.hpc2n.umu.se/documentation/environment/lmod 
 
+.. admonition:: Short cheat sheet
+    :class: dropdown 
+    
+    See which modules exists: ``module spider`` or ``ml spider``
+    Find module versions for a particular software: ``module spider <software>``
+    Modules depending only on what is currently loaded: ``module avail`` or ``ml av``
+    See which modules are currently loaded: ``module list`` or ``ml``
+    Load a module: ``module load <module>/<version>`` or ``ml <module>/<version>``
+    Unload a module: ``module unload <module>/<version>`` or ``ml -<module>/<version>``
+    More information about a module: ``module show <module>/<version>`` or ``ml show <module>/<version>``
+    Unload all modules except the 'sticky' modules: ``module purge`` or ``ml purge``
+    
+- For reproducibility reasons, you should always load a specific version of a module instead of just the default version
+- Many modules have prerequisite modules which needs to be loaded first (at HPC2N this is also the case for the Python modules). When doing ``module spider <module>/<version>`` you will get a list of which other modules needs to be loaded first
+
+
 Load (UPPMAX)
 -------------
 Load latest python module by:
