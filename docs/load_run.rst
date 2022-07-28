@@ -93,7 +93,6 @@ Check all available version Python versions with:
 .. admonition:: Output as of 27 July 2022
     :class: dropdown
 
-    ``
     b-an01 [~]$ module spider Python
 
     ----------------------------------------------------------------------------
@@ -129,7 +128,6 @@ Check all available version Python versions with:
      For example:
          $ module spider Python/3.9.6
      ----------------------------------------------------------------------------
-     ``
 
 To see how to load a specific version of Python, including the prerequisites, do 
 
