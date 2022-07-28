@@ -100,8 +100,8 @@ Check all available version Python versions with:
         Python:
         ----------------------------------------------------------------------------
         Description:
-        Python is a programming language that lets you work more quickly and
-        integrate your systems more effectively.
+            Python is a programming language that lets you work more quickly and
+            integrate your systems more effectively.
     
          Versions:
              Python/2.7.15 
@@ -121,11 +121,11 @@ Check all available version Python versions with:
 
         ----------------------------------------------------------------------------
         To find other possible module matches execute:
-          $ module -r spider '.*Python.*'
+            $ module -r spider '.*Python.*'
 
         ----------------------------------------------------------------------------
         For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
-        Note that names that have a trailing (E) are extensions provided by other modules.
+            Note that names that have a trailing (E) are extensions provided by other modules.
         
         For example:
          $ module spider Python/3.9.6
