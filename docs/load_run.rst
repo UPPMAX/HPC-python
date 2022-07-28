@@ -92,7 +92,7 @@ Check all available version Python versions with:
 
 .. admonition:: Output as of 27 July 2022
     :class: dropdown
-        :verbatim:
+        :code-block:
 
         b-an01 [~]$ module spider Python
 
