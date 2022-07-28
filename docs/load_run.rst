@@ -95,7 +95,7 @@ Check all available version Python versions with:
 
     .. prompt::  text
  
-        b-an01 [~]$ module spider Python
+    b-an01 [~]$ module spider Python
 
         ----------------------------------------------------------------------------
         Python:
