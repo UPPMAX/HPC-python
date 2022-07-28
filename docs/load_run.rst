@@ -104,7 +104,7 @@ Check all available version Python versions with:
         integrate your systems more effectively.
     
          Versions:
-             Python/2.7.15
+             Python/2.7.15 <br>
              Python/2.7.16
              Python/2.7.18-bare
              Python/2.7.18
