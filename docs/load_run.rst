@@ -104,7 +104,7 @@ Check all available version Python versions with:
         integrate your systems more effectively.
     
          Versions:
-             Python/2.7.15 <br>
+             Python/2.7.15 
              Python/2.7.16
              Python/2.7.18-bare
              Python/2.7.18
@@ -126,6 +126,7 @@ Check all available version Python versions with:
         ----------------------------------------------------------------------------
         For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
         Note that names that have a trailing (E) are extensions provided by other modules.
+        
         For example:
          $ module spider Python/3.9.6
         ----------------------------------------------------------------------------
