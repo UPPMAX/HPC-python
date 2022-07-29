@@ -73,7 +73,7 @@ Preliminary schedule
    kebnekaise.md
    interactive.md
    batch.md
-   parallel.md
+   parallel.rst
    ml.md
    gpu.md
    summary.rst
