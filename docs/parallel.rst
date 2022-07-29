@@ -10,7 +10,7 @@ In Python there are different schemes that can be used to parallelize Python cod
 We will only take a look at some of these schemes that illustrate the general concepts of
 parallel computing.
 
-   .. admonition:: ``Serial integration``
+   .. admonition:: By choice
       :class: dropdown
 
    .. code-block:: python
@@ -48,6 +48,10 @@ parallel computing.
       
       print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
       print("Time spent: %.2f sec" % (endtime-starttime))
+
+   .. prompt:: bash $
+ 
+          python integration2d_serial
 
 Threads
 -------
