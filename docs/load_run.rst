@@ -80,7 +80,7 @@ For reproducibility, at HPC2N we recommend ALWAYS loading a specific module inst
 
 For this course, we recommend using Python 3.9.5 at HPC2N. To load this version, load the prerequisites and then the module: 
 
-.. prompt:: shell
+.. prompt:: bash $
 
    module load GCC/10.3.0 Python/3.9.5
 
@@ -151,7 +151,7 @@ Example for Python 3.9.5
 Run
 ---
 
-You can run a python script in the shell by:
+You can run a python script in the shell like this:
 
 .. prompt:: bash $
 
