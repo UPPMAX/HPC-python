@@ -49,6 +49,18 @@ parallel computing.
       print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
       print("Time spent: %.2f sec" % (endtime-starttime))
 
+
+   .. signature:: ``MPI_Send``
+   
+      .. code-block:: c
+   
+         int MPI_Send(const void *buf,
+                      int count,
+                      MPI_Datatype datatype,
+                      int dest,
+                      int tag,
+                      MPI_Comm comm)
+
    .. prompt:: bash $
  
           python integration2d_serial
