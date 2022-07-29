@@ -10,7 +10,7 @@ In Python there are different schemes that can be used to parallelize Python cod
 We will only take a look at some of these schemes that illustrate the general concepts of
 parallel computing.
 
-   .. admonition:: By choice
+   .. admonition:: integration2d_serial.py
       :class: dropdown
 
       .. code-block:: python
@@ -50,6 +50,8 @@ parallel computing.
          print("Time spent: %.2f sec" % (endtime-starttime))
 
 
+Text
+
    .. signature:: ``MPI_Send``
    
       .. code-block:: c
@@ -61,9 +63,12 @@ parallel computing.
                       int tag,
                       MPI_Comm comm)
 
+
+some text  
    .. prompt:: bash $
  
           python integration2d_serial
+
 
 Threads
 -------
