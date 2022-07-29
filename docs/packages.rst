@@ -35,7 +35,7 @@ Check the pre-installed packages of a specific python module:
 
 .. code-block:: sh 
 
-    module help python/<version> 
+	module help python/<version> 
   
 or with python module loaded (more certain), in shell:
 
