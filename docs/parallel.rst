@@ -53,6 +53,9 @@ parallel computing.
 Text some text  
 
 
+   .. prompt:: bash $
+ 
+          python integration2d_serial.py
 
 Threads
 -------
