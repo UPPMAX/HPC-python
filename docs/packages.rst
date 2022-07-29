@@ -27,7 +27,7 @@ Some python packages are working as stand-alone tools, for instance in bioinform
 
 .. code-block:: sh 
 
-	module spider <tool-name or tool-name part> 
+   $ module spider <tool-name or tool-name part> 
     
 Using ``module spider`` lets you search regardless of upper- or lowercase characters.
 
@@ -35,19 +35,19 @@ Check the pre-installed packages of a specific python module:
 
 .. code-block:: sh 
 
-	module help python/<version> 
+   $ module help python/<version> 
   
 or with python module loaded (more certain), in shell:
 
 .. code-block:: sh 
 
-	pip list
+   $ pip list
 
 You can also test from within python to make sure that the package is not already installed:
 
 .. code-block:: python 
 
-    import <package>
+    >>> import <package>
     
 Does it work? Then it is there!
 Otherwise, you can either use ``pip`` or ``conda``.
@@ -59,9 +59,9 @@ Install with pip
 
 You use ``pip`` this way, in a Linux shell OR a python shell: 
 
-.. code-block:: sh $
+.. code-block:: sh 
 
-    pip install –-user <package>
+    $ pip install –-user <package>
     
 Use ``pip3`` if you loaded python3.
 
