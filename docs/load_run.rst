@@ -88,7 +88,7 @@ For short, you can also use:
 
 .. code-block:: sh
 
-   ml GCC/10.3.0 Python/3.9.5
+    ml GCC/10.3.0 Python/3.9.5
 
 Check all available version Python versions with:
 
