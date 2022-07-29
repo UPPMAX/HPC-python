@@ -25,7 +25,7 @@ Check current available packages
 
 Some python packages are working as stand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:
 
-.. prompt:: bash $
+.. code-block:: bash 
 
     module spider <tool-name or tool-name part> 
     
