@@ -50,12 +50,8 @@ parallel computing.
          print("Time spent: %.2f sec" % (endtime-starttime))
 
 
-Text
-some text  
+Text some text  
 
-   .. prompt:: bash $
- 
-          python integration2d_serial
 
 
 Threads
