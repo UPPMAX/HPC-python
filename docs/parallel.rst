@@ -51,20 +51,8 @@ parallel computing.
 
 
 Text
-
-   .. signature:: ``MPI_Send``
-   
-      .. code-block:: c
-   
-         int MPI_Send(const void *buf,
-                      int count,
-                      MPI_Datatype datatype,
-                      int dest,
-                      int tag,
-                      MPI_Comm comm)
-
-
 some text  
+
    .. prompt:: bash $
  
           python integration2d_serial
