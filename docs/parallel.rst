@@ -64,6 +64,8 @@ Text some text
 .. code-block:: sh 
 
     $ python integration2d_serial.py
+    Integral value is -7.117752e-17, Error is 7.117752e-17
+    Time spent: 21.01 sec
 
 Text some text  
 
