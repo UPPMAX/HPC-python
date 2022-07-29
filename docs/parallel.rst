@@ -10,6 +10,14 @@ In Python there are different schemes that can be used to parallelize Python cod
 We will only take a look at some of these schemes that illustrate the general concepts of
 parallel computing.
 
+The workhorse for this section will be a 2D integration example:
+
+:math:`\int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0`
+
+One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
+More specifically, one divides the integration range in both directions into ``n`` bins. A
+serial code can be seen in the following code block.
+
    .. admonition:: ``integration2d_serial.py``
       :class: dropdown
 
