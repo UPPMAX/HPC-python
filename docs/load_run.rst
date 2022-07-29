@@ -86,11 +86,15 @@ For this course, we recommend using Python 3.9.5 at HPC2N. To load this version,
 
 For short, you can also use: 
 
-    ``ml GCC/10.3.0 Python/3.9.5``
+.. code-block:: sh
+
+   ml GCC/10.3.0 Python/3.9.5
 
 Check all available version Python versions with:
 
-    ``module spider Python``
+.. code-block:: sh
+ 
+   module spider Python
 
 .. admonition:: Output as of 27 July 2022
     :class: dropdown
@@ -133,11 +137,15 @@ Check all available version Python versions with:
 
 To see how to load a specific version of Python, including the prerequisites, do 
 
-    ``module spider Python/<version>``
+.. code-block:: sh
+   
+   module spider Python/<version>
 
 Example for Python 3.9.5
 
-    ``module spider Python/3.9.6``
+.. code-block:: sh
+
+   module spider Python/3.9.6``
 
 .. warning::
 
@@ -148,8 +156,8 @@ Example for Python 3.9.5
 
     Some existing software might use `Python2` and some will use `Python3`. Some of the Python packages have both `Python2` and `Python3` versions. Check what your software as well as the installed modules need when you pick!   
 
-Run
----
+Run (UPPMAX)
+------------
 
 You can run a python script in the shell like this:
 
@@ -163,6 +171,41 @@ or, if you loaded a python3 module:
 
     python3 example.py
 
+You start a python session/prompt ( >>> ) by typing:
+
+.. prompt:: bash $
+
+    python  # or python3
+
+    #for interactive 
+    ipython # or ipython3 
+    
+Exit with <Ctrl-D>, "quit()" or 'exit()’ in python prompt
+
+.. prompt:: python >>>
+
+    <Ctrl-D>
+    quit()
+    exit()
+
+Run (HPC2N)
+------------
+
+You can run a python script in the shell like this:
+
+.. code-block:: sh
+
+   python example.py
+
+or, if you loaded a python3 module, you can use:
+
+.. code-block:: sh
+
+   python3 example.py
+
+since python is a symbolic link to python3 in this case. 
+
+NOTE: only run jobs that are short and/or do not use a lot of resources from the command line. 
 You start a python session/prompt ( >>> ) by typing:
 
 .. prompt:: bash $
