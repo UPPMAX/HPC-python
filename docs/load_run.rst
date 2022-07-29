@@ -92,21 +92,12 @@ Check all available version Python versions with:
 
     ``module spider Python``
 
-.. admonition:: test
-    :class: dropdown
-
-        .. code-block:: tcl
-        
-        This is code
-        ------------
-
 .. admonition:: Output as of 27 July 2022
     :class: dropdown
 
         .. code-block:: tcl
 
            b-an01 [~]$ module spider Python
-
            ----------------------------------------------------------------------------
            Python:
            ----------------------------------------------------------------------------
@@ -118,9 +109,9 @@ Check all available version Python versions with:
                 | Python/2.7.15   
                 | Python/2.7.16  
                 | Python/2.7.18-bare 
-             | Python/2.7.18  
-             | Python/3.7.2   
-             | Python/3.7.4   
+                | Python/2.7.18  
+                | Python/3.7.2   
+                | Python/3.7.4   
              | Python/3.8.2   
              | Python/3.8.6   
              | Python/3.9.5-bare  
