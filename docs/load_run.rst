@@ -92,14 +92,16 @@ Check all available version Python versions with:
 
 .. admonition:: test
     :class: dropdown
-        .. code-block:: sh
+
+        .. code-block:: tcl
         
         This is code
         ------------
 
 .. admonition:: Output as of 27 July 2022
     :class: dropdown
-        :code-block:
+
+        .. code-block:: tcl
 
         b-an01 [~]$ module spider Python
 
