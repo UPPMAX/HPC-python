@@ -90,6 +90,13 @@ Check all available version Python versions with:
 
     ``module spider Python``
 
+.. admonition:: test
+    :class: dropdown
+        .. code-block:: sh
+        
+        This is code
+        ------------
+
 .. admonition:: Output as of 27 July 2022
     :class: dropdown
         :code-block:
