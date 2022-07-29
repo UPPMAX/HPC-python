@@ -53,8 +53,9 @@ parallel computing.
 Text some text  
 
 
-.. prompt:: bash $
-   python integration2d_serial.py
+.. code-block:: sh 
+
+    $ python integration2d_serial.py
 
 Text some text  
 
