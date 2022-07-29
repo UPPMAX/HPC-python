@@ -5,7 +5,7 @@ Packages
 
 - Instead of writing code yourself there may be others that have done the same!
 
-- Many **scientific tools** are distributed as **python package**s making it possible to run a script in the prompt and there defining files to be analysed and arguments defining exactly what to do.
+- Many **scientific tools** are distributed as **python package**'s making it possible to run a script in the prompt and there define files to be analysed and arguments defining exactly what to do.
 
 - A nice **introduction to packages** can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
@@ -15,6 +15,7 @@ Packages
 
     - **Conda** (``conda``) is more general and while it contains many Python packages and packages with a Python interface, it is often used to also distribute packages which do not contain any Python (e.g. C or C++ packages).
     	- Creates its own environment that does not interact with other python installations
+	- At HPC2N, Conda is not recommended, and we do not support it there
 
     - Many libraries and tools are distributed in both ecosystems.
 
@@ -51,11 +52,12 @@ You can also test from within python to make sure that the package is not alread
 Does it work? Then it is there!
 Otherwise, you can either use ``pip`` or ``conda``.
 
+NOTE: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them here: https://uppmax.github.io/HPC-python/intro.html#python-at-hpc2n 
 
 Install with pip
 ----------------
 
-You use ``pip`` this way, in Linux shell OR python shell: 
+You use ``pip`` this way, in a Linux shell OR a python shell: 
 
 .. prompt:: bash $
 
@@ -65,8 +67,10 @@ Use ``pip3`` if you loaded python3.
 
 Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
 
-Install with conda
-------------------
+At HPC2N we HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python. more information will follow later in this course (https://uppmax.github.io/HPC-python/isolated.html). 
+
+Install with conda (UPPMAX)
+---------------------------
 
 .. Note::
 
