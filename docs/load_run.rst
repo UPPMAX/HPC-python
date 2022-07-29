@@ -82,7 +82,7 @@ For this course, we recommend using Python 3.9.5 at HPC2N. To load this version,
 
 .. prompt:: shell
 
-``module load GCC/10.3.0 Python/3.9.5``
+   module load GCC/10.3.0 Python/3.9.5
 
 For short, you can also use: 
 
@@ -106,32 +106,30 @@ Check all available version Python versions with:
                integrate your systems more effectively.
     
             Versions:
-                | Python/2.7.15   
-                | Python/2.7.16  
-                | Python/2.7.18-bare 
-                | Python/2.7.18  
-                | Python/3.7.2   
-                | Python/3.7.4   
-             | Python/3.8.2   
-             | Python/3.8.6   
-             | Python/3.9.5-bare  
-             | Python/3.9.5   
-             | Python/3.9.6-bare  
-             | Python/3.9.6   
-         Other possible modules matches:
-             Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
-
-        ----------------------------------------------------------------------------
-        To find other possible module matches execute:
-            $ module -r spider '.*Python.*'
-
-        ----------------------------------------------------------------------------
-        For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
-            Note that names that have a trailing (E) are extensions provided by other modules.
-        
-        For example:
-         $ module spider Python/3.9.6
-        ----------------------------------------------------------------------------
+                Python/2.7.15   
+                Python/2.7.16  
+                Python/2.7.18-bare 
+                Python/2.7.18  
+                Python/3.7.2   
+                Python/3.7.4   
+                Python/3.8.2   
+                Python/3.8.6   
+                Python/3.9.5-bare  
+                Python/3.9.5   
+                Python/3.9.6-bare  
+                Python/3.9.6   
+            Other possible modules matches:
+                Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
+           ----------------------------------------------------------------------------
+           To find other possible module matches execute:
+               $ module -r spider '.*Python.*'
+           ----------------------------------------------------------------------------
+           For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
+               Note that names that have a trailing (E) are extensions provided by other modules.
+       
+           For example:
+            $ module spider Python/3.9.6
+           ----------------------------------------------------------------------------
 
 To see how to load a specific version of Python, including the prerequisites, do 
 
