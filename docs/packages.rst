@@ -45,7 +45,7 @@ or with python module loaded (more certain), in shell:
 
 You can also test from within python to make sure that the package is not already installed:
 
-.. code-block:: python >>>
+.. code-block:: python 
 
     import <package>
     
