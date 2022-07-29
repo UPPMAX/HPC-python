@@ -10,7 +10,7 @@ In Python there are different schemes that can be used to parallelize Python cod
 We will only take a look at some of these schemes that illustrate the general concepts of
 parallel computing.
 
-   .. admonition:: integration2d_serial.py
+   .. admonition:: ``integration2d_serial.py``
       :class: dropdown
 
       .. code-block:: python
