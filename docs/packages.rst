@@ -39,13 +39,13 @@ Check the pre-installed packages of a specific python module:
   
 or with python module loaded (more certain), in shell:
 
-.. prompt:: bash $
+.. code-block:: sh 
 
-    pip list
+	pip list
 
 You can also test from within python to make sure that the package is not already installed:
 
-.. prompt:: python >>>
+.. code-block:: python >>>
 
     import <package>
     
@@ -59,7 +59,7 @@ Install with pip
 
 You use ``pip`` this way, in a Linux shell OR a python shell: 
 
-.. prompt:: bash $
+.. code-block:: sh $
 
     pip install –-user <package>
     
