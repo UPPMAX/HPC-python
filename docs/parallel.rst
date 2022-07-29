@@ -54,8 +54,7 @@ Text some text
 
 
 .. prompt:: bash $
- 
-    python integration2d_serial.py
+   python integration2d_serial.py
 
 Text some text  
 
