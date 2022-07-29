@@ -108,16 +108,16 @@ Check all available version Python versions with:
            b-an01 [~]$ module spider Python
 
            ----------------------------------------------------------------------------
-        Python:
-        ----------------------------------------------------------------------------
-        Description:
-            Python is a programming language that lets you work more quickly and
-            integrate your systems more effectively.
+           Python:
+           ----------------------------------------------------------------------------
+           Description:
+               Python is a programming language that lets you work more quickly and
+               integrate your systems more effectively.
     
-         Versions:
-             | Python/2.7.15   
-             | Python/2.7.16  
-             | Python/2.7.18-bare 
+            Versions:
+                | Python/2.7.15   
+                | Python/2.7.16  
+                | Python/2.7.18-bare 
              | Python/2.7.18  
              | Python/3.7.2   
              | Python/3.7.4   
