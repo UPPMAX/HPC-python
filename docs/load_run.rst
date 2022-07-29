@@ -145,7 +145,7 @@ Example for Python 3.9.5
 
 .. code-block:: sh
 
-   module spider Python/3.9.6``
+   module spider Python/3.9.6
 
 .. warning::
 
@@ -205,20 +205,45 @@ or, if you loaded a python3 module, you can use:
 
 since python is a symbolic link to python3 in this case. 
 
-NOTE: only run jobs that are short and/or do not use a lot of resources from the command line. 
+NOTE: *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system!
+
 You start a python session/prompt ( >>> ) by typing:
 
-.. prompt:: bash $
+.. code-block:: sh
 
-    python  # or python3
-
-    #for interactive 
-    ipython # or ipython3 
+    python  
     
-Exit with <Ctrl-D>, "quit()" or 'exit()’ in python prompt
+or 
+    
+.. code-block:: sh
 
-.. prompt:: python >>>
+    python3
+
+Exit Python with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
+
+.. code-block:: sh
 
     <Ctrl-D>
     quit()
     exit()
+
+For interactive Python, IPython, start a session with 
+
+.. code-block:: sh
+
+    ipython 
+    
+or 
+
+.. code-block:: sh
+
+    ipython3 
+    
+NOTE: remember to load an IPython module first. You can see possible modules with 
+
+.. code-block:: sh
+
+    module spider IPython
+    
+
+More information will follow later in the course on running Python from within a batch job. 
