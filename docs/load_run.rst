@@ -25,9 +25,9 @@ Load (UPPMAX)
 -------------
 Load latest python module by:
 
-.. prompt:: bash $
+.. code-block:: sh
 
-    module load python
+    $ module load python
     
 Check all available versions with:
 
