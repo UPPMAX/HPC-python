@@ -74,6 +74,8 @@ Create a ``vpyenv``. First load the python version you want to base your virtual
 
 **NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
 
+**NOTE**: if you need are for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
+
 To place it in a directory below your project storage (again calling it "vpyenv"): 
 
 .. code-block:: sh
@@ -114,7 +116,7 @@ Install your packages with ``pip``. While not always needed, it is often a good 
     
 The "--no-cache-dir" option is required to avoid it from reusing earlier installations from the same user in a different environment. The "--no-build-isolation" is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
-Example, Installing spacy. Using existing modules for numpy and the vpyenv we created under Python 3.9.5. Note that you need to load Python again if you have been logged out, etc. but that the virtual environment remains, of course
+Example, Installing spacy. Using existing modules for numpy and the vpyenv we created under Python 3.9.5. Note that you need to load Python again if you have been logged out, etc. but the virtual environment remains, of course 
 
 .. admonition:: Load modules for Python, numpy (in SciPy-bundle), activate the environment, and install spacy on Kebnekaise at HPC2N 
     :class: dropdown
