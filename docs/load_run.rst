@@ -217,7 +217,7 @@ or
     
 .. code-block:: sh
 
-    4 python3
+    $ python3
 
 Exit Python with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
 
