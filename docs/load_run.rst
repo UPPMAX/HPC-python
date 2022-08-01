@@ -31,9 +31,9 @@ Load latest python module by:
     
 Check all available versions with:
 
-.. prompt:: bash $
+.. code-block:: sh
 
-    module available python
+    $ module available python
 
 .. admonition:: Output as of March 9 2022
     :class: dropdown
@@ -58,9 +58,9 @@ Check all available versions with:
 
 Load specific version (recommendation for reproducibility) with:
 
-.. prompt:: bash $
+.. code-block:: sh
 
-    module load python/X.Y.Z
+    $ module load python/X.Y.Z
 
 .. warning::
 
@@ -82,19 +82,19 @@ For this course, we recommend using Python 3.9.5 at HPC2N. To load this version,
 
 .. code-block:: sh
 
-   module load GCC/10.3.0 Python/3.9.5
+   $ module load GCC/10.3.0 Python/3.9.5
 
 For short, you can also use: 
 
 .. code-block:: sh
 
-    ml GCC/10.3.0 Python/3.9.5
+    $ ml GCC/10.3.0 Python/3.9.5
 
 Check all available version Python versions with:
 
 .. code-block:: sh
  
-   module spider Python
+   $ module spider Python
 
 .. admonition:: Output as of 27 July 2022
     :class: dropdown
@@ -139,13 +139,13 @@ To see how to load a specific version of Python, including the prerequisites, do
 
 .. code-block:: sh
    
-   module spider Python/<version>
+   $ module spider Python/<version>
 
 Example for Python 3.9.5
 
 .. code-block:: sh
 
-   module spider Python/3.9.6
+   $ module spider Python/3.9.6
 
 .. warning::
 
@@ -161,32 +161,32 @@ Run (UPPMAX)
 
 You can run a python script in the shell like this:
 
-.. prompt:: bash $
+.. code-block:: sh
 
-    python example.py
+    $ python example.py
 
 or, if you loaded a python3 module:
 
-.. prompt:: bash $
+.. code-block:: sh
 
-    python3 example.py
+    $ python3 example.py
 
 You start a python session/prompt ( >>> ) by typing:
 
-.. prompt:: bash $
+.. code-block:: sh
 
-    python  # or python3
+    $ python  # or python3
 
     #for interactive 
     ipython # or ipython3 
     
 Exit with <Ctrl-D>, "quit()" or 'exit()’ in python prompt
 
-.. prompt:: python >>>
+.. code-block:: python
 
-    <Ctrl-D>
-    quit()
-    exit()
+    >>> <Ctrl-D>
+    >>> quit()
+    >>> exit()
 
 Run (HPC2N)
 ------------
@@ -195,13 +195,13 @@ You can run a python script in the shell like this:
 
 .. code-block:: sh
 
-   python example.py
+   $ python example.py
 
 or, if you loaded a python3 module, you can use:
 
 .. code-block:: sh
 
-   python3 example.py
+   $ python3 example.py
 
 since python is a symbolic link to python3 in this case. 
 
@@ -211,39 +211,39 @@ You start a python session/prompt ( >>> ) by typing:
 
 .. code-block:: sh
 
-    python  
+    $ python  
     
 or 
     
 .. code-block:: sh
 
-    python3
+    4 python3
 
 Exit Python with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
 
-.. code-block:: sh
+.. code-block:: python
 
-    <Ctrl-D>
-    quit()
-    exit()
+    >>> <Ctrl-D>
+    >>> quit()
+    >>> exit()
 
 For interactive Python, IPython, start a session with 
 
 .. code-block:: sh
 
-    ipython 
+    $ ipython 
     
 or 
 
 .. code-block:: sh
 
-    ipython3 
+    $ ipython3 
     
 NOTE: remember to load an IPython module first. You can see possible modules with 
 
 .. code-block:: sh
 
-    module spider IPython
+    $ module spider IPython
     
 
 More information will follow later in the course on running Python from within a batch job. 
