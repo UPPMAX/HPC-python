@@ -58,7 +58,7 @@ serial code can be seen in the following code block.
          print("Time spent: %.2f sec" % (endtime-starttime))
 
 
-Text some text  
+Then, we can run this code on the terminal which produces the following output: 
 
 
 .. code-block:: sh 
@@ -67,11 +67,13 @@ Text some text
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 21.01 sec
 
-Text some text  
-
 
 Threads
 -------
+
+The 
+
+
 
 Distributed
 -----------
@@ -83,3 +85,4 @@ Additional information
 ----------------------
          
 * `On parallel software engineering education using python <https://link.springer.com/article/10.1007/s10639-017-9607-0>`_
+* `High Performance Data Analytics in Python @ENCCS  <https://enccs.github.io/HPDA-Python/parallel-computing/>`_
