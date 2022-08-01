@@ -14,10 +14,13 @@ Parallel computing with Python
     - For Kebnekaise:
     
       ml GCCcore/11.2.0 Python/3.9.6
+
       virtualenv --system-site-packages $HOME/Public/vpyenv-python-course
+
       source $HOME/Public/vpyenv-python-course/bin/activate
 
-      For the ``mpi4py`` modules add the following modules
+      For the ``mpi4py`` modules add the following modules:
+
       ml GCC/11.2.0 OpenMPI/4.1.1
       python -m pip install mpi4py
 
