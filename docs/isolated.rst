@@ -1,4 +1,4 @@
-Isolated ("virtual") environments
+Isolated environments
 =====================
 
 .. note::
@@ -11,7 +11,7 @@ Isolated ("virtual") environments
 ``conda`` works as an isolated environment. Below we present the ``pip`` way with "virtual environments"! This is the only recommended way at HPC2N! 
 
 Virtual environment - venv (UPPMAX)
-----
+-----------------------------------
 
 Create a ``venv``. First load the python version you want to base your virtual environment on:
 
@@ -60,8 +60,8 @@ Everytime you need the tools available in the virtual environment you activate i
 
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
-Virtual environment - vpyenv (HPC2N)
-----
+Isolated/virtual environment - vpyenv (HPC2N)
+---------------------------------------------
 
 Create a ``vpyenv``. First load the python version you want to base your virtual environment on:
 
@@ -107,32 +107,43 @@ Activate the environment.
 
 Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.
 
-Install your packages with ``pip``. While not always needed, we recommend that you give the correct versions you want, to ensure compatibility: 
+Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use: 
 
 .. code-block:: sh
-    (vpyenv) $ pip install <package>==<version>
+    (vpyenv) $ pip install --no-cache-dir --no-build-isolation <package>==<version>
     
-Example,     numpy==1.13.1 matplotlib==2.2.2
+The "--no-cache-dir" option is required to avoid it from reusing earlier installations from the same user in a different environment. The "--no-build-isolation" is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
-Deactivate it.
+Example, Installing spacy. Using existing modules for numpy and the vpyenv we created under Python 3.9.5. Note that you need to load Python again if you have been logged out, etc. but that the virtual environment remains, of course
 
-.. prompt:: 
-    :language: bash
-    :prompts: (Example) $
+.. admonition:: Load modules for Python, numpy (in SciPy-bundle), activate the environment, and install spacy on Kebnekaise at HPC2N 
+    :class: dropdown
+   
+        .. code-block:: sh
+           
+           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source vpyenv/bin/activate
+           (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation spacy 
+           
+Deactivating a virtual environment.
 
-    deactivate
+.. code-block:: sh
 
-pip install --no-cache-dir --no-build-isolation spacy
+   (vpyenv) $ deactivate
 
-The module will be downloaded and installed. The "--no-cache-dir" option is required to avoid it from reusing earlier installations from the same user in a different environment. The "--no-build-isolation" is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
+Everytime you need the tools available in the virtual environment you activate it as above (after first loading the modules for Python, Python packages, and prerequisites)
 
-Everytime you need the tools available in the virtual environment you activate it as above.
+.. code-block:: sh
 
-.. prompt:: bash $
+    $ source <path/to/virt-environment>/vpyenv/bin/activate
+    
+Using the self-installed packages in Python
+'''''''''''''''''''''''''''''''''''''''''''
 
-    source <path/>Example/bin/activate
+
 
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
+HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
 
 pyenv
 -----
