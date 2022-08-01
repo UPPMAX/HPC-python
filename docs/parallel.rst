@@ -6,12 +6,21 @@ Parallel computing with Python
    - Learn common schemes for the parallelization of codes
    - Learn general concepts for parallel computing
 
-.. important:: Prerequisites
+.. important::
    :class: dropdown
 
-    For Kebnekaise:
+    **Prerequisites**
+
+    - For Kebnekaise:
     
-    ml GCCcore/11.2.0 Python/3.9.6
+      ml GCCcore/11.2.0 Python/3.9.6
+      virtualenv --system-site-packages $HOME/Public/vpyenv-python-course
+      source $HOME/Public/vpyenv-python-course/bin/activate
+
+      For the ``mpi4py`` modules add the following modules
+      ml GCC/11.2.0 OpenMPI/4.1.1
+      python -m pip install mpi4py
+
 
 In Python there are different schemes that can be used to parallelize Python codes. 
 We will only take a look at some of these schemes that illustrate the general concepts of
