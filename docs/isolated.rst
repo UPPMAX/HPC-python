@@ -8,19 +8,21 @@ Isolated environments
    - You can create one for each project and no problem if the two projects require different versions.
    - You can remove the environment and create a new one, if not needed or with errors.
    
-``conda`` works as an isolated environment. Below we present the ``pip`` way!
+``conda`` works as an isolated environment. Below we present the ``pip`` way with "virtual environments"! This is the only recommended way at HPC2N! 
 
 Virtual environment - venv
 ----
 
 Create a ``venv``. First load the python version you want to base your virtual environment on:
 
-.. prompt:: bash $
+.. code-
 
-    module load python/3.6.0
+    module load python/<version>
     python -m venv Example
     
 "Example" is the name of the virtual environment. The directory “Example” is created in the present working directory.
+
+NOTE: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we recommend you place it in your project storage! 
 
 If you want it in a certain place like "~/test/":
 
