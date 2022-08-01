@@ -85,17 +85,17 @@ To place it in a directory below your project storage (again calling it "vpyenv"
 Example, Python 3.9.5 and a virtual environment called "vpyenv" in my personal project storage directory: 
 
 .. admonition:: Load Python 3.9.5 and its prerequisites, then create the virtual environment 
-   :class: dropdown
+    :class: dropdown
    
-      .. code-block:: sh
+        .. code-block:: sh
       
-         b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCCcore/10.3.0 Python/3.9.5
-         b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ virtualenv --system-site-packages vpyenvcreated virtual environment CPython3.9.5.final.0-64 in 6490ms
-           creator CPython3Posix(dest=/pfs/proj/nobackup/fs/projnb10/support-hpc2n/bbrydsoe/vpyenv, clear=False, no_vcs_ignore=False, global=True)
-           seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/pfs/stor10/users/home/b/bbrydsoe/.local/share/virtualenv)
-             added seed packages: pip==22.1.2, setuptools==62.6.0, wheel==0.37.1
-           activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
-         b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ 
+           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCCcore/10.3.0 Python/3.9.5
+           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ virtualenv --system-site-packages vpyenvcreated virtual environment CPython3.9.5.final.0-64 in 6490ms
+             creator CPython3Posix(dest=/pfs/proj/nobackup/fs/projnb10/support-hpc2n/bbrydsoe/vpyenv, clear=False, no_vcs_ignore=False, global=True)
+             seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/pfs/stor10/users/home/b/bbrydsoe/.local/share/virtualenv)
+               added seed packages: pip==22.1.2, setuptools==62.6.0, wheel==0.37.1
+             activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ 
 
 
 Activate the environment.
