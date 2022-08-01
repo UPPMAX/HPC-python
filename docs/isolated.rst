@@ -30,9 +30,9 @@ If you want it in a certain place like "~/test/":
     
 Activate it.
 
-.. prompt:: bash $
+.. code-block:: sh
 
-    source <path/>Example/bin/activate
+    $ source <path/>Example/bin/activate
 
 Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
@@ -82,6 +82,19 @@ To place it in a directory below your project storage (again calling it "vpyenv"
 
 **NOTE** To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
 
+Example, Python 3.9.5 and a virtual environment called "vpyenv" in my personal project storage directory: 
+
+.. annotate:: Load Python 3.9.5 and its prerequisites, then create the virtual environment 
+   .. dropdown:: 
+b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCCcore/10.3.0 Python/3.9.5
+b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ virtualenv --system-site-packages vpyenvcreated virtual environment CPython3.9.5.final.0-64 in 6490ms
+  creator CPython3Posix(dest=/pfs/proj/nobackup/fs/projnb10/support-hpc2n/bbrydsoe/vpyenv, clear=False, no_vcs_ignore=False, global=True)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/pfs/stor10/users/home/b/bbrydsoe/.local/share/virtualenv)
+    added seed packages: pip==22.1.2, setuptools==62.6.0, wheel==0.37.1
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ 
+
+
 Activate the environment.
 
 .. code-block:: sh
@@ -90,13 +103,12 @@ Activate the environment.
 
 Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.
 
-Install your packages with ``pip``. You should give the correct versions you want, to ensure compatibility: 
+Install your packages with ``pip``. While not always needed, we recommend that you give the correct versions you want, to ensure compatibility: 
 
-.. prompt:: 
-    :language: bash
-    :prompts: (Example) $
-
-    pip install numpy==1.13.1 matplotlib==2.2.2
+.. code-block:: sh
+    (vpyenv) $ pip install <package>==<version>
+    
+Example,     numpy==1.13.1 matplotlib==2.2.2
 
 Deactivate it.
 
@@ -105,6 +117,10 @@ Deactivate it.
     :prompts: (Example) $
 
     deactivate
+
+pip install --no-cache-dir --no-build-isolation spacy
+
+The module will be downloaded and installed. The "--no-cache-dir" option is required to avoid it from reusing earlier installations from the same user in a different environment. The "--no-build-isolation" is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
 Everytime you need the tools available in the virtual environment you activate it as above.
 
