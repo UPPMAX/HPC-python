@@ -6,7 +6,7 @@ Parallel computing with Python
    - Learn common schemes for the parallelization of codes
    - Learn general concepts for parallel computing
 
-.. warning:: Prerequisites
+.. important:: Prerequisites
    :class: dropdown
 
     For Kebnekaise:
