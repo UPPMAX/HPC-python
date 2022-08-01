@@ -6,6 +6,13 @@ Parallel computing with Python
    - Learn common schemes for the parallelization of codes
    - Learn general concepts for parallel computing
 
+.. warning:: Prerequisites
+   :class: dropdown
+
+    For Kebnekaise:
+    
+    ml GCCcore/11.2.0 Python/3.9.6
+
 In Python there are different schemes that can be used to parallelize Python codes. 
 We will only take a look at some of these schemes that illustrate the general concepts of
 parallel computing.
