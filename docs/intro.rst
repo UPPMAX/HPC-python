@@ -133,6 +133,9 @@ A selection of the Python packages and libraries installed on HPC2N are:
    - pip
    - iPython
    - Cython
+   - Flask
+
+These are all installed as **modules** and need to be loaded before use. 
 
 .. questions:: 
 
