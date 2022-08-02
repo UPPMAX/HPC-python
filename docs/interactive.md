@@ -13,7 +13,7 @@ HPC2N
 -----
 
 Python on the login nodes
-'''''''''''''''''''''''''
++++++++++++++++++++++++++
 
 It is possible to run Python directly on the Kebnekaise login node or the Kebnekaide ThinLinc login node. 
 
@@ -45,8 +45,13 @@ There is a guide for you to follow here: https://www.hpc2n.umu.se/documentation/
 
 **Running Python**
 
-As mentioned under the `Load and run python <https://uppmax.github.io/HPC-python/load_run.html>`_ section
-.. admonition:: Example 
+As mentioned under the `Load and run python <https://uppmax.github.io/HPC-python/load_run.html>`_ section, you first need to load Python and its prerequisites, then any modules you need, then activate any virtual environment you have installed Python packages to. Then start Python. So, the way to do this is: 
+
+1) Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
+2) Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
+3) Activate your virtual environment (optional): source 
+
+.. admonition:: Example, Python 3.9.5, site-installed numpy, and own-installed spacy
     :class: dropdown
    
         .. code-block:: sh
