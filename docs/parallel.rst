@@ -15,9 +15,9 @@ Parallel computing with Python
     
       ml GCCcore/11.2.0 Python/3.9.6
 
-      virtualenv --system-site-packages $HOME/Public/vpyenv-python-course
+      virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
 
-      source $HOME/Public/vpyenv-python-course/bin/activate
+      source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
 
       For the ``mpi4py`` modules add the following modules:
 
@@ -90,7 +90,8 @@ for parallelization. We can run this code on the terminal as follows:
 Threads
 -------
 
-The `threading` module is built into Python so you don't have to installed it. By using this
+The `threading <https://realpython.com/intro-to-python-threading/#:~:text=Take%20the%20Quiz%20%C2%BB-,What%20Is%20a%20Thread%3F,time%3A%20they%20merely%20appear%20to.>`_ 
+module is built into Python so you don't have to installed it. By using this
 modules, one can create several threads that can do some work (in principle) in parallel.
 For jobs dealing with files I/O one can observe some speedup by using the `threading` module.
 However, for CPU intensive jobs one will see a decrease in performance w.r.t. the serial code.
@@ -176,6 +177,8 @@ serial code. This is due to the GIL mentioned above.
 
 Distributed
 -----------
+
+
 
 MPI
 ---
