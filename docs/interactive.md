@@ -12,46 +12,38 @@ UPPMAX
 HPC2N
 -----
 
-Python on the login nodes
-+++++++++++++++++++++++++
+It is possible to run Python directly on the Kebnekaise login node or the Kebnekaide ThinLinc login node, but this should *only* be done for short jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. Both Python and IPython exists as modules to load and run. 
 
-It is possible to run Python directly on the Kebnekaise login node or the Kebnekaide ThinLinc login node. 
+Another option is to either submit a batch job or to run *interactively* on the compute nodes. In order to run interactively, you need to have compute nodes allocated to run on, and this is done through the batch system.  
 
-**NOTE** This should *only* be done for short jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. 
+Because you will have to wait until the nodes are allocated, and because you cannot know when this happens, this is not a recommended way to run Python, but it is possible. 
+            
+Python interactively on the compute nodes
++++++++++++++++++++++++++++++++++++++++++
 
-**Kebnekaise login node**
+To run interactively, you need to allocate resources on the cluster first. You can use the command salloc to allow interactive use of resources allocated to your job. When the resources are allocated, you need to preface commands with ``srun`` in order to run on the allocated nodes instead of the login node. 
 
-Login with 
-
-.. code-block:: sh
-
-    ssh <hpc2n-username>@kebnekaise.hpc2n.umu.se
-    
-using your favourite SSH client. More information about this here: https://www.hpc2n.umu.se/access/login 
-
-**Kebnekaise ThinLinc login node**
-
-If you do not have a preferred SSH client installed, then this is the recommended way to login, as it comes with a GUI environment directly and no need to run an X11 server. 
-
-Use 
+First, you make a request for resources with salloc, like this:
 
 .. code-block:: sh
-
-    kebnekaise-tl-hpc2n.umu.se
     
-as the server in the ThinLinc login. 
+    $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
 
-There is a guide for you to follow here: https://www.hpc2n.umu.se/documentation/guides/thinlinc 
+    where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project (SNIC2022-22-641 for this course)
+    
+Your request enters the job queue just like any other job, and salloc will tell you that it is waiting for the requested resources. When salloc tells you that your job has been allocated resources, you can interactively run programs on those resources with ``srun``. The commands you run with ``srun`` will then be executed on the resources your job has been allocated. If you do not preface with ``srun`` the command is run on the login node! 
 
-**Running Python**
-
-As mentioned under the `Load and run python <https://uppmax.github.io/HPC-python/load_run.html>`_ section, you first need to load Python and its prerequisites, then any modules you need, then activate any virtual environment you have installed Python packages to. Then start Python. So, the way to do this is: 
-
-1) Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
-2) Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
-3) Activate your virtual environment (optional): source 
-
-.. admonition:: Example, Python 3.9.5, site-installed numpy, and own-installed spacy
+.. admonition:: Example, Requesting 4 cores for 30 minutes, then running Python 
     :class: dropdown
    
         .. code-block:: sh
+
+            b-an01 [~]$ salloc -n 4 --time=00:30:00 -A SNIC2022-22-641
+            salloc: Pending job allocation 20171394
+            salloc: job 20171394 queued and waiting for resources
+            salloc: job 20171394 has been allocated resources
+            salloc: Granted job allocation 20171394
+            salloc: Waiting for resource configuration
+            salloc: Nodes b-cn0824 are ready for job
+            b-an01 [~]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5
+            b-an01 [~]$ 
