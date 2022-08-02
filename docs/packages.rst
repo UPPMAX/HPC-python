@@ -31,6 +31,22 @@ Some python packages are working as stand-alone tools, for instance in bioinform
     
 Using ``module spider`` lets you search regardless of upper- or lowercase characters.
 
+Another way to find Python packages that you are unsure how are names, would be to do
+
+.. code-block:: sh 
+
+   $ module -r spider ’.*Python.*’
+   
+or
+
+.. code-block:: sh 
+
+   $ module -r spider ’.*python.*’
+   
+Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
+
+**UPPMAX only!**
+
 Check the pre-installed packages of a specific python module:
 
 .. code-block:: sh 
@@ -52,7 +68,7 @@ You can also test from within python to make sure that the package is not alread
 Does it work? Then it is there!
 Otherwise, you can either use ``pip`` or ``conda``.
 
-NOTE: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them here: https://uppmax.github.io/HPC-python/intro.html#python-at-hpc2n 
+**NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them here: https://uppmax.github.io/HPC-python/intro.html#python-at-hpc2n or find more as mentioned above, using ``module spider -r ....```
 
 Install with pip
 ----------------
