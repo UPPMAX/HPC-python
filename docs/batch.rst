@@ -26,12 +26,25 @@ Guides and documentation at: http://www.hpc2n.umu.se/support and https://www.upp
 
 - Submit batch script with ``sbatch <my-python-script.sh>`` 
 
-Common file extension for batch scripts are ``.sh`` or ``.batch``, but they are not necessary. You can choose any name that makes sense to you. 
+Common file extensions for batch scripts are ``.sh`` or ``.batch``, but they are not necessary. You can choose any name that makes sense to you. 
          
 Example Python batch scripts
 ---------------------------- 
 
-.. admonition:: Example, Requesting 4 cores for 30 minutes, then running Python 
+.. admonition:: Example, Kebnekaise, SciPy-bundle/2021.05 and Python/3.9.5, serial code 
     :class: dropdown
    
         .. code-block:: sh
+
+            #!/bin/bash
+            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
+            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            
+            # Run your Python script 
+            python <my_program.py>
+            
+            
