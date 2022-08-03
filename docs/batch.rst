@@ -17,10 +17,12 @@ Guides and documentation at: http://www.hpc2n.umu.se/support and https://www.upp
 **Workflow**
 
 - Write a batch script
+
   - Inside the batch script you need to load the modules you need (Python, Python packages ... )
   - Possibly activate an isolated/virtual environment to access own-installed packages
   - Ask for resources depending on if it is a parallel job or a serial job, if you need GPUs or not, etc.
   - Give the command(s) to your Python script
+
 - Submit batch script with ``sbatch <my-python-script.sh>`` 
 
 Batch scripts are traditionally prefixed with ``.sh`` or ``.batch``, but it is not necessary. You can name them as you want, as long as you can easily recognize them. 
