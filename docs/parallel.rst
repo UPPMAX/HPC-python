@@ -22,6 +22,7 @@ Parallel computing with Python
       For the ``mpi4py`` modules add the following modules:
 
       ml GCC/11.2.0 OpenMPI/4.1.1
+
       python -m pip install mpi4py
 
 
@@ -31,7 +32,10 @@ parallel computing.
 
 The workhorse for this section will be a 2D integration example:
 
-:math:`\int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0`
+.. class:: center
+
+   :math:`\int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0`
+
 
 One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
 More specifically, one divides the integration range in both directions into ``n`` bins. A
