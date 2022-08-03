@@ -6,6 +6,7 @@ Any longer, resource-intensive, or parallel jobs must be run through a **batch s
 The batch system used at both UPPMAX and HPC2N is called SLURM. 
 
 SLURM is an Open Source job scheduler, which provides three key functions
+
 - Keeps track of available system resources
 - Enforces local system resource usage and job scheduling policies
 - Manages a job queue, distributing work across resources according to policies
