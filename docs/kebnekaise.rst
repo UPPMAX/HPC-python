@@ -41,7 +41,7 @@ Use
 
 .. code-block:: sh
 
-    kebnekaise-tl-hpc2n.umu.se
+    kebnekaise-tl.hpc2n.umu.se
     
 as the server in the ThinLinc login. 
 
