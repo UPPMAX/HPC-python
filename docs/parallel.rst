@@ -269,6 +269,47 @@ Notice the output of running this code on the terminal:
 Although we are distributing the work on 4 threads, the execution time is longer than in the 
 serial code. This is due to the GIL mentioned above.
 
+Some libraries like OpenBLAS, LAPACK, and MKL provide an implicit threading mechanism they
+are used by ``numpy`` module for computing linear algebra operations. You can obtain information
+about the libraries that are available in ``numpy`` with ``numpy.show_config()``.
+This can be useful at the moment of setting the number of threads as these libraries could
+use different mechanisms for it, for the following example we will use the OpenMP
+environment variables.
+
+Consider the following code that computes the dot product of a matrix with itself:
+
+   .. admonition:: ``dot.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         from time import perf_counter
+         import numpy as np
+         
+         A = np.random.rand(3000,3000)
+         starttime = perf_counter()
+         B = np.dot(A,A)
+         endtime = perf_counter()
+         
+         print("Time spent: %.2f sec" % (endtime-starttime))
+
+the timing for running this code with 1 thread is:
+
+
+.. code-block:: sh 
+
+    $ export OMP_NUM_THREADS=1
+    $ python dot.py
+    Time spent: 1.14 sec
+
+while running with 2 threads is:
+
+
+.. code-block:: sh 
+
+    $ export OMP_NUM_THREADS=2
+    $ python dot.py
+    Time spent: 0.60 sec
 
 
 Distributed
