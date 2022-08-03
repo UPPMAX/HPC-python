@@ -32,9 +32,13 @@ parallel computing.
 
 The workhorse for this section will be a 2D integration example:
 
-.. class:: center
-
    :math:`\int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0`
+
+   .. math::
+
+           \begin{center}
+           \int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0
+           \end{center}
 
 
 One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
