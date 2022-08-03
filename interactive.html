@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive work on the compute nodes &mdash; Using Python in an HPC environment 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Running Python in batch mode" href="batch.html" />
+    <link rel="prev" title="On Kebnekaise cluster" href="kebnekaise.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Using Python in an HPC environment
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lessons:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_run.html">Load and run python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isolated.html">Isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Interactive work on the compute nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#uppmax">UPPMAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hpc2n">HPC2N</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml.html">Using Python for Machine Learning jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Interactive work on the compute nodes</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/docs/blob/main/docs/interactive.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="interactive-work-on-the-compute-nodes">
+<h1>Interactive work on the compute nodes<a class="headerlink" href="#interactive-work-on-the-compute-nodes" title="Permalink to this headline"></a></h1>
+<p>There are several ways to run Python interactively</p>
+<ul class="simple">
+<li><p>Directly on the login nodes: <strong>only</strong> do this for short jobs that do not take a lot of resources</p></li>
+<li><p>As an interactive job on the computer nodes, launched via the batch system</p></li>
+<li><p>Jupyter notebooks (UPPMAX suggests installing your own version with conda)</p></li>
+</ul>
+<section id="uppmax">
+<h2>UPPMAX<a class="headerlink" href="#uppmax" title="Permalink to this headline"></a></h2>
+</section>
+<section id="hpc2n">
+<h2>HPC2N<a class="headerlink" href="#hpc2n" title="Permalink to this headline"></a></h2>
+<p>It is possible to run Python directly on the Kebnekaise login node or the Kebnekaide ThinLinc login node, but this should <em>only</em> be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. Both Python and IPython exists as modules to load and run.</p>
+<p>Another option is to either submit a batch job or to run <em>interactively</em> on the compute nodes. In order to run interactively, you need to have compute nodes allocated to run on, and this is done through the batch system.</p>
+<p>Because you will have to wait until the nodes are allocated, and because you cannot know when this happens, this is not a recommended way to run Python, but it is possible.</p>
+<p>Do note that it is not <em>real</em> interactivity as you probably mean it, as you will have to run it as a Python script instead of by starting Python and giving commands inside it. The reason for this is that you are not actually logged into the compute node and only sees the output of the commands you run.</p>
+<p>Another option would be to use Jupyter notebooks. This is somewhat convoluted to get to work correctly at HPC2N, but possible. Please contact us at <a class="reference external" href="mailto:support&#37;&#52;&#48;hpc2n&#46;umu&#46;se">support<span>&#64;</span>hpc2n<span>&#46;</span>umu<span>&#46;</span>se</a> if you want to go this route.</p>
+<p><strong>Python “interactively” on the compute nodes</strong></p>
+<p>To run interactively, you need to allocate resources on the cluster first. You can use the command salloc to allow interactive use of resources allocated to your job. When the resources are allocated, you need to preface commands with <code class="docutils literal notranslate"><span class="pre">srun</span></code> in order to run on the allocated nodes instead of the login node.</p>
+<p>First, you make a request for resources with <code class="docutils literal notranslate"><span class="pre">salloc</span></code>, like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ salloc -n &lt;tasks&gt; --time<span class="o">=</span>HHH:MM:SS -A SNICXXXX-YY-ZZZ
+</pre></div>
+</div>
+<p>where &lt;tasks&gt; is the number of tasks (or cores, for default 1 task per core), time is given in hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project (SNIC2022-22-641 for this course)</p>
+<p>Your request enters the job queue just like any other job, and salloc will tell you that it is waiting for the requested resources. When salloc tells you that your job has been allocated resources, you can interactively run programs on those resources with <code class="docutils literal notranslate"><span class="pre">srun</span></code>. The commands you run with <code class="docutils literal notranslate"><span class="pre">srun</span></code> will then be executed on the resources your job has been allocated. If you do not preface with <code class="docutils literal notranslate"><span class="pre">srun</span></code> the command is run on the login node!</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example, Requesting 4 cores for 30 minutes, then running Python</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an01 <span class="o">[</span>~<span class="o">]</span>$ salloc -n <span class="m">4</span> --time<span class="o">=</span><span class="m">00</span>:30:00 -A SNIC2022-22-641
+salloc: Pending job allocation <span class="m">20174806</span>
+salloc: job <span class="m">20174806</span> queued and waiting <span class="k">for</span> resources
+salloc: job <span class="m">20174806</span> has been allocated resources
+salloc: Granted job allocation <span class="m">20174806</span>
+salloc: Waiting <span class="k">for</span> resource configuration
+salloc: Nodes b-cn0241 are ready <span class="k">for</span> job
+b-an01 <span class="o">[</span>~<span class="o">]</span>$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5
+b-an01 <span class="o">[</span>~<span class="o">]</span>$
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>You can now run Python scripts on the allocated resources directly instead of waiting for your batch job to return a result. This is an advantage if you want to test your Python script or perhaps figure out which parameters are best.</p>
+<p>Let us check that we actually run on the compute node:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an01 <span class="o">[</span>~<span class="o">]</span>$ srun hostname
+b-cn0241.hpc2n.umu.se
+b-cn0241.hpc2n.umu.se
+b-cn0241.hpc2n.umu.se
+b-cn0241.hpc2n.umu.se
+</pre></div>
+</div>
+<p>We are. Notice that we got a response from all four cores we have allocated.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example, Running a Python script in the above allocation. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an01 <span class="o">[</span>~<span class="o">]</span>$ srun python sum-2args.py <span class="m">3</span> <span class="m">4</span>
+The sum of the two numbers is: <span class="m">7</span>
+The sum of the two numbers is: <span class="m">7</span>
+The sum of the two numbers is: <span class="m">7</span>
+The sum of the two numbers is: <span class="m">7</span>
+b-an01 <span class="o">[</span>~<span class="o">]</span>$
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Example, Running a Python script in the above allocation, but this time a script that expects input from you.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an01 <span class="o">[</span>~<span class="o">]</span>$ srun python add2.py
+<span class="m">2</span>
+<span class="m">3</span>
+Enter the first number: Enter the second number: The sum of <span class="m">2</span> and <span class="m">3</span> is <span class="m">5</span>
+Enter the first number: Enter the second number: The sum of <span class="m">2</span> and <span class="m">3</span> is <span class="m">5</span>
+Enter the first number: Enter the second number: The sum of <span class="m">2</span> and <span class="m">3</span> is <span class="m">5</span>
+Enter the first number: Enter the second number: The sum of <span class="m">2</span> and <span class="m">3</span> is <span class="m">5</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>As you can see, it is possible, but it will not show any interaction it otherwise would have. This is how it would look on the login node:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an01 <span class="o">[</span>~<span class="o">]</span>$ python add2.py
+Enter the first number: <span class="m">2</span>
+Enter the second number: <span class="m">3</span>
+The sum of <span class="m">2</span> and <span class="m">3</span> is <span class="m">5</span>
+</pre></div>
+</div>
+<p>When you have finished using the allocation, either wait for it to end, or close it with <code class="docutils literal notranslate"><span class="pre">exit</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an01 <span class="o">[</span>~<span class="o">]</span>$ <span class="nb">exit</span>
+<span class="nb">exit</span>
+salloc: Relinquishing job allocation <span class="m">20174806</span>
+salloc: Job allocation <span class="m">20174806</span> has been revoked.
+b-an01 <span class="o">[</span>~<span class="o">]</span>$
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kebnekaise.html" class="btn btn-neutral float-left" title="On Kebnekaise cluster" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="batch.html" class="btn btn-neutral float-right" title="Running Python in batch mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

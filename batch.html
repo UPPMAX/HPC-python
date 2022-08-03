@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running Python in batch mode &mdash; Using Python in an HPC environment 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parallel computing with Python" href="parallel.html" />
+    <link rel="prev" title="Interactive work on the compute nodes" href="interactive.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Using Python in an HPC environment
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lessons:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_run.html">Load and run python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isolated.html">Isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running Python in batch mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#useful-commands-to-the-batch-system">Useful commands to the batch system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-python-batch-scripts">Example Python batch scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml.html">Using Python for Machine Learning jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Running Python in batch mode</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/docs/blob/main/docs/batch.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="running-python-in-batch-mode">
+<h1>Running Python in batch mode<a class="headerlink" href="#running-python-in-batch-mode" title="Permalink to this headline"></a></h1>
+<p>Any longer, resource-intensive, or parallel jobs must be run through a <strong>batch script</strong>.</p>
+<p>The batch system used at both UPPMAX and HPC2N is called SLURM.</p>
+<p>SLURM is an Open Source job scheduler, which provides three key functions</p>
+<ul class="simple">
+<li><p>Keeps track of available system resources</p></li>
+<li><p>Enforces local system resource usage and job scheduling policies</p></li>
+<li><p>Manages a job queue, distributing work across resources according to policies</p></li>
+</ul>
+<p>In order to run a batch job, you need to create and submit a SLURM submit file (also called a batch submit file, a batch script, or a job script).</p>
+<p>Guides and documentation at: <a class="reference external" href="http://www.hpc2n.umu.se/support">http://www.hpc2n.umu.se/support</a> and <a class="reference external" href="https://www.uppmax.uu.se/support/user-guides/slurm-user-guide/">https://www.uppmax.uu.se/support/user-guides/slurm-user-guide/</a></p>
+<p><strong>Workflow</strong></p>
+<ul class="simple">
+<li><p>Write a batch script</p>
+<ul>
+<li><p>Inside the batch script you need to load the modules you need (Python, Python packages … )</p></li>
+<li><p>Possibly activate an isolated/virtual environment to access own-installed packages</p></li>
+<li><p>Ask for resources depending on if it is a parallel job or a serial job, if you need GPUs or not, etc.</p></li>
+<li><p>Give the command(s) to your Python script</p></li>
+</ul>
+</li>
+<li><p>Submit batch script with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">&lt;my-python-script.sh&gt;</span></code></p></li>
+</ul>
+<p>Common file extensions for batch scripts are <code class="docutils literal notranslate"><span class="pre">.sh</span></code> or <code class="docutils literal notranslate"><span class="pre">.batch</span></code>, but they are not necessary. You can choose any name that makes sense to you.</p>
+<section id="useful-commands-to-the-batch-system">
+<h2>Useful commands to the batch system<a class="headerlink" href="#useful-commands-to-the-batch-system" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Submit job: <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">&lt;jobscript.sh&gt;</span></code></p></li>
+<li><p>Get list of your jobs: <a href="#id1"><span class="problematic" id="id2">``</span></a>squeue -u &lt;username&gt;</p></li>
+<li><p>Check on a specific job: <code class="docutils literal notranslate"><span class="pre">scontrol</span> <span class="pre">show</span> <span class="pre">job</span> <span class="pre">&lt;job-id&gt;</span></code></p></li>
+<li><p>Delete a specific job: <code class="docutils literal notranslate"><span class="pre">scancel</span> <span class="pre">&lt;job-id&gt;</span></code></p></li>
+<li><p>Useful info about a job: sacct -l -j &lt;job-id&gt; | less -S``</p></li>
+<li><p>Url to a page with info about the job (Kebnekaise only): job-usage &lt;job-id&gt;``</p></li>
+</ul>
+</section>
+<section id="example-python-batch-scripts">
+<h2>Example Python batch scripts<a class="headerlink" href="#example-python-batch-scripts" title="Permalink to this headline"></a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Running on Kebnekaise, SciPy-bundle/2021.05 and Python/3.9.5, serial code</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A SNIC2022-22-641 # Change to your own after the course</span>
+<span class="c1">#SBATCH --time=00:10:00 # Asking for 10 minutes</span>
+<span class="c1">#SBATCH -n 1 # Asking for 1 core</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle</span>
+module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+
+<span class="c1"># Run your Python script</span>
+python &lt;my_program.py&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment. Serial code</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A SNIC2022-22-641 # Change to your own after the course</span>
+<span class="c1">#SBATCH --time=00:10:00 # Asking for 10 minutes</span>
+<span class="c1">#SBATCH -n 1 # Asking for 1 core</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle</span>
+module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+
+<span class="c1"># Activate your virtual environment. Note that you either need to have added the location to your path, or give the full path</span>
+<span class="nb">source</span> &lt;path-to-virt-env&gt;/bin/activate
+
+<span class="c1"># Run your Python script</span>
+python &lt;my_program.py&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + TensorFlow/2.6.0-CUDA-11.3.1, GPU code</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A SNIC2022-22-641 # Change to your own after the course</span>
+<span class="c1">#SBATCH --time=00:10:00 # Asking for 10 minutes</span>
+<span class="c1"># Asking for one K80 card</span>
+<span class="c1">#SBATCH --gres=gpu:k80:1</span>
+
+<span class="c1"># Load any modules you need</span>
+module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 TensorFlow/2.6.0-CUDA-11.3.1
+
+<span class="c1"># Run your Python script</span>
+python &lt;my_tf_program.py&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>The recommended TensorFlow version for this course is 2.6.0. The module is compatible with Python 3.9.5 (automatically loaded when you load TensorFlow and its other prerequisites).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="interactive.html" class="btn btn-neutral float-left" title="Interactive work on the compute nodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parallel.html" class="btn btn-neutral float-right" title="Parallel computing with Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
