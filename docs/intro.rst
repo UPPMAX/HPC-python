@@ -49,9 +49,10 @@ Introduction
 .. admonition:: Prepare your environment now!
   
    - Please log in to Rackham, Kebnekaise or other cluster that you are using 
-     e.g. ``ssh <user>@rackham.uppmax.uu.se`` or ``<user>@kebnekaise.hpc2n.umu.se`` 
      
-     - If using ThinLinc to login to Kebnekaise, use ``<user>@kebnekaise-tl.hpc2n.umu.se``
+     - Rackham: ``ssh <user>@rackham.uppmax.uu.se`` 
+     - Kebnekaise: ``<user>@kebnekaise.hpc2n.umu.se``     
+     - Kebnekaise through ThinLinc, use: ``<user>@kebnekaise-tl.hpc2n.umu.se``
      
    - Create a working directory where you can code along. We recommend creating it under the course project storage directory
    
