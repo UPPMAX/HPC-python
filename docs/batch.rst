@@ -26,7 +26,7 @@ Guides and documentation at: http://www.hpc2n.umu.se/support and https://www.upp
 
 - Submit batch script with ``sbatch <my-python-script.sh>`` 
 
-Batch scripts are traditionally prefixed with ``.sh`` or ``.batch``, but it is not necessary. You can name them as you want, as long as you can easily recognize them. 
+Common file extension for batch scripts are ``.sh`` or ``.batch``, but they are not necessary. You can choose any name that makes sense to you. 
          
 Example Python batch scripts
 ---------------------------- 
