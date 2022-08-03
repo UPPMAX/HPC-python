@@ -8,7 +8,7 @@ Isolated environments
    - You can create one for each project and no problem if the two projects require different versions.
    - You can remove the environment and create a new one, if not needed or with errors.
    
-``conda`` works as an isolated environment. Below we present the ``pip`` way with "virtual environments"! This is the only recommended way at HPC2N! 
+``conda`` works as an isolated environment. Below we present the ``pip`` way with "virtual environments", as well as installing using setup.py! Installing with a virtual environment is the only recommended way at HPC2N! 
 
 Virtual environment - venv (UPPMAX)
 -----------------------------------
@@ -84,7 +84,9 @@ To place it in a directory below your project storage (again calling it "vpyenv"
 
 **NOTE** To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
 
-Example, Python 3.9.5 and a virtual environment called "vpyenv" in my personal project storage directory: 
+**Example**
+
+I load Python 3.9.5 and create a virtual environment called "vpyenv" in my personal project storage directory (/proj/nobackup/support-hpc2n/bbrydsoe): 
 
 .. admonition:: Load Python 3.9.5 and its prerequisites, then create the virtual environment 
     :class: dropdown
@@ -108,6 +110,9 @@ Activate the environment.
     $ source <path/to/virt-environment>/vpyenv/bin/activate
 
 Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.
+
+Using pip
+'''''''''
 
 Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use: 
 
@@ -152,6 +157,31 @@ Every time you need the tools available in the virtual environment you activate 
 
     $ source <path/to/virt-environment>/vpyenv/bin/activate
     
+Using setup.py
+''''''''''''''
+
+Some Python packages are only available as downloads, to install with setup.py. If that is the case for the package you need, this is how you do it: 
+
+- Pick a location for your installation (change below to fit - I am installing under a project storage)
+
+   - mkdir /proj/nobackup/mystorage/mypythonpackages
+   - cd /proj/nobackup/mystorage/mypythonpackages
+   
+- Load Python + site-installed prerequisites (SciPy-bundle, matplotlib, etc.
+- Install any remaining prerequisites. Remember to activate your Virtualenv if installing with pip!
+- Download Python package, place it in your chosen installation dir, then untar/unzip it
+- cd into the source directory of the Python package
+
+   - Run ``python setup.py build``
+   - Then install with: ``python setup.py install --prefix=<path to install dir>``
+   
+- Add the path to $HOME/.bash_profile (note that it will differ by Python version): 
+
+   - ``export PYTHONPATH=$PYTHONPATH:<path to your install directory>/lib/python3.9/site-packages``
+   
+You can use it as normal inside Python (remember to load dependent modules as well as activate virtual environment if it depends on some packages you installed with pip): ``import <python-module>``
+
+
 Using the self-installed packages in Python
 '''''''''''''''''''''''''''''''''''''''''''
 
