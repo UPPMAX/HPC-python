@@ -137,6 +137,48 @@ called ``fortran_function.f90``:
                      
          end function integration2d_fortran
 
+Then, we need to compile this code and generate the Python module
+(``myfunction``):
+
+.. code-block:: sh 
+
+    $ f2py3.9 -c -m myfunction fortran_function.f90  
+    running build
+    running config_cc
+    ...
+
+this will produce the Python/C API ``myfunction.cpython-39-x86_64-linux-gnu.so``, which 
+can be called in Python as a module:
+
+
+   .. admonition:: ``call_fortran_code.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         from time import perf_counter
+         import myfunction
+         import numpy
+         
+         # grid size
+         n = 10000
+         
+         if __name__ == "__main__":
+         
+             starttime = perf_counter()
+             integral = myfunction.integration2d_fortran(n)
+             endtime = perf_counter()
+         
+         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+         print("Time spent: %.2f sec" % (endtime-starttime))
+
+The execution time is considerably reduced 
+
+.. code-block:: sh 
+
+    $ python call_fortran_code.py
+    Integral value is 3.878451e-12, Error is 3.878451e-12
+    Time spent: 0.09 sec
 
 Threads
 -------
