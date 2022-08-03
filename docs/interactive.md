@@ -31,7 +31,7 @@ First, you make a request for resources with ``salloc``, like this:
 
 .. code-block:: sh
     
-    $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
+   $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
 
 where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project (SNIC2022-22-641 for this course)
     
@@ -99,3 +99,13 @@ As you can see, it is possible, but it will not show any interaction it otherwis
             Enter the first number: 2
             Enter the second number: 3
             The sum of 2 and 3 is 5
+
+When you have finished using the allocation, either wait for it to end, or close it with ``exit``
+            
+.. code-block:: sh 
+            
+            b-an01 [~]$ exit
+            exit
+            salloc: Relinquishing job allocation 20174806
+            salloc: Job allocation 20174806 has been revoked.
+            b-an01 [~]$ 
