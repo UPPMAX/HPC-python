@@ -19,12 +19,15 @@ Parallel computing with Python
 
       source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
 
-      For the ``mpi4py`` modules add the following modules:
+      For the ``mpi4py`` example add the following modules:
 
       ml GCC/11.2.0 OpenMPI/4.1.1
 
       python -m pip install mpi4py
 
+      For the ``f2py`` example, ``f2py3.9`` should be available on the terminal when ``numpy`` is installed:
+
+      python -m pip install numpy
 
 In Python there are different schemes that can be used to parallelize Python codes. 
 We will only take a look at some of these schemes that illustrate the general concepts of
@@ -34,17 +37,9 @@ The workhorse for this section will be a 2D integration example:
 
    :math:`\int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0`
 
-   .. math::
-      :nowrap:
-
-      \begin{center}
-         \int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0
-      \end{center}
-
-
 One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
 More specifically, one divides the integration range in both directions into ``n`` bins. A
-serial code can be seen in the following code block.
+serial code (without optimization) can be seen in the following code block.
 
    .. admonition:: ``integration2d_serial.py``
       :class: dropdown
@@ -94,6 +89,53 @@ for parallelization. We can run this code on the terminal as follows:
     $ python integration2d_serial.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 21.01 sec
+
+If you are considering the idea of parallelizing your code maybe this is because you are
+facing a bottleneck either in the memory required by your code or in the number of arithmetic
+operations that can be achieved currently. Before embarking into the parallelization ship
+and specially in the case of arithmetic intensive codes, you may consider writing the most
+expensive parts of the code in a compiled language such as Fortran or C/C++. In the next
+paragraphs we will show you how Fortran code for the 2D integration case can be called in Python.
+
+We start by writing the expensive part of our Python code in a Fortran function in a file
+called ``fortran_function.f90``:
+
+
+   .. admonition:: ``fortran_function.f90``
+      :class: dropdown
+
+      .. code-block:: fortran
+
+         function integration2d_fortran(n) result(integral)
+             implicit none
+             integer, parameter :: dp=selected_real_kind(15,9)
+             real(kind=dp), parameter   :: pi=3.14159265358979323
+             integer, intent(in)        :: n
+             real(kind=dp)              :: integral
+         
+             integer                    :: i,j
+         !   interval size
+             real(kind=dp)              :: h
+         !   x and y variables
+             real(kind=dp)              :: x,y
+         !   cummulative variable
+             real(kind=dp)              :: mysum
+         
+             h = pi/(1.0_dp * n)
+             mysum = 0.0_dp
+         !   regular integration in the X axis
+             do i = 0, n-1
+                x = h * (i + 0.5_dp)
+         !      regular integration in the Y axis
+                do j = 0, n-1
+                    y = h * (i + 0.5_dp)
+                    mysum = mysum + sin(x + y)
+                enddo
+             enddo
+         
+             integral = h*h*mysum
+                     
+         end function integration2d_fortran
 
 
 Threads
@@ -185,9 +227,14 @@ Notice the output of running this code on the terminal:
 Although we are distributing the work on 4 threads, the execution time is longer than in the 
 serial code. This is due to the GIL mentioned above.
 
+
+
 Distributed
 -----------
 
+In the distributed parallelization scheme the workers (processes) can share some common
+memory but they can also exchange information by sending and receiving messages for
+instance.
 
    .. admonition:: ``integration2d_multiprocessing.py``
       :class: dropdown
