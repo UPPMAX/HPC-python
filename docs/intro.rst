@@ -56,8 +56,11 @@ Introduction
      
    - Create a working directory where you can code along. We recommend creating it under the course project storage directory
    
-     - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
-     - Example. If your username is mrspock and you are at UPPMAX, this we recommend you create this folder: /proj/nobackup/snic2022-22-641/mrspock/pythonUPPMAX
+     - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
+     
+         /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
+     - Example. If your username is mrspock and you are at UPPMAX, this we recommend you create this folder: 
+         /proj/nobackup/snic2022-22-641/mrspock/pythonUPPMAX
     
 What is python?
 ---------------
