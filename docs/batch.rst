@@ -31,7 +31,7 @@ Common file extensions for batch scripts are ``.sh`` or ``.batch``, but they are
 Example Python batch scripts
 ---------------------------- 
 
-.. admonition:: Example, Kebnekaise, SciPy-bundle/2021.05 and Python/3.9.5, serial code 
+.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05 and Python/3.9.5, serial code 
     :class: dropdown
    
         .. code-block:: sh
@@ -48,3 +48,21 @@ Example Python batch scripts
             python <my_program.py>
             
             
+.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment. Serial code
+    :class: dropdown
+   
+        .. code-block:: sh
+
+            #!/bin/bash
+            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
+            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            
+            # Activate your virtual environment. Note that you either need to have added the location to your path, or give the full path
+            source <path-to-virt-env>/bin/activate
+ 
+            # Run your Python script 
+            python <my_program.py>
