@@ -27,6 +27,16 @@ Guides and documentation at: http://www.hpc2n.umu.se/support and https://www.upp
 - Submit batch script with ``sbatch <my-python-script.sh>`` 
 
 Common file extensions for batch scripts are ``.sh`` or ``.batch``, but they are not necessary. You can choose any name that makes sense to you. 
+
+Useful commands to the batch system
+-----------------------------------
+
+- Submit job: ``sbatch <jobscript.sh>``
+- Get list of your jobs: ``squeue -u <username>
+- Check on a specific job: ``scontrol show job <job-id>``
+- Delete a specific job: ``scancel <job-id>``
+- Useful info about a job: sacct -l -j <job-id> | less -S``
+- Url to a page with info about the job (Kebnekaise only): job-usage <job-id>``
          
 Example Python batch scripts
 ---------------------------- 
@@ -66,3 +76,24 @@ Example Python batch scripts
  
             # Run your Python script 
             python <my_program.py>
+            
+
+.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + TensorFlow/2.6.0-CUDA-11.3.1, GPU code
+    :class: dropdown
+   
+        .. code-block:: sh
+
+            #!/bin/bash
+            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            # Asking for one K80 card
+            #SBATCH --gres=gpu:k80:1
+            
+            # Load any modules you need 
+            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 TensorFlow/2.6.0-CUDA-11.3.1
+          
+            # Run your Python script 
+            python <my_tf_program.py>
+            
+
+The recommended TensorFlow version for this course is 2.6.0. The module is compatible with Python 3.9.5 (automatically loaded when you load TensorFlow and its other prerequisites).            
