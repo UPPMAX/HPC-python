@@ -50,8 +50,13 @@ Introduction
   
    - Please log in to Rackham, Kebnekaise or other cluster that you are using 
      e.g. ``ssh <user>@rackham.uppmax.uu.se`` or ``<user>@kebnekaise.hpc2n.umu.se`` 
-   - Create a working directory (e.g. "pythonUPPMAX" or "pythonHPC2N") where you can code along.
-
+     
+     - If using ThinLinc to login to Kebnekaise, use ``<user>@kebnekaise-tl.hpc2n.umu.se``
+     
+   - Create a working directory where you can code along. We recommend creating it under the course project storage directory
+   
+     - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
+     - Example. If your username is mrspock and you are at UPPMAX, this we recommend you create this folder: /proj/nobackup/snic2022-22-641/mrspock/pythonUPPMAX
     
 What is python?
 ---------------
