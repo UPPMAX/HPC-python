@@ -1,4 +1,5 @@
-# Interactive work on the compute nodes
+Interactive work on the compute nodes
+=====================================
 
 There are several ways to run Python interactively
 
@@ -8,6 +9,8 @@ There are several ways to run Python interactively
 
 UPPMAX
 ------
+
+Writing something to see if the formatting becomes OK
 
 HPC2N
 -----
@@ -22,8 +25,7 @@ Do note that it is not *real* interactivity as you probably mean it, as you will
 
 Another option would be to use Jupyter notebooks. This is somewhat convoluted to get to work correctly at HPC2N, but possible. Please contact us at support@hpc2n.umu.se if you want to go this route. 
             
-Python "interactively" on the compute nodes
-+++++++++++++++++++++++++++++++++++++++++
+**Python "interactively" on the compute nodes**
 
 To run interactively, you need to allocate resources on the cluster first. You can use the command salloc to allow interactive use of resources allocated to your job. When the resources are allocated, you need to preface commands with ``srun`` in order to run on the allocated nodes instead of the login node. 
 
