@@ -1,4 +1,5 @@
-# On Kebnekaise cluster
+On Kebnekaise cluster
+=====================
 
 There are a few things that are different when using Python on the Kebnekaise cluster compared to the UPPMAX clusters: 
 
