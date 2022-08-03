@@ -10,7 +10,7 @@ There are several ways to run Python interactively
 UPPMAX
 ------
 
-Writing something to see if the formatting becomes OK
+
 
 HPC2N
 -----
