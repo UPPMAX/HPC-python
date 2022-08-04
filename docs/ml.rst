@@ -11,3 +11,19 @@ Some of the most used libraries in Python for machine learning are:
 
 These are all available at UPPMAX and HPC2N. 
 
+In this course we will look at two examples: PyTorch and TensorFlow, and show how you run them at our centres. 
+
+PyTorch
+-------
+
+PyTorch has: 
+
+- An n-dimensional Tensor, similar to numpy, but can run on GPUs
+- Automatic differentiation for building and training neural networks
+
+The example we will use in this course is taken from the official PyTorch page: https://pytorch.org/ and the problem is of fitting :math:`y=sin⁡(x)` with a third order polynomial. The network will have four parameters, and will be trained with gradient descent to fit random data by minimizing the Euclidean distance between the network output and the true output.
+
+https://pytorch.org/tutorials/beginner/pytorch_with_examples.html
+
+TensorFlow
+----------
