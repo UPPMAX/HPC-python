@@ -361,7 +361,7 @@ for OpenMP:
 .. code-block:: sh 
 
     $ f2py3.9 -c --f90flags='-fopenmp' -lgomp -m myfunction_openmp fortran_function_openmp.f90
-    ...
+
 
 the generated module can be then loaded,
 
