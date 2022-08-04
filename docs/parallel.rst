@@ -395,6 +395,8 @@ the execution time by using 4 threads is:
     Integral value is -4.113821e-11, Error is 4.113821e-11
     Time spent: 0.02 sec
 
+More information about how OpenMP works can be found in the material of a periodic 
+`OpenMP course <https://github.com/hpc2n/OpenMP-Collaboration>`_ offered by SNIC.
 
 Distributed
 -----------
