@@ -19,15 +19,28 @@ Parallel computing with Python
 
       source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
 
-      For the ``mpi4py`` example add the following modules:
+      - For the ``mpi4py`` example add the following modules:
 
-      ml GCC/11.2.0 OpenMPI/4.1.1
+        ml GCC/11.2.0 OpenMPI/4.1.1
 
-      python -m pip install mpi4py
+        python -m pip install mpi4py
 
-      For the ``f2py`` example, ``f2py3.9`` should be available on the terminal when ``numpy`` is installed:
+      - For the ``f2py`` example, ``f2py3.9`` should be available on the terminal when ``numpy`` is installed:
 
-      python -m pip install numpy
+        python -m pip install numpy
+
+      - For the Julia example:
+        
+        ml Julia/1.7.1-linux-x86_64
+
+        python -m pip install julia
+
+        Start Python on the command line and type:
+
+        >>> import julia
+
+        >>> julia.install()
+
 
 In Python there are different schemes that can be used to parallelize Python codes. 
 We will only take a look at some of these schemes that illustrate the general concepts of
@@ -128,7 +141,7 @@ called ``fortran_function.f90``:
                 x = h * (i + 0.5_dp)
          !      regular integration in the Y axis
                 do j = 0, n-1
-                    y = h * (i + 0.5_dp)
+                    y = h * (j + 0.5_dp)
                     mysum = mysum + sin(x + y)
                 enddo
              enddo
@@ -177,8 +190,70 @@ The execution time is considerably reduced
 .. code-block:: sh 
 
     $ python call_fortran_code.py
-    Integral value is 3.878451e-12, Error is 3.878451e-12
-    Time spent: 0.09 sec
+    Integral value is -3.496735e-07, Error is 3.496735e-07
+    Time spent: 1.27 sec
+
+Compilation of code can be tedious specially if you are in a developing phase of your code. One
+possible way to improve the performance of expensive parts of your code without using a compiled
+language can be by writing these parts in Julia and then calling Julia code in Python. For the
+workhorse integration case that we are using, the Julia code can look like this:
+
+   .. admonition:: ``julia_function.jl``
+      :class: dropdown
+
+      .. code-block:: julia
+
+         function integration2d_julia(n::Int)
+         # interval size
+           h = π/n
+         # cummulative variable
+           mysum = 0.0
+         # regular integration in the X axis
+           for i in 0:n-1
+             x = h*(i+0.5)
+         #   regular integration in the Y axis
+             for j in 0:n-1
+                y = h*(j + 0.5)
+                mysum = mysum + sin(x+y)
+             end
+           end
+           return mysum
+         end
+
+
+A caller script for Julia would be,
+
+
+   .. admonition:: ``call_julia_code.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         from time import perf_counter
+         import julia
+         from julia import Main
+         
+         Main.include('julia_function.jl')
+         
+         # grid size
+         n = 10000
+         
+         if __name__ == "__main__":
+         
+             starttime = perf_counter()
+             integral = Main.integration2d_julia(n)
+             endtime = perf_counter()
+         
+         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+         print("Time spent: %.2f sec" % (endtime-starttime))
+
+Timing in this case is similar to the Fortran serial case,
+
+.. code-block:: sh 
+
+    $ python call_julia_code.py
+    Integral value is -7.211791e-10, Error is 7.211791e-10
+    Time spent: 1.39 sec
 
 Threads
 -------
@@ -344,7 +419,7 @@ where OpenMP threads are used. The parallelized code looks as follows:
                 x = h * (i + 0.5_dp)
          !      regular integration in the Y axis
                 do j = 0, n-1
-                    y = h * (i + 0.5_dp)
+                    y = h * (j + 0.5_dp)
                     mysum = mysum + sin(x + y)
                 enddo
              enddo
@@ -392,8 +467,8 @@ the execution time by using 4 threads is:
 
     $ export OMP_NUM_THREADS=4
     $ python call_fortran_code_openmp.py
-    Integral value is -4.113821e-11, Error is 4.113821e-11
-    Time spent: 0.02 sec
+    Integral value is -3.496950e-07, Error is 3.496950e-07
+    Time spent: 0.37 sec
 
 More information about how OpenMP works can be found in the material of a periodic 
 `OpenMP course <https://github.com/hpc2n/OpenMP-Collaboration>`_ offered by SNIC.
