@@ -5,9 +5,9 @@ While Python does not run fast, it is still well suited for machine learning. Ho
 
 Some of the most used libraries in Python for machine learning are: 
 
-- Keras
+- PyTorch
 - scikit-learn
 - TensorFlow
-- PyTorch
 
+These are all available at UPPMAX and HPC2N. 
 
