@@ -311,6 +311,90 @@ while running with 2 threads is:
     $ python dot.py
     Time spent: 0.60 sec
 
+It is also possible to use efficient threads if you have blocks of code written
+in a compiled language. Here, we will see the case of the Fortran code written above
+where OpenMP threads are used. The parallelized code looks as follows:
+
+   .. admonition:: ``fortran_function_openmp.f90``
+      :class: dropdown
+
+      .. code-block:: fortran
+
+         function integration2d_fortran_openmp(n) result(integral)
+             !$ use omp_lib
+             implicit none
+             integer, parameter :: dp=selected_real_kind(15,9)
+             real(kind=dp), parameter   :: pi=3.14159265358979323
+             integer, intent(in)        :: n
+             real(kind=dp)              :: integral
+         
+             integer                    :: i,j
+         !   interval size
+             real(kind=dp)              :: h
+         !   x and y variables
+             real(kind=dp)              :: x,y
+         !   cummulative variable
+             real(kind=dp)              :: mysum
+         
+             h = pi/(1.0_dp * n)
+             mysum = 0.0_dp
+         !   regular integration in the X axis
+         !$omp parallel do reduction(+:mysum) private(x,y,j)
+             do i = 0, n-1
+                x = h * (i + 0.5_dp)
+         !      regular integration in the Y axis
+                do j = 0, n-1
+                    y = h * (i + 0.5_dp)
+                    mysum = mysum + sin(x + y)
+                enddo
+             enddo
+         !$omp end parallel do
+         
+             integral = h*h*mysum
+                     
+         end function integration2d_fortran_openmp
+
+The way to compile this code differs to the one we saw before, now we will need the flags
+for OpenMP:
+
+
+.. code-block:: sh 
+
+    $ f2py3.9 -c --f90flags='-fopenmp' -lgomp -m myfunction_openmp fortran_function_openmp.f90
+    ...
+
+the generated module can be then loaded,
+
+   .. admonition:: ``call_fortran_code_openmp.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         from time import perf_counter
+         import myfunction_openmp
+         import numpy
+         
+         # grid size
+         n = 10000
+         
+         if __name__ == "__main__":
+         
+             starttime = perf_counter()
+             integral = myfunction_openmp.integration2d_fortran_openmp(n)
+             endtime = perf_counter()
+         
+         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+         print("Time spent: %.2f sec" % (endtime-starttime))
+
+the execution time by using 4 threads is:
+
+.. code-block:: sh 
+
+    $ export OMP_NUM_THREADS=4
+    $ python call_fortran_code_openmp.py
+    Integral value is -4.113821e-11, Error is 4.113821e-11
+    Time spent: 0.02 sec
+
 
 Distributed
 -----------
