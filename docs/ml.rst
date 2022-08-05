@@ -108,7 +108,7 @@ TensorFlow
 
 The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials 
 
-We are using Tensorflow 2.6.0 and Python 3.9.5. Since there is no scikit-learn for these versions, we have to install that too. As well, we must install sklearn: 
+We are using Tensorflow 2.6.0 and Python 3.9.5. Since there is no scikit-learn for these versions, we have to install that too: 
 
 .. admonition:: Installing scikit-learn compatible with TensorFlow version 2.6.0 and Python version 3.9.5 
     :class: dropdown
@@ -117,9 +117,8 @@ We are using Tensorflow 2.6.0 and Python 3.9.5. Since there is no scikit-learn f
         - Create virtual environment: ``virtualenv --system-site-packages <path-to-install-dir>/vpyenv``
         - Activate the virtual environment: ``source <path-to-install-dir>/vpyenv/bin/activate``
         - ``pip install --no-cache-dir --no-build-isolation scikit-learn``
-        - ``pip install --no-cache-dir --no-build-isolation sklearn``
         
-We can now use scikit-learn and sklearn in our example. 
+We can now use scikit-learn in our example. 
 
 .. admonition:: We will work with this example  
     :class: dropdown
@@ -166,7 +165,7 @@ We can now use scikit-learn and sklearn in our example.
 
 In order to run the above example, we will create a batch script and submit it.             
 
-.. admonition:: Example batch script, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed) 
+.. admonition:: Example batch script, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed 
     :class: dropdown
 
         .. code-block:: sh 
@@ -179,20 +178,20 @@ In order to run the above example, we will create a batch script and submit it.
             # Asking for one K80 
             #SBATCH --gres=gpu:k80:1
             
-            # Activate the virtual environment we installed to 
-            source <path-to-install-dir>/vpyenv/bin/activate 
-            
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1
+            
+            # Activate the virtual environment we installed to 
+            source <path-to-install-dir>/vpyenv/bin/activate 
             
             # Run your Python script 
             python <my_tf_program.py> 
             
             
-Submit with ``sbatch <myjobscript.sh>`` 
+Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
 
-The output will in this case be written to ``job.<job-id>.out`` and any errors will be written to ``job.<job-id>.err``. 
+The output and errors will in this case be written to ``slurm-<job-id>.out``. 
 
 General
 -------
