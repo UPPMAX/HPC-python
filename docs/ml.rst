@@ -108,7 +108,7 @@ TensorFlow
 
 The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials 
 
-We are using Tensorflow 2.6.0 and Python 3.9.5. Since there is no scikit-learn for this version, we have to install that too: 
+We are using Tensorflow 2.6.0 and Python 3.9.5. Since there is no scikit-learn for these versions, we have to install that too. As well, we must install sklearn: 
 
 .. admonition:: Installing scikit-learn compatible with TensorFlow version 2.6.0 and Python version 3.9.5 
     :class: dropdown
@@ -117,8 +117,9 @@ We are using Tensorflow 2.6.0 and Python 3.9.5. Since there is no scikit-learn f
         - Create virtual environment: ``virtualenv --system-site-packages <path-to-install-dir>/vpyenv``
         - Activate the virtual environment: ``source <path-to-install-dir>/vpyenv/bin/activate``
         - ``pip install --no-cache-dir --no-build-isolation scikit-learn``
+        - ``pip install --no-cache-dir --no-build-isolation sklearn``
         
-We can now use scikit-learn in our example. 
+We can now use scikit-learn and sklearn in our example. 
 
 .. admonition:: We will work with this example  
     :class: dropdown
