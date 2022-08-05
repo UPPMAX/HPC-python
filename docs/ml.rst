@@ -80,7 +80,7 @@ In order to run this at HPC2N (and at UPPMAX?) you should use a batch job.
 
 This is an example of a batch script for running the above example, using PyTorch 1.10.0 and Python 3.9.5, running on GPUs. 
 
-.. admonition:: Example batch script, running the above example (assuming it is named pytorch_fitting_gpu.py) 
+.. admonition:: Example batch script, running the above example on Kebnekaise (assuming it is named pytorch_fitting_gpu.py) 
     :class: dropdown
 
         .. code-block:: sh 
@@ -165,7 +165,7 @@ We can now use scikit-learn in our example.
 
 In order to run the above example, we will create a batch script and submit it.             
 
-.. admonition:: Example batch script, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed 
+.. admonition:: Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed 
     :class: dropdown
 
         .. code-block:: sh 
@@ -203,7 +203,7 @@ Running several jobs from within one job
 
 This example shows how you would run several programs or variations of programs sequentially within the same job: 
 
-.. admonition:: Example batch script, TensorFlow version 2.6.0 and Python version 3.9.5) 
+.. admonition:: Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5) 
     :class: dropdown
 
         .. code-block:: sh 
