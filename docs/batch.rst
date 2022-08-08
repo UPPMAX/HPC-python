@@ -128,10 +128,11 @@ Exercises
     Remember to give the two arguments to the program in the batch script.
 
 .. solution::
-
-    This is for Kebnekaise. 
+    :class: dropdown
     
-    .. code-block:: sh
+          This is for Kebnekaise. 
+          
+          .. code-block:: sh
  
             #!/bin/bash
             #SBATCH -A SNIC2022-22-641 # Change to your own after the course
