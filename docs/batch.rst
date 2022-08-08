@@ -130,7 +130,7 @@ Exercises
 .. solution::
     :class: dropdown
     
-          This is for Kebnekaise. 
+          This is for Kebnekaise. Adding the numbers 2 and 3. 
           
           .. code-block:: sh
  
@@ -143,4 +143,4 @@ Exercises
             module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5
             
             # Run your Python script 
-            python sum-2args.py
+            python sum-2args.py 2 3
