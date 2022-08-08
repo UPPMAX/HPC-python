@@ -41,6 +41,9 @@ Useful commands to the batch system
 Example Python batch scripts
 ---------------------------- 
 
+Serial code
+'''''''''''
+
 .. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05 and Python/3.9.5, serial code 
     :class: dropdown
    
@@ -58,6 +61,9 @@ Example Python batch scripts
             python <my_program.py>
             
             
+Serial code + self-installed package in virt. env. 
+''''''''''''''''''''''''''''''''''''''''''''''''''
+
 .. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment. Serial code
     :class: dropdown
    
@@ -76,7 +82,10 @@ Example Python batch scripts
  
             # Run your Python script 
             python <my_program.py>
-            
+
+
+GPU code
+''''''''
 
 .. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + TensorFlow/2.6.0-CUDA-11.3.1, GPU code
     :class: dropdown
@@ -97,3 +106,18 @@ Example Python batch scripts
             
 
 The recommended TensorFlow version for this course is 2.6.0. The module is compatible with Python 3.9.5 (automatically loaded when you load TensorFlow and its other prerequisites).            
+
+Exercises
+---------
+
+.. challenge::
+
+    Parallize the finely-blocked LU factorization algorithm using StarPU.
+
+    See: :doc:`task-basics-lu`
+
+.. solution::
+
+    .. code-block:: c
+        :linenos:
+        :emphasize-lines: 59-283
