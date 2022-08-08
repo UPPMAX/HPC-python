@@ -5,7 +5,7 @@ There are several ways to run Python interactively
 
 - Directly on the login nodes: **only** do this for short jobs that do not take a lot of resources
 - As an interactive job on the computer nodes, launched via the batch system
-- Jupyter notebooks (UPPMAX suggests installing your own version with conda) 
+- Jupyter notebooks (UPPMAX suggests installing your own version with conda, HPC2N asks you to contact their support for help) 
 
 UPPMAX
 ------
