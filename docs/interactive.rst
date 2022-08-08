@@ -101,6 +101,8 @@ I am going to use the following two Python codes for the examples:
             
             print("The sum of the two numbers is: {0}".format(sum))
 
+Now for the examples: 
+
 .. admonition:: Example, Running a Python script in the allocation we made further up. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script
     :class: dropdown
    
