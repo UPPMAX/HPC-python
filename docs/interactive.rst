@@ -66,9 +66,42 @@ Let us check that we actually run on the compute node:
      b-cn0241.hpc2n.umu.se
      b-cn0241.hpc2n.umu.se
 
-We are. Notice that we got a response from all four cores we have allocated.             
+We are. Notice that we got a response from all four cores we have allocated.   
+
+I am going to use the following two Python codes for the examples: 
+
+.. admonition:: Adding two numbers from user input (add2.py)
+    :class: dropdown
+   
+        .. code-block:: python
+
+            # This program will add two numbers that are provided by the user
             
-.. admonition:: Example, Running a Python script in the above allocation. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script
+            # Get the numbers
+            a = int(input("Enter the first number: ")) 
+            b = int(input("Enter the second number: "))
+            
+            # Add the two numbers together
+            sum = a + b
+            
+            # Output the sum
+            print("The sum of {0} and {1} is {2}".format(a, b, sum))
+
+.. admonition:: Adding two numbers given as arguments (sum-2args.py)
+    :class: dropdown
+   
+        .. code-block:: python
+
+            import sys
+            
+            x = int(sys.argv[1])
+            y = int(sys.argv[2])
+            
+            sum = x + y
+            
+            print("The sum of the two numbers is: {0}".format(sum))
+
+.. admonition:: Example, Running a Python script in the allocation we made further up. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script
     :class: dropdown
    
         .. code-block:: sh
