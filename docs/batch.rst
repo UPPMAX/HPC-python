@@ -110,9 +110,7 @@ The recommended TensorFlow version for this course is 2.6.0. The module is compa
 Exercises
 ---------
 
-Run the first serial example from further up on the page for this short Python code (sum-2args.py): 
-
-.. challenge::
+.. challenge:: Run the first serial example from further up on the page for this short Python code (sum-2args.py)
     
     .. code-block:: python
     
