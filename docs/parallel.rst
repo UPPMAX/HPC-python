@@ -93,8 +93,7 @@ serial code (without optimization) can be seen in the following code block.
          print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
          print("Time spent: %.2f sec" % (endtime-starttime))
 
-The most expensive part in this code is the double `for loop` and this will be the target
-for parallelization. We can run this code on the terminal as follows: 
+We can run this code on the terminal as follows: 
 
 
 .. code-block:: sh 
@@ -102,6 +101,58 @@ for parallelization. We can run this code on the terminal as follows:
     $ python integration2d_serial.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 21.01 sec
+
+We notice that the most expensive part in this code is the double `for loop`. The ``Numba``
+module in Python can assist us to obtain a compiled-quality function with minimal efforts.
+This can be achieved with the ``njit()`` decorator, for instance: 
+
+   .. admonition:: ``integration2d_serial_numba.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         from numba import njit
+         import math
+         import sys
+         from time import perf_counter
+         
+         # grid size
+         n = 10000
+         
+         def integration2d_serial(n):
+             # interval size (same for X and Y)
+             h = math.pi / float(n)
+             # cummulative variable 
+             mysum = 0.0
+             
+             # regular integration in the X axis
+             for i in range(n):
+                 x = h * (i + 0.5)
+                 # regular integration in the Y axis
+                 for j in range(n):
+                     y = h * (j + 0.5)
+                     mysum += math.sin(x + y)
+             
+             integral = h**2 * mysum
+             return integral
+         
+         
+         if __name__ == "__main__":
+         
+             starttime = perf_counter()
+             integral = njit(integration2d_serial)(n)
+             endtime = perf_counter()
+         
+         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+         print("Time spent: %.2f sec" % (endtime-starttime))
+
+The execution time is now:
+
+.. code-block:: sh 
+
+    $ python integration2d_serial_numba.py
+    Integral value is -7.117752e-17, Error is 7.117752e-17
+    Time spent: 1.90 sec
 
 If you are considering the idea of parallelizing your code maybe this is because you are
 facing a bottleneck either in the memory required by your code or in the number of arithmetic
