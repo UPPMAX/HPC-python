@@ -115,3 +115,109 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
 
 As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
+
+Using shared memory
+-------------------
+
+One can take advantage of the shared memory in a thread block to write faster code. Here,
+we wrote the 2D integration example from the previous section where threads in a block
+write on a `cache` array. Then, this array is reduced (values added) and the output is
+collected in the array ``C``. The entire code is here:
+
+
+   .. admonition:: ``integration2d_gpu.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         from __future__ import division
+         from numba import cuda, float32
+         import numpy
+         import math
+         from time import perf_counter
+         
+         # grid size
+         n = 100*1024
+         threadsPerBlock = 16
+         blocksPerGrid = int((n+threadsPerBlock-1)/threadsPerBlock)
+         
+         # interval size (same for X and Y)
+         h = math.pi / float(n)
+         
+         @cuda.jit
+         def dotprod(C):
+             # using the shared memory in the thread block
+             cached = cuda.shared.array(shape=(threadsPerBlock), dtype=float32) 
+         
+             tid = cuda.threadIdx.x + cuda.blockIdx.x * cuda.blockDim.x 
+             cacheIndx = cuda.threadIdx.x
+         
+             if tid >= n:
+                 return
+         
+             #cummulative variable
+             mysum = 0.0
+             # fine-grain integration in the X axis
+             x = h * (tid + 0.5)
+             # regular integration in the Y axis
+             for j in range(n):
+                 y = h * (j + 0.5)
+                 mysum += math.sin(x + y)
+         
+             cached[cacheIndx] = mysum
+         
+             cuda.syncthreads()
+         
+             # reduction for the whole thread block
+             s = 1
+             while s < cuda.blockDim.x:
+                 if cacheIndx % (2*s) == 0:
+                     cached[cacheIndx] += cached[cacheIndx + s]
+                 s * = 2
+                 cuda.syncthreads()
+             # collecting the reduced value in the C array
+             if cacheIndx == 0:
+                 C[cuda.blockIdx.x] = cached[0]
+         
+         # array for collecting partial sums on the device
+         C_global_mem = cuda.device_array((blocksPerGrid),dtype=numpy.float32)
+         
+         starttime = perf_counter()
+         dotprod[blocksPerGrid,threadsPerBlock](C_global_mem)
+         res = C_global_mem.copy_to_host()
+         integral = h**2 * sum(res)
+         endtime = perf_counter()
+         
+         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+         print("Time spent: %.2f sec" % (endtime-starttime))
+
+We need a batch script to run this Python code, an example script is here:
+
+
+.. code-block:: sh 
+
+    #!/bin/bash
+    #SBATCH -A project_ID
+    #SBATCH -t 00:05:00
+    #SBATCH -N 1
+    #SBATCH -n 28
+    #SBATCH -o output_%j.out   # output file
+    #SBATCH -e error_%j.err    # error messages
+    #SBATCH --gres=gpu:k80:2
+    #SBATCH --exclusive
+     
+    ml purge > /dev/null 2>&1
+    ml GCCcore/11.2.0 Python/3.9.6
+    ml GCC/11.2.0 OpenMPI/4.1.1
+    ml CUDA/11.4.1
+    
+    virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
+    source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
+       
+    python integration2d_gpu.py
+
+Notice the larger size of the grid in the present case (100*1024) compared to the
+serial case's size we used previously (10000). Large computations are necessary on the GPUs
+to get the benefits of this architecture. The simulation time for this problem's size
+was 2.5 sec which is a much smaller value than the time for the serial numba code 
+of 152 sec.
