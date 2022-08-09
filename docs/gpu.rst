@@ -173,7 +173,7 @@ collected in the array ``C``. The entire code is here:
              while s < cuda.blockDim.x:
                  if cacheIndx % (2*s) == 0:
                      cached[cacheIndx] += cached[cacheIndx + s]
-                 s * = 2
+                 s \*= 2
                  cuda.syncthreads()
              # collecting the reduced value in the C array
              if cacheIndx == 0:
