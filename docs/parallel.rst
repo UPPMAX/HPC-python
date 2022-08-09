@@ -29,7 +29,7 @@ Parallel computing with Python
 
         python -m pip install numpy
 
-      - For the Julia example:
+      - For the Julia example we will need PyJulia:
         
         ml Julia/1.7.1-linux-x86_64
 
