@@ -119,13 +119,68 @@ As before, submit with ``sbatch add-list.sh`` (assuming you called the batch scr
 Using shared memory
 -------------------
 
+An initial implementation of the 2D integration problem with the CUDA support for Numba could be
+as follows:
+
+   .. admonition:: ``integration2d_gpu.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         from __future__ import division
+         from numba import cuda, float32
+         import numpy
+         import math
+         from time import perf_counter
+         
+         # grid size
+         n = 100*1024
+         threadsPerBlock = 16
+         blocksPerGrid = int((n+threadsPerBlock-1)/threadsPerBlock)
+         
+         # interval size (same for X and Y)
+         h = math.pi / float(n)
+         
+         @cuda.jit
+         def dotprod(C):
+             tid = cuda.threadIdx.x + cuda.blockIdx.x * cuda.blockDim.x 
+         
+             if tid >= n:
+                 return
+         
+             #cummulative variable
+             mysum = 0.0
+             # fine-grain integration in the X axis
+             x = h * (tid + 0.5)
+             # regular integration in the Y axis
+             for j in range(n):
+                 y = h * (j + 0.5)
+                 mysum += math.sin(x + y)
+         
+             C[tid] = mysum
+         
+         
+         # array for collecting partial sums on the device
+         C_global_mem = cuda.device_array((n),dtype=numpy.float32)
+         
+         starttime = perf_counter()
+         dotprod[blocksPerGrid,threadsPerBlock](C_global_mem)
+         res = C_global_mem.copy_to_host()
+         integral = h**2 * sum(res)
+         endtime = perf_counter()
+         
+         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+         print("Time spent: %.2f sec" % (endtime-starttime))
+
+The time for executing the kernel and doing some postprocessing to the outputs (copying
+the C array and doing a reduction)  was 2.24 sec. 
 One can take advantage of the shared memory in a thread block to write faster code. Here,
 we wrote the 2D integration example from the previous section where threads in a block
 write on a `shared[]` array. Then, this array is reduced (values added) and the output is
 collected in the array ``C``. The entire code is here:
 
 
-   .. admonition:: ``integration2d_gpu.py``
+   .. admonition:: ``integration2d_gpu_shared.py``
       :class: dropdown
 
       .. code-block:: python
