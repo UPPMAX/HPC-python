@@ -686,13 +686,20 @@ example,
     ml purge > /dev/null 2>&1
     ml GCCcore/11.2.0 Python/3.9.6
     ml GCC/11.2.0 OpenMPI/4.1.1
-    ml Julia/1.7.1-linux-x86_64
+    #ml Julia/1.7.1-linux-x86_64  # if Julia is needed
       
     virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
     source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
        
     mpirun -np 4 python mpi-pi-calculation.py
 
+Monitoring resources' usage
+---------------------------
+
+.. figure:: img/monitoring-jobs.png
+   :align: center
+
+   The resources used by a job can be monitored in your local browser.   
 
 Additional information
 ----------------------
