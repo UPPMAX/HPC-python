@@ -696,10 +696,33 @@ example,
 Monitoring resources' usage
 ---------------------------
 
+Monitoring the resources that a certain job uses is important specially when this
+job is expected to run on many CPUs and/or GPUs. It could happen that an incorrect module
+is loaded or the command for running on many CPUs is not the proper one and our job
+runs in serial mode while we allocated possibly many CPUs/GPUs. For this reason,
+there are several tools available in our centers to monitor the performance of running
+jobs.
+
+HPC2N
+=====
+
+On a Kebnekaise terminal, you can type the command: 
+
+.. code-block:: sh 
+
+    $ job-usage job_ID
+
+where ``job_ID`` is the number obtained when you submit your job with the ``sbatch``
+command. This will give you a URL that you can copy and then paste in your local
+browser. The results can be seen in a graphical manner a couple of minutes after the
+job starts running, here there is one example of how this looks like:
+
 .. figure:: img/monitoring-jobs.png
    :align: center
 
    The resources used by a job can be monitored in your local browser.   
+   For this job, we can notice that 100% of the requested CPU 
+   and 60% of the GPU resources are being used.
 
 Additional information
 ----------------------
