@@ -704,7 +704,7 @@ there are several tools available in our centers to monitor the performance of r
 jobs.
 
 HPC2N
-=====
+-----
 
 On a Kebnekaise terminal, you can type the command: 
 
