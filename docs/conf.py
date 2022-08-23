@@ -37,7 +37,6 @@ release = '0.1'
 extensions = ["sphinx_lesson",
     "sphinx.ext.githubpages",
     "sphinx_rtd_theme_ext_color_contrast",
-    "sphinxemoji.sphinxemoji",
 ]
 jupyter_execute_notebooks = "cache"
 
