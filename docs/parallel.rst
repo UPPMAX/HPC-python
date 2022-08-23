@@ -54,7 +54,7 @@ One way to perform the integration is by creating a grid in the ``x`` and ``y`` 
 More specifically, one divides the integration range in both directions into ``n`` bins. A
 serial code (without optimization) can be seen in the following code block.
 
-   .. admonition:: :eyes: ``integration2d_serial.py``
+   .. admonition:: ``integration2d_serial.py``
       :class: dropdown
 
       .. code-block:: python
