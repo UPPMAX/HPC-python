@@ -54,7 +54,7 @@ One way to perform the integration is by creating a grid in the ``x`` and ``y`` 
 More specifically, one divides the integration range in both directions into ``n`` bins. A
 serial code (without optimization) can be seen in the following code block.
 
-   .. admonition:: ``integration2d_serial.py``
+   .. admonition:: :eyes: ``integration2d_serial.py``
       :class: dropdown
 
       .. code-block:: python
@@ -704,7 +704,7 @@ there are several tools available in our centers to monitor the performance of r
 jobs.
 
 HPC2N
------
+~~~~~
 
 On a Kebnekaise terminal, you can type the command: 
 

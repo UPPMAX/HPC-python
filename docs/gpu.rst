@@ -116,8 +116,8 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
 As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
 
-Using shared memory
--------------------
+Numba example 2
+---------------
 
 An initial implementation of the 2D integration problem with the CUDA support for Numba could be
 as follows:
@@ -173,7 +173,13 @@ as follows:
          print("Time spent: %.2f sec" % (endtime-starttime))
 
 The time for executing the kernel and doing some postprocessing to the outputs (copying
-the C array and doing a reduction)  was 2.24 sec. 
+the C array and doing a reduction)  was 2.24 sec. which is a much smaller value than the
+time for the serial numba code of 152 sec. 
+
+Notice the larger size of the grid in the present case (100*1024) compared to the
+serial case's size we used previously (10000). Large computations are necessary on the GPUs
+to get the benefits of this architecture. 
+
 One can take advantage of the shared memory in a thread block to write faster code. Here,
 we wrote the 2D integration example from the previous section where threads in a block
 write on a `shared[]` array. Then, this array is reduced (values added) and the output is
@@ -271,8 +277,5 @@ We need a batch script to run this Python code, an example script is here:
        
     python integration2d_gpu.py
 
-Notice the larger size of the grid in the present case (100*1024) compared to the
-serial case's size we used previously (10000). Large computations are necessary on the GPUs
-to get the benefits of this architecture. The simulation time for this problem's size
-was 2.5 sec which is a much smaller value than the time for the serial numba code 
-of 152 sec.
+The simulation time for this problem's size
+was 2.5 sec. 
