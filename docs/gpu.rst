@@ -173,7 +173,7 @@ as follows:
          print("Time spent: %.2f sec" % (endtime-starttime))
 
 The time for executing the kernel and doing some postprocessing to the outputs (copying
-the C array and doing a reduction)  was 2.24 sec. which is a much smaller value than the
+the C array and doing a reduction)  was 4.35 sec. which is a much smaller value than the
 time for the serial numba code of 152 sec. 
 
 Notice the larger size of the grid in the present case (100*1024) compared to the
@@ -278,4 +278,4 @@ We need a batch script to run this Python code, an example script is here:
     python integration2d_gpu.py
 
 The simulation time for this problem's size
-was 2.5 sec. 
+was 1.87 sec. 
