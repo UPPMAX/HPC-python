@@ -121,6 +121,76 @@ Now for the examples:
             Enter the first number: Enter the second number: The sum of 2 and 3 is 5
             Enter the first number: Enter the second number: The sum of 2 and 3 is 5
 
+Batch mode
+##########
+
+Serial code
+'''''''''''
+
+.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05 and Python/3.9.5, serial code 
+    :class: dropdown
+   
+        .. code-block:: sh
+
+            #!/bin/bash
+            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
+            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            
+            # Run your Python script 
+            python <my_program.py>
+            
+            
+Serial code + self-installed package in virt. env. 
+''''''''''''''''''''''''''''''''''''''''''''''''''
+
+.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment. Serial code
+    :class: dropdown
+   
+        .. code-block:: sh
+
+            #!/bin/bash
+            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
+            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            
+            # Activate your virtual environment. Note that you either need to have added the location to your path, or give the full path
+            source <path-to-virt-env>/bin/activate
+ 
+            # Run your Python script 
+            python <my_program.py>
+
+GPU code
+'''''''' 
+
+.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + TensorFlow/2.6.0-CUDA-11.3.1, GPU code
+    :class: dropdown
+   
+        .. code-block:: sh
+
+            #!/bin/bash
+            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            # Asking for one K80 card
+            #SBATCH --gres=gpu:k80:1
+            
+            # Load any modules you need 
+            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 TensorFlow/2.6.0-CUDA-11.3.1
+          
+            # Run your Python script 
+            python <my_tf_program.py>
+            
+
+The recommended TensorFlow version for this course is 2.6.0. The module is compatible with Python 3.9.5 (automatically loaded when you load TensorFlow and its other prerequisites).            
+
+
+
 
 Exercises
 ---------
