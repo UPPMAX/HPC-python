@@ -84,16 +84,38 @@ More python?
 -----------
 
 - CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Their material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
-- Introduction to Python at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
-- Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in September. More info to come!
+- General introduction to Python at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2022/
+- **This course:** Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in September. More info to come!
 
 
 Python at UPPMAX
 ----------------
 
 The python application at UPPMAX comes with several preinstalled packages.
-A very small selection of these are:
-``Numpy``, ``Pandas``, ``Scipy``, ``Matplotlib``, ``Jupyter notebook``, ``pip``, ``cython``, ``ipython``
+A selection of the Python packages and libraries installed on UPPMAX are:
+  - ``Numpy``
+  - ``Pandas``
+  - ``Scipy``
+  - ``Matplotlib``
+  - ``Jupyter notebook``
+  - ``pip``
+  - ``cython``
+  - ``ipython``
+  - ``networkx``
+  - ``graphviz/0.16``
+In addition there are packages available form the module system
+  - ``biopython``
+  - ``python_ML_packages``
+    - ``sklearn/scikit-learn``
+    - ``TensorFlow`` 
+    - ``torch``
+    - ``mpi``
+    - ``mpi4py``
+  - ``bwa``
+  - ``Graphviz/2.40.1``
+  - ``HiChipper``
+  - ``Homer``
+  - ``pysam``
 
 .. questions:: 
 
@@ -115,15 +137,7 @@ A very small selection of these are:
    
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
 
-.. admonition:: Outline
-
-   - Loading and running Python
-   - Packages/modules
-   - How to install packages
-   - Isolated environments
-   - Not this time: jupyter notebook & parallel jobs
-        - Check the next SNIC training letter about new collaboration workshop in beginning of September.
-
+ 
 Python at HPC2N
 ----------------
 
@@ -177,4 +191,4 @@ These are all installed as **modules** and need to be loaded before use.
    - Packages/modules
    - How to install packages
    - Isolated/virtual environments
-   - Parallel Python? (will we have this ?????????) 
+   - Parallel Python 
