@@ -1,5 +1,9 @@
-Exercises
+Exercises and demos
 ============================
+
+Demos
+-----
+
 
 
 Exercises
