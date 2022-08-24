@@ -77,6 +77,12 @@ Preliminary schedule
    ml.md
    gpu.md
    summary.rst
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Exercises:
+
+   exercises.rst
 
   
 
