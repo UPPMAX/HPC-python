@@ -69,14 +69,20 @@ Preliminary schedule
    load_run.rst
    packages.rst
    isolated.rst
-   bianca.rst
-   kebnekaise.md
    interactive.md
    batch.md
    parallel.rst
    ml.md
    gpu.md
    summary.rst
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Divided Sessons:
+
+   bianca.rst
+   kebnekaise.md
+
    
 .. toctree::
    :maxdepth: 2
