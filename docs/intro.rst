@@ -100,37 +100,6 @@ More python?
 - General introduction to Python at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2022/
 - **This course:** Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in September. More info to come!
 
-.. tabs::
-
-   .. tab:: UPPMAX
-Python at UPPMAX
-----------------
-
-The python application at UPPMAX comes with several preinstalled packages.
-A selection of the Python packages and libraries installed on UPPMAX are:
-  - ``Numpy``
-  - ``Pandas``
-  - ``Scipy``
-  - ``Matplotlib``
-  - ``Jupyter notebook``
-  - ``pip``
-  - ``cython``
-  - ``ipython``
-  - ``networkx``
-  - ``graphviz/0.16``
-In addition there are packages available form the module system
-  - ``biopython``
-  - ``python_ML_packages``
-    - ``sklearn/scikit-learn``
-    - ``TensorFlow`` 
-    - ``torch``
-    - ``mpi``
-    - ``mpi4py``
-  - ``bwa``
-  - ``Graphviz/2.40.1``
-  - ``HiChipper``
-  - ``Homer``
-  - ``pysam``
 
 .. questions:: 
 
@@ -147,35 +116,13 @@ In addition there are packages available form the module system
     - explain how to create isolated environment 
 
 .. warning:: 
-   At UPPMAX we call the applications available via the *module system* **modules**. 
+   At both HPC2N UPPMAX we call the applications available via the *module system* **modules**. 
    https://www.uppmax.uu.se/resources/software/module-system/ 
+   https://www.hpc2n.umu.se/documentation/environment/lmod
    
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
 
- 
-Python at HPC2N
-----------------
 
-The python application at HPC2N comes with several preinstalled packages - check first before installing yourself!. HPC2N has both Python 2.7.x and Python 3.x installed. We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.9.5
-
-NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: https://www.hpc2n.umu.se/documentation/guides/anaconda
-
-A selection of the Python packages and libraries installed on HPC2N are:
-   - ASE
-   - Keras
-   - PyTorch
-   - SciPy-bundle (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
-   - TensorFlow
-   - Theano
-   - matplotlib
-   - scikit-learn
-   - scikit-image
-   - pip
-   - iPython
-   - Cython
-   - Flask
-
-These are all installed as **modules** and need to be loaded before use. 
 
 .. questions:: 
 
@@ -193,12 +140,6 @@ These are all installed as **modules** and need to be loaded before use.
     - look at the package handler **pip** 
     - explain how to create and use virtual environments
     - show you how to run batch jobs 
-
-.. warning:: 
-   At HPC2N we call the applications available via the *module system* **modules**. 
-   https://www.hpc2n.umu.se/documentation/environment/lmod
-   
-   To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
 
 .. admonition:: Outline
 
