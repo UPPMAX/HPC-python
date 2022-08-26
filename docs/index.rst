@@ -78,12 +78,20 @@ Preliminary schedule
    
 .. toctree::
    :maxdepth: 2
-   :caption: Divided Sessons:
+   :caption: UPPMAX Sessons:
 
+   isolatedUPPMAX.rst
+   mlUPPMAX.rst
    bianca.rst
-   kebnekaise.md
 
-   
+.. toctree::
+   :maxdepth: 2
+   :caption: HPC2N Sessons:
+
+   kebnekaise.md
+   isolatedHPC2N.rst
+   mlHPC2N.rst
+
 .. toctree::
    :maxdepth: 2
    :caption: Exercises:
