@@ -1,5 +1,5 @@
 Conda
------
+=====
 
 Install with conda (UPPMAX)
 ---------------------------
