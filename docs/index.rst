@@ -82,6 +82,7 @@ Preliminary schedule
 
    conda.rst
    isolatedUPPMAX.rst
+   interactiveUPPMAX.rst
    mlUPPMAX.rst
    bianca.rst
 
