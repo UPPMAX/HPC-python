@@ -64,6 +64,44 @@ Introduction
      
          /proj/nobackup/snic2022-22-641/mrspock/pythonUPPMAX
     
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      - Rackham: ``ssh <user>@rackham.uppmax.uu.se`` 
+      
+      - Create a working directory where you can code along. We recommend creating it under the course project storage directory
+   
+         
+      - Example. If your username is mrspock and you are at UPPMAX, this we recommend you create this folder: 
+     
+         /proj/nobackup/snic2022-22-641/mrspock/pythonUPPMAX
+
+   .. tab:: HPC2N
+
+      - Kebnekaise: ``<user>@kebnekaise.hpc2n.umu.se``     
+      - Kebnekaise through ThinLinc, use: ``<user>@kebnekaise-tl.hpc2n.umu.se``
+   
+      - Create a working directory where you can code along. We recommend creating it under the course project storage directory
+   
+       - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
+     
+         /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
+         
+
+.. tabs::
+
+   .. code-tab:: py
+
+      import bisect
+      a = 1 + 2
+
+   .. code-tab:: r R
+
+      library(x)
+      a <- 1 + 2
+
+
 What is python?
 ---------------
 
