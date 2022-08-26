@@ -49,20 +49,7 @@ Introduction
 .. admonition:: Prepare your environment now!
   
    - Please log in to Rackham, Kebnekaise or other cluster that you are using 
-     
-     - Rackham: ``ssh <user>@rackham.uppmax.uu.se`` 
-     - Kebnekaise: ``<user>@kebnekaise.hpc2n.umu.se``     
-     - Kebnekaise through ThinLinc, use: ``<user>@kebnekaise-tl.hpc2n.umu.se``
-     
-   - Create a working directory where you can code along. We recommend creating it under the course project storage directory
-   
-     - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
-     
-         /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
-         
-     - Example. If your username is mrspock and you are at UPPMAX, this we recommend you create this folder: 
-     
-         /proj/nobackup/snic2022-22-641/mrspock/pythonUPPMAX
+
     
 .. tabs::
 
@@ -89,18 +76,6 @@ Introduction
          /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
          
 
-.. tabs::
-
-   .. code-tab:: py
-
-      import bisect
-      a = 1 + 2
-
-   .. code-tab:: r R
-
-      library(x)
-      a <- 1 + 2
-
 
 What is python?
 ---------------
@@ -125,7 +100,9 @@ More python?
 - General introduction to Python at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2022/
 - **This course:** Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in September. More info to come!
 
+.. tabs::
 
+   .. tab:: UPPMAX
 Python at UPPMAX
 ----------------
 
