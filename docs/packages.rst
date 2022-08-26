@@ -70,6 +70,39 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
 **NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them here: https://uppmax.github.io/HPC-python/intro.html#python-at-hpc2n or find more as mentioned above, using ``module spider -r ....```
 
+What packages do we have ? Below we list a secton of packages
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+	The python application at UPPMAX comes with several preinstalled packages.
+	A selection of the Python packages and libraries installed on UPPMAX are:
+	  - ``Numpy``
+	  - ``Pandas``
+ 	  - ``Scipy``
+	  - ``Matplotlib``
+	  - ``Jupyter notebook``
+	  - ``pip``
+	  - ``cython``
+	  - ``ipython``
+	  - ``networkx``
+	  - ``graphviz/0.16``
+	In addition there are packages available form the module system
+  	  - ``biopython``
+  	  - ``python_ML_packages``
+    	  - ``sklearn/scikit-learn``
+	  - ``TensorFlow`` 
+	  - ``torch``
+    	  - ``mpi``
+    	  - ``mpi4py``
+  	  - ``bwa``
+  	  - ``Graphviz/2.40.1``
+  	  - ``HiChipper``
+  	  - ``Homer``
+  	  - ``pysam``
+	
+
 Install with pip
 ----------------
 
