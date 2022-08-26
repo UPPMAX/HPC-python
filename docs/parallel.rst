@@ -688,7 +688,6 @@ example,
     ml GCC/11.2.0 OpenMPI/4.1.1
     #ml Julia/1.7.1-linux-x86_64  # if Julia is needed
       
-    virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
     source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
        
     mpirun -np 4 python mpi-pi-calculation.py

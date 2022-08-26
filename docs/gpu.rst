@@ -272,7 +272,6 @@ We need a batch script to run this Python code, an example script is here:
     ml GCC/11.2.0 OpenMPI/4.1.1
     ml CUDA/11.4.1
     
-    virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
     source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
        
     python integration2d_gpu.py
