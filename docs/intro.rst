@@ -100,20 +100,7 @@ More python?
 - General introduction to Python at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2022/
 - **This course:** Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in September. More info to come!
 
-
-.. questions:: 
-
-    - What to do if you need other packages?
-    - How does it work on Bianca without internet?
-    - What if I have projects with different requirements in terms of python and packages versions?
     
-.. objectives:: 
-
-    We will:
-    
-    - guide through the python ecosystem on UPPMAX
-    - look at the package handlers **pip** and **conda**
-    - explain how to create isolated environment 
 
 .. warning:: 
    At both HPC2N UPPMAX we call the applications available via the *module system* **modules**. 
@@ -121,8 +108,6 @@ More python?
    https://www.hpc2n.umu.se/documentation/environment/lmod
    
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
-
-
 
 .. questions:: 
 
@@ -135,16 +120,12 @@ More python?
 
     We will:
     
-    - teach you how to navigate the module system at HPC2N
+    - teach you how to navigate the module system at HPC2N and UPPMAX
     - show you how to find out which versions of Python and packages are installed
-    - look at the package handler **pip** 
+    - look at the package handler **pip** (and **Conda** for UPPMAX)
     - explain how to create and use virtual environments
     - show you how to run batch jobs 
+    - show some examples with parallel computing and using GPUs
+    - guide you in how to **enable(?)** Python tools for Machine Learning
+    -
 
-.. admonition:: Outline
-
-   - Loading and running Python
-   - Packages/modules
-   - How to install packages
-   - Isolated/virtual environments
-   - Parallel Python 
