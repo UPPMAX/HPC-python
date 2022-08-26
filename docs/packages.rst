@@ -70,7 +70,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
 **NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them here: https://uppmax.github.io/HPC-python/intro.html#python-at-hpc2n or find more as mentioned above, using ``module spider -r ....```
 
-What packages do we have ? Below we list a secton of packages
+A selection of the Python packages and libraries installed on HPC2N are:
 
 .. tabs::
 
@@ -101,7 +101,29 @@ What packages do we have ? Below we list a secton of packages
   	  - ``HiChipper``
   	  - ``Homer``
   	  - ``pysam``
-	
+
+   .. tab:: HPC2N
+
+	The python application at HPC2N comes with several preinstalled packages - check first before installing yourself!. HPC2N has both Python 2.7.x and Python 3.x installed. We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.9.5
+
+	NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: https://www.hpc2n.umu.se/documentation/guides/anaconda
+
+
+	These are all installed as **modules** and need to be loaded before use.    - ASE
+   	- Keras
+   	- PyTorch
+   	- SciPy-bundle (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
+   	- TensorFlow
+   	- Theano
+   	- matplotlib
+   	- scikit-learn
+   	- scikit-image
+   	- pip
+   	- iPython
+   	- Cython
+   	- Flask
+
+
 
 Install with pip
 ----------------
