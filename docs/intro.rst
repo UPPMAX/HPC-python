@@ -126,6 +126,6 @@ More python?
     - explain how to create and use virtual environments
     - show you how to run batch jobs 
     - show some examples with parallel computing and using GPUs
-    - guide you in how to **enable(?)** Python tools for Machine Learning
-    -
+    - guide you in how to start Python tools for Machine Learning
+ 
 
