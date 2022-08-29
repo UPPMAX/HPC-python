@@ -72,8 +72,8 @@ Preliminary schedule
    interactive.md
    batch.md
    parallel.rst
-   ml.md
    gpu.md
+   ml.md
    summary.rst
    
 .. toctree::
