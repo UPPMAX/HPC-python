@@ -1,6 +1,22 @@
 On Kebnekaise cluster
 =====================
 
+.. questions::
+
+   - What syntax is used to make a lesson?
+   - How do you structure a lesson effectively for teaching?
+
+   ``questions`` are at the top of a lesson and provide a starting
+   point for what you might learn.  It is usually a bulleted list.
+   (The history is a holdover from carpentries-style lessons, and is
+   not required.)
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+
+
 There are a few things that are different when using Python on the Kebnekaise cluster compared to the UPPMAX clusters: 
 
 - Anaconda/conda/miniconda are NOT recommended and are not supported. You *can* use it, but we generally ask our users to not install Anaconda on our clusters. We recommand that you consider other options like a virtual environment (or a Singularity container, for the most complicated cases). More information here: https://www.hpc2n.umu.se/documentation/guides/anaconda 
@@ -48,3 +64,9 @@ Use
 as the server in the ThinLinc login. 
 
 There is a guide for you to follow here: https://www.hpc2n.umu.se/documentation/guides/thinlinc 
+
+
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
