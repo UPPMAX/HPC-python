@@ -1,9 +1,15 @@
 Load and run python
 ===================
 
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+
 At both UPPMAX and HPC2N we call the applications available via the module system modules. 
     - https://www.uppmax.uu.se/resources/software/module-system/ 
     - https://www.hpc2n.umu.se/documentation/environment/lmod 
+
 
 .. admonition:: Short cheat sheet
     :class: dropdown 
@@ -321,6 +327,9 @@ The command ``pip list`` given within Python will list the available modules to 
 More about virtual/isolated environment to follow in later sections of the course! 
 
 
+.. keypoints::
 
+   - What the learner should take away
+   - point 2
     
 
