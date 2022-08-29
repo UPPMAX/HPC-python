@@ -1,6 +1,21 @@
 Packages
 ========
 
+.. questions::
+
+   - What syntax is used to make a lesson?
+   - How do you structure a lesson effectively for teaching?
+
+   ``questions`` are at the top of a lesson and provide a starting
+   point for what you might learn.  It is usually a bulleted list.
+   (The history is a holdover from carpentries-style lessons, and is
+   not required.)
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+
 - Python **packages broaden the use of python** to almost infinity! 
 
 - Instead of writing code yourself there may be others that have done the same!
@@ -140,3 +155,7 @@ Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
 
 At HPC2N we HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python. more information will follow later in this course (https://uppmax.github.io/HPC-python/isolated.html). 
 
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
