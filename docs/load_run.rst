@@ -157,6 +157,11 @@ Load specific version (recommendation for reproducibility) with:
     
     + You can run two python modules at the same time if ONE of the module is ``python/2.X.Y`` and the other module is ``python3/3.X.Y`` (not ``python/3.X.Y``).
     
+
+
+
+
+
 Load (HPC2N)
 ------------
 For reproducibility, at HPC2N we recommend ALWAYS loading a specific module instad of using the default version! 
@@ -204,24 +209,65 @@ Example for Python 3.9.5
 Run
 ---
 
-Running Python script
+Run Python script
 #####################
 
-.. code-block:: sh
-
-    $ python example.py
-
-or, if you loaded a python3 module:
+    
+You can run a python script in the shell like this:
 
 .. code-block:: sh
 
-    $ python3 example.py
+   $ python example.py
+
+or, if you loaded a python3 module, you can use:
+
+.. code-block:: sh
+
+   $ python3 example.py
+
+since python is a symbolic link to python3 in this case. 
+
+NOTE: *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system!
+    
+More information will follow later in the course on running Python from within a **batch job**. 
+
+
+Run in interactive
+##################
 
 You start a python session/prompt ( >>> ) by typing:
 
 .. code-block:: sh
 
     $ python  # or python3
+    
+For more interactiveness you can use ipython
+
+.. code-block:: sh
+
+    $ ipython 
+    
+or 
+
+.. code-block:: sh
+
+    $ ipython3 
+    
+At HPC2N: NOTE: remember to load an IPython module first. You can see possible modules with 
+
+.. code-block:: sh
+
+    $ module spider IPython
+
+Exit Python with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
+
+.. code-block:: python
+
+    >>> <Ctrl-D>
+    >>> quit()
+    >>> exit()
+
+
 
 .. tabs::
 
@@ -249,20 +295,6 @@ The command ``pip list`` given within Python will list the available modules to 
 
 More about virtual/isolated environment to follow in later sections of the course! 
 
-For interactive Python, IPython, start a session with 
-
-.. code-block:: sh
-
-    $ ipython 
-    
-or 
-
-.. code-block:: sh
-
-    $ ipython3 
-    
-NOTE: remember to load an IPython module first. You can see possible modules with 
-
 .. code-block:: sh
 
     $ module spider IPython
@@ -271,40 +303,8 @@ NOTE: remember to load an IPython module first. You can see possible modules wit
 More information will follow later in the course on running Python from within a **batch job**. 
 
 
-Exit with <Ctrl-D>, "quit()" or 'exit()’ in python prompt
-
-.. code-block:: python
-
-    >>> <Ctrl-D>
-    >>> quit()
-    >>> exit()
 
 
-You can run a python script in the shell like this:
-
-.. code-block:: sh
-
-   $ python example.py
-
-or, if you loaded a python3 module, you can use:
-
-.. code-block:: sh
-
-   $ python3 example.py
-
-since python is a symbolic link to python3 in this case. 
-
-NOTE: *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system!
-
-
-
-Exit Python with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
-
-.. code-block:: python
-
-    >>> <Ctrl-D>
-    >>> quit()
-    >>> exit()
 
 In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
 
@@ -320,23 +320,7 @@ The command ``pip list`` given within Python will list the available modules to 
 
 More about virtual/isolated environment to follow in later sections of the course! 
 
-For interactive Python, IPython, start a session with 
 
-.. code-block:: sh
 
-    $ ipython 
-    
-or 
-
-.. code-block:: sh
-
-    $ ipython3 
-    
-NOTE: remember to load an IPython module first. You can see possible modules with 
-
-.. code-block:: sh
-
-    $ module spider IPython
     
 
-More information will follow later in the course on running Python from within a **batch job**. 
