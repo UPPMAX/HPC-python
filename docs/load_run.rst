@@ -162,10 +162,9 @@ For this course, we recommend using Python 3.9.5
 
 .. warning::
 
-    UPPMAX:
-    + UPPMAX: Don’t use system-installed python/2.7.5
-    + HPC2N: Don’t use system-installed python/2.7.18
-    + ALWAYS use python module
+   + UPPMAX: Don’t use system-installed python/2.7.5
+   + HPC2N: Don’t use system-installed python/2.7.18
+   + ALWAYS use python module
 
 .. admonition:: UPPMAX: Why are there both python/3.X.Y and python3/3.X.Y modules?
 
@@ -174,28 +173,6 @@ For this course, we recommend using Python 3.9.5
     
     + You can run two python modules at the same time if ONE of the module is ``python/2.X.Y`` and the other module is ``python3/3.X.Y`` (not ``python/3.X.Y``).
     
-
-
-
-
-
-
-To see how to load a specific version of Python, including the prerequisites, do 
-
-.. code-block:: sh
-   
-   $ module spider Python/<version>
-
-Example for Python 3.9.5
-
-.. code-block:: sh
-
-   $ module spider Python/3.9.6
-
-.. warning::
-
-    + Do not use the system-installed Python 2.7.18
-    + ALWAYS use a Python module
 
 .. admonition:: Why are there both Python/2.X.Y and Python/3.Z.W modules?
 
@@ -226,34 +203,6 @@ NOTE: *only* run jobs that are short and/or do not use a lot of resources from t
     
 More information will follow later in the course on running Python from within a **batch job**. 
 
-
-Run in interactive
-##################
-
-You start a python session/prompt ( >>> ) by typing:
-
-.. code-block:: sh
-
-    $ python  # or python3
-    
-For more interactiveness you can use ipython
-
-.. code-block:: sh
-
-    $ ipython 
-    
-or 
-
-.. code-block:: sh
-
-    $ ipython3 
-    
-At HPC2N: NOTE: remember to load an IPython module first. You can see possible modules with 
-
-.. code-block:: sh
-
-    $ module spider IPython
-
 Exit Python with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
 
 .. code-block:: python
@@ -263,41 +212,53 @@ Exit Python with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
     >>> exit()
 
 
+Run an interactive Python shell
+###############################
+
+For more interactiveness you can run Ipython
 
 .. tabs::
 
    .. tab:: UPPMAX
 
-      #for interactive 
+      .. code-block:: sh
+
+         $ ipython 
+    
+      or 
+
+      .. code-block:: sh
+
+         $ ipython3 
+    
+   .. tab:: HPC2N
+      
+      NOTE: remember to load an IPython module first. You can see possible modules with 
+
+      .. code-block:: sh
+
+         $ module spider IPython
+         
+      Then start Ipython with:
       
       .. code-block:: sh
-    
-         $ ipython # or ipython3 
 
-   .. tab:: HPC2N
-
-In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
-
-1) Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
-2) Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
-3) Activate your virtual environment (optional): ``source <path-to-virt-env>/bin/activate``
-4) Install any extra Python packages (optional): ``pip install --no-cache-dir --no-build-isolation <python-package>``
-5) Start Python: ``python``
-
-Installed Python modules (modules and own-installed) can be accessed within Python with ``import <package>`` as usual. 
-
-The command ``pip list`` given within Python will list the available modules to import. 
-
-More about virtual/isolated environment to follow in later sections of the course! 
-
-.. code-block:: sh
-
-    $ module spider IPython
-    
-
-More information will follow later in the course on running Python from within a **batch job**. 
+         $ ipython 
 
 
+Exit Python or IPython with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
+
+.. code-block:: ipython
+
+    In [2]: <Ctrl-D>
+    In [12]: quit()
+    In [17]: exit()
+
+.. code-block:: python
+
+    In [2]: <Ctrl-D>
+    In [12]: quit()
+    In [17]: exit()
 
 
 
@@ -314,6 +275,9 @@ Installed Python modules (modules and own-installed) can be accessed within Pyth
 The command ``pip list`` given within Python will list the available modules to import. 
 
 More about virtual/isolated environment to follow in later sections of the course! 
+
+
+    
 
 
 .. keypoints::
