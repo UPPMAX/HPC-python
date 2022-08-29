@@ -20,22 +20,53 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
 - For reproducibility reasons, you should always load a specific version of a module instead of just the default version
 - Many modules have prerequisite modules which needs to be loaded first (at HPC2N this is also the case for the Python modules). When doing ``module spider <module>/<version>`` you will get a list of which other modules needs to be loaded first
 
+.. tabs::
 
-Load (UPPMAX)
--------------
-Load latest python module by:
+   .. tab:: UPPMAX
 
-.. code-block:: sh
+      Load latest python module by:
 
-    $ module load python
+      .. code-block:: sh
+
+        $ module load python
     
-Check all available versions with:
+      Check all available versions with:
 
-.. code-block:: sh
+      .. code-block:: sh
 
-    $ module available python
+          $ module available python
 
-.. admonition:: Output as of March 9 2022
+
+
+   .. tab:: HPC2N
+
+      For reproducibility, at HPC2N we recommend ALWAYS loading a specific module instad of using the default version! 
+
+      For this course, we recommend using Python 3.9.5 at HPC2N. To load this version, load the prerequisites and then the module: 
+
+      .. code-block:: sh
+
+         $ module load GCC/10.3.0 Python/3.9.5
+
+      For short, you can also use: 
+
+      .. code-block:: sh
+
+        $ ml GCC/10.3.0 Python/3.9.5
+
+      Check all available version Python versions with:
+
+      .. code-block:: sh
+ 
+         $ module spider Python
+
+     
+
+
+
+
+
+.. admonition:: Output at UPPMAX as of March 9 2022
     :class: dropdown
     
     .. prompt::  text
