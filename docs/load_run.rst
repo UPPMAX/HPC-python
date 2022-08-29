@@ -20,6 +20,85 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
 - For reproducibility reasons, you should always load a specific version of a module instead of just the default version
 - Many modules have prerequisite modules which needs to be loaded first (at HPC2N this is also the case for the Python modules). When doing ``module spider <module>/<version>`` you will get a list of which other modules needs to be loaded first
 
+
+Check for Python versions
+-------------------------
+
+     Check all available versions with:
+
+      .. code-block:: sh
+
+          $ module available python
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+
+
+   .. tab:: HPC2N
+
+.. admonition:: Output at UPPMAX as of March 9 2022
+    :class: dropdown
+    
+    .. prompt::  text
+    
+        -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
+           python_ML_packages/3.9.5    wrf-python/1.3.1
+
+        --------------------------------------- /sw/mf/rackham/compilers ----------------------------------------
+           python/2.7.6     python/3.3      python/3.6.0    python/3.9.5  (D)    python3/3.8.7
+           python/2.7.9     python/3.3.1    python/3.6.8    python3/3.6.0        python3/3.9.5 (D)
+           python/2.7.11    python/3.4.3    python/3.7.2    python3/3.6.8
+           python/2.7.15    python/3.5.0    python/3.8.7    python3/3.7.2
+
+          Where:
+          D:  Default Module
+
+        Use module spider" to find all possible modules and extensions.
+        Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
+
+.. admonition:: Output at HPC2N as of 27 July 2022
+    :class: dropdown
+
+        .. code-block:: tcl
+
+           b-an01 [~]$ module spider Python
+           ----------------------------------------------------------------------------
+           Python:
+           ----------------------------------------------------------------------------
+           Description:
+               Python is a programming language that lets you work more quickly and
+               integrate your systems more effectively.
+    
+            Versions:
+                Python/2.7.15   
+                Python/2.7.16  
+                Python/2.7.18-bare 
+                Python/2.7.18  
+                Python/3.7.2   
+                Python/3.7.4   
+                Python/3.8.2   
+                Python/3.8.6   
+                Python/3.9.5-bare  
+                Python/3.9.5   
+                Python/3.9.6-bare  
+                Python/3.9.6   
+            Other possible modules matches:
+                Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
+           ----------------------------------------------------------------------------
+           To find other possible module matches execute:
+               $ module -r spider '.*Python.*'
+           ----------------------------------------------------------------------------
+           For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
+               Note that names that have a trailing (E) are extensions provided by other modules.
+       
+           For example:
+            $ module spider Python/3.9.6
+           ----------------------------------------------------------------------------
+
+
+
 .. tabs::
 
    .. tab:: UPPMAX
@@ -30,14 +109,7 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
 
         $ module load python
     
-      Check all available versions with:
-
-      .. code-block:: sh
-
-          $ module available python
-
-
-
+ 
    .. tab:: HPC2N
 
       For reproducibility, at HPC2N we recommend ALWAYS loading a specific module instad of using the default version! 
@@ -65,26 +137,6 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
 
 
 
-
-.. admonition:: Output at UPPMAX as of March 9 2022
-    :class: dropdown
-    
-    .. prompt::  text
-    
-        -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
-           python_ML_packages/3.9.5    wrf-python/1.3.1
-
-        --------------------------------------- /sw/mf/rackham/compilers ----------------------------------------
-           python/2.7.6     python/3.3      python/3.6.0    python/3.9.5  (D)    python3/3.8.7
-           python/2.7.9     python/3.3.1    python/3.6.8    python3/3.6.0        python3/3.9.5 (D)
-           python/2.7.11    python/3.4.3    python/3.7.2    python3/3.6.8
-           python/2.7.15    python/3.5.0    python/3.8.7    python3/3.7.2
-
-          Where:
-          D:  Default Module
-
-        Use module spider" to find all possible modules and extensions.
-        Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 
 
 Load specific version (recommendation for reproducibility) with:
@@ -127,44 +179,6 @@ Check all available version Python versions with:
  
    $ module spider Python
 
-.. admonition:: Output as of 27 July 2022
-    :class: dropdown
-
-        .. code-block:: tcl
-
-           b-an01 [~]$ module spider Python
-           ----------------------------------------------------------------------------
-           Python:
-           ----------------------------------------------------------------------------
-           Description:
-               Python is a programming language that lets you work more quickly and
-               integrate your systems more effectively.
-    
-            Versions:
-                Python/2.7.15   
-                Python/2.7.16  
-                Python/2.7.18-bare 
-                Python/2.7.18  
-                Python/3.7.2   
-                Python/3.7.4   
-                Python/3.8.2   
-                Python/3.8.6   
-                Python/3.9.5-bare  
-                Python/3.9.5   
-                Python/3.9.6-bare  
-                Python/3.9.6   
-            Other possible modules matches:
-                Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
-           ----------------------------------------------------------------------------
-           To find other possible module matches execute:
-               $ module -r spider '.*Python.*'
-           ----------------------------------------------------------------------------
-           For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
-               Note that names that have a trailing (E) are extensions provided by other modules.
-       
-           For example:
-            $ module spider Python/3.9.6
-           ----------------------------------------------------------------------------
 
 To see how to load a specific version of Python, including the prerequisites, do 
 
@@ -187,10 +201,11 @@ Example for Python 3.9.5
 
     Some existing software might use `Python2` and some will use `Python3`. Some of the Python packages have both `Python2` and `Python3` versions. Check what your software as well as the installed modules need when you pick!   
 
-Run (UPPMAX)
-------------
+Run
+---
 
-You can run a python script in the shell like this:
+Running Python script
+#####################
 
 .. code-block:: sh
 
@@ -208,9 +223,54 @@ You start a python session/prompt ( >>> ) by typing:
 
     $ python  # or python3
 
-    #for interactive 
-    ipython # or ipython3 
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      #for interactive 
+      
+      .. code-block:: sh
     
+         $ ipython # or ipython3 
+
+   .. tab:: HPC2N
+
+In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
+
+1) Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
+2) Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
+3) Activate your virtual environment (optional): ``source <path-to-virt-env>/bin/activate``
+4) Install any extra Python packages (optional): ``pip install --no-cache-dir --no-build-isolation <python-package>``
+5) Start Python: ``python``
+
+Installed Python modules (modules and own-installed) can be accessed within Python with ``import <package>`` as usual. 
+
+The command ``pip list`` given within Python will list the available modules to import. 
+
+More about virtual/isolated environment to follow in later sections of the course! 
+
+For interactive Python, IPython, start a session with 
+
+.. code-block:: sh
+
+    $ ipython 
+    
+or 
+
+.. code-block:: sh
+
+    $ ipython3 
+    
+NOTE: remember to load an IPython module first. You can see possible modules with 
+
+.. code-block:: sh
+
+    $ module spider IPython
+    
+
+More information will follow later in the course on running Python from within a **batch job**. 
+
+
 Exit with <Ctrl-D>, "quit()" or 'exit()’ in python prompt
 
 .. code-block:: python
@@ -219,8 +279,6 @@ Exit with <Ctrl-D>, "quit()" or 'exit()’ in python prompt
     >>> quit()
     >>> exit()
 
-Run (HPC2N)
-------------
 
 You can run a python script in the shell like this:
 
@@ -238,17 +296,7 @@ since python is a symbolic link to python3 in this case.
 
 NOTE: *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system!
 
-You start a python session/prompt ( >>> ) by typing:
 
-.. code-block:: sh
-
-    $ python  
-    
-or 
-    
-.. code-block:: sh
-
-    $ python3
 
 Exit Python with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
 
