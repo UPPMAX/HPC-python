@@ -1,7 +1,22 @@
 Using Python for Machine Learning jobs
 ======================================
 
-While Python does not run fast, it is still well suited for machine learning. However, it is fairly easy to code in, and this is particularly useful in machine learning where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for machine learning in Python, making it a good choice for this area. 
+.. questions::
+
+   - What syntax is used to make a lesson?
+   - How do you structure a lesson effectively for teaching?
+
+   ``questions`` are at the top of a lesson and provide a starting
+   point for what you might learn.  It is usually a bulleted list.
+   (The history is a holdover from carpentries-style lessons, and is
+   not required.)
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+   
+   While Python does not run fast, it is still well suited for machine learning. However, it is fairly easy to code in, and this is particularly useful in machine learning where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for machine learning in Python, making it a good choice for this area. 
 
 Some of the most used libraries in Python for machine learning are: 
 
@@ -231,3 +246,8 @@ This example shows how you would run several programs or variations of programs 
             cp myoutput3 mydatadir
 
 
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
+    
