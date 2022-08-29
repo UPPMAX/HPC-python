@@ -69,7 +69,7 @@ Check for Python versions
 .. admonition:: Output at UPPMAX as of March 9 2022
    :class: dropdown
     
-       .. prompt::  text
+       .. coe-block::  tcl
     
           -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
            python_ML_packages/3.9.5    wrf-python/1.3.1
@@ -142,13 +142,13 @@ For this course, we recommend using Python 3.9.5
 
         $ module load python/3.9.5
         
+      Note: Lowercase ``p``.
       For short, you can also use: 
 
       .. code-block:: sh
 
          $ ml python/3.9.5
 
-      Note: Lowercase `p`    
  
    .. tab:: HPC2N
 
@@ -157,7 +157,7 @@ For this course, we recommend using Python 3.9.5
 
          $ module load GCC/10.3.0 Python/3.9.5
 
-      Note: Uppercase `p`    
+      Note: Uppercase ``P``.   
       For short, you can also use: 
 
       .. code-block:: sh
