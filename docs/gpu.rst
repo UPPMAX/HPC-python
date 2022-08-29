@@ -1,6 +1,21 @@
 Using GPUs with Python
 ======================
 
+.. questions::
+
+   - What syntax is used to make a lesson?
+   - How do you structure a lesson effectively for teaching?
+
+   ``questions`` are at the top of a lesson and provide a starting
+   point for what you might learn.  It is usually a bulleted list.
+   (The history is a holdover from carpentries-style lessons, and is
+   not required.)
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+
 Not every Python program is suitable for GPU acceleration. GPUs processes simple functions very fast, and are best suited for repetitive and highly-parallel computing tasks. 
 
 GPUs are originally designed to render high-resolution images and video concurrently and fast, but since they can perform parallel operations on multiple sets of data, they are also often used for other, non-graphical tasks. Common uses are machine learning and scientific computation were the GPUs can take advantage of massive parallelism. 
@@ -278,3 +293,8 @@ We need a batch script to run this Python code, an example script is here:
 
 The simulation time for this problem's size
 was 1.87 sec. 
+
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
