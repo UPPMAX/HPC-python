@@ -1,6 +1,21 @@
 On Bianca cluster
 -----------------
 
+.. questions::
+
+   - What syntax is used to make a lesson?
+   - How do you structure a lesson effectively for teaching?
+
+   ``questions`` are at the top of a lesson and provide a starting
+   point for what you might learn.  It is usually a bulleted list.
+   (The history is a holdover from carpentries-style lessons, and is
+   not required.)
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+
 .. Note::
 
     Bianca has no Internet! ``pip`` will not work!
@@ -39,3 +54,8 @@ On Bianca cluster
         tar xfz <tarfile.tar.gz> #if there is a tar file!		
 	mv –a  <file(s)> ~/.local/lib/python<version>/site-packages/ 
 
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
+   
