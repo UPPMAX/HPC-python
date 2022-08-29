@@ -1,6 +1,26 @@
 Isolated environments
 =====================
 
+.. questions::
+
+   - What syntax is used to make a lesson?
+   - How do you structure a lesson effectively for teaching?
+
+   ``questions`` are at the top of a lesson and provide a starting
+   point for what you might learn.  It is usually a bulleted list.
+   (The history is a holdover from carpentries-style lessons, and is
+   not required.)
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+
+At both UPPMAX and HPC2N we call the applications available via the module system modules. 
+    - https://www.uppmax.uu.se/resources/software/module-system/ 
+    - https://www.hpc2n.umu.se/documentation/environment/lmod 
+    
+    
 .. note::
    Isolated environments solve a couple of problems:
    
@@ -40,3 +60,8 @@ More info
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
 
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
+   
