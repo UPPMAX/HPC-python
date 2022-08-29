@@ -253,7 +253,7 @@ For more interactiveness you can run Ipython
          $ module spider IPython
          $ ml IPython/7.25.0
          
-      Then start Ipython with (lowecase):
+      Then start Ipython with (lowercase):
       
       .. code-block:: sh
 
