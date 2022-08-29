@@ -238,8 +238,9 @@ For more interactiveness you can run Ipython
       .. code-block:: sh
 
          $ module spider IPython
+         $ ml IPython/7.25.0
          
-      Then start Ipython with:
+      Then start Ipython with (lowecase):
       
       .. code-block:: sh
 
@@ -254,11 +255,6 @@ Exit Python or IPython with <Ctrl-D>, "quit()" or 'exit()’ in the python promp
     In [12]: quit()
     In [17]: exit()
 
-.. code-block:: python
-
-    In [2]: <Ctrl-D>
-    In [12]: quit()
-    In [17]: exit()
 
 
 
