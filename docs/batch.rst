@@ -1,6 +1,22 @@
 Running Python in batch mode
 ============================
 
+.. questions::
+
+   - What syntax is used to make a lesson?
+   - How do you structure a lesson effectively for teaching?
+
+   ``questions`` are at the top of a lesson and provide a starting
+   point for what you might learn.  It is usually a bulleted list.
+   (The history is a holdover from carpentries-style lessons, and is
+   not required.)
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+
+
 Any longer, resource-intensive, or parallel jobs must be run through a **batch script**.
 
 The batch system used at both UPPMAX and HPC2N is called SLURM. 
@@ -143,3 +159,8 @@ Exercises
             # Run your Python script 
             python sum-2args.py 2 3 
 
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
+    
