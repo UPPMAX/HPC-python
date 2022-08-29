@@ -1,6 +1,21 @@
 Conda
 =====
 
+.. questions::
+
+   - What syntax is used to make a lesson?
+   - How do you structure a lesson effectively for teaching?
+
+   ``questions`` are at the top of a lesson and provide a starting
+   point for what you might learn.  It is usually a bulleted list.
+   (The history is a holdover from carpentries-style lessons, and is
+   not required.)
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+
 Install with conda (UPPMAX)
 ---------------------------
 
@@ -110,4 +125,8 @@ More info
 https://uppmax.uu.se/support/user-guides/conda-user-guide/ 
 
 
+.. keypoints::
 
+   - What the learner should take away
+   - point 2
+    
