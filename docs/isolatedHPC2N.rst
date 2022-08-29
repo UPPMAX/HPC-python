@@ -188,3 +188,9 @@ This approach is more advanced and should be, in our opinion, used only if the a
 This approach allows you to install your **own python version** and much more… 
 
 Have a look on this manual https://www.uppmax.uu.se/support/user-guides/python-modules-guide/
+
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
+    
