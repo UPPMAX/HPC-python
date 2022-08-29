@@ -234,6 +234,15 @@ For more interactiveness you can run Ipython
       .. code-block:: sh
 
          $ ipython3 
+         
+       UPPMAX has also ``jupyter-notebook`` installed and available from the loaded Python module. Start with
+       
+      .. code-block:: sh
+
+         $ jupyter-notebook 
+         
+      More info to be given in UPPMAX session.
+       
     
    .. tab:: HPC2N
       
@@ -278,7 +287,7 @@ Exit Python or IPython with <Ctrl-D>, "quit()" or 'exit()’ in the python promp
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
+   - Before you can run Python scripts or work in a Python shell, first load a python module.
+   - Start a Python shell session either with ``python`` or ``ipython``
     
 
