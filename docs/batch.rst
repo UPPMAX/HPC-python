@@ -76,6 +76,16 @@ Serial code
             # Run your Python script 
             python <my_program.py>
             
+.. tabs::
+
+   .. tab:: UPPMAX
+
+
+
+   .. tab:: HPC2N
+
+            
+            
             
 Serial code + self-installed package in virt. env. 
 ''''''''''''''''''''''''''''''''''''''''''''''''''
