@@ -60,3 +60,8 @@ Everytime you need the tools available in the virtual environment you activate i
 
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
+    
