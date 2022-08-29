@@ -25,6 +25,18 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
 - As an interactive job on the computer nodes, launched via the batch system
 - Jupyter notebooks (UPPMAX suggests installing your own version with conda, HPC2N asks you to contact their support for help) 
 
+.. tabs::
+
+   .. tab:: UPPMAX
+
+
+
+   .. tab:: HPC2N
+
+
+
+
+
 UPPMAX
 ------
 
