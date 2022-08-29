@@ -105,6 +105,16 @@ We can ignore the comment about pip. The package was successfully installed. now
                  
 As before, we need a batch script to run the code. There are no GPUs on the login node. 
 
+.. tabs::
+
+   .. tab:: UPPMAX
+
+
+
+   .. tab:: HPC2N
+
+
+
 .. admonition:: Batch script to run the numba code (add-list.py) at Kebnekaise 
     :class: dropdown
    
