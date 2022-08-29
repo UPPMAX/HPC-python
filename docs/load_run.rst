@@ -23,6 +23,10 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
     - More information about a module: ``module show <module>/<version>`` or ``ml show <module>/<version>``
     - Unload all modules except the 'sticky' modules: ``module purge`` or ``ml purge``
     
+.. warning::
+   Note that the module systems at UPPMAX and HPC2 are slightly different. While all modules at UPPMAX not directly related to bio-informatics are shown by `ml avail`, modules at HPC2N are hidden until one has loaded a prerequisity like the compiler `GCC`.
+
+
 - For reproducibility reasons, you should always load a specific version of a module instead of just the default version
 - Many modules have prerequisite modules which needs to be loaded first (at HPC2N this is also the case for the Python modules). When doing ``module spider <module>/<version>`` you will get a list of which other modules needs to be loaded first
 
@@ -255,25 +259,21 @@ Exit Python or IPython with <Ctrl-D>, "quit()" or 'exit()’ in the python promp
     In [12]: quit()
     In [17]: exit()
 
+.. admonition:: To be merged or moved to packages
 
+   In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
 
+   1) Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
+   2) Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
+   3) Activate your virtual environment (optional): ``source <path-to-virt-env>/bin/activate``
+   4) Install any extra Python packages (optional): ``pip install --no-cache-dir --no-build-isolation <python-package>``
+   5) Start Python: ``python``
 
-In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
+   Installed Python modules (modules and own-installed) can be accessed within Python with ``import <package>`` as usual. 
 
-1) Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
-2) Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
-3) Activate your virtual environment (optional): ``source <path-to-virt-env>/bin/activate``
-4) Install any extra Python packages (optional): ``pip install --no-cache-dir --no-build-isolation <python-package>``
-5) Start Python: ``python``
+   The command ``pip list`` given within Python will list the available modules to import. 
 
-Installed Python modules (modules and own-installed) can be accessed within Python with ``import <package>`` as usual. 
-
-The command ``pip list`` given within Python will list the available modules to import. 
-
-More about virtual/isolated environment to follow in later sections of the course! 
-
-
-    
+   More about virtual/isolated environment to follow in later sections of the course! 
 
 
 .. keypoints::
