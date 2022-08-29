@@ -1,7 +1,25 @@
 Interactive work on the compute nodes
 =====================================
 
-There are several ways to run Python interactively
+.. questions::
+
+   - What syntax is used to make a lesson?
+   - How do you structure a lesson effectively for teaching?
+
+   ``questions`` are at the top of a lesson and provide a starting
+   point for what you might learn.  It is usually a bulleted list.
+   (The history is a holdover from carpentries-style lessons, and is
+   not required.)
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - show how to run Python scripts and start the Python commandline
+
+At both UPPMAX and HPC2N we call the applications available via the module system modules. 
+    - https://www.uppmax.uu.se/resources/software/module-system/ 
+    - https://www.hpc2n.umu.se/documentation/environment/lmod 
+    There are several ways to run Python interactively
 
 - Directly on the login nodes: **only** do this for short jobs that do not take a lot of resources
 - As an interactive job on the computer nodes, launched via the batch system
@@ -146,3 +164,10 @@ When you have finished using the allocation, either wait for it to end, or close
             salloc: Relinquishing job allocation 20174806
             salloc: Job allocation 20174806 has been revoked.
             b-an01 [~]$ 
+
+
+.. keypoints::
+
+   - What the learner should take away
+   - point 2
+    
