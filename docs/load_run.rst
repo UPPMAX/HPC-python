@@ -1,25 +1,15 @@
 Load and run python
 ===================
 
-.. questions::
-
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
-
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
-   
-.. objectives:: 
-
-   - Show how to load Python
-   - show how to run Python scripts and start the Python commandline
-
 At both UPPMAX and HPC2N we call the applications available via the module system modules. 
     - https://www.uppmax.uu.se/resources/software/module-system/ 
     - https://www.hpc2n.umu.se/documentation/environment/lmod 
 
+   
+.. objectives:: 
+
+   - Show how to load Python
+   - Show how to run Python scripts and start the Python commandline
 
 .. admonition:: Short cheat sheet
     :class: dropdown 
@@ -40,19 +30,37 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
 Check for Python versions
 -------------------------
 
-     Check all available versions with:
-
-      .. code-block:: sh
-
-          $ module available python
 
 .. tabs::
 
    .. tab:: UPPMAX
 
+     Check all available Python versions with:
+
+      .. code-block:: sh
+
+          $ module avail python
 
 
    .. tab:: HPC2N
+   
+      Check all available version Python versions with:
+
+      .. code-block:: sh
+ 
+         $ module spider Python
+      
+      To see how to load a specific version of Python, including the prerequisites, do 
+
+      .. code-block:: sh
+   
+      $ module spider Python/<version>
+
+      Example for Python 3.9.5
+
+      .. code-block:: sh
+
+      $ module spider Python/3.9.5 
 
 .. admonition:: Output at UPPMAX as of March 9 2022
     :class: dropdown
@@ -113,60 +121,53 @@ Check for Python versions
             $ module spider Python/3.9.6
            ----------------------------------------------------------------------------
 
+Load a Python module
+--------------------
 
+For reproducibility, we recommend ALWAYS loading a specific module instad of using the default version! 
+
+For this course, we recommend using Python 3.9.5
 
 .. tabs::
 
    .. tab:: UPPMAX
-
-      Load latest python module by:
+   
+   Go back and check whch Python modules were available. To load version 3.9.5, do:
 
       .. code-block:: sh
 
-        $ module load python
-    
+        $ module load python/3.9.5
+        
+      For short, you can also use: 
+
+      .. code-block:: sh
+
+        $ ml python/3.9.5
+
+      Note: Lowercase `p`    
  
    .. tab:: HPC2N
 
-      For reproducibility, at HPC2N we recommend ALWAYS loading a specific module instad of using the default version! 
-
-      For this course, we recommend using Python 3.9.5 at HPC2N. To load this version, load the prerequisites and then the module: 
-
+ 
       .. code-block:: sh
 
          $ module load GCC/10.3.0 Python/3.9.5
 
+      Note: Uppercase `p`    
       For short, you can also use: 
 
       .. code-block:: sh
 
         $ ml GCC/10.3.0 Python/3.9.5
 
-      Check all available version Python versions with:
-
-      .. code-block:: sh
- 
-         $ module spider Python
-
-     
-
-
-
-
-
-
-Load specific version (recommendation for reproducibility) with:
-
-.. code-block:: sh
-
-    $ module load python/X.Y.Z
-
 .. warning::
 
-    + Don’t use system-installed python/2.7.5
+    UPPMAX:
+    + UPPMAX: Don’t use system-installed python/2.7.5
+    + HPC2N: Don’t use system-installed python/2.7.18
     + ALWAYS use python module
 
-.. admonition:: Why are there both python/3.X.Y and python3/3.X.Y modules?
+.. admonition:: UPPMAX: Why are there both python/3.X.Y and python3/3.X.Y modules?
 
     Sometimes existing software might use `python2` and there's nothing you can do about that. In pipelines and other toolchains the different tools may together require both `python2` and `python3`.
     Here's how you handle that situation:
@@ -177,28 +178,6 @@ Load specific version (recommendation for reproducibility) with:
 
 
 
-
-Load (HPC2N)
-------------
-For reproducibility, at HPC2N we recommend ALWAYS loading a specific module instad of using the default version! 
-
-For this course, we recommend using Python 3.9.5 at HPC2N. To load this version, load the prerequisites and then the module: 
-
-.. code-block:: sh
-
-   $ module load GCC/10.3.0 Python/3.9.5
-
-For short, you can also use: 
-
-.. code-block:: sh
-
-    $ ml GCC/10.3.0 Python/3.9.5
-
-Check all available version Python versions with:
-
-.. code-block:: sh
- 
-   $ module spider Python
 
 
 To see how to load a specific version of Python, including the prerequisites, do 
