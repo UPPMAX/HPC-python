@@ -3,18 +3,16 @@ Running Python in batch mode
 
 .. questions::
 
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
+   - What is a batch job?
+   - How to make a batch job?
 
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
+   
    
 .. objectives:: 
 
-   - Show how to load Python
-   - show how to run Python scripts and start the Python commandline
+   - Short introduction to SLURM scheduler
+   - Show structure of a batch script
+   - Try example
 
 
 Any longer, resource-intensive, or parallel jobs must be run through a **batch script**.
@@ -171,6 +169,9 @@ Exercises
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
+   - The SLURM scheduler handles allocations to the calculation nodes
+   - Interactive sessions was presented in last slide
+   - Batch jobs runs without interaction with user
+   - A batch script consists of a part with SLURM parameters describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
+      - Python scripts must not ask for input not already given in the batch script.
     
