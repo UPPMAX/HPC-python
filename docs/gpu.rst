@@ -278,3 +278,10 @@ We need a batch script to run this Python code, an example script is here:
 
 The simulation time for this problem's size
 was 1.87 sec. 
+
+
+Additional information
+----------------------
+         
+* `Numba documentation examples <http://numba.pydata.org/numba-doc/latest/cuda/examples.html>`_
+* `New York University CUDA/Numba lesson  <https://nyu-cds.github.io/python-numba/05-cuda/>`_
