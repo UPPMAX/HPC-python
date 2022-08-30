@@ -1,20 +1,26 @@
 Packages
 ========
 
+.. admonition:: Python modules AKA Python packages
+
+   - Python **packages broaden the use of python** to almost infinity! 
+
+   - Instead of writing code yourself there may be others that have done the same!
+
+   - Many **scientific tools** are distributed as **python package**'s making it possible to run a script in the prompt and there define files to be analysed and arguments defining exactly what to do.
+
+   - A nice **introduction to packages** can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
+
 .. questions::
 
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
-
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
+   - How do I find which packages and versions are available?
+   - What to do if I need other packages?
+   - Are there differences between HPC2N and UPPMAX?
    
 .. objectives:: 
 
-   - Show how to load Python
-   - show how to run Python scripts and start the Python commandline
+   - Show how to check for Python packages
+   - show how to install own packages on the different clusters
 
 - Python **packages broaden the use of python** to almost infinity! 
 
@@ -157,5 +163,11 @@ At HPC2N we HIGHLY recommend using a virtual environment during installation, si
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
+   - You can check for packages 
+   	- from the Python shell with the ``import`` command
+	- from BASH shell with the 
+		- ``pip list`` command
+		- ``ml help python/3.9.5`` at UPPMAX
+   - Installation of Python packages can be done either with **PYPI** or **Conda**
+   - You install own packages with the ``pip install`` command (This is the recommended way on HPC2N)
+   - At UPPMAX Conda is also available (See Conda section)
