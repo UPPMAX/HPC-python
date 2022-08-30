@@ -78,7 +78,7 @@ Preliminary schedule
    
 .. toctree::
    :maxdepth: 2
-   :caption: UPPMAX Sessons:
+   :caption: UPPMAX Sessions:
 
    conda.rst
    isolatedUPPMAX.rst
@@ -88,7 +88,7 @@ Preliminary schedule
 
 .. toctree::
    :maxdepth: 2
-   :caption: HPC2N Sessons:
+   :caption: HPC2N Sessions:
 
    kebnekaise.md
    isolatedHPC2N.rst
