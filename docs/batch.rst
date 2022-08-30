@@ -173,5 +173,5 @@ Exercises
    - Interactive sessions was presented in last slide
    - Batch jobs runs without interaction with user
    - A batch script consists of a part with SLURM parameters describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
-      - Python scripts must not ask for input not already given in the batch script.
+      - Remember to include possible input arguments to the Python script in the batch script.
     
