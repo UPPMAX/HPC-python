@@ -1,24 +1,23 @@
 Interactive work on the compute nodes
 =====================================
 
+.. note::
+
+   - It is possible to run Python directly on the login (including ThinLinc) nodes.
+   - But this should *only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. Both Python and IPython exists as modules to load and run.
+   - If you want to work interactively with your code or data, you should start an interactive session.
+   - If you rather will run a script which won't use any interactive user input while running, you can instead start a batch job, see next session.
+   
 .. questions::
 
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
-
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
+   - How to reach the calculation nodes
+   - How do I proceed to work interactively?
    
 .. objectives:: 
 
-   - Show how to load Python
-   - show how to run Python scripts and start the Python commandline
+   - Show how to reach the calculation nodes on UPPMAX and HPC2N
+   - Test some commands on the calculation nodes
 
-At both UPPMAX and HPC2N we call the applications available via the module system modules. 
-    - https://www.uppmax.uu.se/resources/software/module-system/ 
-    - https://www.hpc2n.umu.se/documentation/environment/lmod 
     There are several ways to run Python interactively
 
 - Directly on the login nodes: **only** do this for short jobs that do not take a lot of resources
@@ -33,19 +32,20 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
 
    .. tab:: HPC2N
 
+      First, you make a request for resources with ``salloc``, like this:
+
+      .. code-block:: sh
+    
+         $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
 
 
-
-
-UPPMAX
-------
 
 
 
 HPC2N
 -----
 
-It is possible to run Python directly on the Kebnekaise login node or the Kebnekaide ThinLinc login node, but this should *only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. Both Python and IPython exists as modules to load and run. 
+It is possible to run Python directly on the Kebnekaise login node or the Kebnekaise ThinLinc login node, but this should *only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. Both Python and IPython exists as modules to load and run. 
 
 Another option is to either submit a batch job or to run *interactively* on the compute nodes. In order to run interactively, you need to have compute nodes allocated to run on, and this is done through the batch system.  
 
