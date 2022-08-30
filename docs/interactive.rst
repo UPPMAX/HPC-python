@@ -28,7 +28,13 @@ Interactive work on the compute nodes
 
    .. tab:: UPPMAX
 
+      First, you make a request for resources with ``Interactive``, like this:
 
+      .. code-block:: sh
+    
+         $ interactive -n <tasks> -p <queue> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
+
+      For short development work (time < 1 h) choose ``-p devcore``
 
    .. tab:: HPC2N
 
@@ -69,7 +75,11 @@ where <tasks> is the number of tasks (or cores, for default 1 task per core), ti
     
 Your request enters the job queue just like any other job, and salloc will tell you that it is waiting for the requested resources. When salloc tells you that your job has been allocated resources, you can interactively run programs on those resources with ``srun``. The commands you run with ``srun`` will then be executed on the resources your job has been allocated. If you do not preface with ``srun`` the command is run on the login node! 
 
-.. admonition:: Example, Requesting 4 cores for 30 minutes, then running Python 
+You can now run Python scripts on the allocated resources directly instead of waiting for your batch job to return a result. This is an advantage if you want to test your Python script or perhaps figure out which parameters are best.
+            
+
+
+.. admonition:: Example HPC2N, Requesting 4 cores for 30 minutes, then running Python 
     :class: dropdown
    
         .. code-block:: sh
@@ -83,9 +93,23 @@ Your request enters the job queue just like any other job, and salloc will tell 
             salloc: Nodes b-cn0241 are ready for job
             b-an01 [~]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5
             b-an01 [~]$ 
-
-You can now run Python scripts on the allocated resources directly instead of waiting for your batch job to return a result. This is an advantage if you want to test your Python script or perhaps figure out which parameters are best.
             
+.. admonition:: Example UPPMAX, Requesting 4 cores for 30 minutes, then running Python 
+    :class: dropdown
+   
+        .. code-block:: sh
+
+            [bjornc@rackham2 ~]$ interactive -A snic2022-22-739 -p core -n 4 -t 30:00
+            You receive the high interactive priority.
+            There are free cores, so your job is expected to start at once.
+
+            Please, use no more than 6.4 GB of RAM.
+
+            Waiting for job 29556505 to start...
+            Starting job now -- you waited for 1 second.
+            
+            [bjornc@r484 ~]$ module load python/3.9.5
+
 Let us check that we actually run on the compute node: 
 
 .. code-block:: sh
@@ -168,7 +192,7 @@ As you can see, it is possible, but it will not show any interaction it otherwis
             The sum of 2 and 3 is 5
 
 When you have finished using the allocation, either wait for it to end, or close it with ``exit``
-            
+HPC2N            
 .. code-block:: sh 
             
             b-an01 [~]$ exit
@@ -177,9 +201,23 @@ When you have finished using the allocation, either wait for it to end, or close
             salloc: Job allocation 20174806 has been revoked.
             b-an01 [~]$ 
 
+UPPMAX
+.. code-block:: sh 
+            
+            [bjornc@r484 ~]$ exit
+
+            exit
+            [screen is terminating]
+            Connection to r484 closed.
+
+            [bjornc@rackham2 ~]$
+
+It is also possible to run IPython or (on UPPMAX) jupyter-notebook
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
+   - Start an interactive session on a calculation node by a SLURM allocation
+      - At HPC2N: salloc ...
+      - At UPPMAX: interactive ...
+   - Follow the same procedure as usual by loading the Python module and possible prerequisites.
     
