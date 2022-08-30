@@ -192,7 +192,9 @@ As you can see, it is possible, but it will not show any interaction it otherwis
             The sum of 2 and 3 is 5
 
 When you have finished using the allocation, either wait for it to end, or close it with ``exit``
-HPC2N            
+
+At HPC2N          
+
 .. code-block:: sh 
             
             b-an01 [~]$ exit
@@ -201,7 +203,8 @@ HPC2N
             salloc: Job allocation 20174806 has been revoked.
             b-an01 [~]$ 
 
-UPPMAX
+At UPPMAX
+
 .. code-block:: sh 
             
             [bjornc@r484 ~]$ exit
