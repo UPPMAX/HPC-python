@@ -99,7 +99,7 @@ You can now run Python scripts on the allocated resources directly instead of wa
    
         .. code-block:: sh
 
-            [bjornc@rackham2 ~]$ interactive -A snic2022-22-739 -p core -n 4 -t 30:00
+            [bjornc@rackham2 ~]$ interactive -A snic2022-22-641 -p core -n 4 -t 30:00
             You receive the high interactive priority.
             There are free cores, so your job is expected to start at once.
 
