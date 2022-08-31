@@ -308,3 +308,9 @@ was 1.87 sec.
 
    - What the learner should take away
    - point 2
+
+Additional information
+----------------------
+         
+* `Numba documentation examples <http://numba.pydata.org/numba-doc/latest/cuda/examples.html>`_
+* `New York University CUDA/Numba lesson  <https://nyu-cds.github.io/python-numba/05-cuda/>`_
