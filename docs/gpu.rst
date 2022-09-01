@@ -1,20 +1,17 @@
 Using GPUs with Python
 ======================
 
-.. questions::
+... questions::
 
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
-
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
+   - What does GPU acceleration mean?
+   - How to implement GPU (as CUDA) in Python code?
+   - How to deploy GPU:s at HPC2n and UPPMAX?
    
-.. objectives:: 
 
-   - Show how to load Python
-   - show how to run Python scripts and start the Python commandline
+.. objectives::
+
+   - Learn common schemes for GPU acceleration of codes
+   - Learn about the GPU nodes at HPC2n and UPPMAX
 
 Not every Python program is suitable for GPU acceleration. GPUs processes simple functions very fast, and are best suited for repetitive and highly-parallel computing tasks. 
 
@@ -320,8 +317,9 @@ was 1.87 sec.
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
+   -  You deploy GPU nodes via SLURM, either in interactive mode or batch
+   -  In Python the numba package is handy
+
 
 Additional information
 ----------------------
