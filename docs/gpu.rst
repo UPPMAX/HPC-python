@@ -55,7 +55,7 @@ Numba is installed as a module at HPC2N, but not in a version compatible with th
 
 We can ignore the comment about pip. The package was successfully installed. now let us try using it. We are going to use the following program for testing (it was taken from https://linuxhint.com/gpu-programming-python/ but there are also many great examples at https://numba.readthedocs.io/en/stable/cuda/examples.html): 
 
-.. admonition:: Python example using Numba 
+.. admonition:: Python example ``add-list.py`` using Numba 
     :class: dropdown
    
         .. code-block:: python
@@ -94,11 +94,11 @@ We can ignore the comment about pip. The package was successfully installed. now
                vector_add_gpu(a_source, b_source)
                vector_add_gpu_time = timer() - start
  
-                # Report times
-                print("CPU function took %f seconds." % vector_add_cpu_time)
-                print("GPU function took %f seconds." % vector_add_gpu_time)
+               # Report times
+               print("CPU function took %f seconds." % vector_add_cpu_time)
+               print("GPU function took %f seconds." % vector_add_gpu_time)
               
-                return 0
+               return 0
  
              if __name__ == "__main__":
                main()
@@ -129,7 +129,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
 
 
-.. admonition:: Batch script to run the numba code (add-list.py) at Kebnekaise 
+.. admonition:: Batch script ``add-list.sh`` to run the numba code (add-list.py) at Kebnekaise 
     :class: dropdown
    
         .. code-block:: sh
