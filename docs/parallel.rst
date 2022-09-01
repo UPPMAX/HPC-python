@@ -3,14 +3,12 @@ Parallel computing with Python
 
 .. questions::
 
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
+   - What does parallel computing mean?
+   - What different parallelizations are available for Python
+   - How to implent parallel in Python code?
+   - How to deploy threads and workers at HPC2n and UPPMAX?
+   - 
 
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
-   
 
 .. objectives::
 
@@ -753,5 +751,6 @@ Additional information
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
+   - You deploy cores and nodes via SLURM, either in interactive mode or batch
+   - In Python, threads, distributed and MPI parallelization can be used.
+  
