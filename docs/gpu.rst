@@ -107,7 +107,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
 .. tabs::
 
-   .. tab:: UPPMAX
+   .. tab:: UPPMAX Demo
       
       .. code-block:: bash
       
@@ -119,7 +119,10 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          Waiting for job 6907137 to start...
          Starting job now -- you waited for 90 seconds.
 
-         [bjornc@s160 ~]$ 
+         [bjornc@s160 ~]$  ml python/3.9.5
+         [bjornc@s160 ~]$ python add-list.py
+         CPU function took 36.849201 seconds.
+         GPU function took 1.574953 seconds.
 
 
    .. tab:: HPC2N
