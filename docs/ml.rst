@@ -3,18 +3,17 @@ Using Python for Machine Learning jobs
 
 .. questions::
 
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
-
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
+   - Which machine learning tools are installed at HPC2N and UPPMAX?
+   - How to start the tools at HPC2N and UPPMAX
+   - How to deploy GPU:s at HPC2N and UPPMAX?
    
-.. objectives:: 
 
-   - Show how to load Python
-   - show how to run Python scripts and start the Python commandline
+.. objectives::
+
+   - Get general overview of installed Machine Learning tools at HPC2N and UPPMAX
+   - Get started with Machine learning in Python
+
+
    
    While Python does not run fast, it is still well suited for machine learning. However, it is fairly easy to code in, and this is particularly useful in machine learning where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for machine learning in Python, making it a good choice for this area. 
 
@@ -280,6 +279,9 @@ This example shows how you would run several programs or variations of programs 
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
+   -  At all clusters you will find Pytorch, Tensoerflow, Scikit-learn
+   -  The loading are sligtly dirrerent at the clusters
+      - UPPMAX: All tools are available from the module ``python_ML_packages``
+      - HPC2N: ``module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1``
+      
     
