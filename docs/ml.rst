@@ -116,6 +116,35 @@ This is an example of a batch script for running the above example, using PyTorc
             module load GCC/10.3.0  OpenMPI/4.1.1 PyTorch/1.10.0-CUDA-11.3.1
             
             srun python pytorch_fitting_gpu.py
+            
+UPPMAX
+######
+
+.. code-block:: sh
+
+   [bjornc@s160 test_HPC-Python]$ srun python pytorch_fitting_gpu.py
+   99 134.71942138671875
+   199 97.72868347167969
+   299 71.6167221069336
+   399 53.178802490234375
+   499 40.15779113769531
+   599 30.9610652923584
+   699 24.464630126953125
+   799 19.875120162963867
+   899 16.632421493530273
+   999 14.341087341308594
+   1099 12.721846580505371
+   1199 11.577451705932617
+   1299 10.76859188079834
+   1399 10.196844100952148
+   1499 9.792669296264648
+   1599 9.506935119628906
+   1699 9.304922103881836
+   1799 9.162087440490723
+   1899 9.061092376708984
+   1999 8.989676475524902
+   Result: y = 0.013841948471963406 + 0.855550229549408 x + -0.002387965563684702 x^2 + -0.09316103905439377 x^3
+
 
 
 TensorFlow
@@ -207,6 +236,9 @@ In order to run the above example, we will create a batch script and submit it.
 Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
 
 The output and errors will in this case be written to ``slurm-<job-id>.out``. 
+
+UPPMAX
+
 
 General
 -------
