@@ -1,7 +1,7 @@
 Using GPUs with Python
 ======================
 
-... questions::
+.. questions::
 
    - What does GPU acceleration mean?
    - How to implement GPU (as CUDA) in Python code?
