@@ -279,9 +279,9 @@ This example shows how you would run several programs or variations of programs 
 
 .. keypoints::
 
-   -  At all clusters you will find Pytorch, Tensoerflow, Scikit-learn
+   -  At all clusters you will find PyTorch, TensorFlow, Scikit-learn
    -  The loading are sligtly dirrerent at the clusters
-      - UPPMAX: All tools are available from the module ``python_ML_packages``
-      - HPC2N: ``module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1``
+     - UPPMAX: All tools are available from the module ``python_ML_packages``
+     - HPC2N: ``module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1``
       
     
