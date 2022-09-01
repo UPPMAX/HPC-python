@@ -108,7 +108,18 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 .. tabs::
 
    .. tab:: UPPMAX
+      
+      .. code-block:: bash
+      
+         [bjornc@rackham3 ~]$ interactive -A staff -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --mail-type=BEGIN --mail-user=bjorn.claremar@uppmax.uu.se
+         You receive the high interactive priority.
 
+         Please, use no more than 8 GB of RAM.
+
+         Waiting for job 6907137 to start...
+         Starting job now -- you waited for 90 seconds.
+
+         [bjornc@s160 ~]$ 
 
 
    .. tab:: HPC2N
