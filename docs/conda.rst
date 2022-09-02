@@ -3,18 +3,15 @@ Conda
 
 .. questions::
 
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
-
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
+   - What does Conda do?
+   - How to creata Conda environments
    
-.. objectives:: 
+.. objectives::
 
-   - Show how to load Python
-   - show how to run Python scripts and start the Python commandline
+   - Learn pros and cons with Conda
+   - Learn how to install packages and work with the Conda (isolated) environment
+
+
 
 Install with conda (UPPMAX)
 ---------------------------
@@ -127,6 +124,7 @@ https://uppmax.uu.se/support/user-guides/conda-user-guide/
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
+   - Conda is an installer of packages but also bigger toolkits
+   - Conda creates isolated environments not clashing with other installations of python and other versions of packages
+   - Conda environment requires that you install all packges needed by yourself. That is,  you cannot load the python module and use the packages therein inside you Conda environment.
     
