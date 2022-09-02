@@ -80,8 +80,8 @@ Preliminary schedule
    :maxdepth: 2
    :caption: UPPMAX Sessions:
 
-   conda.rst
    isolatedUPPMAX.rst
+   conda.rst
    #   interactiveUPPMAX.rst
    mlUPPMAX.rst
    bianca.rst

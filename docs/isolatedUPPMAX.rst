@@ -1,22 +1,6 @@
 Isolated environments
 =====================
 
-.. questions::
-
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
-
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
-   
-.. objectives:: 
-
-   - Show how to load Python
-   - show how to run Python scripts and start the Python commandline
-
-
 .. note::
    Isolated environments solve a couple of problems:
    
@@ -26,8 +10,13 @@ Isolated environments
    
 ``conda`` works as an isolated environment. Below we present the ``pip`` way with "virtual environments", as well as installing using setup.py! Installing with a virtual environment is the only recommended way at HPC2N! 
 
-Virtual environment - venv (UPPMAX)
------------------------------------
+.. questions::
+
+   - How to work with isolated environments at UPPMAX?
+ 
+.. objectives:: 
+   - Give a introduction to isolated environments at UPPMAX
+ -----------------------------------
 
 Create a ``venv``. First load the python version you want to base your virtual environment on:
 
@@ -77,7 +66,7 @@ Everytime you need the tools available in the virtual environment you activate i
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
 .. keypoints::
-
-   - What the learner should take away
-   - point 2
-    
+   - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
+   - Make it for each project you have for reproducibility.
+   - There are different tools to create virtual environemnts.
+      - UPPMAX has  Conda and venv
