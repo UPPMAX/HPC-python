@@ -80,9 +80,9 @@ Preliminary schedule
    :maxdepth: 2
    :caption: UPPMAX Sessions:
 
+   UPPMAX.rst
    isolatedUPPMAX.rst
    conda.rst
-   #   interactiveUPPMAX.rst
    bianca.rst
 
 .. toctree::
