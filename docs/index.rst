@@ -83,7 +83,6 @@ Preliminary schedule
    isolatedUPPMAX.rst
    conda.rst
    #   interactiveUPPMAX.rst
-   mlUPPMAX.rst
    bianca.rst
 
 .. toctree::
