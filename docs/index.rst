@@ -26,8 +26,10 @@ Preliminary schedule
    * - Time
      - Topic
      - Activity
-   * - 9:15
-     - Introduction to Python on UPPMAX and HPC2N systems 
+   * - 9:00
+     - Syllabus 
+   * - 
+     - Introduction 
      - Lecture
    * - 
      - Loading modules and running Python codes 
@@ -36,29 +38,56 @@ Preliminary schedule
      - Dealing with packages  
      - Lecture+code along
    * - 
-     - Creating isolated environments
+     - **Coffee**
+     - 
+   * - 
+     - Isolated environments (general)
      - Lecture+code along
    * - 
-     - Separated session for Kebnekaise/Bianca
+     - SLURM Batch scripts for Python jobs  
+     - Lecture+code along + exercise
+   * - 
+     - Interactive
+     - Lecture+code along
+   * - 
+     - **Short leg stretch**
+     - 
+   * - 
+     - Separated sessions 1 for UPPMAX/HPC2N:isolated environments
      - Lecture
    * - 12:00
      - LUNCH 
      -
-   * - 13:15
-     - Batch scripts for Python jobs  
-     - Lecture+code along + exercise
+   * - 13:00
    * - 
      - Parallelising a simple Python code  
      - Lecture+code along + exercise
    * - 
+     - Depoying GPU:s for Python
+     - Lecture+code along + exercise
+   * - 
+     - **Short leg stretch**
+     - 
+   * - 
      - Using Python for Machine Learning jobs
      - Lecture+code along
    * - 
-     - Using GPUs with Python
-     - Lecture+code along + exercise
+     - Separated sessions 2 for UPPMAX/HPC2N: Bianca/ML exercises
+     - Lecture
    * - 
-     - Q&A on-demand and Summary 
+     - **Coffee**
+     - 
+   * - 
+     - Summary 
      -
+   * - 
+     - Q&A on-demand
+     -
+   * - 
+     - Additional exercises 
+     -
+   * - 16.00
+     - END
     
 
 .. toctree::
