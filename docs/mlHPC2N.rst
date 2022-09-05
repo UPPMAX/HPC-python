@@ -452,9 +452,10 @@ offered by ENCCS.
              print("Elapsed Time: {} ms".format(1000*endt))
              print("##-------------------------##")
 
+The following steps need to be performed before running this example:
 
 .. important::
-   :class: 
+   :class: dropdown 
 
     **Prerequisites**
 
