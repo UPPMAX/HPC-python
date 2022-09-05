@@ -1,5 +1,13 @@
+On UPPMAX clusters
+==================
+
+- Rackham
+- Snowy
+- Bianca
+
+
 UPPMAX packages
-===============
+---------------
 
 .. Note ::
     
