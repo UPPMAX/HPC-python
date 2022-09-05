@@ -122,7 +122,7 @@ Preliminary schedule
    :maxdepth: 2
    :caption: UPPMAX Sessions:
 
-   UPPMAX.rst
+   UPPMAX.md
    isolatedUPPMAX.rst
    conda.rst
    bianca.rst
