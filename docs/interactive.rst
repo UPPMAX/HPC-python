@@ -46,10 +46,12 @@ Interactive work on the compute nodes
 
 
 
-
+General
+-------
+Merge better
 
 HPC2N
------
+#####
 
 It is possible to run Python directly on the Kebnekaise login node or the Kebnekaise ThinLinc login node, but this should *only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. Both Python and IPython exists as modules to load and run. 
 
