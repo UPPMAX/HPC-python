@@ -32,35 +32,20 @@ General procedures
 - point to separated sessions
 
 .. admonition:: venv vs. virtualenv
-These are almost completely interchangeable, the difference being that **virtualenv supports older python versions** and has a few more minor unique features, while **venv is in the standard library**.
+
+   - These are almost completely interchangeable
+   - the difference being that **virtualenv supports older python versions** and has a few more minor unique features, while **venv is in the standard library**.
 
 
 Virtual environment - venv (UPPMAX)
 -----------------------------------
 
+Seperatee session at <https://uppmax.github.io/HPC-python/isolatedUPPMAX.html>
 
 Virtual environment - virtualenv (HPC2N)
 ----------------------------------------
 
-Create a ``vpyenv``. First load the python version you want to base your virtual environment on:
-
-.. code-block:: sh
-
-    $ module load python/<version>
-    $ virtualenv --system-site-packages vpyenv
-    
-"vpyenv" is the name of the virtual environment. You can name it whatever you want. The directory “vpyenv” is created in the present working directory.
-
-**NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
-
-**NOTE**: if you need are for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
-
- 
-More info
-'''''''''
-
-More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
-HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
+Seperate session at <https://uppmax.github.io/HPC-python/isolatedHPC2N.html>
 
 .. keypoints::
 
