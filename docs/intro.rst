@@ -1,27 +1,38 @@
 Introduction
 ==============
 
+[Welcome page and syllabus](https://uppmax.github.io/HPC-python/index.html)
+   - Also link at House symbol at top of page 
+
 .. admonition:: **Welcome!**
 
 
 .. admonition:: **Learning outcomes**
    
-    - **load** and **run** python
-    - **find** installed packages
-    - install package with **pip**
-    - install package with **conda**
-    - Understand and create **virtual environments**
-    - best practice
+   - Load Python modules and site-installed Python packages
+   - Create a virtual environment
+   - Install Python packages with pip (Kebnekaise, Rackham, Snowy)
+   - Install Python packages with conda (Bianca)
+   - Write a batchscript for running Python
+   - Use Python in parallel
+   - Use Python for ML
+   - Use GPUs with Python
+
+
+Some practicals
+----------------
     
 .. admonition:: Collabration document HackMD
 
     - Use the HackMD page for the workshop with your questions.
+      <link>
     - Depending on how many helpers there are we'll see how fast there are answers. 
         - Some answers may come after the workshop.
  
     - Type in the left frame 
         - "-" means new bullet and <tab> indents the level.
         - don't focus too much on the formatting if you are new to "Markdown" language!
+    
     - **Have a try with the Icebreaker question**
 
 .. admonition:: **Your expectations?**
@@ -34,17 +45,17 @@ Introduction
     **Not covered**
     
     - improve python *coding* skills 
-    - Tetralith
+    - Other clusters
 
 
 .. warning::
 
     - It is good to have a familiarity with the LINUX command line. 
-    - Short introductions may be found here: https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632
+    - Short introductions : https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632
     - Linux "cheat sheet"; https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet
     - UPPMAX software library: https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641
-    - Whole intro course material (UPPMAX) can be reached here: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
-    - HPC2N's intro course material (including link to recordings) may be found here: https://github.com/hpc2n/intro-course
+    - Whole intro course material (UPPMAX): https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
+    - HPC2N's intro course material (including link to recordings): https://github.com/hpc2n/intro-course
 
 .. admonition:: Prepare your environment now!
   
@@ -60,9 +71,9 @@ Introduction
       - Create a working directory where you can code along. We recommend creating it under the course project storage directory
    
          
-      - Example. If your username is mrspock and you are at UPPMAX, this we recommend you create this folder: 
+      - Example. If your username is "mrspock" and you are at UPPMAX, this we recommend you create this folder: 
      
-         /proj/nobackup/snic2022-22-641/mrspock/pythonUPPMAX
+         /proj/snic2022-22-641/nobackup/mrspock/pythonUPPMAX
 
    .. tab:: HPC2N
 
@@ -98,9 +109,7 @@ More python?
 
 - CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Their material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
 - General introduction to Python at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2022/
-- **This course:** Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in September. More info to come!
-
-    
+- **This course:** Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in September. 
 
 .. warning:: 
    At both HPC2N UPPMAX we call the applications available via the *module system* **modules**. 
@@ -109,12 +118,6 @@ More python?
    
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
 
-.. questions:: 
-
-   - How do I find you which packages and versions are available?
-   - What to do if you need other packages?
-   - What if I need a graphical interface?
-   - What if I have projects with different requirements in terms of python and packages versions?
     
 .. objectives:: 
 
