@@ -111,8 +111,8 @@ Preliminary schedule
    load_run.rst
    packages.rst
    isolated.rst
-   interactive.md
    batch.md
+   interactive.md
    parallel.rst
    gpu.md
    ml.md
