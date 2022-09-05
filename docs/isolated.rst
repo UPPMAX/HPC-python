@@ -39,8 +39,8 @@ Virtual environment - venv (UPPMAX)
 -----------------------------------
 
 
-Virtual environment - vpyenv (HPC2N) **should be called virtualenv?**
----------------------------------------------
+Virtual environment - virtualenv (HPC2N)
+----------------------------------------
 
 Create a ``vpyenv``. First load the python version you want to base your virtual environment on:
 
