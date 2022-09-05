@@ -1,6 +1,9 @@
 On UPPMAX clusters
 ==================
 
+UPPMAX hardware
+---------------
+
 - Rackham
 - Snowy
 - Bianca
