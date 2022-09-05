@@ -466,9 +466,11 @@ The following steps need to be performed before running this example:
       ml Horovod/0.21.1-TensorFlow-2.4.1
 
       virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/env-horovod
+
       source /proj/nobackup/<your-project-storage>/env-horovod/bin/activate
 
       python -m pip install  tensorflow_hub
+
       python -m pip install  sklearn
 
 A sample batch script for running this Horovod example is here:
