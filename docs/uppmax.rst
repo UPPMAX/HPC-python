@@ -15,7 +15,7 @@ UPPMAX packages
     
 
 Packages included in the python/3.9.5 module
---------------------------------------------
+############################################
 
 - Jupyter Notebook
 
@@ -32,7 +32,7 @@ Packages included in the python/3.9.5 module
 - scipy
 
 Packages that can be loaded with 'module load'
-----------------------------------------------
+##############################################
 
 - module load bioinfo-tools biopython
 
@@ -57,8 +57,8 @@ Packages that can be loaded with 'module load'
 -  module load pysam
 
 
-Packages not centrally installed at the moment
-----------------------------------------------
+Packages not centrally installed at the moment UPDATE
+#####################################################
 
 - adjustText
 
