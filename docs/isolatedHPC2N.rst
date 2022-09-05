@@ -173,16 +173,8 @@ To see which Python packages you, yourself, has installed, you can use ``pip lis
 More info
 '''''''''
 
-More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
 
-pyenv
------
-
-This approach is more advanced and should be, in our opinion, used only if the above are not enough for the purpose. 
-This approach allows you to install your **own python version** and much more… 
-
-Have a look on this manual https://www.uppmax.uu.se/support/user-guides/python-modules-guide/
 
 .. keypoints::
 
