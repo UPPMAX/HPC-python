@@ -15,8 +15,11 @@ Isolated environments
    - How to work with isolated environments at UPPMAX?
  
 .. objectives:: 
+
    - Give a introduction to isolated environments at UPPMAX
- -----------------------------------
+   
+Virtual environment - venv    
+--------------------------
 
 Create a ``venv``. First load the python version you want to base your virtual environment on:
 
