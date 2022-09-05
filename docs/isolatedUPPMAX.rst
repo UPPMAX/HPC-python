@@ -1,5 +1,5 @@
-Isolated environments
-=====================
+Isolated environments at UPPMAX
+===============================
 
 .. note::
    Isolated environments solve a couple of problems:
@@ -69,7 +69,8 @@ Everytime you need the tools available in the virtual environment you activate i
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
 .. keypoints::
+
    - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
    - Make it for each project you have for reproducibility.
    - There are different tools to create virtual environemnts.
-      - UPPMAX has  Conda and venv
+      - UPPMAX has Conda and venv
