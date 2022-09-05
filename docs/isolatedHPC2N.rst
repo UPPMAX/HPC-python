@@ -186,6 +186,7 @@ Have a look on this manual https://www.uppmax.uu.se/support/user-guides/python-m
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
-    
+   - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
+   - Make it for each project you have for reproducibility.
+   - There are different tools to create virtual environemnts.
+      - HPC2N has virtualenv
