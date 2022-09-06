@@ -79,15 +79,56 @@ Serial code
             module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
             
             # Run your Python script 
-            python <my_program.py>    
+            python mmmult.py    
             
             
+   .. tab:: mmmult.py 
+   
+        Python example code
+   
+        .. code-block:: python
+        
+            import timeit
+            import numpy as np
+            
+            starttime = timeit.default_timer()
+            
+            np.random.seed(1701)
+            
+            A = np.random.randint(-1000, 1000, size=(8,4))
+            B = np.random.randint(-1000, 1000, size =(4,4))
+            
+            print("This is matrix A:\n", A)
+            print("The shape of matrix A is ", A.shape)
+            print()
+            print("This is matrix B:\n", B)
+            print("The shape of matrix B is ", B.shape)
+            print()
+            print("Doing matrix-matrix multiplication...")
+            print()
+            
+            C = np.matmul(A, B)
+            
+            print("The product of matrices A and B is:\n", C)
+            print("The shape of the resulting matrix is ", C.shape)
+            print()
+            print("Time elapsed for generating matrices and multiplying them is ", timeit.default_timer() - starttime)
+
+
+        
 Serial code + self-installed package in virt. env. 
 ''''''''''''''''''''''''''''''''''''''''''''''''''
 
-.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment. Serial code
-    :class: dropdown
-   
+.. tabs::
+
+   .. tab:: UPPMAX
+
+
+
+   .. tab:: HPC2N
+
+        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment.
+       
         .. code-block:: sh
 
             #!/bin/bash
@@ -100,6 +141,15 @@ Serial code + self-installed package in virt. env.
             
             # Activate your virtual environment. Note that you either need to have added the location to your path, or give the full path
             source <path-to-virt-env>/bin/activate
+            
+            # Run your Python script 
+            python <my_program.py>
+
+            
+   .. tab:: Python example code
+   
+        .. code-block:: python
+        
  
             # Run your Python script 
             python <my_program.py>
