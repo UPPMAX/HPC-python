@@ -130,19 +130,20 @@ A selection of the Python packages and libraries installed on HPC2N are:
 	NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: https://www.hpc2n.umu.se/documentation/guides/anaconda
 
 
-	These are all installed as **modules** and need to be loaded before use.    - ASE
-   	- Keras
-   	- PyTorch
-   	- SciPy-bundle (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
-   	- TensorFlow
-   	- Theano
-   	- matplotlib
-   	- scikit-learn
-   	- scikit-image
-   	- pip
-   	- iPython
-   	- Cython
-   	- Flask
+	This is a selection of the packages and libraries installed at HPC2N. These are all installed as **modules** and need to be loaded before use. 
+	  - ``ASE``
+	  - ``Keras``
+	  - ``PyTorch``
+	  - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
+	  - ``TensorFlow``
+	  - ``Theano``
+	  - ``matplotlib``
+	  - ``scikit-learn``
+	  - ``scikit-image``
+	  - ``pip``
+	  - ``iPython``
+	  - ``Cython``
+	  - ``Flask``
 
 
 
