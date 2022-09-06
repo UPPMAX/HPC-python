@@ -1,8 +1,8 @@
 Introduction
 ==============
 
-`Welcome page and syllabus <https://uppmax.github.io/HPC-python/index.html>`
-   - Also link at House symbol :house: at top of page 
+`Welcome page and syllabus <https://uppmax.github.io/HPC-python/index.html>`_
+   - Also link at House symbol |:house:| at top of page 
 
 .. admonition:: **Welcome!**
 
