@@ -148,31 +148,41 @@ The two HPC centers UPPMAX and HPC2N
    
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
-Briefly about the cluster hardware at UPPMAX and HPC2N
+Briefly about the cluster hardware and system at UPPMAX and HPC2N
 ------------------------------------------------------
+Common features
+###############
 
-.. list-table:: Preliminary schedule
+- Intel CPUs
+- Linux kernel
+- Bash shell
+
+
+.. list-table:: 
    :widths: 25 25 50
    :header-rows: 1
 
-   * - Time
-     - Topic
-     - Activity
-   * - 9:00
-     - Syllabus 
+   * - Technology
+     - Kebnekaise
+     - Rackham
+     - Snowy
+     - Bianca
+   * - Cores per node
+     -  
      -
-   * - 
-     - Introduction 
-     - Lecture
-   * - 
-     - Loading modules and running Python codes 
-     - Lecture+code along
-   * - 
-     - Dealing with packages  
-     - Lecture+code along
-   * - 
-     - **Coffee**
+     -
+     -
+   * - Memory per node
+     -  
      - 
+     -
+     -
+   * - GPU
+     - 
+     -
+     -
+     -
+  
 
 
 
