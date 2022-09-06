@@ -59,7 +59,7 @@ racing cars can drive whereas a GPU would be a broader road where plenty of slow
    :align: center
 
    Cars and roads analogy for the CPU and GPU behavior. The compact road is analogous to the CPU
-   (low latency, low throughput) and the broader road is analogous to the GPU (high latency, high troughput).
+   (low latency, low throughput) and the broader road is analogous to the GPU (high latency, high throughput).
 
 
 
