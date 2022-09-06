@@ -173,35 +173,52 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          GPU function took 1.574953 seconds.
 
 
-   .. tab:: HPC2N
-
-
-
-.. admonition:: Batch script ``add-list.sh`` to run the numba code (add-list.py) at Kebnekaise 
-    :class: dropdown
+   .. tab:: HPC2N Demo
    
-        .. code-block:: sh
+      Running a GPU Python code interactively 
 
-            #!/bin/bash
-            # Remember to change this to your own project ID after the course!
-            #SBATCH -A SNIC2022-22-641
-            # We are asking for 5 minutes
-            #SBATCH --time=00:05:00
-            # Asking for one K80
-            #SBATCH --gres=gpu:k80:1
+      .. code-block:: bash
 
-            # Remove any loaded modules and load the ones we need
-            module purge  > /dev/null 2>&1
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
-
-            # Activate the virtual environment we installed to
-            source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
-
-            # Run your Python script
-            python add-list.py
+         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ salloc -A SNIC2022-5-301 --time=00:30:00 -n 1 --gres=gpu:k80:1 
+         salloc: Pending job allocation 20346979
+         salloc: job 20346979 queued and waiting for resources
+         salloc: job 20346979 has been allocated resources
+         salloc: Granted job allocation 20346979
+         salloc: Waiting for resource configuration
+         salloc: Nodes b-cn1101 are ready for job
+         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$
+         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
+         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
+         (vpyenv) b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ srun python add-list.py
+         CPU function took 31.905025 seconds.
+         GPU function took 0.684060 seconds.
 
 
-As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
+   .. tab:: Batch script
+
+      Batch script, ``add-list.sh``, to run the same GPU Python script (the numba code, ``add-list.py``) at Kebnekaise. 
+      As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
+      
+      .. code-block:: bash
+
+          #!/bin/bash
+          # Remember to change this to your own project ID after the course!
+          #SBATCH -A SNIC2022-22-641
+          # We are asking for 5 minutes
+          #SBATCH --time=00:05:00
+          # Asking for one K80
+          #SBATCH --gres=gpu:k80:1
+
+          # Remove any loaded modules and load the ones we need
+          module purge  > /dev/null 2>&1
+          module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
+
+          # Activate the virtual environment we installed to
+          source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
+
+          # Run your Python script
+          python add-list.py
+
 
 Numba example 2
 ---------------
