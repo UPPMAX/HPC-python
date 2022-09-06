@@ -13,6 +13,39 @@ Using GPUs with Python
    - Learn common schemes for GPU acceleration of codes
    - Learn about the GPU nodes at HPC2n and UPPMAX
 
+
+In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU
+architecture with a GPU based architecture. Here, there is a schemematics of the former:
+
+.. figure:: img/cpus.png
+   :align: center
+
+   Pure CPU architecture (single node). In the present case there are 28 cores, each with 
+   its own cache memory (LX). There is a shared memory (64 GB/NUMA node) for all these cores.
+   The base frequency for each core is 2.6 GHz.
+
+As for the GPU architecture, a K80 engine looks like this:
+
+.. figure:: img/gpu.png
+   :align: center
+
+   A single GPU engine of a K80 card. Each green dot represents a core (single precision) which
+   runs at a frequency of 562 MHz. The cores are arranged in slots called streaming multiprocessors (SMX)
+   in the figure. Cores in the same SMX share some local and fast cache memory.
+
+In a typical cluster, some GPUs are attached to a single node resulting in a CPU-GPU
+hybrid architecture. The CPU component is called the host and the GPU part the device.
+One possible layout (Kebnekaise) is as follows:
+
+
+.. figure:: img/cpu-gpu.png
+   :align: center
+
+   Schematics of a hybrid CPU-GPU architecture. A GPU K80 card consisting of two engines is attached
+   to a NUMA island which in turn contains 14 cores. The NUMA island and the GPUs are
+   connected through a PCI-E interconnect which makes the data transfer between both components rather
+   slow.
+
 Not every Python program is suitable for GPU acceleration. GPUs processes simple functions very fast, and are best suited for repetitive and highly-parallel computing tasks. 
 
 GPUs are originally designed to render high-resolution images and video concurrently and fast, but since they can perform parallel operations on multiple sets of data, they are also often used for other, non-graphical tasks. Common uses are machine learning and scientific computation were the GPUs can take advantage of massive parallelism. 
