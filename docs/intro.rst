@@ -133,18 +133,48 @@ The two HPC centers UPPMAX and HPC2N
          - Bianca for sensitive data and has GPUs
       - HPC2N has Kebnekaise with GPUs
       - Conda is recommended only for UPPMAX users
+      
 
 .. admonition:: How is the workshop run?
   
    - General sessions with small differences shown in UPPMAX vs. HPC2N  in tabs
-   . Seperated sessions for UPPMAX and HPC users, respectively.
+   - Seperated sessions for UPPMAX and HPC users, respectively.
 
 .. warning:: 
-   At both HPC2N UPPMAX we call the applications available via the *module system* **modules**. 
-   https://www.uppmax.uu.se/resources/software/module-system/ 
-   https://www.hpc2n.umu.se/documentation/environment/lmod
+
+   - At both HPC2N UPPMAX we call the applications available via the *module system* **modules**. 
+   - https://www.uppmax.uu.se/resources/software/module-system/ 
+   - https://www.hpc2n.umu.se/documentation/environment/lmod
    
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
+   
+Briefly about the cluster hardware at UPPMAX and HPC2N
+------------------------------------------------------
+
+.. list-table:: Preliminary schedule
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Time
+     - Topic
+     - Activity
+   * - 9:00
+     - Syllabus 
+     -
+   * - 
+     - Introduction 
+     - Lecture
+   * - 
+     - Loading modules and running Python codes 
+     - Lecture+code along
+   * - 
+     - Dealing with packages  
+     - Lecture+code along
+   * - 
+     - **Coffee**
+     - 
+
+
 
     
 .. objectives:: 
