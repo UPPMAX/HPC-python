@@ -182,11 +182,8 @@ Common features
      - None
      - Nvidia T4 
      - NVIDIA A100
-  
 
 
-
-    
 .. objectives:: 
 
     We will:
