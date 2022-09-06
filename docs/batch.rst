@@ -127,7 +127,7 @@ Serial code + self-installed package in virt. env.
 
    .. tab:: HPC2N
 
-        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment.
+        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment. During the separate session for HPC2N there will more about how to install something yourself this way. 
        
         .. code-block:: sh
 
@@ -145,38 +145,41 @@ Serial code + self-installed package in virt. env.
             # Run your Python script 
             python <my_program.py>
 
-            
-   .. tab:: Python example code
-   
-        .. code-block:: python
-        
- 
-            # Run your Python script 
-            python <my_program.py>
-
 
 GPU code
 ''''''''
 
-.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + TensorFlow/2.6.0-CUDA-11.3.1, GPU code
-    :class: dropdown
-   
+.. tabs::
+
+   .. tab:: UPPMAX
+
+
+
+   .. tab:: HPC2N
+
+        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment. The full example can be found under "Using Python for Machine Learning jobs.       
+       
         .. code-block:: sh
 
             #!/bin/bash
             #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH --reservation=hpc-python
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             # Asking for one K80 card
             #SBATCH --gres=gpu:k80:1
             
-            # Load any modules you need 
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 TensorFlow/2.6.0-CUDA-11.3.1
+            # Remove any loaded modules and load the ones we need
+            module purge  > /dev/null 2>&1
+            module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1
           
-            # Run your Python script 
-            python <my_tf_program.py>
+            # Activate the virtual environment we installed to
+            source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
+            
+            # Run your Python script
+            python <tf-example>.py
             
 
-The recommended TensorFlow version for this course is 2.6.0. The module is compatible with Python 3.9.5 (automatically loaded when you load TensorFlow and its other prerequisites).            
+The recommended TensorFlow version for this course is 2.6.0 on Kebnekaise. The module is compatible with Python 3.9.5 (automatically loaded when you load TensorFlow and its other prerequisites).            
 
 Exercises
 ---------
@@ -199,7 +202,7 @@ Exercises
 .. solution::
     :class: dropdown
     
-          This is for Kebnekaise. Adding the numbers 2 and 3. 
+          This batch script is for Kebnekaise. Adding the numbers 2 and 3. 
           
           .. code-block:: sh
  
