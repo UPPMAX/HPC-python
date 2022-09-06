@@ -122,7 +122,7 @@ Check for Python versions
                Note that names that have a trailing (E) are extensions provided by other modules.
        
            For example:
-            $ module spider Python/3.9.6
+            $ module spider Python/3.9.5
            ----------------------------------------------------------------------------
 
 Load a Python module
