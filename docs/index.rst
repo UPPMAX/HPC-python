@@ -126,6 +126,7 @@ Preliminary schedule
    uppmax.rst
    isolatedUPPMAX.rst
    conda.rst
+   jupyter.md
    bianca.rst
 
 .. toctree::
