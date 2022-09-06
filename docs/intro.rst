@@ -167,6 +167,11 @@ Common features
      - Rackham
      - Snowy
      - Bianca
+     
+     
+     
+     
+     
    * - Cores per caculation node
      - 28
      - 20
