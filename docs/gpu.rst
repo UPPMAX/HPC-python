@@ -46,6 +46,24 @@ One possible layout (Kebnekaise) is as follows:
    connected through a PCI-E interconnect which makes the data transfer between both components rather
    slow.
 
+We can characterize the CPU and GPU performance with two quantities: the **latency** and the **througput**.
+**Latency** refers to the time spent in a sole computation. **Throughput** denotes the number of 
+computations that can be performed in parallel. Then, we can say that a CPU has low latency
+(able to do fast computations) but low throughput (only a few computations simultaneously).
+In the case of GPUs, the latency is high and the throughput is also high. We can visualize the behavior
+of the CPUs and GPUs with cars as in the figure below. A CPU would be compact road where only a few 
+racing cars can drive whereas a GPU would be a broader road where plenty of slow cars can drive.
+
+
+.. figure:: img/cpu-gpu-highway.png
+   :align: center
+
+   Cars and roads analogy for the CPU and GPU behavior. The compact road is analogous to the CPU
+   (low latency, low throughput) and the broader road is analogous to the GPU (high latency, high troughput).
+
+
+
+
 Not every Python program is suitable for GPU acceleration. GPUs processes simple functions very fast, and are best suited for repetitive and highly-parallel computing tasks. 
 
 GPUs are originally designed to render high-resolution images and video concurrently and fast, but since they can perform parallel operations on multiple sets of data, they are also often used for other, non-graphical tasks. Common uses are machine learning and scientific computation were the GPUs can take advantage of massive parallelism. 
