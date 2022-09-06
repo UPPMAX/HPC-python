@@ -57,10 +57,17 @@ Example Python batch scripts
 
 Serial code
 '''''''''''
+            
+.. tabs::
 
-.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05 and Python/3.9.5, serial code 
-    :class: dropdown
-   
+   .. tab:: UPPMAX
+
+
+
+   .. tab:: HPC2N
+
+        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05 and Python/3.9.5  
+       
         .. code-block:: sh
 
             #!/bin/bash
@@ -72,17 +79,7 @@ Serial code
             module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
             
             # Run your Python script 
-            python <my_program.py>
-            
-.. tabs::
-
-   .. tab:: UPPMAX
-
-
-
-   .. tab:: HPC2N
-
-            
+            python <my_program.py>    
             
             
 Serial code + self-installed package in virt. env. 
