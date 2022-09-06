@@ -101,6 +101,7 @@ Preliminary schedule
      -
    * - 16.00
      - END
+     -
     
 
 .. toctree::
