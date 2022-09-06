@@ -12,7 +12,8 @@ Welcome to HPC python course material
 
 .. admonition:: Content
 
-   - This course aims to give a brief, but comprehensive introduction to using Python in an HPC environment.      - You will learn how to
+   - This course aims to give a brief, but comprehensive introduction to using Python in an HPC environment.
+   - You will learn how to
       - use modules to load Python
       - find site installed Python packages
       - install packages yourself
