@@ -7,3 +7,4 @@ sphinx-lesson==0.8.7
 sphinx-prompt
 sphinx_rtd_theme_ext_color_contrast
 myst_nb
+sphinxemoji
