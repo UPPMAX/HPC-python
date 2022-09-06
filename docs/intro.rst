@@ -158,7 +158,7 @@ Common features
 - Bash shell
 
 
-.. list-table:: 
+.. list-table:: Hardware
    :widths: 25 25 50
    :header-rows: 1
 
@@ -167,21 +167,21 @@ Common features
      - Rackham
      - Snowy
      - Bianca
-   * - Cores per node
+   * - Cores per caculation node
+     - 28
+     - 20
+     - 16
+     - 16
+   * - Memory per calculation node
      -  
-     -
-     -
-     -
-   * - Memory per node
-     -  
-     - 
-     -
-     -
+     - 128-1024 GB
+     - 128-4096 GB
+     - 128-512 GB
    * - GPU
      - 
-     -
-     -
-     -
+     - None
+     - Nvidia T4 
+     - NVIDIA A100
   
 
 
