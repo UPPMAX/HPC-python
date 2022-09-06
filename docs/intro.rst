@@ -4,9 +4,6 @@ Introduction
 `Welcome page and syllabus <https://uppmax.github.io/HPC-python/index.html>`_
    - Also link at House symbol |:house:| at top of page 
 
-.. admonition:: **Welcome!**
-
-
 .. admonition:: **Learning outcomes**
    
    - Load Python modules and site-installed Python packages
@@ -105,10 +102,11 @@ As you probably already know…
     - And, if you feel a little unfamiliar to the LINUX world, have a look at the Introduction to UPPMAX course material here: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
     
 More python?
------------
+------------
 
 - CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Their material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
 - General introduction to Python at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2022/
+
 - **This course:** Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in September. 
 
 The two HPC centers UPPMAX and HPC2N
@@ -116,25 +114,24 @@ The two HPC centers UPPMAX and HPC2N
 
 .. admonition:: Two HPC centers
 
-- We run this course as a collaboration between the HPC centers HPC2N in Umeå and UPPMAX in Uppsala.
-   - There are many similarities:
-      - Login vs. calculation nodes
-      - Environmental module system  with softaware hided until loaded with ``module load``
-      - Slurm batch job and scheduling system
-      - ``pip install`` procedure
-   - ... and small differences:
-      - commands to load Python and python packages
-      - isolated environments ``virtualenv`` vs ``venv``
-      - slightly different flags to Slurm
-   - ... and some bigger differences:
-      - UPPMAX has three different clusters 
-         - Rackham for general purpose computing on CPUs only
-         - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
-         - Bianca for sensitive data and has GPUs
-      - HPC2N has Kebnekaise with GPUs
-      - Conda is recommended only for UPPMAX users
-      
-
+   - We run this course as a collaboration between the HPC centers HPC2N in Umeå and UPPMAX in Uppsala.
+      - There are many similarities:
+         - Login vs. calculation nodes
+         - Environmental module system  with softaware hided until loaded with ``module load``
+         - Slurm batch job and scheduling system
+         - ``pip install`` procedure
+      - ... and small differences:
+         - commands to load Python and python packages
+         - isolated environments ``virtualenv`` vs ``venv``
+         - slightly different flags to Slurm
+      - ... and some bigger differences:
+         - UPPMAX has three different clusters 
+            - Rackham for general purpose computing on CPUs only
+            - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
+            - Bianca for sensitive data and has GPUs
+         - HPC2N has Kebnekaise with GPUs
+         - Conda is recommended only for UPPMAX users
+    
 .. admonition:: How is the workshop run?
   
    - General sessions with small differences shown in UPPMAX vs. HPC2N  in tabs
@@ -149,7 +146,8 @@ The two HPC centers UPPMAX and HPC2N
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
 Briefly about the cluster hardware and system at UPPMAX and HPC2N
-------------------------------------------------------
+-----------------------------------------------------------------
+
 Common features
 ###############
 
@@ -159,7 +157,7 @@ Common features
 
 
 .. list-table:: Hardware
-   :widths: 25 25 50
+   :widths: 25 25 25 25 25
    :header-rows: 1
 
    * - Technology
@@ -167,11 +165,6 @@ Common features
      - Rackham
      - Snowy
      - Bianca
-     
-     
-     
-     
-     
    * - Cores per caculation node
      - 28
      - 20
