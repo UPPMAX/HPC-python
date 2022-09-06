@@ -46,11 +46,11 @@ Useful commands to the batch system
 -----------------------------------
 
 - Submit job: ``sbatch <jobscript.sh>``
-- Get list of your jobs: ``squeue -u <username>
+- Get list of your jobs: ``squeue -u <username>``
 - Check on a specific job: ``scontrol show job <job-id>``
 - Delete a specific job: ``scancel <job-id>``
-- Useful info about a job: sacct -l -j <job-id> | less -S``
-- Url to a page with info about the job (Kebnekaise only): job-usage <job-id>``
+- Useful info about a job: ``sacct -l -j <job-id> | less -S``
+- Url to a page with info about the job (Kebnekaise only): ``job-usage <job-id>``
          
 Example Python batch scripts
 ---------------------------- 
