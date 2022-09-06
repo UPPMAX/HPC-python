@@ -37,22 +37,22 @@ On Bianca cluster
 
   - in source directory:
 
-    .. prompt:: bash $
+     .. prompt:: bash $
 
         cp –a <package_dir> <wharf_mnt_path>
 	
-    - you may want to ``tar`` before copying to include all possible symbolic links:
+- You may want to ``tar`` before copying to include all possible symbolic links:
 
-      .. prompt:: bash $
+   .. prompt:: bash $
 
-        tar cfz <tarfile.tar.gz> <package> 	
+      tar cfz <tarfile.tar.gz> <package> 	
 	
-  - and in target directory (``wharf_mnt``) on Bianca:
+- and in target directory (``wharf_mnt``) on Bianca:
     
-    .. prompt:: bash $
+   .. prompt:: bash $
 
-        tar xfz <tarfile.tar.gz> #if there is a tar file!		
-	mv –a  <file(s)> ~/.local/lib/python<version>/site-packages/ 
+      tar xfz <tarfile.tar.gz> #if there is a tar file!		
+      mv –a  <file(s)> ~/.local/lib/python<version>/site-packages/ 
 
 .. keypoints::
 
