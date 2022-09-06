@@ -41,6 +41,7 @@ Preliminary schedule
      - Activity
    * - 9:00
      - Syllabus 
+     -
    * - 
      - Introduction 
      - Lecture
@@ -72,7 +73,6 @@ Preliminary schedule
      - LUNCH 
      -
    * - 13:00
-   * - 
      - Parallelising a simple Python code  
      - Lecture+code along + exercise
    * - 
