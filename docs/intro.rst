@@ -165,7 +165,7 @@ Common features
      - Rackham
      - Snowy
      - Bianca
-   * - Cores per caculation node
+   * - Cores per calculation node
      - 28
      - 20
      - 16
