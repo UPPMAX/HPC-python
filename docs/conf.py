@@ -26,7 +26,7 @@ github_repo_name = ""  # auto-detected from dirname if blank
 github_version = "main"
 conf_py_path = "/docs/" 
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+release = '1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -37,6 +37,7 @@ release = '0.1'
 extensions = ["sphinx_lesson",
     "sphinx.ext.githubpages",
     "sphinx_rtd_theme_ext_color_contrast",
+    "sphinxemoji.sphinxemoji",
 ]
 jupyter_execute_notebooks = "cache"
 
