@@ -26,7 +26,7 @@ github_repo_name = ""  # auto-detected from dirname if blank
 github_version = "main"
 conf_py_path = "/docs/" 
 # The full version, including alpha/beta/rc tags
-release = '1.0'
+release = '1.0.1'
 
 
 # -- General configuration ---------------------------------------------------
