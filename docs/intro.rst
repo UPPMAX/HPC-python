@@ -146,7 +146,7 @@ The two HPC centers UPPMAX and HPC2N
             - Rackham for general purpose computing on CPUs only
             - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
             - Bianca for sensitive data and has GPUs
-         - HPC2N has Kebnekaise with GPUs
+         - HPC2N has Kebnekaise with GPUs (and KNLs) 
          - Conda is recommended only for UPPMAX users
     
 .. admonition:: How is the workshop run?
@@ -188,12 +188,12 @@ Common features
      - 16
      - 16
    * - Memory per calculation node
-     -  
+     - 128-3072 GB 
      - 128-1024 GB
      - 128-4096 GB
      - 128-512 GB
    * - GPU
-     - 
+     - NVidia K80 and V100 
      - None
      - Nvidia T4 
      - NVIDIA A100
