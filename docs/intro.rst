@@ -19,10 +19,27 @@ Introduction
 Some practicals
 ----------------
     
+.. admonition:: Zoom
+
+    - The course is run over Zoom. You should have gotten an email with the links
+        
+    - There will be a zoom for the lectures, a zoom for the HPC2N sessions, and a zoom for the UPPMAX sessions. 
+        - The exercises will be done in the separate sessions.
+   
+    - When you join the Zoom meeting, use your REAL NAME.
+    
+    - The lectures and demos will be recorded, but NOT the exercises. If you ask questions during the lectures, you may thus be recorded. If you do not wish to be recorded, then please keep your microphone muted and your camera off during lectures and write your questions in the Q/A document (see below about HackMD collaboration document).
+    
+    - Please MUTE your microphone when you are not speaking and use the “Raise hand” functionality under the “Participants” window during the lecture. Please do not clutter the Zoom chat. Behave politely!
+
+    - There may be breakout rooms used in the Zoom for the hands-ons. You will be randomly assigned to one of them.  
+    
+    
 .. admonition:: Collabration document HackMD
 
     - Use the HackMD page for the workshop with your questions.
-      <link>
+        - https://hackmd.io/@bclaremar/HPC-python
+
     - Depending on how many helpers there are we'll see how fast there are answers. 
         - Some answers may come after the workshop.
  
@@ -116,8 +133,8 @@ The two HPC centers UPPMAX and HPC2N
 
    - We run this course as a collaboration between the HPC centers HPC2N in Umeå and UPPMAX in Uppsala.
       - There are many similarities:
-         - Login vs. calculation nodes
-         - Environmental module system  with softaware hided until loaded with ``module load``
+         - Login vs. calculation/compute nodes
+         - Environmental module system with software hidden until loaded with ``module load``
          - Slurm batch job and scheduling system
          - ``pip install`` procedure
       - ... and small differences:
@@ -134,8 +151,8 @@ The two HPC centers UPPMAX and HPC2N
     
 .. admonition:: How is the workshop run?
   
-   - General sessions with small differences shown in UPPMAX vs. HPC2N  in tabs
-   - Seperated sessions for UPPMAX and HPC users, respectively.
+   - General sessions with small differences shown in UPPMAX vs. HPC2N in tabs
+   - Separated sessions for UPPMAX and HPC users, respectively.
 
 .. warning:: 
 
@@ -166,7 +183,7 @@ Common features
      - Snowy
      - Bianca
    * - Cores per calculation node
-     - 28
+     - 28 (72 for largemem part)
      - 20
      - 16
      - 16
