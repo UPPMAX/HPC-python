@@ -77,7 +77,7 @@ Preliminary schedule
      - Parallelising a simple Python code  
      - Lecture+code along + exercise
    * - 
-     - Depoying GPU:s for Python
+     - Deploying GPU:s for Python
      - Lecture+code along + exercise
    * - 
      - **Short leg stretch**
