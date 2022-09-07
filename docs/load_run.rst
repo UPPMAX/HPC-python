@@ -69,7 +69,7 @@ Check for Python versions
 .. admonition:: Output at UPPMAX as of March 9 2022
    :class: dropdown
     
-       .. coe-block::  tcl
+       .. code-block::  tcl
     
           -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
            python_ML_packages/3.9.5    wrf-python/1.3.1
@@ -170,6 +170,10 @@ For this course, we recommend using Python 3.9.5
    + HPC2N: Don’t use system-installed python/2.7.18
    + ALWAYS use python module
 
+.. admonition:: Why are there both Python/2.X.Y and Python/3.Z.W modules?
+
+    Some existing software might use `Python2` and some will use `Python3`. Some of the Python packages have both `Python2` and `Python3` versions. Check what your software as well as the installed modules need when you pick!   
+    
 .. admonition:: UPPMAX: Why are there both python/3.X.Y and python3/3.X.Y modules?
 
     Sometimes existing software might use `python2` and there's nothing you can do about that. In pipelines and other toolchains the different tools may together require both `python2` and `python3`.
@@ -178,9 +182,6 @@ For this course, we recommend using Python 3.9.5
     + You can run two python modules at the same time if ONE of the module is ``python/2.X.Y`` and the other module is ``python3/3.X.Y`` (not ``python/3.X.Y``).
     
 
-.. admonition:: Why are there both Python/2.X.Y and Python/3.Z.W modules?
-
-    Some existing software might use `Python2` and some will use `Python3`. Some of the Python packages have both `Python2` and `Python3` versions. Check what your software as well as the installed modules need when you pick!   
 
 Run
 ---
