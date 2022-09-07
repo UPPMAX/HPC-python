@@ -7,7 +7,7 @@ Packages
 
    - Instead of writing code yourself there may be others that have done the same!
 
-   - Many **scientific tools** are distributed as **python package**'s making it possible to run a script in the prompt and there define files to be analysed and arguments defining exactly what to do.
+   - Many **scientific tools** are distributed as **python packages**, making it possible to run a script in the prompt and there define files to be analysed and arguments defining exactly what to do.
 
    - A nice **introduction to packages** can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
@@ -21,12 +21,6 @@ Packages
 
    - Show how to check for Python packages
    - show how to install own packages on the different clusters
-
-- Python **packages broaden the use of python** to almost infinity! 
-
-- Instead of writing code yourself there may be others that have done the same!
-
-- Many **scientific tools** are distributed as **python package**'s making it possible to run a script in the prompt and there define files to be analysed and arguments defining exactly what to do.
 
 - A nice **introduction to packages** can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
@@ -43,6 +37,14 @@ Packages
 
 Check current available packages
 --------------------------------
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+   .. tab:: HPC2N
+   
+   
 
 Some python packages are working as stand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:
 
@@ -160,7 +162,7 @@ Use ``pip3`` if you loaded python3.
 
 Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
 
-At HPC2N we HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python. more information will follow later in this course (https://uppmax.github.io/HPC-python/isolated.html). 
+We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course (https://uppmax.github.io/HPC-python/isolated.html). 
 
 .. keypoints::
 
