@@ -28,7 +28,7 @@ Create a ``venv``. First load the python version you want to base your virtual e
     $ module load python/<version>
     $ python -m venv Example
     
-"Example" is the name of the virtual environment. The directory “Example” is created in the present working directory.
+"Example" is the name of the virtual environment. The directory “Example” is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
 
 If you want it in a certain place like "~/test/":
 
