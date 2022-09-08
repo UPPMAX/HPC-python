@@ -107,10 +107,11 @@ Some practicals
      
          /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
          
-.. admonition::Use Thinlinc or terminal?
+.. admonition:: Use Thinlinc or terminal?
    - It is up to you!
    - Graphics come easier with Thinlinc
    - For this course, when having many windows open, it may be better to run in terminal, for space issues.
+   
    
 Example of arrangement for the "worst case"!
 ############################################
@@ -121,7 +122,6 @@ Example of arrangement for the "worst case"!
 
 .. figure:: img/worst.jpg
    :align: center
-
 
 
 What is python?
