@@ -65,6 +65,54 @@ Everytime you need the tools available in the virtual environment you activate i
 .. prompt:: bash $
 
     source <path/>Example/bin/activate
+    
+Prepare a course environment
+----------------------------
+
+Create a ``venv``. First load the python version you want to base your virtual environment on:
+
+.. code-block:: sh
+
+    $ module load python/3.9.5
+    $ python -m venv /proj/snic2022-22-641/nobackup/<user>/venv-python-course
+    
+Activate it.
+
+.. code-block:: sh
+
+    $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+
+Note that your prompt is changing to start with (venv-python-course) to show that you are within an environment.
+
+Install your packages with ``pip`` and the correct versions, like:
+
+.. prompt:: 
+    :language: bash
+    :prompts: (venv-python-course) $
+
+    pip install numpy matplotlib spacy seaborn
+
+Check what was installed
+
+.. prompt:: 
+    :language: bash
+    :prompts: (venv-python-course) $
+
+    pip list
+
+Deactivate it.
+
+.. prompt:: 
+    :language: bash
+    :prompts: (venv-python-course) $
+
+    deactivate
+
+Everytime you need the tools available in the virtual environment you activate it as above.
+
+.. prompt:: bash $
+
+    source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
 
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
