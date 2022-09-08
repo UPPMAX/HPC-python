@@ -332,9 +332,9 @@ This example shows how you would run several programs or variations of programs 
 
    .. tab:: UPPMAX
 
-     Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5, and the scikit-learn we installed 
+      Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5, and the scikit-learn we installed 
       
-     .. code-block:: sh 
+      .. code-block:: sh 
 
          #!/bin/bash -l
          # Remember to change this to your own project ID after the course!
