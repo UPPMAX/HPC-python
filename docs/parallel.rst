@@ -5,7 +5,7 @@ Parallel computing with Python
 
    - What does parallel computing mean?
    - What different parallelizations are available for Python
-   - How to implent parallel in Python code?
+   - How to implement parallel in Python code?
    - How to deploy threads and workers at HPC2n and UPPMAX?
   
 
