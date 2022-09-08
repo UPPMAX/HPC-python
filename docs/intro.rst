@@ -111,6 +111,19 @@ Some practicals
    - It is up to you!
    - Graphics come easier with Thinlinc
    - For this course, when having many windows open, it may be better to run in terminal, for space issues.
+   
+Example of arrangement for the "worst case"!
+
+############################################
+- HackMD
+- ZOOM view
+- (shellshare) or web browser with course material
+- your own terminal
+
+
+.. figure:: img/worst.png
+   :align: center
+
 
 
 What is python?
