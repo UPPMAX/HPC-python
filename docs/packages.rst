@@ -65,7 +65,7 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
 	
    .. tab:: HPC2N
    
-	Another way to find Python packages that you are unsure how are names, would be to do
+	At HPC2N, a way to find Python packages that you are unsure how are names, would be to do
 
 	.. code-block:: sh 
 
@@ -79,9 +79,7 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
    
 	Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
    
-**UPPMAX only!**
-
-Check the pre-installed packages of a python module loaded, in shell:
+Check the pre-installed packages of a loaded python module, in shell:
 
 .. code-block:: sh 
 
@@ -171,6 +169,10 @@ Use ``pip3`` if you loaded python3.
 Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
 
 We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course (https://uppmax.github.io/HPC-python/isolated.html). 
+
+.. note::
+   
+   You will test this in the separated sessions about isolated environments in a while.
 
 .. keypoints::
 
