@@ -271,7 +271,7 @@ Exit Python or IPython with <Ctrl-D>, "quit()" or 'exit()’ in the python promp
     In [12]: quit()
     In [17]: exit()
 
-.. admonition:: To be merged or moved to packages
+.. admonition:: Workflow
 
    In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
    
