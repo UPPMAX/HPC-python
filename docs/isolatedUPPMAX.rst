@@ -66,7 +66,7 @@ Everytime you need the tools available in the virtual environment you activate i
 
     source <path/>Example/bin/activate
     
-Prepare a course environment
+Prepare the course environment
 ----------------------------
 
 Create a ``venv``. First load the python version you want to base your virtual environment on:
@@ -87,32 +87,32 @@ Note that your prompt is changing to start with (venv-python-course) to show tha
 Install your packages with ``pip`` and the correct versions, like:
 
 .. prompt:: 
-    :language: bash
-    :prompts: (venv-python-course) $
+   :language: bash
+   :prompts: (venv-python-course) $
 
-    pip install numpy matplotlib spacy seaborn
+   pip install numpy matplotlib spacy seaborn
 
 Check what was installed
 
 .. prompt:: 
-    :language: bash
-    :prompts: (venv-python-course) $
+   :language: bash
+   :prompts: (venv-python-course) $
 
-    pip list
+   pip list
 
 Deactivate it.
 
 .. prompt:: 
-    :language: bash
-    :prompts: (venv-python-course) $
+   :language: bash
+   :prompts: (venv-python-course) $
 
-    deactivate
+   deactivate
 
 Everytime you need the tools available in the virtual environment you activate it as above.
 
 .. prompt:: bash $
 
-    source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+   source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
 
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
@@ -146,21 +146,22 @@ Using the self-installed packages in Python
 
 To use the Python packages you have installed under your virtual environment, load your Python module + prerequisites, load any site-installed Python packages you used, and then activate the environment. Now your own packages can be accessed from within Python, just like any other Python package. 
 
-**Example FIXA**
+**Example**
 
-Using the vpyenv created earlier and the spacy we installed under example 1) above. 
+Using the venv created earlier and the spacy we installed under example 1) above. 
 
-.. admonition:: Load modules for Python, numpy (in SciPy-bundle), activate the environment (on Kebnekaise at HPC2N) 
-    :class: dropdown
+.. admonition:: Load modules for Python, activate the environment 
+   :class: dropdown
    
-        .. code-block:: sh
+   .. code-block:: sh
            
-           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
-           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source vpyenv/bin/activate
-           (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ python
-           Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
-           [GCC 10.3.0] on linux
+      $ module load Python/3.9.5
+      $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+      (<name of environment>) $ python
+           Python 3.9.5 (default, Jun  3 2021, 15:06:34)
+           [GCC 9.3.0] on linux
            Type "help", "copyright", "credits" or "license" for more information.
+
            >>> import spacy
            >>> 
            
@@ -173,7 +174,7 @@ pyenv
 -----
 
 This approach is more advanced and should be, in our opinion, used only if the above are not enough for the purpose. 
-This approach allows you to install your **own python version**, like 3.10 and much more… 
+This approach allows you to install your **own python version**, like 3.10, and much more… 
 
 Have a look on this manual https://www.uppmax.uu.se/support/user-guides/python-modules-guide/
 
