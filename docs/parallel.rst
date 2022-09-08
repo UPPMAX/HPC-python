@@ -720,23 +720,27 @@ Execution of this code gives the following output:
 For long jobs, one will need to run in batch mode. Here is an example of a batch script for this MPI
 example,
 
-.. code-block:: sh 
+.. tabs::
 
-    #!/bin/bash
-    #SBATCH -A project_ID
-    #SBATCH -t 00:05:00
-    #SBATCH -n 4
-    #SBATCH -o output_%j.out   # output file
-    #SBATCH -e error_%j.err    # error messages
+   .. tab::HPC2N
+
+      .. code-block:: sh 
+
+         #!/bin/bash
+         #SBATCH -A project_ID
+         #SBATCH -t 00:05:00
+         #SBATCH -n 4
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
      
-    ml purge > /dev/null 2>&1
-    ml GCCcore/11.2.0 Python/3.9.6
-    ml GCC/11.2.0 OpenMPI/4.1.1
-    #ml Julia/1.7.1-linux-x86_64  # if Julia is needed
+         ml purge > /dev/null 2>&1
+         ml GCCcore/11.2.0 Python/3.9.6
+         ml GCC/11.2.0 OpenMPI/4.1.1
+         #ml Julia/1.7.1-linux-x86_64  # if Julia is needed
       
-    source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
+         source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
        
-    mpirun -np 4 python integration2d_mpi.py
+         mpirun -np 4 python integration2d_mpi.py
 
 Monitoring resources' usage
 ---------------------------
