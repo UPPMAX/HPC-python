@@ -67,7 +67,7 @@ Install with conda (UPPMAX)
   
       .. prompt:: bash $
  
-          export CONDA_ENVS_PATH=/proj/snic2020-5-XXX
+          export CONDA_ENVS_PATH=/proj/snic2022-22-641/nobackup/<username>
   
    .. admonition:: By choice
       :class: dropdown
