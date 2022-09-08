@@ -187,7 +187,7 @@ We are using Tensorflow 2.6.0 (2.8.0 at UPPMAX) and Python 3.9.5.
       UPPMAX has scikit-learn in the python_ML module, so let's jut load that one
 
         - Load modules: ``module load python_ML_packages``
-          - On Rackham this will load CPU version, whereas if on a GPU node the GPU version will be loaded
+           - On Rackham this will load CPU version, whereas if on a GPU node the GPU version will be loaded
 
       
 
@@ -309,7 +309,7 @@ This example shows how you would run several programs or variations of programs 
 
       Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5) 
 
-         .. code-block:: sh 
+      .. code-block:: sh 
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
@@ -335,9 +335,9 @@ This example shows how you would run several programs or variations of programs 
 
   .. tab:: UPPMAX
 
-      Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5, and the scikit-learn we installed 
+     Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5, and the scikit-learn we installed 
       
-      .. code-block:: sh 
+     .. code-block:: sh 
 
          #!/bin/bash -l
          # Remember to change this to your own project ID after the course!
