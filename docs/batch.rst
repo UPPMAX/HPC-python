@@ -198,7 +198,7 @@ The recommended TensorFlow version for this course is 2.6.0 on Kebnekaise. The m
 Exercises
 ---------
 
-.. challenge:: Run the first serial example from further up on the page for this short Python code (sum-2args.py)
+.. challenge:: Run the first serial example script from further up on the page for this short Python code (sum-2args.py)
     
     .. code-block:: python
     
