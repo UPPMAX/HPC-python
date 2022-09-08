@@ -15,13 +15,19 @@ Parallel computing with Python
    - Learn common schemes for the parallelization of codes
    - Learn general concepts for parallel computing
 
-.. important::
-   :class: dropdown
 
-    **Prerequisites**
 
-    - For Kebnekaise:
-    
+**Prerequisites**
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+
+
+   .. tab:: HPC2N
+
+      
       ml GCCcore/11.2.0 Python/3.9.6
 
       virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
@@ -50,13 +56,6 @@ Parallel computing with Python
 
         >>> julia.install()
 
-.. tabs::
-
-   .. tab:: UPPMAX
-
-
-
-   .. tab:: HPC2N
 
 
 
