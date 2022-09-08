@@ -3,7 +3,7 @@ On UPPMAX clusters
 
 .. questions::
 
-   - Can you login to Kebnekaise?
+   - Can you login to Rackham?
    - Did you try and find Python packages at the system?
    - Can you load Python and start it, as well as run a short program?
 
