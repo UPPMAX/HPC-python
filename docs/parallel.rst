@@ -74,6 +74,12 @@ Parallel computing with Python
          $ ml gcc/9.3.0 OpenMPI/3.1.5
          $ python -m pip install mpi4py
 
+      - For the ``numba`` example add the following modules:
+
+      .. code-block:: sh
+
+         $ python -m pip install numba
+
       - For the Julia example we will need PyJulia:
         
       .. code-block:: sh
