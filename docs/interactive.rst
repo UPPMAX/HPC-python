@@ -18,33 +18,11 @@ Interactive work on the compute nodes
    - Show how to reach the calculation nodes on UPPMAX and HPC2N
    - Test some commands on the calculation nodes
 
-    There are several ways to run Python interactively
+There are several ways to run Python interactively
 
 - Directly on the login nodes: **only** do this for short jobs that do not take a lot of resources
 - As an interactive job on the computer nodes, launched via the batch system
-- Jupyter notebooks (UPPMAX suggests installing your own version with conda, HPC2N asks you to contact their support for help) 
-
-.. tabs::
-
-   .. tab:: UPPMAX
-
-      First, you make a request for resources with ``Interactive``, like this:
-
-      .. code-block:: sh
-    
-         $ interactive -n <tasks> -p <queue> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
-
-      For short development work (time < 1 h) choose ``-p devcore``
-
-   .. tab:: HPC2N
-
-      First, you make a request for resources with ``salloc``, like this:
-
-      .. code-block:: sh
-    
-         $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
-
-      When the resources are allocated, you need to preface commands with ``srun`` in order to run on the allocated nodes instead of the login node.
+- Jupyter notebooks (UPPMAX)
 
 General
 -------
@@ -195,7 +173,8 @@ Example **Code along**
           
           print("The sum of the two numbers is: {0}".format(sum))
       
-      Now for the examples: 
+**Now for running the examples:**
+- Note that the commands are the same for both HPC2N and UPPMAX!
       
       1. Running a Python script in the allocation we made further up. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script
          
@@ -230,7 +209,6 @@ Example **Code along**
                   The sum of 2 and 3 is 5
       
 
-
 **Exit**
 
 When you have finished using the allocation, either wait for it to end, or close it with ``exit``
@@ -259,11 +237,7 @@ When you have finished using the allocation, either wait for it to end, or close
                   exit
                   salloc: Relinquishing job allocation 20174806
                   salloc: Job allocation 20174806 has been revoked.
-                  b-an01 [~]$ 
-
-
-
-
+                  b-an01 [~]$
 
 
 .. keypoints::
