@@ -44,7 +44,7 @@ Interactive work on the compute nodes
     
          $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
 
-      When the resources are allocated, you need to preface commands with srun in order to run on the allocated nodes instead of the login node.
+      When the resources are allocated, you need to preface commands with ``srun`` in order to run on the allocated nodes instead of the login node.
 
 General
 -------
