@@ -198,21 +198,23 @@ GPU code
 
             #!/bin/bash
             #SBATCH -A SNIC2022-22-641 # Change to your own after the course
-            #SBATCH --reservation=hpc-python
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH --reservation=hpc-python  # Only valid during the course 
+            #SBATCH --time=00:10:00  # Asking for 10 minutes
             # Asking for one K80 card
             #SBATCH --gres=gpu:k80:1
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1
-          
+            
             # Activate the virtual environment we installed to
-            source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
+            # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
+            # Example: /proj/snic2022-22-641/nobackup/mrspock/pythonUPPMAX
+            source <path-to-virt-env>/bin/activate
             
             # Run your Python script
-            python <tf-example>.py
-            
+            python example-tf.py
+           
 
 The recommended TensorFlow version for this course is 2.6.0 on Kebnekaise. The module is compatible with Python 3.9.5 (automatically loaded when you load TensorFlow and its other prerequisites).            
 
