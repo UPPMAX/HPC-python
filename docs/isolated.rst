@@ -30,7 +30,7 @@ Isolated environments lets you create separate workspaces for different versions
 
 There are different tools for creating an isolated environement, but they all have some things in common. At both UPPMAX and HPC2N the workflow is: 
 
-- You load the Python module you will be using, as well as any site-installed package modules
+- You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` flag)
 - You create the isolated environment with something like venv, virtualenv, or conda
 - You activate the environment
 - You install (or update) the environment with the packages you need
