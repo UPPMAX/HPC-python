@@ -727,7 +727,7 @@ example,
       .. code-block:: sh 
 
          #!/bin/bash
-         #SBATCH -A project_ID
+         #SBATCH -A snic2022-22-641
          #SBATCH -t 00:05:00
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
@@ -747,7 +747,7 @@ example,
       .. code-block:: sh 
 
          #!/bin/bash
-         #SBATCH -A project_ID
+         #SBATCH -A snic2022-22-641
          #SBATCH -t 00:05:00
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
