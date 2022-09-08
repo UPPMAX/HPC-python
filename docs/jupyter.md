@@ -1,5 +1,14 @@
 # Running Jupyter on compute nodes
 
+
+## What is jupyter?
+  - "The Jupyter Notebook is the original web application for creating and sharing computational documents. It offers a simple, streamlined, document-centric experience."
+    - Run python interactively and make a "story" document with text and code and figures woven together.
+  - The Jupyter project site contains a lot of information and inspiration. https://jupyter.org/
+  - The Jupyter Notebook documentation. https://jupyter-notebook.readthedocs.io/en/stable/
+
+
+
 ## 1. Start an interactive session from the login node
 ``` bash
 # For Rackham
