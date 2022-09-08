@@ -105,7 +105,7 @@ You can now run Python scripts on the allocated resources directly instead of wa
 Example **Code along**
 ######################
 
-**Requesting 4 cores for 30 minutes, then running Python **
+**Requesting 4 cores for 30 minutes, then running Python**
 
 .. tabs::
 
@@ -164,7 +164,7 @@ Example **Code along**
       We are. Notice that we got a response from all four cores we have allocated.   
       
       
-**I am going to use the following two Python codes for the examples: **
+**I am going to use the following two Python codes for the examples:**
       
       Adding two numbers from user input (add2.py)
          
