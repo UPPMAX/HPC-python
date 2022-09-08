@@ -62,7 +62,7 @@ Serial code
 
    .. tab:: UPPMAX
 
-Short serial example script for Rackham. Loading Python 3.9.5. Numpy is preinstalled and does not need to be loaded. 
+        Short serial example script for Rackham. Loading Python 3.9.5. Numpy is preinstalled and does not need to be loaded. 
 
         .. code-block:: sh
 
