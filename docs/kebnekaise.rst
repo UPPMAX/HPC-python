@@ -3,13 +3,9 @@ On Kebnekaise cluster
 
 .. questions::
 
-   - What syntax is used to make a lesson?
-   - How do you structure a lesson effectively for teaching?
-
-   ``questions`` are at the top of a lesson and provide a starting
-   point for what you might learn.  It is usually a bulleted list.
-   (The history is a holdover from carpentries-style lessons, and is
-   not required.)
+   - Can you login to Kebnekaise?
+   - Did you try and find Python packages at the system?
+   - Can you load Python and start it, as well as run a short program?
    
 .. objectives:: 
 
@@ -65,8 +61,46 @@ as the server in the ThinLinc login.
 
 There is a guide for you to follow here: https://www.hpc2n.umu.se/documentation/guides/thinlinc 
 
+Loading Python
+--------------
+
+We are going to use Python 3.9.5 for this course. At HPC2N, this module has a prerequisite
+
+.. code-block:: sh
+
+    module load GCC/10.3.0  Python/3.9.5
+    
+
+Starting Python and running Python scripts
+------------------------------------------
+
+As mentioned in the general section, you start python with either ``python`` or ``python3`` (assuming it is a version 3.x of Python you are using). 
+
+.. admonition:: Load Python 3.9.5 and start it. You exit with ``exit()``
+
+    .. code-block:: sh
+
+        b-an01 [~/proj/nobackup/hpc2n-support/bbrydsoe/Python-in-HPC/examples/hpc2n]$ module load GCCcore/10.3.0 Python/3.9.5
+        b-an01 [~/proj/nobackup/hpc2n-support/bbrydsoe/Python-in-HPC/examples/hpc2n]$ python
+        Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
+        [GCC 10.3.0] on linux
+        Type "help", "copyright", "credits" or "license" for more information.
+        >>> exit()
+
+
+.. admonition:: Try submitting one of the Python programs to the batch system. 
+
+   Remember to change the path in it to the location of your own files! 
+   
+   .. code-block:: sh
+
+       b-an01 [~/proj/nobackup/hpc2n-support/bbrydsoe/Python-in-HPC/examples/hpc2n]$ sbatch run_mmmult.sh 
+       Submitted batch job 20358127
+    
+It will create a file named ``slurm-<jobid>.out``. Look at the contents with ``cat`` or ``vi``. 
+
 
 .. keypoints::
 
-   - What the learner should take away
-   - point 2
+   - You have logged in to Kebnekaise
+   - You have loaded Python and tried running a small Python code
