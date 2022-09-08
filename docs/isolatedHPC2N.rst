@@ -14,7 +14,7 @@ Isolated environments at HPC2N
    
 .. objectives:: 
 
-   - Give a introduction to isolated environments at UPPMAX
+   - Give a introduction to isolated environments at HPC2N
 
 .. warning::   
 
