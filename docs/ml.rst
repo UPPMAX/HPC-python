@@ -245,7 +245,7 @@ General
 You almost always want to run several iterations of your machine learning code with changed parameters and/or added layers. If you are doing this in a batch job, it is easiest to either make a batch script that submits several variations of your Python script (changed parameters, changed layers), or make a script that loops over and submits jobs with the changes. 
 
 Running several jobs from within one job
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+########################################
 
 This example shows how you would run several programs or variations of programs sequentially within the same job: 
 
@@ -279,8 +279,9 @@ This example shows how you would run several programs or variations of programs 
 
 .. keypoints::
 
-    -  At all clusters you will find PyTorch, TensorFlow, Scikit-learn
-    -  The loading are sligtly dirrerent at the clusters
-      - UPPMAX: All tools are available from the module ``python_ML_packages``
-      - HPC2N: ``module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1``
+  - At all clusters you will find PyTorch, TensorFlow, Scikit-learn
+  - The loading are sligtly dirrerent at the clusters
+     - UPPMAX: All tools are available from the module ``python_ML_packages``
+     - HPC2N: ``module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1``
+
 
