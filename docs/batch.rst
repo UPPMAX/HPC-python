@@ -137,11 +137,30 @@ Serial code + self-installed package in virt. env.
 
    .. tab:: UPPMAX
 
+        Short serial example for running on Rackham. Loading Python/3.9.5 + using any Python packages you have installed yourself with venv. More information will follow under the separate session for UPPMAX. 
+
+        .. code-block:: sh
+        
+            #!/bin/bash
+            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python 3.9.5 
+            module load python/3.9.5
+            
+            # Activate your virtual environment. 
+            # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
+            # Example: /proj/snic2022-22-641/nobackup/mrspock/pythonUPPMAX 
+            source <path-to-virt-env>/bin/activate
+            
+            # Run your Python script
+            python <my_program.py>
 
 
    .. tab:: HPC2N
 
-        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment. During the separate session for HPC2N there will more about how to install something yourself this way. 
+        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5 + using any Python packages you have installed yourself with virtual environment. During the separate session for HPC2N there will more about how to install something yourself this way. 
        
         .. code-block:: sh
 
@@ -153,7 +172,9 @@ Serial code + self-installed package in virt. env.
             # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
             module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
             
-            # Activate your virtual environment. Note that you either need to have added the location to your path, or give the full path
+            # Activate your virtual environment. 
+            # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
+            # Example: /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N 
             source <path-to-virt-env>/bin/activate
             
             # Run your Python script 
