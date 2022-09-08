@@ -4,7 +4,7 @@ Conda
 .. questions::
 
    - What does Conda do?
-   - How to creata Conda environments
+   - How to create a Conda environment
    
 .. objectives::
 
