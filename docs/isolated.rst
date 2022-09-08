@@ -17,6 +17,7 @@ Isolated environments
 
    
 .. objectives:: 
+
    - Give a general 'theoretical* introduction to isolated environments 
    - Site-specific procedures are given at the separated sessions.
 
