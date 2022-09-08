@@ -32,6 +32,11 @@ Create a ``vpyenv``. First load the python version you want to base your virtual
     
 "vpyenv" is the name of the virtual environment. You can name it whatever you want. The directory “vpyenv” is created in the present working directory.
 
+.. note::
+
+   ``--system-site-packages`` includes the packages already installed in the loaded python and python packages modules.
+
+
 **NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
 
 **NOTE**: if you need are for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
