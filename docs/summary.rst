@@ -46,6 +46,10 @@ Summary
          - At UPPMAX: interactive ...
       - Follow the same procedure as usual by loading the Python module and possible prerequisites.
 
+   - Parallel
+      - You deploy cores and nodes via SLURM, either in interactive mode or batch
+      - In Python, threads, distributed and MPI parallelization can be used.
+
    - GPUs
       -  You deploy GPU nodes via SLURM, either in interactive mode or batch
       -  In Python the numba package is handy
