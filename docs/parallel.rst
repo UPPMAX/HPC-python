@@ -71,7 +71,7 @@ Parallel computing with Python
 
       .. code-block:: sh
 
-         $ ml gcc/9.3.0 OpenMPI/3.1.5
+         $ ml gcc/9.3.0 openmpi/3.1.5
          $ python -m pip install mpi4py
 
       - For the ``numba`` example add the following modules:
@@ -84,7 +84,7 @@ Parallel computing with Python
         
       .. code-block:: sh
        
-         $ ml Julia/1.7.2
+         $ ml julia/1.7.2
          $ python -m pip install julia
 
       -Start Python on the command line and type:
@@ -760,8 +760,8 @@ example,
          #SBATCH -e error_%j.err    # error messages
      
          ml python/3.9.5
-         ml gcc/9.3.0 OpenMPI/3.1.5
-         #ml Julia/1.7.2  # if Julia is needed
+         ml gcc/9.3.0 openmpi/3.1.5
+         #ml julia/1.7.2  # if Julia is needed
       
          source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
        
