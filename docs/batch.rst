@@ -201,8 +201,6 @@ GPU code
             #SBATCH -M snowy
             #SBATCH --gpus=1
             #SBATCH --gpus-per-node=1
-            ##for jobs shorter than 15 min (max 4 nodes):
-            #SBATCH --qos=short
             
             # Load any modules you need, here loading Python 3.9.5 
             module load python/3.9.5
@@ -278,7 +276,7 @@ Exercises
 .. solution:: Solution for UPPMAX
     :class: dropdown
     
-          This batch script is for Kebnekaise. Adding the numbers 2 and 3. 
+          This batch script is for UPPMAX. Adding the numbers 2 and 3. 
           
           .. code-block:: sh
  
@@ -288,7 +286,7 @@ Exercises
             #SBATCH -n 1 # Asking for 1 core
             
             # Load any modules you need, here for Python 3.9.5
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5
+            module load Python/3.9.5
             
             # Run your Python script 
             python sum-2args.py 2 3 
