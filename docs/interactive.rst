@@ -53,12 +53,13 @@ In order to run interactively, you need to have compute nodes allocated to run o
 
 Because you will have to wait until the nodes are allocated, and because you cannot know when this happens, this is not usually a recommended way to run Python, but it is possible. 
 
-**NOTE** (HPC2N) Do note that it is not *real* interactivity as you probably mean it, as you will have to run it as a Python script instead of by starting Python and giving commands inside it. The reason for this is that you are not actually logged into the compute node and only sees the output of the commands you run. 
+.. warning::
+
+    (HPC2N) Do note that it is not *real* interactivity as you probably mean it, as you will have to run it as a Python script instead of by starting Python and giving commands inside it. The reason for this is that you are not actually logged into the compute node and only sees the output of the commands you run. 
 
 Another option would be to use Jupyter notebooks. This option will be covered under the UPPMAX separate sessions.
 This is somewhat convoluted to get to work correctly at HPC2N, but possible. Please contact us at support@hpc2n.umu.se if you want to go this route at HPC2N. 
 
-**BELOW NEEDS MERGING BETTER AND GENERAL FIXED**
 
 **Python "interactively" on the compute nodes**
 
@@ -112,7 +113,7 @@ This is somewhat convoluted to get to work correctly at HPC2N, but possible. Ple
       
       where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in 
       hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project 
-      (SNIC2022-22-641 for this course)
+      (**SNIC2022-22-641** for this course)
           
       Your request enters the job queue just like any other job, and salloc will tell you that it is
       waiting for the requested resources. When salloc tells you that your job has been allocated 
