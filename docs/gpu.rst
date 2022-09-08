@@ -358,13 +358,14 @@ collected in the array ``C``. The entire code is here:
          print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
          print("Time spent: %.2f sec" % (endtime-starttime))
 
-We need a batch script to run this Python code, an example script is here:
+We need a batch script to run this Python code, an example script that will run on Kebnekaise is here:
 
 
 .. code-block:: sh 
 
     #!/bin/bash
-    #SBATCH -A project_ID
+    # Remember to change this to your own project ID after the course!
+    #SBATCH -A SNIC2022-22-641
     #SBATCH -t 00:08:00
     #SBATCH -N 1
     #SBATCH -n 28
@@ -378,6 +379,7 @@ We need a batch script to run this Python code, an example script is here:
     ml GCC/11.2.0 OpenMPI/4.1.1
     ml CUDA/11.4.1
     
+    # CHANGE TO YOUR OWN PATH! 
     source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
        
     python integration2d_gpu.py
