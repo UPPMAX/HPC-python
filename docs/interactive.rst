@@ -69,7 +69,7 @@ You can use the command salloc to allow interactive use of resources allocated t
 When the resources are allocated, you need to preface commands with ``srun`` in order to 
 run on the allocated nodes instead of the login node. 
       
-First, you make a request for resources with ``salloc``, like this:
+First, you make a request for resources with "interactive``/``salloc``, like this:
 
 .. tabs::
 
@@ -84,6 +84,7 @@ First, you make a request for resources with ``salloc``, like this:
       .. code-block:: sh
           
          $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
+         
       
 where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in 
       hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project 
@@ -101,7 +102,10 @@ You can now run Python scripts on the allocated resources directly instead of wa
       script or perhaps figure out which parameters are best.
                   
 
-Example, Requesting 4 cores for 30 minutes, then running Python 
+Example
+#######
+
+Requesting 4 cores for 30 minutes, then running Python 
 
 .. tabs::
 
