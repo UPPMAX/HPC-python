@@ -82,6 +82,7 @@ Some practicals
 
       - Rackham: ``ssh <user>@rackham.uppmax.uu.se`` 
       
+      - Rackham through ThinLinc, use: ``<user>@rackham-gui.uppmax.uu.se``
       - Create a working directory where you can code along. We recommend creating it under the course project storage directory
    
          
@@ -100,6 +101,10 @@ Some practicals
      
          /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
          
+.. admonition::Use Thinlinc or terminal?
+   - It is up to you!
+   - Graphics come easier with Thinlinc
+   - For this course, when having many windows open, it may be better to run in terminal, for space issues.
 
 
 What is python?
