@@ -188,7 +188,28 @@ GPU code
 
    .. tab:: UPPMAX
 
+        Short GPU example for running on Snowy.         
+       
+        .. code-block:: sh
 
+            #!/bin/bash
+            #SBATCH -A SNICXXXX-YY-ZZZ
+            #SBATCH -t 00:10:00
+            #SBATCH --exclusive
+            #SBATCH -p node
+            #SBATCH -N 1
+            #SBATCH -M snowy
+            #SBATCH --gpus=1
+            #SBATCH --gpus-per-node=1
+            ##for jobs shorter than 15 min (max 4 nodes):
+            #SBATCH --qos=short
+            
+            # Load any modules you need, here loading Python 3.9.5 
+            module load python/3.9.5
+            
+            # Run your code
+            python <my-gpu-code>.py 
+            
 
    .. tab:: HPC2N
 
