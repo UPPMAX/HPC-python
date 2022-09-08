@@ -61,15 +61,15 @@ Another option would be to use Jupyter notebooks. This option will be covered un
 This is somewhat convoluted to get to work correctly at HPC2N, but possible. Please contact us at support@hpc2n.umu.se if you want to go this route at HPC2N. 
 
 
-Python "interactively" on the compute nodes **Code along**
-----------------------------------------------------------
+Python "interactively" on the compute nodes 
+-------------------------------------------
 
 To run interactively, you need to allocate resources on the cluster first. 
 You can use the command salloc to allow interactive use of resources allocated to your job. 
 When the resources are allocated, you need to preface commands with ``srun`` in order to 
 run on the allocated nodes instead of the login node. 
       
-First, you make a request for resources with "interactive``/``salloc``, like this:
+- First, you make a request for resources with ``interactive``/``salloc``, like this:
 
 .. tabs::
 
@@ -102,8 +102,8 @@ You can now run Python scripts on the allocated resources directly instead of wa
       script or perhaps figure out which parameters are best.
                   
 
-Example (**WORK in PROGRESS**)
-#######
+Example **Code along**
+######################
 
 **Requesting 4 cores for 30 minutes, then running Python **
 
@@ -124,18 +124,17 @@ Example (**WORK in PROGRESS**)
           
           [bjornc@r484 ~]$ module load python/3.9.5
 
+      Let us check that we actually run on the compute node: 
+
+      .. code-block:: sh
       
-      .. code-block:: sh 
-                  
-                  [bjornc@r484 ~]$ exit
-      
-                  exit
-                  [screen is terminating]
-                  Connection to r484 closed.
-      
-                  [bjornc@rackham2 ~]$
-      
-      It is also possible to run IPython or (on UPPMAX) jupyter-notebook
+          [bjornc@r483 ~]$ srun hostname
+          r483.uppmax.uu.se
+          r483.uppmax.uu.se
+          r483.uppmax.uu.se
+          r483.uppmax.uu.se
+
+      We are. Notice that we got a response from all four cores we have allocated.   
 
    .. tab:: HPC2N
          
@@ -230,8 +229,30 @@ Example (**WORK in PROGRESS**)
                   Enter the second number: 3
                   The sum of 2 and 3 is 5
       
-      When you have finished using the allocation, either wait for it to end, or close it with ``exit``
+
+
+**Exit**
+
+When you have finished using the allocation, either wait for it to end, or close it with ``exit``
+
+.. tabs::
+
+   .. tab:: UPPMAX
+   
+      .. code-block:: sh 
+                  
+                  [bjornc@r484 ~]$ exit
       
+                  exit
+                  [screen is terminating]
+                  Connection to r484 closed.
+      
+                  [bjornc@rackham2 ~]$
+      
+      It is also possible to run IPython or (on UPPMAX) jupyter-notebook
+
+   .. tab:: HPC2N
+   
       .. code-block:: sh 
                   
                   b-an01 [~]$ exit
@@ -240,15 +261,6 @@ Example (**WORK in PROGRESS**)
                   salloc: Job allocation 20174806 has been revoked.
                   b-an01 [~]$ 
 
-
-
-
-**Exit**
-
-
-.. tabs::
-
-   .. tab:: UPPMAX
 
 
 
