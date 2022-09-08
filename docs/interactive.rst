@@ -61,16 +61,52 @@ Another option would be to use Jupyter notebooks. This option will be covered un
 This is somewhat convoluted to get to work correctly at HPC2N, but possible. Please contact us at support@hpc2n.umu.se if you want to go this route at HPC2N. 
 
 
-**Python "interactively" on the compute nodes**
+Python "interactively" on the compute nodes **Code along**
+----------------------------------------------------------
+
+To run interactively, you need to allocate resources on the cluster first. 
+You can use the command salloc to allow interactive use of resources allocated to your job. 
+When the resources are allocated, you need to preface commands with ``srun`` in order to 
+run on the allocated nodes instead of the login node. 
+      
+First, you make a request for resources with ``salloc``, like this:
+
+.. tabs::
+
+   .. tab:: UPPMAX (interactive)
+
+      .. code-block:: sh
+          
+         $ interactive -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
+      
+   .. tab:: HPC2N (salloc)
+
+      .. code-block:: sh
+          
+         $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
+      
+where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in 
+      hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project 
+      (**SNIC2022-22-641** for this course)
+
+Your request enters the job queue just like any other job, and interactive/salloc will tell you that it is
+      waiting for the requested resources. When salloc tells you that your job has been allocated 
+      resources, you can interactively run programs on those resources with ``srun``. The commands 
+      you run with ``srun`` will then be executed on the resources your job has been allocated. 
+      If you do not preface with ``srun`` the command is run on the login node! 
+      
+
+You can now run Python scripts on the allocated resources directly instead of waiting for 
+      your batch job to return a result. This is an advantage if you want to test your Python 
+      script or perhaps figure out which parameters are best.
+                  
+
+Example, Requesting 4 cores for 30 minutes, then running Python 
 
 .. tabs::
 
    .. tab:: UPPMAX
 
-      First, ...
-
-      Example UPPMAX, Requesting 4 cores for 30 minutes, then running Python 
-         
       .. code-block:: sh
       
           [bjornc@rackham2 ~]$ interactive -A snic2022-22-641 -p core -n 4 -t 30:00
@@ -84,7 +120,6 @@ This is somewhat convoluted to get to work correctly at HPC2N, but possible. Ple
           
           [bjornc@r484 ~]$ module load python/3.9.5
 
-      At UPPMAX
       
       .. code-block:: sh 
                   
@@ -100,31 +135,7 @@ This is somewhat convoluted to get to work correctly at HPC2N, but possible. Ple
 
    .. tab:: HPC2N
 
-      To run interactively, you need to allocate resources on the cluster first. 
-      You can use the command salloc to allow interactive use of resources allocated to your job. 
-      When the resources are allocated, you need to preface commands with ``srun`` in order to 
-      run on the allocated nodes instead of the login node. 
       
-      First, you make a request for resources with ``salloc``, like this:
-      
-      .. code-block:: sh
-          
-         $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
-      
-      where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in 
-      hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project 
-      (**SNIC2022-22-641** for this course)
-          
-      Your request enters the job queue just like any other job, and salloc will tell you that it is
-      waiting for the requested resources. When salloc tells you that your job has been allocated 
-      resources, you can interactively run programs on those resources with ``srun``. The commands 
-      you run with ``srun`` will then be executed on the resources your job has been allocated. 
-      If you do not preface with ``srun`` the command is run on the login node! 
-      
-      You can now run Python scripts on the allocated resources directly instead of waiting for 
-      your batch job to return a result. This is an advantage if you want to test your Python 
-      script or perhaps figure out which parameters are best.
-                  
       
       Example HPC2N, Requesting 4 cores for 30 minutes, then running Python:
          
