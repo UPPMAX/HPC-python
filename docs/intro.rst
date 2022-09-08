@@ -119,7 +119,7 @@ Example of arrangement for the "worst case"!
 - (shellshare) or web browser with course material
 - your own terminal
 
-.. figure:: img/worst.png
+.. figure:: img/worst.jpg
    :align: center
 
 
