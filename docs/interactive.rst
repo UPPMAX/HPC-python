@@ -102,10 +102,10 @@ You can now run Python scripts on the allocated resources directly instead of wa
       script or perhaps figure out which parameters are best.
                   
 
-Example
+Example (**WORK in PROGRESS**)
 #######
 
-Requesting 4 cores for 30 minutes, then running Python 
+**Requesting 4 cores for 30 minutes, then running Python **
 
 .. tabs::
 
@@ -138,10 +138,6 @@ Requesting 4 cores for 30 minutes, then running Python
       It is also possible to run IPython or (on UPPMAX) jupyter-notebook
 
    .. tab:: HPC2N
-
-      
-      
-      Example HPC2N, Requesting 4 cores for 30 minutes, then running Python:
          
       .. code-block:: sh
       
@@ -168,7 +164,8 @@ Requesting 4 cores for 30 minutes, then running Python
       
       We are. Notice that we got a response from all four cores we have allocated.   
       
-      I am going to use the following two Python codes for the examples: 
+      
+**I am going to use the following two Python codes for the examples: **
       
       Adding two numbers from user input (add2.py)
          
@@ -242,6 +239,19 @@ Requesting 4 cores for 30 minutes, then running Python
                   salloc: Relinquishing job allocation 20174806
                   salloc: Job allocation 20174806 has been revoked.
                   b-an01 [~]$ 
+
+
+
+
+**Exit**
+
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+
+
 
 
 .. keypoints::
