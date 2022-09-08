@@ -120,7 +120,7 @@ This is an example of a batch script for running the above example, using PyTorc
             srun python pytorch_fitting_gpu.py
             
 UPPMAX as a run in an interactive Snowy session
-######
+###############################################
 
 .. code-block:: sh
 
@@ -241,7 +241,7 @@ In order to run the above example, we will create a batch script and submit it.
    .. tab:: HPC2N
 
       Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed 
-        .. code-block:: sh 
+      .. code-block:: sh 
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
@@ -265,7 +265,7 @@ In order to run the above example, we will create a batch script and submit it.
 
       Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5, and the scikit-learn we installed 
       
-        .. code-block:: sh 
+      .. code-block:: sh 
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
@@ -291,8 +291,6 @@ In order to run the above example, we will create a batch script and submit it.
 Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
 
 The output and errors will in this case be written to ``slurm-<job-id>.out``. 
-
-
 
 
 General
@@ -353,10 +351,8 @@ This example shows how you would run several programs or variations of programs 
          module load uppmax
          module load python_ML_packages/3.9.5-gpu
          module load python/3.9.5 # to get some extra packages
-
          # Output to file - not needed if your job creates output in a file directly
          # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
-
          python tf_program.py 1 2 > myoutput1 2>&1
          cp myoutput1 mydatadir
          python tf_program.py 3 4 > myoutput2 2>&1
