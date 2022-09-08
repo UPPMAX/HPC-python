@@ -722,7 +722,7 @@ example,
 
 .. tabs::
 
-   .. tab::HPC2N
+   .. tab:: HPC2N
 
       .. code-block:: sh 
 
@@ -739,6 +739,25 @@ example,
          #ml Julia/1.7.1-linux-x86_64  # if Julia is needed
       
          source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
+       
+         mpirun -np 4 python integration2d_mpi.py
+
+   .. tab:: UPPMAX
+
+      .. code-block:: sh 
+
+         #!/bin/bash
+         #SBATCH -A project_ID
+         #SBATCH -t 00:05:00
+         #SBATCH -n 4
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+     
+         ml python/3.9.5
+         ml gcc/9.3.0 OpenMPI/3.1.5
+         #ml Julia/1.7.2  # if Julia is needed
+      
+         source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
        
          mpirun -np 4 python integration2d_mpi.py
 
