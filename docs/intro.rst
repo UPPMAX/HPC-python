@@ -79,7 +79,7 @@ Some practicals
 
 .. admonition:: Prepare your environment now!
   
-   - Please log in to Rackham, Kebnekaise or other cluster that you are using 
+   - Please log in to Rackham, Kebnekaise or other cluster that you are using.
 
     
 .. tabs::
@@ -108,6 +108,7 @@ Some practicals
          /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
          
 .. admonition:: Use Thinlinc or terminal?
+
    - It is up to you!
    - Graphics come easier with Thinlinc
    - For this course, when having many windows open, it may be better to run in terminal, for space issues.
