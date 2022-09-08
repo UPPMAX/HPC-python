@@ -226,6 +226,8 @@ For more interactiveness you can run Ipython
 
    .. tab:: UPPMAX
 
+      NOTE: remember to load a python module first. The start IPython from terminal
+      
       .. code-block:: sh
 
          $ ipython 
@@ -272,6 +274,12 @@ Exit Python or IPython with <Ctrl-D>, "quit()" or 'exit()’ in the python promp
 .. admonition:: To be merged or moved to packages
 
    In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
+   
+   .. tabs::
+   
+      .. tab::UPPMAX
+      
+      .. tab:: HPC2N
 
    1) Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
    2) Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
@@ -283,7 +291,7 @@ Exit Python or IPython with <Ctrl-D>, "quit()" or 'exit()’ in the python promp
 
    The command ``pip list`` given within Python will list the available modules to import. 
 
-   More about virtual/isolated environment to follow in later sections of the course! 
+   More about packages and virtual/isolated environment to follow in later sections of the course! 
 
 
 .. keypoints::
