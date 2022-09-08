@@ -181,13 +181,33 @@ The two HPC centers UPPMAX and HPC2N
 Briefly about the cluster hardware and system at UPPMAX and HPC2N
 -----------------------------------------------------------------
 
+**What is a cluster?*
+
+- Login nodes and calculations nodes
+
+- A network of computers, each computer working as a **node**.
+     
+- Each node contains several processor cores and RAM and a local disk called scratch.
+
+.. figure:: img/node.png
+   :align: center
+
+- The user logs in to **login nodes**  via Internet through ssh or Thinlinc.
+
+  - Here the file management and lighter data analysis can be performed.
+
+.. figure:: img/nodes.png
+   :align: center
+
+- The **calculation nodes** have to be used for intense computing. 
+
+
 Common features
 ###############
 
 - Intel CPUs
 - Linux kernel
 - Bash shell
-
 
 .. list-table:: Hardware
    :widths: 25 25 25 25 25
