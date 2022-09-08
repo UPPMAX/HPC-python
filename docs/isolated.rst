@@ -22,14 +22,29 @@ Isolated environments
 
 General procedures   
 ------------------
-    
-**Make an overview general for both clusters**
-- general procedure
-- the tools
-   - venv
+
+You will often have the situation that your project(s) use different versions of Python and different versions of packages. This is great if you need different versions of a package for different tasks, for instance.
+As an example, maybe you have been using TensorFlow 1.x.x for your project and now you need to install a package that requires TensorFlow 2.x.x but you will still be needing the old version of TensorFlow for another package, for instance. This is easily solved with isolated environments.
+
+Isolated environments lets you create separate workspaces for different versions of Python and/or different versions of packages. You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
+
+There are different tools for creating an isolated environement, but they all have some things in common. At both UPPMAX and HPC2N the workflow is: 
+
+- You load the Python module you will be using, as well as any site-installed package modules
+- You create the isolated environment with something like venv, virtualenv, or conda
+- You activate the environment
+- You install (or update) the environment with the packages you need
+- You work in the isolated environment
+- You deactivate the environment after use 
+
+**The tools**
+
+In this course we will look at the following tools for creating and using isolated environments: 
+
+   - venv   
    - *virtualenv*
    - Conda
-- point to separated sessions
+
 
 .. admonition:: venv vs. virtualenv
 
@@ -40,12 +55,12 @@ General procedures
 Virtual environment - venv (UPPMAX)
 -----------------------------------
 
-Seperatee session at <https://uppmax.github.io/HPC-python/isolatedUPPMAX.html>
+Separate session at <https://uppmax.github.io/HPC-python/isolatedUPPMAX.html>
 
 Virtual environment - virtualenv (HPC2N)
 ----------------------------------------
 
-Seperate session at <https://uppmax.github.io/HPC-python/isolatedHPC2N.html>
+Separate session at <https://uppmax.github.io/HPC-python/isolatedHPC2N.html>
 
 .. keypoints::
 
@@ -54,6 +69,6 @@ Seperate session at <https://uppmax.github.io/HPC-python/isolatedHPC2N.html>
    - There are different tools to create virtual environemnts.
       - UPPMAX has  Conda and venv
       - HPC2N has virtualenv.
-     -  More details in the seperated sessions!
+     -  More details in the separated sessions!
  
    
