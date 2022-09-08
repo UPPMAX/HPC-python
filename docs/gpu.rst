@@ -82,6 +82,8 @@ Numba is installed as a module at HPC2N, but not in a version compatible with th
 .. admonition:: Load Python 3.9.5 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba 
     :class: dropdown
    
+        If you code-along, then remember to change the path to your own in the example below!
+   
         .. code-block:: sh
       
              b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
@@ -175,11 +177,11 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
    .. tab:: HPC2N Demo
    
-      Running a GPU Python code interactively 
+      Running a GPU Python code interactively. When you code-along, remember to change the activation path for the virtual environment to your own! 
 
       .. code-block:: bash
 
-         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ salloc -A SNIC2022-5-301 --time=00:30:00 -n 1 --gres=gpu:k80:1 
+         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ salloc -A SNIC2022-22-641 --time=00:30:00 -n 1 --gres=gpu:k80:1 
          salloc: Pending job allocation 20346979
          salloc: job 20346979 queued and waiting for resources
          salloc: job 20346979 has been allocated resources
