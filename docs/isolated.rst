@@ -69,6 +69,6 @@ Separate session at <https://uppmax.github.io/HPC-python/isolatedHPC2N.html>
    - There are different tools to create virtual environemnts.
       - UPPMAX has  Conda and venv
       - HPC2N has virtualenv.
-     -  More details in the separated sessions!
+      - More details in the separated sessions!
  
    
