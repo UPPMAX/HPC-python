@@ -26,9 +26,13 @@ Create a ``venv``. First load the python version you want to base your virtual e
 .. code-block:: sh
 
     $ module load python/<version>
-    $ python -m venv Example
+    $ python -m venv --system-site-packages Example
     
 "Example" is the name of the virtual environment. The directory “Example” is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
+
+.. note::
+
+   ``--system-site-packages`` includes the packages already installed in the loaded python module.
 
 If you want it in a certain place like "~/test/":
 
