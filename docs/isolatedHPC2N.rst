@@ -82,7 +82,7 @@ Using pip
 Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use: 
 
 .. code-block:: sh
-    (vpyenv) $ pip install --no-cache-dir --no-build-isolation <package>==<version>
+   (vpyenv) $ pip install --no-cache-dir --no-build-isolation <package>==<version>
     
 The "--no-cache-dir" option is required to avoid it from reusing earlier installations from the same user in a different environment. The "--no-build-isolation" is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
