@@ -381,7 +381,7 @@ We need a batch script to run this Python code, an example script is here:
     python integration2d_gpu.py
     python integration2d_gpu_shared.py
 
-The simulation time for this problem's size was 1.87 sec by using the shared 
+The simulation time for this problem's size was 1.87 sec. by using the shared 
 memory trick. 
 
 .. keypoints::
