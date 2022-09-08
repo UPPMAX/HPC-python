@@ -152,36 +152,34 @@ This is somewhat convoluted to get to work correctly at HPC2N, but possible. Ple
       
       I am going to use the following two Python codes for the examples: 
       
-      .. admonition:: Adding two numbers from user input (add2.py)
-          :class: dropdown
+      Adding two numbers from user input (add2.py)
          
-              .. code-block:: python
+      .. code-block:: python
       
-                  # This program will add two numbers that are provided by the user
-                  
-                  # Get the numbers
-                  a = int(input("Enter the first number: ")) 
-                  b = int(input("Enter the second number: "))
-                  
-                  # Add the two numbers together
-                  sum = a + b
-                  
-                  # Output the sum
-                  print("The sum of {0} and {1} is {2}".format(a, b, sum))
+          # This program will add two numbers that are provided by the user
+          
+          # Get the numbers
+          a = int(input("Enter the first number: ")) 
+          b = int(input("Enter the second number: "))
+          
+          # Add the two numbers together
+          sum = a + b
+          
+          # Output the sum
+          print("The sum of {0} and {1} is {2}".format(a, b, sum))
       
-      .. admonition:: Adding two numbers given as arguments (sum-2args.py)
-          :class: dropdown
+      Adding two numbers given as arguments (sum-2args.py)
          
-              .. code-block:: python
+      .. code-block:: python
       
-                  import sys
-                  
-                  x = int(sys.argv[1])
-                  y = int(sys.argv[2])
-                  
-                  sum = x + y
-                  
-                  print("The sum of the two numbers is: {0}".format(sum))
+          import sys
+          
+          x = int(sys.argv[1])
+          y = int(sys.argv[2])
+          
+          sum = x + y
+          
+          print("The sum of the two numbers is: {0}".format(sum))
       
       Now for the examples: 
       
