@@ -1,13 +1,17 @@
 # Running Jupyter on compute nodes
 
-
-## What is jupyter?
+```{callout} What is Jupyter?
   - "The Jupyter Notebook is the original web application for creating and sharing computational documents. It offers a simple, streamlined, document-centric experience."
-    - Run python interactively and make a "story" document with text and code and figures woven together.
-  - The Jupyter project site contains a lot of information and inspiration. https://jupyter.org/
-  - The Jupyter Notebook documentation. https://jupyter-notebook.readthedocs.io/en/stable/
+    - Run python interactively and make a "story" document with text and code and figures woven together. 
+    - Includes file manager
+  - You run it in a **web browser** (``firefox`` at UPPMAX)
+
+  - The Jupyter project site contains a lot of information and inspiration. <https://jupyter.org/>
+  - The Jupyter Notebook documentation. <https://jupyter-notebook.readthedocs.io/en/stable/>
+```
 
 
+## On the compute nodes
 
 ## 1. Start an interactive session from the login node
 ``` bash
