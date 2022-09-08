@@ -51,18 +51,18 @@ Note that your prompt is changing to start with (Example) to show that you are w
 Install your packages with ``pip`` and the correct versions, like:
 
 .. prompt:: 
-   :language: bash
-   :prompts: (Example) $
+    :language: bash
+    :prompts: (Example) $
 
-   pip install numpy==1.13.1 matplotlib==2.2.2
+    pip install numpy==1.13.1 matplotlib==2.2.2
 
 Deactivate it.
 
 .. prompt:: 
-   :language: bash
-   :prompts: (Example) $
+    :language: bash
+    :prompts: (Example) $
 
-      deactivate
+    deactivate
 
 Everytime you need the tools available in the virtual environment you activate it as above.
 
@@ -70,6 +70,8 @@ Everytime you need the tools available in the virtual environment you activate i
 
    source <path/>Example/bin/activate
     
+
+
 Prepare the course environment
 ----------------------------
 
@@ -91,32 +93,32 @@ Note that your prompt is changing to start with (venv-python-course) to show tha
 Install your packages with ``pip`` and the correct versions, like:
 
 .. prompt:: 
-   :language: bash
-   :prompts: (venv-python-course) $
+    :language: bash
+    :prompts: (venv-python-course) $
 
-   pip spacy seaborn
+    pip spacy seaborn
 
 Check what was installed
 
 .. prompt:: 
-   :language: bash
-   :prompts: (venv-python-course) $
+    :language: bash
+    :prompts: (venv-python-course) $
 
    pip list
 
 Deactivate it.
 
 .. prompt:: 
-   :language: bash
-   :prompts: (venv-python-course) $
+    :language: bash
+    :prompts: (venv-python-course) $
 
-   deactivate
+    deactivate
 
 Everytime you need the tools available in the virtual environment you activate it as above.
 
 .. prompt:: bash $
 
-   source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+    source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
 
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
