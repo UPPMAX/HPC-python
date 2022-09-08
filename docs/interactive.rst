@@ -48,21 +48,18 @@ Interactive work on the compute nodes
 
 General
 -------
-Merge better
 
-HPC2N
-#####
+In order to run interactively, you need to have compute nodes allocated to run on, and this is done through the batch system.  
 
-It is possible to run Python directly on the Kebnekaise login node or the Kebnekaise ThinLinc login node, but this should *only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. Both Python and IPython exists as modules to load and run. 
+Because you will have to wait until the nodes are allocated, and because you cannot know when this happens, this is not usually a recommended way to run Python, but it is possible. 
 
-Another option is to either submit a batch job or to run *interactively* on the compute nodes. In order to run interactively, you need to have compute nodes allocated to run on, and this is done through the batch system.  
+**NOTE** (HPC2N) Do note that it is not *real* interactivity as you probably mean it, as you will have to run it as a Python script instead of by starting Python and giving commands inside it. The reason for this is that you are not actually logged into the compute node and only sees the output of the commands you run. 
 
-Because you will have to wait until the nodes are allocated, and because you cannot know when this happens, this is not a recommended way to run Python, but it is possible. 
+Another option would be to use Jupyter notebooks. This option will be covered under the UPPMAX separate sessions.
+This is somewhat convoluted to get to work correctly at HPC2N, but possible. Please contact us at support@hpc2n.umu.se if you want to go this route at HPC2N. 
 
-Do note that it is not *real* interactivity as you probably mean it, as you will have to run it as a Python script instead of by starting Python and giving commands inside it. The reason for this is that you are not actually logged into the compute node and only sees the output of the commands you run. 
+**BELOW NEEDS MERGING BETTER AND GENERAL FIXED**
 
-Another option would be to use Jupyter notebooks. This is somewhat convoluted to get to work correctly at HPC2N, but possible. Please contact us at support@hpc2n.umu.se if you want to go this route. 
-            
 **Python "interactively" on the compute nodes**
 
 To run interactively, you need to allocate resources on the cluster first. You can use the command salloc to allow interactive use of resources allocated to your job. When the resources are allocated, you need to preface commands with ``srun`` in order to run on the allocated nodes instead of the login node. 
