@@ -73,7 +73,7 @@ Everytime you need the tools available in the virtual environment you activate i
 
 
 Prepare the course environment
-----------------------------
+------------------------------
 
 Create a ``venv``. First load the python version you want to base your virtual environment on:
 
@@ -104,7 +104,7 @@ Check what was installed
     :language: bash
     :prompts: (venv-python-course) $
 
-   pip list
+    pip list
 
 Deactivate it.
 
