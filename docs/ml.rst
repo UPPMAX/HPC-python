@@ -278,6 +278,8 @@ In order to run the above example, we will create a batch script and submit it.
             module purge  > /dev/null 2>&1
             module load uppmax
             module load gcc/9.3.0  openmpi/3.1.5 python_ML_packages
+            module load python/3.9.5 # to get some extra packages
+
             
             # Activate the virtual environment we installed to 
             $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate 
@@ -307,7 +309,7 @@ This example shows how you would run several programs or variations of programs 
 
    .. tab:: HPC2N
 
-      Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5) 
+      Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5
 
       .. code-block:: sh 
         
@@ -318,14 +320,11 @@ This example shows how you would run several programs or variations of programs 
             #SBATCH --time=00:05:00
             # Asking for one K80 
             #SBATCH --gres=gpu:k80:1
-            
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1
-            
             # Output to file - not needed if your job creates output in a file directly 
-            # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
-            
+            # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters). 
             python <my_tf_program.py> <param1> <param2> > myoutput1 2>&1
             cp myoutput1 mydatadir
             python <my_tf_program.py> <param3> <param4> > myoutput2 2>&1
@@ -349,29 +348,28 @@ This example shows how you would run several programs or variations of programs 
          #SBATCH --mail-type=begin        # send email when job begins
          #SBATCH --mail-type=end          # send email when job ends
          #SBATCH --mail-user=bjorn.claremar@uppmax.uu.se
-
          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
          module load uppmax
          module load python_ML_packages/3.9.5-gpu
-         module load python/3.9.5
+         module load python/3.9.5 # to get some extra packages
 
-# Output to file - not needed if your job creates output in a file directly
-# In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
+         # Output to file - not needed if your job creates output in a file directly
+         # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
 
-python tf_program.py 1 2 > myoutput1 2>&1
-cp myoutput1 mydatadir
-python tf_program.py 3 4 > myoutput2 2>&1
-cp myoutput2 mydatadir
-python tf_program.py 5 6 > myoutput3 2>&1
-cp myoutput3 mydatadir
+         python tf_program.py 1 2 > myoutput1 2>&1
+         cp myoutput1 mydatadir
+         python tf_program.py 3 4 > myoutput2 2>&1
+         cp myoutput2 mydatadir
+         python tf_program.py 5 6 > myoutput3 2>&1
+         cp myoutput3 mydatadir
 
 
 .. keypoints::
 
   - At all clusters you will find PyTorch, TensorFlow, Scikit-learn
   - The loading are slightly different at the clusters
-     - UPPMAX: All tools are available from the module ``python_ML_packages``
-     - HPC2N: ``module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1``
+     - UPPMAX: All tools are available from the module ``ml gcc/9.3.0 openmpi/3.1.5 python_ML_packages``
+     - HPC2N: ``ml GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1 PyTorch/1.10.0-CUDA-11.3.1``
 
 
