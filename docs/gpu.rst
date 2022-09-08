@@ -7,11 +7,14 @@ Using GPUs with Python
    - How to implement GPU (as CUDA) in Python code?
    - How to deploy GPU:s at HPC2n and UPPMAX?
    
+   
 
 .. objectives::
 
    - Learn common schemes for GPU acceleration of codes
    - Learn about the GPU nodes at HPC2n and UPPMAX
+   - Code along for users at Kebnekaise
+      - Demo examples for a Snowy session at UPPMAX
 
 
 In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU
