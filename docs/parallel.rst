@@ -19,14 +19,11 @@ Parallel computing with Python
 
 **Prerequisites**
 
+- Code along!
+
 .. tabs::
 
-   .. tab:: UPPMAX
-
-
-
    .. tab:: HPC2N
-
       
       ml GCCcore/11.2.0 Python/3.9.6
 
@@ -56,8 +53,40 @@ Parallel computing with Python
 
         >>> julia.install()
 
+   .. tab:: UPPMAX
 
+      If not already done so:
+      .. code-block:: sh
 
+         $ module load python/3.9.5
+         $ python -m venv --system-site-packages /proj/snic2022-22-641/nobackup/<user>/venv-python-course
+    
+      Activate it if needed (is the name shown in the prompt
+
+      .. code-block:: sh
+
+         $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+
+      - For the ``mpi4py`` example add the following modules:
+
+      .. code-block:: sh
+
+         ml gcc/9.3.0 OpenMPI/3.1.5
+         python -m pip install mpi4py
+
+      - For the Julia example we will need PyJulia:
+        
+      .. code-block:: sh
+       
+         ml Julia/1.7.2
+         python -m pip install julia
+
+      -Start Python on the command line and type:
+
+      .. code-block:: python
+       
+         >>> import julia
+         >>> julia.install()
 
 In Python there are different schemes that can be used to parallelize Python codes. 
 We will only take a look at some of these schemes that illustrate the general concepts of
