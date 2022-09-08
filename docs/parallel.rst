@@ -684,7 +684,7 @@ Execution of this code gives the following output:
 
 .. code-block:: sh 
 
-    $ mpirun -np 4 python mpi-pi-calculation.py
+    $ mpirun -np 4 python integration2d_mpi.py
     Integral value is 4.492851e-12, Error is 4.492851e-12
     Time spent: 5.76 sec
 
