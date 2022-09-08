@@ -254,7 +254,7 @@ can be called in Python as a module:
          print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
          print("Time spent: %.2f sec" % (endtime-starttime))
 
-The execution time is considerably reduced 
+The execution time is considerably reduced: 
 
 .. code-block:: sh 
 
