@@ -38,13 +38,8 @@ Packages
 Check current available packages
 --------------------------------
 
-.. tabs::
-
-   .. tab:: UPPMAX
-
-   .. tab:: HPC2N
-   
-   
+General for both centers
+########################
 
 Some python packages are working as stand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:
 
@@ -54,29 +49,39 @@ Some python packages are working as stand-alone tools, for instance in bioinform
     
 Using ``module spider`` lets you search regardless of upper- or lowercase characters.
 
-Another way to find Python packages that you are unsure how are names, would be to do
 
-.. code-block:: sh 
 
-   $ module -r spider ’.*Python.*’
+.. tabs::
+
+   .. tab:: UPPMAX
+
+	Check the pre-installed packages of a specific python module:
+
+	.. code-block:: sh 
+
+	   $ module help python/<version> 
+  
+	
+	
+   .. tab:: HPC2N
    
-or
+	Another way to find Python packages that you are unsure how are names, would be to do
 
-.. code-block:: sh 
+	.. code-block:: sh 
 
-   $ module -r spider ’.*python.*’
+	   $ module -r spider ’.*Python.*’
    
-Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
+	or
 
+	.. code-block:: sh 
+
+	   $ module -r spider ’.*python.*’
+   
+	Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
+   
 **UPPMAX only!**
 
-Check the pre-installed packages of a specific python module:
-
-.. code-block:: sh 
-
-   $ module help python/<version> 
-  
-or with python module loaded (more certain), in shell:
+Check the pre-installed packages of a python module loaded, in shell:
 
 .. code-block:: sh 
 
@@ -93,9 +98,10 @@ You can also test from within python to make sure that the package is not alread
 Does it work? Then it is there!
 Otherwise, you can either use ``pip`` or ``conda``.
 
+
 **NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them here: https://uppmax.github.io/HPC-python/intro.html#python-at-hpc2n or find more as mentioned above, using ``module spider -r ....```
 
-A selection of the Python packages and libraries installed on HPC2N are:
+A selection of the Python packages and libraries installed on UPPMAX and HPC2N are:
 
 .. tabs::
 
