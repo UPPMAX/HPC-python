@@ -62,6 +62,8 @@ This is somewhat convoluted to get to work correctly at HPC2N, but possible. Ple
 
 **Python "interactively" on the compute nodes**
 
+.. tabs::
+
    .. tab:: UPPMAX
 
       First, ...
