@@ -7,12 +7,12 @@ On UPPMAX clusters
    - Did you try and find Python packages at the system?
    - Can you load Python and start it, as well as run a short program?
 
-UPPMAX hardware
+UPPMAX clusters
 ---------------
 
-- Rackham
-- Snowy
-- Bianca
+- Rackham: general purpose
+- Snowy: available for UPPMAX projects (not SNIC), have GPU:s
+- Bianca: sensitive data, have GPU:s
 
 
 UPPMAX packages
