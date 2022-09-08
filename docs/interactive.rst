@@ -174,6 +174,7 @@ Example **Code along**
           print("The sum of the two numbers is: {0}".format(sum))
       
 **Now for running the examples:**
+
 - Note that the commands are the same for both HPC2N and UPPMAX!
       
       1. Running a Python script in the allocation we made further up. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script
@@ -227,7 +228,7 @@ When you have finished using the allocation, either wait for it to end, or close
       
                   [bjornc@rackham2 ~]$
       
-      It is also possible to run IPython or (on UPPMAX) jupyter-notebook
+      It is also possible to run IPython or (on UPPMAX) jupyter-notebook 
 
    .. tab:: HPC2N
    
