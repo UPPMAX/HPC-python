@@ -7,8 +7,7 @@ Parallel computing with Python
    - What different parallelizations are available for Python
    - How to implent parallel in Python code?
    - How to deploy threads and workers at HPC2n and UPPMAX?
-   - 
-
+  
 
 .. objectives::
 
@@ -56,6 +55,7 @@ Parallel computing with Python
    .. tab:: UPPMAX
 
       If not already done so:
+      
       .. code-block:: sh
 
          $ module load python/3.9.5
@@ -71,15 +71,15 @@ Parallel computing with Python
 
       .. code-block:: sh
 
-         ml gcc/9.3.0 OpenMPI/3.1.5
-         python -m pip install mpi4py
+         $ ml gcc/9.3.0 OpenMPI/3.1.5
+         $ python -m pip install mpi4py
 
       - For the Julia example we will need PyJulia:
         
       .. code-block:: sh
        
-         ml Julia/1.7.2
-         python -m pip install julia
+         $ ml Julia/1.7.2
+         $ python -m pip install julia
 
       -Start Python on the command line and type:
 
@@ -139,7 +139,7 @@ serial code (without optimization) can be seen in the following code block.
          print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
          print("Time spent: %.2f sec" % (endtime-starttime))
 
-We can run this code on the terminal as follows: 
+We can run this code on the terminal as follows (similarly at both HPC2N and UPPMAX): 
 
 
 .. code-block:: sh 
