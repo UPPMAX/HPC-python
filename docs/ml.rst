@@ -12,6 +12,9 @@ Using Python for Machine Learning jobs
 
    - Get general overview of installed Machine Learning tools at HPC2N and UPPMAX
    - Get started with Machine learning in Python
+   - Code along for users at Kebnekaise
+      - Demo examples for a Snowy session at UPPMAX
+
 
 
    
@@ -116,12 +119,22 @@ This is an example of a batch script for running the above example, using PyTorc
             
             srun python pytorch_fitting_gpu.py
             
-UPPMAX
+UPPMAX as a run in an interactive Snowy session
 ######
 
 .. code-block:: sh
 
-   [bjornc@s160 test_HPC-Python]$ srun python pytorch_fitting_gpu.py
+   [bjornc@rackham3 ~]$ interactive -A staff -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+   You receive the high interactive priority.
+
+   Please, use no more than 8 GB of RAM.
+
+    Waiting for job 6907137 to start...
+    Starting job now -- you waited for 90 seconds.
+
+   [bjornc@s160 ~]$  ml python/3.9.5
+   [bjornc@s160 ~]$  cd /proj/snic2022-22-641/nobackup/bjornc/examples/programs
+   [bjornc@s160 programs]$ srun python pytorch_fitting_gpu.py
    99 134.71942138671875
    199 97.72868347167969
    299 71.6167221069336
@@ -151,17 +164,32 @@ TensorFlow
 
 The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials 
 
-We are using Tensorflow 2.6.0 and Python 3.9.5. Since there is no scikit-learn for these versions, we have to install that too: 
+We are using Tensorflow 2.6.0 (2.8.0 at UPPMAX) and Python 3.9.5. 
 
-.. admonition:: Installing scikit-learn compatible with TensorFlow version 2.6.0 and Python version 3.9.5 
-    :class: dropdown
+.. tabs::
+  
+   .. tab:: HPC2N
+
+      Since there is no scikit-learn for these versions, we have to install that too: 
+
+      Installing scikit-learn compatible with TensorFlow version 2.6.0 and Python version 3.9.5 
+
       
         - Load modules: ``module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1``
         - Create virtual environment: ``virtualenv --system-site-packages <path-to-install-dir>/vpyenv``
         - Activate the virtual environment: ``source <path-to-install-dir>/vpyenv/bin/activate``
         - ``pip install --no-cache-dir --no-build-isolation scikit-learn``
         
-We can now use scikit-learn in our example. 
+      We can now use scikit-learn in our example. 
+      
+   .. tab:: UPPMAX
+   
+      UPPMAX has scikit-learn in the python_ML module, so let's jut load that one
+
+        - Load modules: ``module load python_ML_packages``
+          - On Rackham this will load CPU version, whereas if on a GPU node the GPU version will be loaded
+
+      
 
 .. admonition:: We will work with this example  
     :class: dropdown
@@ -206,11 +234,13 @@ We can now use scikit-learn in our example.
             print('Predicted: %.3f' % yhat)
 
 
-In order to run the above example, we will create a batch script and submit it.             
+In order to run the above example, we will create a batch script and submit it. 
 
-.. admonition:: Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed 
-    :class: dropdown
+.. tabs::
 
+   .. tab:: HPC2N
+
+      Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed 
         .. code-block:: sh 
         
             #!/bin/bash 
@@ -231,12 +261,36 @@ In order to run the above example, we will create a batch script and submit it.
             # Run your Python script 
             python <my_tf_program.py> 
             
+   .. tab:: UPPMAX
+
+      Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5, and the scikit-learn we installed 
+      
+        .. code-block:: sh 
+        
+            #!/bin/bash 
+            # Remember to change this to your own project ID after the course! 
+            #SBATCH -A SNIC2022-22-641
+            # More than one hour is needed for the job to start in that queue
+            #SBATCH --time=01:00:01
+            #SBATCH --gres=gpu:1
+            
+            # Remove any loaded modules and load the ones we need
+            module purge  > /dev/null 2>&1
+            module load uppmax
+            module load gcc/9.3.0  openmpi/3.1.5 python_ML_packages
+            
+            # Activate the virtual environment we installed to 
+            $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate 
+            
+            # Run your Python script 
+            python <my_tf_program.py> 
+            
             
 Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
 
 The output and errors will in this case be written to ``slurm-<job-id>.out``. 
 
-UPPMAX
+
 
 
 General
@@ -249,10 +303,13 @@ Running several jobs from within one job
 
 This example shows how you would run several programs or variations of programs sequentially within the same job: 
 
-.. admonition:: Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5) 
-    :class: dropdown
+.. tabs::
 
-        .. code-block:: sh 
+   .. tab:: HPC2N
+
+      Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5) 
+
+         .. code-block:: sh 
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
@@ -275,6 +332,39 @@ This example shows how you would run several programs or variations of programs 
             cp myoutput2 mydatadir
             python <my_tf_program.py> <param5> <param6> > myoutput3 2>&1
             cp myoutput3 mydatadir
+
+  .. tab:: UPPMAX
+
+      Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5, and the scikit-learn we installed 
+      
+      .. code-block:: sh 
+
+         #!/bin/bash -l
+         # Remember to change this to your own project ID after the course!
+         #SBATCH -A staff
+         # We are asking for at least 1 hour
+         #SBATCH --time=01:00:01
+         #SBATCH -M snowy
+         #SBATCH --gres=gpu:1
+         #SBATCH --mail-type=begin        # send email when job begins
+         #SBATCH --mail-type=end          # send email when job ends
+         #SBATCH --mail-user=bjorn.claremar@uppmax.uu.se
+
+         # Remove any loaded modules and load the ones we need
+         module purge  > /dev/null 2>&1
+         module load uppmax
+         module load python_ML_packages/3.9.5-gpu
+         module load python/3.9.5
+
+# Output to file - not needed if your job creates output in a file directly
+# In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
+
+python tf_program.py 1 2 > myoutput1 2>&1
+cp myoutput1 mydatadir
+python tf_program.py 3 4 > myoutput2 2>&1
+cp myoutput2 mydatadir
+python tf_program.py 5 6 > myoutput3 2>&1
+cp myoutput3 mydatadir
 
 
 .. keypoints::
