@@ -363,7 +363,7 @@ We need a batch script to run this Python code, an example script is here:
 
     #!/bin/bash
     #SBATCH -A project_ID
-    #SBATCH -t 00:05:00
+    #SBATCH -t 00:08:00
     #SBATCH -N 1
     #SBATCH -n 28
     #SBATCH -o output_%j.out   # output file
@@ -379,6 +379,7 @@ We need a batch script to run this Python code, an example script is here:
     source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
        
     python integration2d_gpu.py
+    python integration2d_gpu_shared.py
 
 The simulation time for this problem's size
 was 1.87 sec. 

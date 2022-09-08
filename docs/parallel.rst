@@ -707,7 +707,7 @@ example,
       
     source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
        
-    mpirun -np 4 python mpi-pi-calculation.py
+    mpirun -np 4 python integration2d_mpi.py
 
 Monitoring resources' usage
 ---------------------------
