@@ -51,24 +51,24 @@ Note that your prompt is changing to start with (Example) to show that you are w
 Install your packages with ``pip`` and the correct versions, like:
 
 .. prompt:: 
-    :language: bash
-    :prompts: (Example) $
+   :language: bash
+   :prompts: (Example) $
 
-    pip install numpy==1.13.1 matplotlib==2.2.2
+   pip install numpy==1.13.1 matplotlib==2.2.2
 
 Deactivate it.
 
 .. prompt:: 
-    :language: bash
-    :prompts: (Example) $
+   :language: bash
+   :prompts: (Example) $
 
-    deactivate
+      deactivate
 
 Everytime you need the tools available in the virtual environment you activate it as above.
 
 .. prompt:: bash $
 
-    source <path/>Example/bin/activate
+   source <path/>Example/bin/activate
     
 Prepare the course environment
 ----------------------------
@@ -78,7 +78,7 @@ Create a ``venv``. First load the python version you want to base your virtual e
 .. code-block:: sh
 
     $ module load python/3.9.5
-    $ python -m venv /proj/snic2022-22-641/nobackup/<user>/venv-python-course
+    $ python -m venv --system-site-packages /proj/snic2022-22-641/nobackup/<user>/venv-python-course
     
 Activate it.
 
@@ -94,7 +94,7 @@ Install your packages with ``pip`` and the correct versions, like:
    :language: bash
    :prompts: (venv-python-course) $
 
-   pip install numpy matplotlib spacy seaborn
+   pip spacy seaborn
 
 Check what was installed
 
