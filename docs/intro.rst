@@ -18,7 +18,7 @@ Introduction
 
 Some practicals
 ----------------
-    
+        
 .. admonition:: Zoom
 
     - The course is run over Zoom. You should have gotten an email with the links
@@ -49,6 +49,11 @@ Some practicals
     
     - **Have a try with the Icebreaker question**
 
+.. admonition:: Exercises
+
+    - You can download the exercises from the course GitHub repo, under the "Exercises" directory: https://github.com/UPPMAX/HPC-python/tree/main/Exercises 
+    - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/snic2022-22-641/bbrydsoe/examples.tar.gz``
+    
 .. admonition:: **Your expectations?**
    
     - find best practices for using Python at UPPMAX and HPC2N
