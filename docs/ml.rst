@@ -330,7 +330,7 @@ This example shows how you would run several programs or variations of programs 
          python <my_tf_program.py> <param5> <param6> > myoutput3 2>&1
          cp myoutput3 mydatadir
 
-  .. tab:: UPPMAX
+   .. tab:: UPPMAX
 
      Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5, and the scikit-learn we installed 
       
