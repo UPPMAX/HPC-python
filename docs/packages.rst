@@ -82,6 +82,8 @@ or with python module loaded (more certain), in shell:
 
    $ pip list
 
+To see which Python packages you, yourself, has installed, you can use ``pip list --user`` while the environement you have installed the packages in are active.
+
 You can also test from within python to make sure that the package is not already installed:
 
 .. code-block:: python 
