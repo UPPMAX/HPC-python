@@ -201,7 +201,7 @@ Common features
      - NVidia K80 and V100 
      - None
      - Nvidia T4 
-     - NVIDIA A100
+     - 2 NVIDIA A100
 
 
 .. objectives:: 
