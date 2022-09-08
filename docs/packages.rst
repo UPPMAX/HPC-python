@@ -179,7 +179,7 @@ We HIGHLY recommend using a virtual environment during installation, since this 
    - You can check for packages 
    	- from the Python shell with the ``import`` command
 	- from BASH shell with the 
-		- ``pip list`` command
+		- ``pip list`` command at both centers
 		- ``ml help python/3.9.5`` at UPPMAX
    - Installation of Python packages can be done either with **PYPI** or **Conda**
    - You install own packages with the ``pip install`` command (This is the recommended way on HPC2N)
