@@ -113,13 +113,11 @@ Some practicals
    - For this course, when having many windows open, it may be better to run in terminal, for space issues.
    
 Example of arrangement for the "worst case"!
-
 ############################################
 - HackMD
 - ZOOM view
 - (shellshare) or web browser with course material
 - your own terminal
-
 
 .. figure:: img/worst.png
    :align: center
@@ -194,7 +192,7 @@ The two HPC centers UPPMAX and HPC2N
 Briefly about the cluster hardware and system at UPPMAX and HPC2N
 -----------------------------------------------------------------
 
-**What is a cluster?*
+**What is a cluster?**
 
 - Login nodes and calculations nodes
 
