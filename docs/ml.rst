@@ -133,6 +133,7 @@ UPPMAX as a run in an interactive Snowy session
     Starting job now -- you waited for 90 seconds.
 
    [bjornc@s160 ~]$  ml python/3.9.5
+   [bjornc@s160 ~]$  module load python_ML_packages/3.9.5-GPU
    [bjornc@s160 ~]$  cd /proj/snic2022-22-641/nobackup/bjornc/examples/programs
    [bjornc@s160 programs]$ srun python pytorch_fitting_gpu.py
    99 134.71942138671875
@@ -241,6 +242,7 @@ In order to run the above example, we will create a batch script and submit it.
    .. tab:: HPC2N
 
       Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed 
+      
       .. code-block:: sh 
         
             #!/bin/bash 
