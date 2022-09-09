@@ -96,7 +96,7 @@ Install your packages with ``pip`` and the correct versions, like:
     :language: bash
     :prompts: (venv-python-course) $
 
-    pip spacy seaborn
+    pip install spacy seaborn
 
 Check what was installed
 
