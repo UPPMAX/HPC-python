@@ -22,7 +22,6 @@ Packages
    - Show how to check for Python packages
    - show how to install own packages on the different clusters
 
-- A nice **introduction to packages** can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
 
 .. admonition:: There are two package installation systems
 
