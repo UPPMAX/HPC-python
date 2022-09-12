@@ -21,11 +21,14 @@ Isolated environments at UPPMAX
 Virtual environment - venv    
 --------------------------
 
+Example
+#######
+
 Create a ``venv``. First load the python version you want to base your virtual environment on:
 
 .. code-block:: sh
 
-    $ module load python/<version>
+    $ module load python/3.6.8
     $ python -m venv --system-site-packages Example
     
 "Example" is the name of the virtual environment. The directory “Example” is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
@@ -54,7 +57,7 @@ Install your packages with ``pip`` and the correct versions, like:
     :language: bash
     :prompts: (Example) $
 
-    pip install numpy==1.13.1 matplotlib==2.2.2
+    pip install numpy==1.15.4 matplotlib==2.2.2
 
 Deactivate it.
 
