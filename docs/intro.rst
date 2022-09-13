@@ -14,7 +14,13 @@ Introduction
    - Use Python in parallel
    - Use Python for ML
    - Use GPUs with Python
+   
+.. warning:: Course has already been given
 
+   - Q/A are public at the HackMD pages
+      - https://hackmd.io/@bclaremar/HPC-python
+      - https://hackmd.io/IoseeprATrWH0ZI7z6wJ-w?view
+      
 
 Some practicals
 ----------------
