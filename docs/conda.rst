@@ -73,7 +73,11 @@ Install with conda (UPPMAX)
       :class: dropdown
  
       Run ``source conda_init.sh`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
-
+      
+.. admonition:: Conda cheat sheet    
+   
+   - List packages in present environment:	``conda list``
+   - List all environments:			``conda info -e``
 
 3. Create the conda environment
 
