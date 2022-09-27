@@ -36,7 +36,7 @@ Install with conda (UPPMAX)
     You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX.
     
 First steps
-===========
+-----------
 
 1. First load our conda module (there is no need to install you own miniconda, for instance)
 
@@ -78,7 +78,7 @@ First steps
       Run ``source conda_init.sh`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
       
 Using Conda
-===========
+-----------
       
 .. admonition:: Conda cheat sheet    
    
