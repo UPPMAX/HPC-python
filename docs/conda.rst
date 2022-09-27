@@ -33,7 +33,10 @@ Install with conda (UPPMAX)
     - r2018.11
     - scilifelab-lts
     
-    You reach them all by loading the conda module. You don't have to state the specific channel.
+    You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX.
+    
+First steps
+===========
 
 1. First load our conda module (there is no need to install you own miniconda, for instance)
 
@@ -74,10 +77,23 @@ Install with conda (UPPMAX)
  
       Run ``source conda_init.sh`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
       
+Using Conda
+===========
+      
 .. admonition:: Conda cheat sheet    
    
    - List packages in present environment:	``conda list``
    - List all environments:			``conda info -e``
+   - Install a package: ``conda install somepackage``
+   - Install a specific version: ``conda install somepackage=1.2.3``
+   - Create a new environment: ``conda create --name myenvironment``
+   - Create a new environment from requirements.txt: ``conda create --name myenvironment --file requirements.txt``
+   - On e.g. HPC systems where you don’t have write access to central installation directory: conda create --prefix /some/path/to/env``
+   - Activate a specific environment: ``conda activate myenvironment``
+   - Deactivate current environment: ``conda deactivate``
+   
+   - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
+
 
 3. Create the conda environment
 
