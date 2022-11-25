@@ -132,8 +132,8 @@ Some Python packages are only available as downloads, for intsance via github, t
 
 - Pick a location for your installation (change below to fit - I am installing under a project storage)
 
-   - `mkdir /proj/<project>/<mystorage>/mypythonpackages`
-   - `cd /proj/<project>/<mystorage>/mypythonpackages`
+   - ``mkdir /proj/<project>/<mystorage>/mypythonpackages``
+   - ``cd /proj/<project>/<mystorage>/mypythonpackages``
    
 - Load Python
 - Install any remaining prerequisites. Remember to activate your Virtualenv if installing with pip!
