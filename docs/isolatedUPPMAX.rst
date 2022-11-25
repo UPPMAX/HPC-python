@@ -179,6 +179,38 @@ To use self-installed Python packages in a batch script, you also need to load t
 
 To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. 
 
+Working with virtual environments defined from files
+----------------------------------------------------
+
+- First create and activate and environment (see above)
+- Create an environment based on dependencies given in an environment file:
+  
+  $ pip install -r requirements.txt
+   
+- Create file from present virtual environment::
+
+  $ pip freeze > requirements.txt
+  
+``requirements.txt`` (used by virtual environment) is a simple
+text file which looks like this::
+
+   numpy
+   matplotlib
+   pandas
+   scipy
+
+``requirements.txt`` with versions::
+
+    numpy==1.18.1
+    matplotlib==3.1.3
+    pandas==1.1.2
+    scipy==1.6.2
+
+.. admonition:: More on dependencies
+
+   - `Dependency management from coursePython for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
+
+
 pyenv
 -----
 
