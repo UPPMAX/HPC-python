@@ -33,7 +33,7 @@ Install with conda (UPPMAX)
     - r2018.11
     - scilifelab-lts
     
-    You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX.
+    You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX. Otherwise you do with ``conda -c <channel> ...``
     
 First steps
 -----------
@@ -83,8 +83,9 @@ Using Conda
 .. admonition:: Conda cheat sheet    
    
    - List packages in present environment:	``conda list``
-   - List all environments:			``conda info -e``
+   - List all environments:			``conda info -e`` ot ``conda env list``
    - Install a package: ``conda install somepackage``
+   - Install from certain channel (conda-forge): ``conda install -c conda-forge somepackage``
    - Install a specific version: ``conda install somepackage=1.2.3``
    - Create a new environment: ``conda create --name myenvironment``
    - Create a new environment from requirements.txt: ``conda create --name myenvironment --file requirements.txt``
