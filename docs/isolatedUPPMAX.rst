@@ -183,7 +183,7 @@ Working with virtual environments defined from files
 ----------------------------------------------------
 
 - First create and activate and environment (see above)
-- Create an environment based on dependencies given in an environment file:
+- Create an environment based on dependencies given in an environment file::
   
   $ pip install -r requirements.txt
    
