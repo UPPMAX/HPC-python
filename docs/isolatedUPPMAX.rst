@@ -93,7 +93,7 @@ Activate it.
 
 Note that your prompt is changing to start with (venv-python-course) to show that you are within an environment.
 
-Install your packages with ``pip`` and the correct versions, like:
+Install your packages with ``pip`` (`--user` not needed)and the correct versions, like:
 
 .. prompt:: 
     :language: bash
@@ -128,12 +128,12 @@ More on virtual environment: https://docs.python.org/3/tutorial/venv.html
 Using setup.py
 ''''''''''''''
 
-Some Python packages are only available as downloads, to install with setup.py. If that is the case for the package you need, this is how you do it: 
+Some Python packages are only available as downloads, for intsance via github, to install with setup.py or similar file. If that is the case for the package you need, this is how you do it: 
 
 - Pick a location for your installation (change below to fit - I am installing under a project storage)
 
-   - mkdir /proj/<project>/<mystorage>/mypythonpackages
-   - cd /proj/<project>/<mystorage>/mypythonpackages
+   - `mkdir /proj/<project>/<mystorage>/mypythonpackages`
+   - `cd /proj/<project>/<mystorage>/mypythonpackages`
    
 - Load Python
 - Install any remaining prerequisites. Remember to activate your Virtualenv if installing with pip!
@@ -177,7 +177,7 @@ Using the venv created earlier and the spacy we installed under example 1) above
 
 To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
 
-To see which Python packages you, yourself, has installed, you can use ``pip list --user`` while the environement you have installed the packages in are active. 
+To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. 
 
 pyenv
 -----
