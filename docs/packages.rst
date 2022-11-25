@@ -161,13 +161,15 @@ You use ``pip`` this way, in a Linux shell OR a python shell:
 
 .. code-block:: sh 
 
-    $ pip install –-user <package>
+    $ pip install --user <package>
     
 Use ``pip3`` if you loaded python3.
 
-Then the package ends up in ~/.local/lib/python<version>/site-packages/ .
+Then the package ends up in `~/.local/lib/python<version>/site-packages/` .
 
 We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course (https://uppmax.github.io/HPC-python/isolated.html). 
+
+
 
 .. note::
    
