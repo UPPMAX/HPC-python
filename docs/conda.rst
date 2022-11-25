@@ -142,6 +142,46 @@ Using Conda
 - `More info about Conda on UPPMAX
 <https://uppmax.uu.se/support/user-guides/conda-user-guide/>`
 
+
+Working with Conda environments from files
+----------------------------------
+
+- Create an environment based on dependencies fiven in a environment file ::
+
+   $ conda env create --file environment.yml
+   
+- Create file from present conda environment::
+
+  $ conda env export > environment.yml
+  
+
+``environments.yml`` (for conda) is a yaml-file which looks like this:
+
+.. code-block:: yaml
+
+   name: my-environment
+   channels:
+     - defaults
+   dependencies:
+     - numpy
+     - matplotlib
+     - pandas
+     - scipy
+
+``environments.yml`` with versions:
+
+.. code-block:: yaml
+
+    name: my-environment
+    channels:
+      - defaults
+    dependencies:
+      - python=3.7
+      - numpy=1.18.1
+      - matplotlib=3.1.3
+      - pandas=1.1.2
+      - scipy=1.6.2
+
 .. admonition:: More on dependencies
 
    - `Dependency management from coursePython for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`
