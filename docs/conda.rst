@@ -143,8 +143,8 @@ Using Conda
 <https://uppmax.uu.se/support/user-guides/conda-user-guide/>`_
 
 
-Working with Conda environments from files
-----------------------------------
+Working with Conda environments defined by files
+------------------------------------------------
 
 - Create an environment based on dependencies fiven in a environment file ::
 
