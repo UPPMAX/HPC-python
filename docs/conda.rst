@@ -140,7 +140,7 @@ Using Conda
     
     
 - `More info about Conda on UPPMAX
-<https://uppmax.uu.se/support/user-guides/conda-user-guide/>
+<https://uppmax.uu.se/support/user-guides/conda-user-guide/>`
 
 .. admonition:: More on dependencies
 
