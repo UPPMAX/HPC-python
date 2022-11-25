@@ -165,8 +165,9 @@ You use ``pip`` this way, in a Linux shell OR a python shell:
     
 Use ``pip3`` if you loaded python3.
 
-Then the package ends up in `~/.local/lib/python<version>/site-packages/` .
+Then the package ends up in ``~/.local/lib/python<version>/site-packages/`` .
 
+Note that python<version> is imitting the last number (bug fix), like 3.8 for python-3.8.7.
 We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course (https://uppmax.github.io/HPC-python/isolated.html). 
 
 
