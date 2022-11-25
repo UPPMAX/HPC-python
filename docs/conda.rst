@@ -140,7 +140,7 @@ Using Conda
     
     
 - `More info about Conda on UPPMAX
-<https://uppmax.uu.se/support/user-guides/conda-user-guide/>`
+<https://uppmax.uu.se/support/user-guides/conda-user-guide/>`_
 
 
 Working with Conda environments from files
@@ -184,7 +184,7 @@ Working with Conda environments from files
 
 .. admonition:: More on dependencies
 
-   - `Dependency management from coursePython for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`
+   - `Dependency management from coursePython for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
 
 
 .. keypoints::
