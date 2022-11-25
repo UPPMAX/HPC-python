@@ -139,8 +139,12 @@ Using Conda
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
     
     
-More info
-https://uppmax.uu.se/support/user-guides/conda-user-guide/ 
+- `More info about Conda on UPPMAX
+<https://uppmax.uu.se/support/user-guides/conda-user-guide/>
+
+.. admonition:: More on dependencies
+
+   - `Dependency management from coursePython for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`
 
 
 .. keypoints::
