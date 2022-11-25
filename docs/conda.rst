@@ -146,7 +146,7 @@ Using Conda
 Working with Conda environments defined by files
 ------------------------------------------------
 
-- Create an environment based on dependencies fiven in a environment file ::
+- Create an environment based on dependencies given in an environment file ::
 
    $ conda env create --file environment.yml
    
