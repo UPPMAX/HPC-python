@@ -10,7 +10,7 @@ Welcome to HPC python course material
    
    Here you will find the content of the workshop Using Python in an HPC environment.
    
-   - Documentation at the HPC centres UPPMAx and HPC2N
+   - Documentation at the HPC centres UPPMAX and HPC2N
       - UPPMAX: https://www.uppmax.uu.se/support/user-guides/python-user-guide/
       - HPC2N: https://www.hpc2n.umu.se/resources/software/user_installed/python
 
