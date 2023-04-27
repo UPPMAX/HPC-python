@@ -69,7 +69,7 @@ Check for Python versions
 .. admonition:: Output at UPPMAX as of March 9 2022
    :class: dropdown
     
-       .. code-block::  tcl
+       .. code-block::  bash
     
           -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
            python_ML_packages/3.9.5    wrf-python/1.3.1
@@ -89,7 +89,7 @@ Check for Python versions
 .. admonition:: Output at HPC2N as of 27 July 2022
     :class: dropdown
 
-        .. code-block:: tcl
+       .. code-block::  bash
 
            b-an01 [~]$ module spider Python
            ----------------------------------------------------------------------------
