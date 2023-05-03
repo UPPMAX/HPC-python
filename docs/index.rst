@@ -123,26 +123,20 @@ Preliminary schedule
    parallel.rst
    gpu.md
    ml.md
+   mlHPC2N.rst
    summary.rst
-   
+
 .. toctree::
    :maxdepth: 2
-   :caption: UPPMAX Sessions:
+   :caption: Extra reading:
 
+   packages.rst
    uppmax.rst
    isolatedUPPMAX.rst
    conda.rst
-   jupyter.md
+   jupyter.md   kebnekaise.md
    bianca.rst
-
-.. toctree::
-   :maxdepth: 2
-   :caption: HPC2N Sessions:
-
-   kebnekaise.md
-   isolatedHPC2N.rst
-   mlHPC2N.rst
-
+   
 .. toctree::
    :maxdepth: 2
    :caption: Exercises:
