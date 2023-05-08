@@ -3,10 +3,10 @@ Parallel computing with Python
 
 .. questions::
 
-   - What does parallel computing mean?
-   - What different parallelizations are available for Python
+   - What is parallel computing?
+   - What are the different parallelization mechanisms for Python?
    - How to implement parallel in Python code?
-   - How to deploy threads and workers at HPC2n and UPPMAX?
+   - How to deploy threads and workers at HPC2N and UPPMAX?
   
 
 .. objectives::
@@ -30,6 +30,10 @@ Parallel computing with Python
 
       source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
 
+      - For the ``numba`` example install the corresponding module:
+
+        python -m pip install numba
+
       - For the ``mpi4py`` example add the following modules:
 
         ml GCC/11.2.0 OpenMPI/4.1.1
@@ -42,7 +46,7 @@ Parallel computing with Python
 
       - For the Julia example we will need PyJulia:
         
-        ml Julia/1.7.1-linux-x86_64
+        ml Julia/1.8.5-linux-x86_64
 
         python -m pip install julia
 
@@ -51,6 +55,8 @@ Parallel computing with Python
         >>> import julia
 
         >>> julia.install()
+
+        Quit Python, you should be ready to go!
 
    .. tab:: UPPMAX
 
@@ -94,13 +100,18 @@ Parallel computing with Python
          >>> import julia
          >>> julia.install()
 
-In Python there are different schemes that can be used to parallelize Python codes. 
+Parallelization mechanisms in Python
+====================================
+
+In Python there are different schemes that can be used to parallelize your code. 
 We will only take a look at some of these schemes that illustrate the general concepts of
-parallel computing.
+parallel computing. The aim of this lecture is to learn how to run parallel codes
+in Python rather than learning to write those codes.
 
 The workhorse for this section will be a 2D integration example:
 
-   :math:`\int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0`
+   .. math:: 
+       \int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0
 
 One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
 More specifically, one divides the integration range in both directions into ``n`` bins. A
@@ -152,11 +163,17 @@ We can run this code on the terminal as follows (similarly at both HPC2N and UPP
 
     $ python integration2d_serial.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
-    Time spent: 21.01 sec
+    Time spent: 20.39 sec
 
-We notice that the most expensive part in this code is the double `for loop`. The ``Numba``
-module in Python can assist us to obtain a compiled-quality function with minimal efforts.
-This can be achieved with the ``njit()`` decorator, for instance: 
+Note that outputs can be different, when timing a code a more realistic approach
+would be to run it several times to get statistics.
+
+One of the crucial steps upon parallelizing a code is identifying its bottlenecks. In
+the present case, we notice that the most expensive part in this code is the double `for loop`. 
+Just before we jump into a parallelization project, Python offers some options to make
+serial code faster. For instance, the ``Numba`` module can assist you to obtain a 
+compiled-quality function with minimal efforts. This can be achieved with the ``njit()`` 
+decorator: 
 
    .. admonition:: ``integration2d_serial_numba.py``
       :class: dropdown
@@ -206,12 +223,10 @@ The execution time is now:
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 1.90 sec
 
-If you are considering the idea of parallelizing your code maybe this is because you are
-facing a bottleneck either in the memory required by your code or in the number of arithmetic
-operations that can be achieved currently. Before embarking into the parallelization ship
-and specially in the case of arithmetic intensive codes, you may consider writing the most
-expensive parts of the code in a compiled language such as Fortran or C/C++. In the next
-paragraphs we will show you how Fortran code for the 2D integration case can be called in Python.
+Another option for making serial codes faster, and specially in the case of arithmetic 
+intensive codes, is to write the most expensive parts of them in a compiled language such 
+as Fortran or C/C++. In the next paragraphs we will show you how Fortran code for the 
+2D integration case can be called in Python.
 
 We start by writing the expensive part of our Python code in a Fortran function in a file
 called ``fortran_function.f90``:
@@ -225,7 +240,7 @@ called ``fortran_function.f90``:
          function integration2d_fortran(n) result(integral)
              implicit none
              integer, parameter :: dp=selected_real_kind(15,9)
-             real(kind=dp), parameter   :: pi=3.14159265358979323
+             real(kind=dp), parameter   :: pi=3.14159265358979323_dp
              integer, intent(in)        :: n
              real(kind=dp)              :: integral
          
@@ -293,13 +308,14 @@ The execution time is considerably reduced:
 .. code-block:: sh 
 
     $ python call_fortran_code.py
-    Integral value is -3.496735e-07, Error is 3.496735e-07
-    Time spent: 1.27 sec
+    Integral value is -7.117752e-17, Error is 7.117752e-17
+    Time spent: 1.30 sec
 
-Compilation of code can be tedious specially if you are in a developing phase of your code. One
-possible way to improve the performance of expensive parts of your code without using a compiled
-language can be by writing these parts in Julia and then calling Julia code in Python. For the
-workhorse integration case that we are using, the Julia code can look like this:
+Compilation of code can be tedious specially if you are in a developing phase of your code. As 
+an alternative to improve the performance of expensive parts of your code (without using a 
+compiled language) you can write these parts in Julia (which doesn't require compilation) and 
+then calling Julia code in Python. For the workhorse integration case that we are using, 
+the Julia code can look like this:
 
    .. admonition:: ``julia_function.jl``
       :class: dropdown
@@ -320,7 +336,7 @@ workhorse integration case that we are using, the Julia code can look like this:
                 mysum = mysum + sin(x+y)
              end
            end
-           return mysum
+           return mysum*h*h
          end
 
 
@@ -355,8 +371,12 @@ Timing in this case is similar to the Fortran serial case,
 .. code-block:: sh 
 
     $ python call_julia_code.py
-    Integral value is -7.211791e-10, Error is 7.211791e-10
-    Time spent: 1.39 sec
+    Integral value is -7.117752e-17, Error is 7.117752e-17
+    Time spent: 1.29 sec
+
+If even with the previous (and possibly others from your own) serial optimizations your code
+doesn't achieve the expected performance, you may start looking for some parallelization 
+scheme. Here, we describe the most common schemes.  
 
 Threads
 -------
@@ -364,17 +384,18 @@ Threads
 In a threaded parallelization scheme the workers (threads) share a global memory address space.
 The `threading <https://docs.python.org/3/library/threading.html>`_ 
 module is built into Python so you don't have to installed it. By using this
-modules, one can create several threads that can do some work (in principle) in parallel.
+module, one can create several threads to do some work in parallel (in principle).
 For jobs dealing with files I/O one can observe some speedup by using the `threading` module.
-However, for CPU intensive jobs one will see a decrease in performance w.r.t. the serial code.
-This is because Python uses the Global Interpreter Lock (`GIL <https://docs.python.org/3/c-api/init.html>`_)
-which serializes the code when several threads are used.
+However, for CPU intensive jobs one would see a decrease in performance w.r.t. the serial code.
+This is because Python uses the Global Interpreter Lock 
+(`GIL <https://docs.python.org/3/c-api/init.html>`_) which serializes the code when 
+several threads are used.
 
 In the following code we used the `threading` module to parallelize the 2D integration example.
 Threads are created with the construct ``threading.Thread(target=function, args=())``, where 
 `target` is the function that will be executed by each thread and `args` is a tuple containing the
 arguments of that function. Threads are started with the ``start()`` method and when they finish
-their job they are joined with the ``join()`` method.
+their job they are joined with the ``join()`` method,
 
    .. admonition:: ``integration2d_threading.py``
       :class: dropdown
@@ -447,8 +468,11 @@ Notice the output of running this code on the terminal:
 Although we are distributing the work on 4 threads, the execution time is longer than in the 
 serial code. This is due to the GIL mentioned above.
 
-Some libraries like OpenBLAS, LAPACK, and MKL provide an implicit threading mechanism they
-are used by ``numpy`` module for computing linear algebra operations. You can obtain information
+Implicit Threaded 
+-----------------
+
+Some libraries like OpenBLAS, LAPACK, and MKL provide an implicit threading mechanism. They
+are used, for instance, by ``numpy`` module for computing linear algebra operations. You can obtain information
 about the libraries that are available in ``numpy`` with ``numpy.show_config()``.
 This can be useful at the moment of setting the number of threads as these libraries could
 use different mechanisms for it, for the following example we will use the OpenMP
@@ -570,11 +594,11 @@ the execution time by using 4 threads is:
 
     $ export OMP_NUM_THREADS=4
     $ python call_fortran_code_openmp.py
-    Integral value is -3.496950e-07, Error is 3.496950e-07
+    Integral value is 4.492945e-12, Error is 4.492945e-12
     Time spent: 0.37 sec
 
-More information about how OpenMP works can be found in the material of a periodic 
-`OpenMP course <https://github.com/hpc2n/OpenMP-Collaboration>`_ offered by SNIC.
+More information about how OpenMP works can be found in the material of a previous
+`OpenMP course <https://github.com/hpc2n/OpenMP-Collaboration>`_ offered by some of us.
 
 Distributed
 -----------
@@ -655,7 +679,7 @@ MPI
 ---
 
 More details for the MPI parallelization scheme in Python can be found in a previous
-`MPI course <https://github.com/SNIC-MPI-course/MPI-course>`_ offered by SNIC.
+`MPI course <https://github.com/SNIC-MPI-course/MPI-course>`_ offered by some of us.
 
    .. admonition:: ``integration2d_mpi.py``
       :class: dropdown
@@ -733,7 +757,7 @@ example,
       .. code-block:: sh 
 
          #!/bin/bash
-         #SBATCH -A snic2022-22-641
+         #SBATCH -A hpc2n20XX-XYZ
          #SBATCH -t 00:05:00
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
@@ -771,11 +795,11 @@ Monitoring resources' usage
 ---------------------------
 
 Monitoring the resources that a certain job uses is important specially when this
-job is expected to run on many CPUs and/or GPUs. It could happen that an incorrect module
-is loaded or the command for running on many CPUs is not the proper one and our job
-runs in serial mode while we allocated possibly many CPUs/GPUs. For this reason,
-there are several tools available in our centers to monitor the performance of running
-jobs.
+job is expected to run on many CPUs and/or GPUs. It could happen, for instance, that 
+an incorrect module is loaded or the command for running on many CPUs is not 
+the proper one and our job runs in serial mode while we allocated possibly many 
+CPUs/GPUs. For this reason, there are several tools available in our centers to 
+monitor the performance of running jobs.
 
 HPC2N
 ~~~~~
