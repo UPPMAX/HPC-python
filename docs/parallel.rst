@@ -101,7 +101,7 @@ Parallel computing with Python
       Quit Python, you should be ready to go!
 
 Parallelization mechanisms in Python
-====================================
+------------------------------------
 
 In Python there are different schemes that can be used to parallelize your code. 
 We will only take a look at some of these schemes that illustrate the general concepts of
