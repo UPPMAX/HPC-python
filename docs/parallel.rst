@@ -52,9 +52,10 @@ Parallel computing with Python
 
         Start Python on the command line and type:
 
-        >>> import julia
+        .. code-block:: python
 
-        >>> julia.install()
+           >>> import julia
+           >>> julia.install()
 
         Quit Python, you should be ready to go!
 
@@ -65,13 +66,17 @@ Parallel computing with Python
       .. code-block:: sh
 
          $ module load python/3.9.5
-         $ python -m venv --system-site-packages /proj/snic2022-22-641/nobackup/<user>/venv-python-course
+         $ python -m venv --system-site-packages /proj/naiss202X-XY-XYZ/nobackup/<user>/venv-python-course
     
-      Activate it if needed (is the name shown in the prompt
+      Activate it if needed (is the name shown in the prompt)
 
       .. code-block:: sh
 
-         $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+         $ source /proj/naiss202X-XY-XYZ/nobackup/<user>/venv-python-course/bin/activate
+
+      - For the ``numba`` example install the corresponding module:
+
+        python -m pip install numba
 
       - For the ``mpi4py`` example add the following modules:
 
@@ -80,12 +85,6 @@ Parallel computing with Python
          $ ml gcc/9.3.0 openmpi/3.1.5
          $ python -m pip install mpi4py
 
-      - For the ``numba`` example add the following modules:
-
-      .. code-block:: sh
-
-         $ python -m pip install numba
-
       - For the Julia example we will need PyJulia:
         
       .. code-block:: sh
@@ -93,12 +92,13 @@ Parallel computing with Python
          $ ml julia/1.7.2
          $ python -m pip install julia
 
-      -Start Python on the command line and type:
+      Start Python on the command line and type:
 
       .. code-block:: python
        
          >>> import julia
          >>> julia.install()
+      Quit Python, you should be ready to go!
 
 Parallelization mechanisms in Python
 ====================================
@@ -777,7 +777,7 @@ example,
       .. code-block:: sh 
 
          #!/bin/bash
-         #SBATCH -A snic2022-22-641
+         #SBATCH -A naiss202X-XY-XYZ
          #SBATCH -t 00:05:00
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
@@ -787,7 +787,7 @@ example,
          ml gcc/9.3.0 openmpi/3.1.5
          #ml julia/1.7.2  # if Julia is needed
       
-         source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+         source /proj/naiss202X-XY-XYZ/nobackup/<user>/venv-python-course/bin/activate
        
          mpirun -np 4 python integration2d_mpi.py
 
