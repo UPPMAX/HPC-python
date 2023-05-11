@@ -3,16 +3,16 @@ Using GPUs with Python
 
 .. questions::
 
-   - What does GPU acceleration mean?
-   - How to implement GPU (as CUDA) in Python code?
-   - How to deploy GPU:s at HPC2n and UPPMAX?
+   - What is GPU acceleration?
+   - How to enable GPUs (for instance with CUDA) in Python code?
+   - How to deploy GPUs at HPC2N and UPPMAX?
    
    
 
 .. objectives::
 
-   - Learn common schemes for GPU acceleration of codes
-   - Learn about the GPU nodes at HPC2n and UPPMAX
+   - Learn common schemes for GPU code acceleration
+   - Learn about the GPU nodes at HPC2N and UPPMAX
    - Code along for users at Kebnekaise
       - Demo examples for a Snowy session at UPPMAX
 
@@ -67,24 +67,35 @@ racing cars can drive whereas a GPU would be a broader road where plenty of slow
 
 
 
-Not every Python program is suitable for GPU acceleration. GPUs processes simple functions very fast, and are best suited for repetitive and highly-parallel computing tasks. 
-
-GPUs are originally designed to render high-resolution images and video concurrently and fast, but since they can perform parallel operations on multiple sets of data, they are also often used for other, non-graphical tasks. Common uses are machine learning and scientific computation were the GPUs can take advantage of massive parallelism. 
+Not every Python program is suitable for GPU acceleration. GPUs process simple functions rapidly, 
+and are best suited for repetitive and highly-parallel computing tasks. GPUs were originally 
+designed to render high-resolution images and video concurrently and fast, but since they can 
+perform parallel operations on multiple sets of data, they are also often used for other, 
+non-graphical tasks. Common uses are machine learning and scientific computation were the GPUs can 
+take advantage of massive parallelism. 
 
 Many Python packages are not CUDA aware, but some have been written specifically with GPUs in mind. 
+If you are usually working with for instance NumPy and SciPy, you could optimize your code for GPU 
+computing by using CuPy which mimics most of the NumPy functions. Another option is using Numba, which 
+has bindings to CUDA and lets you write CUDA kernels in Python yourself. This means you can
+use custom algorithms. 
 
-If you are usually working with for instance NumPy and SciPy, you could optimize your code for GPU computing by using CuPy which mimics most of the NumPy functions. Another option is using Numba, which has bindings to CUDA and lets you write CUDA kernels in Python yourself. This means you can use custom algorithms. 
-
-One of the most common use of GPUs with Python is for machine learning or deep learning. For these cases you would use something like Tensorflow or PyTorch - libraries which can handle CPU and GPU processing internally without the programmer needing to do so. 
+One of the most common use of GPUs with Python is for machine learning or deep learning. For 
+these cases you would use something like Tensorflow or PyTorch libraries which can handle CPU
+and GPU processing internally without the programmer needing to do so. 
 
 Numba example
 -------------
 
-Numba is installed as a module at HPC2N, but not in a version compatible with the Python we are using in this course (3.9.5), so we will have to install it ourselves. The process is the same as in the examples given for the isolated/virtual environment, and we will be using the virtual environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before: 
+Numba is installed as a module at HPC2N, but not in a version compatible with the Python we 
+are using in this course (3.9.5), so we will have to install it ourselves. The process is the same
+as in the examples given for the isolated/virtual environment, and we will be using the virtual 
+environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before: 
 
-.. admonition:: Load Python 3.9.5 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba 
+.. admonition::  Python 3.9.5 as the basis
     :class: dropdown
    
+        Load Python 3.9.5 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba
         If you code-along, then remember to change the path to your own in the example below!
    
         .. code-block:: sh
@@ -106,7 +117,10 @@ Numba is installed as a module at HPC2N, but not in a version compatible with th
              [notice] A new release of pip available: 22.1.2 -> 22.2.2
              [notice] To update, run: pip install --upgrade pip
 
-We can ignore the comment about pip. The package was successfully installed. now let us try using it. We are going to use the following program for testing (it was taken from https://linuxhint.com/gpu-programming-python/ but there are also many great examples at https://numba.readthedocs.io/en/stable/cuda/examples.html): 
+We can ignore the comment about pip. The package was successfully installed. now let us try using it. 
+We are going to use the following program for testing (it was taken from 
+https://linuxhint.com/gpu-programming-python/ but there are also many great examples at 
+https://numba.readthedocs.io/en/stable/cuda/examples.html): 
 
 .. admonition:: Python example ``add-list.py`` using Numba 
     :class: dropdown
@@ -368,7 +382,7 @@ We need a batch script to run this Python code, an example script that will run 
 
     #!/bin/bash
     # Remember to change this to your own project ID after the course!
-    #SBATCH -A SNIC2022-22-641
+    #SBATCH -A hpc2n20XX-XYZ
     #SBATCH -t 00:08:00
     #SBATCH -N 1
     #SBATCH -n 28
