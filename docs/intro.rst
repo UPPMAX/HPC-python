@@ -49,7 +49,7 @@ Some practicals
 .. admonition:: Exercises
 
     - You can download the exercises from the course GitHub repo, under the "Exercises" directory: https://github.com/UPPMAX/HPC-python/tree/main/Exercises 
-    - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/TBC``
+    - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/hpc2n2023-089/TBC``
     - On UPPMAX you can copy the exercises in a tarball from ``/proj/snic2022-22-500/TBC``
     
 .. admonition:: **Your expectations?**
@@ -102,7 +102,7 @@ Some practicals
    
        - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
      
-         /proj/nobackup/TBC/bbrydsoe/pythonHPC2N
+         /proj/nobackup/hpc2n2023-089/bbrydsoe/pythonHPC2N
          
 .. admonition:: Use Thinlinc or terminal?
 
@@ -171,13 +171,13 @@ The two HPC centers UPPMAX and HPC2N
             - Rackham for general purpose computing on CPUs only
             - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
             - Bianca for sensitive data and has GPUs
-         - HPC2N has Kebnekaise with GPUs (and KNLs) 
+         - HPC2N has Kebnekaise with GPUs 
          - Conda is recommended only for UPPMAX users
     
 .. admonition:: How is the workshop run?
   
    - General sessions with small differences shown in UPPMAX vs. HPC2N in tabs
-   - Separated sessions for UPPMAX and HPC users, respectively.
+   - Main focus on the NAISS resources at UPPMAX, but Kebnekaise specifics will be covered
 
 .. warning:: 
 
@@ -210,6 +210,7 @@ Briefly about the cluster hardware and system at UPPMAX and HPC2N
 
 - The **calculation nodes** have to be used for intense computing. 
 
+- Beginner's guide to clusters: https://www.hpc2n.umu.se/documentation/guides/beginner-guide
 
 Common features
 ###############
@@ -238,7 +239,7 @@ Common features
      - 128-4096 GB
      - 128-512 GB
    * - GPU
-     - NVidia K80 and V100 
+     - NVidia K80 and V100 (+ 3 NVidia A100 and 2 AMD MI100)
      - None
      - Nvidia T4 
      - 2 NVIDIA A100
