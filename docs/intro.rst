@@ -219,6 +219,9 @@ Common features
 - Linux kernel
 - Bash shell
 
+.. role:: raw-html(raw)
+    :format: html
+
 .. list-table:: Hardware
    :widths: 25 25 25 25 25
    :header-rows: 1
@@ -239,7 +242,7 @@ Common features
      - 128-4096 GB
      - 128-512 GB
    * - GPU
-     - NVidia K80 and V100 <br> (+ 3 NVidia A100 and 2 AMD MI100)
+     - NVidia K80 and V100 :raw-html:`<br />` (+ 3 NVidia A100 and 2 AMD MI100)
      - None
      - Nvidia T4 
      - 2 NVIDIA A100
