@@ -86,7 +86,7 @@ Check for Python versions
            Use module spider" to find all possible modules and extensions.
            Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 
-.. admonition:: Output at HPC2N as of 27 July 2022
+.. admonition:: Output at HPC2N as of May 11 2023
     :class: dropdown
 
        .. code-block::  bash
@@ -112,6 +112,8 @@ Check for Python versions
                 Python/3.9.5   
                 Python/3.9.6-bare  
                 Python/3.9.6   
+                Python/3.10.4-bare
+                Python/3.10.4
             Other possible modules matches:
                 Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
            ----------------------------------------------------------------------------
@@ -122,7 +124,7 @@ Check for Python versions
                Note that names that have a trailing (E) are extensions provided by other modules.
        
            For example:
-            $ module spider Python/3.9.5
+            $ module spider Python/3.10.4
            ----------------------------------------------------------------------------
 
 Load a Python module
@@ -244,7 +246,7 @@ For more interactiveness you can run Ipython
 
          $ jupyter-notebook 
          
-      More info to be given in the UPPMAX session.
+      More info to be given in the interactive session.
        
     
    .. tab:: HPC2N
@@ -262,6 +264,7 @@ For more interactiveness you can run Ipython
 
          $ ipython 
 
+      HPC2N also has Jupyter notebook installed, which is available as a module. A brief tutorial of how to get it to work is found here: https://www.hpc2n.umu.se/resources/software/jupyter 
 
 Exit Python or IPython with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
 
