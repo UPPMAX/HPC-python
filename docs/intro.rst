@@ -15,63 +15,54 @@ Introduction
    - Use Python for ML
    - Use GPUs with Python
    
-.. warning:: Course has already been given
+.. Note:: 
 
-   - Q/A are public at the HackMD pages
+   - Q/A are public at 
+     - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EaIq18aFUiFBtFnuCjRz5OUBZvzB4sLn9saaU7aTRvyUFA?e=TYSq8H
+
+   - Q/A from previous installments of the course: 
       - https://hackmd.io/@bclaremar/HPC-python
       - https://hackmd.io/IoseeprATrWH0ZI7z6wJ-w?view
-      
 
 Some practicals
 ----------------
         
 .. admonition:: Zoom
 
-    - The course is run over Zoom. You should have gotten an email with the links
-        
-    - There will be a zoom for the lectures, a zoom for the HPC2N sessions, and a zoom for the UPPMAX sessions. 
-        - The exercises will be done in the separate sessions.
-   
+    - The course is run over Zoom. You should have gotten an email with the links    
+    - There will be a zoom for the lectures, and several zooms for the exercises, including a silent room for those who just want to work on their own without interruptions. 
+    - The exercises will be done in the separate sessions.
     - When you join the Zoom meeting, use your REAL NAME.
-    
-    - The lectures and demos will be recorded, but NOT the exercises. If you ask questions during the lectures, you may thus be recorded. If you do not wish to be recorded, then please keep your microphone muted and your camera off during lectures and write your questions in the Q/A document (see below about HackMD collaboration document).
-    
+    - The lectures and demos will be recorded, but NOT the exercises. If you ask questions during the lectures, you may thus be recorded. If you do not wish to be recorded, then please keep your microphone muted and your camera off during lectures and write your questions in the Q/A document (see more information below about the collaboration documents which are also listed above).
     - Please MUTE your microphone when you are not speaking and use the “Raise hand” functionality under the “Participants” window during the lecture. Please do not clutter the Zoom chat. Behave politely!
-
-    - There may be breakout rooms used in the Zoom for the hands-ons. You will be randomly assigned to one of them.  
     
-    
-.. admonition:: Collabration document HackMD
+.. admonition:: Q/A collabration document
 
-    - Use the HackMD page for the workshop with your questions.
-        - https://hackmd.io/@bclaremar/HPC-python
+    - Use the Q/A page for the workshop with your questions.
+        - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EaIq18aFUiFBtFnuCjRz5OUBZvzB4sLn9saaU7aTRvyUFA?e=TYSq8H
 
     - Depending on how many helpers there are we'll see how fast there are answers. 
         - Some answers may come after the workshop.
  
-    - Type in the left frame 
-        - "-" means new bullet and <tab> indents the level.
-        - don't focus too much on the formatting if you are new to "Markdown" language!
-    
-    - **Have a try with the Icebreaker question**
+    - Create a new line for new questions. Take care if others are editing at the same time. 
 
 .. admonition:: Exercises
 
     - You can download the exercises from the course GitHub repo, under the "Exercises" directory: https://github.com/UPPMAX/HPC-python/tree/main/Exercises 
-    - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/snic2022-22-641/bbrydsoe/examples.tar.gz``
-    - On UPPMAX you can copy the exercises in a tarball from ``/proj/snic2022-22-641/nobackup/examples.tar.gz``
+    - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/TBC``
+    - On UPPMAX you can copy the exercises in a tarball from ``/proj/snic2022-22-500/TBC``
     
 .. admonition:: **Your expectations?**
    
-    - find best practices for using Python at UPPMAX and HPC2N
-    - packages
+    - find best practices for using Python at an HPC centre
+    - using and installing packages
     - use the HPC performance with Python
 
     
     **Not covered**
     
     - improve python *coding* skills 
-    - Other clusters
+    - Specifics of other clusters
 
 
 .. warning::
@@ -100,7 +91,7 @@ Some practicals
          
       - Example. If your username is "mrspock" and you are at UPPMAX, this we recommend you create this folder: 
      
-         /proj/snic2022-22-641/nobackup/mrspock/pythonUPPMAX
+         /proj/snic2022-22-500/mrspock/pythonUPPMAX
 
    .. tab:: HPC2N
 
@@ -111,7 +102,7 @@ Some practicals
    
        - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
      
-         /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N
+         /proj/nobackup/TBC/bbrydsoe/pythonHPC2N
          
 .. admonition:: Use Thinlinc or terminal?
 
@@ -122,12 +113,12 @@ Some practicals
    
 Example of arrangement for the "worst case"!
 ############################################
-- HackMD
+- Q/A document
 - ZOOM view
-- (shellshare) or web browser with course material
+- (shellshare) or web browser (HackMD - https://uppmax.github.io/HPC-python/index.html) with course material
 - your own terminal
 
-.. figure:: img/worst.jpg
+.. figure:: img/worst_v2.jpg
    :align: center
 
 
