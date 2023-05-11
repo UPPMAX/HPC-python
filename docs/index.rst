@@ -31,8 +31,8 @@ Welcome to HPC python course material
 
 .. admonition:: Cluster-specific approaches
 
-   - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise) and will focus on the compute systems at both centres. 
-   - For the site-specific part of the course you will be divided into groups depending on which center you will be running your code, as the approach is somewhat different. 
+   - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise). The main focus will be on UPPMAX's systems, but Kebnekaise will be included as well.  
+   - In most cases there is little or no difference between UPPMAX's systems and HPC2N's systems, except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
 
 
 Preliminary schedule
@@ -61,20 +61,17 @@ Preliminary schedule
      - **Coffee**
      - 
    * - 
-     - Isolated environments (general)
+     - Isolated environments
      - Lecture+code along
    * - 
      - SLURM Batch scripts for Python jobs  
      - Lecture+code along + exercise
    * - 
-     - Interactive
-     - Lecture+code along
-   * - 
      - **Short leg stretch**
      - 
    * - 
-     - Separated sessions 1 for UPPMAX/HPC2N:isolated environments
-     - Lecture
+     - Interactive
+       - Lecture+code along
    * - 12:00
      - LUNCH 
      -
@@ -82,7 +79,7 @@ Preliminary schedule
      - Parallelising a simple Python code  
      - Lecture+code along + exercise
    * - 
-     - Deploying GPU:s for Python
+     - Using GPU:s for Python
      - Lecture+code along + exercise
    * - 
      - **Short leg stretch**
@@ -90,9 +87,6 @@ Preliminary schedule
    * - 
      - Using Python for Machine Learning jobs
      - Lecture+code along
-   * - 
-     - Separated sessions 2 for UPPMAX/HPC2N: Bianca/ML exercises
-     - Lecture
    * - 
      - **Coffee**
      - 
@@ -112,7 +106,7 @@ Preliminary schedule
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons:
+   :caption: Lessons: NEEDS TO BE CHANGES!
 
    intro.rst
    load_run.rst
