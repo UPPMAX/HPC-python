@@ -100,8 +100,7 @@ Parallel computing with Python
          >>> julia.install()
       Quit Python, you should be ready to go!
 
-Parallelization mechanisms in Python
-------------------------------------
+
 
 In Python there are different schemes that can be used to parallelize your code. 
 We will only take a look at some of these schemes that illustrate the general concepts of
@@ -170,6 +169,10 @@ would be to run it several times to get statistics.
 
 One of the crucial steps upon parallelizing a code is identifying its bottlenecks. In
 the present case, we notice that the most expensive part in this code is the double `for loop`. 
+
+Serial optimizations
+--------------------
+
 Just before we jump into a parallelization project, Python offers some options to make
 serial code faster. For instance, the ``Numba`` module can assist you to obtain a 
 compiled-quality function with minimal efforts. This can be achieved with the ``njit()`` 
