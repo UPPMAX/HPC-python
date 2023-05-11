@@ -239,7 +239,7 @@ Common features
      - 128-4096 GB
      - 128-512 GB
    * - GPU
-     - NVidia K80 and V100 (+ 3 NVidia A100 and 2 AMD MI100)
+     - NVidia K80 and V100 <br> (+ 3 NVidia A100 and 2 AMD MI100)
      - None
      - Nvidia T4 
      - 2 NVIDIA A100
