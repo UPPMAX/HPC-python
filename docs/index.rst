@@ -124,11 +124,15 @@ Preliminary schedule
    :maxdepth: 2
    :caption: Extra reading:
 
-   packages.rst
+   packages_deeper.rst
+   #conda.rst
+   isolated_deeper.rst
+   interactive_deeper.rst
+   jupyter.md
+   #isolatedUPPMAX.rst
+   #conda.rst
    uppmax.rst
-   isolatedUPPMAX.rst
-   conda.rst
-   jupyter.md   kebnekaise.md
+   kebnekaise.md
    bianca.rst
    
 .. toctree::
