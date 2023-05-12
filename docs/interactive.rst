@@ -55,18 +55,18 @@ run on the allocated nodes instead of the login node.
 
       .. code-block:: sh
           
-         $ interactive -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
+         $ interactive -n <tasks> --time=HHH:MM:SS -A naiss2023-22-44
       
    .. tab:: HPC2N (salloc)
 
       .. code-block:: sh
           
-         $ salloc -n <tasks> --time=HHH:MM:SS -A SNICXXXX-YY-ZZZ 
+         $ salloc -n <tasks> --time=HHH:MM:SS -A hpc2nXXXX-YYY  
          
       
 where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in 
       hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project 
-      (**SNIC2022-22-641** for this course)
+      (**naiss2023-22-44** for this course)
 
 Your request enters the job queue just like any other job, and interactive/salloc will tell you that it is
       waiting for the requested resources. When salloc tells you that your job has been allocated 
@@ -80,10 +80,14 @@ You can now run Python scripts on the allocated resources directly instead of wa
       script or perhaps figure out which parameters are best.
                   
 
-Example **Code along**
-######################
+Example
+#######
 
-**Requesting 4 cores for 30 minutes, then running Python**
+.. tip::
+    
+   **Code along!**
+
+**Requesting 4 cores for 10 minutes, then running Python**
 
 .. tabs::
 
@@ -91,7 +95,7 @@ Example **Code along**
 
       .. code-block:: sh
       
-          [bjornc@rackham2 ~]$ interactive -A snic2022-22-641 -p core -n 4 -t 30:00
+          [bjornc@rackham2 ~]$ interactive -A naiss2023-22-44 -p devcore -n 4 -t 10:00
           You receive the high interactive priority.
           There are free cores, so your job is expected to start at once.
       
@@ -118,7 +122,7 @@ Example **Code along**
          
       .. code-block:: sh
       
-          b-an01 [~]$ salloc -n 4 --time=00:30:00 -A SNIC2022-22-641
+          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2nXXXX-YYY 
           salloc: Pending job allocation 20174806
           salloc: job 20174806 queued and waiting for resources
           salloc: job 20174806 has been allocated resources
@@ -239,6 +243,10 @@ When you have finished using the allocation, either wait for it to end, or close
                   salloc: Relinquishing job allocation 20174806
                   salloc: Job allocation 20174806 has been revoked.
                   b-an01 [~]$
+
+.. admonition:: Running Jupyter on compute nodes at UPPMAX
+
+   https://uppmax.github.io/HPC-python/jupyter.html
 
 
 .. keypoints::
