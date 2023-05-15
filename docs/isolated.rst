@@ -42,7 +42,7 @@ There are different tools for creating an isolated environement, but they all ha
 
 In this course we will look at the following tools for creating and using isolated environments: 
 
-   - venv            UPPMAX
+   - venv            UPPMAX+HPC2N
    - virtualenv      UPPMAX+HPC2N
    - Conda           UPPMAX
 
@@ -57,9 +57,10 @@ In this course we will look at the following tools for creating and using isolat
    - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
    - Make it for each project you have for reproducibility.
    - There are different tools to create virtual environemnts.
-      - UPPMAX has  Conda and venv and virtualenv
-      - HPC2N has virtualenv.
-      - More details in the separated sessions!
+      - UPPMAX has Conda and venv and virtualenv
+      - HPC2N has venv and virtualenv.
+        - At UPPMAX, you load python directly, while at HPC2N you need to load "prerequisites" first, and the module is named Python with a capital P. 
+      - More details to follow!
  
    
 Virtual environment - venv & virtualenv
@@ -72,7 +73,7 @@ Example
     
    **Do not code along!**
 
-Create a ``venv``. First load the python version you want to base your virtual environment on:
+Create a ``venv`` or ``virtualenv``. First load the python version you want to base your virtual environment on:
 
 .. tabs::
 
@@ -89,10 +90,17 @@ Create a ``venv``. First load the python version you want to base your virtual e
 
       .. code-block:: sh
 
-         $ module load python/3.7.2
+         $ module load GCC/10.3.0 Python/3.9.5
          $ virtualenv --system-site-packages Example
     
-      "vpyenv" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
+      "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
+
+      ..code-block:: sh
+
+        $ module load GCC/10.3.0 Python/3.9.5
+        $ python -m venv --system-site-packages Example
+
+      "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
 
 .. note::
@@ -115,13 +123,13 @@ If you want it in a certain place...
       
       .. code-block:: sh
 
-         $ python -m venv --system-site-packages /proj/py-r-jl/<user>/python
+         $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python
     
       Activate it.
 
       .. code-block:: sh
 
-          $ source /proj/py-r-jl/<user>/python/Example/bin/activate
+          $ source /proj/naiss2023-22-500/<user>/python/Example/bin/activate
 
       Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
@@ -131,13 +139,13 @@ If you want it in a certain place...
 
       .. code-block:: sh
 
-         $ virtualenv --system-site-packages /proj/nobackup/your-project-id/<your-project-storage>/Example 
+         $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<your-username>/Example 
     
       Activate it.
 
       .. code-block:: sh
 
-          $ source /proj/nobackup/your-project-id/<your-project-storage>/Example/bin/activate
+          $ source /proj/nobackup/hpc2n2023-089/<your-username/Example/bin/activate
 
 
 Note that your prompt is changing to start with (name of your vitual environment) to show that you are within it.
@@ -146,15 +154,15 @@ Note that your prompt is changing to start with (name of your vitual environment
 Using pip
 '''''''''
 
-Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use: 
+Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
 
 .. prompt:: 
     :language: bash
     :prompts: (Example) $
       
-    pip install numpy==1.15.4 matplotlib==2.2.2
+    pip install --no-cache-dir --no-build-isolation numpy==1.15.4 matplotlib==2.2.2
 
-Deactivate it.
+Deactivate the venv.
 
 .. prompt:: 
    :language: bash
@@ -189,13 +197,13 @@ Create a virtual environment called ``vpyenv`. First load the python version you
       .. code-block:: sh
 
           $ module load python/3.9.5
-          $ python -m venv --system-site-packages /proj/py-r-jl/<user>/python/vpyenv
+          $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python/vpyenv
     
       Activate it.
 
       .. code-block:: sh
 
-         $ source /proj/py-r-jl/<user>/python/vpyenv/bin/activate
+         $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
 
       Note that your prompt is changing to start with (vpyenve) to show that you are within an environment.
 
@@ -227,7 +235,7 @@ Create a virtual environment called ``vpyenv`. First load the python version you
 
       .. prompt:: bash $
 
-         source /proj/py-r-jl/<user>/python/vpyenv/bin/activate
+         source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
 
       More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
       
@@ -241,9 +249,9 @@ Create a virtual environment called ``vpyenv`. First load the python version you
    
          .. code-block:: sh
            
-            b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
-            b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source vpyenv/bin/activate
-            (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation spacy 
+            b-an01 [/proj/nobackup/hpc2n2023-089/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            b-an01 [/proj/nobackup/hpc2n2023-089/bbrydsoe]$ source vpyenv/bin/activate
+            (vpyenv) b-an01 [/proj/nobackup/hpc2n2023-089/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation spacy 
    
       2) Installing seaborn. Using existing modules for numpy (in SciPy-bundle), matplotlib, and the vpyenv we created under Python 3.9.5. Note that you need to load Python again if you have been logged out, etc. but the virtual environment remains, of course   
 
@@ -275,10 +283,15 @@ Some Python packages are only available as downloads, for instance via github, t
 
 - Pick a location for your installation (change below to fit - I am installing under a project storage)
 
-   - ``mkdir /proj/<project>/<mystorage>/mypythonpackages``
-   - ``cd /proj/<project>/<mystorage>/mypythonpackages``
+UPPMAX:
+   - ``mkdir /proj/naiss2023-22-500/<username>/mypythonpackages``
+   - ``cd /proj/naiss2023-22-500/<username>/mypythonpackages``
    
-- Load Python + (on Kebnekaise) site-installed prerequisites (SciPy-bundle, matplotlib, etc.)
+HPC2N: 
+   - ``mkdir /proj/nobackup/hpc2n2023-089/<username>/mypythonpackages``
+   - ``cd /proj/nobackup/hpc2n2023-089/<username>/mypythonpackages``
+
+- Load Python + (on Kebnekaise) site-installed prerequisites and site-installed packages you need (SciPy-bundle, matplotlib, etc.)
 - Install any remaining prerequisites. Remember to activate your Virtualenv if installing with pip!
 - Download Python package, place it in your chosen installation dir, then untar/unzip it
 - cd into the source directory of the Python package
@@ -314,7 +327,7 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
    .. code-block:: sh
            
       $ module load Python/3.9.5
-      $ source /proj/py-r-jl/<user>/python/vpyenv/bin/activate
+      $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
       (vpyenv) $ python
            Python 3.9.5 (default, Jun  3 2021, 15:06:34)
            [GCC 9.3.0] on linux
@@ -329,9 +342,9 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
    
         .. code-block:: sh
            
-           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
-           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source vpyenv/bin/activate
-           (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ python
+           b-an01 [/proj/nobackup/hpc2n2023-089/<user>]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+           b-an01 [/proj/nobackup/hpc2n2023-089/<user>]$ source vpyenv/bin/activate
+           (vpyenv) b-an01 [/proj/nobackup/hpc2n2023-089/<user>]$ python
            Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
            [GCC 10.3.0] on linux
            Type "help", "copyright", "credits" or "license" for more information.
@@ -391,6 +404,8 @@ text file which looks like this::
 
    You could also use ``jupyter`` (``-lab`` or ``-notebook``) in a virtual environment.
 
+   **UPPMAX**: 
+
    If you decide to use the --system-site-packages configuration you will get ``jupyter`` from the python modules you created your virtual environment with.
    However, you **won't find your locally installed packages** from that jupyter session. To solve this reinstall jupyter within the virtual environment by force::
 
@@ -402,6 +417,9 @@ text file which looks like this::
    
    Be sure to start the **kernel with the virtual environment name**, like "Example", and not "Python 3 (ipykernel)".
 
+   **HPC2N**
+
+   To use Jupyter at HPC2N, follow this guide: https://www.hpc2n.umu.se/resources/software/jupyter
 
 More info
 '''''''''
@@ -449,13 +467,13 @@ More info
      .. code-block:: sh
 
           $ module load python/3.8.7
-          $ python -m venv --system-site-packages /proj/py-r-jl/<user>/python/analysis
+          $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python/analysis
     
       Activate it.
 
       .. code-block:: sh
 
-         $ source /proj/py-r-jl/<user>/python/analysis/bin/activate
+         $ source /proj/naiss2023-22-500/<user>/python/analysis/bin/activate
 
       - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
       - Install the packages from the file::
@@ -473,13 +491,13 @@ More info
      .. code-block:: sh
 
           $ module load GCC/10.2.0 Python/3.8.6 
-          $ virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/analysis 
+          $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<username>/analysis 
       
       Activate it.
 
       .. code-block:: sh
 
-         $ source /proj/nobackup/analysis/bin/activate
+         $ source /proj/nobackup/hpc2n2023-089/<username>/analysis/bin/activate
 
       - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
       - Install the packages from the file::
@@ -500,4 +518,4 @@ More info
    - There are different tools to create virtual environemnts.
    
       - UPPMAX has Conda and venv and virtualenv
-      - HPC2N has virtualenv
+      - HPC2N has venv and virtualenv
