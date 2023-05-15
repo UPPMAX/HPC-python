@@ -15,15 +15,6 @@ Introduction
    - Use Python for ML
    - Use GPUs with Python
    
-.. Note:: 
-
-   - Q/A are public at 
-     - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EaIq18aFUiFBtFnuCjRz5OUBZvzB4sLn9saaU7aTRvyUFA?e=TYSq8H
-
-   - Q/A from previous installments of the course: 
-      - https://hackmd.io/@bclaremar/HPC-python
-      - https://hackmd.io/IoseeprATrWH0ZI7z6wJ-w?view
-
 Some practicals
 ----------------
         
@@ -91,7 +82,7 @@ Some practicals
          
       - Example. If your username is "mrspock" and you are at UPPMAX, this we recommend you create this folder: 
      
-         /proj/snic2022-22-500/mrspock/pythonUPPMAX
+         /proj/naiss2023-22-500/mrspock/pythonUPPMAX
 
    .. tab:: HPC2N
 
