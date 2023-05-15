@@ -33,7 +33,7 @@ Guides and documentation at: http://www.hpc2n.umu.se/support and https://www.upp
 
 - Write a batch script
 
-  - Inside the batch script you need to load the modules you need (Python, Python packages ... )
+  - Inside the batch script you need to load the modules you need (Python, Python packages, any prerequisites, ... )
   - Possibly activate an isolated/virtual environment to access own-installed packages
   - Ask for resources depending on if it is a parallel job or a serial job, if you need GPUs or not, etc.
   - Give the command(s) to your Python script
@@ -67,7 +67,7 @@ Serial code
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH -A NAISS2023-22-500 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -85,7 +85,7 @@ Serial code
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH -A hpc2n2023-089 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -137,12 +137,12 @@ Serial code + self-installed package in virt. env.
 
    .. tab:: UPPMAX
 
-        Short serial example for running on Rackham. Loading Python/3.9.5 + using any Python packages you have installed yourself with venv. More information will follow under the separate session for UPPMAX. 
+        Short serial example for running on Rackham. Loading Python/3.9.5 + using any Python packages you have installed yourself with venv.  
 
         .. code-block:: sh
         
             #!/bin/bash
-            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH -A NAISS2023-22-500 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -151,7 +151,7 @@ Serial code + self-installed package in virt. env.
             
             # Activate your virtual environment. 
             # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-            # Example: /proj/snic2022-22-641/nobackup/mrspock/pythonUPPMAX 
+            # Example: /proj/naiss2023-22-500/nobackup/mrspock/pythonUPPMAX 
             source <path-to-virt-env>/bin/activate
             
             # Run your Python script
@@ -165,7 +165,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH -A hpc2n2023-089 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -174,7 +174,7 @@ Serial code + self-installed package in virt. env.
             
             # Activate your virtual environment. 
             # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-            # Example: /proj/nobackup/snic2022-22-641/bbrydsoe/pythonHPC2N 
+            # Example: /proj/nobackup/hpc2n2023-089/bbrydsoe/pythonHPC2N 
             source <path-to-virt-env>/bin/activate
             
             # Run your Python script 
@@ -193,7 +193,7 @@ GPU code
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A SNICXXXX-YY-ZZZ
+            #SBATCH -A NAISS2023-22-500
             #SBATCH -t 00:10:00
             #SBATCH --exclusive
             #SBATCH -p node
@@ -216,8 +216,7 @@ GPU code
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
-            #SBATCH --reservation=hpc-python  # Only valid during the course 
+            #SBATCH -A hpc2n2023-089 # Change to your own after the course
             #SBATCH --time=00:10:00  # Asking for 10 minutes
             # Asking for one K80 card
             #SBATCH --gres=gpu:k80:1
@@ -228,7 +227,7 @@ GPU code
             
             # Activate the virtual environment we installed to
             # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-            # Example: /proj/snic2022-22-641/nobackup/mrspock/pythonUPPMAX
+            # Example: /proj/nobackup/hpc2n2023-089/mrspock/pythonHPC2N
             source <path-to-virt-env>/bin/activate
             
             # Run your Python script
@@ -263,7 +262,7 @@ Exercises
           .. code-block:: sh
  
             #!/bin/bash
-            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH -A hpc2n2023-089 # Change to your own after the course
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -281,7 +280,7 @@ Exercises
           .. code-block:: sh
  
             #!/bin/bash
-            #SBATCH -A SNIC2022-22-641 # Change to your own after the course
+            #SBATCH -A naiss2023-22-500 # Change to your own after the course
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
