@@ -96,7 +96,7 @@ Does it work? Then it is there!
 Otherwise, you can either use ``pip`` or ``conda``.
 
 
-**NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them here: https://uppmax.github.io/HPC-python/intro.html#python-at-hpc2n or find more as mentioned above, using ``module spider -r ....```
+**NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them below, under the HPC2N tab or find more as mentioned above, using ``module spider -r ....```
 
 A selection of the Python packages and libraries installed on UPPMAX and HPC2N are:
 
