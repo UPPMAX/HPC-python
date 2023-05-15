@@ -271,6 +271,11 @@ For more interactiveness you can run Ipython.
 
          $ ipython 
 
+      HPC2N also has ``JupyterLab`` installed. It is available as a module, but the process of using it is somewhat involved. See this tutorial: 
+
+      - https://www.hpc2n.umu.se/resources/software/jupyter 
+
+
 **Example**
 
 .. code-block:: python
