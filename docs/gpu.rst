@@ -174,7 +174,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
 .. tabs::
 
-   .. tab:: UPPMAX Demo
+   .. tab:: UPPMAX
       
       .. code-block:: bash
       
@@ -192,7 +192,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          GPU function took 1.574953 seconds.
 
 
-   .. tab:: HPC2N Demo
+   .. tab:: HPC2N
    
       Running a GPU Python code interactively. When you code-along, remember to change the activation path for the virtual environment to your own! 
 
@@ -239,11 +239,13 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
           python add-list.py
 
 
-Numba example 2
----------------
+Exercises
+---------
 
-An initial implementation of the 2D integration problem with the CUDA support for Numba could be
-as follows:
+.. challenge:: Integration 2D with Numba
+
+   An initial implementation of the 2D integration problem with the CUDA support for 
+   Numba could be as follows:
 
    .. admonition:: ``integration2d_gpu.py``
       :class: dropdown
@@ -295,18 +297,17 @@ as follows:
          print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
          print("Time spent: %.2f sec" % (endtime-starttime))
 
-The time for executing the kernel and doing some postprocessing to the outputs (copying
-the C array and doing a reduction)  was 4.35 sec. which is a much smaller value than the
-time for the serial numba code of 152 sec. 
 
-Notice the larger size of the grid in the present case (100*1024) compared to the
-serial case's size we used previously (10000). Large computations are necessary on the GPUs
-to get the benefits of this architecture. 
 
-One can take advantage of the shared memory in a thread block to write faster code. Here,
-we wrote the 2D integration example from the previous section where threads in a block
-write on a `shared[]` array. Then, this array is reduced (values added) and the output is
-collected in the array ``C``. The entire code is here:
+   Notice the larger size of the grid in the present case (100*1024) compared
+   to the serial case's size we used previously (10000). Large computations are 
+   necessary on the GPUs to get the benefits of this architecture. 
+
+   One can take advantage of the shared memory in a thread block to write faster 
+   code. Here, we wrote the 2D integration example from the previous section where 
+   threads in a block write on a `shared[]` array. Then, this array is reduced 
+   (values added) and the output is collected in the array ``C``. The entire code 
+   is here:
 
 
    .. admonition:: ``integration2d_gpu_shared.py``
@@ -375,35 +376,49 @@ collected in the array ``C``. The entire code is here:
          print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
          print("Time spent: %.2f sec" % (endtime-starttime))
 
-We need a batch script to run this Python code, an example script that will run on Kebnekaise is here:
+   Prepare a batch script to run these two versions of the integration 2D with Numba support
+   and monitor the timings for both cases.
 
+.. solution:: Solution for HPC2N
+   
+    :class: dropdown
 
-.. code-block:: sh 
+   A template for running the python codes at HPC2N is here:
 
-    #!/bin/bash
-    # Remember to change this to your own project ID after the course!
-    #SBATCH -A hpc2n20XX-XYZ
-    #SBATCH -t 00:08:00
-    #SBATCH -N 1
-    #SBATCH -n 28
-    #SBATCH -o output_%j.out   # output file
-    #SBATCH -e error_%j.err    # error messages
-    #SBATCH --gres=gpu:k80:2
-    #SBATCH --exclusive
+   .. admonition:: ``job-gpu.sh``
+      :class: dropdown
+      
+       .. code-block:: sh 
+
+          #!/bin/bash
+          # Remember to change this to your own project ID after the course!
+          #SBATCH -A hpc2n20XX-XYZ
+          #SBATCH -t 00:08:00
+          #SBATCH -N 1
+          #SBATCH -n 28
+          #SBATCH -o output_%j.out   # output file
+          #SBATCH -e error_%j.err    # error messages
+          #SBATCH --gres=gpu:k80:2
+          #SBATCH --exclusive
      
-    ml purge > /dev/null 2>&1
-    ml GCCcore/11.2.0 Python/3.9.6
-    ml GCC/11.2.0 OpenMPI/4.1.1
-    ml CUDA/11.4.1
+          ml purge > /dev/null 2>&1
+          ml GCCcore/11.2.0 Python/3.9.6
+          ml GCC/11.2.0 OpenMPI/4.1.1
+          ml CUDA/11.4.1
     
-    # CHANGE TO YOUR OWN PATH! 
-    source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
+          # CHANGE TO YOUR OWN PATH! 
+          source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
        
-    python integration2d_gpu.py
-    python integration2d_gpu_shared.py
+          python integration2d_gpu.py
+          python integration2d_gpu_shared.py
 
-The simulation time for this problem's size was 1.87 sec. by using the shared 
-memory trick. 
+     For the ``integration2d_gpu.py`` implementation, the time for executing the kernel 
+     and doing some postprocessing to the outputs (copying the C array and doing a reduction)  
+     was 4.35 sec. which is a much smaller value than the time for the serial numba code of 152 sec
+     obtained previously. 
+
+     The simulation time for the ``integration2d_shared.py`` implementation was 1.87 sec. 
+     by using the shared memory trick. 
 
 .. keypoints::
 
