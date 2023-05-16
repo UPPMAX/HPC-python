@@ -331,12 +331,6 @@ First steps
 
 6. Deactivate
 
-   .. prompt:: 
-      :language: console
-      :prompts: (python-36-env) $
-    
-      conda deactivate
-
    .. code-block:: console
   
       (python-36-env) $ conda deactivate
