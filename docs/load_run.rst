@@ -71,7 +71,7 @@ Check for Python versions
 
          $ module spider Python/3.9.5 
 
-.. admonition:: Output at UPPMAX as of Feb 7 2023
+.. admonition:: Output at UPPMAX as of May 16 2023
    :class: dropdown
     
        .. code-block::  tcl
