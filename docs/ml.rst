@@ -12,9 +12,7 @@ Using Python for Machine Learning jobs
 
    - Get general overview of installed Machine Learning tools at HPC2N and UPPMAX
    - Get started with Machine learning in Python
-   - Code along for users at Kebnekaise
-      - Demo examples for a Snowy session at UPPMAX
-
+   - Code along and demos (Kebnekaise and Snowy)
 
 
    
@@ -93,7 +91,7 @@ The example we will use in this course is taken from the official PyTorch page: 
 
 You can find the full list of examples for this problem here: https://pytorch.org/tutorials/beginner/pytorch_with_examples.html
 
-In order to run this at HPC2N (and at UPPMAX?) you should use a batch job. 
+In order to run this at HPC2N/UPPMAX you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
 
 This is an example of a batch script for running the above example, using PyTorch 1.10.0 and Python 3.9.5, running on GPUs. 
 
@@ -104,7 +102,7 @@ This is an example of a batch script for running the above example, using PyTorc
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A SNIC2022-22-641
+            #SBATCH -A hpc2n2023-089
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # The following two lines splits the output in a file for any errors and a file for other output. 
@@ -119,44 +117,45 @@ This is an example of a batch script for running the above example, using PyTorc
             
             srun python pytorch_fitting_gpu.py
             
-UPPMAX as a run in an interactive Snowy session
-###############################################
 
-.. code-block:: sh
+.. admonition:: UPPMAX as a run in an interactive Snowy session
+    :class: dropdown
 
-   [bjornc@rackham3 ~]$ interactive -A staff -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
-   You receive the high interactive priority.
+        .. code-block:: sh
 
-   Please, use no more than 8 GB of RAM.
+            [bjornc@rackham3 ~]$ interactive -A staff -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+            You receive the high interactive priority.
 
-    Waiting for job 6907137 to start...
-    Starting job now -- you waited for 90 seconds.
+            Please, use no more than 8 GB of RAM.
 
-   [bjornc@s160 ~]$  ml python/3.9.5
-   [bjornc@s160 ~]$  module load python_ML_packages/3.9.5-GPU
-   [bjornc@s160 ~]$  cd /proj/snic2022-22-641/nobackup/bjornc/examples/programs
-   [bjornc@s160 programs]$ srun python pytorch_fitting_gpu.py
-   99 134.71942138671875
-   199 97.72868347167969
-   299 71.6167221069336
-   399 53.178802490234375
-   499 40.15779113769531
-   599 30.9610652923584
-   699 24.464630126953125
-   799 19.875120162963867
-   899 16.632421493530273
-   999 14.341087341308594
-   1099 12.721846580505371
-   1199 11.577451705932617
-   1299 10.76859188079834
-   1399 10.196844100952148
-   1499 9.792669296264648
-   1599 9.506935119628906
-   1699 9.304922103881836
-   1799 9.162087440490723
-   1899 9.061092376708984
-   1999 8.989676475524902
-   Result: y = 0.013841948471963406 + 0.855550229549408 x + -0.002387965563684702 x^2 + -0.09316103905439377 x^3
+            Waiting for job 6907137 to start...
+            Starting job now -- you waited for 90 seconds.
+
+            [bjornc@s160 ~]$  ml python/3.9.5
+            [bjornc@s160 ~]$  module load python_ML_packages/3.9.5-GPU
+            [bjornc@s160 ~]$  cd /proj/snic2022-22-641/nobackup/bjornc/examples/programs
+            [bjornc@s160 programs]$ srun python pytorch_fitting_gpu.py
+            99 134.71942138671875
+            199 97.72868347167969
+            299 71.6167221069336
+            399 53.178802490234375
+            499 40.15779113769531
+            599 30.9610652923584
+            699 24.464630126953125
+            799 19.875120162963867
+            899 16.632421493530273
+            999 14.341087341308594
+            1099 12.721846580505371
+            1199 11.577451705932617
+            1299 10.76859188079834
+            1399 10.196844100952148
+            1499 9.792669296264648
+            1599 9.506935119628906
+            1699 9.304922103881836
+            1799 9.162087440490723
+            1899 9.061092376708984
+            1999 8.989676475524902
+            Result: y = 0.013841948471963406 + 0.855550229549408 x + -0.002387965563684702 x^2 + -0.09316103905439377 x^3
 
 
 
