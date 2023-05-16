@@ -39,6 +39,7 @@ extensions = ["sphinx_lesson",
     "sphinx_rtd_theme_ext_color_contrast",
     "sphinxemoji.sphinxemoji",
     'sphinx-prompt',
+    'sphinx_copybutton',
 ]
 jupyter_execute_notebooks = "cache"
 
