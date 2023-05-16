@@ -10,19 +10,19 @@ Interactive work on the compute nodes
    
 .. questions::
 
-   - How to reach the calculation nodes
+   - How to reach the compute/calculation nodes
    - How do I proceed to work interactively?
    
 .. objectives:: 
 
-   - Show how to reach the calculation nodes on UPPMAX and HPC2N
-   - Test some commands on the calculation nodes
+   - Show how to reach the compute/calculation nodes on UPPMAX and HPC2N
+   - Test some commands on the compute/calculation nodes
 
 There are several ways to run Python interactively
 
 - Directly on the login nodes: **only** do this for short jobs that do not take a lot of resources
-- As an interactive job on the computer nodes, launched via the batch system
-- Jupyter notebooks (UPPMAX)
+- As an interactive job on the compute/calculation nodes, launched via the batch system
+- Jupyter notebooks 
 
 General
 -------
@@ -35,8 +35,7 @@ Because you will have to wait until the nodes are allocated, and because you can
 
     (HPC2N) Do note that it is not *real* interactivity as you probably mean it, as you will have to run it as a Python script instead of by starting Python and giving commands inside it. The reason for this is that you are not actually logged into the compute node and only sees the output of the commands you run. 
 
-Another option would be to use Jupyter notebooks. This option will be covered under the UPPMAX separate sessions.
-This is somewhat convoluted to get to work correctly at HPC2N, but possible. Please contact us at support@hpc2n.umu.se if you want to go this route at HPC2N. 
+Another option would be to use Jupyter notebooks. This option will be covered later for UPPMAX. This is somewhat convoluted to get to work correctly at HPC2N, but possible, using a submit file as an intermediate step. There is a tutorial on that here: https://www.hpc2n.umu.se/resources/software/jupyter 
 
 
 Python "interactively" on the compute nodes 
@@ -55,29 +54,20 @@ run on the allocated nodes instead of the login node.
 
       .. code-block:: sh
           
-         $ interactive -n <tasks> --time=HHH:MM:SS -A naiss2023-22-44
+         $ interactive -n <tasks> --time=HHH:MM:SS -A naiss2023-22-500
       
    .. tab:: HPC2N (salloc)
 
       .. code-block:: sh
           
-         $ salloc -n <tasks> --time=HHH:MM:SS -A hpc2nXXXX-YYY  
+         $ salloc -n <tasks> --time=HHH:MM:SS -A hpc2n2023-089
          
       
-where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in 
-      hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project 
-      (**naiss2023-22-44** for this course)
+- where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project (on UPPMAX this is **naiss2023-22-500** for this course, on HPC2N it is **hpc2n2023-089**)
 
-Your request enters the job queue just like any other job, and interactive/salloc will tell you that it is
-      waiting for the requested resources. When salloc tells you that your job has been allocated 
-      resources, you can interactively run programs on those resources with ``srun``. The commands 
-      you run with ``srun`` will then be executed on the resources your job has been allocated. 
-      If you do not preface with ``srun`` the command is run on the login node! 
+- Your request enters the job queue just like any other job, and ``interactive``/``salloc`` will tell you that it is waiting for the requested resources. When ``interactive``/``salloc`` tells you that your job has been allocated resources, you can interactively run programs on those resources with ``srun``. The commands you run with ``srun`` will then be executed on the resources your job has been allocated. **NOTE** If you do not preface with ``srun`` the command is run on the login node! 
       
-
-You can now run Python scripts on the allocated resources directly instead of waiting for 
-      your batch job to return a result. This is an advantage if you want to test your Python 
-      script or perhaps figure out which parameters are best.
+- You can now run Python scripts on the allocated resources directly instead of waiting for your batch job to return a result. This is an advantage if you want to test your Python script or perhaps figure out which parameters are best.
                   
 
 Example
@@ -95,7 +85,7 @@ Example
 
       .. code-block:: sh
       
-          [bjornc@rackham2 ~]$ interactive -A naiss2023-22-44 -p devcore -n 4 -t 10:00
+          [bjornc@rackham2 ~]$ interactive -A naiss2023-22-500 -p devcore -n 4 -t 10:00
           You receive the high interactive priority.
           There are free cores, so your job is expected to start at once.
       
@@ -122,7 +112,7 @@ Example
          
       .. code-block:: sh
       
-          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2nXXXX-YYY 
+          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2023-089
           salloc: Pending job allocation 20174806
           salloc: job 20174806 queued and waiting for resources
           salloc: job 20174806 has been allocated resources
@@ -244,9 +234,10 @@ When you have finished using the allocation, either wait for it to end, or close
                   salloc: Job allocation 20174806 has been revoked.
                   b-an01 [~]$
 
-.. admonition:: Running Jupyter on compute nodes at UPPMAX
+.. admonition:: Running Jupyter on compute nodes at 
 
-   https://uppmax.github.io/HPC-python/jupyter.html
+   - UPPMAX: https://uppmax.github.io/HPC-python/jupyter.html
+   - HPC2N: https://www.hpc2n.umu.se/resources/software/jupyter 
 
 
 .. keypoints::
