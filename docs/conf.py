@@ -26,7 +26,7 @@ github_repo_name = ""  # auto-detected from dirname if blank
 github_version = "main"
 conf_py_path = "/docs/" 
 # The full version, including alpha/beta/rc tags
-release = '1.0.1'
+release = '2.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -55,7 +55,7 @@ myst_enable_extensions = [
     "substitution",
     "tasklist",
 ]
-
+copybutton_exclude = '.linenos, .gp'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
