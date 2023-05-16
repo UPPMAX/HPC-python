@@ -184,9 +184,9 @@ We are using Tensorflow 2.6.0 (2.8.0 at UPPMAX) and Python 3.9.5.
       
    .. tab:: UPPMAX
    
-      UPPMAX has scikit-learn in the python_ML module, so let's just load that one
+      UPPMAX has scikit-learn in the scikit-learn/0.22.1 module. We also need the python_ML module for Tensorflow, so let's just load those
 
-        - Load modules: ``module load python_ML_packages``
+        - Load modules: ``module load python_ML_packages scikit-learn/0.22.1``
            - On Rackham this will load CPU version, whereas if on a GPU node the GPU version will be loaded
 
       
@@ -264,7 +264,7 @@ In order to run the above example, we will create a batch script and submit it.
             
    .. tab:: UPPMAX
 
-      Example batch script for Snowy, Python version 3.9.5, and the python_ML_packages containing scikit-learn and Tensorflow 
+      Example batch script for Snowy, Python version 3.9.5, scikit-learn/0.22.1, and the python_ML_packages containing Tensorflow 
       
       .. code-block:: sh 
         
@@ -280,7 +280,7 @@ In order to run the above example, we will create a batch script and submit it.
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load uppmax
-            module load gcc/9.3.0  openmpi/3.1.5 python_ML_packages
+            module load python_ML_packages 
             module load python/3.9.5 # to get some extra packages
 
             
@@ -288,7 +288,7 @@ In order to run the above example, we will create a batch script and submit it.
             $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate 
             
             # Run your Python script 
-            python <my_tf_program.py> 
+            python3 <my_tf_program.py> 
             
             
 Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
@@ -296,8 +296,6 @@ Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be
 Note: if you are logged in to Rackham on UPPMAX and have submitted a GPU job to Snowy, then you need to use this to see the job queue: 
 
 ``squeue -M snowy -u <username>``
-
-The output and errors will in this case be written to ``slurm-<job-id>.out``. 
 
 
 General
@@ -320,7 +318,7 @@ This example shows how you would run several programs or variations of programs 
         
          #!/bin/bash 
          # Remember to change this to your own project ID after the course! 
-         #SBATCH -A SNIC2022-22-641
+         #SBATCH -A hpc2n2023-089
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
          # Asking for one K80 
@@ -356,7 +354,7 @@ This example shows how you would run several programs or variations of programs 
          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
          module load uppmax
-         module load python_ML_packages/3.9.5-gpu
+         module load python_ML_packages
          module load python/3.9.5 # to get some extra packages
          # Output to file - not needed if your job creates output in a file directly
          # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
