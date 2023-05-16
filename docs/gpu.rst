@@ -178,7 +178,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
       
       .. code-block:: bash
       
-         [bjornc@rackham3 ~]$ interactive -A staff -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --mail-type=BEGIN --mail-user=bjorn.claremar@uppmax.uu.se
+         [bjornc@rackham3 ~]$ interactive -A NAISS2023-22-500 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --mail-type=BEGIN --mail-user=bjorn.claremar@uppmax.uu.se
          You receive the high interactive priority.
 
          Please, use no more than 8 GB of RAM.
@@ -198,7 +198,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       .. code-block:: bash
 
-         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ salloc -A SNIC2022-22-641 --time=00:30:00 -n 1 --gres=gpu:k80:1 
+         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ salloc -A hpc2n2023-089 --time=00:30:00 -n 1 --gres=gpu:k80:1 
          salloc: Pending job allocation 20346979
          salloc: job 20346979 queued and waiting for resources
          salloc: job 20346979 has been allocated resources
@@ -213,7 +213,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          GPU function took 0.684060 seconds.
 
 
-   .. tab:: Batch script
+   .. tab:: Batch script for HPC2N
 
       Batch script, ``add-list.sh``, to run the same GPU Python script (the numba code, ``add-list.py``) at Kebnekaise. 
       As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
@@ -222,11 +222,13 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
           #!/bin/bash
           # Remember to change this to your own project ID after the course!
-          #SBATCH -A SNIC2022-22-641
+          #SBATCH -A hpc2n2023-089     # HPC2N ID - change to NAISS2023-22-500 for UPPMAX
           # We are asking for 5 minutes
           #SBATCH --time=00:05:00
           # Asking for one K80
-          #SBATCH --gres=gpu:k80:1
+          #SBATCH --gres=gpu:k80:1     # For HPC2N. Remove if on UPPMAX
+          ##SBATCH -M snowy            # For UPPMAX. Remove leading # to use
+          ##SBATCH --gres=gpu:1        # For UPPMAX. Remove leading # to use
 
           # Remove any loaded modules and load the ones we need
           module purge  > /dev/null 2>&1
