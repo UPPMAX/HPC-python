@@ -55,19 +55,19 @@ Check for Python versions
    
       Check all available version Python versions with:
 
-      .. code-block:: sh
+      .. code-block:: console
  
          $ module spider Python
       
       To see how to load a specific version of Python, including the prerequisites, do 
 
-      .. code-block:: sh
+      .. code-block:: console
    
          $ module spider Python/<version>
 
       Example for Python 3.9.5
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ module spider Python/3.9.5 
 
@@ -150,14 +150,14 @@ For this course, we recommend using Python 3.9.5.
    
       Go back and check which Python modules were available. To load version 3.9.5, do:
 
-      .. code-block:: sh
+      .. code-block:: console
 
         $ module load python/3.9.5
         
       Note: Lowercase ``p``.
       For short, you can also use: 
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ ml python/3.9.5
 
@@ -165,14 +165,14 @@ For this course, we recommend using Python 3.9.5.
    .. tab:: HPC2N
 
  
-      .. code-block:: sh
+      .. code-block:: console
 
          $ module load GCC/10.3.0 Python/3.9.5
 
       Note: Uppercase ``P``.   
       For short, you can also use: 
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ ml GCC/10.3.0 Python/3.9.5
 
@@ -204,13 +204,13 @@ Run Python script
     
 You can run a python script in the shell like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    $ python example.py
 
 or, if you loaded a python3 module, you can use:
 
-.. code-block:: sh
+.. code-block:: console
 
    $ python3 example.py
 
@@ -239,19 +239,19 @@ For more interactiveness you can run Ipython.
 
       NOTE: remember to load a python module first. Then start IPython from the terminal
       
-      .. code-block:: sh
+      .. code-block:: console
 
          $ ipython 
     
       or 
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ ipython3 
          
       UPPMAX has also ``jupyter-notebook`` installed and available from the loaded Python module. Start with
        
-      .. code-block:: sh
+      .. code-block:: console
 
          $ jupyter-notebook 
          
@@ -260,14 +260,14 @@ For more interactiveness you can run Ipython.
       
       NOTE: remember to load an IPython module first. You can see possible modules with 
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ module spider IPython
          $ ml IPython/7.25.0
          
       Then start Ipython with (lowercase):
       
-      .. code-block:: sh
+      .. code-block:: console
 
          $ ipython 
 
