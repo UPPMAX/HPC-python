@@ -184,7 +184,7 @@ We are using Tensorflow 2.6.0 (2.8.0 at UPPMAX) and Python 3.9.5.
       
    .. tab:: UPPMAX
    
-      UPPMAX has scikit-learn in the python_ML module, so let's jut load that one
+      UPPMAX has scikit-learn in the python_ML module, so let's just load that one
 
         - Load modules: ``module load python_ML_packages``
            - On Rackham this will load CPU version, whereas if on a GPU node the GPU version will be loaded
@@ -246,7 +246,7 @@ In order to run the above example, we will create a batch script and submit it.
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A SNIC2022-22-641
+            #SBATCH -A hpc2n2023-089
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # Asking for one K80 
@@ -264,15 +264,17 @@ In order to run the above example, we will create a batch script and submit it.
             
    .. tab:: UPPMAX
 
-      Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5, and the scikit-learn we installed 
+      Example batch script for Snowy, Python version 3.9.5, and the python_ML_packages containing scikit-learn and Tensorflow 
       
       .. code-block:: sh 
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A SNIC2022-22-641
-            # More than one hour is needed for the job to start in that queue
-            #SBATCH --time=01:00:01
+            #SBATCH -A NAISS2023-22-500
+            # We want to run on Snowy
+            #SBATCH -M snowy
+            # We are asking for 15 minutes
+            #SBATCH --time=00:15:00
             #SBATCH --gres=gpu:1
             
             # Remove any loaded modules and load the ones we need
@@ -290,6 +292,10 @@ In order to run the above example, we will create a batch script and submit it.
             
             
 Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
+
+Note: if you are logged in to Rackham on UPPMAX and have submitted a GPU job to Snowy, then you need to use this to see the job queue: 
+
+``squeue -M snowy -u <username>``
 
 The output and errors will in this case be written to ``slurm-<job-id>.out``. 
 
