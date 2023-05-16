@@ -423,6 +423,19 @@ Exercises
             $ python -V
             $ source deactivate
 
+.. discussion:: FAQ
+
+   When to use pip install and when to use module load command  
+   
+   1) check if package is available in the Python module or a site-installed module. 
+   2) If not, create a virtual environment, then activate it 
+   3) Install needed package with pip 
+   4) When using the package, just activate the virtual environment first and it is available  
+   - Module load will load preinstalled software from the computer center 0 could be anything, not only python, R or Julia. 
+   - Loading some python, will bring python with some common python libraries, but often you will need more – this is the time when you will use pip to install your libraries. 
+   - at HPC2N you can load the module SciPy-bundle/<version> to access a number of scientific Python packages. If you need more packages, you will install them yourself, for instance with pip, in a virtual environment. 
+
+
 
 .. keypoints::
 
