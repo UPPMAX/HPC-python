@@ -46,7 +46,7 @@ Check for Python versions
 
      Check all available Python versions with:
 
-      .. code-block:: sh
+      .. code-block:: console
 
           $ module avail python
 
