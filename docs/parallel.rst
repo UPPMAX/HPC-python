@@ -63,31 +63,33 @@ Parallel computing with Python
 
       If not already done so:
       
-      .. code-block:: sh
+      .. code-block:: console
 
          $ module load python/3.9.5
          $ python -m venv --system-site-packages /proj/naiss202X-XY-XYZ/nobackup/<user>/venv-python-course
     
       Activate it if needed (is the name shown in the prompt)
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ source /proj/naiss202X-XY-XYZ/nobackup/<user>/venv-python-course/bin/activate
 
       - For the ``numba`` example install the corresponding module:
 
-        python -m pip install numba
+      .. code-block:: console
+       
+         python -m pip install numba
 
       - For the ``mpi4py`` example add the following modules:
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ ml gcc/9.3.0 openmpi/3.1.5
          $ python -m pip install mpi4py
 
       - For the Julia example we will need PyJulia:
         
-      .. code-block:: sh
+      .. code-block:: console
        
          $ ml julia/1.7.2
          $ python -m pip install julia
@@ -158,7 +160,7 @@ serial code (without optimization) can be seen in the following code block.
 We can run this code on the terminal as follows (similarly at both HPC2N and UPPMAX): 
 
 
-.. code-block:: sh 
+.. code-block:: console 
 
     $ python integration2d_serial.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
@@ -220,7 +222,7 @@ decorator:
 
 The execution time is now:
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ python integration2d_serial_numba.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
@@ -274,7 +276,7 @@ called ``fortran_function.f90``:
 Then, we need to compile this code and generate the Python module
 (``myfunction``):
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ f2py3.9 -c -m myfunction fortran_function.f90  
     running build
@@ -308,7 +310,7 @@ can be called in Python as a module:
 
 The execution time is considerably reduced: 
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ python call_fortran_code.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
@@ -462,7 +464,7 @@ their job they are joined with the ``join()`` method,
 
 Notice the output of running this code on the terminal:
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ python integration2d_threading.py
     Integral value is 4.492851e-12, Error is 4.492851e-12
@@ -501,7 +503,7 @@ Consider the following code that computes the dot product of a matrix with itsel
 the timing for running this code with 1 thread is:
 
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ export OMP_NUM_THREADS=1
     $ python dot.py
@@ -510,7 +512,7 @@ the timing for running this code with 1 thread is:
 while running with 2 threads is:
 
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ export OMP_NUM_THREADS=2
     $ python dot.py
@@ -593,7 +595,7 @@ the generated module can be then loaded,
 
 the execution time by using 4 threads is:
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ export OMP_NUM_THREADS=4
     $ python call_fortran_code_openmp.py
@@ -672,7 +674,7 @@ instance.
 
 In this case, the execution time is reduced:
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ python integration2d_multiprocessing.py
     Integral value is 4.492851e-12, Error is 4.492851e-12
@@ -744,7 +746,7 @@ More details for the MPI parallelization scheme in Python can be found in a prev
 
 Execution of this code gives the following output:
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ mpirun -np 4 python integration2d_mpi.py
     Integral value is 4.492851e-12, Error is 4.492851e-12
@@ -757,7 +759,7 @@ example,
 
    .. tab:: HPC2N
 
-      .. code-block:: sh 
+      .. code-block:: sh
 
          #!/bin/bash
          #SBATCH -A hpc2n20XX-XYZ
@@ -809,7 +811,7 @@ HPC2N
 
 On a Kebnekaise terminal, you can type the command: 
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ job-usage job_ID
 
