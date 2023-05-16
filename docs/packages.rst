@@ -262,7 +262,7 @@ First steps
 
   .. prompt:: console
 
-        module load conda
+     module load conda
     
   - This grants you access to the latest version of Conda and all major repositories on all UPPMAX systems.
 
@@ -332,7 +332,7 @@ First steps
 6. Deactivate
 
  .. prompt:: 
-    :language: bash
+    :language: console
     :prompts: (python-36-env) $
     
     conda deactivate
