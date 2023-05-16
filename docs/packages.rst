@@ -42,7 +42,7 @@ General for both centers
 
 Some python packages are working as stand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:
 
-.. code-block:: sh 
+.. code-block:: console
 
    $ module spider <tool-name or tool-name part> 
     
@@ -56,7 +56,7 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
 
 	Check the pre-installed packages of a specific python module:
 
-	.. code-block:: sh 
+	.. code-block:: console
 
 	   $ module help python/<version> 
   
@@ -66,13 +66,13 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
    
 	At HPC2N, a way to find Python packages that you are unsure how are names, would be to do
 
-	.. code-block:: sh 
+	.. code-block:: console
 
 	   $ module -r spider ’.*Python.*’
    
 	or
 
-	.. code-block:: sh 
+	.. code-block:: console
 
 	   $ module -r spider ’.*python.*’
    
@@ -80,7 +80,7 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
    
 Check the pre-installed packages of a loaded python module, in shell:
 
-.. code-block:: sh 
+.. code-block:: console
 
    $ pip list
 
@@ -163,7 +163,7 @@ Install with pip
 
 You use ``pip`` this way, in a Linux shell OR a python shell: 
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ pip install --user <package>
     
@@ -178,7 +178,8 @@ We HIGHLY recommend using a virtual environment during installation, since this 
 
 .. note::
    
-   You will test this in the separated sessions about isolated environments in a while.
+   - We recommend that you alwasy install with ``pip`` in an *isolated environment* unless you think that the package will be useful for all you projects
+   - You will test this in the session about isolated environments in a while.
 
 .. keypoints::
 
@@ -259,7 +260,7 @@ First steps
 
 1. First load our conda module (there is no need to install you own miniconda, for instance)
 
-  .. prompt:: bash $
+  .. prompt:: console
 
         module load conda
     
@@ -287,7 +288,7 @@ First steps
   - Otherwise, the default is ~/.conda/envs. 
   - Example:
   
-      .. prompt:: bash $
+      .. prompt:: console
  
           export CONDA_ENVS_PATH=/proj/<your-project-id>/nobackup/<username>
   
@@ -304,7 +305,7 @@ First steps
 
   - Example:
   
-    .. prompt:: bash $
+    .. prompt:: console
 
         conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
 	
@@ -314,13 +315,13 @@ First steps
 	- ``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
 	- Example:  
 	
-          .. prompt:: bash $
+          .. prompt:: console
 
 	      mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
 
 4. Activate the conda environment by:
 
-    .. prompt:: bash $
+    .. prompt:: console
 
 	source activate python36-env
 
@@ -343,7 +344,7 @@ First steps
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
     
     
-- `More info about Conda on UPPMAX <https://uppmax.uu.se/support/user-guides/conda-user-guide/>`_
+- `More info about Conda on UPPMAX <https://uppmax.uu.se/support/user-guides/conda-user-guide/>`
 
 
 Working with Conda environments defined by files
@@ -351,9 +352,13 @@ Working with Conda environments defined by files
 
 - Create an environment based on dependencies given in an environment file:: 
 
+.. code-block:: console
+
    $ conda env create --file environment.yml
    
 - Create file from present conda environment::
+
+.. code-block:: console
 
    $ conda env export > environment.yml
   
@@ -413,15 +418,15 @@ Exercises
     
           Write this in the terminal
           
-          .. code-block:: sh
+          .. code-block:: console
 
-            $ module load conda
-            $ export CONDA_ENVS_PATH=/proj/py-r-jl/<user>/python
-            $ conda create --name HPC-python23 python=3.7 numpy=1.15
-            $ source activate HPC-python23
-            $ pip list
-            $ python -V
-            $ source deactivate
+             $ module load conda
+             $ export CONDA_ENVS_PATH=/proj/py-r-jl/<user>/python
+             $ conda create --name HPC-python23 python=3.7 numpy=1.15
+             $ source activate HPC-python23
+             $ pip list
+             $ python -V
+             $ source deactivate
 
 .. discussion:: FAQ
 
