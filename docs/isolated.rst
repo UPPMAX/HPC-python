@@ -79,7 +79,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
    .. tab:: UPPMAX
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ module load python/3.6.8
          $ python -m venv --system-site-packages Example
@@ -88,17 +88,17 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
    .. tab:: HPC2N
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ module load GCC/10.3.0 Python/3.9.5
          $ virtualenv --system-site-packages Example
     
       "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
-      ..code-block:: sh
+      .. code-block:: console
 
-        $ module load GCC/10.3.0 Python/3.9.5
-        $ python -m venv --system-site-packages Example
+         $ module load GCC/10.3.0 Python/3.9.5
+         $ python -m venv --system-site-packages Example
 
       "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
