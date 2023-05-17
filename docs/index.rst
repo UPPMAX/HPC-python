@@ -71,7 +71,7 @@ Preliminary schedule
      - 
    * - 
      - Interactive
-       - Lecture+code along
+     - Lecture+code along
    * - 12:00
      - LUNCH 
      -
@@ -106,7 +106,7 @@ Preliminary schedule
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons: NEEDS TO BE CHANGES!
+   :caption: Lessons!
 
    intro.rst
    load_run.rst
@@ -117,7 +117,6 @@ Preliminary schedule
    parallel.rst
    gpu.md
    ml.md
-   #mlHPC2N.rst
    summary.rst
 
 .. toctree::
@@ -125,7 +124,6 @@ Preliminary schedule
    :caption: Extra reading:
 
    packages_deeper.rst
-   #conda.rst
    isolated_deeper.rst
    interactive_deeper.rst
    jupyter.md
