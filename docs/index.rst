@@ -117,7 +117,7 @@ Preliminary schedule
    parallel.rst
    gpu.md
    ml.md
-   mlHPC2N.rst
+   #mlHPC2N.rst
    summary.rst
 
 .. toctree::

@@ -91,7 +91,7 @@ Check for Python versions
            Use module spider" to find all possible modules and extensions.
            Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 
-.. admonition:: Output at HPC2N as of 7 Feb 2023
+.. admonition:: Output at HPC2N as of 17 May 2023
     :class: dropdown
 
         .. code-block:: tcl
