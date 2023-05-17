@@ -125,11 +125,8 @@ Preliminary schedule
 
    packages_deeper.rst
    isolated_deeper.rst
-   interactive_deeper.rst
    jupyter.md
    ML_deeper.rst
-   #isolatedUPPMAX.rst
-   #conda.rst
    uppmax.rst
    kebnekaise.md
    bianca.rst
