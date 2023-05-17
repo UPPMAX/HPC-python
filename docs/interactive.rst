@@ -52,13 +52,13 @@ run on the allocated nodes instead of the login node.
 
    .. tab:: UPPMAX (interactive)
 
-      .. code-block:: sh
+      .. code-block:: console
           
          $ interactive -n <tasks> --time=HHH:MM:SS -A naiss2023-22-500
       
    .. tab:: HPC2N (salloc)
 
-      .. code-block:: sh
+      .. code-block:: console
           
          $ salloc -n <tasks> --time=HHH:MM:SS -A hpc2n2023-089
          
@@ -83,7 +83,7 @@ Example
 
    .. tab:: UPPMAX
 
-      .. code-block:: sh
+      .. code-block:: console
       
           [bjornc@rackham2 ~]$ interactive -A naiss2023-22-500 -p devcore -n 4 -t 10:00
           You receive the high interactive priority.
@@ -98,7 +98,7 @@ Example
 
       Let us check that we actually run on the compute node: 
 
-      .. code-block:: sh
+      .. code-block:: console
       
           [bjornc@r483 ~]$ srun hostname
           r483.uppmax.uu.se
@@ -110,7 +110,7 @@ Example
 
    .. tab:: HPC2N
          
-      .. code-block:: sh
+      .. code-block:: console
       
           b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2023-089
           salloc: Pending job allocation 20174806
@@ -125,7 +125,7 @@ Example
       
       Let us check that we actually run on the compute node: 
       
-      .. code-block:: sh
+      .. code-block:: console
                   
            b-an01 [~]$ srun hostname
            b-cn0241.hpc2n.umu.se
@@ -173,7 +173,7 @@ Example
       
       1. Running a Python script in the allocation we made further up. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script
          
-      .. code-block:: sh
+      .. code-block:: console
       
           b-an01 [~]$ srun python sum-2args.py 3 4
           The sum of the two numbers is: 7
@@ -184,7 +184,7 @@ Example
                   
       2. Running a Python script in the above allocation, but this time a script that expects input from you.
          
-      .. code-block:: sh            
+      .. code-block:: console        
           
           b-an01 [~]$ srun python add2.py 
           2
@@ -196,7 +196,7 @@ Example
       
       As you can see, it is possible, but it will not show any interaction it otherwise would have. This is how it would look on the login node: 
                   
-      .. code-block:: sh 
+      .. code-block:: console
                   
                   b-an01 [~]$ python add2.py 
                   Enter the first number: 2
@@ -212,7 +212,7 @@ When you have finished using the allocation, either wait for it to end, or close
 
    .. tab:: UPPMAX
    
-      .. code-block:: sh 
+      .. code-block:: console
                   
                   [bjornc@r484 ~]$ exit
       
@@ -226,7 +226,7 @@ When you have finished using the allocation, either wait for it to end, or close
 
    .. tab:: HPC2N
    
-      .. code-block:: sh 
+      .. code-block:: console
                   
                   b-an01 [~]$ exit
                   exit
