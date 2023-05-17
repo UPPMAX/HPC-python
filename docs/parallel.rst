@@ -781,7 +781,7 @@ example,
 
       .. code-block:: sh 
 
-         #!/bin/bash
+         #!/bin/bash -l
          #SBATCH -A naiss202X-XY-XYZ
          #SBATCH -t 00:05:00
          #SBATCH -n 4

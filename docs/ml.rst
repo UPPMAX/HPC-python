@@ -123,7 +123,7 @@ This is an example of a batch script for running the above example, using PyTorc
 
         .. code-block:: sh
 
-            [bjornc@rackham3 ~]$ interactive -A staff -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+            [bjornc@rackham3 ~]$ interactive -A naiss2023-22-500 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
             You receive the high interactive priority.
 
             Please, use no more than 8 GB of RAM.
@@ -268,9 +268,9 @@ In order to run the above example, we will create a batch script and submit it.
       
       .. code-block:: sh 
         
-            #!/bin/bash 
+            #!/bin/bash -l  
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A NAISS2023-22-500
+            #SBATCH -A naiss2023-22-500
             # We want to run on Snowy
             #SBATCH -M snowy
             # We are asking for 15 minutes
@@ -284,11 +284,8 @@ In order to run the above example, we will create a batch script and submit it.
             module load python/3.9.5 # to get some extra packages
 
             
-            # Activate the virtual environment we installed to 
-            $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate 
-            
             # Run your Python script 
-            python3 <my_tf_program.py> 
+            python <my_tf_program.py> 
             
             
 Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
@@ -343,7 +340,7 @@ This example shows how you would run several programs or variations of programs 
 
          #!/bin/bash -l
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A staff
+         #SBATCH -A naiss2023-22-500
          # We are asking for at least 1 hour
          #SBATCH --time=01:00:01
          #SBATCH -M snowy
@@ -370,7 +367,7 @@ This example shows how you would run several programs or variations of programs 
 
   - At all clusters you will find PyTorch, TensorFlow, Scikit-learn
   - The loading are slightly different at the clusters
-     - UPPMAX: All tools are available from the module ``ml gcc/9.3.0 openmpi/3.1.5 python_ML_packages``
+     - UPPMAX: All tools are available from the module ``ml python_ML_packages python/3.9.5``
      - HPC2N: ``ml GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1 PyTorch/1.10.0-CUDA-11.3.1``
 
 
