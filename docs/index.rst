@@ -76,34 +76,34 @@ Preliminary schedule
      - Interactive
      - Lecture + type-along
    * - 11:40
-     - Catch-up time and Q/A
+     - Catch-up time and Q/A (no recording)
      - Q/A
    * - 12:00
      - **LUNCH**
      -
    * - 13:00
-     - Parallelising a simple Python code  
-     - Lecture+code along + exercise
-   * - 
+     - Parallelising simple Python codes
+     - Lecture + type-along + exercise
+   * - 13:40
      - Using GPU:s for Python
-     - Lecture+code along + exercise
-   * - 
+     - Lecture + type-along + exercise
+   * - 14:10
      - **Short leg stretch**
      - 
-   * - 
+   * - 14:15
      - Using Python for Machine Learning jobs
-     - Lecture+code along
-   * - 
+     - Lecture + type-along + exercise
+   * - 14:55
      - **Coffee**
      - 
-   * - 
-     - Additional exercises 
-     -   
-   * - 
+   * - 15:10
      - Summary 
      -
-   * - 
-     - Q&A on-demand
+   * - 15:15
+     - Extra time for exercises (no recording)
+     - exercises 
+   * - 15:35
+     - Q&A on-demand (no recording)
      -
 
    * - 16.00
