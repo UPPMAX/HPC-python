@@ -105,7 +105,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
 .. note::
 
-   To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
+   To save space, you consoleould load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
    ``--system-site-packages`` includes the packages already installed in the loaded python module.
 
 **NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
@@ -121,34 +121,34 @@ If you want it in a certain place...
 
       To place it in the course project folder
       
-      .. code-block:: sh
+      .. code-block:: console
 
          $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python
     
       Activate it.
 
-      .. code-block:: sh
+      .. code-block:: console
 
           $ source /proj/naiss2023-22-500/<user>/python/Example/bin/activate
 
-      Note that your prompt is changing to start with (Example) to show that you are within an environment.
+      Note that your prompt is changing to start with (Example) to consoleow that you are within an environment.
 
    .. tab:: HPC2N
 
       To place it in a directory below your project storage (again calling it "Example"): 
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<your-username>/Example 
     
       Activate it.
 
-      .. code-block:: sh
+      .. code-block:: console
 
           $ source /proj/nobackup/hpc2n2023-089/<your-username/Example/bin/activate
 
 
-Note that your prompt is changing to start with (name of your vitual environment) to show that you are within it.
+Note that your prompt is changing to start with (name of your vitual environment) to consoleow that you are within it.
 
 
 Using pip
@@ -157,7 +157,7 @@ Using pip
 Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
 
 .. prompt:: 
-    :language: bash
+    :language: baconsole
     :prompts: (Example) $
       
     pip install --no-cache-dir --no-build-isolation numpy==1.15.4 matplotlib==2.2.2
@@ -165,7 +165,7 @@ Install your packages with ``pip``. While not always needed, it is often a good 
 Deactivate the venv.
 
 .. prompt:: 
-   :language: bash
+   :language: baconsole
    :prompts: (Example) $
    
    deactivate
@@ -175,7 +175,7 @@ The "--no-cache-dir" option is required to avoid it from reusing earlier install
 
 Everytime you need the tools available in the virtual environment you activate it as above.
 
-.. prompt:: bash $
+.. prompt:: baconsole $
 
    source /proj/nobackup/your-project-id/Example/bin/activate
     
@@ -194,23 +194,23 @@ Create a virtual environment called ``vpyenv`. First load the python version you
 
    .. tab:: UPPMAX
       
-      .. code-block:: sh
+      .. code-block:: console
 
           $ module load python/3.9.5
           $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python/vpyenv
     
       Activate it.
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
 
-      Note that your prompt is changing to start with (vpyenve) to show that you are within an environment.
+      Note that your prompt is changing to start with (vpyenve) to consoleow that you are within an environment.
 
       Install your packages with ``pip`` (``--user`` not needed) and the correct versions, like:
 
       .. prompt:: 
-         :language: bash
+         :language: baconsole
          :prompts: (vpyenv) $
 
          pip install spacy seaborn
@@ -218,7 +218,7 @@ Create a virtual environment called ``vpyenv`. First load the python version you
       Check what was installed
 
       .. prompt:: 
-         :language: bash
+         :language: baconsole
          :prompts: (vpyenv) $
 
          pip list
@@ -226,14 +226,14 @@ Create a virtual environment called ``vpyenv`. First load the python version you
       Deactivate it.
 
       .. prompt:: 
-         :language: bash
+         :language: baconsole
          :prompts: (vpyenv) $
 
          deactivate
 
       Everytime you need the tools available in the virtual environment you activate it as above.
 
-      .. prompt:: bash $
+      .. prompt:: baconsole $
 
          source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
 
@@ -247,7 +247,7 @@ Create a virtual environment called ``vpyenv`. First load the python version you
       .. admonition:: Load modules for Python, numpy (in SciPy-bundle), activate the environment, and install spacy on Kebnekaise at HPC2N 
          :class: dropdown
    
-         .. code-block:: sh
+         .. code-block:: console
            
             b-an01 [/proj/nobackup/hpc2n2023-089/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
             b-an01 [/proj/nobackup/hpc2n2023-089/bbrydsoe]$ source vpyenv/bin/activate
@@ -258,7 +258,7 @@ Create a virtual environment called ``vpyenv`. First load the python version you
       .. admonition:: Load modules for Python, numpy (in SciPy-bundle), matplotlib, activate the environment, and install seaborn on Kebnekaise at HPC2N 
          :class: dropdown
    
-         .. code-block:: sh
+         .. code-block:: console
            
             $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 matplotlib/3.4.2
             $ source vpyenv/bin/activate
@@ -266,13 +266,13 @@ Create a virtual environment called ``vpyenv`. First load the python version you
 
          Deactivating a virtual environment.
 
-         .. code-block:: sh
+         .. code-block:: console
 
             (vpyenv) $ deactivate
 
       Every time you need the tools available in the virtual environment you activate it as above (after first loading the modules for Python, Python packages, and prerequisites)
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ source vpyenv/bin/activate
     
@@ -295,7 +295,7 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
 .. admonition:: UPPMAX:Load modules for Python, activate the environment 
    :class: dropdown
    
-   .. code-block:: sh
+   .. code-block:: console
            
       $ module load Python/3.9.5
       $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
@@ -311,7 +311,7 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
 .. admonition:: HPC2N: Load modules for Python, numpy (in SciPy-bundle), activate the environment 
     :class: dropdown
    
-        .. code-block:: sh
+        .. code-block:: console
            
            b-an01 [/proj/nobackup/hpc2n2023-089/<user>]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
            b-an01 [/proj/nobackup/hpc2n2023-089/<user>]$ source vpyenv/bin/activate
@@ -364,7 +364,7 @@ text file which looks like this::
 
    **pyenv**
 
-   - This approach is more advanced and should be, in our opinion, used only if the above are not enough for the purpose. 
+   - This approach is more advanced and consoleould be, in our opinion, used only if the above are not enough for the purpose. 
    - ``pyenv`` allows you to install your **own python version**, like 3.10.2, and much more… 
    - Probably Conda will work well for you.
    - https://www.uppmax.uu.se/support/user-guides/python-user-guide/#tocjump_9931546434791352_12
@@ -423,7 +423,7 @@ More info
    - Create a virtual environment with python-3.8.X with the name ``analysis``.
    - Install packages definde by the ``requirements.txt`` file (save it).
   
-   .. code-block:: sh
+   .. code-block:: console
    
       numpy==1.18.1
       matplotlib==3.1.3
@@ -435,23 +435,23 @@ More info
 .. solution:: Solution for UPPMAX
     :class: dropdown
     
-     .. code-block:: sh
+     .. code-block:: console
 
           $ module load python/3.8.7
           $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python/analysis
     
       Activate it.
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ source /proj/naiss2023-22-500/<user>/python/analysis/bin/activate
 
-      - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
+      - Note that your prompt is changing to start with (analysis) to consoleow that you are within an environment.
       - Install the packages from the file::
       
         pip install -r requirements.txt
       
-      .. code-block:: sh
+      .. code-block:: console
 
          $ pip list
 	 $ deactivate
@@ -459,23 +459,23 @@ More info
 .. solution:: Solution for HPC2N
     :class: dropdown
     
-     .. code-block:: sh
+     .. code-block:: console
 
           $ module load GCC/10.2.0 Python/3.8.6 
           $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<username>/analysis 
       
       Activate it.
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ source /proj/nobackup/hpc2n2023-089/<username>/analysis/bin/activate
 
-      - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
+      - Note that your prompt is changing to start with (analysis) to consoleow that you are within an environment.
       - Install the packages from the file::
       
         pip install -r requirements.txt
       
-      .. code-block:: sh
+      .. code-block:: console
 
          $ pip list
 	 $ deactivate
