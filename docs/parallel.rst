@@ -276,6 +276,12 @@ called ``fortran_function.f90``:
 Then, we need to compile this code and generate the Python module
 (``myfunction``):
 
+For UPPMAX you may have to change ``gcc`` version like:
+
+.. code-block:: console
+   
+   $ ml gcc/10.3.0
+
 .. code-block:: console
 
     $ f2py3.9 -c -m myfunction fortran_function.f90  
