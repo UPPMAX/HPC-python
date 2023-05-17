@@ -171,26 +171,22 @@ Using pip
 
 Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
 
-.. prompt:: 
-    :language: console
-    :prompts: (Example) $
+.. code-block:: console
       
-    pip install --no-cache-dir --no-build-isolation numpy==1.15.4 matplotlib==2.2.2
+    (Example) $ pip install --no-cache-dir --no-build-isolation numpy==1.15.4 matplotlib==2.2.2
 
 Deactivate the venv.
 
-.. prompt:: 
-   :language: console
-   :prompts: (Example) $
-   
-   deactivate
+.. code-block:: console
+      
+    (Example) $ deactivate
     
 The "--no-cache-dir" option is required to avoid it from reusing earlier installations from the same user in a different environment. The "--no-build-isolation" is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
 
 Everytime you need the tools available in the virtual environment you activate it as above.
 
-.. prompt:: console $
+.. prompt:: console
 
    source /proj/nobackup/your-project-id/Example/bin/activate
     
@@ -212,7 +208,7 @@ Create a virtual environment called ``vpyenv`. First load the python version you
       .. code-block:: console
 
           $ module load python/3.9.5
-          $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python/vpyenv
+          $ virtualenv --system-site-packages /proj/naiss2023-22-500/<user>/python/vpyenv
     
       Activate it.
 
@@ -220,31 +216,25 @@ Create a virtual environment called ``vpyenv`. First load the python version you
 
          $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
 
-      Note that your prompt is changing to start with (vpyenve) to consoleow that you are within an environment.
+      Note that your prompt is changing to start with (vpyenv) to consoleow that you are within an environment.
 
       Install your packages with ``pip`` (``--user`` not needed) and the correct versions, like:
 
-      .. prompt:: 
-         :language: console
-         :prompts: (vpyenv) $
-
-         pip install spacy seaborn
+      .. code-block:: console
+      
+         (vpyenv) $ pip install spacy seaborn
 
       Check what was installed
 
-      .. prompt:: 
-         :language: console
-         :prompts: (vpyenv) $
-
-         pip list
+      .. code-block:: console
+      
+         (vpyenv) $ pip list
 
       Deactivate it.
 
-      .. prompt:: 
-         :language: console
-         :prompts: (vpyenv) $
-
-         deactivate
+      .. code-block:: console
+      
+         (vpyenv) $ deactivate
 
       Everytime you need the tools available in the virtual environment you activate it as above.
 
@@ -448,52 +438,52 @@ More info
    - Don't forget to deactivate afterwards.
 
 .. solution:: Solution for UPPMAX
-    :class: dropdown
+   :class: dropdown
     
-     .. code-block:: console
+   .. code-block:: console
 
-          $ module load python/3.8.7
-          $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python/analysis
+      $ module load python/3.8.7
+      $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python/analysis
     
-      Activate it.
+   Activate it.
 
-      .. code-block:: console
+   .. code-block:: console
 
-         $ source /proj/naiss2023-22-500/<user>/python/analysis/bin/activate
+      $ source /proj/naiss2023-22-500/<user>/python/analysis/bin/activate
 
-      - Note that your prompt is changing to start with (analysis) to consoleow that you are within an environment.
-      - Install the packages from the file::
+   - Note that your prompt is changing to start with (analysis) to consoleow that you are within an environment.
+   - Install the packages from the file::
       
         pip install -r requirements.txt
       
-      .. code-block:: console
+   .. code-block:: console
 
          $ pip list
 	 $ deactivate
       
 .. solution:: Solution for HPC2N
-    :class: dropdown
+   :class: dropdown
     
-     .. code-block:: console
+   .. code-block:: console
 
-          $ module load GCC/10.2.0 Python/3.8.6 
-          $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<username>/analysis 
+      $ module load GCC/10.2.0 Python/3.8.6 
+      $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<username>/analysis 
       
-      Activate it.
+   Activate it.
 
-      .. code-block:: console
+   .. code-block:: console
 
-         $ source /proj/nobackup/hpc2n2023-089/<username>/analysis/bin/activate
+      $ source /proj/nobackup/hpc2n2023-089/<username>/analysis/bin/activate
 
-      - Note that your prompt is changing to start with (analysis) to consoleow that you are within an environment.
-      - Install the packages from the file::
+   - Note that your prompt is changing to start with (analysis) to consoleow that you are within an environment.
+   - Install the packages from the file::
       
         pip install -r requirements.txt
       
-      .. code-block:: console
+   .. code-block:: console
 
-         $ pip list
-	 $ deactivate
+      $ pip list
+      $ deactivate
       
 
 
