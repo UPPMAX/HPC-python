@@ -48,32 +48,38 @@ Preliminary schedule
    * - 9:00
      - Syllabus 
      -
-   * - 
+   * - 9:10
      - Introduction 
      - Lecture
-   * - 
+   * - 9:20
      - Loading modules and running Python codes 
-     - Lecture+code along
-   * - 
+     - Lecture + type-along 
+   * - 9:35
      - Dealing with packages  
-     - Lecture+code along
-   * - 
+     - Lecture + type-along 
+   * - 9:55
      - **Coffee**
      - 
-   * - 
+   * - 10:10
+     - Dealing with Conda  
+     - Lecture + type-along + exercise
+   * - 10:30
      - Isolated environments
-     - Lecture+code along
-   * - 
-     - SLURM Batch scripts for Python jobs  
-     - Lecture+code along + exercise
-   * - 
+     - Lecture + type-along + exercise
+   * - 10:50
      - **Short leg stretch**
      - 
-   * - 
+   * - 10:55
+     - SLURM Batch scripts for Python jobs  
+     - Lecture + type-along + exercise
+   * - 11:20
      - Interactive
-     - Lecture+code along
+     - Lecture + type-along
+   * - 11:40
+     - Catch-up time and Q/A
+     - Q/A
    * - 12:00
-     - LUNCH 
+     - **LUNCH**
      -
    * - 13:00
      - Parallelising a simple Python code  
@@ -91,14 +97,15 @@ Preliminary schedule
      - **Coffee**
      - 
    * - 
+     - Additional exercises 
+     -   
+   * - 
      - Summary 
      -
    * - 
      - Q&A on-demand
      -
-   * - 
-     - Additional exercises 
-     -
+
    * - 16.00
      - END
      -
