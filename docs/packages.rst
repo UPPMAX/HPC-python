@@ -228,7 +228,16 @@ Using Conda
    - Activate a specific environment: ``conda activate myenvironment``
    - Deactivate current environment: ``conda deactivate``
 
+.. discussion:: FAQ:s
 
+   **When to use pip install and when to use module load command?**
+   
+     1) check if package is available in the Python module or a site-installed module. 
+     2) If not, use pip
+     
+     Comment: We recommend that you use ``pip install`` in an isolated environment, using ``virtualenv`` or ``venv``, see next session.
+
+     
 Install with conda (UPPMAX)
 '''''''''''''''''''''''''''
 
@@ -426,14 +435,23 @@ Exercises
              $ python -V
              $ source deactivate
 
-.. discussion:: FAQ
+.. discussion:: FAQ:s to be FIEXED
 
-   When to use pip install and when to use module load command? 
+   1. When to use pip install and when to use module load command? 
    
-   1) check if package is available in the Python module or a site-installed module. 
-   2) If not, create a virtual environment, then activate it 
-   3) Install needed package with pip 
-   4) When using the package, just activate the virtual environment first and it is available  
+     1) check if package is available in the Python module or a site-installed module. 
+     2) If not, create a virtual environment, then activate it 
+     3) Install needed package with pip 
+     4) When using the package, just activate the virtual environment first and it is available  
+     
+   2. how do you modify this command to get the version on the packages as well? conda env export > environment.yml 
+   
+   3.     Conda create command is failing with Solving environment: failed with repo data from ….. 
+    A: On rackham –”module load conda”, then “source conda_init.sh” sometimes it could still lead to the same error. If you are stuck with such error one better look on the specific case. 
+    
+   3. I get “Your shell has not been properly configured to use 'conda activate’.” When I try to conda activate python36-env (which I can see in condo env list) 
+   
+   4. What is the difference between “conda activate” and “source activate” 
 
 .. keypoints::
 
