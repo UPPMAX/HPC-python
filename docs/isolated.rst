@@ -79,7 +79,18 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
    .. tab:: UPPMAX
 
+      ``virtualenv`` way
+
       .. code-block:: console
+
+         $ module load python/3.6.8
+         $ virtualenv --system-site-packages Example
+    
+      "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
+
+      ``venv`` way
+
+     .. code-block:: console
 
          $ module load python/3.6.8
          $ python -m venv --system-site-packages Example
@@ -88,12 +99,16 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
    .. tab:: HPC2N
 
+      ``virtualenv`` way
+
       .. code-block:: console
 
          $ module load GCC/10.3.0 Python/3.9.5
          $ virtualenv --system-site-packages Example
     
       "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
+
+      ``venv`` way
 
       .. code-block:: console
 
@@ -123,7 +138,7 @@ If you want it in a certain place...
       
       .. code-block:: console
 
-         $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python
+         $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/Example
     
       Activate it.
 
@@ -157,7 +172,7 @@ Using pip
 Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
 
 .. prompt:: 
-    :language: baconsole
+    :language: console
     :prompts: (Example) $
       
     pip install --no-cache-dir --no-build-isolation numpy==1.15.4 matplotlib==2.2.2
@@ -165,7 +180,7 @@ Install your packages with ``pip``. While not always needed, it is often a good 
 Deactivate the venv.
 
 .. prompt:: 
-   :language: baconsole
+   :language: console
    :prompts: (Example) $
    
    deactivate
@@ -175,7 +190,7 @@ The "--no-cache-dir" option is required to avoid it from reusing earlier install
 
 Everytime you need the tools available in the virtual environment you activate it as above.
 
-.. prompt:: baconsole $
+.. prompt:: console $
 
    source /proj/nobackup/your-project-id/Example/bin/activate
     
@@ -210,7 +225,7 @@ Create a virtual environment called ``vpyenv`. First load the python version you
       Install your packages with ``pip`` (``--user`` not needed) and the correct versions, like:
 
       .. prompt:: 
-         :language: baconsole
+         :language: console
          :prompts: (vpyenv) $
 
          pip install spacy seaborn
@@ -218,7 +233,7 @@ Create a virtual environment called ``vpyenv`. First load the python version you
       Check what was installed
 
       .. prompt:: 
-         :language: baconsole
+         :language: console
          :prompts: (vpyenv) $
 
          pip list
@@ -226,14 +241,14 @@ Create a virtual environment called ``vpyenv`. First load the python version you
       Deactivate it.
 
       .. prompt:: 
-         :language: baconsole
+         :language: console
          :prompts: (vpyenv) $
 
          deactivate
 
       Everytime you need the tools available in the virtual environment you activate it as above.
 
-      .. prompt:: baconsole $
+      .. prompt:: console $
 
          source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
 
