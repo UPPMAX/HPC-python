@@ -284,7 +284,7 @@ First steps
 
        - Otherwise, the default is ~/.conda/envs. 
 
-       - You may run ``source conda_init.sh`` to initialise your shell to be able to run ``conda activate`` and ``conda deactivate`` etc.
+       - You may run ``source conda_init.sh`` to initialise your shell to be able to run ``conda activate`` etc.
 
        - Just remember that this command adds stuff to your shell outside the scope of the module system.
 
@@ -343,6 +343,8 @@ First steps
    .. code-block:: console
   
       (python-36-env) $ conda deactivate
+      
+   Notre that ``source deactivate`` will not work but ``conda deactivate``.   
 
 .. warning::
  
@@ -351,7 +353,18 @@ First steps
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
     
     
-- `More info about Conda on UPPMAX <https://uppmax.uu.se/support/user-guides/conda-user-guide/>`
+- [More info about Conda on UPPMAX](https://uppmax.uu.se/support/user-guides/conda-user-guide/)
+
+.. discussion:: FAQ:s
+
+   1. I get “Your shell has not been properly configured to use ``conda activate``.” When I try to conda activate python36-env (which I can see in condo env list) 
+      - Try with ``source activate ... `` 
+      - You may make ``conda activate`` functioning by the ``source conda_init.sh`` and choosing your shell. 
+      - But some of you may not want to fill your ``.bashrc`` with too much "junk". This could be like always starting the the ``base`` conda environment at startup, which may not be what you want. Therefore ``source activate may be preferable for you!
+   
+   2. What is the difference between ``conda activate`` and ``source activate``
+      - They will do the same! Se above for details.
+
 
 
 Working with Conda environments defined by files
@@ -367,9 +380,14 @@ Working with Conda environments defined by files
 
 .. code-block:: console
 
-   $ conda env export > environment.yml
+   $ conda env export --from-history > environment.yml
   
+- Create file from an unactivated conda environment::
 
+.. code-block:: console
+
+   $ conda env export --from-history --name <env-name> > environment.yml
+  
 ``environments.yml`` (for conda) is a yaml-file which looks like this:
 
 .. code-block:: yaml
@@ -399,7 +417,7 @@ Working with Conda environments defined by files
 
 .. admonition:: More on dependencies
 
-   - Dependency management from course `Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
+   - Dependency management from course (Python for Scientific computing)[https://aaltoscicomp.github.io/python-for-scicomp/dependencies/]
 
 Exercises
 ---------
@@ -433,18 +451,9 @@ Exercises
              $ source activate HPC-python23
              $ pip list
              $ python -V
-             $ source deactivate
+             $ conda deactivate
 
-.. discussion:: FAQ:s
-
-   2. how do you modify this command to get the version on the packages as well? conda env export > environment.yml 
-   
-   3.     Conda create command is failing with Solving environment: failed with repo data from ….. 
-    A: On rackham –”module load conda”, then “source conda_init.sh” sometimes it could still lead to the same error. If you are stuck with such error one better look on the specific case. 
-    
-   3. I get “Your shell has not been properly configured to use 'conda activate’.” When I try to conda activate python36-env (which I can see in condo env list) 
-   
-   4. What is the difference between “conda activate” and “source activate” 
+      
 
 .. keypoints::
 
@@ -453,4 +462,5 @@ Exercises
    - Conda environment requires that you install all packages needed by yourself. 
    
       - That is, you cannot load the python module and use the packages therein inside you Conda environment.
+   - Also, do not rely on the python module at UPPMAX at the same time as you have Conda in the back- or foreground.
     
