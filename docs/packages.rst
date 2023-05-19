@@ -9,7 +9,7 @@ Packages
 
    - Many **scientific tools** are distributed as **python packages**, making it possible to run a script in the prompt and there define files to be analysed and arguments defining exactly what to do.
 
-   - A nice **introduction to packages** can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/ 
+   - A nice **introduction to packages** can be found here: [Python for scientific computing](https://aaltoscicomp.github.io/python-for-scicomp/dependencies/)
 
 .. questions::
 
