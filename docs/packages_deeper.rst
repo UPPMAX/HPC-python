@@ -30,5 +30,3 @@ HPC2N:
    
 You can use it as normal inside Python (remember to load dependent modules as well as activate virtual environment if it depends on some packages you installed with pip): ``import <python-module>``
 
-More on Conda
--------------
