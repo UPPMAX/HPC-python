@@ -178,8 +178,17 @@ We HIGHLY recommend using a virtual environment during installation, since this 
 
 .. note::
    
-   - We recommend that you alwasy install with ``pip`` in an *isolated environment* unless you think that the package will be useful for all you projects
+   - We recommend that you always install with ``pip`` in an *isolated environment* unless you think that the package will be useful for all you projects
    - You will test this in the session about isolated environments in a while.
+
+.. discussion:: FAQ:s
+
+   **When to use pip install and when to use module load command?**
+   
+     1) check if package is available in the Python module or a site-installed module. 
+     2) If not, use pip
+     
+     Comment: We recommend that you use ``pip install`` in an isolated environment, using ``virtualenv`` or ``venv``, see next session.
 
 .. keypoints::
 
@@ -210,7 +219,7 @@ Conda
    
 .. hint::
 
-   - On Bianca (with no internet), Conda is the first choice when installing packages, because there is a local mirror of most of the Conda repositories.
+   - On Bianca (with no internet), Conda is the first choice when installing packages, because there is a local mirror of most of the Conda repositories. Check the [On Bianca Cluster extra reading](https://uppmax.github.io/HPC-python/bianca.html) for more info.
 
 Using Conda
 '''''''''''
@@ -227,15 +236,6 @@ Using Conda
    - On e.g. HPC systems where you don’t have write access to central installation directory: conda create --prefix /some/path/to/env``
    - Activate a specific environment: ``conda activate myenvironment``
    - Deactivate current environment: ``conda deactivate``
-
-.. discussion:: FAQ:s
-
-   **When to use pip install and when to use module load command?**
-   
-     1) check if package is available in the Python module or a site-installed module. 
-     2) If not, use pip
-     
-     Comment: We recommend that you use ``pip install`` in an isolated environment, using ``virtualenv`` or ``venv``, see next session.
 
      
 Install with conda (UPPMAX)
@@ -410,7 +410,7 @@ Exercises
    - Open a new terminal and have the old one available for later comparison
    - Use the conda module on Rackham and create an environment with name ``HPC-python23`` with ``python 3.7``  and ``numpy 1.15``
    
-   	- Use your a path for ``CONDA_ENVS_PATH`` of your own choice or ``/proj/py-r-jl/<user>/python``
+   	- Use your a path for ``CONDA_ENVS_PATH`` of your own choice or ``/proj/naiss2023-22-500/<user>``
         - (It may take a minute or so)
 	
    - Activate!
@@ -428,22 +428,15 @@ Exercises
           .. code-block:: console
 
              $ module load conda
-             $ export CONDA_ENVS_PATH=/proj/py-r-jl/<user>/python
+             $ export CONDA_ENVS_PATH=/proj/naiss2023-22-500/<user>
              $ conda create --name HPC-python23 python=3.7 numpy=1.15
              $ source activate HPC-python23
              $ pip list
              $ python -V
              $ source deactivate
 
-.. discussion:: FAQ:s to be FIEXED
+.. discussion:: FAQ:s
 
-   1. When to use pip install and when to use module load command? 
-   
-     1) check if package is available in the Python module or a site-installed module. 
-     2) If not, create a virtual environment, then activate it 
-     3) Install needed package with pip 
-     4) When using the package, just activate the virtual environment first and it is available  
-     
    2. how do you modify this command to get the version on the packages as well? conda env export > environment.yml 
    
    3.     Conda create command is failing with Solving environment: failed with repo data from ….. 
