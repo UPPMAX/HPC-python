@@ -255,6 +255,8 @@ For more interactiveness you can run Ipython.
 
          $ jupyter-notebook 
          
+      You can decide on your own favorite browser and add ``--no-browser`` and open the given URL from the output given.
+         
     
    .. tab:: HPC2N
       
