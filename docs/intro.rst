@@ -20,12 +20,19 @@ Some practicals
         
 .. admonition:: Zoom
 
-    - The course is run over Zoom. You should have gotten an email with the links    
-    - There will be a zoom for the lectures, and several zooms for the exercises, including a silent room for those who just want to work on their own without interruptions. 
-    - The exercises will be done in the separate sessions.
-    - When you join the Zoom meeting, use your REAL NAME.
-    - The lectures and demos will be recorded, but NOT the exercises. If you ask questions during the lectures, you may thus be recorded. If you do not wish to be recorded, then please keep your microphone muted and your camera off during lectures and write your questions in the Q/A document (see more information below about the collaboration documents which are also listed above).
-    - Please MUTE your microphone when you are not speaking and use the “Raise hand” functionality under the “Participants” window during the lecture. Please do not clutter the Zoom chat. Behave politely!
+    - You should have gotten an email with the links    
+    - Main room for lectures (recorded)
+    - Breakout rooms
+      - exercises, including a silent room for those who just want to work on their own without interruptions. 
+      - help
+    - The **lectures and demos will be recorded**, but **NOT the exercises**. 
+      - If you ask questions during the lectures, you may thus be recorded. 
+      - If you do not wish to be recorded, then please keep your microphone muted and your camera off during lectures and write your questions in the Q/A document (see more information below about the collaboration documents which are also listed above).
+    - Use your REAL NAME.
+    - Please MUTE your microphone when you are not speaking
+    - Use the “Raise hand” functionality under the “Participants” window during the lecture. 
+    - Please do not clutter the Zoom chat. 
+    - Behave politely!
     
 .. admonition:: Q/A collabration document
 
