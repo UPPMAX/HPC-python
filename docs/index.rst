@@ -42,11 +42,11 @@ Some practicals
     - You should have gotten an email with the links    
     - Main room for lectures (recorded)
     - Breakout rooms
-      - exercises, including a silent room for those who just want to work on their own without interruptions. 
-      - help
+       - exercises, including a silent room for those who just want to work on their own without interruptions. 
+       - help
     - The **lectures and demos will be recorded**, but **NOT the exercises**. 
-      - If you ask questions during the lectures, you may thus be recorded. 
-      - If you do not wish to be recorded, then please keep your microphone muted and your camera off during lectures and write your questions in the Q/A document (see more information below about the collaboration documents which are also listed above).
+       - If you ask questions during the lectures, you may thus be recorded. 
+       - If you do not wish to be recorded, then please keep your microphone muted and your camera off during lectures and write your questions in the Q/A document (see more information below about the collaboration documents which are also listed above).
     - Use your REAL NAME.
     - Please MUTE your microphone when you are not speaking
     - Use the “Raise hand” functionality under the “Participants” window during the lecture. 
@@ -117,7 +117,7 @@ Some practicals
    
       - Create a working directory where you can code along. We recommend creating it under the course project storage directory
    
-       - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
+      - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
      
          /proj/nobackup/hpc2n2023-089/bbrydsoe/pythonHPC2N
 
@@ -177,8 +177,8 @@ Example of arrangement for the "worst case"!
 .. figure:: img/worst_v2.jpg
    :align: center
 
-
-<br><br><br>
+|
+|
 
 Preliminary schedule
 ====================
