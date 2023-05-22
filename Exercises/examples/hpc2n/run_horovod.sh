@@ -8,6 +8,10 @@
 #SBATCH --gres=gpu:k80:2
 #SBATCH --exclusive
 
+# Set a path where the example programs are installed. 
+# Change the below to your own path to where you placed the example programs
+MYPATH=/proj/nobackup/hpc2n2023-089/bbrydsoe/HPC-python/Exercises/examples/programs/
+
 ml purge > /dev/null 2>&1
 ml GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5
 ml TensorFlow/2.4.1
