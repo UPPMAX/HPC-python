@@ -1,6 +1,5 @@
 #!/bin/bash
 #SBATCH -A hpc2n2023-089 # Change to your own after the course
-#SBATCH --reservation=hpc-python  # Only valid during the course 
 #SBATCH --time=00:10:00  # Asking for 10 minutes
 # Asking for one K80 card
 #SBATCH --gres=gpu:k80:1
