@@ -299,7 +299,7 @@ First steps
   
       .. prompt:: console
  
-          export CONDA_ENVS_PATH=/proj/<your-project-id>/nobackup/<username>
+         $ export CONDA_ENVS_PATH=/proj/<your-project-id>/nobackup/<username>
   
    .. admonition:: By choice
       :class: dropdown
@@ -316,7 +316,7 @@ First steps
   
     .. prompt:: console
 
-        conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
+       $ conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
 	
     .. admonition:: The ``mamba`` alternative 
         :class: dropdown
@@ -326,7 +326,7 @@ First steps
 	
           .. prompt:: console
 
-	      mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
+	     $ mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
 
 4. Activate the conda environment by:
 
@@ -335,6 +335,7 @@ First steps
 	source activate python36-env
 
     - You will see that your prompt is changing to start with ``(python-36-env)`` to show that you are within an environment.
+    - If you set up your shell with ``source conda_init.sh`` you can use ``conda activate python-36-env`` instead.
     
 5. Now do your work!
 
@@ -365,6 +366,10 @@ First steps
    2. What is the difference between ``conda activate`` and ``source activate``
       - They will do the same! Se above for details.
 
+.. note::
+
+   - ``source`` can most often be replaced by ``.``, like in ``. activate python36-env``. Note the important <space> after ``.``
+   - For clarity we use the ``source`` style here``
 
 
 Working with Conda environments defined by files
