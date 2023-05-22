@@ -99,39 +99,20 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
 **NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them below, under the HPC2N tab or find more as mentioned above, using ``module spider -r ....``
 
-A selection of the Python packages and libraries installed on UPPMAX and HPC2N are:
+A selection of the Python packages and libraries installed on UPPMAX and HPC2N are give in extra reading: `UPPMAX clusters <https://uppmax.github.io/HPC-python/uppmax.html>`_ and `Kebnekaise cluster <https://uppmax.github.io/HPC-python/kebnekaise.html>`_
 
 .. tabs::
 
    .. tab:: UPPMAX
 
-	The python application at UPPMAX comes with several preinstalled packages.
-	A selection of the Python packages and libraries installed on UPPMAX are:
-
-	  - ``Numpy``
-	  - ``Pandas``
- 	  - ``Scipy``
-	  - ``Matplotlib``
-	  - ``Jupyter notebook``
-	  - ``cython``
-	  - ``ipython``
-	  - ``networkx``
-	  - ``graphviz/0.16``
-	  - ``mpi4py``
-  
-	In addition there are packages available from the module system
-
-  	  - ``biopython``
-	  - ``python_GIS_packages``
-  	  - ``python_ML_packages``
-    	     - ``sklearn/scikit-learn``
-	     - ``TensorFlow`` 
-	     - ``torch``
-  	  - ``bwa``
-  	  - ``Graphviz/2.40.1``
-  	  - ``HiChipper``
-  	  - ``Homer``
-  	  - ``pysam``
+      - The python application at UPPMAX comes with several preinstalled packages. You can check them here: `UPPMAX packages
+<https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages>`_
+      -  I addition there are packages available from the module system as `python tools/packages <https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages>_
+      - Note tha bioinformatics related tools can be reached only after loading ``bioinfo-tools``. 
+      - Two modules contains topic specific packaes. These are:
+         
+         - Machine learning: ``python_ML_packages`` (cpu and gpu versions and based on python/3.9.5)
+	 - GIS: ``python_GIS_packages`` (cpu vrson based on python/3.10.8)
 
    .. tab:: HPC2N
 
@@ -139,7 +120,7 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
       - HPC2N has both Python 2.7.x and Python 3.x installed. 
       - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.9.5
 
-	NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: https://www.hpc2n.umu.se/documentation/guides/anaconda
+	NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: `Anaconda <https://www.hpc2n.umu.se/documentation/guides/anaconda>`_.
 
 
       - This is a selection of the packages and libraries installed at HPC2N. These are all installed as **modules** and need to be loaded before use. 
