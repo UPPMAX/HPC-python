@@ -120,7 +120,46 @@ Some practicals
        - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
      
          /proj/nobackup/hpc2n2023-089/bbrydsoe/pythonHPC2N
-         
+
+
+**NOTE** If you are downloading / cloning from the course GitHub repo and into the above directory, your Python examples and batch submit file examples will be in a subdirectory of the that.
+
+Assuming you created a directory MYDIR-NAME under the project storage, you will find the examples as follows:
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+        Python programs
+
+        .. code-block:: sh
+
+            /proj/naiss2023-22-500/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+
+        Batch submit files 
+
+        .. code-block:: sh
+
+            /proj/naiss2023-22-500/MYDIR-NAME/HPC-python/Exercises/examples/uppmax
+
+
+   .. tab:: HPC2N
+ 
+      Python programs
+
+      .. code-block:: sh
+
+          /proj/nobackup/hpc2n2023-089/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+
+      Batch submit files
+
+      .. code-block:: sh
+
+          /proj/nobackup/hpc2n2023-089/MYDIR-NAME/HPC-python/Exercises/examples/hpc2n/
+
+
+
+
 .. admonition:: Use Thinlinc or terminal?
 
    - It is up to you!
