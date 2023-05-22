@@ -204,7 +204,7 @@ Prepare the course environment
    **Code along!**
 
 
-Create a virtual environment called ``vpyenv`. First load the python version you want to base your virtual environment on:
+Create a virtual environment called ``vpyenv``. First load the python version you want to base your virtual environment on:
 
 .. tabs::
 
