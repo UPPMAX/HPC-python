@@ -47,9 +47,7 @@ Some python packages are working as stand-alone tools, for instance in bioinform
 
    $ module spider <tool-name or tool-name part> 
     
-Using ``module spider`` lets you search regardless of upper- or lowercase characters.
-
-
+Using ``module spider`` lets you search regardless of upper- or lowercase characters and regardless of already loaded modules (like ``GCC`` on HPC2N and ``bioinfo-tools`` on UPPMAX).
 
 .. tabs::
 
@@ -113,21 +111,20 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
  	  - ``Scipy``
 	  - ``Matplotlib``
 	  - ``Jupyter notebook``
-	  - ``pip``
 	  - ``cython``
 	  - ``ipython``
 	  - ``networkx``
 	  - ``graphviz/0.16``
+	  - ``mpi4py``
   
 	In addition there are packages available from the module system
 
   	  - ``biopython``
+	  - ``python_GIS_packages``
   	  - ``python_ML_packages``
-    	  - ``sklearn/scikit-learn``
-	  - ``TensorFlow`` 
-	  - ``torch``
-    	  - ``mpi``
-    	  - ``mpi4py``
+    	     - ``sklearn/scikit-learn``
+	     - ``TensorFlow`` 
+	     - ``torch``
   	  - ``bwa``
   	  - ``Graphviz/2.40.1``
   	  - ``HiChipper``
@@ -175,7 +172,7 @@ Use ``pip3`` if you loaded python3.
 Then the package ends up in ``~/.local/lib/python<version>/site-packages/`` .
 
 Note that python<version> is omitting the last number (bug fix), like 3.8 for python-3.8.7.
-We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course (https://uppmax.github.io/HPC-python/isolated.html). 
+We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course in [isolated environements](https://uppmax.github.io/HPC-python/isolated.html). 
 
 
 
@@ -191,7 +188,7 @@ We HIGHLY recommend using a virtual environment during installation, since this 
      1) check if package is available in the Python module or a site-installed module. 
      2) If not, use pip
      
-     Comment: We recommend that you use ``pip install`` in an isolated environment, using ``virtualenv`` or ``venv``, see next session.
+   **Comment:** We recommend that you use ``pip install`` in an isolated environment, using ``virtualenv`` or ``venv``, see next session.
 
 .. keypoints::
 
