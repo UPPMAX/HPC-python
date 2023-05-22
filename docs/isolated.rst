@@ -165,6 +165,11 @@ If you want it in a certain place...
 
 Note that your prompt is changing to start with (name of your vitual environment) to consoleow that you are within it.
 
+.. note::
+
+   - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
+   - For clarity we use the ``source`` style here``
+
 
 Using pip
 '''''''''
