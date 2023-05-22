@@ -16,7 +16,7 @@ ml CUDA/11.4.1
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/nobackup/hpc2n2023-089/<mydir-name>/HPC-python/Exercises/examples/hpc2n/
+MYPATH=/proj/nobackup/hpc2n2023-089/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # CHANGE TO YOUR OWN PATH AND THE NAME OF YOUR VIRTUAL ENVIRONMENT!
 source /proj/nobackup/hpc2n2023-089/<mydir-name>/<vpyenv-python-course>/bin/activate
