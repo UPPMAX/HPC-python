@@ -5,7 +5,7 @@ Interactive work on the compute nodes
 
    - It is possible to run Python directly on the login (including ThinLinc) nodes.
    - But this should *only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. Both Python and IPython exists as modules to load and run.
-   - If you want to work interactively with your code or data, you should start an interactive session.
+   - If you want to work **interactively** with your code or data, you should start an **interactive session**.
    - If you rather will run a script which won't use any interactive user input while running, you can instead start a batch job, see next session.
    
 .. questions::
@@ -35,7 +35,9 @@ Because you will have to wait until the nodes are allocated, and because you can
 
     (HPC2N) Do note that it is not *real* interactivity as you probably mean it, as you will have to run it as a Python script instead of by starting Python and giving commands inside it. The reason for this is that you are not actually logged into the compute node and only sees the output of the commands you run. 
 
-Another option would be to use Jupyter notebooks. This option will be covered later for UPPMAX. This is somewhat convoluted to get to work correctly at HPC2N, but possible, using a submit file as an intermediate step. There is a tutorial on that here: https://www.hpc2n.umu.se/resources/software/jupyter 
+Another option would be to use Jupyter notebooks. 
+- This option is covered in the `extra reading for UPPMAX <https://uppmax.github.io/HPC-python/jupyter.html>`_. 
+- It is somewhat convoluted to get to work correctly at HPC2N, but possible, using a submit file as an intermediate step. There is a tutorial on that `here <https://www.hpc2n.umu.se/resources/software/jupyter>`_ 
 
 
 Python "interactively" on the compute nodes 
@@ -75,7 +77,7 @@ Example
 
 .. tip::
     
-   **Code along!**
+   **Type along!**
 
 **Requesting 4 cores for 10 minutes, then running Python**
 
@@ -243,7 +245,14 @@ When you have finished using the allocation, either wait for it to end, or close
 .. keypoints::
 
    - Start an interactive session on a calculation node by a SLURM allocation
+   
       - At HPC2N: ``salloc`` ...
       - At UPPMAX: ``interactive`` ...
+      
    - Follow the same procedure as usual by loading the Python module and possible prerequisites.
+   - CPU-hours are more effectively used in "batch jobs". Therefore:
+   
+     - Use "interactive" for testing and developing
+     - Don't book too many cores/nodes and try to be effective when the session is going.
+     
     
