@@ -5,12 +5,12 @@
     - Run python interactively and make a "story" document with text and code and figures woven together. 
     - Includes file manager
   - You run it in a **web browser** (``firefox`` at UPPMAX)
+  - This may be slow unless you run yput browser in ThinLinc or locally or on you own computer.
 
   - The Jupyter project site contains a lot of information and inspiration. <https://jupyter.org/>
   - The Jupyter Notebook documentation. <https://jupyter-notebook.readthedocs.io/en/stable/>
+  
 ```
-
-## On the compute nodes
 
 ## 1. Start an interactive session from the login node
 ``` bash
