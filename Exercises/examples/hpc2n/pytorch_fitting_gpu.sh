@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID after the course!
-#SBATCH -A SNIC2022-22-641
+#SBATCH -A hpc2n2023-089
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
 # The following two lines splits the output in a file for any errors and a file for other output.
@@ -11,7 +11,7 @@
 
 # Set a path where the example programs are installed, provided you followed the suggestion. 
 # In any case, change the below to your own path to where you placed the example programs
-MYPATH=/proj/nobackup/snic2022-22-641/<mydir-name>/pythonHPC2N/examples/programs/
+MYPATH=/proj/nobackup/hpc2n2023-089/<mydir-name>/pythonHPC2N/examples/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
