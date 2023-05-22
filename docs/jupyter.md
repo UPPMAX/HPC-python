@@ -13,7 +13,7 @@
 ```
 
 ## 1. Start an interactive session from the login node
-``` bash
+``` console
 # For Rackham
 $ interactive -A snic-project  -t 4:00:00
 
@@ -22,7 +22,7 @@ $ interactive -M snowy -A snic-project  -t 4:00:00
 ```
 
 ## 2. Start jupyter notebook (from python/3.10 also jupyter-lab) from the interactive session (*when it gets allocated*)
-``` bash
+``` console
 $ module load python/3.9.5
 $ jupyter-notebook --ip 0.0.0.0 --no-browser
 ```
@@ -30,13 +30,19 @@ $ jupyter-notebook --ip 0.0.0.0 --no-browser
 ## 3. Connect to the running notebook 
 Keep this session open and running. Note the node on which you are got the interactive job i.e. something like "r141".
 
+### In Thinlinc
+
 - If you are connected to Rackham via [Thinlinc session](https://www.uppmax.uu.se/support/user-guides/thinlinc-graphical-connection-guide/), open a browser with the link you got but modified to point to r486 i.e. 
 ``http://r486:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+
+### On own computer
+
 - If you use ssh to connect to Rackham, you need to forward the port of the interactive node to your local computer.
     - On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
-        ``` bash
+        ``` console
         $ ssh -L 8888:r486:8888 username@rackham.uppmax.uu.se
         ```
+    - If you use Windows it may be better to do this in the PowerShell instead of a WSL2.
     - If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
     ![](./img/putty.png)
     
