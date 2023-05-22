@@ -197,16 +197,16 @@ Preliminary schedule
      - Introduction 
      - Lecture
    * - 9:20
-     - Loading modules and running Python codes 
+     - Loading modules and running Python
      - Lecture + type-along 
    * - 9:35
-     - Dealing with packages  
+     - Dealing with packages — PyPI
      - Lecture + type-along 
    * - 9:55
      - **Coffee**
      - 
    * - 10:10
-     - Dealing with Conda  
+     - Dealing with packages — Conda  
      - Lecture + type-along + exercise
    * - 10:30
      - Isolated environments
@@ -217,10 +217,10 @@ Preliminary schedule
    * - 10:55
      - SLURM Batch scripts for Python jobs  
      - Lecture + type-along + exercise
-   * - 11:20
+   * - 11:25
      - Interactive
      - Lecture + type-along
-   * - 11:40
+   * - 11:45
      - Catch-up time and Q/A (no recording)
      - Q/A
    * - 12:00
