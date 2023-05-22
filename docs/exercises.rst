@@ -48,12 +48,12 @@ Using the vpyenv created earlier and the spacy we installed under example 1) abo
 Interactive
 ###########
 
-.. admonition:: Example, Requesting 4 cores for 30 minutes, then running Python 
+.. admonition:: Example, Kebnekaise, Requesting 4 cores for 30 minutes, then running Python 
     :class: dropdown
    
         .. code-block:: sh
 
-            b-an01 [~]$ salloc -n 4 --time=00:30:00 -A SNIC2022-22-641
+            b-an01 [~]$ salloc -n 4 --time=00:30:00 -A hpc2n2023-089
             salloc: Pending job allocation 20174806
             salloc: job 20174806 queued and waiting for resources
             salloc: job 20174806 has been allocated resources
@@ -96,7 +96,7 @@ Interactive
 
 Now for the examples: 
 
-.. admonition:: Example, Running a Python script in the allocation we made further up. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script
+.. admonition:: Example, Kebnekaise, Running a Python script in the allocation we made further up. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script
     :class: dropdown
    
         .. code-block:: sh
