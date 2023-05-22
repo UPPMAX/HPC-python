@@ -3,17 +3,79 @@ Running Python in batch mode
 
 .. questions::
 
+   - What are the UPPMAX and HPC2N clusters?
    - What is a batch job?
    - How to make a batch job?
-
-   
-   
+ 
 .. objectives:: 
 
+   - short overview of the HPC systems
    - Short introduction to SLURM scheduler
    - Show structure of a batch script
    - Try example
 
+Briefly about the cluster hardware and system at UPPMAX and HPC2N
+-----------------------------------------------------------------
+
+**What is a cluster?**
+
+- Login nodes and calculations/compute nodes
+
+- A network of computers, each computer working as a **node**.
+     
+- Each node contains several processor cores and RAM and a local disk called scratch.
+
+.. figure:: img/node.png
+   :align: center
+
+- The user logs in to **login nodes**  via Internet through ssh or Thinlinc.
+
+  - Here the file management and lighter data analysis can be performed.
+
+.. figure:: img/nodes.png
+   :align: center
+
+- The **calculation nodes** have to be used for intense computing. 
+
+- Beginner's guide to clusters: https://www.hpc2n.umu.se/documentation/guides/beginner-guide
+
+Common features
+###############
+
+- Intel CPUs
+- Linux kernel
+- Bash shell
+
+.. role:: raw-html(raw)
+    :format: html
+
+.. list-table:: Hardware
+   :widths: 25 25 25 25 25
+   :header-rows: 1
+
+   * - Technology
+     - Kebnekaise
+     - Rackham
+     - Snowy
+     - Bianca
+   * - Cores per calculation node
+     - 28 (72 for largemem part)
+     - 20
+     - 16
+     - 16
+   * - Memory per calculation node
+     - 128-3072 GB 
+     - 128-1024 GB
+     - 128-4096 GB
+     - 128-512 GB
+   * - GPU
+     - NVidia K80 and V100 :raw-html:`<br />` (+ 3 NVidia A100 and 2 AMD MI100)
+     - None
+     - Nvidia T4 
+     - 2 NVIDIA A100
+
+Running your programs and scripts on UPPMAX and HPC2N
+-----------------------------------------------------
 
 Any longer, resource-intensive, or parallel jobs must be run through a **batch script**.
 
