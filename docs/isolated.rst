@@ -259,8 +259,8 @@ Create a virtual environment called ``vpyenv`. First load the python version you
    
          .. code-block:: console
            
-            b-an01 [/proj/nobackup/hpc2n2023-089/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
-            b-an01 [/proj/nobackup/hpc2n2023-089/bbrydsoe]$ source vpyenv/bin/activate
+            $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            $ source vpyenv/bin/activate
             (vpyenv) b-an01 [/proj/nobackup/hpc2n2023-089/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation spacy 
    
       2) Installing seaborn. Using existing modules for numpy (in SciPy-bundle), matplotlib, and the vpyenv we created under Python 3.9.5. Note that you need to load Python again if you have been logged out, etc. but the virtual environment remains, of course   
@@ -323,9 +323,9 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
    
         .. code-block:: console
            
-           b-an01 [/proj/nobackup/hpc2n2023-089/<user>]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
-           b-an01 [/proj/nobackup/hpc2n2023-089/<user>]$ source vpyenv/bin/activate
-           (vpyenv) b-an01 [/proj/nobackup/hpc2n2023-089/<user>]$ python
+           $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+           $ source vpyenv/bin/activate
+           (vpyenv)$ python
            Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
            [GCC 10.3.0] on linux
            Type "help", "copyright", "credits" or "license" for more information.
