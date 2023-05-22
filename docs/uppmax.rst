@@ -17,14 +17,9 @@ UPPMAX clusters
 
 UPPMAX packages
 ---------------
-
-.. Note ::
     
-    What about the packages you suggested/requested in your registration?
-    
-
-Packages included in the python/3.9.5 module
-############################################
+Some of the ackages included in the python/3.9.5 module
+#######################################################
 
 - Jupyter Notebook
 
@@ -45,55 +40,25 @@ Packages included in the python/3.9.5 module
 Packages that can be loaded with 'module load'
 ##############################################
 
-- module load bioinfo-tools biopython
+- module load bioinfo-tools 
 
-  - biopython
+   - biopython
 
-- module load python_ML_packages
+   - module load bwa
 
-  - sklearn/scikit-learn
-  - TensorFlow 
-  - torch
+   -  module load hichipper
 
+   -  module load HOMER
 
-- module load bwa
+-  module load pysam- module load python_ML_packages
+
+   - sklearn/scikit-learn
+   - TensorFlow 
+   - torch
+
+- module load python_GIS_packages
 
 - module load Graphviz/2.40.1
 
--  module load HiChipper
-
--  module load Homer
-
--  module load pysam
-
-
-Packages not centrally installed at the moment UPDATE
-#####################################################
-
-- adjustText
-
-- DeepLabCut 
-
-- ete3
-
-- Google Colab
-
-- KiwiDist
-
-- rpack
-
-- Rdkit 
-
-- plink
-
-- puma 
-
-- Pygraphviz/1.9
-
-- pyspark
-
-- ScanPy
-
-- venndiagram (venn/matplotlib-venn)
 
 - vtk/vtkmodules
