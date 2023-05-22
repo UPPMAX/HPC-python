@@ -114,7 +114,7 @@ Example
          
       .. code-block:: console
       
-          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2023-089
+          $ salloc -n 4 --time=00:10:00 -A hpc2n2023-089
           salloc: Pending job allocation 20174806
           salloc: job 20174806 queued and waiting for resources
           salloc: job 20174806 has been allocated resources
@@ -129,7 +129,7 @@ Example
       
       .. code-block:: console
                   
-           b-an01 [~]$ srun hostname
+           $ srun hostname
            b-cn0241.hpc2n.umu.se
            b-cn0241.hpc2n.umu.se
            b-cn0241.hpc2n.umu.se
@@ -177,7 +177,7 @@ Example
          
       .. code-block:: console
       
-          b-an01 [~]$ srun python sum-2args.py 3 4
+          $ srun python sum-2args.py 3 4
           The sum of the two numbers is: 7
           The sum of the two numbers is: 7
           The sum of the two numbers is: 7
@@ -188,7 +188,7 @@ Example
          
       .. code-block:: console        
           
-          b-an01 [~]$ srun python add2.py 
+          $ srun python add2.py 
           2
           3
           Enter the first number: Enter the second number: The sum of 2 and 3 is 5
@@ -200,7 +200,7 @@ Example
                   
       .. code-block:: console
                   
-                  b-an01 [~]$ python add2.py 
+                  $ python add2.py 
                   Enter the first number: 2
                   Enter the second number: 3
                   The sum of 2 and 3 is 5
@@ -223,18 +223,16 @@ When you have finished using the allocation, either wait for it to end, or close
                   Connection to r484 closed.
       
                   [bjornc@rackham2 ~]$
-      
-      It is also possible to run IPython or (on UPPMAX) jupyter-notebook 
 
    .. tab:: HPC2N
    
       .. code-block:: console
                   
-                  b-an01 [~]$ exit
+                  $ exit
                   exit
                   salloc: Relinquishing job allocation 20174806
                   salloc: Job allocation 20174806 has been revoked.
-                  b-an01 [~]$
+                  [~]$
 
 .. admonition:: Running Jupyter on compute nodes at 
 
