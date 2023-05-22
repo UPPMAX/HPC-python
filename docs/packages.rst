@@ -96,7 +96,7 @@ Does it work? Then it is there!
 Otherwise, you can either use ``pip`` or ``conda``.
 
 
-**NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them below, under the HPC2N tab or find more as mentioned above, using ``module spider -r ....```
+**NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them below, under the HPC2N tab or find more as mentioned above, using ``module spider -r ....``
 
 A selection of the Python packages and libraries installed on UPPMAX and HPC2N are:
 
@@ -117,7 +117,9 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 	  - ``ipython``
 	  - ``networkx``
 	  - ``graphviz/0.16``
+  
 	In addition there are packages available from the module system
+
   	  - ``biopython``
   	  - ``python_ML_packages``
     	  - ``sklearn/scikit-learn``
@@ -361,7 +363,7 @@ First steps
    1. I get “Your shell has not been properly configured to use ``conda activate``.” When I try to conda activate python36-env (which I can see in condo env list) 
       - Try with ``source activate ... `` 
       - You may make ``conda activate`` functioning by the ``source conda_init.sh`` and choosing your shell. 
-      - But some of you may not want to fill your ``.bashrc`` with too much "junk". This could be like always starting the the ``base`` conda environment at startup, which may not be what you want. Therefore ``source activate may be preferable for you!
+      - But some of you may not want to fill your ``.bashrc`` with too much "junk". This could be like always starting the the ``base`` conda environment at startup, which may not be what you want. Therefore ``source`` activate may be preferable for you!
    
    2. What is the difference between ``conda activate`` and ``source activate``
       - They will do the same! Se above for details.
@@ -369,7 +371,7 @@ First steps
 .. note::
 
    - ``source`` can most often be replaced by ``.``, like in ``. activate python36-env``. Note the important <space> after ``.``
-   - For clarity we use the ``source`` style here``
+   - For clarity we use the ``source`` style here
 
 
 Working with Conda environments defined by files
