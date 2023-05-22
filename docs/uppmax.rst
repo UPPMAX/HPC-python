@@ -40,6 +40,8 @@ Packages included in the python/3.9.5 module
 
 - scipy
 
+- mpi4py
+
 Packages that can be loaded with 'module load'
 ##############################################
 
@@ -52,8 +54,7 @@ Packages that can be loaded with 'module load'
   - sklearn/scikit-learn
   - TensorFlow 
   - torch
-  - mpi
-  - mpi4py
+
 
 - module load bwa
 
