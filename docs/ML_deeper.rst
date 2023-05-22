@@ -246,31 +246,76 @@ The following steps need to be performed before running this example:
 
       python -m pip install  sklearn
 
+    - For Rackham/Snowy:
+
+      module load python_ML_packages python/3.9.5 gcc/10.3.0 build-tools cmake/3.22.2
+
+      cd /proj/naiss2023-22-500/<mydir-name>
+      python -m venv --system-site-packages env-horovod
+
+      source /proj/naiss2023-22-500/<mydir-name>/env-horovod/bin/activate
+
+      pip install --no-cache-dir --no-build-isolation horovod
+
+      pip install --no-cache-dir --no-build-isolation tensorflow-hub
+
 A sample batch script for running this Horovod example is here:
 
+.. tabs::
 
-.. code-block:: sh 
+   .. tab:: UPPMAX
 
-    #!/bin/bash
-    #SBATCH -A project_ID
-    #SBATCH -t 00:05:00
-    #SBATCH -N X               # nr. nodes
-    #SBATCH -n Y               # nr. MPI ranks
-    #SBATCH -o output_%j.out   # output file
-    #SBATCH -e error_%j.err    # error messages
-    #SBATCH --gres=gpu:k80:2
-    #SBATCH --exclusive
+      .. code-block:: sh 
+
+          #!/bin/bash -l
+          #SBATCH -A naiss2023-22-500
+          #SBATCH -t 00:05:00
+          #SBATCH -M snowy
+          #SBATCH -n 1
+          #SBATCH -o output_%j.out   # output file
+          #SBATCH -e error_%j.err    # error messages
+          #SBATCH --gres=gpu:1
+
+          # Set a path where the example programs are installed.
+          # Change the below to your own path to where you placed the example programs
+          MYPATH=/proj/naiss2023-22-500/<mydir-name>/HPC-python/Exercises/examples/programs/
+
+          ml purge
+          module load uppmax
+          module load python_ML_packages python/3.9.5
+          module load gcc/10.3.0 build-tools cmake/3.22.2
+
+          # Change the below to your own path to the virtual environment you installed horovod to
+          source /proj/naiss2023-22-500/<mydir-name>/env-horovod/bin/activate
+
+          srun python $MYPATH/Transfer_Learning_NLP_Horovod.py --epochs 10 --batch-size 64
+
+
+   .. tab:: HPC2N
+
+      .. code-block:: sh 
+
+          #!/bin/bash
+          #SBATCH -A project_ID
+          #SBATCH -t 00:05:00
+          #SBATCH -N X               # nr. nodes
+          #SBATCH -n Y               # nr. MPI ranks
+          #SBATCH -o output_%j.out   # output file
+          #SBATCH -e error_%j.err    # error messages
+          #SBATCH --gres=gpu:k80:2
+          #SBATCH --exclusive
      
-    ml purge > /dev/null 2>&1
-    ml GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5
-    ml TensorFlow/2.4.1
-    ml Horovod/0.21.1-TensorFlow-2.4.1
+          ml purge > /dev/null 2>&1
+          ml GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5
+          ml TensorFlow/2.4.1
+          ml Horovod/0.21.1-TensorFlow-2.4.1
       
-    source /proj/nobackup/<your-project-storage>/env-horovod/bin/activate
+          source /proj/nobackup/<your-project-storage>/env-horovod/bin/activate
        
-    list_of_nodes=$( scontrol show hostname $SLURM_JOB_NODELIST | sed -z 's/\n/\:4,/g' )
-    list_of_nodes=${list_of_nodes%?}
-    mpirun -np $SLURM_NTASKS -H $list_of_nodes python Transfer_Learning_NLP_Horovod.py --epochs 10 --batch-size 64
+          list_of_nodes=$( scontrol show hostname $SLURM_JOB_NODELIST | sed -z 's/\n/\:4,/g' )
+          list_of_nodes=${list_of_nodes%?}
+          mpirun -np $SLURM_NTASKS -H $list_of_nodes python Transfer_Learning_NLP_Horovod.py --epochs 10 --batch-size 64
+
 
 .. challenge:: Running the Horovod example
     
