@@ -1,4 +1,4 @@
-# Running Jupyter on compute nodes
+# Jupyter on compute nodes from local browser
 
 ```{callout} What is Jupyter?
   - "The Jupyter Notebook is the original web application for creating and sharing computational documents. It offers a simple, streamlined, document-centric experience."
