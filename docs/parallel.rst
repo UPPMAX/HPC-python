@@ -282,6 +282,8 @@ For UPPMAX you may have to change ``gcc`` version like:
    
    $ ml gcc/10.3.0
 
+Then continue...
+
 .. code-block:: console
 
     $ f2py3.9 -c -m myfunction fortran_function.f90  

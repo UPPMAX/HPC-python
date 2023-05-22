@@ -34,6 +34,112 @@ Welcome to HPC python course material
    - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise). The main focus will be on UPPMAX's systems, but Kebnekaise will be included as well.  
    - In most cases there is little or no difference between UPPMAX's systems and HPC2N's systems, except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
 
+Some practicals
+----------------
+        
+.. admonition:: Zoom
+
+    - You should have gotten an email with the links    
+    - Main room for lectures (recorded)
+    - Breakout rooms
+      - exercises, including a silent room for those who just want to work on their own without interruptions. 
+      - help
+    - The **lectures and demos will be recorded**, but **NOT the exercises**. 
+      - If you ask questions during the lectures, you may thus be recorded. 
+      - If you do not wish to be recorded, then please keep your microphone muted and your camera off during lectures and write your questions in the Q/A document (see more information below about the collaboration documents which are also listed above).
+    - Use your REAL NAME.
+    - Please MUTE your microphone when you are not speaking
+    - Use the “Raise hand” functionality under the “Participants” window during the lecture. 
+    - Please do not clutter the Zoom chat. 
+    - Behave politely!
+    
+.. admonition:: Q/A collabration document
+
+    - Use the Q/A page for the workshop with your questions.
+        - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EaIq18aFUiFBtFnuCjRz5OUBZvzB4sLn9saaU7aTRvyUFA?e=TYSq8H
+
+    - Depending on how many helpers there are we'll see how fast there are answers. 
+        - Some answers may come after the workshop.
+ 
+    - Create a new line for new questions. Take care if others are editing at the same time. 
+
+.. admonition:: Exercises
+
+    - You can download the exercises from the course GitHub repo, under the "Exercises" directory: https://github.com/UPPMAX/HPC-python/tree/main/Exercises 
+    - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/hpc2n2023-089/TBC``
+    - On UPPMAX you can copy the exercises in a tarball from ``/proj/naiss2023-22-500/TBC`` 
+    
+.. admonition:: **Your expectations?**
+   
+    - Find best practices for using Python at an HPC centre
+    - Learn how to use and install packages
+    - Use the HPC capabilities of Python
+
+    
+    **Not covered**
+    
+    - Improve python *coding* skills 
+    - Specifics of other clusters
+
+
+.. warning::
+
+    - It is good to have a familiarity with the LINUX command line. 
+    - Short introductions : https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632
+    - Linux "cheat sheet": https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet
+    - UPPMAX software library: https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641
+    - Whole intro course material (UPPMAX): https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
+    - HPC2N's intro course material (including link to recordings): https://github.com/hpc2n/intro-course
+
+.. admonition:: Prepare your environment now!
+  
+   - Please log in to Rackham, Kebnekaise or other cluster that you are using.
+
+    
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      - Rackham: ``ssh <user>@rackham.uppmax.uu.se`` 
+      
+      - Rackham through ThinLinc, use: ``<user>@rackham-gui.uppmax.uu.se``
+      - Create a working directory where you can code along. We recommend creating it under the course project storage directory
+   
+         
+      - Example. If your username is "mrspock" and you are at UPPMAX, this we recommend you create this folder: 
+     
+         /proj/naiss2023-22-500/mrspock/pythonUPPMAX
+
+   .. tab:: HPC2N
+
+      - Kebnekaise: ``<user>@kebnekaise.hpc2n.umu.se``     
+      - Kebnekaise through ThinLinc, use: ``<user>@kebnekaise-tl.hpc2n.umu.se``
+   
+      - Create a working directory where you can code along. We recommend creating it under the course project storage directory
+   
+       - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
+     
+         /proj/nobackup/hpc2n2023-089/bbrydsoe/pythonHPC2N
+         
+.. admonition:: Use Thinlinc or terminal?
+
+   - It is up to you!
+   - Graphics come easier with Thinlinc
+   - For this course, when having many windows open, it may be better to run in terminal, for space issues.
+   
+   
+Example of arrangement for the "worst case"!
+############################################
+- Q/A document
+- ZOOM view
+- (shellshare) or web browser (HackMD - https://uppmax.github.io/HPC-python/index.html) with course material
+- your own terminal
+
+.. figure:: img/worst_v2.jpg
+   :align: center
+
+
+
 
 Preliminary schedule
 ====================
