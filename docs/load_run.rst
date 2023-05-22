@@ -38,7 +38,7 @@ Check for Python versions
 
 .. tip::
     
-   **Code along!**
+   **Type along!**
 
 .. tabs::
 
@@ -141,7 +141,7 @@ For this course, we recommend using Python 3.9.5.
 
 .. tip::
     
-   **Code along!**
+   **Type along!**
 
 
 .. tabs::
@@ -207,20 +207,22 @@ You can run a python script in the shell like this:
 .. code-block:: console
 
    $ python example.py
+   # or 
+   $ python3 example.py
 
-or, if you loaded a python3 module, you can use:
+
+|since python is a symbolic link to python3 in this case. 
+|Or, if you loaded a python3 module, you can only use use:
 
 .. code-block:: console
 
    $ python3 example.py
 
-since python is a symbolic link to python3 in this case. 
-
-NOTE: *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system!
+NOTE: *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system (see the [batch session](https://uppmax.github.io/HPC-python/batch.html))
     
 .. note::
 
-   Real cases will be tested in the **batch session** (https://uppmax.github.io/R-python-julia-HPC/python/batchPython.html). 
+   Real cases will be tested in the [**batch session**](https://uppmax.github.io/R-python-julia-HPC/python/batchPython.html). 
 
 Run an interactive Python shell
 ###############################
@@ -229,7 +231,7 @@ For more interactiveness you can run Ipython.
 
 .. tip::
     
-   **Code along!**
+   **Type along!**
 
 
 
@@ -256,6 +258,7 @@ For more interactiveness you can run Ipython.
          $ jupyter-notebook 
          
       You can decide on your own favorite browser and add ``--no-browser`` and open the given URL from the output given.
+      From python/3.10.8 also jupyter-lab is available.
          
     
    .. tab:: HPC2N
@@ -289,7 +292,7 @@ For more interactiveness you can run Ipython.
    10
 
 
-- Exit Python or IPython with <Ctrl-D>, "quit()" or 'exit()’ in the python prompt
+- Exit Python or IPython with <Ctrl-D>, ``quit()`` or ``exit()`` in the python prompt
 
 Python
 
@@ -312,6 +315,6 @@ iPython
 
    - Before you can run Python scripts or work in a Python shell, first load a python module and probable prerequisites
    - Start a Python shell session either with ``python`` or ``ipython``
-   - Run scripts with ``python <script.py>``
+   - Run scripts with ``python3 <script.py>``
     
 
