@@ -21,33 +21,15 @@ On Bianca cluster
 - First try conda, as above.
 
 
-- If packages are not available, follow the guideline below, while looking at https://uppmax.uu.se/support-sv/user-guides/bianca-user-guide and https://www.uppmax.uu.se/support/user-guides/transit-user-guide/.
+- If packages are not available, follow the guidelines from the UPPMAX Bianca course:
+
+  - [Packages and libraries to scripting programs](https://uppmax.github.io/bianca_workshop/install/#packages-and-libraries-to-scripting-programs)
+
+  - [Conda on Bianca](https://uppmax.github.io/bianca_workshop/conda/)
+
+  - [Install with pip on Bianca](https://uppmax.github.io/bianca_workshop/pip/)
 
 
-- Make an installation on Rackham and then use the wharf to copy it over to your directory on Bianca.
-
-  - Path on Rackham and Bianca could be (~/.local/lib/python<version>/site-packages/ ). 
-
-- You may have to:
-
-  - in source directory:
-
-     .. prompt:: bash $
-
-        cp –a <package_dir> <wharf_mnt_path>
-	
-- You may want to ``tar`` before copying to include all possible symbolic links:
-
-   .. prompt:: bash $
-
-      tar cfz <tarfile.tar.gz> <package> 	
-	
-- and in target directory (``wharf_mnt``) on Bianca:
-    
-   .. prompt:: bash $
-
-      tar xfz <tarfile.tar.gz> #if there is a tar file!		
-      mv –a  <file(s)> ~/.local/lib/python<version>/site-packages/ 
 
 .. keypoints::
 
