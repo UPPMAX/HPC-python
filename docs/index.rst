@@ -139,7 +139,7 @@ Example of arrangement for the "worst case"!
    :align: center
 
 
-
+<br><br><br>
 
 Preliminary schedule
 ====================
