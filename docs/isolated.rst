@@ -8,7 +8,7 @@ Isolated environments
    - You can create one for each project and no problem if the two projects require different versions.
    - You can remove the environment and create a new one, if not needed or with errors.
    
-``conda`` works as an isolated environment. Below we present the ``pip`` way with "virtual environments", as well as installing using setup.py! Installing with a virtual environment is the only recommended way at HPC2N! 
+``conda`` works as an isolated environment. Below we present the ``pip`` way with "virtual environments". Installing with a virtual environment is the only recommended way at HPC2N! 
 
 .. questions::
 
@@ -71,7 +71,7 @@ Example
 
 .. tip::
     
-   **Do not code along!**
+   **Do not type along!**
 
 Create a ``venv`` or ``virtualenv``. First load the python version you want to base your virtual environment on:
 
@@ -201,7 +201,7 @@ Prepare the course environment
 
 .. tip::
     
-   **Code along!**
+   **Type along!**
 
 
 Create a virtual environment called ``vpyenv``. First load the python version you want to base your virtual environment on:
@@ -297,12 +297,12 @@ Using the self-installed packages in Python
 
 .. tip::
     
-   **Code along!**
+   **Type along!**
 
 
 Using the virtual environment created earlier and the ``spacy`` we installed under example 1) above. 
 
-.. admonition:: UPPMAX:Load modules for Python, activate the environment 
+.. admonition:: UPPMAX: Load modules for Python, activate the environment 
    :class: dropdown
    
    .. code-block:: console
@@ -350,8 +350,8 @@ Working with virtual environments defined from files
 
   $ pip freeze > requirements.txt
   
-- That includes also the global site packages if you included them with ``--system-site-packages``
-- You can list only packages in the virtualenv by ``pip list --local`` 
+- That includes also the *system site packages* if you included them with ``--system-site-packages``
+- You can list packages specific for the virtualenv by ``pip list --local`` 
 
 - So, creating a file from just the local environment::
 
@@ -383,8 +383,9 @@ text file which looks like this::
 
    - This approach is more advanced and consoleould be, in our opinion, used only if the above are not enough for the purpose. 
    - ``pyenv`` allows you to install your **own python version**, like 3.10.2, and much more… 
-   - Probably Conda will work well for you.
-   - https://www.uppmax.uu.se/support/user-guides/python-user-guide/#tocjump_9931546434791352_12
+   - `Pyenv at UPPMAX <https://www.uppmax.uu.se/support/user-guides/python-user-guide/#tocjump_7997229232093896_12>`_
+   - Probably Conda will work well for you anyway...
+
 
 .. warning:: 
 
@@ -394,12 +395,13 @@ text file which looks like this::
 
    **UPPMAX**: 
 
-   If you decide to use the --system-site-packages configuration you will get ``jupyter`` from the python modules you created your virtual environment with.
+   If you decide to use the --system-site-packages configuration you will get ``jupyter`` from the python module you created your virtual environment with.
    However, you **won't find your locally installed packages** from that jupyter session. To solve this reinstall jupyter within the virtual environment by force::
 
       $ pip install -I jupyter
 
-   and run::
+   - This overwrites the first version as "seen" by the environment.
+   - Then run::
 
       $ jupyter-notebook
    
@@ -505,5 +507,5 @@ More info
    - Make it for each project you have for reproducibility.
    - There are different tools to create virtual environemnts.
    
-      - UPPMAX has Conda and venv and virtualenv
-      - HPC2N has venv and virtualenv
+      - UPPMAX has ``conda`` and ``venv`` and ``virtualenv``
+      - HPC2N has ``venv`` and ``virtualenv``
