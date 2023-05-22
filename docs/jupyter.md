@@ -52,6 +52,6 @@ Keep this session open and running. Note the node on which you are got the inter
     On your computer open  the address you got but replace r486 with localhost i.e. 
 ``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 or 
-``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2??
+``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 
     This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.
