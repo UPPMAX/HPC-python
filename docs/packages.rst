@@ -106,10 +106,10 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
    .. tab:: UPPMAX
 
       - The python application at UPPMAX comes with several preinstalled packages. 
-      - You can check them here: `UPPMAX packages <https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages>`_
-      - In addition there are packages available from the module system as `python tools/packages <https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages>_
-      - Note tha bioinformatics related tools can be reached only after loading ``bioinfo-tools``. 
-      - Two modules contains topic specific packaes. These are:
+      - You can check them here: `UPPMAX packages <https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages>`_.
+      - In addition there are packages available from the module system as `python tools/packages <https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages>`_
+      - Note that bioinformatics-related tools can be reached only after loading ``bioinfo-tools``. 
+      - Two modules contains topic specific packages. These are:
          
          - Machine learning: ``python_ML_packages`` (cpu and gpu versions and based on python/3.9.5)
 	 - GIS: ``python_GIS_packages`` (cpu vrson based on python/3.10.8)
