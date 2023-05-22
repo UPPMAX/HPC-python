@@ -9,7 +9,7 @@ Running Python in batch mode
  
 .. objectives:: 
 
-   - short overview of the HPC systems
+   - Short overview of the HPC systems
    - Short introduction to SLURM scheduler
    - Show structure of a batch script
    - Try example
@@ -358,5 +358,6 @@ Exercises
    - Interactive sessions was presented in last slide
    - Batch jobs runs without interaction with user
    - A batch script consists of a part with SLURM parameters describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
+   
       - Remember to include possible input arguments to the Python script in the batch script.
     
