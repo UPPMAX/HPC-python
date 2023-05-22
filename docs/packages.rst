@@ -1,6 +1,8 @@
 Packages
 ========
 
+
+
 .. admonition:: Python modules AKA Python packages
 
    - Python **packages broaden the use of python** to almost infinity! 
@@ -9,7 +11,7 @@ Packages
 
    - Many **scientific tools** are distributed as **python packages**, making it possible to run a script in the prompt and there define files to be analysed and arguments defining exactly what to do.
 
-   - A nice **introduction to packages** can be found here: [Python for scientific computing](https://aaltoscicomp.github.io/python-for-scicomp/dependencies/)
+   - A nice **introduction to packages** can be found here: `Python for scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
 
 .. questions::
 
@@ -172,7 +174,7 @@ Use ``pip3`` if you loaded python3.
 Then the package ends up in ``~/.local/lib/python<version>/site-packages/`` .
 
 Note that python<version> is omitting the last number (bug fix), like 3.8 for python-3.8.7.
-We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course in `isolated environements <https://uppmax.github.io/HPC-python/isolated.html>`. 
+We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course in `isolated environements <https://uppmax.github.io/HPC-python/isolated.html>`_. 
 
 
 
@@ -219,7 +221,7 @@ Conda
    
 .. hint::
 
-   - On Bianca (with no internet), Conda is the first choice when installing packages, because there is a local mirror of most of the Conda repositories.        - Check the `On Bianca Cluster extra reading <https://uppmax.github.io/HPC-python/bianca.html>` for more info.
+   - On Bianca (with no internet), Conda is the first choice when installing packages, because there is a local mirror of most of the Conda repositories.        - Check the `On Bianca Cluster extra reading <https://uppmax.github.io/HPC-python/bianca.html>`_ for more info.
 
 Using Conda
 '''''''''''
