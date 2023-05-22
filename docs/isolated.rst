@@ -341,10 +341,17 @@ Working with virtual environments defined from files
   
   $ pip install -r requirements.txt
    
-- - Create file from present virtual environment::
+- Create file from present virtual environment::
 
   $ pip freeze > requirements.txt
   
+- That includes also the global site packages if you included them with ``--system-site-packages``
+- You can list only packages in the virtualenv by ``pip list --local`` 
+
+- So, creating a file from just the local environment::
+
+  $ pip freeze --local > requirements.txt``
+
 ``requirements.txt`` (used by virtual environment) is a simple
 text file which looks like this::
 
