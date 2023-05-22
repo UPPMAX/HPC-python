@@ -4,7 +4,7 @@ Interactive work on the compute nodes
 .. note::
 
    - It is possible to run Python directly on the login (including ThinLinc) nodes.
-   - But this should *only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. Both Python and IPython exists as modules to load and run.
+   - But this should *only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. 
    - If you want to work **interactively** with your code or data, you should start an **interactive session**.
    - If you rather will run a script which won't use any interactive user input while running, you can instead start a batch job, see next session.
    
@@ -232,7 +232,7 @@ When you have finished using the allocation, either wait for it to end, or close
                   exit
                   salloc: Relinquishing job allocation 20174806
                   salloc: Job allocation 20174806 has been revoked.
-                  [~]$
+                  $
 
 .. admonition:: Running Jupyter on compute nodes at 
 
