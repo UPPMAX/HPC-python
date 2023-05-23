@@ -163,7 +163,7 @@ If you want it in a certain place...
           $ source /proj/nobackup/hpc2n2023-089/<your-username/Example/bin/activate
 
 
-Note that your prompt is changing to start with (name of your vitual environment) to consoleow that you are within it.
+Note that your prompt is changing to start with (name of your vitual environment) to show that you are within it.
 
 .. note::
 
@@ -221,7 +221,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
          $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
 
-      Note that your prompt is changing to start with (vpyenv) to consoleow that you are within an environment.
+      Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.
 
       Install your packages with ``pip`` (``--user`` not needed) and the correct versions, like:
 
@@ -465,7 +465,7 @@ More info
 
       $ source /proj/naiss2023-22-500/<user>/python/analysis/bin/activate
 
-   - Note that your prompt is changing to start with (analysis) to consoleow that you are within an environment.
+   - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
    - Install the packages from the file::
       
         pip install -r requirements.txt
@@ -489,7 +489,7 @@ More info
 
       $ source /proj/nobackup/hpc2n2023-089/<username>/analysis/bin/activate
 
-   - Note that your prompt is changing to start with (analysis) to consoleow that you are within an environment.
+   - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
    - Install the packages from the file::
       
         pip install -r requirements.txt
