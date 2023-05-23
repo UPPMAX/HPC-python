@@ -24,7 +24,7 @@ Parallel computing with Python
 
    .. tab:: HPC2N
       
-      If not already done so:
+      - If not already done so:
       
       .. code-block:: console
 
@@ -36,32 +36,40 @@ Parallel computing with Python
 
       - For the ``numba`` example install the corresponding module::
 
-        python -m pip install numba
+      .. code-block:: console
+        
+         $ python -m pip install numba
 
       - For the ``mpi4py`` example add the following modules::
 
-        ml GCC/11.2.0 OpenMPI/4.1.1
+      .. code-block:: console
+    
+         $ ml GCC/11.2.0 OpenMPI/4.1.1
 
-        python -m pip install mpi4py
+         $ python -m pip install mpi4py
 
       - For the ``f2py`` example, ``f2py3.9`` should be available on the terminal when ``numpy`` is installed::
 
-        python -m pip install numpy
+      .. code-block:: console
+
+         $ python -m pip install numpy
 
       - For the Julia example we will need PyJulia::
         
-        ml Julia/1.8.5-linux-x86_64
+      .. code-block:: console
 
-        python -m pip install julia
+         $ ml Julia/1.8.5-linux-x86_64
 
-        Start Python on the command line and type:
+         $ python -m pip install julia
 
-        .. code-block:: python
+      - Start Python on the command line and type:
 
-           >>> import julia
-           >>> julia.install()
+      .. code-block:: python
 
-        Quit Python, you should be ready to go!
+         >>> import julia
+         >>> julia.install()
+
+      - Quit Python, you should be ready to go!
 
    .. tab:: UPPMAX
 
@@ -82,7 +90,7 @@ Parallel computing with Python
 
       .. code-block:: console
        
-         python -m pip install numba
+         $ python -m pip install numba
 
       - For the ``mpi4py`` example add the following modules:
 
@@ -104,6 +112,7 @@ Parallel computing with Python
        
          >>> import julia
          >>> julia.install()
+         
       Quit Python, you should be ready to go!
 
 
@@ -385,7 +394,7 @@ A caller script for Julia would be,
 
 Timing in this case is similar to the Fortran serial case,
 
-.. code-block:: sh 
+.. code-block:: console 
 
     $ python call_julia_code.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
@@ -577,7 +586,7 @@ The way to compile this code differs to the one we saw before, now we will need 
 for OpenMP:
 
 
-.. code-block:: sh 
+.. code-block:: console
 
     $ f2py3.9 -c --f90flags='-fopenmp' -lgomp -m myfunction_openmp fortran_function_openmp.f90
 
