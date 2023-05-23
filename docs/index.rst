@@ -66,7 +66,7 @@ Some practicals
 .. admonition:: Exercises
 
     - You can download the exercises from the course GitHub repo, under the "Exercises" directory: https://github.com/UPPMAX/HPC-python/tree/main/Exercises 
-    - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/hpc2n2023-089/TBC``
+    - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/hpc2n2023-089/pythonHPC2N``
     - On UPPMAX you can copy the exercises in a tarball from ``/proj/naiss2023-22-500/TBC`` 
     
 .. admonition:: **Your expectations?**
