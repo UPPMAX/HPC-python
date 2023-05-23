@@ -146,7 +146,7 @@ If you want it in a certain place...
 
           $ source /proj/naiss2023-22-500/<user>/python/Example/bin/activate
 
-      Note that your prompt is changing to start with (Example) to consoleow that you are within an environment.
+      Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
    .. tab:: HPC2N
 
@@ -168,7 +168,7 @@ Note that your prompt is changing to start with (name of your vitual environment
 .. note::
 
    - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
-   - For clarity we use the ``source`` style here``
+   - For clarity we use the ``source`` style here.
 
 
 Using pip
