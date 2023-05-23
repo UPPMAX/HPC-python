@@ -5,8 +5,8 @@
 #SBATCH -M snowy
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
-# Asking for one K80
-#SBATCH --gres=gpu:k80:1
+# Asking for one GPU
+#SBATCH --gres=gpu:1
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
