@@ -98,7 +98,7 @@ environment created earlier here. We also need numpy, so we are loading SciPy-bu
         Load Python 3.9.5 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba
         If you code-along, then remember to change the path to your own in the example below!
    
-        .. code-block:: sh
+        .. code-block:: console
       
              b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
              b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate 
@@ -176,7 +176,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
    .. tab:: UPPMAX
       
-      .. code-block:: bash
+      .. code-block:: console
       
          [bjornc@rackham3 ~]$ interactive -A naiss2023-22-500 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --mail-type=BEGIN --mail-user=bjorn.claremar@uppmax.uu.se
          You receive the high interactive priority.
@@ -196,7 +196,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
    
       Running a GPU Python code interactively. When you code-along, remember to change the activation path for the virtual environment to your own! 
 
-      .. code-block:: bash
+      .. code-block:: console
 
          b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ salloc -A hpc2n2023-089 --time=00:30:00 -n 1 --gres=gpu:k80:1 
          salloc: Pending job allocation 20346979
@@ -218,7 +218,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
       Batch script, ``add-list.sh``, to run the same GPU Python script (the numba code, ``add-list.py``) at Kebnekaise. 
       As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
       
-      .. code-block:: bash
+      .. code-block:: console
 
           #!/bin/bash
           # Remember to change this to your own project ID after the course!
@@ -389,7 +389,7 @@ Exercises
      .. admonition:: ``job-gpu.sh``
         :class: dropdown
       
-         .. code-block:: sh 
+         .. code-block:: console 
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
