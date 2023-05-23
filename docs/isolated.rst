@@ -103,7 +103,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
       .. code-block:: console
 
-         $ module load GCC/10.3.0 Python/3.9.5
+         $ module load GCC/11.3.0 Python/3.10.4
          $ virtualenv --system-site-packages Example
     
       "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
@@ -112,7 +112,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
       .. code-block:: console
 
-         $ module load GCC/10.3.0 Python/3.9.5
+         $ module load GCC/11.3.0 Python/3.10.4
          $ python -m venv --system-site-packages Example
 
       "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
@@ -252,25 +252,26 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
    .. tab:: HPC2N
      
       1) **First go to the directory you want your environment in.**
-      Installing spacy. Using existing modules for numpy (in SciPy-bundle) and the vpyenv we created under Python 3.9.5. Note that you need to load Python again if you have been logged out, etc. but the virtual environment remains, of course.
+      Installing spacy. Using existing modules for numpy (in SciPy-bundle) and the included Python/3.10.4. Here we are creating the virtual environment ``vpyenv``.
 
-      .. admonition:: Load modules for Python, numpy (in SciPy-bundle), activate the environment, and install spacy on Kebnekaise at HPC2N 
+      .. admonition:: Load modules for Python, numpy (in SciPy-bundle), matplotlib (since we need it for seaborn later), create the virtual environment, activate the environment, and install spacy on Kebnekaise at HPC2N 
          :class: dropdown
    
          .. code-block:: console
            
-            $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            $ module load GCC/11.3.0 OpenMPI/4.1.4 SciPy-bundle/2022.05 matplotlib/3.5.2
+            $ python -m venv --system-site-packages vpyenv
             $ source vpyenv/bin/activate
             (vpyenv) $ pip install --no-cache-dir --no-build-isolation spacy 
    
-      2) Installing seaborn. Using existing modules for numpy (in SciPy-bundle), matplotlib, and the vpyenv we created under Python 3.9.5. Note that you need to load Python again if you have been logged out, etc. but the virtual environment remains, of course   
+      2) Installing seaborn. Using existing modules for numpy (in SciPy-bundle), matplotlib, and the vpyenv we created above. Note that you need to load the modules again if you have been logged out, etc. but the virtual environment remains, of course   
 
       .. admonition:: Load modules for Python, numpy (in SciPy-bundle), matplotlib, activate the environment, and install seaborn on Kebnekaise at HPC2N 
          :class: dropdown
    
          .. code-block:: console
            
-            $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 matplotlib/3.4.2
+            $ module load GCC/11.3.0 OpenMPI/4.1.4 SciPy-bundle/2022.05 matplotlib/3.5.2
             $ source vpyenv/bin/activate
             (vpyenv) $ pip install --no-cache-dir --no-build-isolation seaborn 
 
@@ -323,15 +324,14 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
    
         .. code-block:: console
            
-           $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+           $ module load ml GCC/11.3.0 OpenMPI/4.1.4 SciPy-bundle/2022.05 matplotlib/3.5.2
            $ source vpyenv/bin/activate
            (vpyenv)$ python
-           Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
-           [GCC 10.3.0] on linux
+           Python 3.10.4 (main, Sep 21 2022, 11:17:23) [GCC 11.3.0] on linux
            Type "help", "copyright", "credits" or "license" for more information.
            >>> import spacy
            >>> 
-          
+ 
 
 - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
 
