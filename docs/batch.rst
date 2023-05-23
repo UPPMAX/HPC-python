@@ -151,8 +151,8 @@ Serial code
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
+            module load GCCcore/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
             
             # Run your Python script 
             python mmmult.py    
@@ -231,8 +231,8 @@ Serial code + self-installed package in virt. env.
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
+            module load GCCcore/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2
             
             # Activate your virtual environment. 
             # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
@@ -264,7 +264,7 @@ GPU code
             #SBATCH --gpus=1
             #SBATCH --gpus-per-node=1
             
-            # Load any modules you need, here loading Python 3.9.5 
+            # Load any modules you need, here loading Python 3.9.5
             module load python/3.9.5
             
             # Run your code
@@ -285,9 +285,9 @@ GPU code
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1
+            module load GCC/11.2.0 OpenMPI/4.1.1 SciPy-bundle/2021.10 TensorFlow/2.7.1
             
-            # Activate the virtual environment we installed to
+            # Activate a virtual environment if needed
             # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
             # Example: /proj/nobackup/hpc2n2023-089/mrspock/pythonHPC2N
             source <path-to-virt-env>/bin/activate
@@ -296,7 +296,7 @@ GPU code
             python example-tf.py
            
 
-The recommended TensorFlow version for this course is 2.6.0 on Kebnekaise. The module is compatible with Python 3.9.5 (automatically loaded when you load TensorFlow and its other prerequisites).            
+The recommended TensorFlow version for this course is 2.7.1 on Kebnekaise. The module is compatible with Python 3.10.4 (automatically loaded when you load TensorFlow and its other prerequisites).            
 
 Exercises
 ---------
