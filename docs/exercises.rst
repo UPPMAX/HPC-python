@@ -14,7 +14,7 @@ Isolated
    
         .. code-block:: sh
            
-           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/11.3.0 OpenMPI/4.1.4 SciPy-bundle/2022.05 matplotlib/3.5.2
            b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source vpyenv/bin/activate
            (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation spacy 
    
@@ -25,7 +25,7 @@ Isolated
    
         .. code-block:: sh
            
-           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 matplotlib/3.4.2
+           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/11.3.0 OpenMPI/4.1.4 SciPy-bundle/2022.05 matplotlib/3.5.2
            b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source vpyenv/bin/activate
            (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation seaborn 
 
@@ -36,11 +36,10 @@ Using the vpyenv created earlier and the spacy we installed under example 1) abo
    
         .. code-block:: sh
            
-           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+           b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/11.3.0 OpenMPI/4.1.4 SciPy-bundle/2022.05 matplotlib/3.5.2
            b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source vpyenv/bin/activate
            (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ python
-           Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
-           [GCC 10.3.0] on linux
+           Python 3.10.4 (main, Sep  21 2022, 11:17:12) [GCC 11.3.0] on linux
            Type "help", "copyright", "credits" or "license" for more information.
            >>> import spacy
            >>> 
@@ -60,7 +59,7 @@ Interactive
             salloc: Granted job allocation 20174806
             salloc: Waiting for resource configuration
             salloc: Nodes b-cn0241 are ready for job
-            b-an01 [~]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5
+            b-an01 [~]$ module load GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4
             b-an01 [~]$ 
 
 .. admonition:: Adding two numbers from user input (add2.py)
@@ -137,8 +136,8 @@ Serial code
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            # Load any modules you need, here for Python 3.10.4 and compatible SciPy-bundle
+            module load GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
             
             # Run your Python script 
             python <my_program.py>
@@ -157,8 +156,8 @@ Serial code + self-installed package in virt. env.
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            # Load any modules you need, here for Python 3.10.4 and compatible SciPy-bundle
+            module load GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 
             
             # Activate your virtual environment. Note that you either need to have added the location to your path, or give the full path
             source <path-to-virt-env>/bin/activate
@@ -169,7 +168,7 @@ Serial code + self-installed package in virt. env.
 GPU code
 '''''''' 
 
-.. admonition:: Running on Kebnekaise, SciPy-bundle/2021.05, Python/3.9.5 + TensorFlow/2.6.0-CUDA-11.3.1, GPU code
+.. admonition:: Running on Kebnekaise, GCC/11.2.0 OpenMPI/4.1.1 SciPy-bundle/2021.10 TensorFlow/2.7.1, GPU code
     :class: dropdown
    
         .. code-block:: sh
@@ -181,13 +180,13 @@ GPU code
             #SBATCH --gres=gpu:k80:1
             
             # Load any modules you need 
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 TensorFlow/2.6.0-CUDA-11.3.1
+            module load GCC/11.2.0 OpenMPI/4.1.1 SciPy-bundle/2021.10 TensorFlow/2.7.1
           
             # Run your Python script 
             python <my_tf_program.py>
             
 
-The recommended TensorFlow version for this course is 2.6.0. The module is compatible with Python 3.9.5 (automatically loaded when you load TensorFlow and its other prerequisites).            
+The recommended TensorFlow version for this course is 2.7.1 on Kebnekaise. The module is compatible with Python 3.9.6 (automatically loaded when you load TensorFlow and its other prerequisites).            
 
 Machine Learning
 ################
@@ -270,12 +269,12 @@ TensorFlow
 
 The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials 
 
-We are using Tensorflow 2.6.0 and Python 3.9.5. Since there is no scikit-learn for these versions, we have to install that too: 
+We are using Tensorflow 2.7.1 and Python 3.9.6. Since there is no scikit-learn for these versions, we have to install that too: 
 
-.. admonition:: Installing scikit-learn compatible with TensorFlow version 2.6.0 and Python version 3.9.5 
+.. admonition:: Installing scikit-learn compatible with TensorFlow version 2.7.1 and Python version 3.9.6 
     :class: dropdown
       
-        - Load modules: ``module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1``
+        - Load modules: ``module load GCC/11.2.0 OpenMPI/4.1.1 Python/3.9.6 SciPy-bundle/2021.10 TensorFlow/2.7.1``
         - Create virtual environment: ``virtualenv --system-site-packages <path-to-install-dir>/vpyenv``
         - Activate the virtual environment: ``source <path-to-install-dir>/vpyenv/bin/activate``
         - ``pip install --no-cache-dir --no-build-isolation scikit-learn``
@@ -327,7 +326,7 @@ We can now use scikit-learn in our example.
 
 In order to run the above example, we will create a batch script and submit it.             
 
-.. admonition:: Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed 
+.. admonition:: Example batch script for Kebnekaise, TensorFlow version 2.7.1 and Python version 3.9.6, and the scikit-learn we installed above
     :class: dropdown
 
         .. code-block:: sh 
@@ -342,7 +341,7 @@ In order to run the above example, we will create a batch script and submit it.
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1
+            module load module load GCC/11.2.0 OpenMPI/4.1.1 Python/3.9.6 SciPy-bundle/2021.10 TensorFlow/2.7.1
             
             # Activate the virtual environment we installed to 
             source <path-to-install-dir>/vpyenv/bin/activate 
@@ -365,7 +364,7 @@ Running several jobs from within one job
 
 This example shows how you would run several programs or variations of programs sequentially within the same job: 
 
-.. admonition:: Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5) 
+.. admonition:: Example batch script for Kebnekaise, TensorFlow version 2.7.1 and Python version 3.9.6) 
     :class: dropdown
 
         .. code-block:: sh 
@@ -380,7 +379,7 @@ This example shows how you would run several programs or variations of programs 
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1
+            module load module load GCC/11.2.0 OpenMPI/4.1.1 Python/3.9.6 SciPy-bundle/2021.10 TensorFlow/2.7.1
             
             # Output to file - not needed if your job creates output in a file directly 
             # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
@@ -395,14 +394,15 @@ This example shows how you would run several programs or variations of programs 
 GPU
 ###
 
-Numba is installed as a module at HPC2N, but not in a version compatible with the Python we are using in this course (3.9.5), so we will have to install it ourselves. The process is the same as in the examples given for the isolated/virtual environment, and we will be using the virtual environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before: 
+Numba is installed as a module at HPC2N, but not in a version compatible with the Python we are using in this course (3.10.4), so we will have to install it ourselves. The process is the same as in the examples given for the isolated/virtual environment, and we will be using the virtual environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before: 
 
-.. admonition:: Load Python 3.9.5 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba 
+.. admonition:: Load Python 3.10.4 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba 
     :class: dropdown
    
         .. code-block:: sh
       
-             b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
+             b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/11.2.0 OpenMPI/4.1.1 Python/3.9.6 SciPy-bundle/2021.10 CUDA/11.7.0
+             b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ python -m venv --system-site-packages vpyenv
              b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate 
              (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation numba
              Collecting numba
@@ -419,7 +419,8 @@ Numba is installed as a module at HPC2N, but not in a version compatible with th
              [notice] A new release of pip available: 22.1.2 -> 22.2.2
              [notice] To update, run: pip install --upgrade pip
 
-We can ignore the comment about pip. The package was successfully installed. now let us try using it. We are going to use the following program for testing (it was taken from https://linuxhint.com/gpu-programming-python/ but there are also many great examples at https://numba.readthedocs.io/en/stable/cuda/examples.html): 
+             
+        Let us try using it. We are going to use the following program for testing (it was taken from https://linuxhint.com/gpu-programming-python/ but there are also many great examples at https://numba.readthedocs.io/en/stable/cuda/examples.html): 
 
 .. admonition:: Python example using Numba 
     :class: dropdown
@@ -486,7 +487,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
+            module load GCC/11.2.0 OpenMPI/4.1.1 Python/3.9.6 SciPy-bundle/2021.10 CUDA/11.7.0
 
             # Activate the virtual environment we installed to
             source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
@@ -651,7 +652,7 @@ We need a batch script to run this Python code, an example script is here:
     ml purge > /dev/null 2>&1
     ml GCCcore/11.2.0 Python/3.9.6
     ml GCC/11.2.0 OpenMPI/4.1.1
-    ml CUDA/11.4.1
+    ml CUDA/11.7.0
     
     virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
     source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
@@ -692,8 +693,8 @@ Exercises
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python 3.9.5
-            module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5
+            # Load any modules you need, here for Python 3.9.6
+            module load GCC/11.2.0  OpenMPI/4.1.1 Python/3.9.6
             
             # Run your Python script 
             python sum-2args.py 2 3 
