@@ -13,8 +13,6 @@ Using GPUs with Python
 
    - Learn common schemes for GPU code acceleration
    - Learn about the GPU nodes at HPC2N and UPPMAX
-   - Code along for users at Kebnekaise
-      - Demo examples for a Snowy session at UPPMAX
 
 
 In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU
@@ -100,8 +98,8 @@ environment created earlier here. We also need numpy, so we are loading SciPy-bu
    
         .. code-block:: console
       
-             b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
-             b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate 
+             $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
+             $ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate 
              (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation numba
              Collecting numba
                Downloading numba-0.56.0-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.5 MB)
@@ -198,16 +196,16 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       .. code-block:: console
 
-         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ salloc -A hpc2n2023-089 --time=00:30:00 -n 1 --gres=gpu:k80:1 
+         $ salloc -A hpc2n2023-089 --time=00:30:00 -n 1 --gres=gpu:k80:1 
          salloc: Pending job allocation 20346979
          salloc: job 20346979 queued and waiting for resources
          salloc: job 20346979 has been allocated resources
          salloc: Granted job allocation 20346979
          salloc: Waiting for resource configuration
          salloc: Nodes b-cn1101 are ready for job
-         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$
-         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
-         b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
+         $
+         $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
+         $ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
          (vpyenv) b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ srun python add-list.py
          CPU function took 31.905025 seconds.
          GPU function took 0.684060 seconds.
