@@ -9,7 +9,7 @@ MYPATH=/proj/nobackup/hpc2n2023-089/<mydir-name>/HPC-python/Exercises/examples/p
 
 # Load any modules you need, here for Python 3.9.5
 module purge
-module load GCC/10.3.0  Python/3.9.5
+module load GCCcore/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
 
 # Run your Python script
 python $MYPATH/sum-2args.py 2 3 

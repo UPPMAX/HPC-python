@@ -8,7 +8,7 @@
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load GCC/10.3.0  OpenMPI/4.1.1 TensorFlow/2.6.0-CUDA-11.3.1
+module load GCC/11.2.0 OpenMPI/4.1.1 Python/3.9.6 SciPy-bundle/2021.10 TensorFlow/2.7.1 
 
 # Output to file - not needed if your job creates output in a file directly
 # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).

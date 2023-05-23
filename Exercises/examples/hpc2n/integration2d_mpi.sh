@@ -12,6 +12,7 @@ MYPATH=/proj/nobackup/hpc2n2023-089/<mydir-name>/HPC-python/Exercises/examples/p
 ml purge > /dev/null 2>&1
 ml GCCcore/11.2.0 Python/3.9.6
 ml GCC/11.2.0 OpenMPI/4.1.1
+ml SciPy-bundle/2021.10
 #ml Julia/1.7.1-linux-x86_64  # if Julia is needed
 
 # CHANGE THE PATH BELOW TO YOUR OWN PATH 
