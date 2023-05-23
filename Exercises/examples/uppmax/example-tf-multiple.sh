@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 # Remember to change this to your own project ID after the course!
 #SBATCH -A naiss2023-22-500
 # Running on Snowy
@@ -12,8 +12,6 @@
 # Change the below to your own path to where you placed the example programs
 MYPATH=/proj/naiss2023-22-500/<mydir-name>/HPC-python/Exercises/examples/programs/
 
-# Remove any loaded modules and load the ones we need
-module purge  > /dev/null 2>&1
 module load python_ML_packages python/3.9.5
 
 # Output to file - not needed if your job creates output in a file directly

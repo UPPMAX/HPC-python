@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 # Remember to change this to your own project ID after the course!
 #SBATCH -A naiss2023-22-500
 #SBATCH -t 00:08:00
@@ -8,7 +8,6 @@
 #SBATCH -e error_%j.err    # error messages
 #SBATCH --gres=gpu:2
 
-ml purge > /dev/null 2>&1
 module load python_ML_packages python/3.9.5
 
 # Set a path where the example programs are installed. 

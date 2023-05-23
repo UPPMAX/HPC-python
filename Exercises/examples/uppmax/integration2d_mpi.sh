@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH -A naiss2023-22-500
 #SBATCH -t 00:05:00
 #SBATCH -n 4
@@ -9,7 +9,6 @@
 # Change the below to your own path to where you placed the example programs
 MYPATH=/proj/naiss2023-22-500/<mydir-name>/HPC-python/Exercises/examples/programs/
 
-ml purge > /dev/null 2>&1
 ml python/3.9.5
 
 # CHANGE THE PATH BELOW TO YOUR OWN PATH 
