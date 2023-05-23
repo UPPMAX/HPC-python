@@ -18,33 +18,37 @@ Parallel computing with Python
 
 **Prerequisites**
 
-- Code along!
+- Type along!
 
 .. tabs::
 
    .. tab:: HPC2N
       
-      ml GCCcore/11.2.0 Python/3.9.6
+      If not already done so:
+      
+      .. code-block:: console
 
-      virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
+         $ ml GCCcore/11.2.0 Python/3.9.6
 
-      source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
+         $ virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
 
-      - For the ``numba`` example install the corresponding module:
+         $ source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
+
+      - For the ``numba`` example install the corresponding module::
 
         python -m pip install numba
 
-      - For the ``mpi4py`` example add the following modules:
+      - For the ``mpi4py`` example add the following modules::
 
         ml GCC/11.2.0 OpenMPI/4.1.1
 
         python -m pip install mpi4py
 
-      - For the ``f2py`` example, ``f2py3.9`` should be available on the terminal when ``numpy`` is installed:
+      - For the ``f2py`` example, ``f2py3.9`` should be available on the terminal when ``numpy`` is installed::
 
         python -m pip install numpy
 
-      - For the Julia example we will need PyJulia:
+      - For the Julia example we will need PyJulia::
         
         ml Julia/1.8.5-linux-x86_64
 
