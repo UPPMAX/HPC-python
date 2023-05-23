@@ -186,7 +186,7 @@ Deactivate the venv.
       
     (Example) $ deactivate
     
-The "--no-cache-dir" option is required to avoid it from reusing earlier installations from the same user in a different environment. The "--no-build-isolation" is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
+The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
 
 Everytime you need the tools available in the virtual environment you activate it as above.
