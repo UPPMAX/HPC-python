@@ -1,5 +1,5 @@
-Isolated environments
-=====================
+Install packages
+================
 
 .. note::
    Isolated environments solve a couple of problems:
