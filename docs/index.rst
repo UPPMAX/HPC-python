@@ -261,9 +261,8 @@ Preliminary schedule
    :caption: Lessons!
 
    intro.rst
-   load_run.rst
-   packages.rst
-   isolated.rst
+   load_run_packages.rst
+   install_packages.rst
    batch.md
    interactive.md
    parallel.rst
