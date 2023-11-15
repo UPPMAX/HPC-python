@@ -701,3 +701,5 @@ gz
 xzvf
 hpc2n
 recides
+hpc
+MYPATH
