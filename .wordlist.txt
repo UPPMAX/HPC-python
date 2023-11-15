@@ -699,5 +699,5 @@ localhost
 dir
 gz
 xzvf
-HPC
+hpc2n
 recides
