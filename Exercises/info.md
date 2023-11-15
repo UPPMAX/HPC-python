@@ -1,6 +1,6 @@
 # Info about the exercise and demo dir
 
-The easiest thing is just to download the tarball and extract it with "tar -zxvf examples.tar.gz"
+The easiest thing is just to download the tarball and extract it with "tar xzvf examples.tar.gz"
 
 The directories below "examples" contains the content of the tarball:
 
