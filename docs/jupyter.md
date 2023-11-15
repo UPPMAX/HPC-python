@@ -5,7 +5,7 @@
     - Run python interactively and make a "story" document with text and code and figures woven together. 
     - Includes file manager
   - You run it in a **web browser** (``firefox`` at UPPMAX)
-  - This may be slow unless you run yput browser in ThinLinc or locally or on you own computer.
+  - This may be slow unless you run the browser in ThinLinc or locally on you own computer.
 
   - The Jupyter project site contains a lot of information and inspiration. <https://jupyter.org/>
   - The Jupyter Notebook documentation. <https://jupyter-notebook.readthedocs.io/en/stable/>
@@ -15,10 +15,10 @@
 ## 1. Start an interactive session from the login node
 ``` console
 # For Rackham
-$ interactive -A snic-project  -t 4:00:00
+$ interactive -A <snic-project> -n <cores>-t 4:00:00
 
 # For Snowy
-$ interactive -M snowy -A snic-project  -t 4:00:00
+$ interactive -M snowy -A >snic-project> -n <cores> -t 4:00:00
 ```
 
 ## 2. Start jupyter notebook (from python/3.10 also jupyter-lab) from the interactive session (*when it gets allocated*)
@@ -30,9 +30,9 @@ $ jupyter-notebook --ip 0.0.0.0 --no-browser
 ## 3. Connect to the running notebook 
 Keep this session open and running. Note the node on which you are got the interactive job i.e. something like "r141".
 
-### In Thinlinc
+### In ThinLinc
 
-- If you are connected to Rackham via [Thinlinc session](https://www.uppmax.uu.se/support/user-guides/thinlinc-graphical-connection-guide/), open a browser with the link you got but modified to point to r486 i.e. 
+- If you are connected to Rackham via [ThinLinc session](https://www.uppmax.uu.se/support/user-guides/thinlinc-graphical-connection-guide/), open a browser with the link you got but modified to point to r486 i.e. 
 ``http://r486:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 
 ### On own computer
