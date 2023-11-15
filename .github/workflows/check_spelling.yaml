@@ -24,4 +24,4 @@ jobs:
           rm -rf LICENSE.md
           rm -rf docs/old
 
-      - uses: igsekor/pyspelling-any@v1.0.4
+      - uses: igsekor/pyspelling-any@v0.0.2
