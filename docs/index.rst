@@ -25,14 +25,14 @@ Welcome to HPC python course material
       - use virtual environments, 
       - write a batch script for running Python
       - use Python in parallel
-      - how to use Python for ML and on GPUs. 
+      - use Python for ML and on GPUs. 
    - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
 
 
 .. admonition:: Cluster-specific approaches
 
-   - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise). The main focus will be on UPPMAX's systems, but Kebnekaise will be included as well.  
-   - In most cases there is little or no difference between UPPMAX's systems and HPC2N's systems, except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
+   - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise). The main focus will be on UPPMAX's systems, but Kebnekaise will be included as well. If you already have an account at Kebnekaise, you can use that system for the hands-ons. 
+   - In most cases there is little or no difference between UPPMAX's systems and HPC2N's systems (and the other HPC systems in Sweden), except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
 
 Some practicals
 ----------------
@@ -56,7 +56,7 @@ Some practicals
 .. admonition:: Q/A collabration document
 
     - Use the Q/A page for the workshop with your questions.
-        - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EaIq18aFUiFBtFnuCjRz5OUBZvzB4sLn9saaU7aTRvyUFA?e=TYSq8H
+        - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EW-973oMzNZBn4ns7yvIwBUBo3MVOz4Zt6dtQNg1N-75dQ?e=NlF4VH     
 
     - Depending on how many helpers there are we'll see how fast there are answers. 
         - Some answers may come after the workshop.
@@ -66,8 +66,8 @@ Some practicals
 .. admonition:: Exercises
 
     - You can download the exercises from the course GitHub repo, under the "Exercises" directory: https://github.com/UPPMAX/HPC-python/tree/main/Exercises 
-    - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/hpc2n2023-089/pythonHPC2N/examples.tar.gz``
-    - On UPPMAX you can copy the exercises in a tarball from ``/proj/naiss2023-22-500/pythonUPPMAX/examples.tar.gz`` 
+    - On HPC2N, you can copy the exercises in a tarball from ````
+    - On UPPMAX you can copy the exercises in a tarball from ```` 
     
 .. admonition:: **Your expectations?**
    
@@ -108,7 +108,7 @@ Some practicals
          
       - Example. If your username is "mrspock" and you are at UPPMAX, this we recommend you create this folder: 
      
-         /proj/naiss2023-22-500/mrspock/pythonUPPMAX
+         /proj/naissYYYY-XX-ZZZ/mrspock/pythonUPPMAX
 
    .. tab:: HPC2N
 
@@ -119,7 +119,7 @@ Some practicals
    
       - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
      
-         /proj/nobackup/hpc2n2023-089/bbrydsoe/pythonHPC2N
+         /proj/nobackup/hpc2nYYYY-XXX/bbrydsoe/pythonHPC2N
 
 
 **NOTE** If you are downloading / cloning from the course GitHub repo and into the above directory, your Python examples and batch submit file examples will be in a subdirectory of the that.
