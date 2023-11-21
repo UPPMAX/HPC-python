@@ -104,6 +104,174 @@ Some practicals
     
 
 
+The two HPC centers UPPMAX and HPC2N
+------------------------------------
+
+.. admonition:: Two HPC centers
+
+   - There are many similarities:
+   
+     - Login vs. calculation/compute nodes
+     - Environmental module system with software hidden until loaded with ``module load``
+     - Slurm batch job and scheduling system
+     - ``pip install`` procedure
+     
+   - ... and small differences:
+   
+     - commands to load Python, Python packages, R, Julia
+     - slightly different flags to Slurm
+     
+   - ... and some bigger differences:
+   
+     - UPPMAX has three different clusters 
+
+       - Rackham for general purpose computing on CPUs only
+       - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
+       - Bianca for sensitive data and has GPUs
+
+   - HPC2N has Kebnekaise with GPUs  
+   - Conda is recommended only for UPPMAX users
+    
+.. warning:: 
+
+   - At both HPC2N and UPPMAX we call the applications available via the *module system* **modules**. 
+   - https://www.uppmax.uu.se/resources/software/module-system/ 
+   - https://www.hpc2n.umu.se/documentation/environment/lmod
+   
+   To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
+   
+Briefly about the cluster hardware and system at UPPMAX and HPC2N
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+**What is a cluster?**
+
+- Login nodes and calculations/computation nodes
+
+- A network of computers, each computer working as a **node**.
+     
+- Each node contains several processor cores and RAM and a local disk called scratch.
+
+.. figure:: ../img/node.png
+   :align: center
+
+- The user logs in to **login nodes**  via Internet through ssh or Thinlinc.
+
+  - Here the file management and lighter data analysis can be performed.
+
+.. figure:: ../img/nodes.png
+   :align: center
+
+- The **calculation nodes** have to be used for intense computing. 
+
+
+Common features
+###############
+
+- Intel CPUs
+- Linux kernel
+- Bash shell
+
+.. list-table:: Hardware
+   :widths: 25 25 25 25 25
+   :header-rows: 1
+
+   * - Technology
+     - Kebnekaise
+     - Rackham
+     - Snowy
+     - Bianca
+   * - Cores/compute node
+     - 28 (72 for largemem part)
+     - 20
+     - 16
+     - 16
+   * - Memory/compute node
+     - 128-3072 GB 
+     - 128-1024 GB
+     - 128-4096 GB
+     - 128-512 GB
+   * - GPU
+     - NVidia V100, A100, old K80s
+     - None
+     - NVidia T4 
+     - NVidia A100
+ 
+
+
+Preliminary schedule
+====================
+
+.. list-table:: Preliminary schedule
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Time
+     - Topic
+     - Activity
+   * - 9:00
+     - Syllabus 
+     -
+   * - 9:10
+     - Introduction 
+     - Lecture
+   * - 9:20
+     - Loading modules and running Python
+     - Lecture + type-along 
+   * - 9:35
+     - Dealing with packages — PyPI
+     - Lecture + type-along 
+   * - 9:55
+     - **Coffee**
+     - 
+   * - 10:10
+     - Dealing with packages — Conda  
+     - Lecture + type-along + exercise
+   * - 10:30
+     - Isolated environments
+     - Lecture + type-along + exercise
+   * - 10:50
+     - **Short leg stretch**
+     - 
+   * - 10:55
+     - SLURM Batch scripts for Python jobs  
+     - Lecture + type-along + exercise
+   * - 11:25
+     - Interactive
+     - Lecture + type-along
+   * - 11:45
+     - Catch-up time and Q/A (no recording)
+     - Q/A
+   * - 12:00
+     - **LUNCH**
+     -
+   * - 13:00
+     - Parallelising simple Python codes
+     - Lecture + type-along + exercise
+   * - 13:40
+     - Using GPU:s for Python
+     - Lecture + type-along + exercise
+   * - 14:10
+     - **Short leg stretch**
+     - 
+   * - 14:15
+     - Using Python for Machine Learning jobs
+     - Lecture + type-along + exercise
+   * - 14:55
+     - **Coffee**
+     - 
+   * - 15:10
+     - Summary 
+     -
+   * - 15:15
+     - Extra time for exercises (no recording)
+     - exercises 
+   * - 15:35
+     - Q&A on-demand (no recording)
+     -
+
+   * - 16.00
+     - END
+     -
 .. admonition:: Prepare your environment now!
   
    - Please log in to Rackham, Kebnekaise or other cluster that you are using.
@@ -180,93 +348,6 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
    - For this course, when having many windows open, it may be better to run in terminal, for space issues.
    
    
-Example of arrangement for the "worst case"!
-############################################
-- Q/A document
-- ZOOM view
-- (shellshare) or web browser (HackMD - https://uppmax.github.io/HPC-python/index.html) with course material
-- your own terminal
-
-.. figure:: img/worst_v2.jpg
-   :align: center
-
-|
-|
-
-Preliminary schedule
-====================
-
-.. list-table:: Preliminary schedule
-   :widths: 25 25 50
-   :header-rows: 1
-
-   * - Time
-     - Topic
-     - Activity
-   * - 9:00
-     - Syllabus 
-     -
-   * - 9:10
-     - Introduction 
-     - Lecture
-   * - 9:20
-     - Loading modules and running Python
-     - Lecture + type-along 
-   * - 9:35
-     - Dealing with packages — PyPI
-     - Lecture + type-along 
-   * - 9:55
-     - **Coffee**
-     - 
-   * - 10:10
-     - Dealing with packages — Conda  
-     - Lecture + type-along + exercise
-   * - 10:30
-     - Isolated environments
-     - Lecture + type-along + exercise
-   * - 10:50
-     - **Short leg stretch**
-     - 
-   * - 10:55
-     - SLURM Batch scripts for Python jobs  
-     - Lecture + type-along + exercise
-   * - 11:25
-     - Interactive
-     - Lecture + type-along
-   * - 11:45
-     - Catch-up time and Q/A (no recording)
-     - Q/A
-   * - 12:00
-     - **LUNCH**
-     -
-   * - 13:00
-     - Parallelising simple Python codes
-     - Lecture + type-along + exercise
-   * - 13:40
-     - Using GPU:s for Python
-     - Lecture + type-along + exercise
-   * - 14:10
-     - **Short leg stretch**
-     - 
-   * - 14:15
-     - Using Python for Machine Learning jobs
-     - Lecture + type-along + exercise
-   * - 14:55
-     - **Coffee**
-     - 
-   * - 15:10
-     - Summary 
-     -
-   * - 15:15
-     - Extra time for exercises (no recording)
-     - exercises 
-   * - 15:35
-     - Q&A on-demand (no recording)
-     -
-
-   * - 16.00
-     - END
-     -
     
 
 .. toctree::
