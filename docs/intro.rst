@@ -135,7 +135,10 @@ Other NAISS centres
 - NSC
    - `Python <https://www.nsc.liu.se/software/python/>`_
 - PDC
-   - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_.. objectives:: 
+   - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_
+
+
+.. objectives:: 
 
     We will:
     
