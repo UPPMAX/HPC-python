@@ -197,14 +197,16 @@ Common features
      - NVidia A100
  
 ## Overview of the UPPMAX systems
-```mermaid
 
-  graph TB
 
-  Node1 -- interactive --> SubGraph2Flow
-  Node1 -- sbatch --> SubGraph2Flow
-  subgraph "Snowy"
-  SubGraph2Flow(calculation nodes) 
+.. mermaid::
+
+   graph TB
+
+   Node1 -- interactive --> SubGraph2Flow
+   Node1 -- sbatch --> SubGraph2Flow
+   subgraph "Snowy"
+   SubGraph2Flow(calculation nodes) 
         end
 
         thinlinc -- usr-sensXXX + 2FA + VPN ----> SubGraph1Flow
@@ -222,7 +224,7 @@ Common features
         Node1[Login] -- interactive --> Node2[calculation nodes]
         Node1 -- sbatch --> Node2
         end
-```
+
 
 
 Preliminary schedule
