@@ -209,36 +209,30 @@ Preliminary schedule
      - Topic
      - Activity
    * - 9:00
-     - Syllabus 
+     - Syllabus and the clusters
      -
-   * - 9:10
-     - Introduction 
-     - Lecture
    * - 9:20
-     - Loading modules and running Python
-     - Lecture + type-along 
-   * - 9:35
-     - Dealing with packages — PyPI
+     - Introduction to Python 
+     - Lecture
+   * - 9:30
+     - Loading and running Python and using installed packages
      - Lecture + type-along 
    * - 9:55
      - **Coffee**
      - 
    * - 10:10
-     - Dealing with packages — Conda  
+     - Installing packages and isolateed environments 
+     - Lecture + type-along 
+   * - 10:35
+     - SLURM Batch scripts and arraysfor Python jobs  
      - Lecture + type-along + exercise
-   * - 10:30
-     - Isolated environments
-     - Lecture + type-along + exercise
-   * - 10:50
+   * - 11:10
      - **Short leg stretch**
      - 
-   * - 10:55
-     - SLURM Batch scripts for Python jobs  
-     - Lecture + type-along + exercise
-   * - 11:25
+   * - 11:20
      - Interactive
      - Lecture + type-along
-   * - 11:45
+   * - 11:50
      - Catch-up time and Q/A (no recording)
      - Q/A
    * - 12:00
@@ -250,25 +244,24 @@ Preliminary schedule
    * - 13:40
      - Using GPU:s for Python
      - Lecture + type-along + exercise
-   * - 14:10
+   * - 14:20
      - **Short leg stretch**
      - 
-   * - 14:15
+   * - 14:30
      - Using Python for Machine Learning jobs
      - Lecture + type-along + exercise
-   * - 14:55
+   * - 15.10
      - **Coffee**
      - 
-   * - 15:10
-     - Summary 
+   * - 15.25
+     - Summary
      -
-   * - 15:15
-     - Extra time for exercises (no recording)
-     - exercises 
-   * - 15:35
-     - Q&A on-demand (no recording)
+   * - 15.35
+     - Evaluation
      -
-
+   * - 15.45
+     - Q&A on-demand
+     -
    * - 16.00
      - END
      -
