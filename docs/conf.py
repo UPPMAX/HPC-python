@@ -22,8 +22,8 @@ project = 'Using Python in an HPC environment'
 copyright = ''
 author = 'UPPMAX/HPC2N'
 github_user = "UPPMAX"
-github_repo_name = ""  # auto-detected from dirname if blank
-github_version = "main"
+github_repo_name = "HPC-python"  # auto-detected from dirname if blank
+github_version = "main/docs"
 conf_py_path = "/docs/" 
 # The full version, including alpha/beta/rc tags
 release = '2.0'
@@ -39,8 +39,22 @@ extensions = ["sphinx_lesson",
     "sphinx_rtd_theme_ext_color_contrast",
     "sphinxemoji.sphinxemoji",
     'sphinx-prompt',
+    'sphinxcontrib.plantuml',
+    'sphinx.ext.graphviz',
+    'sphinxcontrib.mermaid',
     'sphinx_copybutton',
 ]
+
+mermaid_output_format = 'raq'
+mermaid_params = [
+    "--theme",
+    "forest",
+    "--width",
+    "600",
+    "--backgroundColor",
+    "transparent",
+]
+
 jupyter_execute_notebooks = "cache"
 
 myst_enable_extensions = [
