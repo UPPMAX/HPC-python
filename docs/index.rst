@@ -196,6 +196,33 @@ Common features
      - NVidia T4 
      - NVidia A100
  
+## Overview of the UPPMAX systems
+```mermaid
+
+  graph TB
+
+  Node1 -- interactive --> SubGraph2Flow
+  Node1 -- sbatch --> SubGraph2Flow
+  subgraph "Snowy"
+  SubGraph2Flow(calculation nodes) 
+        end
+
+        thinlinc -- usr-sensXXX + 2FA + VPN ----> SubGraph1Flow
+        terminal -- usr --> Node1
+        terminal -- usr-sensXXX + 2FA + VPN ----> SubGraph1Flow
+        Node1 -- usr-sensXXX + 2FA + no VPN ----> SubGraph1Flow
+        
+        subgraph "Bianca"
+        SubGraph1Flow(Bianca login) -- usr+passwd --> private(private cluster)
+        private -- interactive --> calcB(calculation nodes)
+        private -- sbatch --> calcB
+        end
+
+        subgraph "Rackham"
+        Node1[Login] -- interactive --> Node2[calculation nodes]
+        Node1 -- sbatch --> Node2
+        end
+```
 
 
 Preliminary schedule
