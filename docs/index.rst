@@ -207,23 +207,23 @@ Common features
    Node1 -- sbatch --> SubGraph2Flow
    subgraph "Snowy"
    SubGraph2Flow(calculation nodes) 
-        end
+         end
 
-        thinlinc -- usr-sensXXX + 2FA + VPN ----> SubGraph1Flow
-        terminal -- usr --> Node1
-        terminal -- usr-sensXXX + 2FA + VPN ----> SubGraph1Flow
-        Node1 -- usr-sensXXX + 2FA + no VPN ----> SubGraph1Flow
-        
-        subgraph "Bianca"
-        SubGraph1Flow(Bianca login) -- usr+passwd --> private(private cluster)
-        private -- interactive --> calcB(calculation nodes)
-        private -- sbatch --> calcB
-        end
-
-        subgraph "Rackham"
-        Node1[Login] -- interactive --> Node2[calculation nodes]
-        Node1 -- sbatch --> Node2
-        end
+         thinlinc -- usr-sensXXX + 2FA + VPN ----> SubGraph1Flow
+         terminal -- usr --> Node1
+         terminal -- usr-sensXXX + 2FA + VPN ----> SubGraph1Flow
+         Node1 -- usr-sensXXX + 2FA + no VPN ----> SubGraph1Flow
+         
+         subgraph "Bianca"
+         SubGraph1Flow(Bianca login) -- usr+passwd --> private(private cluster)
+         private -- interactive --> calcB(calculation nodes)
+         private -- sbatch --> calcB
+         end   
+ 
+         subgraph "Rackham"
+         Node1[Login] -- interactive --> Node2[calculation nodes]
+         Node1 -- sbatch --> Node2
+         end
 
 
 
