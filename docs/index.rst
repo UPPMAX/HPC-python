@@ -15,7 +15,7 @@ Welcome to HPC python course material
       - HPC2N: https://www.hpc2n.umu.se/resources/software/user_installed/python
 
 
-.. admonition:: Content
+.. exercise:: Content
 
    - This course aims to give a brief, but comprehensive introduction to using Python in an HPC environment.
    - You will learn how to
@@ -28,11 +28,44 @@ Welcome to HPC python course material
       - use Python for ML and on GPUs. 
    - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
 
+.. admonition:: **Your expectations?**
+   
+    - Find best practices for using Python at an HPC centre
+    - Learn how to use and install packages
+    - Use the HPC capabilities of Python
 
-.. admonition:: Cluster-specific approaches
+    
+    **Not covered**
+    
+    - Improve python *coding* skills 
+    - Specifics of other clusters
 
+.. warning::
+
+  **Target group**
+ 
+  - The course is for present or presumptive users at UPPMAX or HPC2N or possibly other clusters in Sweden. 
+  - Therefore we apply python solutions on both clustersso a braoad audience can benefit.
+
+  **Cluster-specific approaches**
+  
    - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise). The main focus will be on UPPMAX's systems, but Kebnekaise will be included as well. If you already have an account at Kebnekaise, you can use that system for the hands-ons. 
    - In most cases there is little or no difference between UPPMAX's systems and HPC2N's systems (and the other HPC systems in Sweden), except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
+
+   - See furhter below a short introduction to the centre-specific cluster architectures
+
+.. prereq::
+
+   - Python at a basic level
+   - user account on either Kebnekaise at HPC2N or Rackham at UPPMAX
+   - familiarity with the LINUX command line
+  
+      - Short introductions : https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632
+      - Linux "cheat sheet": https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet
+      - HPC2N's intro course material (including link to recordings): https://github.com/hpc2n/intro-course
+      - UPPMAX's intro course material: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
+      - UPPMAX software library: https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641
+
 
 Some practicals
 ----------------
@@ -69,27 +102,7 @@ Some practicals
     - On HPC2N, you can copy the exercises in a tarball from ````
     - On UPPMAX you can copy the exercises in a tarball from ```` 
     
-.. admonition:: **Your expectations?**
-   
-    - Find best practices for using Python at an HPC centre
-    - Learn how to use and install packages
-    - Use the HPC capabilities of Python
 
-    
-    **Not covered**
-    
-    - Improve python *coding* skills 
-    - Specifics of other clusters
-
-
-.. warning::
-
-    - It is good to have a familiarity with the LINUX command line. 
-    - Short introductions : https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632
-    - Linux "cheat sheet": https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet
-    - UPPMAX software library: https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641
-    - Whole intro course material (UPPMAX): https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
-    - HPC2N's intro course material (including link to recordings): https://github.com/hpc2n/intro-course
 
 .. admonition:: Prepare your environment now!
   
