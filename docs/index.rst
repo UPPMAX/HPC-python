@@ -355,13 +355,13 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
 
         .. code-block:: sh
 
-            /proj/naiss2023-22-500/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+            /proj/naiss2023-22-1126/MYDIR-NAME/HPC-python/Exercises/examples/programs/
 
         Batch submit files 
 
         .. code-block:: sh
 
-            /proj/naiss2023-22-500/MYDIR-NAME/HPC-python/Exercises/examples/uppmax
+            /proj/naiss2023-22-1126/MYDIR-NAME/HPC-python/Exercises/examples/uppmax
 
 
    .. tab:: HPC2N
@@ -370,13 +370,13 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
 
       .. code-block:: sh
 
-          /proj/nobackup/hpc2n2023-089/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+          /proj/nobackup/<your-HPC2N-project-id>/MYDIR-NAME/HPC-python/Exercises/examples/programs/
 
       Batch submit files
 
       .. code-block:: sh
 
-          /proj/nobackup/hpc2n2023-089/MYDIR-NAME/HPC-python/Exercises/examples/hpc2n/
+          /proj/nobackup/<your-HPC2N-project-id>/MYDIR-NAME/HPC-python/Exercises/examples/hpc2n/
 
 
 
