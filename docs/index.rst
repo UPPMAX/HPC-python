@@ -45,14 +45,14 @@ Welcome to HPC python course material
   **Target group**
  
   - The course is for present or presumptive users at UPPMAX or HPC2N or possibly other clusters in Sweden. 
-  - Therefore we apply python solutions on both clustersso a braoad audience can benefit.
+  - Therefore we apply python solutions on both clusters, so a broad audience can benefit.
 
   **Cluster-specific approaches**
   
    - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise). The main focus will be on UPPMAX's systems, but Kebnekaise will be included as well. If you already have an account at Kebnekaise, you can use that system for the hands-ons. 
    - In most cases there is little or no difference between UPPMAX's systems and HPC2N's systems (and the other HPC systems in Sweden), except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
 
-   - See furhter below a short introduction to the centre-specific cluster architectures
+   - See further below a short introduction to the centre-specific cluster architectures
 
 .. prereq::
 
@@ -100,8 +100,11 @@ Some practicals
 
     - You can download the exercises from the course GitHub repo, under the "Exercises" directory: https://github.com/UPPMAX/HPC-python/tree/main/Exercises 
     - On HPC2N, you can copy the exercises in a tarball from ````
-    - On UPPMAX you can copy the exercises in a tarball from ```` 
+    - On UPPMAX you can copy the exercises in a tarball from /proj/naiss2023-22-1126/examples.tar.gz 
     
+.. admonition:: Project
+
+    - The course project on UPPMAX (Rackham) is: naiss2023-22-1126 
 
 
 The two HPC centers UPPMAX and HPC2N
