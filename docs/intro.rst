@@ -44,7 +44,7 @@ More python?
 - CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Their material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
 - General introduction to Python at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2022/
 
-- **This course:** Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in May. 
+- **This course:** Introduction to HPC (High performance computing) python at UPPMAX and HPC2N in November. 
 
 The two HPC centers UPPMAX and HPC2N
 ------------------------------------
@@ -73,6 +73,7 @@ The two HPC centers UPPMAX and HPC2N
   
    - General sessions with small differences shown for UPPMAX and HPC2N in tabs
    - Main focus on the NAISS resources at UPPMAX, but Kebnekaise specifics will be covered
+   - Users who already have accounts/projects at HPC2N/Kebnekaise are welcome to use that for the exercises. UPPMAX/Rackham will be used for everyone else. 
 
 .. warning:: 
 
