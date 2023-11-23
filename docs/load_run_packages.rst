@@ -211,8 +211,9 @@ You can run a python script in the shell like this:
    $ python3 example.py
 
 
-|since python is a symbolic link to python3 in this case. 
-|Or, if you loaded a python3 module, you can only use use:
+since python is a symbolic link to python3 in this case. 
+
+Or, if you loaded a python3 module, you can use:
 
 .. code-block:: console
 
@@ -276,7 +277,7 @@ For more interactiveness you can run Ipython.
 
          $ ipython 
 
-      HPC2N also has ``JupyterLab`` installed. It is available as a module, but the process of using it is somewhat involved. See this tutorial: 
+      HPC2N also has ``JupyterLab`` installed. It is available as a module, but the process of using it is somewhat involved. We will cover it more under the session on <a href="https://uppmax.github.io/HPC-python/interactive.html">Interactive work on the compute nodes</a>. Otherwise, see this tutorial: 
 
       - https://www.hpc2n.umu.se/resources/software/jupyter 
 
