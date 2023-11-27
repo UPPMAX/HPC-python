@@ -95,7 +95,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
          $ module load python/3.9.5
          $ python -m venv --system-site-packages Example2
     
-      "Example2" is the name of the virtual environment. The directory "Example2" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
+     "Example2" is the name of the virtual environment. The directory "Example2" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
 
    .. tab:: HPC2N
 
@@ -236,7 +236,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.
 
-      Install your packages with ``pip`` (``--user`` not needed) and (optionally) giving the correct versions, like:
+      Install your packages with ``pip`` (``--user`` not needed as you are in your virtual environment) and (optionally) giving the correct versions, like:
 
       .. code-block:: console
       
@@ -254,40 +254,28 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       
          (vpyenv) $ deactivate
 
-      Everytime you need the tools available in the virtual environment you activate it as above.
+      Everytime you need the tools available in the virtual environment you activate it as above, after loading the python module.
 
       .. prompt:: console $
 
-         source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
+         source /proj/naiss2023-22-1126/<user-dir>/vpyenv/bin/activate
 
       More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
       
    .. tab:: HPC2N
      
-      1) **First go to the directory you want your environment in.**
-      Installing spacy. Using existing modules for numpy (in SciPy-bundle) and the included Python/3.10.4. Here we are creating the virtual environment ``vpyenv``.
+      **First go to the directory you want your environment in.**
 
-      .. admonition:: Load modules for Python, numpy (in SciPy-bundle), matplotlib (since we need it for seaborn later), create the virtual environment, activate the environment, and install spacy on Kebnekaise at HPC2N 
+      .. admonition:: Load modules for Python, numpy (in SciPy-bundle), matplotlib (since we need it for seaborn), create the virtual environment, activate the environment, and install spacy and seaborn on Kebnekaise at HPC2N 
          :class: dropdown
    
          .. code-block:: console
            
-            $ module load GCC/11.3.0 OpenMPI/4.1.4 SciPy-bundle/2022.05 matplotlib/3.5.2
+            $ module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 matplotlib/3.4.2
             $ python -m venv --system-site-packages vpyenv
             $ source vpyenv/bin/activate
-            (vpyenv) $ pip install --no-cache-dir --no-build-isolation spacy 
+            (vpyenv) $ pip install --no-cache-dir --no-build-isolation spacy seaborn 
    
-      2) Installing seaborn. Using existing modules for numpy (in SciPy-bundle), matplotlib, and the vpyenv we created above. Note that you need to load the modules again if you have been logged out, etc. but the virtual environment remains, of course   
-
-      .. admonition:: Load modules for Python, numpy (in SciPy-bundle), matplotlib, activate the environment, and install seaborn on Kebnekaise at HPC2N 
-         :class: dropdown
-   
-         .. code-block:: console
-           
-            $ module load GCC/11.3.0 OpenMPI/4.1.4 SciPy-bundle/2022.05 matplotlib/3.5.2
-            $ source vpyenv/bin/activate
-            (vpyenv) $ pip install --no-cache-dir --no-build-isolation seaborn 
-
          Deactivating a virtual environment.
 
          .. code-block:: console
@@ -322,7 +310,7 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
    .. code-block:: console
            
       $ module load Python/3.9.5
-      $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
+      $ source /proj/naiss2023-22-1126/<user-dir>/vpyenv/bin/activate
       (vpyenv) $ python
            Python 3.9.5 (default, Jun  3 2021, 15:06:34)
            [GCC 9.3.0] on linux
@@ -337,10 +325,11 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
    
         .. code-block:: console
            
-           $ module load ml GCC/11.3.0 OpenMPI/4.1.4 SciPy-bundle/2022.05 matplotlib/3.5.2
+           $ module load ml GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 matplotlib/3.4.2
            $ source vpyenv/bin/activate
            (vpyenv)$ python
-           Python 3.10.4 (main, Sep 21 2022, 11:17:23) [GCC 11.3.0] on linux
+           Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
+           [GCC 10.3.0] on linux
            Type "help", "copyright", "credits" or "license" for more information.
            >>> import spacy
            >>> 
@@ -348,13 +337,13 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
 
 - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
 
-- To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. 
+- To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
 
 
 Working with virtual environments defined from files
-''''''''''''''''''''''''''''''''''''''''''''''''''''
+----------------------------------------------------
 
-- First create and activate and environment (see above)
+- First create and activate an environment (see above)
 - Create an environment based on dependencies given in an environment file::
   
   $ pip install -r requirements.txt
@@ -370,35 +359,36 @@ Working with virtual environments defined from files
 
   $ pip freeze --local > requirements.txt``
 
-``requirements.txt`` (used by virtual environment) is a simple
-text file which looks like this::
+``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
 
    numpy
    matplotlib
    pandas
    scipy
 
-``requirements.txt`` with versions::
+``requirements.txt`` with versions could look list this::
 
-    numpy==1.18.1
-    matplotlib==3.1.3
+    numpy==1.20.2
+    matplotlib==3.2.2
     pandas==1.1.2
     scipy==1.6.2
 
 .. admonition:: More on dependencies
 
-   - `Dependency management from coursePython for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
+   - `Dependency management from course Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
 
 
 .. note:: 
 
    **pyenv**
 
-   - This approach is more advanced and consoleould be, in our opinion, used only if the above are not enough for the purpose. 
+   - This approach is more advanced and should, in our opinion, be used only if the above are not enough for the purpose. 
    - ``pyenv`` allows you to install your **own python version**, like 3.10.2, and much more… 
    - `Pyenv at UPPMAX <https://www.uppmax.uu.se/support/user-guides/python-user-guide/#tocjump_7997229232093896_12>`_
    - Probably Conda will work well for you anyway...
 
+Jupyter in a virtual environment
+--------------------------------
 
 .. warning:: 
 
@@ -423,9 +413,33 @@ text file which looks like this::
    **HPC2N**
 
    To use Jupyter at HPC2N, follow this guide: https://www.hpc2n.umu.se/resources/software/jupyter
+   To use it with extra packages, follow this guide after setting it up as in the above guide: https://www.hpc2n.umu.se/resources/software/jupyter-python
+
+
+Python packages in HPC and ML
+-----------------------------
+
+It is difficult to give an exhaustive list of useful packages for Python in HPC, but this list contains some of the more popular ones: 
+
+.. list-table:: Popular packages
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Heading row 1, column 1
+     - Heading row 1, column 2
+     - Heading row 1, column 3
+   * - Row 1, column 1
+     -
+     - Row 1, column 3
+   * - Row 2, column 1
+     - Row 2, column 2
+     - Row 2, column 3
+
+
+
 
 More info
-'''''''''
+---------
 
 - UPPMAX's documentation pages about installing Python packages and virtual environments: https://www.uppmax.uu.se/support/user-guides/python-user-guide/
 - HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
@@ -452,8 +466,8 @@ More info
 
 .. challenge:: Create a virtual environment with a requirements file below
 
-   - Create a virtual environment with python-3.8.X with the name ``analysis``.
-   - Install packages definde by the ``requirements.txt`` file (save it).
+   - Create a virtual environment with python-3.10.X with the name ``analysis``.
+   - Install packages definde by this ``requirements.txt`` file (save it).
   
    .. code-block:: console
    
