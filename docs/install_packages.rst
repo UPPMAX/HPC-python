@@ -56,7 +56,7 @@ In this course we will look at the following tools for creating and using isolat
 
    - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
    - Make it for each project you have for reproducibility.
-   - There are different tools to create virtual environemnts.
+   - There are different tools to create virtual environments.
       - UPPMAX has Conda and venv and virtualenv
       - HPC2N has venv and virtualenv.
         - At UPPMAX, you load python directly, while at HPC2N you need to load "prerequisites" first, and the module is named Python with a capital P. 
@@ -83,7 +83,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
       .. code-block:: console
 
-         $ module load python/3.6.8
+         $ module load python/3.9.5
          $ virtualenv --system-site-packages Example
     
       "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
@@ -92,10 +92,10 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
      .. code-block:: console
 
-         $ module load python/3.6.8
-         $ python -m venv --system-site-packages Example
+         $ module load python/3.9.5
+         $ python -m venv --system-site-packages Example2
     
-      "Example" is the name of the virtual environment. The directory “Example” is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
+      "Example2" is the name of the virtual environment. The directory "Example2" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
 
    .. tab:: HPC2N
 
@@ -103,7 +103,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
       .. code-block:: console
 
-         $ module load GCC/11.3.0 Python/3.10.4
+         $ module load GCC/10.3.0 Python/3.9.5 
          $ virtualenv --system-site-packages Example
     
       "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
@@ -112,23 +112,31 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
       .. code-block:: console
 
-         $ module load GCC/11.3.0 Python/3.10.4
-         $ python -m venv --system-site-packages Example
+         $ module load GCC/10.3.0 Python/3.9.5
+         $ python -m venv --system-site-packages Example2
 
-      "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
+      "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
 
 
 .. note::
 
-   To save space, you consoleould load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
+   To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
    ``--system-site-packages`` includes the packages already installed in the loaded python module.
+
+   At HPC2N, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.9.5:
+   
+   .. code-block:: console
+
+         $ module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 
+         $ python venv -m --system-site-packages Example3
+
 
 **NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
 
 **NOTE**: if you need are for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
       
 
-If you want it in a certain place...
+If you want your virtual environment in a certain place...
 
 .. tabs::
 
@@ -138,29 +146,29 @@ If you want it in a certain place...
       
       .. code-block:: console
 
-         $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/Example
+         $ python -m venv --system-site-packages /proj/naiss2023-22-1126/<user-dir>/Example
     
       Activate it.
 
       .. code-block:: console
 
-          $ source /proj/naiss2023-22-500/<user>/python/Example/bin/activate
+          $ source /proj/naiss2023-22-1126/<user-dir>/Example/bin/activate
 
       Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
    .. tab:: HPC2N
 
-      To place it in a directory below your project storage (again calling it "Example"): 
+      To place it in a directory below your own project storage (again calling it "Example"): 
 
       .. code-block:: console
 
-         $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<your-username>/Example 
+         $ virtualenv --system-site-packages /proj/nobackup/<your-proj-dir>/<your-dir>/Example 
     
       Activate it.
 
       .. code-block:: console
 
-          $ source /proj/nobackup/hpc2n2023-089/<your-username/Example/bin/activate
+          $ source /proj/nobackup/<your-proj-dir>/<your-dir>/Example/bin/activate
 
 
 Note that your prompt is changing to start with (name of your vitual environment) to show that you are within it.
@@ -178,7 +186,7 @@ Install your packages with ``pip``. While not always needed, it is often a good 
 
 .. code-block:: console
       
-    (Example) $ pip install --no-cache-dir --no-build-isolation numpy==1.15.4 matplotlib==2.2.2
+    (Example) $ pip install --no-cache-dir --no-build-isolation numpy==1.20.2 matplotlib==3.2.2
 
 Deactivate the venv.
 
@@ -189,12 +197,17 @@ Deactivate the venv.
 The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
 
-Everytime you need the tools available in the virtual environment you activate it as above.
+Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
 
 .. prompt:: console
 
-   source /proj/nobackup/your-project-id/Example/bin/activate
-    
+   source /proj/<your-project-id>/<your-dir>/Example/bin/activate
+   
+   
+.. note::
+
+   You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
+
 
 Prepare the course environment
 ''''''''''''''''''''''''''''''
@@ -213,17 +226,17 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       .. code-block:: console
 
           $ module load python/3.9.5
-          $ virtualenv --system-site-packages /proj/naiss2023-22-500/<user>/python/vpyenv
+          $ virtualenv --system-site-packages /proj/naiss2023-22-1126/<user-dir>/vpyenv
     
       Activate it.
 
       .. code-block:: console
 
-         $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
+         $ source /proj/naiss2023-22-1126/<user-dir>/vpyenv/bin/activate
 
       Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.
 
-      Install your packages with ``pip`` (``--user`` not needed) and the correct versions, like:
+      Install your packages with ``pip`` (``--user`` not needed) and (optionally) giving the correct versions, like:
 
       .. code-block:: console
       
