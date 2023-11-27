@@ -426,19 +426,19 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
    :header-rows: 1
 
    * - Package
-     - Installed at UPPMAX
-     - Installed at HPC2N
+     - Module to load, UPPMAX
+     - Module to load, HPC2N
      - Brief description 
    * - Dask
      - Not installed
-     - Installed as module "dask" 
+     - ``dask``
      - An open-source Python library for parallel computing.
    * - Keras
-     - Installed with module "python_ML_packages"
-     - Installed as module "Keras"
+     - ``python_ML_packages``
+     - ``Keras``
      - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for both the TensorFlow and the Theano libraries. 
    * - Matplotlib
-     - Installed with the "python" module and with the module "matplotlib" 
+     - ``python`` and also ``matplotlib``
      - Installed as module "matplotlib"
      - A plotting library for the Python programming language and its numerical mathematics extension NumPy.
    * - Mpi4Py
