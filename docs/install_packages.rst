@@ -64,7 +64,7 @@ In this course we will look at the following tools for creating and using isolat
  
    
 Virtual environment - venv & virtualenv
-'''''''''''''''''''''''''''''''''''''''
+---------------------------------------
 
 Example
 #######
@@ -180,7 +180,7 @@ Note that your prompt is changing to start with (name of your vitual environment
 
 
 Using pip
-'''''''''
+---------
 
 Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
 
@@ -210,7 +210,7 @@ Everytime you need the tools available in the virtual environment you activate i
 
 
 Prepare the course environment
-''''''''''''''''''''''''''''''
+------------------------------
 
 .. tip::
     
