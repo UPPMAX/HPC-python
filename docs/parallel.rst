@@ -18,7 +18,7 @@ Parallel computing with Python
 
 **Prerequisites**
 
-- Type along!
+- Demo
 
 .. tabs::
 
