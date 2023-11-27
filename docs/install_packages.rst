@@ -439,54 +439,56 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for both the TensorFlow and the Theano libraries. 
    * - Matplotlib
      - ``python`` and also ``matplotlib``
-     - Installed as module "matplotlib"
+     - ``matplotlib``
      - A plotting library for the Python programming language and its numerical mathematics extension NumPy.
    * - Mpi4Py
      - Not installed
-     - Installed with module "SciPy-bundle"
+     - ``SciPy-bundle``
      - MPI for Python package. The library provides Python bindings for the Message Passing Interface (MPI) standard.
    * - Numba 
      - Not installed
-     - Installed as module "numba"
+     - ``numba``
      - An Open Source NumPy-aware JIT optimizing compiler for Python. It translates a subset of Python and NumPy into fast machine code using LLVM. It offers a range of options for parallelising Python code for CPUs and GPUs. 
    * - NumPy
-     - Installed with the "python" module
-     - Installed with the module "SciPy-bundle" 
+     - ``python``
+     - ``SciPy-bundle``
      - A library that adds support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays. 
    * - Pandas
-     - Installed with the "python" module 
-     - Installed with the module "SciPy-bundle"
+     - ``python`` 
+     - ``SciPy-bundle``
      - Built on top of NumPy. Responsible for preparing high-level data sets for machine learning and training. 
    * - PyTorch/Torch
-     - Installed as the module "PyTorch"
-     - Installed as the module "PyTorch" 
+     - ``PyTorch``
+     - ``PyTorch``
      - PyTorch is an ML library based on the C programming language framework, Torch. Mainly used for natural language processing or computer vision.  
    * - SciPy
-     - Installed with the "python" module 
-     - Installed with the "SciPy-bundle" module
+     - ``python``
+     - ``SciPy-bundle``
      - Open-source library for data science. Extensively used for scientific and technical computations, because it extends NumPy (data manipulation, visualization, image processing, differential equations solver).  
    * - Seaborn 
      - Not installed
      - Not installed
      - Based on Matplotlib, but features Pandas’ data structures. Often used in ML because it can generate plots of learning data. 
    * - Sklearn/SciKit-Learn
-     - Installed as the module "scikit-learn"
-     - Installed with the module "scikit-learn" 
+     - ``scikit-learn``
+     - ``scikit-learn``
      - Built on NumPy and SciPy. Supports most of the classic supervised and unsupervised learning algorithms, and it can also be used for data mining, modeling, and analysis. 
    * - StarPU
      - Not installed 
-     - Installed as module StarPU 
+     - ``StarPU``
      - A task programming library for hybrid architectures. C/C++/Fortran/Python API, or OpenMP pragmas. 
    * - TensorFlow
-     - Installed as the module "TensorFlow"
-     - Installed as the module "TensorFlow" 
+     - ``TensorFlow``
+     - ``TensorFlow``
      - Used in both DL and ML. Specializes in differentiable programming, meaning it can automatically compute a function’s derivatives within high-level language. 
    * - Theano 
      - Not installed 
-     - Installed as the module "Theano" 
+     - ``Theano``
      - For numerical computation designed for DL and ML applications. It allows users to define, optimise, and gauge mathematical expressions, which includes multi-dimensional arrays.  
 
 Remember, in order to find out how to load one of the modules, which prerequisites needs to be loaded, as well as which versions are available, use ``module spider <module>`` and ``module spider <module>/<version>``. 
+
+Often, you also need to load a python module, except in the cases where it is included in ``python`` or ``python_ML_packages`` at UPPMAX or with ``SciPy-bundle`` at HPC2N. 
 
 More info
 ---------
