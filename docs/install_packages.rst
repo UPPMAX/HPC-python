@@ -446,15 +446,15 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - Installed with module "SciPy-bundle"
      - MPI for Python package. The library provides Python bindings for the Message Passing Interface (MPI) standard.
    * - Numba 
-     - 
-     -
-     -
+     - Not installed
+     - Installed as module "numba"
+     - An Open Source NumPy-aware JIT optimizing compiler for Python. It translates a subset of Python and NumPy into fast machine code using LLVM. It offers a range of options for parallelising Python code for CPUs and GPUs. 
    * - NumPy
-     -
-     -
-     -
+     - Installed with the "python" module
+     - Installed with the module "SciPy-bundle" 
+     - A library that adds support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays. 
    * - Pandas
-     -
+     - 
      -
      -
    * - PyTorch/Torch
