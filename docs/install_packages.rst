@@ -422,12 +422,13 @@ Python packages in HPC and ML
 It is difficult to give an exhaustive list of useful packages for Python in HPC, but this list contains some of the more popular ones: 
 
 .. list-table:: Popular packages
-   :widths: 25 25 50
+   :widths: 15 20 20 44 
    :header-rows: 1
 
-   * - Heading row 1, column 1
-     - Heading row 1, column 2
-     - Heading row 1, column 3
+   * - Package
+     - Installed at UPPMAX
+     - Installed at HPC2N
+     - Brief description 
    * - Row 1, column 1
      -
      - Row 1, column 3
