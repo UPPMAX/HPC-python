@@ -454,17 +454,17 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - Installed with the module "SciPy-bundle" 
      - A library that adds support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays. 
    * - Pandas
-     - 
-     -
-     -
+     - Installed with the "python" module 
+     - Installed with the module "SciPy-bundle"
+     - Built on top of NumPy. Responsible for preparing high-level data sets for machine learning and training. 
    * - PyTorch/Torch
-     -
-     -
-     -
+     - Installed as the module "PyTorch"
+     - Installed as the module "PyTorch" 
+     - PyTorch is an ML library based on the C programming language framework, Torch. Mainly used for natural language processing or computer vision.  
    * - SciPy
-     -
-     -
-     -
+     - Installed with the "python" module 
+     - Installed with the "SciPy-bundle" module
+     - Open-source library for data science. Extensively used for scientific and technical computations, because it extends NumPy (data manipulation, visualization, image processing, differential equations solver).  
    * - Seaborn sklearn
      -
      -
@@ -486,7 +486,7 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      -
      -    
 
-
+Remember, in order to find out how to load one of the modules, which prerequisites needs to be loaded, as well as which versions are available, use ``module spider <module>`` and ``module spider <module>/<version>``. 
 
 More info
 ---------
