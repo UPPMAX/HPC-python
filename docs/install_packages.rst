@@ -438,7 +438,7 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - Installed as module "Keras"
      - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for both the TensorFlow and the Theano libraries. 
    * - Matplotlib
-     - Installed with the "python" module as well as a separate module "matplotlib" 
+     - Installed with the "python" module and with the module "matplotlib" 
      - Installed as module "matplotlib"
      - A plotting library for the Python programming language and its numerical mathematics extension NumPy.
    * - Mpi4Py
