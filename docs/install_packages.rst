@@ -422,7 +422,7 @@ Python packages in HPC and ML
 It is difficult to give an exhaustive list of useful packages for Python in HPC, but this list contains some of the more popular ones: 
 
 .. list-table:: Popular packages
-   :widths: 10 15 15 20 
+   :widths: 8 10 10 20 
    :header-rows: 1
 
    * - Package
@@ -436,7 +436,7 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
    * - Keras
      - Installed with module "python_ML_packages"
      - Installed as module "Keras"
-     - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for the TensorFlow library. 
+     - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for both the TensorFlow and the Theano libraries. 
    * - Matplotlib
      - Installed with the "python" module as well as a separate module "matplotlib" 
      - Installed as module "matplotlib"
@@ -465,26 +465,26 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - Installed with the "python" module 
      - Installed with the "SciPy-bundle" module
      - Open-source library for data science. Extensively used for scientific and technical computations, because it extends NumPy (data manipulation, visualization, image processing, differential equations solver).  
-   * - Seaborn sklearn
-     -
-     -
-     -
+   * - Seaborn 
+     - Not installed
+     - Not installed
+     - Based on Matplotlib, but features Pandas’ data structures. Often used in ML because it can generate plots of learning data. 
    * - Sklearn/SciKit-Learn
-     -
-     -
-     -
+     - Installed as the module "scikit-learn"
+     - Installed with the module "scikit-learn" 
+     - Built on NumPy and SciPy. Supports most of the classic supervised and unsupervised learning algorithms, and it can also be used for data mining, modeling, and analysis. 
    * - StarPU
-     -
-     -
-     -
-   * - SymPy  
-     -
-     -
-     -
+     - Not installed 
+     - Installed as module StarPU 
+     - A task programming library for hybrid architectures. C/C++/Fortran/Python API, or OpenMP pragmas. 
    * - TensorFlow
-     -
-     -
-     -    
+     - Installed as the module "TensorFlow"
+     - Installed as the module "TensorFlow" 
+     - Used in both DL and ML. Specializes in differentiable programming, meaning it can automatically compute a function’s derivatives within high-level language. 
+   * - Theano 
+     - Not installed 
+     - Installed as the module "Theano" 
+     - For numerical computation designed for DL and ML applications. It allows users to define, optimise, and gauge mathematical expressions, which includes multi-dimensional arrays.  
 
 Remember, in order to find out how to load one of the modules, which prerequisites needs to be loaded, as well as which versions are available, use ``module spider <module>`` and ``module spider <module>/<version>``. 
 
@@ -516,14 +516,14 @@ More info
 
 .. challenge:: Create a virtual environment with a requirements file below
 
-   - Create a virtual environment with python-3.10.X with the name ``analysis``.
+   - Create a virtual environment with python-3.9.5 (UPPMAX) and Python/3.8.6 (HPC2N) with the name ``analysis``.
    - Install packages definde by this ``requirements.txt`` file (save it).
   
    .. code-block:: console
    
-      numpy==1.18.1
-      matplotlib==3.1.3
-      pandas==1.1.2
+      numpy==1.20.2
+      matplotlib==3.2.2
+      pandas==1.2.0
     
    - Check that the packages were installed.
    - Don't forget to deactivate afterwards.
@@ -533,17 +533,17 @@ More info
     
    .. code-block:: console
 
-      $ module load python/3.8.7
-      $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python/analysis
+      $ module load python/3.9.5
+      $ python -m venv --system-site-packages /proj/naiss2023-22-1126/<user-dir>/analysis
     
    Activate it.
 
    .. code-block:: console
 
-      $ source /proj/naiss2023-22-500/<user>/python/analysis/bin/activate
+      $ source /proj/naiss2023-22-1126/<user-dir>/analysis/bin/activate
 
    - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
-   - Install the packages from the file::
+   - Install the packages from the file and then check if the right packages were installed::
       
         pip install -r requirements.txt
       
@@ -558,16 +558,16 @@ More info
    .. code-block:: console
 
       $ module load GCC/10.2.0 Python/3.8.6 
-      $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<username>/analysis 
+      $ python -m venv --system-site-packages /proj/nobackup/<your-proj-dir>/analysis 
       
    Activate it.
 
    .. code-block:: console
 
-      $ source /proj/nobackup/hpc2n2023-089/<username>/analysis/bin/activate
+      $ source /proj/nobackup/<your-proj-dir>/analysis/bin/activate
 
    - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
-   - Install the packages from the file::
+   - Install the packages from the file and then check if the right packages were installed::
       
         pip install -r requirements.txt
       
