@@ -430,26 +430,30 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - Installed at HPC2N
      - Brief description 
    * - Dask
-     -
-     -
-     -
+     - Not installed
+     - Installed as module "dask" 
+     - An open-source Python library for parallel computing.
    * - Keras
-     -
-     -
-     -
-   * - SciPy
-     -
-     -
-     -
+     - Installed with module python_ML_packages
+     - Installed as module Keras
+     - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for the TensorFlow library. 
    * - Matplotlib
+     - 
+     -
+     -
+   * - Mpi4Py
      -
      -
      -
-   * - sklearn/SciKit-Learn
+   * - Numba 
      -
      -
      -
-   * - TensorFlow
+   * - NumPy
+     -
+     -
+     -
+   * - Pandas
      -
      -
      -
@@ -457,27 +461,27 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      -
      -
      -
-   * - mpi4py
+   * - SciPy
      -
      -
      -
-   * - seaborn
+   * - Seaborn sklearn
      -
      -
      -
-   * - numba 
+   * - Sklearn/SciKit-Learn
      -
      -
      -
-   * - SymPy
+   * - StarPU
      -
      -
      -
-   * - NumPy  
+   * - SymPy  
      -
      -
      -
-   * - Pandas
+   * - TensorFlow
      -
      -
      -    
