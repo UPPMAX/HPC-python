@@ -429,13 +429,37 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - Installed at UPPMAX
      - Installed at HPC2N
      - Brief description 
-   * - Row 1, column 1
+   * - NumPy
      -
-     - Row 1, column 3
-   * - Row 2, column 1
-     - Row 2, column 2
-     - Row 2, column 3
-
+     -
+     -
+   * - Pandas
+     -
+     -
+     -
+   * - SciPy
+     -
+     -
+     -
+   * - Matplotlib
+     -
+     -
+     -
+   * - sklearn/SciKit-Learn
+     -
+     -
+     -
+   * - TensorFlow
+   * - PyTorch/Torch
+   * - mpi4py
+   * - seaborn
+   * - numba 
+   * - SymPy
+   * - Dask  
+   * - Keras
+     -
+     -
+     -    
 
 
 
