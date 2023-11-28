@@ -129,7 +129,7 @@ Serial code
         .. code-block:: sh
 
             #!/bin/bash -l 
-            #SBATCH -A naiss2023-22-500 # Change to your own after the course
+            #SBATCH -A naiss2023-22-1126 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -147,12 +147,12 @@ Serial code
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A hpc2n2023-089 # Change to your own after the course
+            #SBATCH -A hpc2nXXXX-YYY # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
-            module load GCCcore/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
+            # Load any modules you need, here for Python/3.9.5 and compatible SciPy-bundle
+            module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
             
             # Run your Python script 
             python mmmult.py    
@@ -204,7 +204,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: sh
         
             #!/bin/bash -l 
-            #SBATCH -A naiss2023-22-500 # Change to your own after the course
+            #SBATCH -A naiss2023-22-1126 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -213,7 +213,7 @@ Serial code + self-installed package in virt. env.
             
             # Activate your virtual environment. 
             # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-            # Example: /proj/naiss2023-22-500/nobackup/mrspock/pythonUPPMAX 
+            # Example: /proj/naiss2023-22-1126/nobackup/mrspock/pythonUPPMAX 
             source <path-to-virt-env>/bin/activate
             
             # Run your Python script
@@ -222,17 +222,17 @@ Serial code + self-installed package in virt. env.
 
    .. tab:: HPC2N
 
-        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5 + using any Python packages you have installed yourself with virtual environment. During the separate session for HPC2N there will more about how to install something yourself this way. 
+        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5, matplotlib/3.4.2 + using any Python packages you have installed yourself with virtual environment. During the separate session for HPC2N there will more about how to install something yourself this way. 
        
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A hpc2n2023-089 # Change to your own after the course
+            #SBATCH -A hpc2nXXXX-YYY # Change to your own 
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
             # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
-            module load GCCcore/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2
+            module load GCCcore/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 matplotlib/3.4.2
             
             # Activate your virtual environment. 
             # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
@@ -255,17 +255,19 @@ GPU code
         .. code-block:: sh
 
             #!/bin/bash -l
-            #SBATCH -A naiss2023-22-500
+            #SBATCH -A naiss2023-22-1126
             #SBATCH -t 00:10:00
             #SBATCH --exclusive
-            #SBATCH -p node
-            #SBATCH -N 1
+            #SBATCH -n 1
             #SBATCH -M snowy
-            #SBATCH --gpus=1
-            #SBATCH --gpus-per-node=1
+            #SBATCH --gres=gpu=1
             
             # Load any modules you need, here loading Python 3.9.5
             module load python/3.9.5
+
+            # If you also need the GPU version of some of the ML packages
+            # then remove the out-commenting below 
+            # module load python_ML_packages/3.9.5-gpu 
             
             # Run your code
             python <my-gpu-code>.py 
@@ -273,30 +275,25 @@ GPU code
 
    .. tab:: HPC2N
 
-        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5 + Python package you have installed yourself with virtual environment. The full example can be found under "Using Python for Machine Learning jobs".       
+        Example with loading SciPy-bundle, Python, matplotlib, TensorFlow for GPU. A full example can be found under "Using Python for Machine Learning jobs".       
        
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A hpc2n2023-089 # Change to your own after the course
+            #SBATCH -A hpc2nXXXX-YYY # Change to your own
             #SBATCH --time=00:10:00  # Asking for 10 minutes
-            # Asking for one K80 card
-            #SBATCH --gres=gpu:k80:1
+            # Asking for one V100 card
+            #SBATCH --gres=gpu:v100:1
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/11.2.0 OpenMPI/4.1.1 SciPy-bundle/2021.10 TensorFlow/2.7.1
-            
-            # Activate a virtual environment if needed
-            # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-            # Example: /proj/nobackup/hpc2n2023-089/mrspock/pythonHPC2N
-            source <path-to-virt-env>/bin/activate
+            module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 Python/3.9.5 matplotlib/3.4.2 TensorFlow/2.6.0-CUDA-11.3.1 
             
             # Run your Python script
-            python example-tf.py
+            python my-tf-program.py
            
 
-The recommended TensorFlow version for this course is 2.7.1 on Kebnekaise. The module is compatible with Python 3.10.4 (automatically loaded when you load TensorFlow and its other prerequisites).            
+The recommended TensorFlow version for this course is 2.6.0-CUDA-11.3.1 on Kebnekaise. The module is compatible with Python 3.9.5.            
 
 Exercises
 ---------
@@ -324,7 +321,7 @@ Exercises
           .. code-block:: sh
  
             #!/bin/bash
-            #SBATCH -A hpc2n2023-089 # Change to your own after the course
+            #SBATCH -A hpc2nXXXX-YYY # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -342,7 +339,7 @@ Exercises
           .. code-block:: sh
  
             #!/bin/bash -l
-            #SBATCH -A naiss2023-22-500 # Change to your own after the course
+            #SBATCH -A naiss2023-22-1126 # Change to your own after the course
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
