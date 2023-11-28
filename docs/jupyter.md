@@ -40,7 +40,7 @@ Keep this session open and running. Note the node on which you are got the inter
 - If you use ssh to connect to Rackham, you need to forward the port of the interactive node to your local computer.
     - On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
         ``` console
-        $ ssh -L 8888:r486:8888 username@rackham.uppmax.uu.se
+        $ ssh -L 8888:r486:8888 <username>@rackham.uppmax.uu.se
         ```
     - If you use Windows it may be better to do this in the PowerShell instead of a WSL2.
     - If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
