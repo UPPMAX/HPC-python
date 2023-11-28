@@ -436,13 +436,20 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 	  - ``Flask``
 
 
-
-
-
 .. keypoints::
 
    - Before you can run Python scripts or work in a Python shell, first load a python module and probable prerequisites
    - Start a Python shell session either with ``python`` or ``ipython``
    - Run scripts with ``python3 <script.py>``
-    
+   - You can check for packages 
+   
+   	- from the Python shell with the ``import`` command
+	- from BASH shell with the 
+	
+		- ``pip list`` command at both centers
+		- ``ml help python/3.9.5`` at UPPMAX
+		
+   - Installation of Python packages can be done either with **PYPI** or **Conda**
+   - You install own packages with the ``pip install`` command (This is the recommended way on HPC2N)
+   - At UPPMAX Conda is also available (See Conda section)
 
