@@ -12,11 +12,7 @@ MYPATH=/proj/nobackup/<your-proj-id>/<mydir-name>/HPC-python/Exercises/examples/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.7.0
-
-
-# Activate the virtual environment we installed to. Change to your path 
-source /proj/nobackup/<your-proj-id>/<mydir-name>/<path-to-virt-env>/vpyenv/bin/activate
+module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.4.1 
 
 # Run your Python script
 python $MYPATH/add-list.py
