@@ -705,7 +705,7 @@ MPI
 ---
 
 More details for the MPI parallelization scheme in Python can be found in a previous
-`MPI course <https://github.com/SNIC-MPI-course/MPI-course>`_ offered by some of us.
+`MPI course <https://github.com/MPI-course-collaboration/MPI-course>`_ offered by some of us.
 
    .. admonition:: ``integration2d_mpi.py``
       :class: dropdown
@@ -784,7 +784,7 @@ example,
 
          #!/bin/bash
          #SBATCH -A hpc2n20XX-XYZ
-         #SBATCH -t 00:05:00
+         #SBATCH -t 00:05:00        # wall time
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
          #SBATCH -e error_%j.err    # error messages
@@ -847,6 +847,66 @@ job starts running, here there is one example of how this looks like:
    The resources used by a job can be monitored in your local browser.   
    For this job, we can notice that 100% of the requested CPU 
    and 60% of the GPU resources are being used.
+
+
+Dask
+----
+
+This is a library in Python for flexible parallel computing. Among the features
+are the ability to deal with arrays and data frames, in a similar manner to
+Numpy and Pandas, respectively, and the possibility of performing asynchronous
+computations, where first a computation graph is generated and the actual 
+computations are activated later on.
+
+.. tabs::
+
+   .. tab:: HPC2N
+
+       
+      Jupyter notebooks for other purposes than just reading it, must be
+      run in batch mode. First, create a batch script using the following one
+      as a template: 
+
+      .. code-block:: sh
+
+         #!/bin/bash
+         #SBATCH -A hpc2n20XX-XYZ
+         #SBATCH -t 00:05:00
+         #SBATCH -n 4
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+     
+         ml purge > /dev/null 2>&1
+         ml GCC/12.3.0 OpenMPI/4.1.5 JupyterLab/4.0.5 dask/2023.9.2
+
+         # Start JupyterLab
+         jupyter lab --no-browser --ip $(hostname)
+
+      Send this job to the queue (*sbatch job.sh*) and once the job starts copy the line 
+      containing the string **http://b-cnyyyy.hpc2n.umu.se:8888/lab?token=** and paste it 
+      in a local browser on Kebnekaise. Then, select the notebook **Dask-Ini.ipynb**. 
+
+   .. tab:: UPPMAX
+
+      .. code-block:: sh 
+
+         #!/bin/bash -l
+         #SBATCH -A naiss202X-XY-XYZ
+         #SBATCH -t 00:05:00
+         #SBATCH -n 4
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+     
+         ml python/3.9.5
+         ml gcc/9.3.0 openmpi/3.1.5
+         #ml julia/1.7.2  # if Julia is needed
+      
+         source /proj/naiss202X-XY-XYZ/nobackup/<user>/venv-python-course/bin/activate
+       
+         mpirun -np 4 python integration2d_mpi.py
+
+
+
 
 Additional information
 ----------------------
