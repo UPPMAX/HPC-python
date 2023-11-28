@@ -912,7 +912,8 @@ Additional information
 ----------------------
          
 * `On parallel software engineering education using python <https://link.springer.com/article/10.1007/s10639-017-9607-0>`_
-* `High Performance Data Analytics in Python @ENCCS  <https://enccs.github.io/HPDA-Python/parallel-computing/>`_
+* `Dask documentation <https://docs.dask.org/en/stable/>`_
+* `High Performance Data Analytics in Python @ENCCS <https://enccs.github.io/HPDA-Python/parallel-computing/>`_
 * `List of parallel libraries for Python <https://wiki.python.org/moin/ParallelProcessing>`_
 
 
