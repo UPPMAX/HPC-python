@@ -882,9 +882,10 @@ computations are activated later on.
          # Start JupyterLab
          jupyter lab --no-browser --ip $(hostname)
 
-      Send this job to the queue (*sbatch job.sh*) and once the job starts copy the line 
+      Then, copy and paste the notebook located here ``Exercises/Dask-Ini.ipynb`` to your
+      current folder. Send the job to the queue (*sbatch job.sh*) and once the job starts copy the line 
       containing the string **http://b-cnyyyy.hpc2n.umu.se:8888/lab?token=** and paste it 
-      in a local browser on Kebnekaise. Then, select the notebook located here ``Exercises/Dask-Ini.ipynb``. 
+      in a local browser on Kebnekaise. Now you can select the notebook. 
 
    .. tab:: UPPMAX
 
