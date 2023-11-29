@@ -9,12 +9,12 @@ Some Python packages are only available as downloads, for instance via github, t
 - Pick a location for your installation (change below to fit - I am installing under a project storage)
 
 UPPMAX:
-   - ``mkdir /proj/naiss2023-22-500/<username>/mypythonpackages``
-   - ``cd /proj/naiss2023-22-500/<username>/mypythonpackages``
+   - ``mkdir /proj/naiss2023-22-1126/<username>/mypythonpackages``
+   - ``cd /proj/naiss2023-22-1126/<username>/mypythonpackages``
    
 HPC2N: 
-   - ``mkdir /proj/nobackup/hpc2n2023-089/<username>/mypythonpackages``
-   - ``cd /proj/nobackup/hpc2n2023-089/<username>/mypythonpackages``
+   - ``mkdir /proj/nobackup/hpc2nXXXX-YYY/<username>/mypythonpackages``
+   - ``cd /proj/nobackup/hpc2nXXXX-YYY/<username>/mypythonpackages``
 
 - Load Python + (on Kebnekaise) site-installed prerequisites and site-installed packages you need (SciPy-bundle, matplotlib, etc.)
 - Install any remaining prerequisites. Remember to activate your Virtualenv if installing with pip!

@@ -236,7 +236,7 @@ Serial code + self-installed package in virt. env.
             
             # Activate your virtual environment. 
             # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-            # Example: /proj/nobackup/hpc2n2023-089/bbrydsoe/pythonHPC2N 
+            # Example: /proj/nobackup/hpc2nXXXX-YYY/bbrydsoe/pythonHPC2N 
             source <path-to-virt-env>/bin/activate
             
             # Run your Python script 

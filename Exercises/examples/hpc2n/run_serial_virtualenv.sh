@@ -14,7 +14,7 @@ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
 # CHANGE <path-to-virt-env> to the full path where you installed your 
 # virtual environment. For instance, the vpyenv created in the course 
 # would work with this example 
-# Example: /proj/nobackup/hpc2n2023-089/<mydir-name>/pythonHPC2N 
+# Example: /proj/nobackup/hpc2nXXXX-YYY/<mydir-name>/pythonHPC2N 
 source <path-to-virt-env>/bin/activate
 
 # Run your Python script - remember to add the name of your script

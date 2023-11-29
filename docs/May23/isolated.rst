@@ -138,13 +138,13 @@ If you want it in a certain place...
       
       .. code-block:: console
 
-         $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/Example
+         $ python -m venv --system-site-packages /proj/naiss2023-22-1126/<user>/Example
     
       Activate it.
 
       .. code-block:: console
 
-          $ source /proj/naiss2023-22-500/<user>/python/Example/bin/activate
+          $ source /proj/naiss2023-22-1126/<user>/python/Example/bin/activate
 
       Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
@@ -154,13 +154,13 @@ If you want it in a certain place...
 
       .. code-block:: console
 
-         $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<your-username>/Example 
+         $ virtualenv --system-site-packages /proj/nobackup/hpc2nXXXX-YYY/<your-username>/Example 
     
       Activate it.
 
       .. code-block:: console
 
-          $ source /proj/nobackup/hpc2n2023-089/<your-username/Example/bin/activate
+          $ source /proj/nobackup/hpc2nXXXX-YYY/<your-username/Example/bin/activate
 
 
 Note that your prompt is changing to start with (name of your vitual environment) to show that you are within it.
@@ -213,13 +213,13 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       .. code-block:: console
 
           $ module load python/3.9.5
-          $ virtualenv --system-site-packages /proj/naiss2023-22-500/<user>/python/vpyenv
+          $ virtualenv --system-site-packages /proj/naiss2023-22-1126/<user>/python/vpyenv
     
       Activate it.
 
       .. code-block:: console
 
-         $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
+         $ source /proj/naiss2023-22-1126/<user>/python/vpyenv/bin/activate
 
       Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.
 
@@ -245,7 +245,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       .. prompt:: console $
 
-         source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
+         source /proj/naiss2023-22-1126/<user>/python/vpyenv/bin/activate
 
       More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
       
@@ -309,7 +309,7 @@ Using the virtual environment created earlier and the ``spacy`` we installed und
    .. code-block:: console
            
       $ module load Python/3.9.5
-      $ source /proj/naiss2023-22-500/<user>/python/vpyenv/bin/activate
+      $ source /proj/naiss2023-22-1126/<user>/python/vpyenv/bin/activate
       (vpyenv) $ python
            Python 3.9.5 (default, Jun  3 2021, 15:06:34)
            [GCC 9.3.0] on linux
@@ -457,13 +457,13 @@ More info
    .. code-block:: console
 
       $ module load python/3.8.7
-      $ python -m venv --system-site-packages /proj/naiss2023-22-500/<user>/python/analysis
+      $ python -m venv --system-site-packages /proj/naiss2023-22-1126/<user>/python/analysis
     
    Activate it.
 
    .. code-block:: console
 
-      $ source /proj/naiss2023-22-500/<user>/python/analysis/bin/activate
+      $ source /proj/naiss2023-22-1126/<user>/python/analysis/bin/activate
 
    - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
    - Install the packages from the file::
@@ -481,13 +481,13 @@ More info
    .. code-block:: console
 
       $ module load GCC/10.2.0 Python/3.8.6 
-      $ virtualenv --system-site-packages /proj/nobackup/hpc2n2023-089/<username>/analysis 
+      $ virtualenv --system-site-packages /proj/nobackup/hpc2nXXXX-YYY/<username>/analysis 
       
    Activate it.
 
    .. code-block:: console
 
-      $ source /proj/nobackup/hpc2n2023-089/<username>/analysis/bin/activate
+      $ source /proj/nobackup/hpc2nXXXX-YYY/<username>/analysis/bin/activate
 
    - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
    - Install the packages from the file::

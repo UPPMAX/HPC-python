@@ -102,7 +102,7 @@ This is an example of a batch script for running the above example, using PyTorc
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A hpc2n2023-089
+            #SBATCH -A hpc2nXXXX-YYY
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # The following two lines splits the output in a file for any errors and a file for other output. 
@@ -123,7 +123,7 @@ This is an example of a batch script for running the above example, using PyTorc
 
         .. code-block:: sh
 
-            [bjornc@rackham3 ~]$ interactive -A naiss2023-22-500 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+            [bjornc@rackham3 ~]$ interactive -A naiss2023-22-1126 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
             You receive the high interactive priority.
 
             Please, use no more than 8 GB of RAM.
@@ -246,7 +246,7 @@ In order to run the above example, we will create a batch script and submit it.
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A hpc2n2023-089
+            #SBATCH -A hpc2nXXXX-YYY
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # Asking for one K80 
@@ -270,7 +270,7 @@ In order to run the above example, we will create a batch script and submit it.
         
             #!/bin/bash -l  
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A naiss2023-22-500
+            #SBATCH -A naiss2023-22-1126
             # We want to run on Snowy
             #SBATCH -M snowy
             # We are asking for 15 minutes
@@ -315,7 +315,7 @@ This example shows how you would run several programs or variations of programs 
         
          #!/bin/bash 
          # Remember to change this to your own project ID after the course! 
-         #SBATCH -A hpc2n2023-089
+         #SBATCH -A hpc2nXXXX-YYY
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
          # Asking for one K80 
@@ -340,7 +340,7 @@ This example shows how you would run several programs or variations of programs 
 
          #!/bin/bash -l
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A naiss2023-22-500
+         #SBATCH -A naiss2023-22-1126
          # We are asking for at least 1 hour
          #SBATCH --time=01:00:01
          #SBATCH -M snowy

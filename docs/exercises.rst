@@ -52,7 +52,7 @@ Interactive
    
         .. code-block:: sh
 
-            b-an01 [~]$ salloc -n 4 --time=00:30:00 -A hpc2n2023-089
+            b-an01 [~]$ salloc -n 4 --time=00:30:00 -A hpc2nXXXX-YYY
             salloc: Pending job allocation 20174806
             salloc: job 20174806 queued and waiting for resources
             salloc: job 20174806 has been allocated resources
@@ -132,7 +132,7 @@ Serial code
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A hpc2n2023-089 # Change to your own after the course
+            #SBATCH -A hpc2nXXXX-YYY # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -152,7 +152,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A hpc2n2023-089 # Change to your own after the course
+            #SBATCH -A hpc2nXXXX-YYY # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -174,7 +174,7 @@ GPU code
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A hpc2n2023-089 # Change to your own after the course
+            #SBATCH -A hpc2nXXXX-YYY # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             # Asking for one K80 card
             #SBATCH --gres=gpu:k80:1
@@ -249,7 +249,7 @@ This is an example of a batch script for running the above example, using PyTorc
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A hpc2n2023-089
+            #SBATCH -A hpc2nXXXX-YYY
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # The following two lines splits the output in a file for any errors and a file for other output. 
@@ -333,7 +333,7 @@ In order to run the above example, we will create a batch script and submit it.
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A hpc2n2023-089
+            #SBATCH -A hpc2nXXXX-YYY
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # Asking for one K80 
@@ -371,7 +371,7 @@ This example shows how you would run several programs or variations of programs 
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A hpc2n2023-089
+            #SBATCH -A hpc2nXXXX-YYY
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # Asking for one K80 
@@ -479,7 +479,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A hpc2n2023-089
+            #SBATCH -A hpc2nXXXX-YYY
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # Asking for one K80
@@ -689,7 +689,7 @@ Exercises
           .. code-block:: sh
  
             #!/bin/bash
-            #SBATCH -A hpc2n2023-089 # Change to your own after the course
+            #SBATCH -A hpc2nXXXX-YYY # Change to your own after the course
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             

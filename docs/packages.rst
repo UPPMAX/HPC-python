@@ -416,7 +416,7 @@ Exercises
    - Open a new terminal and have the old one available for later comparison
    - Use the conda module on Rackham and create an environment with name ``HPC-python23`` with ``python 3.7``  and ``numpy 1.15``
    
-   	- Use your a path for ``CONDA_ENVS_PATH`` of your own choice or ``/proj/naiss2023-22-500/<user>``
+   	- Use your a path for ``CONDA_ENVS_PATH`` of your own choice or ``/proj/naiss2023-22-1126/<user>``
         - (It may take a minute or so)
 	
    - Activate!
@@ -434,7 +434,7 @@ Exercises
           .. code-block:: console
 
              $ module load conda
-             $ export CONDA_ENVS_PATH=/proj/naiss2023-22-500/<user>
+             $ export CONDA_ENVS_PATH=/proj/naiss2023-22-1126/<user>
              $ conda create --name HPC-python23 python=3.7 numpy=1.15
              $ source activate HPC-python23
              $ pip list
