@@ -228,7 +228,7 @@ Preliminary schedule
      - **Coffee**
      - 
    * - 10:10
-     - Installing packages and isolateed environments 
+     - Installing packages and isolated environments 
      - Lecture + type-along 
    * - 10:35
      - SLURM Batch scripts and arraysfor Python jobs  
@@ -263,11 +263,11 @@ Preliminary schedule
    * - 15.25
      - Summary
      -
-   * - 15.35
-     - Evaluation
+   * - 15.30
+     - Exercises and Q&A on-demand
      -
-   * - 15.45
-     - Q&A on-demand
+   * - 15.55
+     - Evaluation info
      -
    * - 16.00
      - END
