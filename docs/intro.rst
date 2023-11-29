@@ -9,8 +9,7 @@ Introduction
    - Load Python modules and site-installed Python packages
    - Create a virtual environment
    - Install Python packages with pip (Kebnekaise, Rackham, Snowy)
-   - Install Python packages with conda (Bianca)
-   - Write a batchscript for running Python
+   - Write a batchs cript for running Python
    - Use the compute nodes interactively
    - Use Python in parallel
    - Use Python for ML
