@@ -2,8 +2,8 @@
 # Change to your own project ID!
 #SBATCH -A hpc2nXXXX-YYY
 #SBATCH -t 00:05:00
-#SBATCH -N X               # nr. nodes
-#SBATCH -n Y               # nr. MPI ranks
+#SBATCH -N X               # nr. nodes - CHANGE TO ACTUAL NUMBER!
+#SBATCH -n Y               # nr. MPI ranks - CHANGE TO ACTUAL NUMBER!
 #SBATCH -o output_%j.out   # output file
 #SBATCH -e error_%j.err    # error messages
 #SBATCH --gres=gpu:v100:2
@@ -19,8 +19,6 @@ ml purge > /dev/null 2>&1
 ml GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5
 ml TensorFlow/2.4.1
 ml Horovod/0.21.1-TensorFlow-2.4.1
-
-source /proj/nobackup/<your-proj-id>/<mydir-name>/<path-to-your-virt-env-horovod>/bin/activate
 
 list_of_nodes=$( scontrol show hostname $SLURM_JOB_NODELIST | sed -z 's/\n/\:4,/g' )
 list_of_nodes=${list_of_nodes%?}

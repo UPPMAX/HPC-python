@@ -8,7 +8,7 @@
 MYPATH=/proj/nobackup/<your-proj-id>/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Load any modules you need, here for Python 3.9.5 and compatible SciPy-bundle
-module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 matplotlib/3.4.2
 
 # Activate your virtual environment. 
 # CHANGE <path-to-virt-env> to the full path where you installed your 

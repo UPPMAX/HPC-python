@@ -12,7 +12,7 @@
 ml purge > /dev/null 2>&1
 ml GCC/10.3.0 Python/3.9.5 OpenMPI/4.1.1
 ml SciPy-bundle/2021.05 
-ml CUDA/11.7.0
+ml CUDA/11.4.1
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs

@@ -240,7 +240,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       .. code-block:: console
       
-         (vpyenv) $ pip install spacy seaborn
+         (vpyenv) $ pip install spacy seaborn numba
 
       Check what was installed
 

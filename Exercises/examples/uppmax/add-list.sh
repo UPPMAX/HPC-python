@@ -14,7 +14,7 @@ MYPATH=/proj/naiss2023-22-1126/<mydir-name>/HPC-python/Exercises/examples/progra
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load python_ML_packages python/3.9.5 
+module load python_ML_packages/3.9.5-gpu python/3.9.5 
 
 
 # Activate the virtual environment we installed to
