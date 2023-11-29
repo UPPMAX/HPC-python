@@ -16,7 +16,7 @@ module load scikit-learn/0.22.1
 
 # If needed, activate the virtual environment we installed to (remove comment out)
 # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-# Example: /proj/naiss2023-22-500/<mydir-name>/pythonHPC2N/vpyenv
+# Example: /proj/naiss2023-22-1126/<mydir-name>/pythonHPC2N/vpyenv
 source <path-to-virt-env>/bin/activate
 
 # Run your Python script

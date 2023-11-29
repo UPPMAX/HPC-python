@@ -1,6 +1,6 @@
 #!/bin/bash -l
 # Remember to change this to your own project ID after the course!
-#SBATCH -A naiss2023-22-500
+#SBATCH -A naiss2023-22-1126
 # Running on Snowy
 #SBATCH -M snowy
 # We are asking for 5 minutes
@@ -10,9 +10,9 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/naiss2023-22-500/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/naiss2023-22-1126/<mydir-name>/HPC-python/Exercises/examples/programs/
 
-module load python_ML_packages python/3.9.5
+module load python_ML_packages/3.9.5-gpu python/3.9.5
 
 # Output to file - not needed if your job creates output in a file directly
 # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).

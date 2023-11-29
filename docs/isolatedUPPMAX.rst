@@ -83,13 +83,13 @@ Create a ``venv``. First load the python version you want to base your virtual e
 .. code-block:: sh
 
     $ module load python/3.9.5
-    $ python -m venv --system-site-packages /proj/snic2022-22-641/nobackup/<user>/venv-python-course
+    $ python -m venv --system-site-packages /proj/naiss2023-22-1126/nobackup/<user>/venv-python-course
     
 Activate it.
 
 .. code-block:: sh
 
-    $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+    $ source /proj/naiss2023-22-1126/nobackup/<user>/venv-python-course/bin/activate
 
 Note that your prompt is changing to start with (venv-python-course) to show that you are within an environment.
 
@@ -121,7 +121,7 @@ Everytime you need the tools available in the virtual environment you activate i
 
 .. prompt:: bash $
 
-    source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+    source /proj/naiss2023-22-1126/nobackup/<user>/venv-python-course/bin/activate
 
 More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
@@ -165,7 +165,7 @@ Using the venv created earlier and the spacy we installed under example 1) above
    .. code-block:: sh
            
       $ module load Python/3.9.5
-      $ source /proj/snic2022-22-641/nobackup/<user>/venv-python-course/bin/activate
+      $ source /proj/naiss2023-22-1126/nobackup/<user>/venv-python-course/bin/activate
       (<name of environment>) $ python
            Python 3.9.5 (default, Jun  3 2021, 15:06:34)
            [GCC 9.3.0] on linux

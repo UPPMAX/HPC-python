@@ -132,8 +132,8 @@ This is an example of a batch script for running the above example, using PyTorc
             Starting job now -- you waited for 90 seconds.
 
             [bjornc@s160 ~]$  ml python/3.9.5
-            [bjornc@s160 ~]$  module load python_ML_packages/3.9.5-GPU
-            [bjornc@s160 ~]$  cd /proj/snic2022-22-1126/nobackup/bjornc/examples/programs
+            [bjornc@s160 ~]$  module load python_ML_packages/3.9.5-gpu
+            [bjornc@s160 ~]$  cd /proj/naiss2023-22-1126/bjornc/HPC-python/Exercises/examples/programs
             [bjornc@s160 programs]$ srun python pytorch_fitting_gpu.py
             99 134.71942138671875
             199 97.72868347167969
