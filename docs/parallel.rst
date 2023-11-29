@@ -884,7 +884,7 @@ computations are activated later on.
 
       Send this job to the queue (*sbatch job.sh*) and once the job starts copy the line 
       containing the string **http://b-cnyyyy.hpc2n.umu.se:8888/lab?token=** and paste it 
-      in a local browser on Kebnekaise. Then, select the notebook **Dask-Ini.ipynb**. 
+      in a local browser on Kebnekaise. Then, select the notebook located here ``Exercises/Dask-Ini.ipynb``. 
 
    .. tab:: UPPMAX
 
