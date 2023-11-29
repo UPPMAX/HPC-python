@@ -86,31 +86,29 @@ The two HPC centers UPPMAX and HPC2N
 Material for improving your programming skills
 ::::::::::::::::::::::::::::::::::::::::::::::
 
-First level
-...........
+.. admonition:: First level
 
-`The Carpentries <https://carpentries.org/>`_  teaches basic lab skills for research computing.
+   `The Carpentries <https://carpentries.org/>`_  teaches basic lab skills for research computing.
 
-- `Programming with Python <https://swcarpentry.github.io/python-novice-inflammation/>`_ 
+   - `Programming with Python <https://swcarpentry.github.io/python-novice-inflammation/>`_ 
 
-- `Plotting and Programming in Python <http://swcarpentry.github.io/python-novice-gapminder/>`_ 
+   - `Plotting and Programming in Python <http://swcarpentry.github.io/python-novice-gapminder/>`_ 
 
-Second level
-::::::::::::
+.. admonition:: Second level
 
-CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Their material addresses all academic disciplines and tries to be as programming language-independent as possible. 
+   CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Their material addresses all academic disciplines and tries to be as programming language-independent as possible. 
 
-- `Lessons <https://coderefinery.org/lessons/)>`_ 
-- `Data visualization using Python <https://coderefinery.github.io/data-visualization-python/>`_
-- `Jupyter <https://coderefinery.github.io/jupyter/>`_
+   - `Lessons <https://coderefinery.org/lessons/)>`_ 
+   - `Data visualization using Python <https://coderefinery.github.io/data-visualization-python/>`_
+   - `Jupyter <https://coderefinery.github.io/jupyter/>`_
 
-Aalto Scientific Computing
+   Aalto Scientific Computing
 
-- `Data analysis workflows with R and Python <https://aaltoscicomp.github.io/data-analysis-workflows-course/>`_
+   - `Data analysis workflows with R and Python <https://aaltoscicomp.github.io/data-analysis-workflows-course/>`_
 
-- `Python for Scientific Computing <https://aaltoscicomp.github.io/python-for-scicomp/>`_ 
+   - `Python for Scientific Computing <https://aaltoscicomp.github.io/python-for-scicomp/>`_ 
 
-   - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_ 
+      - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_ 
 
 
 Third level
