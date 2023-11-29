@@ -111,30 +111,31 @@ Material for improving your programming skills
       - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_ 
 
 
-Third level
-:::::::::::
+.. admonition:: Third level
 
-`ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_ is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
+   `ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_ is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
 
-- `High Performance Data Analytics in Python <https://enccs.github.io/hpda-python/)>`_
+   - `High Performance Data Analytics in Python <https://enccs.github.io/hpda-python/)>`_
 
-- The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python 
+   - The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python 
 
-- The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
+   - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
     
 Other NAISS centres
 -------------------
 
-- LUNARC
-   - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
-   - `Jupyter <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/?query=jupyter#jupyter-lab>`_
-- C3SE
-   - `Python <https://www.c3se.chalmers.se/documentation/applications/python/>`_
-   - `Jupyter <https://www.c3se.chalmers.se/documentation/applications/jupyter/>`_
-- NSC
-   - `Python <https://www.nsc.liu.se/software/python/>`_
-- PDC
-   - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_
+.. seealso::
+
+   - LUNARC
+      - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
+      - `Jupyter <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/?query=jupyter#jupyter-lab>`_
+   - C3SE
+      - `Python <https://www.c3se.chalmers.se/documentation/applications/python/>`_
+      - `Jupyter <https://www.c3se.chalmers.se/documentation/applications/jupyter/>`_
+   - NSC
+      - `Python <https://www.nsc.liu.se/software/python/>`_
+   - PDC
+      - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_
 
 
 .. objectives:: 
