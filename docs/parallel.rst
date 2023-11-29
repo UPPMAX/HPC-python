@@ -913,6 +913,11 @@ computations are activated later on.
          - or start a new terminal and type: ``firefox &``
     
       - Paste the url into the address field and press enter.
+      - jupyter-lab starts
+      - Double-click ``Dask-Ini.ipynb`` 
+      - Restart kernel and run all cells!
+
+
 
     
 
