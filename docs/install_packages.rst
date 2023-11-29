@@ -266,7 +266,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
      
       **First go to the directory you want your environment in.**
 
-      .. admonition:: Load modules for Python, numpy (in SciPy-bundle), matplotlib (since we need it for seaborn), create the virtual environment, activate the environment, and install spacy and seaborn on Kebnekaise at HPC2N 
+      .. admonition:: Load modules for Python, numpy (in SciPy-bundle), matplotlib (since we need it for seaborn), create the virtual environment, activate the environment, and install spacy, seaborn on Kebnekaise at HPC2N 
          :class: dropdown
    
          .. code-block:: console
@@ -274,7 +274,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
             $ module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 matplotlib/3.4.2
             $ python -m venv --system-site-packages vpyenv
             $ source vpyenv/bin/activate
-            (vpyenv) $ pip install --no-cache-dir --no-build-isolation spacy seaborn 
+            (vpyenv) $ pip install --no-cache-dir --no-build-isolation spacy seaborn
    
          Deactivating a virtual environment.
 
@@ -289,6 +289,13 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
          $ source vpyenv/bin/activate
     
 
+      Note: If there are any problems with the installation (complaints about incompatible versions etc.) you should be able to fix it by instead doing: 
+
+      .. code-block:: console
+
+         $ pip install --no-cache-dir --no-build-isolation numba==0.57 scipy==1.8 seaborn 
+
+         
 Using the self-installed packages in Python
 '''''''''''''''''''''''''''''''''''''''''''
 

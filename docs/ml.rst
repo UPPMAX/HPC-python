@@ -101,15 +101,15 @@ This is an example of a batch script for running the above example, using PyTorc
         .. code-block:: sh 
         
             #!/bin/bash 
-            # Remember to change this to your own project ID after the course! 
+            # Remember to change this to your own project ID! 
             #SBATCH -A hpc2nXXXX-YYY
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # The following two lines splits the output in a file for any errors and a file for other output. 
             #SBATCH --error=job.%J.err
             #SBATCH --output=job.%J.out
-            # Asking for one K80
-            #SBATCH --gres=gpu:k80:1
+            # Asking for one V100
+            #SBATCH --gres=gpu:V100:1
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
@@ -133,7 +133,7 @@ This is an example of a batch script for running the above example, using PyTorc
 
             [bjornc@s160 ~]$  ml python/3.9.5
             [bjornc@s160 ~]$  module load python_ML_packages/3.9.5-GPU
-            [bjornc@s160 ~]$  cd /proj/snic2022-22-641/nobackup/bjornc/examples/programs
+            [bjornc@s160 ~]$  cd /proj/snic2022-22-1126/nobackup/bjornc/examples/programs
             [bjornc@s160 programs]$ srun python pytorch_fitting_gpu.py
             99 134.71942138671875
             199 97.72868347167969
@@ -164,7 +164,7 @@ TensorFlow
 
 The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials 
 
-We are using Tensorflow 2.7.1 (and Python 3.10.4) at HPC2N (2.8.0 at UPPMAX). 
+We are using Tensorflow 2.6.0-CUDA-11.3-1 (and Python 3.9.5) at HPC2N (also 3.9.5 at UPPMAX). 
 
 .. tabs::
   
@@ -176,8 +176,7 @@ We are using Tensorflow 2.7.1 (and Python 3.10.4) at HPC2N (2.8.0 at UPPMAX).
 
       
         - Load modules: ``module load GCC/11.2.0 OpenMPI/4.1.1 SciPy-bundle/2021.10 TensorFlow/2.7.1``
-        - Create virtual environment: ``virtualenv --system-site-packages <path-to-install-dir>/vpyenv``
-        - Activate the virtual environment: ``source <path-to-install-dir>/vpyenv/bin/activate``
+        - Activate the virtual environment we created earlier: ``source <path-to-install-dir>/vpyenv/bin/activate``
         - ``pip install --no-cache-dir --no-build-isolation scikit-learn``
         
       We can now use scikit-learn in our example. 
@@ -186,7 +185,7 @@ We are using Tensorflow 2.7.1 (and Python 3.10.4) at HPC2N (2.8.0 at UPPMAX).
    
       UPPMAX has scikit-learn in the scikit-learn/0.22.1 module. We also need the python_ML module for Tensorflow, so let's just load those
 
-        - Load modules: ``module load python_ML_packages scikit-learn/0.22.1``
+        - Load modules: ``module load python_ML_packages scikit-learn/0.22.1 TensorFlow/2.5.0-fosscuda-2020b``
            - On Rackham this will load CPU version, whereas if on a GPU node the GPU version will be loaded
 
       
@@ -249,12 +248,12 @@ In order to run the above example, we will create a batch script and submit it.
             #SBATCH -A hpc2nXXXX-YYY
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
-            # Asking for one K80 
-            #SBATCH --gres=gpu:k80:1
+            # Asking for one V100
+            #SBATCH --gres=gpu:v100:1
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/11.2.0 OpenMPI/4.1.1 SciPy-bundle/2021.10 TensorFlow/2.7.1
+            module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3.1
             
             # Activate the virtual environment we installed to 
             source <path-to-install-dir>/vpyenv/bin/activate 
@@ -318,11 +317,11 @@ This example shows how you would run several programs or variations of programs 
          #SBATCH -A hpc2nXXXX-YYY
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
-         # Asking for one K80 
-         #SBATCH --gres=gpu:k80:1
+         # Asking for one V100 
+         #SBATCH --gres=gpu:v100:1
          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
-         module load GCC/11.2.0 OpenMPI/4.1.1 SciPy-bundle/2021.10 TensorFlow/2.7.1
+         module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3-1 
          # Output to file - not needed if your job creates output in a file directly 
          # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters). 
          python <my_tf_program.py> <param1> <param2> > myoutput1 2>&1
@@ -334,7 +333,7 @@ This example shows how you would run several programs or variations of programs 
 
    .. tab:: UPPMAX
 
-      Example batch script for Snowy, TensorFlow version 2.8.0 and Python version 3.9.5.
+      Example batch script for Snowy, TensorFlow version 2.5.0 and Python version 3.9.5.
       
       .. code-block:: sh 
 
@@ -351,8 +350,9 @@ This example shows how you would run several programs or variations of programs 
          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
          module load uppmax
-         module load python_ML_packages
+         module load python_ML_packages/3.9.5-gpu
          module load python/3.9.5 # to get some extra packages
+         module load TensorFlow/2.5.0-fosscuda-2020b
          # Output to file - not needed if your job creates output in a file directly
          # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
          python tf_program.py 1 2 > myoutput1 2>&1
@@ -367,7 +367,7 @@ This example shows how you would run several programs or variations of programs 
 
   - At all clusters you will find PyTorch, TensorFlow, Scikit-learn
   - The loading are slightly different at the clusters
-     - UPPMAX: All tools are available from the module ``ml python_ML_packages python/3.9.5``
-     - HPC2N: ``module load GCC/11.2.0 OpenMPI/4.1.1 SciPy-bundle/2021.10 TensorFlow/2.7.1``
+     - UPPMAX: All tools are available from the modules ``ml python_ML_packages python/3.9.5``
+     - HPC2N: ``module load GCC/11.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3.1``
 
 
