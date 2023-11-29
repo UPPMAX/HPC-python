@@ -889,24 +889,32 @@ computations are activated later on.
 
    .. tab:: UPPMAX
 
-      .. code-block:: sh 
+      - To test this on UPPMAX it is easiest run in an **interactive session** started in a **ThinLinc session**
+      - Also since Dask is installed already in ``Python/3.11.4``, we choose that version instead and run **jupyter-lab**.
+      - The we can start a web browser from the login node on Thinlinc, either from the menu to the upper left or from a new terminal 
+    
+      - So, in Thinlinc, in a new terminal:
 
-         #!/bin/bash -l
-         #SBATCH -A naiss202X-XY-XYZ
-         #SBATCH -t 00:05:00
-         #SBATCH -n 4
-         #SBATCH -o output_%j.out   # output file
-         #SBATCH -e error_%j.err    # error messages
-     
-         ml python/3.9.5
-         ml gcc/9.3.0 openmpi/3.1.5
-         #ml julia/1.7.2  # if Julia is needed
-      
-         source /proj/naiss202X-XY-XYZ/nobackup/<user>/venv-python-course/bin/activate
-       
-         mpirun -np 4 python integration2d_mpi.py
+      .. code-block:: console
 
+         $ interactive -A naiss2023-22-1126 -p devcore -n 4 -t 1:0:0
+         $ deactivate # Be sure to deactivate you virtual environment
+         $ cd <git-folder-for-course>
+         $ ml python/3.11.4
+         $ jupyter-lab --ip 0.0.0.0 --no-browser
 
+      - Copy the url in the output, containing the ``r<xxx>.uppmax.uu.se:8888/lab?token=<token-number>``, like for example:
+
+         - Example: ``http://r484.uppmax.uu.se:8888/lab?token=5b72a4bbad15a617c8e75acf0528c70d12bb879807752893``
+         - This address will certainly not work!
+
+      - In ThinLinc, either start **Firefox** from the menu to the upper left 
+        
+         - or start a new terminal and type: ``firefox &``
+    
+      - Paste the url into the address field and press enter.
+
+    
 
 
 Additional information
