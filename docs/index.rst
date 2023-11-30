@@ -296,7 +296,7 @@ Preliminary schedule
          - use the app with user: ``<user>@rackham-gui.uppmax.uu.se``
          - or go to https://rackham-gui.uppmax.uu.se
 
-           - here, youäll need two factor authentication.
+           - here, you'll need two factor authentication.
           
       - Create a working directory where you can code along. We recommend creating it under the course project storage directory
    
