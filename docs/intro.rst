@@ -81,7 +81,7 @@ Material for improving your programming skills
 
 .. admonition:: Third level
 
-   `ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_target="blank" is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
+   `ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_ is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
 
    - `High Performance Data Analytics in Python <https://enccs.github.io/hpda-python/>`_
 
