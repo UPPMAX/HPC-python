@@ -425,7 +425,7 @@ Does it work? Then it is there!
 
 Otherwise, you can either use ``pip`` or ``conda``.
 
-.. exercise:: Check pagages (5 min)
+.. exercise:: Check packages (5 min)
 
    - See if the following packages are installed. Use python version ``3.9.5``
 
@@ -440,7 +440,8 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
    - Rackham has for ordinary python/3.9.5 module already installed: 
       - ``numpy`` |:white_check_mark:|
-      - ``mpi4py`` |:white_check_mark:|
+      - ``pandas`` |:white_check_mark:|
+      - ``mpi4py`` |:x:|
       - ``distributed`` |:x:|
       - ``multiprocessing`` |:white_check_mark:|  (standard library)
       - ``time`` |:white_check_mark:|  (standard library)
@@ -448,6 +449,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
    - Kebnekaise has for ordinary python/3.9.5 module already installed:
       - ``numpy`` |:x:|
+      - ``pandas`` |:x:| 
       - ``mpi4py`` |:x:|
       - ``distributed`` |:x:|
       - ``multiprocessing`` |:white_check_mark:|  (standard library)
