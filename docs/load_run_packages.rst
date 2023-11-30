@@ -364,6 +364,7 @@ Packages/Python modules
 
    - Show how to check for Python packages
    - show how to install own packages on the different clusters
+
 Check current available packages
 --------------------------------
 
@@ -421,10 +422,43 @@ You can also test from within python to make sure that the package is not alread
     >>> import <package>
     
 Does it work? Then it is there!
+
 Otherwise, you can either use ``pip`` or ``conda``.
 
+.. exercise:: Check pagages (5 min)
 
-**NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them below, under the HPC2N tab or find more as mentioned above, using ``module spider -r ....``
+   - See if the following packages are installed. Use python version ``3.9.5``
+
+      - ``numpy``
+      - ``mpi4py``
+      - ``distributed``
+      - ``multiprocessing``
+      - ``time``
+      - ``dask``
+      
+.. solution::
+
+   - Rackham has for ordinary python/3.9.5 module already installed: 
+      - ``numpy`` &#9745;
+      - ``mpi4py`` &#9745;
+      - ``distributed`` &#9744;
+      - ``multiprocessing`` &#9745;  (standard library)
+      - ``time`` &#9745;  (standard library)
+      - ``dask`` &#9744;
+
+   - Kebnekaise has for ordinary python/3.9.5 module already installed:
+      - ``numpy`` &#9744;
+      - ``mpi4py`` &#9744;
+      - ``distributed`` &#9744;
+      - ``multiprocessing`` &#9745;  (standard library)
+      - ``time`` &#9745;  (standard library)
+      - ``dask`` &#9744;
+   - See next session how to find more pre-inslled packages!
+   - The is no package called distributed!
+
+
+
+**NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them below, under the HPC2N tab or find more as mentioned above, using ``module spider -r ...``
 
 A selection of the Python packages and libraries installed on UPPMAX and HPC2N are give in extra reading: `UPPMAX clusters <https://uppmax.github.io/HPC-python/uppmax.html>`_ and `Kebnekaise cluster <https://uppmax.github.io/HPC-python/kebnekaise.html>`_
 
