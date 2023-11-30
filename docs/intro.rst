@@ -103,22 +103,22 @@ Material for improving your programming skills
 
    Aalto Scientific Computing
 
-   - `Data analysis workflows with R and Python <https://aaltoscicomp.github.io/data-analysis-workflows-course/>`_
+   - `Data analysis workflows with R and Python <https://aaltoscicomp.github.io/data-analysis-workflows-course/>`_target="blank"
 
-   - `Python for Scientific Computing <https://aaltoscicomp.github.io/python-for-scicomp/>`_ 
+   - `Python for Scientific Computing <https://aaltoscicomp.github.io/python-for-scicomp/>`_target="blank" 
 
-      - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_ 
+      - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_target="blank" 
 
 
 .. admonition:: Third level
 
-   `ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_ is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
+   `ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_target="blank" is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
 
-   - `High Performance Data Analytics in Python <https://enccs.github.io/hpda-python/>`_
+   - `High Performance Data Analytics in Python <https://enccs.github.io/hpda-python/>`_target="blank"
 
-   - The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python 
+   - The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_target="blank" is a good introduction to writing concurrent programs in Python 
 
-   - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
+   - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_target="blank" is a good resource for ways of speeding up Python code.
     
 Other NAISS centres
 -------------------
@@ -126,15 +126,15 @@ Other NAISS centres
 .. seealso::
 
    - LUNARC
-      - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
-      - `Jupyter <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/?query=jupyter#jupyter-lab>`_
+      - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_target="blank"
+      - `Jupyter <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/?query=jupyter#jupyter-lab>`_target="blank"
    - C3SE
-      - `Python <https://www.c3se.chalmers.se/documentation/applications/python/>`_
-      - `Jupyter <https://www.c3se.chalmers.se/documentation/applications/jupyter/>`_
+      - `Python <https://www.c3se.chalmers.se/documentation/applications/python/>`_target="blank"
+      - `Jupyter <https://www.c3se.chalmers.se/documentation/applications/jupyter/>`_target="blank"
    - NSC
-      - `Python <https://www.nsc.liu.se/software/python/>`_
+      - `Python <https://www.nsc.liu.se/software/python/>`_target="blank"
    - PDC
-      - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_
+      - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_target="blank"
 
 
 .. objectives:: 
