@@ -453,10 +453,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
       - ``multiprocessing`` |:white_check_mark:|  (standard library)
       - ``time`` |:white_check_mark:|  (standard library)
       - ``dask``  |:x:|
-   - See next session how to find more pre-inslled packages!
-   - The is no package called distributed!
-
-
+   - See next session how to find more pre-installed packages!
 
 **NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them below, under the HPC2N tab or find more as mentioned above, using ``module spider -r ...``
 
