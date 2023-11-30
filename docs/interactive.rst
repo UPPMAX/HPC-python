@@ -29,11 +29,11 @@ Running interactively a compute node involves either:
 - You allocate a compute node in the SLURM system, using the same options as for batch jobs. 
 - The way it works differs, however, between UPPMAX and HPC2N.
 
-   - At UPPMAX, you actually are "physically" on the comput node
+   - At UPPMAX, you actually are "physically" on the compute node
    - At HPC2N, you are not, but can see the output of the commands, run in "batch mode"
 
 - Running Jupyter and other graphics benefits from being run in **ThinLinc** or other places *closer* to your own computer.
-- See more in the Jupyter section from this `course session <https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html>`_
+   - See more in the Jupyter section from this `course session <https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html>`_.
 
 - We will also deal with Jupyter in the next session about parallel computing. 
 
@@ -239,8 +239,8 @@ When you have finished using the allocation, either wait for it to end, or close
 
 .. admonition:: Running Jupyter on compute nodes at 
 
-   - UPPMAX: https://uppmax.github.io/HPC-python/jupyter.html
-   - HPC2N: https://www.hpc2n.umu.se/resources/software/jupyter 
+   - UPPMAX: https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html#uppmax
+   - HPC2N: https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html#kebnekaise
 
 
 .. keypoints::
