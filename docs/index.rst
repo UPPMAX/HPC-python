@@ -28,6 +28,8 @@ Welcome to HPC python course material
       - use Python for ML and on GPUs. 
    - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
 
+   - **We aim to give this course in spring and fall every year.*
+
 .. admonition:: **Your expectations?**
    
     - Find best practices for using Python at an HPC centre
