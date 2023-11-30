@@ -5,7 +5,7 @@ Interactive work on the compute nodes
 
    - It is possible to run Python directly on the login (including ThinLinc) nodes.
    - *Only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. 
-   - If you want to work **interactively** with your code or data, you should start an **interactive session** if it requires much CPU or RAM.
+   - If you want to work **interactively** with your code or data like for plotting graphs or developing, you should start an **interactive session** if it requires much CPU or RAM.
    - If you rather will run a script which won't use any interactive user input while running, you can instead start a batch job, see last session.
    
 .. questions::
@@ -21,19 +21,26 @@ Interactive work on the compute nodes
 General
 -------
 
-In order to run interactively, you need to have compute nodes allocated to run on, and this is done through the SLURM system.  
+Running interactively a compute node involves either:
+- **developing** python code and running it and fix the upcoming bugs
+- using a GUI, like Jupyter, and working interactively with data, and possibly plotting graphs.
+  - Jupyter-notebook/lab are available on both UPPMAX and HPC2N.
 
-Because you will have to wait until the nodes are allocated, and because you cannot know when this happens, this is not usually a recommended way to run Python, but it is possible. 
+- You allocate a compute node in the SLURM system, using the same options as for batch jobs. 
+- The way it works differs, however, between UPPMAX and HPC2N.
+
+   - At UPPMAX, you actually are "physically" on the comput node
+   - At HPC2N, you are not, but can see the output of the commands, run in "batch mode"
+
+- Running Jupyter and other graphics benefits from being run in **ThinLinc** or other places *closer* to your own computer.
+- See more in the Jupyter section from this `course session <https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html>`_
+
+- We will also deal with Jupyter in the next session about parallel computing. 
 
 .. warning::
 
     (HPC2N) Do note that it is not *real* interactivity as you probably mean it, as you will have to run it as a Python script instead of by starting Python and giving commands inside it. The reason for this is that you are not actually logged into the compute node and only sees the output of the commands you run. 
 
-Another option would be to use Jupyter notebooks. 
-
-- This option is covered in the `extra reading for UPPMAX <https://uppmax.github.io/HPC-python/jupyter.html>`_. 
-- It is somewhat convoluted to get to work correctly at HPC2N, but possible, using a submit file as an intermediate step. There is a tutorial on that `here <https://www.hpc2n.umu.se/resources/software/jupyter>`_ 
-- We will also deal with Jupyter in the next session about parallel computing. 
 
 
 Python "interactively" on the compute nodes 
