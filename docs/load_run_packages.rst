@@ -446,7 +446,8 @@ Otherwise, you can either use ``pip`` or ``conda``.
       - ``time`` |:white_check_mark:|  (standard library)
       - ``dask`` |:x:|
 
-   - Kebnekaise has for ordinary python/3.9.5 moxnegative_squared_cross_mark:|
+   - Kebnekaise has for ordinary python/3.9.5 module already installed:
+      - ``numpy`` |:x:|
       - ``mpi4py`` |:x:|
       - ``distributed`` |:x:|
       - ``multiprocessing`` |:white_check_mark:|  (standard library)
