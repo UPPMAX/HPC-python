@@ -223,7 +223,7 @@ Run Python script
       - If you get stuck, press: ``<esc>`` and then ``:q`` !
  
 
-.. type-along
+.. type-along::
 
    - Let's make a script with the name ``example.py``  
 
@@ -238,7 +238,7 @@ Run Python script
       # This program prints Hello, world!
       print('Hello, world!')
 
-   - Save and exit. In nano: ``<ctrl>+O``, ``<ctrl>+>``
+   - Save and exit. In nano: ``<ctrl>+O``, ``<ctrl>+X``
 
    You can run a python script in the shell like this:
 
@@ -250,7 +250,8 @@ Run Python script
 
 .. warning::
 
-   *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system (see the `batch session <https://uppmax.github.io/HPC-python/batch.html>`_)
+   - *ONLY* run jobs that are short and/or do not use a lot of resources from the command line. 
+   - Otherwise use the batch system (see the `batch session <https://uppmax.github.io/HPC-python/batch.html>`_)
     
 
 Run an interactive Python shell
