@@ -28,7 +28,7 @@ Welcome to HPC python course material
       - use Python for ML and on GPUs. 
    - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
 
-   - **We aim to give this course in spring and fall every year.*
+   - **We aim to give this course in spring and fall every year.**
 
 .. admonition:: **Your expectations?**
    
@@ -48,13 +48,14 @@ Welcome to HPC python course material
  
   - The course is for present or presumptive users at UPPMAX or HPC2N or possibly other clusters in Sweden. 
   - Therefore we apply python solutions on both clusters, so a broad audience can benefit.
+  - We also provide links to the Python/Jupyter documentation at other Swedish HPC centres with personell affiliated to NAISS.
 
   **Cluster-specific approaches**
   
    - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise). The main focus will be on UPPMAX's systems, but Kebnekaise will be included as well. If you already have an account at Kebnekaise, you can use that system for the hands-ons. 
    - In most cases there is little or no difference between UPPMAX's systems and HPC2N's systems (and the other HPC systems in Sweden), except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
 
-   - See further below a short introduction to the centre-specific cluster architectures
+   - See further below a short introduction to the centre-specific cluster architectures of UPPMAX and HPC2N.
 
 .. prereq::
 
@@ -62,11 +63,11 @@ Welcome to HPC python course material
    - user account on either Kebnekaise at HPC2N or Rackham at UPPMAX
    - familiarity with the LINUX command line
   
-      - Short introductions : https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632
-      - Linux "cheat sheet": https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet
-      - HPC2N's intro course material (including link to recordings): https://github.com/hpc2n/intro-course
-      - UPPMAX's intro course material: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
-      - UPPMAX software library: https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641
+      - `Short introductions <https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632>`_
+      - `Linux "cheat sheet" <https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet>`_
+      - `HPC2N's intro course material (including link to recordings) <https://github.com/hpc2n/intro-course>`_
+      - `UPPMAX's intro course material <https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/>`_
+      - `UPPMAX software library <https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641>`_
 
 
 Some practicals
@@ -100,13 +101,15 @@ Some practicals
 
 .. admonition:: Exercises
 
-    - You can download the exercises from the course GitHub repo, under the "Exercises" directory: https://github.com/UPPMAX/HPC-python/tree/main/Exercises 
-    - On HPC2N, you can copy the exercises in a tarball from /proj/nobackup/support-hpc2n/bbrydsoe/examples.tar.gz
-    - On UPPMAX you can copy the exercises in a tarball from /proj/naiss2023-22-1126/examples.tar.gz 
+   - You can download the exercises from the course GitHub repo, under the "Exercises" directory: ``https://github.com/UPPMAX/HPC-python/tree/main/Exercises``
+      - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/support-hpc2n/bbrydsoe/examples.tar.gz``
+      - On UPPMAX you can copy the exercises in a tarball from ``/proj/naiss2023-22-1126/examples.tar.gz``
     
 .. admonition:: Project
 
-    - The course project on UPPMAX (Rackham) is: naiss2023-22-1126 
+    - The course project on UPPMAX (Rackham) is: ``naiss2023-22-1126``
+
+    - If you work on Kebnekaise you may use existing projects you have already. The CPU-hrs used in this course is probably negligable.
 
 
 The two HPC centers UPPMAX and HPC2N
