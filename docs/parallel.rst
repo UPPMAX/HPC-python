@@ -917,6 +917,21 @@ computations are activated later on.
       - Double-click ``Dask-Ini.ipynb`` 
       - Restart kernel and run all cells!
 
+Dask is very popular for data analysis and is used by a number of high-level Python libraries:
+
+    - Dask arrays scale NumPy (see also xarray)
+    - Dask dataframes scale Pandas workflows
+    - Dask-ML scales Scikit-Learn
+
+- Dask divides arrays into many small pieces (chunks), as small as necessary to fit it into memory. 
+- Operations are delayed (lazy computing) e.g. tasks are queue and no computation is performed until you actually ask values to be computed (for instance print mean values). 
+- Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
+
+.. see also:: 
+
+   - `Dask documentation <https://docs.dask.org/en/stable/>`_
+   - `Introduction to Dask by Aalto Scientific Computing and CodeRefinery <https://aaltoscicomp.github.io/python-for-scicomp/parallel/#dask-and-task-queues>`_
+   - `Intermedieate level Dask by ENCCS <https://enccs.github.io/hpda-python/dask/>`_.
 
 
     
@@ -929,6 +944,8 @@ Additional information
 * `Dask documentation <https://docs.dask.org/en/stable/>`_
 * `High Performance Data Analytics in Python @ENCCS <https://enccs.github.io/hpda-python/dask/>`_
 * `List of parallel libraries for Python <https://wiki.python.org/moin/ParallelProcessing>`_
+* `Wikipedias' article on Parallel Computing <https://en.wikipedia.org/wiki/Parallel_computing>`_ 
+* The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
 
 
 .. keypoints::
