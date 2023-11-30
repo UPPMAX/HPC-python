@@ -205,7 +205,26 @@ Run
 Run Python script
 #################
 
-    
+.. hint::
+
+   - There are many ways to edit your scripts.
+   - If you are rather new.
+
+      - Graphical: $ gedit <script> &
+      - Terminal: $ nano <script>
+
+   - Otherwise you would know what to do!
+   - |:warning:|: The teachers may use their common editor, like ``vi``/``vim``
+      - If you get stuck, press: ``<esc>`` and then ``:q`` !
+ 
+
+.. type-along
+
+   - Let's make a script    
+
+
+
+
 You can run a python script in the shell like this:
 
 .. code-block:: console
@@ -223,11 +242,11 @@ Or, if you loaded a python3 module, you can use:
 
    $ python3 example.py
 
-NOTE: *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system (see the [batch session](https://uppmax.github.io/HPC-python/batch.html))
+NOTE: *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system (see the `batch session <https://uppmax.github.io/HPC-python/batch.html>`_
     
 .. note::
 
-   Real cases will be tested in the [**batch session**](https://uppmax.github.io/R-python-julia-HPC/python/batchPython.html). 
+   Real cases will be tested in the `**batch session** <https://uppmax.github.io/R-python-julia-HPC/python/batchPython.html>`_. 
 
 Run an interactive Python shell
 ###############################
@@ -315,7 +334,9 @@ iPython
     In [12]: quit()
     In [17]: exit()
 
-## Packages/Python modules
+Packages/Python modules
+-----------------------
+
 
 .. admonition:: Python modules AKA Python packages
 
