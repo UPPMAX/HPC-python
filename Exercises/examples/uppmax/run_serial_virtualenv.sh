@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH -A naiss2023-22-1126 # Change to your own after the course
-#SBATCH --time=00:10:00 # Asking for 10 minutes
+#SBATCH --time=00:01:00 # Asking for 1 minute
 #SBATCH -n 1 # Asking for 1 core
 
 # Set a path where the example programs are installed. 
