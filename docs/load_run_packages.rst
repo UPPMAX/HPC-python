@@ -439,20 +439,19 @@ Otherwise, you can either use ``pip`` or ``conda``.
 .. solution::
 
    - Rackham has for ordinary python/3.9.5 module already installed: 
-      - ``numpy`` |:checked:|
+      - ``numpy`` |:white_check_mark:|
       - ``mpi4py`` |:white_check_mark:|
-      - ``distributed`` |:unchecked:|
-      - ``multiprocessing`` &#9745;  (standard library)
-      - ``time`` &#9745;  (standard library)
-      - ``dask`` &#9744;
+      - ``distributed`` |:x:|
+      - ``multiprocessing`` |:white_check_mark:|  (standard library)
+      - ``time`` |:white_check_mark:|  (standard library)
+      - ``dask`` |:x:|
 
-   - Kebnekaise has for ordinary python/3.9.5 module already installed:
-      - ``numpy`` &#9744;
-      - ``mpi4py`` &#9744;
-      - ``distributed`` &#9744;
-      - ``multiprocessing`` &#9745;  (standard library)
-      - ``time`` &#9745;  (standard library)
-      - ``dask`` &#9744;
+   - Kebnekaise has for ordinary python/3.9.5 moxnegative_squared_cross_mark:|
+      - ``mpi4py`` |:x:|
+      - ``distributed`` |:x:|
+      - ``multiprocessing`` |:white_check_mark:|  (standard library)
+      - ``time`` |:white_check_mark:|  (standard library)
+      - ``dask``  |:x:|
    - See next session how to find more pre-inslled packages!
    - The is no package called distributed!
 
