@@ -97,7 +97,7 @@ Material for improving your programming skills
 
    CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Their material addresses all academic disciplines and tries to be as programming language-independent as possible. 
 
-   - `Lessons <https://coderefinery.org/lessons/)>`_ 
+   - `Lessons <https://coderefinery.org/lessons/>`_ 
    - `Data visualization using Python <https://coderefinery.github.io/data-visualization-python/>`_
    - `Jupyter <https://coderefinery.github.io/jupyter/>`_
 
