@@ -19,7 +19,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Using Python in an HPC environment'
-copyright = ''
+copyright = '2023, UPPMAX/HPC2N'
 author = 'UPPMAX/HPC2N'
 github_user = "UPPMAX"
 github_repo_name = "HPC-python"  # auto-detected from dirname if blank
