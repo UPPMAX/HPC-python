@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 # Remember to change this to your own project ID after the course!
 #SBATCH -A naiss2023-22-1126
 # We want to run on Snowy
@@ -14,6 +14,7 @@ MYPATH=/proj/naiss2023-22-1126/<mydir-name>/HPC-python/Exercises/examples/progra
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
+module load uppmax
 module load python_ML_packages/3.9.5-gpu python/3.9.5 
 
 

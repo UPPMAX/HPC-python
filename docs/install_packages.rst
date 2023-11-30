@@ -240,7 +240,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       .. code-block:: console
       
-         (vpyenv) $ pip install spacy seaborn numba
+         (vpyenv) $ pip install --no-cache-dir --no-build-isolation scipy==1.10 numpy==1.26.2 numba
 
       Check what was installed
 

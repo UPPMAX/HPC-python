@@ -12,6 +12,7 @@
 # Change the below to your own path to where you placed the example programs
 MYPATH=/proj/naiss2023-22-1126/<mydir-name>/HPC-python/Exercises/examples/programs/
 
+module load uppmax
 module load python_ML_packages/3.9.5-gpu python/3.9.5
 
 # Output to file - not needed if your job creates output in a file directly
