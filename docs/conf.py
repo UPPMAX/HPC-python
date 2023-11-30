@@ -50,8 +50,6 @@ mermaid_output_format = "png"
 mermaid_params = [
     "--theme",
     "forest",
-    "--width",
-    "600",
     "--backgroundColor",
     "transparent",
 ]
