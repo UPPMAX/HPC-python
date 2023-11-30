@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
    
-Welcome to HPC python course material
-=====================================
+Welcome to "Using Python in an HPC environment" course material
+===============================================================
 
 .. admonition:: This material
    
@@ -137,14 +137,14 @@ The two HPC centers UPPMAX and HPC2N
        - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
        - Bianca for sensitive data and has GPUs
 
-   - HPC2N has Kebnekaise with GPUs  
-   - Conda is recommended only for UPPMAX users
+     - HPC2N has Kebnekaise with GPUs  
+     - Conda is recommended only for UPPMAX users
     
 .. warning:: 
 
    - At both HPC2N and UPPMAX we call the applications available via the *module system* **modules**. 
-   - https://www.uppmax.uu.se/resources/software/module-system/ 
-   - https://www.hpc2n.umu.se/documentation/environment/lmod
+     - https://www.uppmax.uu.se/resources/software/module-system/ 
+     - https://www.hpc2n.umu.se/documentation/environment/lmod
    
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
@@ -280,15 +280,20 @@ Preliminary schedule
 .. admonition:: Prepare your environment now!
   
    - Please log in to Rackham, Kebnekaise or other cluster that you are using.
+   - For graphics, ThinLinc may be the best option.
+      - The `ThinLinc app <https://www.cendio.com/thinlinc/download/>`_.
+      - Rackham has a web browser interface with ThinLinc: https://rackham-gui.uppmax.uu.se
 
     
 .. tabs::
 
    .. tab:: UPPMAX
 
-      - Rackham: ``ssh <user>@rackham.uppmax.uu.se`` 
+      - Rackham: ``ssh <user>@rackham.uppmax.uu.se``       
+      - Rackham through ThinLinc, use the app or go to https://rackham-gui.uppmax.uu.se: 
       
-      - Rackham through ThinLinc, use: ``<user>@rackham-gui.uppmax.uu.se``
+         - Log in with ``<user>@rackham-gui.uppmax.uu.se``
+
       - Create a working directory where you can code along. We recommend creating it under the course project storage directory
    
          
