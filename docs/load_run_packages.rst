@@ -439,9 +439,9 @@ Otherwise, you can either use ``pip`` or ``conda``.
 .. solution::
 
    - Rackham has for ordinary python/3.9.5 module already installed: 
-      - ``numpy`` &#9745;
+      - ``numpy`` |:checked:|
       - ``mpi4py`` &#9745;
-      - ``distributed`` &#9744;
+      - ``distributed`` |:unchecked:|
       - ``multiprocessing`` &#9745;  (standard library)
       - ``time`` &#9745;  (standard library)
       - ``dask`` &#9744;
