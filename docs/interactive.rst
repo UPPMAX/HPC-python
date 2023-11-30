@@ -23,9 +23,10 @@ General
 
 - Running interactively a compute node involves either:
 
-   - **developing** python code and running it and fix the upcoming bugs
+   - **developing** python code and running it and test and fix the upcoming bugs.
    - using a GUI, like Jupyter, and working interactively with data, and possibly plotting graphs.
-   - **Jupyter-notebook/lab** are available on both UPPMAX and HPC2N.
+      
+      - **Jupyter-notebook/lab** are available on both UPPMAX and HPC2N.
 
 - You allocate a compute node in the SLURM system, using the same options as for batch jobs. 
 - The way it works differs, however, between UPPMAX and HPC2N.
