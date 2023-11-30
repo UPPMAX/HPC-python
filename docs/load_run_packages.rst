@@ -210,11 +210,14 @@ Run Python script
    - There are many ways to edit your scripts.
    - If you are rather new.
 
-      - Graphical: $ gedit <script> &
-      - Terminal: $ nano <script>
+      - Graphical: ``$ gedit <script> &`` (``&`` is for letting you use the terminal while editor window is open)
+
+         - Requires ThinLinc or ``ssh -Y ...`` or ``ssh -X``
+
+      - Terminal: ``$ nano <script>``
 
    - Otherwise you would know what to do!
-   - |:warning:|: The teachers may use their common editor, like ``vi``/``vim``
+   - |:warning:| The teachers may use their common editor, like ``vi``/``vim``
       - If you get stuck, press: ``<esc>`` and then ``:q`` !
  
 
