@@ -202,7 +202,7 @@ Common features
 Overview of the UPPMAX systems
 ##############################
 
-.. mermaid:: mermaid/uppmax.mmd
+.. mermaid:: mermaid/uppmax2.mmd
 
 
 Preliminary schedule
