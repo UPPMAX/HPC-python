@@ -57,10 +57,18 @@ Welcome to "Using Python in an HPC environment" course material
 
    - See further below a short introduction to the centre-specific cluster architectures of UPPMAX and HPC2N.
 
+.. admonition:: How is the workshop run?
+  
+   - General sessions with small differences shown for UPPMAX and HPC2N in tabs
+   - Main focus on the NAISS resources at UPPMAX, but Kebnekaise specifics will be covered
+   - Users who already have accounts/projects at HPC2N/Kebnekaise are welcome to use that for the exercises. UPPMAX/Rackham will be used for everyone else. 
+
+
 .. prereq::
 
    - Python at a basic level
    - user account on either Kebnekaise at HPC2N or Rackham at UPPMAX
+   - having a terminal with X-forwarding available and/or ThinLinc app or two-factor authentication for web-login.
    - familiarity with the LINUX command line
   
       - `Short introductions <https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632>`_
