@@ -143,10 +143,11 @@ The two HPC centers UPPMAX and HPC2N
 .. warning:: 
 
    - At both HPC2N and UPPMAX we call the applications available via the *module system* **modules**. 
-     - https://www.uppmax.uu.se/resources/software/module-system/ 
-     - https://www.hpc2n.umu.se/documentation/environment/lmod
+
+      - https://www.uppmax.uu.se/resources/software/module-system/ 
+      - https://www.hpc2n.umu.se/documentation/environment/lmod
    
-   To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
+   - To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
 Briefly about the cluster hardware and system at UPPMAX and HPC2N
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
