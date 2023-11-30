@@ -103,20 +103,20 @@ Material for improving your programming skills
 
    Aalto Scientific Computing
 
-   - `Data analysis workflows with R and Python <https://aaltoscicomp.github.io/data-analysis-workflows-course/>`_target="blank"
+   - `Data analysis workflows with R and Python <https://aaltoscicomp.github.io/data-analysis-workflows-course/>`_{target="blank"}
 
-   - `Python for Scientific Computing <https://aaltoscicomp.github.io/python-for-scicomp/>`_target="blank" 
+   - `Python for Scientific Computing <https://aaltoscicomp.github.io/python-for-scicomp/>`_
 
-      - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_target="blank" 
+      - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
 
 
 .. admonition:: Third level
 
    `ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_target="blank" is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
 
-   - `High Performance Data Analytics in Python <https://enccs.github.io/hpda-python/>`_target="blank"
+   - `High Performance Data Analytics in Python <https://enccs.github.io/hpda-python/>`_
 
-   - The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_target="blank" is a good introduction to writing concurrent programs in Python 
+   - The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python 
 
    - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_target="blank" is a good resource for ways of speeding up Python code.
     
