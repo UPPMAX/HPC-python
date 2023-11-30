@@ -290,16 +290,25 @@ Preliminary schedule
    .. tab:: UPPMAX
 
       - Rackham: ``ssh <user>@rackham.uppmax.uu.se``       
-      - Rackham through ThinLinc, use the app or go to https://rackham-gui.uppmax.uu.se: 
-      
-         - Log in with ``<user>@rackham-gui.uppmax.uu.se``
+      - Rackham through ThinLinc, 
+       
+         - use the app with user: ``<user>@rackham-gui.uppmax.uu.se``
+         - or go to https://rackham-gui.uppmax.uu.se
 
+           - here, youäll need two factor authentication.
+          
       - Create a working directory where you can code along. We recommend creating it under the course project storage directory
    
          
-      - Example. If your username is "mrspock" and you are at UPPMAX, this we recommend you create this folder: 
-     
-         /proj/naissYYYY-XX-ZZZ/mrspock/pythonUPPMAX
+      - Example. If your username is "mrspock" and you are at UPPMAX, then we recommend you to create a user folder in the project folder of the course and step into that: 
+
+         - ``cd /proj/naiss2023-22-1126``
+         - ``mkdir mrspock``
+         - ``cd mrspock``
+
+      - Clone the course repo
+
+         - ``git clone git@github.com:UPPMAX/HPC-python.git`` 
 
    .. tab:: HPC2N
 
@@ -310,10 +319,15 @@ Preliminary schedule
    
       - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
      
-         /proj/nobackup/hpc2nYYYY-XXX/bbrydsoe/pythonHPC2N
+         /proj/nobackup/hpc2nYYYY-XXX/bbrydsoe/HPC-python
+
+      - Clone the course repo in that folder:
+
+         - ``git clone git@github.com:UPPMAX/HPC-python.git`` 
 
 
-**NOTE** If you are downloading / cloning from the course GitHub repo and into the above directory, your Python examples and batch submit file examples will be in a subdirectory of the that.
+
+**NOTE** If you are downloading / cloning from the course GitHub repo and into the above directory, your Python examples and batch submit file examples will be in a subdirectory of that.
 
 Assuming you created a directory MYDIR-NAME under the project storage, you will find the examples as follows:
 
@@ -355,14 +369,14 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
 
    - It is up to you!
    - Graphics come easier with Thinlinc
-   - For this course, when having many windows open, it may be better to run in terminal, for space issues.
+   - For this course, when having many windows open, it may be better to run in terminal in most of the cases, for space issues.
    
    
     
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons!
+   :caption: Lessons:
 
    intro.rst
    load_run_packages.rst
