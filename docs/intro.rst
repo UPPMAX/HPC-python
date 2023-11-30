@@ -103,7 +103,7 @@ Material for improving your programming skills
 
    Aalto Scientific Computing
 
-   - `Data analysis workflows with R and Python <https://aaltoscicomp.github.io/data-analysis-workflows-course/>`_{target="blank"}
+   - `Data analysis workflows with R and Python <https://aaltoscicomp.github.io/data-analysis-workflows-course/>`_
 
    - `Python for Scientific Computing <https://aaltoscicomp.github.io/python-for-scicomp/>`_
 
@@ -118,7 +118,7 @@ Material for improving your programming skills
 
    - The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python 
 
-   - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_target="blank" is a good resource for ways of speeding up Python code.
+   - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
     
 Other NAISS centres
 -------------------
@@ -126,15 +126,14 @@ Other NAISS centres
 .. seealso::
 
    - LUNARC
-      - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_target="blank"
-      - `Jupyter <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/?query=jupyter#jupyter-lab>`_target="blank"
+      - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
+      - `Jupyter <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/?query=jupyter#jupyter-lab>`_
    - C3SE
-      - `Python <https://www.c3se.chalmers.se/documentation/applications/python/>`_target="blank"
-      - `Jupyter <https://www.c3se.chalmers.se/documentation/applications/jupyter/>`_target="blank"
-   - NSC
-      - `Python <https://www.nsc.liu.se/software/python/>`_target="blank"
+      - `Python <https://www.c3se.chalmers.se/documentation/applications/python/>`_
+      - `Jupyter <https://www.c3se.chalmers.se/documentation/applications/jupyter/>`_
+      - `Python <https://www.nsc.liu.se/software/python/>`_
    - PDC
-      - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_target="blank"
+      - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_
 
 
 .. objectives:: 
