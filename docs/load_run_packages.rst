@@ -210,7 +210,9 @@ Run Python script
    - There are many ways to edit your scripts.
    - If you are rather new.
 
-      - Graphical: ``$ gedit <script> &`` (``&`` is for letting you use the terminal while editor window is open)
+      - Graphical: ``$ gedit <script> &`` 
+   
+         - (``&`` is for letting you use the terminal while editor window is open)
 
          - Requires ThinLinc or ``ssh -Y ...`` or ``ssh -X``
 
@@ -223,33 +225,33 @@ Run Python script
 
 .. type-along
 
-   - Let's make a script    
+   - Let's make a script with the name ``example.py``  
 
+   .. code-block:: console
 
+      $ nano example.py
 
+   - Insert the following text
 
-You can run a python script in the shell like this:
+   .. code-block:: python
 
-.. code-block:: console
+      # This program prints Hello, world!
+      print('Hello, world!')
 
-   $ python example.py
-   # or 
-   $ python3 example.py
+   - Save and exit. In nano: ``<ctrl>+O``, ``<ctrl>+>``
 
+   You can run a python script in the shell like this:
 
-since python is a symbolic link to python3 in this case. 
+   .. code-block:: console
 
-Or, if you loaded a python3 module, you can use:
+      $ python example.py
+      # or 
+      $ python3 example.py
 
-.. code-block:: console
+.. warning::
 
-   $ python3 example.py
-
-NOTE: *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system (see the `batch session <https://uppmax.github.io/HPC-python/batch.html>`_
+   *only* run jobs that are short and/or do not use a lot of resources from the command line. Otherwise use the batch system (see the `batch session <https://uppmax.github.io/HPC-python/batch.html>`_)
     
-.. note::
-
-   Real cases will be tested in the `**batch session** <https://uppmax.github.io/R-python-julia-HPC/python/batchPython.html>`_. 
 
 Run an interactive Python shell
 ###############################
@@ -436,7 +438,7 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
       - Two modules contains topic specific packages. These are:
          
          - Machine learning: ``python_ML_packages`` (cpu and gpu versions and based on python/3.9.5)
-	 - GIS: ``python_GIS_packages`` (cpu vrson based on python/3.10.8)
+	 - GIS: ``python_GIS_packages`` (cpu version based on python/3.10.8)
 
    .. tab:: HPC2N
 
