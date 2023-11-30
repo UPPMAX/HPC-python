@@ -59,7 +59,7 @@ Material for improving your programming skills
 
    - `Plotting and Programming in Python <http://swcarpentry.github.io/python-novice-gapminder/>`_ 
 
-   - General introduction to Python by UPPMAX at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2023/
+   General introduction to Python by UPPMAX at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2023/
 
 
 .. admonition:: Second level
