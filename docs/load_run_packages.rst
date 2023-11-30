@@ -440,7 +440,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
    - Rackham has for ordinary python/3.9.5 module already installed: 
       - ``numpy`` |:checked:|
-      - ``mpi4py`` &#9745;
+      - ``mpi4py`` |:white_check_mark:|
       - ``distributed`` |:unchecked:|
       - ``multiprocessing`` &#9745;  (standard library)
       - ``time`` &#9745;  (standard library)
