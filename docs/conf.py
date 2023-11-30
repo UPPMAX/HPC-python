@@ -23,7 +23,7 @@ copyright = ''
 author = 'UPPMAX/HPC2N'
 github_user = "UPPMAX"
 github_repo_name = "HPC-python"  # auto-detected from dirname if blank
-github_version = "main/docs"
+github_version = "main/"
 conf_py_path = "/docs/" 
 # The full version, including alpha/beta/rc tags
 release = '2.0'
