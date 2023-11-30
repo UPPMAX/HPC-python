@@ -114,7 +114,7 @@ Material for improving your programming skills
 
    `ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_ is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
 
-   - `High Performance Data Analytics in Python <https://enccs.github.io/hpda-python/)>`_
+   - `High Performance Data Analytics in Python <https://enccs.github.io/hpda-python/>`_
 
    - The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python 
 
