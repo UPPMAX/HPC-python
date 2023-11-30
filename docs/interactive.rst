@@ -35,7 +35,7 @@ General
 
       - You can also ask for "devcore" partition, with ``-p devcore`` if you run for shorter than 1 hour. Then waiting times are short.
 
-- At HPC2N, you are *not* "physically" on the compute node, but can see the output of the commands run in "batch mode"
+   - At HPC2N, you are *not* "physically" on the compute node, but can see the output of the commands run in "batch mode"
 
 - Running Jupyter and other graphics benefit from being run in **ThinLinc** or other places *closer* to your own computer.
    - See more in the Jupyter section from this `course session <https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html>`_.
