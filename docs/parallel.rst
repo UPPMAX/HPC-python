@@ -924,25 +924,20 @@ Dask is very popular for data analysis and is used by a number of high-level Pyt
     - Dask-ML scales Scikit-Learn
 
 - Dask divides arrays into many small pieces (chunks), as small as necessary to fit it into memory. 
-- Operations are delayed (lazy computing) e.g. tasks are queue and no computation is performed until you actually ask values to be computed (for instance print mean values). 
+- Operations are delayed (lazy computing) e.g. tasks are queued and no computations is performed until you actually ask values to be computed (for instance print mean values). 
 - Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
 
-.. see also:: 
+.. seealso:: 
 
    - `Dask documentation <https://docs.dask.org/en/stable/>`_
    - `Introduction to Dask by Aalto Scientific Computing and CodeRefinery <https://aaltoscicomp.github.io/python-for-scicomp/parallel/#dask-and-task-queues>`_
-   - `Intermedieate level Dask by ENCCS <https://enccs.github.io/hpda-python/dask/>`_.
+   - `Intermediate level Dask by ENCCS <https://enccs.github.io/hpda-python/dask/>`_.
 
 
-    
-
-
-Additional information
-----------------------
+Additional information about general parallelism in Python
+----------------------------------------------------------
          
 * `On parallel software engineering education using python <https://link.springer.com/article/10.1007/s10639-017-9607-0>`_
-* `Dask documentation <https://docs.dask.org/en/stable/>`_
-* `High Performance Data Analytics in Python @ENCCS <https://enccs.github.io/hpda-python/dask/>`_
 * `List of parallel libraries for Python <https://wiki.python.org/moin/ParallelProcessing>`_
 * `Wikipedias' article on Parallel Computing <https://en.wikipedia.org/wiki/Parallel_computing>`_ 
 * The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
