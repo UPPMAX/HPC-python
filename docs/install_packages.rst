@@ -225,6 +225,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       
       .. code-block:: console
 
+          $ module load uppmax 
           $ module load python/3.9.5
           $ virtualenv --system-site-packages /proj/naiss2023-22-1126/<user-dir>/vpyenv
     
@@ -261,6 +262,9 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
          source /proj/naiss2023-22-1126/<user-dir>/vpyenv/bin/activate
 
       More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
+
+      Note: If there are problems with the numba install, instead do: 
+      ``(vpyenv) $ pip install --no-cache-dir --no-build-isolation scipy==1.10 numpy==1.26.2 numba``
       
    .. tab:: HPC2N
      

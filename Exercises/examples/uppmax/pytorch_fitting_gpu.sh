@@ -15,6 +15,7 @@
 # Change the below to your own path to where you placed the example programs
 MYPATH=/proj/naiss2023-22-1126/<mydir-name>/HPC-python/Exercises/examples/programs/
 
+module load uppmax
 module load python_ML_packages/3.9.5-gpu python/3.9.5
 
 srun python $MYPATH/pytorch_fitting_gpu.py

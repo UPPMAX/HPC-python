@@ -8,6 +8,8 @@
 MYPATH=/proj/naiss2023-22-1126/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Load any modules you need, here for Python 3.9.5 
+module load uppmax
+module load python_ML_packages/3.9.5-cpu
 module load python/3.9.5
 
 # Activate your virtual environment. 

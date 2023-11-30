@@ -131,6 +131,7 @@ This is an example of a batch script for running the above example, using PyTorc
             Waiting for job 6907137 to start...
             Starting job now -- you waited for 90 seconds.
 
+            [bjornc@s160 ~]$  ml uppmax
             [bjornc@s160 ~]$  ml python/3.9.5
             [bjornc@s160 ~]$  module load python_ML_packages/3.9.5-gpu
             [bjornc@s160 ~]$  cd /proj/naiss2023-22-1126/bjornc/HPC-python/Exercises/examples/programs
@@ -185,8 +186,8 @@ We are using Tensorflow 2.6.0-CUDA-11.3-1 (and Python 3.9.5) at HPC2N (also 3.9.
    
       UPPMAX has scikit-learn in the scikit-learn/0.22.1 module. We also need the python_ML module for Tensorflow, so let's just load those
 
-        - Load modules: ``module load python_ML_packages scikit-learn/0.22.1 TensorFlow/2.5.0-fosscuda-2020b``
-           - On Rackham this will load CPU version, whereas if on a GPU node the GPU version will be loaded
+        - Load modules: ``module load python_ML_packages/3.9.5-gpu python/3.9.5``
+           - On Rackham we should use python_ML-packages/3.9.5-cpu, while on a GPU node the GPU version should be loaded 
 
       
 
@@ -263,7 +264,7 @@ In order to run the above example, we will create a batch script and submit it.
             
    .. tab:: UPPMAX
 
-      Example batch script for Snowy, Python version 3.9.5, scikit-learn/0.22.1, and the python_ML_packages containing Tensorflow 
+      Example batch script for Snowy, Python version 3.9.5, and the python_ML_packages containing Tensorflow 
       
       .. code-block:: sh 
         
@@ -279,7 +280,7 @@ In order to run the above example, we will create a batch script and submit it.
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load uppmax
-            module load python_ML_packages 
+            module load python_ML_packages/3.9.5-gpu 
             module load python/3.9.5 # to get some extra packages
 
             
