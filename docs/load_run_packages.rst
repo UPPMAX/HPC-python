@@ -77,7 +77,7 @@ Check for Python versions
        .. code-block::  tcl
     
           -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
-            python_GIS_packages/3.10.8      python_ML_packages/3.9.5-gpu (D)
+           python_GIS_packages/3.10.8      python_ML_packages/3.9.5-gpu (D)
            python_ML_packages/3.9.5-cpu    wrf-python/1.3.1
 
            --------------------------------------- /sw/mf/rackham/compilers ----------------------------------------
