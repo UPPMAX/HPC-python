@@ -86,7 +86,7 @@ Numba example
 -------------
 
 Numba is installed as a module at HPC2N, but not in a version compatible with the Python we 
-are using in this course (3.9.6->HPC2N, 3.9.5-UPPMAX), so we will have to install it ourselves. The process is the same
+are using in this course (3.9.6->HPC2N, 3.9.5->UPPMAX), so we will have to install it ourselves. The process is the same
 as in the examples given for the isolated/virtual environment, and we will be using the virtual 
 environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before: 
 
