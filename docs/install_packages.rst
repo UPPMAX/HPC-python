@@ -368,7 +368,7 @@ Working with virtual environments defined from files
 
 - So, creating a file from just the local environment::
 
-  $ pip freeze --local > requirements.txt``
+  $ pip freeze --local > requirements.txt
 
 ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
 
