@@ -86,7 +86,7 @@ Numba example
 -------------
 
 Numba is installed as a module at HPC2N, but not in a version compatible with the Python we 
-are using in this course (3.9.5), so we will have to install it ourselves. The process is the same
+are using in this course (3.9.6), so we will have to install it ourselves. The process is the same
 as in the examples given for the isolated/virtual environment, and we will be using the virtual 
 environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before: 
 
@@ -207,7 +207,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          salloc: Waiting for resource configuration
          salloc: Nodes b-cn1101 are ready for job
          $
-         $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
+         $ module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
          $ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
          (vpyenv) b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ srun python add-list.py
          CPU function took 31.905025 seconds.
@@ -233,7 +233,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
           # Remove any loaded modules and load the ones we need
           module purge  > /dev/null 2>&1
-          module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
+          module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
 
           # Activate the virtual environment we installed to
           source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
