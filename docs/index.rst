@@ -317,7 +317,7 @@ Preliminary schedule
 
       - Clone the course repo
 
-         - ``git clone git@github.com:UPPMAX/HPC-python.git`` 
+         - ``git clone https://github.com/UPPMAX/HPC-python.git`` 
 
    .. tab:: HPC2N
 
