@@ -90,30 +90,33 @@ are using in this course (3.9.5), so we will have to install it ourselves. The p
 as in the examples given for the isolated/virtual environment, and we will be using the virtual 
 environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before: 
 
-.. admonition::  Python 3.9.5 as the basis
+.. admonition::  Python 3.9.6 as the basis
     :class: dropdown
    
-        Load Python 3.9.5 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba
-        If you code-along, then remember to change the path to your own in the example below!
+        Load Python 3.9.6 and its prerequisites + CUDA, then activate the virtual environment before installing numba
+        Then remember to change the path to your own in the example below!
    
         .. code-block:: console
       
-             $ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.3.1
+             $ module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
              $ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate 
              (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation numba
+
              Collecting numba
-               Downloading numba-0.56.0-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.5 MB)
-                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 38.7 MB/s eta 0:00:00
-             Requirement already satisfied: setuptools in /pfs/proj/nobackup/fs/projnb10/support-hpc2n/bbrydsoe/vpyenv/lib/python3.9/site-packages (from numba) (63.1.0)
-             Requirement already satisfied: numpy<1.23,>=1.18 in /cvmfs/ebsw.hpc2n.umu.se/amd64_ubuntu2004_bdw/software/SciPy-bundle/2021.05-foss-2021a/lib/python3.9/site-packages (from numba) (1.20.3)
-             Collecting llvmlite<0.40,>=0.39.0dev0
-               Downloading llvmlite-0.39.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.6 MB)
-                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.6/34.6 MB 230.0 MB/s eta 0:00:00
-             Installing collected packages: llvmlite, numba
-             Successfully installed llvmlite-0.39.0 numba-0.56.0
-           
-             [notice] A new release of pip available: 22.1.2 -> 22.2.2
-             [notice] To update, run: pip install --upgrade pip
+               Downloading numba-0.58.1-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.7 kB)
+             Collecting llvmlite<0.42,>=0.41.0dev0 (from numba)
+               Downloading llvmlite-0.41.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.8 kB)
+             Collecting numpy<1.27,>=1.22 (from numba)
+               Downloading numpy-1.26.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 kB 7.9 MB/s eta 0:00:00
+             Downloading numba-0.58.1-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.6 MB)
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 81.0 MB/s eta 0:00:00
+             Downloading llvmlite-0.41.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (43.6 MB)
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.6/43.6 MB 254.1 MB/s eta 0:00:00
+             Downloading numpy-1.26.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 215.6 MB/s eta 0:00:00
+             Installing collected packages: numpy, llvmlite, numba
+             Successfully installed llvmlite-0.41.1 numba-0.58.1 numpy-1.26.2
 
 We can ignore the comment about pip. The package was successfully installed. now let us try using it. 
 We are going to use the following program for testing (it was taken from 
