@@ -25,12 +25,12 @@ architecture with a GPU based architecture. Here, there is a schemematics of the
    its own cache memory (LX). There is a shared memory (64 GB/NUMA node) for all these cores.
    The base frequency for each core is 2.6 GHz.
 
-As for the GPU architecture, a V100 engine looks like this:
+As for the GPU architecture, a K80 engine looks like this:
 
 .. figure:: img/gpu.png
    :align: center
 
-   A single GPU engine of a V100 card. Each green dot represents a core (single precision) which
+   A single GPU engine of a K80 card. Each green dot represents a core (single precision) which
    runs at a frequency of 562 MHz. The cores are arranged in slots called streaming multiprocessors (SMX)
    in the figure. Cores in the same SMX share some local and fast cache memory.
 
@@ -42,7 +42,7 @@ One possible layout (Kebnekaise) is as follows:
 .. figure:: img/cpu-gpu.png
    :align: center
 
-   Schematics of a hybrid CPU-GPU architecture. A GPU V100 card consisting of two engines is attached
+   Schematics of a hybrid CPU-GPU architecture. A GPU K80 card consisting of two engines is attached
    to a NUMA island which in turn contains 14 cores. The NUMA island and the GPUs are
    connected through a PCI-E interconnect which makes the data transfer between both components rather
    slow.
