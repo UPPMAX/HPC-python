@@ -25,12 +25,12 @@ architecture with a GPU based architecture. Here, there is a schemematics of the
    its own cache memory (LX). There is a shared memory (64 GB/NUMA node) for all these cores.
    The base frequency for each core is 2.6 GHz.
 
-As for the GPU architecture, a K80 engine looks like this:
+As for the GPU architecture, a V100 engine looks like this:
 
 .. figure:: img/gpu.png
    :align: center
 
-   A single GPU engine of a K80 card. Each green dot represents a core (single precision) which
+   A single GPU engine of a V100 card. Each green dot represents a core (single precision) which
    runs at a frequency of 562 MHz. The cores are arranged in slots called streaming multiprocessors (SMX)
    in the figure. Cores in the same SMX share some local and fast cache memory.
 
@@ -42,7 +42,7 @@ One possible layout (Kebnekaise) is as follows:
 .. figure:: img/cpu-gpu.png
    :align: center
 
-   Schematics of a hybrid CPU-GPU architecture. A GPU K80 card consisting of two engines is attached
+   Schematics of a hybrid CPU-GPU architecture. A GPU V100 card consisting of two engines is attached
    to a NUMA island which in turn contains 14 cores. The NUMA island and the GPUs are
    connected through a PCI-E interconnect which makes the data transfer between both components rather
    slow.
@@ -196,7 +196,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       .. code-block:: console
 
-         $ salloc -A hpc2nXXXX-YYY --time=00:30:00 -n 1 --gres=gpu:k80:1 
+         $ salloc -A hpc2nXXXX-YYY --time=00:30:00 -n 1 --gres=gpu:V100:1 
          salloc: Pending job allocation 20346979
          salloc: job 20346979 queued and waiting for resources
          salloc: job 20346979 has been allocated resources
@@ -223,8 +223,8 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
           #SBATCH -A hpc2nXXXX-YYY     # HPC2N ID - change to naiss2023-22-1126 for UPPMAX
           # We are asking for 5 minutes
           #SBATCH --time=00:05:00
-          # Asking for one K80
-          #SBATCH --gres=gpu:k80:1     # For HPC2N. Remove if on UPPMAX
+          # Asking for one V100
+          #SBATCH --gres=gpu:V100:1     # For HPC2N. Remove if on UPPMAX
           ##SBATCH -M snowy            # For UPPMAX. Remove leading # to use
           ##SBATCH --gres=gpu:1        # For UPPMAX. Remove leading # to use
 
@@ -397,7 +397,7 @@ Exercises
             #SBATCH -n 28
             #SBATCH -o output_%j.out   # output file
             #SBATCH -e error_%j.err    # error messages
-            #SBATCH --gres=gpu:k80:2
+            #SBATCH --gres=gpu:V100:2
             #SBATCH --exclusive
      
             ml purge > /dev/null 2>&1
