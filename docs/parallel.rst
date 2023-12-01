@@ -48,7 +48,7 @@ Parallel computing with Python
 
          $ python -m pip install mpi4py
 
-      - For the ``f2py`` example, ``f2py3.9`` should be available on the terminal when ``numpy`` is installed::
+      - For the ``f2py`` example, this command should be available on the terminal when ``numpy`` is installed::
 
       .. code-block:: console
 
@@ -299,7 +299,7 @@ Then continue...
 
 .. code-block:: console
 
-    $ f2py3.9 -c -m myfunction fortran_function.f90  
+    $ f2py -c -m myfunction fortran_function.f90  
     running build
     running config_cc
     ...
@@ -588,7 +588,7 @@ for OpenMP:
 
 .. code-block:: console
 
-    $ f2py3.9 -c --f90flags='-fopenmp' -lgomp -m myfunction_openmp fortran_function_openmp.f90
+    $ f2py -c --f90flags='-fopenmp' -lgomp -m myfunction_openmp fortran_function_openmp.f90
 
 
 the generated module can be then loaded,
