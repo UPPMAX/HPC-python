@@ -63,7 +63,9 @@ Summary
     - CodeRefinery develops and maintains training material on software best practices for researchers that already write code. 
     
       - Their material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
-    
+
+    - `A workshop more devoted to packages and Conda on UPPMAX <https://uppmax.github.io/R-python-julia-HPC/>`_
+
 .. note::
     
     - Julia language becomes increasingly popular.
