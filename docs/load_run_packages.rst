@@ -257,6 +257,34 @@ Run Python script
 Run an interactive Python shell
 ###############################
 
+- You can start a simple python terminal by:
+
+.. code-block:: console
+
+   $ python 
+    
+**Example**
+
+.. code-block:: python
+
+   >>> a=3
+   >>> b=7
+   >>> c=a+b
+   >>> c
+   10
+
+- Exit Python with <Ctrl-D>, ``quit()`` or ``exit()`` in the python prompt
+
+.. code-block:: python
+
+    >>> <Ctrl-D>
+    >>> quit()
+    >>> exit()
+
+
+
+
+
 For more interactiveness you can run Ipython.
 
 .. tip::
@@ -311,26 +339,8 @@ For more interactiveness you can run Ipython.
       - https://www.hpc2n.umu.se/resources/software/jupyter 
 
 
-**Example**
+- Exit IPython with <Ctrl-D>, ``quit()`` or ``exit()`` in the python prompt
 
-.. code-block:: python
-
-   >>> a=3
-   >>> b=7
-   >>> c=a+b
-   >>> c
-   10
-
-
-- Exit Python or IPython with <Ctrl-D>, ``quit()`` or ``exit()`` in the python prompt
-
-Python
-
-.. code-block:: python
-
-    >>> <Ctrl-D>
-    >>> quit()
-    >>> exit()
 
 iPython
 
@@ -339,6 +349,7 @@ iPython
     In [2]: <Ctrl-D>
     In [12]: quit()
     In [17]: exit()
+
 
 Packages/Python modules
 -----------------------
