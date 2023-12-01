@@ -128,7 +128,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
    .. code-block:: console
 
          $ module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 
-         $ python venv -m --system-site-packages Example3
+         $ python -m venv --system-site-packages Example3
 
 
 **NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
