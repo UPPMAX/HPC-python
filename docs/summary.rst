@@ -57,20 +57,17 @@ Summary
 
 .. seealso::
 
-    - For other topics, see python documentation https://www.python.org/doc/. 
-    - Python forum is found here https://python-forum.io/.
-    - A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/
-    - CodeRefinery develops and maintains training material on software best practices for researchers that already write code. 
-    
-      - Their material addresses all academic disciplines and tries to be as programming language-independent as possible. https://coderefinery.org/lessons/
-
+    - `Python documentation <https://www.python.org/doc/>`_. 
+    - `Python forum <https://python-forum.io/>`_.
+    - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
+    - `CodeRefinery lessons < https://coderefinery.org/lessons/>`_
     - `A workshop more devoted to packages and Conda on UPPMAX <https://uppmax.github.io/R-python-julia-HPC/>`_
 
 .. note::
     
     - Julia language becomes increasingly popular.
-    - Julia at UPPMAX: https://uppmax.uu.se/support/user-guides/julia-user-guide/
-    - julia at HPC2N: https://www.hpc2n.umu.se/resources/software/julia
+    - `Julia at UPPMAX <https://uppmax.uu.se/support/user-guides/julia-user-guide/>`_
+    - `Julia at HPC2N <https://www.hpc2n.umu.se/resources/software/julia>`_
 
 
 
