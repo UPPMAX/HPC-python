@@ -1,10 +1,11 @@
 # Defining the exact version will make sure things don't break
-python==3.8
-sphinx==4.2.0
-sphinx_rtd_theme==1.0.0
-readthedocs-sphinx-search==0.1.1
-sphinx-lesson==0.8.7
+
+sphinx>=7.2.6
+sphinx_rtd_theme>=2.0.0
+readthedocs-sphinx-search>=0.3.2
+sphinx-lesson>=0.8.15
 sphinx-prompt
 sphinx_rtd_theme_ext_color_contrast
 myst_nb
 sphinxemoji
+sphinx-copybutton
