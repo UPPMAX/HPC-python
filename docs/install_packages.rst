@@ -257,7 +257,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       Everytime you need the tools available in the virtual environment you activate it as above, after loading the python module.
 
-      .. prompt:: console $
+     .. code-block:: console $
 
          source /proj/naiss2023-22-1126/<user-dir>/vpyenv/bin/activate
 
@@ -301,7 +301,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
          
 Using the self-installed packages in Python
-'''''''''''''''''''''''''''''''''''''''''''
+###########################################
 
 - To use the Python packages you have installed under your virtual environment, load your Python module + prerequisites, load any site-installed Python packages you used, and then activate the environment.
 - Now your own packages can be accessed from within Python, just like any other Python package. 
@@ -357,18 +357,24 @@ Working with virtual environments defined from files
 - First create and activate an environment (see above)
 - Create an environment based on dependencies given in an environment file::
   
-  $ pip install -r requirements.txt
+.. code-block:: console
+
+   $ pip install -r requirements.txt
    
 - Create file from present virtual environment::
 
-  $ pip freeze > requirements.txt
+.. code-block:: console
+
+   $ pip freeze > requirements.txt
   
 - That includes also the *system site packages* if you included them with ``--system-site-packages``
 - You can list packages specific for the virtualenv by ``pip list --local`` 
 
 - So, creating a file from just the local environment::
 
-  $ pip freeze --local > requirements.txt
+.. code-block:: console
+
+   $ pip freeze --local > requirements.txt
 
 ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
 
