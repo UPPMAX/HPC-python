@@ -257,7 +257,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       Everytime you need the tools available in the virtual environment you activate it as above, after loading the python module.
 
-     .. code-block:: console $
+     .. code-block:: console 
 
          source /proj/naiss2023-22-1126/<user-dir>/vpyenv/bin/activate
 

@@ -60,7 +60,7 @@ Summary
     - `Python documentation <https://www.python.org/doc/>`_. 
     - `Python forum <https://python-forum.io/>`_.
     - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
-    - `CodeRefinery lessons < https://coderefinery.org/lessons/>`_
+    - `CodeRefinery lessons <https://coderefinery.org/lessons/>`_
     - `A workshop more devoted to packages and Conda on UPPMAX <https://uppmax.github.io/R-python-julia-HPC/>`_
 
 .. note::
