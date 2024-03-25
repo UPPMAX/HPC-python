@@ -357,24 +357,24 @@ Working with virtual environments defined from files
 - First create and activate an environment (see above)
 - Create an environment based on dependencies given in an environment file::
   
-.. code-block:: console
+  .. code-block:: console
 
-   $ pip install -r requirements.txt
+     $ pip install -r requirements.txt
    
 - Create file from present virtual environment::
 
-.. code-block:: console
+  .. code-block:: console
 
-   $ pip freeze > requirements.txt
+     $ pip freeze > requirements.txt
   
 - That includes also the *system site packages* if you included them with ``--system-site-packages``
 - You can list packages specific for the virtualenv by ``pip list --local`` 
 
 - So, creating a file from just the local environment::
 
-.. code-block:: console
+  .. code-block:: console
 
-   $ pip freeze --local > requirements.txt
+     $ pip freeze --local > requirements.txt
 
 ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
 

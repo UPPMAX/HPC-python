@@ -1,5 +1,5 @@
 Introduction
-==============
+============
 
 `Welcome page and syllabus <https://uppmax.github.io/HPC-python/index.html>`_
    - Also link at House symbol |:house:| at top of page 
@@ -29,8 +29,8 @@ In particular, what sets Python apart from other languages is its fantastic
 open-source ecosystem for scientific computing and machine learning with
 libraries like NumPy, SciPy, scikit-learn and Pytorch.
 
-- Official Python documentation is found here https://www.python.org/doc/ 
-- Python forum is found here https://python-forum.io/ 
+- Official Python documentation is found `here <https://www.python.org/doc/>_` 
+- Python forum is found `here <https://python-forum.io/>_`
 - A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/
 - The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python and the book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
     

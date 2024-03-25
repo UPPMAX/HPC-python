@@ -44,7 +44,7 @@ Some python packages are working as stand-alone tools, for instance in bioinform
 
 .. code-block:: sh 
 
-   $ module spider <tool-name or tool-name part> 
+   $ module spider <tool-name or tool-name part>
     
 Using ``module spider`` lets you search regardless of upper- or lowercase characters.
 
@@ -58,7 +58,7 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
 
 	.. code-block:: sh 
 
-	   $ module help python/<version> 
+	   $ module help python/<version>
   
 	
 	

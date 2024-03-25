@@ -36,29 +36,29 @@ Parallel computing with Python
 
       - For the ``numba`` example install the corresponding module::
 
-      .. code-block:: console
+         .. code-block:: console
         
-         $ python -m pip install numba
+            $ python -m pip install numba
 
       - For the ``mpi4py`` example add the following modules::
 
-      .. code-block:: console
+         .. code-block:: console
     
-         $ ml GCC/11.2.0 OpenMPI/4.1.1
+            $ ml GCC/11.2.0 OpenMPI/4.1.1
 
          $ python -m pip install mpi4py
 
       - For the ``f2py`` example, this command should be available on the terminal when ``numpy`` is installed::
 
-      .. code-block:: console
+         .. code-block:: console
 
-         $ python -m pip install numpy
+            $ python -m pip install numpy
 
       - For the Julia example we will need PyJulia::
         
-      .. code-block:: console
+         .. code-block:: console
 
-         $ ml Julia/1.8.5-linux-x86_64
+            $ ml Julia/1.8.5-linux-x86_64
 
          $ python -m pip install julia
 

@@ -21,7 +21,7 @@ Isolated environments at HPC2N
    Installing with a virtual environment is the only recommended way at HPC2N! 
 
 Virtual environment - virtualenv
----------------------------------------------
+--------------------------------
 
 Create a ``vpyenv``. First load the python version you want to base your virtual environment on:
 

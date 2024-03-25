@@ -97,7 +97,7 @@ Check for Python versions
 .. admonition:: Output at HPC2N as of 30 Nov 2023
     :class: dropdown
 
-        .. code-block:: tcl
+        .. code-block:: console
 
            b-an01 [~]$ module spider Python
            ----------------------------------------------------------------------------
