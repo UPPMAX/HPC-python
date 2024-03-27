@@ -852,11 +852,26 @@ job starts running, here there is one example of how this looks like:
 Dask
 ----
 
-This is a library in Python for flexible parallel computing. Among the features
-are the ability to deal with arrays and data frames, in a similar manner to
-Numpy and Pandas, respectively, and the possibility of performing asynchronous
-computations, where first a computation graph is generated and the actual 
-computations are activated later on.
+Dask is a array model extension and task scheduler. By using the new array 
+classes, you can automatically distribute operations across multiple CPUs.
+Dask is a library in Python for flexible parallel computing. Among the features
+are the ability to deal with arrays and data frames, and the possibility of 
+performing asynchronous computations, where first a computation graph is 
+generated and the actual computations are activated later on demand.
+
+Dask is very popular for data analysis and is used by a number of high-level
+Python libraries:
+
+   - Dask arrays scale NumPy (see also xarray)
+   - Dask dataframes scale Pandas workflows
+   - Dask-ML scales Scikit-Learn
+
+- Dask divides arrays into many small pieces (chunks), as small as necessary to 
+  fit it into memory. 
+- Operations are delayed (lazy computing) e.g. tasks are queue and no computation 
+  is performed until you actually ask values to be computed (for instance print mean values). 
+- Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
+
 
 .. tabs::
 
