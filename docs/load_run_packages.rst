@@ -562,7 +562,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
             ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
    
-   1. From inside Python/interactive:
+   1. From inside Python/interactive (if you are on Kebnekaise, mind the warning above):
 
       Start python and run these lines: 
 
@@ -596,27 +596,48 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png`` containing the plot. This is what you would do if you were running a python script in a batch job. 
 
-   2. As a Python script:
+   2. As a Python script (if you are on Kebnekaise, mind the warning above):
 
-      Copy and save this script as a file (or just run the file ``pandas_matplotlib.py`` that is located in the ``<path-to>/Exercises/examples/programs`` directory you got from the repo or copied.
+      Copy and save this script as a file (or just run the file ``pandas_matplotlib-<system>.py`` that is located in the ``<path-to>/Exercises/examples/programs`` directory you got from the repo or copied. Where <system> is either ``rackham`` or ``kebnekaise``. 
 
-      .. code-block:: python
+      .. tabs::
 
-	 import pandas as pd
-         import matplotlib.pyplot as plt
+	 ..tab:: rackham
 
-         dataframe = pd.read_csv("scottish_hills.csv")
-         x = dataframe.Height
-         y = dataframe.Latitude
-         plt.scatter(x, y)
-         plt.show()
-	 
+	   .. code-block:: python
 
-If you have time, you can also try and run these extended versions, which also requires the ``scipy`` packages (included with python at UPPMAX and with the same module as ``pandas`` for HPC2N):
+	      import pandas as pd
+              import matplotlib.pyplot as plt
+
+              dataframe = pd.read_csv("scottish_hills.csv")
+              x = dataframe.Height
+              y = dataframe.Latitude
+              plt.scatter(x, y)
+              plt.show()
+
+	 ..tab:: kebnekaise
+
+	   .. code-block:: python
+
+	      import pandas as pd
+	      import matplotlib
+	      import matplotlib.pyplot as plt
+	      
+              matplotlib.use('TkAgg')
+
+	      dataframe = pd.read_csv("scottish_hills.csv")
+              x = dataframe.Height
+              y = dataframe.Latitude
+              plt.scatter(x, y)
+              plt.show()
+	      
+If you have time, you can also try and run these extended versions, which also requires the ``scipy`` packages (included with python at UPPMAX and with the same modules loaded as for ``pandas`` for HPC2N):
 
 .. exercise:: Python example that requires ``pandas``, ``matplotlib``, and ``scipy`` packages.
 
    You can either save the scripts or run them line by line inside Python. The scripts are also available in the directory ``<path-to>/Exercises/examples/programs``, as ``pandas_matplotlib-linreg.py`` and ``pandas_matplotlib-linreg-pretty.py``.
+
+   NOTE that there are separate versions for rackham and kebnekaise and that you for kebnekaise need to again add the same lines as mentioned under the warning before the previous exercise. 
 
    Remember that you also need the data file ``scottish_hills.csv`` located in the above directory. 
 
