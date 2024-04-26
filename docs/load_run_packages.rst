@@ -513,7 +513,7 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 Exercises
 ---------
 
-This is an exercise that combines loading, running, and using site-installed packages. Later, during the batch session, we will look at running the same exercise, but as a batch job. 
+This is an exercise that combines loading, running, and using site-installed packages. Later, during the batch session, we will look at running the same exercise, but as a batch job. There is also a follow-up exercise of an extended version of the script, if you want to try run that as well (see further down on the page). 
 
 .. note:: 
 
