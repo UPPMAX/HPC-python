@@ -271,22 +271,19 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
-      Note: If there are problems with the numba install, instead do: 
-      ``(vpyenv) $ pip install --no-cache-dir --no-build-isolation scipy==1.10 numpy==1.26.2 numba``
-      
    .. tab:: HPC2N
      
       **First go to the directory you want your environment in.**
 
-      .. admonition:: Load modules for Python, numpy (in SciPy-bundle), matplotlib (since we need it for seaborn), create the virtual environment, activate the environment, and install spacy, seaborn on Kebnekaise at HPC2N 
+      .. admonition:: Load modules for Python, SciPy-bundle, matplotlib, create the virtual environment, activate the environment, and install lightgbm and sckit-learn (since the versions available are not compatible with this Python) on Kebnekaise at HPC2N 
          :class: dropdown
    
          .. code-block:: console
            
-            $ module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 matplotlib/3.4.2
+            $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
             $ python -m venv --system-site-packages vpyenv
             $ source vpyenv/bin/activate
-            (vpyenv) $ pip install --no-cache-dir --no-build-isolation spacy seaborn
+            (vpyenv) $ pip install --no-cache-dir --no-build-isolation lightgbm scikit-learn 
    
          Deactivating a virtual environment.
 
