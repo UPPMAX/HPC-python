@@ -83,16 +83,16 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
       .. code-block:: console
 
-         $ module load python/3.9.5
+         $ module load python/3.11.8
          $ virtualenv --system-site-packages Example
     
       "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
       ``venv`` way
 
-     .. code-block:: console
+      .. code-block:: console
 
-         $ module load python/3.9.5
+         $ module load python/3.11.8 
          $ python -m venv --system-site-packages Example2
     
      "Example2" is the name of the virtual environment. The directory "Example2" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
@@ -103,7 +103,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
       .. code-block:: console
 
-         $ module load GCC/10.3.0 Python/3.9.5 
+         $ module load GCC/12.3.0 Python/3.11.3 
          $ virtualenv --system-site-packages Example
     
       "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
@@ -112,7 +112,7 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
       .. code-block:: console
 
-         $ module load GCC/10.3.0 Python/3.9.5
+         $ module load GCC/12.3.0 Python/3.11.3
          $ python -m venv --system-site-packages Example2
 
       "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
@@ -123,17 +123,17 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
    To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
    ``--system-site-packages`` includes the packages already installed in the loaded python module.
 
-   At HPC2N, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.9.5:
+   At HPC2N, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
    
    .. code-block:: console
 
-         $ module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 
+         $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 
          $ python -m venv --system-site-packages Example3
 
 
 **NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
 
-**NOTE**: if you need are for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
+**NOTE**: if you need to for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
       
 
 If you want your virtual environment in a certain place...
@@ -142,33 +142,33 @@ If you want your virtual environment in a certain place...
 
    .. tab:: UPPMAX
 
-      To place it in the course project folder
+      To place it in the course project folder, under your own directory you created there 
       
       .. code-block:: console
 
-         $ python -m venv --system-site-packages /proj/naiss2023-22-1126/<user-dir>/Example
+         $ python -m venv --system-site-packages /proj/hpc-python/<user-dir>/Example
     
       Activate it.
 
       .. code-block:: console
 
-          $ source /proj/naiss2023-22-1126/<user-dir>/Example/bin/activate
+          $ source /proj/hpc-python/<user-dir>/Example/bin/activate
 
       Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
    .. tab:: HPC2N
 
-      To place it in a directory below your own project storage (again calling it "Example"): 
+      To place it in a directory below your directory in the project storage (again calling it "Example"): 
 
       .. code-block:: console
 
-         $ virtualenv --system-site-packages /proj/nobackup/<your-proj-dir>/<your-dir>/Example 
+         $ virtualenv --system-site-packages /proj/nobackup/python-hpc/<your-dir>/Example 
     
       Activate it.
 
       .. code-block:: console
 
-          $ source /proj/nobackup/<your-proj-dir>/<your-dir>/Example/bin/activate
+          $ source /proj/nobackup/python-hpc/<your-dir>/Example/bin/activate
 
 
 Note that your prompt is changing to start with (name of your vitual environment) to show that you are within it.
@@ -182,6 +182,10 @@ Note that your prompt is changing to start with (name of your vitual environment
 Using pip
 ---------
 
+.. tip::
+
+   **Do not type along!**
+   
 Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
 
 .. code-block:: console
@@ -212,12 +216,13 @@ Everytime you need the tools available in the virtual environment you activate i
 Prepare the course environment
 ------------------------------
 
+We will need to install the LightGBM Python package for one of the examples in the ML section. 
+
 .. tip::
     
    **Type along!**
 
-
-Create a virtual environment called ``vpyenv``. First load the python version you want to base your virtual environment on:
+Create a virtual environment called ``vpyenv``. First load the python version you want to base your virtual environment on, as well as the site-installed ML packages. 
 
 .. tabs::
 
@@ -226,14 +231,15 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       .. code-block:: console
 
           $ module load uppmax 
-          $ module load python/3.9.5
-          $ virtualenv --system-site-packages /proj/naiss2023-22-1126/<user-dir>/vpyenv
+          $ module load python/3.11.8
+	  $ module load python_ML_packages/3.11.8-cpu
+	  $ python -m venv --system-site-packages /proj/hpc-python/<user-dir>/vpyenv
     
       Activate it.
 
       .. code-block:: console
 
-         $ source /proj/naiss2023-22-1126/<user-dir>/vpyenv/bin/activate
+         $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
 
       Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.
 
@@ -241,7 +247,9 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       .. code-block:: console
       
-         (vpyenv) $ pip install --no-cache-dir --no-build-isolation scipy==1.10 numpy==1.26.2 numba
+         (vpyenv) $ pip install --no-cache-dir --no-build-isolation scikit-build-core cmake lightgbm
+
+      The reason for the other packages (``scikit-build-core`` and ``cmake``) being installed is that they are prerequisites for ``lightgbm``. 	 
 
       Check what was installed
 
@@ -259,7 +267,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
      .. code-block:: console 
 
-         source /proj/naiss2023-22-1126/<user-dir>/vpyenv/bin/activate
+         source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
 
       More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
