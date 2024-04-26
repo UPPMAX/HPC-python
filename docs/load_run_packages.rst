@@ -543,7 +543,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
          .. code-block:: console
 
-            ml GCC/12.3.0 Python/3.1.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
    
    Start python and run these lines: 
 
