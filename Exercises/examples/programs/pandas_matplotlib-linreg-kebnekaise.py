@@ -1,6 +1,9 @@
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 from scipy.stats import linregress
+
+matplotlib.use('TkAgg')
 
 # Example from https://ourcodingclub.github.io/tutorials/pandas-python-intro/ 
 dataframe = pd.read_csv("scottish_hills.csv")
