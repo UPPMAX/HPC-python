@@ -608,34 +608,34 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       .. tabs::
 
-	 ..tab:: rackham
+	 .. tab:: rackham
 
-	   .. code-block:: python
+	    .. code-block:: python
+ 
+  	       import pandas as pd
+               import matplotlib.pyplot as plt
 
-	      import pandas as pd
-              import matplotlib.pyplot as plt
+               dataframe = pd.read_csv("scottish_hills.csv")
+               x = dataframe.Height
+               y = dataframe.Latitude
+               plt.scatter(x, y)
+               plt.show()
 
-              dataframe = pd.read_csv("scottish_hills.csv")
-              x = dataframe.Height
-              y = dataframe.Latitude
-              plt.scatter(x, y)
-              plt.show()
+	 .. tab:: kebnekaise
 
-	 ..tab:: kebnekaise
+	    .. code-block:: python
 
-	   .. code-block:: python
-
-	      import pandas as pd
-	      import matplotlib
-	      import matplotlib.pyplot as plt
+	       import pandas as pd
+	       import matplotlib
+	       import matplotlib.pyplot as plt
 	      
-              matplotlib.use('TkAgg')
+               matplotlib.use('TkAgg')
 
-	      dataframe = pd.read_csv("scottish_hills.csv")
-              x = dataframe.Height
-              y = dataframe.Latitude
-              plt.scatter(x, y)
-              plt.show()
+	       dataframe = pd.read_csv("scottish_hills.csv")
+               x = dataframe.Height
+               y = dataframe.Latitude
+               plt.scatter(x, y)
+               plt.show()
 	      
 If you have time, you can also try and run these extended versions, which also requires the ``scipy`` packages (included with python at UPPMAX and with the same modules loaded as for ``pandas`` for HPC2N):
 
