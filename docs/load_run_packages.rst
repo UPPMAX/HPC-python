@@ -525,7 +525,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
 .. warning::
 
-   **Not relevant if using Thinlinc. Only if you are using ssh -X to login at HPC2N**
+   **Not relevant if using UPPMAX. Only if you are using HPC2N**
 
    You need to also load Tkinter. Use this:
 
