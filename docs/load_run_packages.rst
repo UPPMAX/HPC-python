@@ -515,7 +515,7 @@ Exercises
 
 This is an exercise that combines loading, running, and using site-installed packages. Later, during the batch session, we will look at running the same exercise, but as a batch job. 
 
-.. tip:: 
+.. note:: 
 
     You need the data-file ``scottish_hills.csv`` which can be found in the directory ``Exercises/examples/programs``. If you have cloned the git-repo for the course, or copied the tar-ball, you should have this directory. The easiest thing to do is just change to that directory and run the exercise there. 
 
@@ -545,41 +545,119 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
             ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
    
-   Start python and run these lines: 
+   1. From inside Python/interactive:
+
+      Start python and run these lines: 
+
+      .. code-block:: python
+
+         import pandas as pd
+
+      .. code-block:: python
+
+         import matplotlib.pyplot as plt
+
+      .. code-block:: python
+
+         dataframe = pd.read_csv("scottish_hills.csv")
+
+      .. code-block:: python
+
+         x = dataframe.Height
+
+      .. code-block:: python
+
+         y = dataframe.Latitude
+
+      .. code-block:: python 
+
+         plt.scatter(x, y)
+
+      .. code-block:: python
+
+         plt.show()
+
+      If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png`` containing the plot. This is what you would do if you were running a python script in a batch job. 
+
+   2. As a Python script:
+
+      Copy and save this script as a file (or just run the file ``pandas_matplotlib.py`` that is located in the ``<path-to>/Exercises/examples/programs`` directory you got from the repo or copied.
+
+      .. code-block:: python
+
+	 import pandas as pd
+         import matplotlib.pyplot as plt
+
+         dataframe = pd.read_csv("scottish_hills.csv")
+         x = dataframe.Height
+         y = dataframe.Latitude
+         plt.scatter(x, y)
+         plt.show()
+	 
+
+If you have time, you can also try and run these extended versions, which also requires the ``scipy`` packages (included with python at UPPMAX and with the same module as ``pandas`` for HPC2N):
+
+.. exercise:: Python example that requires ``pandas``, ``matplotlib``, and ``scipy`` packages.
+
+   You can either save the scripts or run them line by line inside Python. The scripts are also available in the directory ``<path-to>/Exercises/examples/programs``, as ``pandas_matplotlib-linreg.py`` and ``pandas_matplotlib-linreg-pretty.py``.
+
+   Examples are from https://ourcodingclub.github.io/tutorials/pandas-python-intro/
+
+   .. code-block:: python 
+
+      import pandas as pd
+      import matplotlib.pyplot as plt
+      from scipy.stats import linregress
+
+      dataframe = pd.read_csv("scottish_hills.csv")
+
+      x = dataframe.Height
+      y = dataframe.Latitude
+
+      stats = linregress(x, y)
+
+      m = stats.slope
+      b = stats.intercept
+
+      plt.scatter(x, y)
+      plt.plot(x, m * x + b, color="red")   # I've added a color argument here
+
+      plt.show()
 
    .. code-block:: python
 
       import pandas as pd
-
-   .. code-block:: python
-
       import matplotlib.pyplot as plt
-
-   .. code-block:: python
+      from scipy.stats import linregress
 
       dataframe = pd.read_csv("scottish_hills.csv")
 
-   .. code-block:: python
-
       x = dataframe.Height
-
-   .. code-block:: python
-
       y = dataframe.Latitude
 
-   .. code-block:: python 
+      stats = linregress(x, y)
 
-      plt.scatter(x, y)
+      m = stats.slope
+      b = stats.intercept
 
-   .. code-block:: python
+      # Change the default figure size
+      plt.figure(figsize=(10,10))
+
+      # Change the default marker for the scatter from circles to x's
+      plt.scatter(x, y, marker='x')
+
+      # Set the linewidth on the regression line to 3px
+      plt.plot(x, m * x + b, color="red", linewidth=3)
+
+      # Add x and y lables, and set their font size
+      plt.xlabel("Height (m)", fontsize=20)
+      plt.ylabel("Latitude", fontsize=20)
+
+      # Set the font size of the number lables on the axes
+      plt.xticks(fontsize=18)
+      plt.yticks(fontsize=18)
 
       plt.show()
-
-   If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png`` containing the plot. This is what you would do if you were running a python script in a batch job. 
-      
-.. solution::
-
-   .....
 
 .. keypoints::
 
