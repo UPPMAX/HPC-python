@@ -141,7 +141,7 @@ Load a Python module
 
 For reproducibility, we recommend ALWAYS loading a specific module instad of using the default version! 
 
-For this course, we recommend using Python 3.9.5.
+For this course, we recommend using Python 3.11.x (except for some GPU examples that will use 3.9.5).
 
 .. tip::
     
@@ -152,33 +152,34 @@ For this course, we recommend using Python 3.9.5.
 
    .. tab:: UPPMAX
    
-      Go back and check which Python modules were available. To load version 3.9.5, do:
+      Go back and check which Python modules were available. To load version 3.11.8, do:
 
       .. code-block:: console
 
-        $ module load python/3.9.5
+        $ module load python/3.11.8
         
       Note: Lowercase ``p``.
       For short, you can also use: 
 
       .. code-block:: console
 
-         $ ml python/3.9.5
+         $ ml python/3.11.8
 
  
    .. tab:: HPC2N
 
+      To load Python version 3.11.3, do: 	    
  
       .. code-block:: console
 
-         $ module load GCC/10.3.0 Python/3.9.5
+         $ module load GCC/12.3.0 Python/3.11.3
 
       Note: Uppercase ``P``.   
       For short, you can also use: 
 
       .. code-block:: console
 
-         $ ml GCC/10.3.0 Python/3.9.5
+         $ ml GCC/12.3.0 Python/3.11.3
 
 .. warning::
 
@@ -316,7 +317,7 @@ For more interactiveness you can run Ipython.
          $ jupyter-notebook 
          
       You can decide on your own favorite browser and add ``--no-browser`` and open the given URL from the output given.
-      From python/3.10.8 also jupyter-lab is available.
+      From python/3.10.8 and forward, also jupyterlab is available.
          
     
    .. tab:: HPC2N
@@ -326,7 +327,12 @@ For more interactiveness you can run Ipython.
       .. code-block:: console
 
          $ module spider IPython
-         $ ml IPython/7.25.0
+
+      And load one of them (here 7.25.0) with
+
+      ..code-block:: console
+	 
+        $ ml IPython/7.25.0
          
       Then start Ipython with (lowercase):
       
@@ -438,7 +444,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
 .. exercise:: Check packages (5 min)
 
-   - See if the following packages are installed. Use python version ``3.9.5``
+   - See if the following packages are installed. Use python version ``3.11.8`` on Rackham and ``3.11.3`` on Kebnekaise (remember: the Python module on kebnekaise has a prerequisite). 
 
       - ``numpy``
       - ``mpi4py``
@@ -456,9 +462,9 @@ Otherwise, you can either use ``pip`` or ``conda``.
       - ``distributed`` |:x:|
       - ``multiprocessing`` |:white_check_mark:|  (standard library)
       - ``time`` |:white_check_mark:|  (standard library)
-      - ``dask`` |:x:|
+      - ``dask`` |:white_check_mark:|
 
-   - Kebnekaise has for ordinary python/3.9.5 module already installed:
+   - Kebnekaise has for ordinary Python/3.11.3 module already installed:
       - ``numpy`` |:x:|
       - ``pandas`` |:x:| 
       - ``mpi4py`` |:x:|
@@ -710,7 +716,7 @@ If you have time, you can also try and run these extended versions, which also r
 	- from BASH shell with the 
 	
 		- ``pip list`` command at both centers
-		- ``ml help python/3.9.5`` at UPPMAX
+		- ``ml help python/<version>`` at UPPMAX
 		
    - Installation of Python packages can be done either with **PYPI** or **Conda**
    - You install own packages with the ``pip install`` command (This is the recommended way on HPC2N)
