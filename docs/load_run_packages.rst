@@ -517,7 +517,7 @@ This is an exercise that combines loading, running, and using site-installed pac
 
 .. tip:: 
 
-    You need the data-file `scottish_hills.csv` which can be found in the directory `Exercises/examples/programs`. If you have cloned the git-repo for the course, or copied the tar-ball, you should have this directory. The easiest thing to do is just change to that directory and run the exercise there. 
+    You need the data-file ``scottish_hills.csv`` which can be found in the directory ``Exercises/examples/programs``. If you have cloned the git-repo for the course, or copied the tar-ball, you should have this directory. The easiest thing to do is just change to that directory and run the exercise there. 
 
     Since the exercise opens a plot, you need to login with ThinLinc (or otherwise have an x11 server running on your system and login with ``ssh -X ...``). 
 
@@ -525,13 +525,13 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
 .. exercise:: Python example with packages pandas and matplotlib 
 
-   We are using Python version 3.11.x. To access the packages pandas and matplotlib, you may need to load other modules, depending on the site where you are working. 
+   We are using Python version ``3.11.x``. To access the packages ``pandas`` and ``matplotlib``, you may need to load other modules, depending on the site where you are working. 
      
    .. tabs:: 
 
       .. tab:: UPPMAX
 
-         Here you only need to load the python module, as the relevant packages are included (as long as you are not using GPUs, but that is talked about later in the course). Thus, you just do: 
+         Here you only need to load the ``python`` module, as the relevant packages are included (as long as you are not using GPUs, but that is talked about later in the course). Thus, you just do: 
 
         .. code-block:: console
 
@@ -539,7 +539,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       .. tab:: HPC2N
 
-         On Kebnekaise you also need to load SciPy-bundle and matplotlib (and their prerequisites). These will work well together: 
+         On Kebnekaise you also need to load ``SciPy-bundle`` and ``matplotlib`` (and their prerequisites). These versions will work well together: 
 
          .. code-block:: console
 
@@ -575,7 +575,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       plt.show()
 
-   If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png``containing the plot. This is what you would do if you were running a python script in a batch job. 
+   If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png`` containing the plot. This is what you would do if you were running a python script in a batch job. 
       
 .. solution::
 
