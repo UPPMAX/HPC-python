@@ -510,6 +510,61 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 	  - ``Cython``
 	  - ``Flask``
 
+Exercises
+---------
+
+This is an exercise that combines loading, running, and using site-installed packages. Later, during the batch session, we will look at running the same exercise, but as a batch job. 
+
+.. tip:: 
+
+    You need the data-file `scottish_hills.csv` which can be found in the directory `Exercises/examples/programs`. If you have cloned the git-repo for the course, or copied the tar-ball, you should have this directory. The easiest thing to do is just change to that directory and run the exercise there. 
+
+    Since the exercise opens a plot, you need to login with ThinLinc (or otherwise have an x11 server running on your system and login with ``ssh -X ...``). 
+
+The exercise is modified from an example found on https://ourcodingclub.github.io/tutorials/pandas-python-intro/. 
+
+.. exercise:: Python example with packages pandas and matplotlib 
+
+   We are using Python version 3.11.x. To access the packages pandas and matplotlib, you may need to load other modules, depending on the site where you are working. 
+     
+   .. tabs:: 
+
+      .. tab:: UPPMAX
+
+         Here you only need to load the python module, as the relevant packages are included (as long as you are not using GPUs, but that is talked about later in the course). Thus, you just do: 
+
+        .. code-block:: console
+
+           ml python/3.11.8
+
+      .. tab:: HPC2N
+
+         On Kebnekaise you also need to load SciPy-bundle and matplotlib (and their prerequisites). These will work well together: 
+
+         .. code-block:: console
+
+            ml GCC/12.3.0 Python/3.1.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+   
+   Start python and run these lines: 
+
+   .. code-block:: python
+
+      import pandas as pd
+
+   .. code-block:: python
+
+      import matplotlib.pyplot as plt
+
+   .. code-block:: python
+
+      dataframe = pd.read_csv("scottish_hills.csv")
+
+
+
+      
+.. solution::
+
+   .....
 
 .. keypoints::
 
