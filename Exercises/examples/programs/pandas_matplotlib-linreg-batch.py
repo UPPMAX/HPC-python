@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import linregress
 
-# Example from https://ourcodingclub.github.io/tutorials/pandas-python-intro/ 
 dataframe = pd.read_csv("scottish_hills.csv")
 
 x = dataframe.Height
@@ -16,4 +15,4 @@ b = stats.intercept
 plt.scatter(x, y)
 plt.plot(x, m * x + b, color="red")   # I've added a color argument here
 
-plt.show()
+plt.savefig("figure.png")

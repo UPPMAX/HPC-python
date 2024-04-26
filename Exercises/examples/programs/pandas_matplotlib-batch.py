@@ -5,4 +5,4 @@ dataframe = pd.read_csv("scottish_hills.csv")
 x = dataframe.Height
 y = dataframe.Latitude
 plt.scatter(x, y)
-plt.show()  
+plt.savefig("myplot.png")

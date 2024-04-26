@@ -30,4 +30,4 @@ plt.ylabel("Latitude", fontsize=20)
 plt.xticks(fontsize=18)
 plt.yticks(fontsize=18)
 
-plt.show()
+plt.savefig("python-linear-reg-custom.png")
