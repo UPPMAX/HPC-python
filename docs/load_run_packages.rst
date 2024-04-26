@@ -559,8 +559,23 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       dataframe = pd.read_csv("scottish_hills.csv")
 
+   .. code-block:: python
 
+      x = dataframe.Height
 
+   .. code-block:: python
+
+      y = dataframe.Latitude
+
+   .. code-block:: python 
+
+      plt.scatter(x, y)
+
+   .. code-block:: python
+
+      plt.show()
+
+   If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png``containing the plot. This is what you would do if you were running a python script in a batch job. 
       
 .. solution::
 
