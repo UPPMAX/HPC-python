@@ -523,6 +523,23 @@ This is an exercise that combines loading, running, and using site-installed pac
 
 The exercise is modified from an example found on https://ourcodingclub.github.io/tutorials/pandas-python-intro/. 
 
+.. hint::
+
+   **Only of you are using ``ssh -X`` to login at HPC2N**
+
+   You need to also load Tkinter. Use this:
+
+   .. code-block:: console
+
+      ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+
+   In addition, you need to add the following two lines to the top of your python script/run them first in Python:
+
+   .. code-block:: python
+
+      import matplotlib
+      matplotlib.use('TkAgg')
+
 .. exercise:: Python example with packages pandas and matplotlib 
 
    We are using Python version ``3.11.x``. To access the packages ``pandas`` and ``matplotlib``, you may need to load other modules, depending on the site where you are working. 
@@ -600,6 +617,8 @@ If you have time, you can also try and run these extended versions, which also r
 .. exercise:: Python example that requires ``pandas``, ``matplotlib``, and ``scipy`` packages.
 
    You can either save the scripts or run them line by line inside Python. The scripts are also available in the directory ``<path-to>/Exercises/examples/programs``, as ``pandas_matplotlib-linreg.py`` and ``pandas_matplotlib-linreg-pretty.py``.
+
+   Remember that you also need the data file ``scottish_hills.csv`` located in the above directory. 
 
    Examples are from https://ourcodingclub.github.io/tutorials/pandas-python-intro/
 
