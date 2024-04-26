@@ -523,9 +523,9 @@ This is an exercise that combines loading, running, and using site-installed pac
 
 The exercise is modified from an example found on https://ourcodingclub.github.io/tutorials/pandas-python-intro/. 
 
-.. hint::
+.. warning::
 
-   **Only of you are using ``ssh -X`` to login at HPC2N**
+   **Not relevant if using Thinlinc. Only if you are using ``ssh -X`` to login at HPC2N**
 
    You need to also load Tkinter. Use this:
 
