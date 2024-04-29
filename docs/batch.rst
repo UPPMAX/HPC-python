@@ -118,8 +118,7 @@ Useful commands to the batch system
 Example Python batch scripts
 ---------------------------- 
 
-Serial code
-^^^^^^^^^^^
+**Serial code**
 
 .. hint:: 
 
@@ -204,8 +203,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
             
         
-Serial code + self-installed package in virt. env. 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Serial code + self-installed package in virt. env.**
 
 .. tabs::
 
@@ -253,8 +251,7 @@ Serial code + self-installed package in virt. env.
             python <my_program.py>
 
 
-GPU code
-''''''''
+**GPU code**
 
 .. tabs::
 
