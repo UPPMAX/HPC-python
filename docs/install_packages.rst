@@ -265,7 +265,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       Everytime you need the tools available in the virtual environment you activate it as above, after loading the python module.
 
-     .. code-block:: console 
+      .. code-block:: console 
 
          source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
 
@@ -275,7 +275,9 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
      
       **First go to the directory you want your environment in.**
 
-      .. admonition:: Load modules for Python, SciPy-bundle, matplotlib, create the virtual environment, activate the environment, and install lightgbm and sckit-learn (since the versions available are not compatible with this Python) on Kebnekaise at HPC2N 
+      .. admonition:: Installing lightgbm on Kebnekaise 
+
+         Load modules for Python, SciPy-bundle, matplotlib, create the virtual environment, activate the environment, and install lightgbm and sckit-learn (since the versions available are not compatible with this Python) on Kebnekaise at HPC2N 
          :class: dropdown
    
          .. code-block:: console
