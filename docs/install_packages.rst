@@ -326,21 +326,24 @@ Using the virtual environment created under "Preparting the course environment" 
 
    :class: dropdown
    
-   Load modules for python, and python_ML_packages, then activate the environment and start python. Try and import the library ``lightgbm``. 
+       Load modules for python, and python_ML_packages, then activate the environment and start python. Try and import the library ``lightgbm``. 
 
-   .. code-block:: console
+       .. code-block:: console
            
-      $ module load uppmax python/3.11.8 python_ML_packages/3.11.8-cpu
-      $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
-      (vpyenv) $ python
-      Python 3.11.8 (main, Feb  8 2024, 11:48:52) [GCC 12.3.0] on linux
-      Type "help", "copyright", "credits" or "license" for more information.
-      >>> import lightgbm 
-      >>> 
+          $ module load uppmax python/3.11.8 python_ML_packages/3.11.8-cpu
+          $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
+          (vpyenv) $ python
+          Python 3.11.8 (main, Feb  8 2024, 11:48:52) [GCC 12.3.0] on linux
+          Type "help", "copyright", "credits" or "license" for more information.
+          >>> import lightgbm 
+          >>> 
 
-.. admonition:: HPC2N: Load modules for Python, numpy (in SciPy-bundle), activate the environment 
+.. admonition:: HPC2N
+
     :class: dropdown
-   
+
+        Load modules for Python, SciPy-bundle, matplotlibactivate the environment
+
         .. code-block:: console
            
            $ module load ml GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 matplotlib/3.4.2
