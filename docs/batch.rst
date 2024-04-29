@@ -69,7 +69,7 @@ Common features
      - 128-4096 GB
      - 128-512 GB
    * - GPU
-     - NVidia V100 :raw-html:`<br />`, + 3 NVidia A100, 2 AMD MI100, :raw-html:`<br />`2 NVidia H100, and 10 NVidia L40S
+     - NVidia V100 + 3 NVidia A100, :raw-html:`<br />`, 2 AMD MI100, 2 NVidia H100, :raw-html:`<br />` and 10 NVidia L40S
      - None
      - Nvidia T4 
      - 2 NVIDIA A100
@@ -125,17 +125,17 @@ Serial code
 
    .. tab:: UPPMAX
 
-        Short serial example script for Rackham. Loading Python 3.9.5. Numpy is preinstalled and does not need to be loaded. 
+        Short serial example script for Rackham. Loading Python 3.11.8. Numpy is preinstalled and does not need to be loaded. 
 
         .. code-block:: sh
 
             #!/bin/bash -l 
-            #SBATCH -A naiss2023-22-1126 # Change to your own after the course
+            #SBATCH -A naiss2024-22415 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here Python 3.9.5. 
-            module load python/3.9.5 
+            # Load any modules you need, here Python 3.11.8. 
+            module load python/3.11.8 
             
             # Run your Python script 
             python mmmult.py   
@@ -143,17 +143,17 @@ Serial code
 
    .. tab:: HPC2N
 
-        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05 and Python/3.9.5  
+        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2023.07 and Python/3.11.3  
        
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A hpc2nXXXX-YYY # Change to your own
+            #SBATCH -A hpc2n2024-052 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python/3.9.5 and compatible SciPy-bundle
-            module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05
+            # Load any modules you need, here for Python/3.11.3 and compatible SciPy-bundle
+            module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07
             
             # Run your Python script 
             python mmmult.py    
@@ -200,24 +200,23 @@ Serial code + self-installed package in virt. env.
 
    .. tab:: UPPMAX
 
-        Short serial example for running on Rackham. Loading Python/3.9.5 + using any Python packages you have installed yourself with venv.  
+        Short serial example for running on Rackham. Loading python/3.11.8 + using any Python packages you have installed yourself with venv.  
 
         .. code-block:: sh
         
             #!/bin/bash -l 
-            #SBATCH -A naiss2023-22-1126 # Change to your own after the course
+            #SBATCH -A naiss2024-22-415 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python 3.9.5 
-            module load python/3.9.5
+            # Load any modules you need, here for python 3.11.8 
+            module load python/3.11.8
             
             # Activate your virtual environment. 
-            # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-            # Example: /proj/naiss2023-22-1126/nobackup/mrspock/pythonUPPMAX 
-            source <path-to-virt-env>/bin/activate
+            source /proj/hpc-python/<user-dir>/<path-to-virtenv>/<virtenv> 
             
-            # Run your Python script
+            # Run your Python script (remember to add the path to it 
+            # or change to the directory with it first)
             python <my_program.py>
 
 
