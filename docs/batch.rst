@@ -119,8 +119,8 @@ Example Python batch scripts
 ---------------------------- 
 
 Serial code
-"""""""""""
-   
+^^^^^^^^^^^
+
 .. hint:: 
 
    Type along!
@@ -205,7 +205,7 @@ This first example shows how to run a short, serial script. The batch script (na
             
         
 Serial code + self-installed package in virt. env. 
-''''''''''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
