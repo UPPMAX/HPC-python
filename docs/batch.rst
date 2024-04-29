@@ -59,7 +59,7 @@ Common features
      - Snowy
      - Bianca
    * - Cores per calculation node
-     - 28 (72 for largemem part)
+     - 28 (72 for largemem part + 8 nodes with 128)
      - 20
      - 16
      - 16
@@ -69,10 +69,11 @@ Common features
      - 128-4096 GB
      - 128-512 GB
    * - GPU
-     - NVidia K80 and V100 :raw-html:`<br />` (+ 3 NVidia A100 and 2 AMD MI100)
+     - NVidia V100 :raw-html:`<br />`, + 3 NVidia A100, 2 AMD MI100, :raw-html:`<br />`2 NVidia H100, and 10 NVidia L40S
      - None
      - Nvidia T4 
      - 2 NVIDIA A100
+
 
 Running your programs and scripts on UPPMAX and HPC2N
 -----------------------------------------------------
