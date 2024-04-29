@@ -69,7 +69,7 @@ Common features
      - 128-4096 GB
      - 128-512 GB
    * - GPU
-     - NVidia V100 + 3 NVidia A100, :raw-html:`<br />`, 2 AMD MI100, 2 NVidia H100, :raw-html:`<br />` and 10 NVidia L40S
+     - NVidia V100 + 3 NVidia A100, :raw-html:`<br />` 2 AMD MI100, 2 NVidia H100, :raw-html:`<br />` and 10 NVidia L40S
      - None
      - Nvidia T4 
      - 2 NVIDIA A100
@@ -130,7 +130,7 @@ Serial code
         .. code-block:: sh
 
             #!/bin/bash -l 
-            #SBATCH -A naiss2024-22415 # Change to your own after the course
+            #SBATCH -A naiss2024-22-415 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -222,24 +222,23 @@ Serial code + self-installed package in virt. env.
 
    .. tab:: HPC2N
 
-        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2021.05, Python/3.9.5, matplotlib/3.4.2 + using any Python packages you have installed yourself with virtual environment. During the separate session for HPC2N there will more about how to install something yourself this way. 
+        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2023.07, Python/3.11.3, matplotlib/3.7.2 + using any Python packages you have installed yourself with virtual environment.  
        
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A hpc2nXXXX-YYY # Change to your own 
+            #SBATCH -A hpc2n2024-052 # Change to your own 
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
-            module load GCCcore/10.3.0 OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 matplotlib/3.4.2
+            # Load any modules you need, here for Python/3.11.3 and compatible SciPy-bundle
+            module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
             
             # Activate your virtual environment. 
-            # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-            # Example: /proj/nobackup/hpc2nXXXX-YYY/bbrydsoe/pythonHPC2N 
-            source <path-to-virt-env>/bin/activate
+            source /proj/nobackup/python-hpc/<user-dir>/<path-to-virt-env>/bin/activate
             
-            # Run your Python script 
+            # Run your Python script  (remember to add the path to it 
+            # or change to the directory with it first)
             python <my_program.py>
 
 
@@ -255,19 +254,19 @@ GPU code
         .. code-block:: sh
 
             #!/bin/bash -l
-            #SBATCH -A naiss2023-22-1126
+            #SBATCH -A naiss2024-22-415
             #SBATCH -t 00:10:00
             #SBATCH --exclusive
             #SBATCH -n 1
             #SBATCH -M snowy
             #SBATCH --gres=gpu=1
             
-            # Load any modules you need, here loading Python 3.9.5
-            module load python/3.9.5
+            # Load any modules you need, here loading python 3.11.8
+            module load python/3.11.8
 
             # If you also need the GPU version of some of the ML packages
             # then remove the out-commenting below 
-            # module load python_ML_packages/3.9.5-gpu 
+            # module load python_ML_packages/3.11.8-gpu 
             
             # Run your code
             python <my-gpu-code>.py 
@@ -280,20 +279,18 @@ GPU code
         .. code-block:: sh
 
             #!/bin/bash
-            #SBATCH -A hpc2nXXXX-YYY # Change to your own
+            #SBATCH -A hpc2n2024-052 # Change to your own
             #SBATCH --time=00:10:00  # Asking for 10 minutes
             # Asking for one V100 card
             #SBATCH --gres=gpu:v100:1
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 Python/3.9.5 matplotlib/3.4.2 TensorFlow/2.6.0-CUDA-11.3.1 
+            module load GCC/11.3.0 SciPy-bundle/2022.05 Python/3.10.4 matplotlib/3.5.2 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0   
             
             # Run your Python script
             python my-tf-program.py
            
-
-The recommended TensorFlow version for this course is 2.6.0-CUDA-11.3.1 on Kebnekaise. The module is compatible with Python 3.9.5.            
 
 Exercises
 ---------
@@ -321,12 +318,12 @@ Exercises
           .. code-block:: sh
  
             #!/bin/bash
-            #SBATCH -A hpc2nXXXX-YYY # Change to your own
+            #SBATCH -A hpc2n2024-052 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python 3.9.5
-            module load GCC/10.3.0  Python/3.9.5
+            # Load any modules you need, here for Python 3.11.3
+            module load GCC/12.3.0  Python/3.11.3
             
             # Run your Python script 
             python sum-2args.py 2 3 
@@ -339,12 +336,12 @@ Exercises
           .. code-block:: sh
  
             #!/bin/bash -l
-            #SBATCH -A naiss2023-22-1126 # Change to your own after the course
+            #SBATCH -A naiss2024-22-415 # Change to your own after the course
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python 3.9.5
-            module load Python/3.9.5
+            # Load any modules you need, here for python 3.11.8
+            module load python/3.11.8
             
             # Run your Python script 
             python sum-2args.py 2 3 
