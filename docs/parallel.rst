@@ -38,7 +38,7 @@ Parallel computing with Python
 
       .. code-block:: console
         
-         $ python -m pip install numba
+         $ pip install numba
 
 
       - For the ``mpi4py`` example add the following modules::
@@ -47,21 +47,21 @@ Parallel computing with Python
     
          $ ml GCC/11.2.0 OpenMPI/4.1.1
 
-         $ python -m pip install mpi4py
+         $ pip install mpi4py
 
       - For the ``f2py`` example, this command should be available on the terminal when ``numpy`` is installed::
 
       .. code-block:: console
 
-         $ python -m pip install numpy
+         $ pip install numpy
 
       - For the Julia example we will need PyJulia::
         
       .. code-block:: console
 
-         $ ml Julia/1.8.5-linux-x86_64
+         $ ml Julia/1.9.3-linux-x86_64
 
-         $ python -m pip install julia
+         $ pip install julia
 
       - Start Python on the command line and type:
 
@@ -290,13 +290,15 @@ called ``fortran_function.f90``:
 Then, we need to compile this code and generate the Python module
 (``myfunction``):
 
-For UPPMAX you may have to change ``gcc`` version like:
+.. warning::
 
-.. code-block:: console
+   For UPPMAX you may have to change ``gcc`` version like:
+
+   .. code-block:: bash
    
-   $ ml gcc/10.3.0
+      $ ml gcc/10.3.0
 
-Then continue...
+   Then continue...
 
 .. code-block:: console
 
