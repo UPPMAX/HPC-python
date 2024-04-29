@@ -125,6 +125,12 @@ Serial code
 
    Type along!
 
+This first example shows how to run a short, serial script. The batch script (named ``run_mmmult.sh``) can be found in the directory /HPC-Python/Exercises/examples/<center>, where <center> is hpc2n or uppmax. The Python script is in /HPC-Python/Exercises/examples/programs and is named ``mmmult.py``. 
+
+1. The batch script is run with ``sbatch run_mmmult.sh``. 
+2. Try type ``squeue -u <username>`` to see if it is pending or running. 
+3. When it has run, look at the output with ``nano slurm-<jobid>.out``. 
+
 .. tabs::
 
    .. tab:: UPPMAX
@@ -196,6 +202,7 @@ Serial code
             print("Time elapsed for generating matrices and multiplying them is ", timeit.default_timer() - starttime)
 
 
+            
         
 Serial code + self-installed package in virt. env. 
 ''''''''''''''''''''''''''''''''''''''''''''''''''
