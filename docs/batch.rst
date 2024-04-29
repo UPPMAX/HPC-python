@@ -120,7 +120,11 @@ Example Python batch scripts
 
 Serial code
 '''''''''''
-            
+   
+.. hint:: 
+
+   Type along!
+
 .. tabs::
 
    .. tab:: UPPMAX

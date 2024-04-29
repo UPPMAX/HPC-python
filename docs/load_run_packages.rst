@@ -141,7 +141,7 @@ Load a Python module
 
 For reproducibility, we recommend ALWAYS loading a specific module instad of using the default version! 
 
-For this course, we recommend using Python 3.11.x (except for some GPU examples that will use 3.9.5).
+For this course, we recommend using Python 3.11.x (except for some GPU examples that may perhaps use 3.9.5).
 
 .. tip::
     
@@ -519,7 +519,7 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 Exercises
 ---------
 
-This is an exercise that combines loading, running, and using site-installed packages. Later, during the batch session, we will look at running the same exercise, but as a batch job. There is also a follow-up exercise of an extended version of the script, if you want to try run that as well (see further down on the page). 
+This is an exercise that combines loading, running, and using site-installed packages. Later, during the ML session, we will look at running the same exercise, but as a batch job. There is also a follow-up exercise of an extended version of the script, if you want to try run that as well (see further down on the page). 
 
 .. note:: 
 
