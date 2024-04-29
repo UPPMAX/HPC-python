@@ -454,7 +454,7 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - Module to load, HPC2N
      - Brief description 
    * - Dask
-     - Not installed
+     - ``python``
      - ``dask``
      - An open-source Python library for parallel computing.
    * - Keras
@@ -470,7 +470,7 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - ``SciPy-bundle``
      - MPI for Python package. The library provides Python bindings for the Message Passing Interface (MPI) standard.
    * - Numba 
-     - Not installed
+     - ``python``
      - ``numba``
      - An Open Source NumPy-aware JIT optimizing compiler for Python. It translates a subset of Python and NumPy into fast machine code using LLVM. It offers a range of options for parallelising Python code for CPUs and GPUs. 
    * - NumPy
@@ -490,7 +490,7 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - ``SciPy-bundle``
      - Open-source library for data science. Extensively used for scientific and technical computations, because it extends NumPy (data manipulation, visualization, image processing, differential equations solver).  
    * - Seaborn 
-     - Not installed
+     - ``python``
      - Not installed
      - Based on Matplotlib, but features Pandas’ data structures. Often used in ML because it can generate plots of learning data. 
    * - Sklearn/SciKit-Learn
@@ -513,6 +513,8 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
 Remember, in order to find out how to load one of the modules, which prerequisites needs to be loaded, as well as which versions are available, use ``module spider <module>`` and ``module spider <module>/<version>``. 
 
 Often, you also need to load a python module, except in the cases where it is included in ``python`` or ``python_ML_packages`` at UPPMAX or with ``SciPy-bundle`` at HPC2N. 
+
+NOTE that not all versions of Python will have all the above packages installed! 
 
 More info
 ---------
