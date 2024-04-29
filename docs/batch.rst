@@ -119,7 +119,7 @@ Example Python batch scripts
 ---------------------------- 
 
 Serial code
-'''''''''''
+"""""""""""
    
 .. hint:: 
 
