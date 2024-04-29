@@ -344,13 +344,12 @@ Using the virtual environment created under "Preparing the course environment" a
 
     .. code-block:: console
          
-       $ module load ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
-       $ source vpyenv/bin/activate
+       $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+       $ source /proj/nobackup/python-hpc/<user-dir>/vpyenv/bin/activate
        (vpyenv)$ python
-       Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
-       [GCC 10.3.0] on linux
+       Python 3.11.3 (main, Apr  2 2024, 14:00:42) [GCC 12.3.0] on linux
        Type "help", "copyright", "credits" or "license" for more information.
-       >>> import spacy
+       >>> import lightgbm 
        >>> 
  
 
@@ -391,7 +390,7 @@ Working with virtual environments defined from files
    pandas
    scipy
 
-``requirements.txt`` with versions could look list this::
+``requirements.txt`` with versions that could look like this::
 
     numpy==1.20.2
     matplotlib==3.2.2
