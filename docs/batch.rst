@@ -200,7 +200,6 @@ This first example shows how to run a short, serial script. The batch script (na
             print()
             print("Time elapsed for generating matrices and multiplying them is ", timeit.default_timer() - starttime)
 
-
             
         
 **Serial code + self-installed package in virt. env.**
