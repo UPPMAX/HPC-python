@@ -320,23 +320,23 @@ Using the self-installed packages in Python
    **Type along!**
 
 
-Using the virtual environment created earlier and the ``spacy`` we installed under example 1) above. 
+Using the virtual environment created under "Preparting the course environment" and the ``lightgbm`` we installed there. 
 
-.. admonition:: UPPMAX: Load modules for Python, activate the environment 
+.. admonition:: UPPMAX
+
    :class: dropdown
    
+   Load modules for python, and python_ML_packages, then activate the environment and start python. Try and import the library ``lightgbm``. 
+
    .. code-block:: console
            
-      $ module load Python/3.9.5
-      $ source /proj/naiss2023-22-1126/<user-dir>/vpyenv/bin/activate
+      $ module load uppmax python/3.11.8 python_ML_packages/3.11.8-cpu
+      $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
       (vpyenv) $ python
-           Python 3.9.5 (default, Jun  3 2021, 15:06:34)
-           [GCC 9.3.0] on linux
-           Type "help", "copyright", "credits" or "license" for more information.
-
-           >>> import spacy
-           >>> 
-
+      Python 3.11.8 (main, Feb  8 2024, 11:48:52) [GCC 12.3.0] on linux
+      Type "help", "copyright", "credits" or "license" for more information.
+      >>> import lightgbm 
+      >>> 
 
 .. admonition:: HPC2N: Load modules for Python, numpy (in SciPy-bundle), activate the environment 
     :class: dropdown
