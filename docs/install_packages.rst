@@ -267,7 +267,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       .. code-block:: console 
 
-         source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
+         $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
 
       More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
