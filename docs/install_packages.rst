@@ -320,40 +320,38 @@ Using the self-installed packages in Python
    **Type along!**
 
 
-Using the virtual environment created under "Preparting the course environment" and the ``lightgbm`` we installed there. 
+Using the virtual environment created under "Preparing the course environment" and the ``lightgbm`` we installed there. 
 
 .. admonition:: UPPMAX
-
    :class: dropdown
    
-       Load modules for python, and python_ML_packages, then activate the environment and start python. Try and import the library ``lightgbm``. 
+   Load modules for python, and python_ML_packages, then activate the environment and start python. Try and import the library ``lightgbm``. 
 
-       .. code-block:: console
-           
-          $ module load uppmax python/3.11.8 python_ML_packages/3.11.8-cpu
-          $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
-          (vpyenv) $ python
-          Python 3.11.8 (main, Feb  8 2024, 11:48:52) [GCC 12.3.0] on linux
-          Type "help", "copyright", "credits" or "license" for more information.
-          >>> import lightgbm 
-          >>> 
+   .. code-block:: console
+         
+      $ module load uppmax python/3.11.8 python_ML_packages/3.11.8-cpu
+      $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
+      (vpyenv) $ python
+      Python 3.11.8 (main, Feb  8 2024, 11:48:52) [GCC 12.3.0] on linux
+      Type "help", "copyright", "credits" or "license" for more information.
+      >>> import lightgbm 
+      >>> 
 
 .. admonition:: HPC2N
-
     :class: dropdown
 
-        Load modules for Python, SciPy-bundle, matplotlibactivate the environment
+    Load modules for Python, SciPy-bundle, matplotlib. Then activate the environment created under "Preparing the course environment" and import the library ``lightgbm`` we installed. 
 
-        .. code-block:: console
-           
-           $ module load ml GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 matplotlib/3.4.2
-           $ source vpyenv/bin/activate
-           (vpyenv)$ python
-           Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
-           [GCC 10.3.0] on linux
-           Type "help", "copyright", "credits" or "license" for more information.
-           >>> import spacy
-           >>> 
+    .. code-block:: console
+         
+       $ module load ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+       $ source vpyenv/bin/activate
+       (vpyenv)$ python
+       Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
+       [GCC 10.3.0] on linux
+       Type "help", "copyright", "credits" or "license" for more information.
+       >>> import spacy
+       >>> 
  
 
 - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
