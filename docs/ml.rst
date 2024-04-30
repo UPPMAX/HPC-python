@@ -254,7 +254,7 @@ In order to run the above example, we will create a batch script and submit it.
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3.1
+            module load GCC/11.3.0 SciPy-bundle/2022.05 Python/3.10.4 matplotlib/3.5.2 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0
             
             # Activate the virtual environment we installed to 
             source <path-to-install-dir>/vpyenv/bin/activate 

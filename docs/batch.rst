@@ -260,7 +260,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
    .. tab:: UPPMAX
 
-        Short GPU example for running on Snowy.         
+        Short GPU example for running ``compute.py`` on Snowy.         
        
         .. code-block:: sh
 
@@ -272,20 +272,18 @@ This first example shows how to run a short, serial script. The batch script (na
             #SBATCH -M snowy
             #SBATCH --gres=gpu=1
             
-            # Load any modules you need, here loading python 3.11.8
+            # Load any modules you need, here loading python 3.11.8 and the ML packages 
+            module load uppmax
             module load python/3.11.8
-
-            # If you also need the GPU version of some of the ML packages
-            # then remove the out-commenting below 
-            # module load python_ML_packages/3.11.8-gpu 
+            module load python_ML_packages/3.11.8-gpu 
             
             # Run your code
-            python <my-gpu-code>.py 
+            python compute.py 
             
 
    .. tab:: HPC2N
 
-        Example with loading SciPy-bundle, Python, matplotlib, TensorFlow for GPU. A full example can be found under "Using Python for Machine Learning jobs".       
+        Example with running ``compute.py`` on Kebnekaise.        
        
         .. code-block:: sh
 
@@ -297,11 +295,43 @@ This first example shows how to run a short, serial script. The batch script (na
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/11.3.0 SciPy-bundle/2022.05 Python/3.10.4 matplotlib/3.5.2 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0   
+            module load GCC/12.3.0 OpenMPI/4.1.5 Python/3.11.3 SciPy-bundle/2023.07 numba/0.58.1    
             
             # Run your Python script
-            python my-tf-program.py
+            python compute.py
            
+
+   .. tab:: compute.py
+
+        This Python script can (just like the batch scripts for UPPMAX and HPC2N), be found in the /HPC-Python/Exercises/examples directory, under the subdirectory ``programs`` - if you have cloned the repo or copied the tarball with the exercises.
+
+        from numba import jit, cuda
+        import numpy as np
+        # to measure exec time
+        from timeit import default_timer as timer
+
+        # normal function to run on cpu
+        def func a):
+            for i in range(10000000):
+                a[i]+= 1
+
+        # function optimized to run on gpu
+        @jit(target_backend='cuda')
+        def func2(a):
+            for i in range(10000000):
+                a[i]+= 1
+        if __name__=="__main__":
+            n = 10000000
+            a = np.ones(n, dtype = np.float64)
+
+            start = timer()
+            func(a)
+            print("without GPU:", timer()-start)
+
+            start = timer()
+            func2(a)
+            print("with GPU:", timer()-start)
+
 
 Exercises
 ---------

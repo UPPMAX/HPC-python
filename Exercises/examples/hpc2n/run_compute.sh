@@ -12,7 +12,7 @@ MYPATH=/proj/nobackup/<your-proj-id>/<mydir-name>/HPC-python/Exercises/examples/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load GCC/10.3.0  OpenMPI/4.1.1 Python/3.9.5 SciPy-bundle/2021.05 CUDA/11.4.1 
+module load GCC/12.3.0 OpenMPI/4.1.5 Python/3.11.3 SciPy-bundle/2023.07 numba/0.58.1  
 
 # Run your Python script
 python $MYPATH/compute.py
