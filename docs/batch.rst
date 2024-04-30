@@ -258,7 +258,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
 .. hint:: 
 
-   Code along! 
+   Type along! 
 
 .. tabs::
 
