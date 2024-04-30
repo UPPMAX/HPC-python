@@ -64,16 +64,16 @@ run on the allocated nodes instead of the login node.
 
       .. code-block:: console
           
-         $ interactive -n <tasks> --time=HHH:MM:SS -A naiss2023-22-1126
+         $ interactive -n <tasks> --time=HHH:MM:SS -A naiss2024-22-415
       
    .. tab:: HPC2N (salloc)
 
       .. code-block:: console
           
-         $ salloc -n <tasks> --time=HHH:MM:SS -A hpc2nXXXX-YYY
+         $ salloc -n <tasks> --time=HHH:MM:SS -A hpc2n2024-052
          
       
-- where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project (on UPPMAX this is **naiss2023-22-1126** for this course, on HPC2N it is **hpc2nXXXX-YYY**)
+- where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project (on UPPMAX this is **naiss2024-22-415** for this course, on HPC2N it is **hpc2n2024-052**)
 
 - Your request enters the job queue just like any other job, and ``interactive``/``salloc`` will tell you that it is waiting for the requested resources. When ``interactive``/``salloc`` tells you that your job has been allocated resources, you can interactively run programs on those resources with ``srun``. The commands you run with ``srun`` will then be executed on the resources your job has been allocated. **NOTE** If you do not preface with ``srun`` the command is run on the login node! 
       
@@ -95,7 +95,7 @@ Example
 
       .. code-block:: console
       
-          [bjornc@rackham2 ~]$ interactive -A naiss2023-22-1126 -p devcore -n 4 -t 10:00
+          [bjornc@rackham2 ~]$ interactive -A naiss2024-22-415 -p devcore -n 4 -t 10:00
           You receive the high interactive priority.
           There are free cores, so your job is expected to start at once.
       
@@ -104,7 +104,7 @@ Example
           Waiting for job 29556505 to start...
           Starting job now -- you waited for 1 second.
           
-          [bjornc@r484 ~]$ module load python/3.9.5
+          [bjornc@r484 ~]$ module load python/3.11.8
 
       Let us check that we actually run on the compute node: 
 
@@ -122,14 +122,14 @@ Example
          
       .. code-block:: console
       
-          $ salloc -n 4 --time=00:10:00 -A hpc2nXXXX-YYY
+          $ salloc -n 4 --time=00:10:00 -A hpc2n2024-052
           salloc: Pending job allocation 20174806
           salloc: job 20174806 queued and waiting for resources
           salloc: job 20174806 has been allocated resources
           salloc: Granted job allocation 20174806
           salloc: Waiting for resource configuration
           salloc: Nodes b-cn0241 are ready for job
-          b-an01 [~]$ module load GCC/10.3.0 OpenMPI/4.1.1 Python/3.9.5
+          b-an01 [~]$ module load GCC/12.3.0 Python/3.11.3
           b-an01 [~]$ 
                   
       
