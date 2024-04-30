@@ -410,7 +410,7 @@ scheme. Here, we describe the most common schemes.
 Threads
 -------
 
-In a threaded parallelization scheme the workers (threads) share a global memory address space.
+In a threaded parallelization scheme, the workers (threads) share a global memory address space.
 The `threading <https://docs.python.org/3/library/threading.html>`_ 
 module is built into Python so you don't have to installed it. By using this
 module, one can create several threads to do some work in parallel (in principle).
@@ -900,7 +900,7 @@ Python libraries:
          # Start JupyterLab
          jupyter lab --no-browser --ip $(hostname)
 
-      Then, copy and paste the notebook located here ``Exercises/Dask-Ini.ipynb`` to your
+      Then, copy and paste the notebook located here ``Exercises/examples/Dask-Ini.ipynb`` to your
       current folder. Send the job to the queue (*sbatch job.sh*) and once the job starts copy the line 
       containing the string **http://b-cnyyyy.hpc2n.umu.se:8888/lab?token=** and paste it 
       in a local browser on Kebnekaise. Now you can select the notebook. 
