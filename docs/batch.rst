@@ -204,6 +204,10 @@ This first example shows how to run a short, serial script. The batch script (na
         
 **Serial code + self-installed package in virt. env.**
 
+.. hint::
+
+   Don't type along! We will go through an example like this with your self-installed virtual environment under the ML section. 
+
 .. tabs::
 
    .. tab:: UPPMAX
