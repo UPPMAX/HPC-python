@@ -179,7 +179,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
       
       .. code-block:: console
       
-         [bjornc@rackham3 ~]$ interactive -A naiss2023-22-1126 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --mail-type=BEGIN --mail-user=bjorn.claremar@uppmax.uu.se
+         [bjornc@rackham3 ~]$ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --mail-type=BEGIN --mail-user=bjorn.claremar@uppmax.uu.se
          You receive the high interactive priority.
 
          Please, use no more than 8 GB of RAM.
@@ -223,7 +223,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
           #!/bin/bash
           # Remember to change this to your own project ID after the course!
-          #SBATCH -A hpc2nXXXX-YYY     # HPC2N ID - change to naiss2023-22-1126 for UPPMAX
+          #SBATCH -A hpc2nXXXX-YYY     # HPC2N ID - change to naiss2024-22-415 for UPPMAX
           # We are asking for 5 minutes
           #SBATCH --time=00:05:00
           # Asking for one V100
