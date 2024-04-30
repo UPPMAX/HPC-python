@@ -915,7 +915,7 @@ Python libraries:
 
       .. code-block:: console
 
-         $ interactive -A naiss2023-22-1126 -p devcore -n 4 -t 1:0:0
+         $ interactive -A naiss2024-22-415 -p devcore -n 4 -t 1:0:0
          $ deactivate # Be sure to deactivate you virtual environment
          $ cd <git-folder-for-course>
          $ ml python/3.11.4
