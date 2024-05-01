@@ -167,31 +167,26 @@ TensorFlow
 
 The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials 
 
-We are using Tensorflow 2.6.0-CUDA-11.3-1 (and Python 3.9.5) at HPC2N (also 3.9.5 at UPPMAX). 
+We are using Tensorflow 2.11.0-CUDA-11.7.0 (and Python 3.10.4) at HPC2N, since that is the newest GPU-enabled TensorFlow currently installed there. 
+
+On UPPMAX we are using TensorFlow 2.15.0 (included in python_ML_packages/3.11.8-gpu) and Python 3.11.8. 
 
 .. tabs::
   
    .. tab:: HPC2N
 
-      Since there is no scikit-learn for these versions, we have to install that too: 
+      Since we need scikit-learn, we are also loading the scikit-learn/1.1.2 which is compatible with the other modules we are using.  
 
-      Installing scikit-learn compatible with TensorFlow version 2.7.1 and Python version 3.10.4 
-
-      
-        - Load modules: ``module load GCC/11.2.0 OpenMPI/4.1.1 SciPy-bundle/2021.10 TensorFlow/2.7.1``
-        - Activate the virtual environment we created earlier: ``source <path-to-install-dir>/vpyenv/bin/activate``
-        - ``pip install --no-cache-dir --no-build-isolation scikit-learn``
-        
-      We can now use scikit-learn in our example. 
+      Thus, load modules: ``GCC/11.3.0  OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2`` in your batch script.  
       
    .. tab:: UPPMAX
    
-      UPPMAX has scikit-learn in the scikit-learn/0.22.1 module. We also need the python_ML module for Tensorflow, so let's just load those
+      UPPMAX has scikit-learn in the python_ML_packages, so we do not need to load anything extra there. 
 
-        - Load modules: ``module load python_ML_packages/3.9.5-gpu python/3.9.5``
-           - On Rackham we should use python_ML-packages/3.9.5-cpu, while on a GPU node the GPU version should be loaded 
+        - Load modules: ``module load uppmax python/3.11.8 python_ML_packages/3.11.8-gpu``
+           - On Rackham we should use python_ML-packages/3.9.5-cpu, while on a GPU node the GPU version should be loaded (like we do in this example, which will work either in a batch script submitted to Snowy or in an interactive job running on Snowy). 
 
-      
+  
 
 .. admonition:: We will work with this example  
     :class: dropdown
@@ -248,7 +243,7 @@ In order to run the above example, we will create a batch script and submit it.
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A hpc2nXXXX-YYY
+            #SBATCH -A hpc2n2024-052
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # Asking for one V100
@@ -256,10 +251,7 @@ In order to run the above example, we will create a batch script and submit it.
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/11.3.0 SciPy-bundle/2022.05 Python/3.10.4 matplotlib/3.5.2 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0
-            
-            # Activate the virtual environment we installed to 
-            source <path-to-install-dir>/vpyenv/bin/activate 
+            module load GCC/11.3.0 Python/3.10.4 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2 
             
             # Run your Python script 
             python <my_tf_program.py> 
