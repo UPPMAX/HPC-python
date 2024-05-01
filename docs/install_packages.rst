@@ -482,7 +482,7 @@ It is difficult to give an exhaustive list of useful packages for Python in HPC,
      - ``SciPy-bundle``
      - Built on top of NumPy. Responsible for preparing high-level data sets for machine learning and training. 
    * - PyTorch/Torch
-     - ``PyTorch``
+     - ``PyTorch`` or ``python_ML_packages``
      - ``PyTorch``
      - PyTorch is an ML library based on the C programming language framework, Torch. Mainly used for natural language processing or computer vision.  
    * - SciPy

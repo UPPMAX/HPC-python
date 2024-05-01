@@ -43,6 +43,8 @@ The example we will use in this course is taken from the official PyTorch page: 
 .. admonition:: We use PyTorch Tensors to fit a third order polynomial to a sine function. The forward and backward passes through the network are manually implemented. 
     :class: dropdown
 
+        The below program can be found in the ``Exercises/examples/programs`` directory under the name ``pytorch_fitting_gpu.py``. 
+
         .. code-block:: python
         
             # -*- coding: utf-8 -*-
@@ -93,16 +95,16 @@ You can find the full list of examples for this problem here: https://pytorch.or
 
 In order to run this at HPC2N/UPPMAX you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
 
-This is an example of a batch script for running the above example, using PyTorch 1.10.0 and Python 3.9.5, running on GPUs. 
+This is an example of a batch script for running the above example, using PyTorch 2.1.x and Python 3.11.x, and running on GPUs. 
 
-.. admonition:: Example batch script, running the above example on Kebnekaise (assuming it is named pytorch_fitting_gpu.py) 
+.. admonition:: Example batch script, running on Kebnekaise 
     :class: dropdown
 
         .. code-block:: sh 
         
             #!/bin/bash 
-            # Remember to change this to your own project ID! 
-            #SBATCH -A hpc2nXXXX-YYY
+            # Remember to change this to your own project ID after the course! 
+            #SBATCH -A hpc2n2024-052
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
             # The following two lines splits the output in a file for any errors and a file for other output. 
@@ -113,17 +115,17 @@ This is an example of a batch script for running the above example, using PyTorc
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/10.3.0  OpenMPI/4.1.1 PyTorch/1.10.0-CUDA-11.3.1
+            module load GCC/12.3.0 OpenMPI/4.1.5 PyTorch/2.1.2-CUDA-12.1.1 
             
             srun python pytorch_fitting_gpu.py
             
 
-.. admonition:: UPPMAX as a run in an interactive Snowy session
+.. admonition:: UPPMAX as run in an interactive Snowy session
     :class: dropdown
 
         .. code-block:: sh
 
-            [bjornc@rackham3 ~]$ interactive -A naiss2023-22-1126 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+            $ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
             You receive the high interactive priority.
 
             Please, use no more than 8 GB of RAM.
@@ -131,11 +133,11 @@ This is an example of a batch script for running the above example, using PyTorc
             Waiting for job 6907137 to start...
             Starting job now -- you waited for 90 seconds.
 
-            [bjornc@s160 ~]$  ml uppmax
-            [bjornc@s160 ~]$  ml python/3.9.5
-            [bjornc@s160 ~]$  module load python_ML_packages/3.9.5-gpu
-            [bjornc@s160 ~]$  cd /proj/naiss2023-22-1126/bjornc/HPC-python/Exercises/examples/programs
-            [bjornc@s160 programs]$ srun python pytorch_fitting_gpu.py
+            $  ml uppmax
+            $  ml python/3.11.8
+            $  module load python_ML_packages/3.11.8-gpu
+            $  cd /proj/naiss2024-22-415/<user-dir>/HPC-python/Exercises/examples/programs
+            $ srun python pytorch_fitting_gpu.py
             99 134.71942138671875
             199 97.72868347167969
             299 71.6167221069336
