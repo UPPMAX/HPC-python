@@ -6,7 +6,7 @@ To get the materials:
 
 2. Otherwise, fetch the tarball from the project directory (during the course) and extract it with "tar xzvf Exercises.tar.gz"
    - UPPMAX: Copy the file ``/proj/hpc-python/Exercises.tar.gz`` to your own project storage directory below ``/proj/hpc-python``. 
-   - HPC2N: Copy the file ``proj/nobackup(python-hpc/Exercises.tar.gz`` to your own storage directory below ``/proj/nobackup/ipython-hpc``.
+   - HPC2N: Copy the file ``/proj/nobackup(python-hpc/Exercises.tar.gz`` to your own storage directory below ``/proj/nobackup/ipython-hpc``.
 
 The directories below "Exercises/examples" contains the following directories:
 
