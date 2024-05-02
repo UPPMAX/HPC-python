@@ -35,10 +35,6 @@ Pandas and matplotlib
 
 This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script. 
 
-.. hint:: 
-
-   Type along! 
-
 .. tabs::
 
    .. tab:: Directly
@@ -77,35 +73,43 @@ This is the same example that was shown in the section about loading and running
          plt.scatter(x, y)
          plt.savefig("myplot.png")
 
+.. hint::
+
+   Type along!
+   
 Batch scripts for running on Rackham and Kebnekaise. 
 
 .. tabs:: 
 
    .. tab:: Rackham 
 
-      #!/bin/bash -l
-      #SBATCH -A naiss2024-22-415
-      #SBATCH --time=00:05:00 # Asking for 5 minutes
-      #SBATCH -n 1 # Asking for 1 core
+      .. code-block::
 
-      # Load any modules you need, here for Python 3.11.8
-      ml python/3.11.8
+         #!/bin/bash -l
+         #SBATCH -A naiss2024-22-415
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
 
-      # Run your Python script
-      python pandas_matplotlib-batch.py 
+         # Load any modules you need, here for Python 3.11.8
+         ml python/3.11.8
+
+         # Run your Python script
+         python pandas_matplotlib-batch.py 
 
    .. tab:: Kebnekaise 
 
-      #!/bin/bash
-      #SBATCH -A hpc2n2024-052
-      #SBATCH --time=00:05:00 # Asking for 5 minutes
-      #SBATCH -n 1 # Asking for 1 core
+      .. code-block::
 
-      # Load any modules you need, here for Python 3.11.3
-      ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+         #!/bin/bash
+         #SBATCH -A hpc2n2024-052
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
 
-      # Run your Python script
-      python pandas_matplotlib-batch-kebnekaise.py
+         # Load any modules you need, here for Python 3.11.3
+         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+
+         # Run your Python script
+         python pandas_matplotlib-batch-kebnekaise.py
 
 Submit with ``sbatch <batch-script.sh>``. 
 
@@ -581,6 +585,6 @@ Exercises
   - The loading are slightly different at the clusters
      - UPPMAX: All these tools are available from the modules ``ml python_ML_packages/3.11.8 python/3.11.8``
      - HPC2N: 
-       - For TensorFlow: GCC/11.3.0  OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2 
-       - For the rest (you do not need all the modules for everything, though): ``module load GCC/12.3.0 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 PyTorch/2.1.2 scikit-learn/1.3.1``
+       - For TensorFlow: ``ml GCC/11.3.0  OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2`` 
+       - For the rest: ``ml GCC/12.3.0 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 PyTorch/2.1.2 scikit-learn/1.3.1``
 
