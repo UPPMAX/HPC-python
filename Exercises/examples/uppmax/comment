@@ -1,0 +1,28 @@
+To fix the OpenMPI problem with the integration2d_mpi.sh : 
+
+Either add to the batch script: 
+
+export OMPI_MCA_pml="^ucx"
+export OMPI_MCA_btl_openib_if_include="mlx4_0:1"
+
+or 
+
+--mca opal_common_ucx_opal_mem_hooks 1      # after the mpirun -np -4 
+
+or 
+
+export OMPI_MCA_btl_openib_allow_ib=1
+
+
+The latter also removes the warnings, so is probably the best choice. 
+
+These worked for me with the modules:
+
+uppmax python/3.11.8 gcc/12.3.0 openmpi/4.1.5
+
+and own-installed mpi4py:
+
+python -m venv --system-site-packages myvenv
+source myvenv/bin/activate
+pip install mpi4py
+

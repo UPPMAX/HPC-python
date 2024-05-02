@@ -35,7 +35,81 @@ Pandas and matplotlib
 
 This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script. 
 
+.. hint:: 
 
+   Type along! 
+
+.. tabs::
+
+   .. tab:: Directly
+
+      Remove the # if running on Kebnekaise
+
+      .. code-block::
+
+         import pandas as pd
+         #import matplotlib
+         import matplotlib.pyplot as plt
+
+         #matplotlib.use('TkAgg')
+
+         dataframe = pd.read_csv("scottish_hills.csv")
+         x = dataframe.Height
+         y = dataframe.Latitude
+         plt.scatter(x, y)
+         plt.show()
+
+   .. tab:: From a Batch-job 
+
+      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory. 
+
+      .. code-block:: 
+
+         import pandas as pd
+         #import matplotlib
+         import matplotlib.pyplot as plt
+         
+         #matplotlib.use('TkAgg')
+
+         dataframe = pd.read_csv("scottish_hills.csv")
+         x = dataframe.Height
+         y = dataframe.Latitude
+         plt.scatter(x, y)
+         plt.savefig("myplot.png")
+
+Batch scripts for running on Rackham and Kebnekaise. 
+
+.. tabs:: 
+
+   .. tab:: Rackham 
+
+      #!/bin/bash -l
+      #SBATCH -A naiss2024-22-415
+      #SBATCH --time=00:05:00 # Asking for 5 minutes
+      #SBATCH -n 1 # Asking for 1 core
+
+      # Load any modules you need, here for Python 3.11.8
+      ml python/3.11.8
+
+      # Run your Python script
+      python pandas_matplotlib-batch.py 
+
+   .. tab:: Kebnekaise 
+
+      #!/bin/bash
+      #SBATCH -A hpc2n2024-052
+      #SBATCH --time=00:05:00 # Asking for 5 minutes
+      #SBATCH -n 1 # Asking for 1 core
+
+      # Load any modules you need, here for Python 3.11.3
+      ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+
+      # Run your Python script
+      python pandas_matplotlib-batch-kebnekaise.py
+
+Submit with ``sbatch <batch-script.sh>``. 
+
+The batch scripts can be found in the directories for hpc2n and uppmax, under ``Exercises/examples/``, and they are named ``pandas_matplotlib-batch.sh`` and ``pandas_matplotlib-batch-kebnekaise.sh``. 
 
 PyTorch
 -------
@@ -372,11 +446,114 @@ This example shows how you would run several programs or variations of programs 
          python tf_program.py 5 6 > myoutput3 2>&1
          cp myoutput3 mydatadir
 
+Exercises
+---------
+
+.. challenge::
+
+   Try to modify the files ``pandas_matplotlib-linreg-<rackham/kebnekaise>.py`` and ``pandas_matplotlib-linreg-pretty-<rackham/kebnekaise>.py so they could be run from a batch job (change the pop-up plots to save-to-file).
+
+   Also change the batch script ``pandas_matplotlib.sh`` (or ``pandas_matplotlib-kebnekaise.sh``) to run your modified python codes. 
+
+.. challenge:: 
+
+   In this exercise you will be using the course environment that you prepared in the "Install packages" section (here: https://uppmax.github.io/HPC-python/install_packages.html#prepare-the-course-environment). 
+
+   You will run the Python code ``simple_lightgbm.py`` found in the ``Exercises/examples/programs```directory. The code was taken from https://github.com/microsoft/LightGBM/tree/master and lightly modified. 
+
+   Try to write a batch script that runs this code. Remember to activate the course environment. 
+
+   .. tabs::
+
+      .. tab:: simple_lightgbm.py 
+
+         # coding: utf-8
+         from pathlib import Path
+
+         import pandas as pd
+         from sklearn.metrics import mean_squared_error
+
+         import lightgbm as lgb
+
+         print("Loading data...")
+         # load or create your dataset
+         df_train = pd.read_csv(str("regression.train"), header=None, sep="\t")
+         df_test = pd.read_csv(str("regression.test"), header=None, sep="\t")
+
+         y_train = df_train[0]
+         y_test = df_test[0]
+         X_train = df_train.drop(0, axis=1)
+         X_test = df_test.drop(0, axis=1)
+
+         # create dataset for lightgbm
+         lgb_train = lgb.Dataset(X_train, y_train)
+         lgb_eval = lgb.Dataset(X_test, y_test, reference=lgb_train)
+
+         # specify your configurations as a dict
+         params = {
+             "boosting_type": "gbdt",
+             "objective": "regression",
+             "metric": {"l2", "l1"},
+             "num_leaves": 31,
+             "learning_rate": 0.05,
+             "feature_fraction": 0.9,
+             "bagging_fraction": 0.8,
+             "bagging_freq": 5,
+             "verbose": 0,
+         }
+
+         print("Starting training...")
+         # train
+         gbm = lgb.train(
+             params, lgb_train, num_boost_round=20, valid_sets=lgb_eval, callbacks=[lgb.early_stopping(stopping_rounds=5)]
+         )
+
+         print("Saving model...")
+         # save model to file
+         gbm.save_model("model.txt")
+
+         print("Starting predicting...")
+         # predict
+         y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration)
+         # eval
+         rmse_test = mean_squared_error(y_test, y_pred) ** 0.5
+         print(f"The RMSE of prediction is: {rmse_test}")
+
+      .. tab:: Rackham 
+
+         .. admonition:: Click to reveal the solution! 
+             :class: dropdown
+
+                   .. code-block:: 
+
+                      #!/bin/bash -l
+                      # Change to your own project ID after the course!
+                      #SBATCH -A naiss2024-22-415
+                      # We are asking for 10 minutes
+                      #SBATCH --time=00:10:00
+                      #SBATCH -n 1
+
+                      # Set a path where the example programs are installed. 
+                      # Change the below to your own path to where you placed the example programs
+                      MYPATH=/proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
+                      # Activate the course environment (assuming it was called venv) 
+                      source /proj/hpc-python/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
+                      # Remove any loaded modules and load the ones we need
+                      module purge  > /dev/null 2>&1
+                      module load uppmax
+                      module load python/3.11.8
+
+                      # Run your Python script
+                      python $MYPATH/simple_lightgbm.py
+                      
+   
 
 .. keypoints::
 
   - At all clusters you will find PyTorch, TensorFlow, Scikit-learn
   - The loading are slightly different at the clusters
-     - UPPMAX: All tools are available from the modules ``ml python_ML_packages python/3.9.5``
-     - HPC2N: ``module load GCC/11.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3.1``
+     - UPPMAX: All these tools are available from the modules ``ml python_ML_packages/3.11.8 python/3.11.8``
+     - HPC2N: 
+       - For TensorFlow: GCC/11.3.0  OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2 
+       - For the rest (you do not need all the modules for everything, though): ``module load GCC/12.3.0 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 PyTorch/2.1.2 scikit-learn/1.3.1``
 
