@@ -30,6 +30,13 @@ In this course we will look at two examples: PyTorch and TensorFlow, and show ho
 
 There are some examples for beginners at https://machinelearningmastery.com/start-here/#python and at https://pytorch.org/tutorials/beginner/pytorch_with_examples.html 
 
+Pandas and matplotlib
+---------------------
+
+This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script. 
+
+
+
 PyTorch
 -------
 
@@ -92,6 +99,10 @@ The example we will use in this course is taken from the official PyTorch page: 
             print(f'Result: y = {a.item()} + {b.item()} x + {c.item()} x^2 + {d.item()} x^3')
 
 You can find the full list of examples for this problem here: https://pytorch.org/tutorials/beginner/pytorch_with_examples.html
+
+.. hint::
+
+   Type along!
 
 In order to run this at HPC2N/UPPMAX you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
 
@@ -171,6 +182,10 @@ We are using Tensorflow 2.11.0-CUDA-11.7.0 (and Python 3.10.4) at HPC2N, since t
 
 On UPPMAX we are using TensorFlow 2.15.0 (included in python_ML_packages/3.11.8-gpu) and Python 3.11.8. 
 
+.. hint::
+
+   Type along!
+
 .. tabs::
   
    .. tab:: HPC2N
@@ -188,7 +203,7 @@ On UPPMAX we are using TensorFlow 2.15.0 (included in python_ML_packages/3.11.8-
 
   
 
-.. admonition:: We will work with this example  
+.. admonition:: We will work with this example (example-tf.py) 
     :class: dropdown
 
         .. code-block:: sh 
@@ -237,7 +252,7 @@ In order to run the above example, we will create a batch script and submit it.
 
    .. tab:: HPC2N
 
-      Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed 
+      Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.10.4, and scikit-learn 1.1.2 
       
       .. code-block:: sh 
         
@@ -254,17 +269,17 @@ In order to run the above example, we will create a batch script and submit it.
             module load GCC/11.3.0 Python/3.10.4 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2 
             
             # Run your Python script 
-            python <my_tf_program.py> 
+            python example-tf.sh 
             
    .. tab:: UPPMAX
 
-      Example batch script for Snowy, Python version 3.9.5, and the python_ML_packages containing Tensorflow 
+      Example batch script for Snowy, Python version 3.11.8, and the python_ML_packages/3.11.8-gpu containing Tensorflow 
       
       .. code-block:: sh 
         
             #!/bin/bash -l  
             # Remember to change this to your own project ID after the course! 
-            #SBATCH -A naiss2023-22-1126
+            #SBATCH -A naiss2024-22-415
             # We want to run on Snowy
             #SBATCH -M snowy
             # We are asking for 15 minutes
@@ -274,15 +289,13 @@ In order to run the above example, we will create a batch script and submit it.
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load uppmax
-            module load python_ML_packages/3.9.5-gpu 
-            module load python/3.9.5 # to get some extra packages
-
+            module load python_ML_packages/3.11.8-gpu 
             
             # Run your Python script 
-            python <my_tf_program.py> 
+            python example-tf.py 
             
             
-Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
+Submit with ``sbatch example-tf.sh``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
 
 Note: if you are logged in to Rackham on UPPMAX and have submitted a GPU job to Snowy, then you need to use this to see the job queue: 
 
@@ -297,19 +310,23 @@ You almost always want to run several iterations of your machine learning code w
 Running several jobs from within one job
 ########################################
 
+.. hint:: 
+
+   Do NOT type along!
+
 This example shows how you would run several programs or variations of programs sequentially within the same job: 
 
 .. tabs::
 
    .. tab:: HPC2N
 
-      Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5
+      Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.11.3
 
       .. code-block:: sh 
         
          #!/bin/bash 
          # Remember to change this to your own project ID after the course! 
-         #SBATCH -A hpc2nXXXX-YYY
+         #SBATCH -A hpc2n2024-052
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
          # Asking for one V100 
@@ -328,13 +345,13 @@ This example shows how you would run several programs or variations of programs 
 
    .. tab:: UPPMAX
 
-      Example batch script for Snowy, TensorFlow version 2.5.0 and Python version 3.9.5.
+      Example batch script for Snowy, TensorFlow version 2.15 and Python version 3.11.8. 
       
       .. code-block:: sh 
 
          #!/bin/bash -l
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A naiss2023-22-1126
+         #SBATCH -A naiss2024-22-415
          # We are asking for at least 1 hour
          #SBATCH --time=01:00:01
          #SBATCH -M snowy
@@ -345,9 +362,7 @@ This example shows how you would run several programs or variations of programs 
          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
          module load uppmax
-         module load python_ML_packages/3.9.5-gpu
-         module load python/3.9.5 # to get some extra packages
-         module load TensorFlow/2.5.0-fosscuda-2020b
+         module load python_ML_packages/3.11.8-gpu
          # Output to file - not needed if your job creates output in a file directly
          # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
          python tf_program.py 1 2 > myoutput1 2>&1
@@ -364,5 +379,4 @@ This example shows how you would run several programs or variations of programs 
   - The loading are slightly different at the clusters
      - UPPMAX: All tools are available from the modules ``ml python_ML_packages python/3.9.5``
      - HPC2N: ``module load GCC/11.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3.1``
-
 
