@@ -6,10 +6,13 @@ Contains Python scripts, as well as a few Julia and Fortran 90 scripts. Also con
 
 In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnekaise. 
 
-| Name | Section used | Modules needed | System | Comments |  
-| ---- | ------------ | -------------- | ------ | -------- | 
-| example.py | Load/run | U: python/3.11.8 <br>H: Python/3.11.3 | U, H | |
-
+| Name | Section used | Modules needed | System | Related batch script | Comments |  
+| ---- | ------------ | -------------- | ------ | -------------------- | -------- |
+| example.py | Load/run | U: python/3.11.8 <br>H: GCC/12.3.0 Python/3.11.3 | U, H | None | |
+| pandas_matplotlib-kebnekaise.py | Load/run | GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | H (K) | None | Will be modified in the ML section | 
+| pandas_matplotlib-linreg-kebnekaise.py | Load/run | GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | H (K) | None | Will be modified in the ML section | 
+| pandas_matplotlib-rackham.py | Load/run | python/3.11.8 | U (R) | Will be modified in the ML section |
+pandas_matplotlib-linreg-rackham.py
 
 - add2.py                           
 - add-list.py                       
@@ -18,7 +21,6 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 - call_julia_code.py               
 - compute.py                        
 - dot.py                           
-- **example.py**: Used in Load/run section. Hello world. 
 - example-tf.py                     
 - hello-world-array.py             
 - integration2d_gpu.py      
@@ -30,14 +32,10 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 - integration2d_threading.py        
 - mmmult.py             
 - pandas_matplotlib-batch.py
-- **pandas_matplotlib-kebnekaise.py**: Used in Load/run section. Example with pandas and matplotlib. For running on Kebnekaise.
 - pandas_matplotlib-linreg-batch.py
-- **pandas_matplotlib-linreg-kebnekaise.py**: Used in Load/run section. Example with pandas, matplotlib, and scipy. For running on Kebnekaise. 
 - pandas_matplotlib-linreg-pretty-batch.py
 - pandas_matplotlib-linreg-pretty-kebnekaise.py
 - pandas_matplotlib-linreg-pretty-rackham.py
-- pandas_matplotlib-linreg-rackham.py
-- **pandas_matplotlib-rackham.py**: Used in Load/run section. Example with pandas and matplotlib. For running on Rackham. 
 - pytorch_fitting_gpu.py
 - seaborn-example.py
 - simple_example.py
