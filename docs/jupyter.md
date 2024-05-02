@@ -15,10 +15,10 @@
 ## 1. Start an interactive session from the login node
 ``` console
 # For Rackham
-$ interactive -A <snic-project> -n <cores>-t 4:00:00
+$ interactive -A <naiss-project> -n <cores>-t 4:00:00
 
 # For Snowy
-$ interactive -M snowy -A >snic-project> -n <cores> -t 4:00:00
+$ interactive -M snowy -A <naiss-project> -n <cores> -t 4:00:00
 ```
 
 ## 2. Start jupyter notebook (from python/3.10 also jupyter-lab) from the interactive session (*when it gets allocated*)

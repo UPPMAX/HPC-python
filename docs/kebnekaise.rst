@@ -64,7 +64,11 @@ There is a guide for you to follow here: https://www.hpc2n.umu.se/documentation/
 Loading Python
 --------------
 
-We are going to use Python 3.9.5 for this course. At HPC2N, this module has a prerequisite
+We are going to mainly use Python 3.11.3 for this course, but Python 3.9.5 will be used for some of the GPU and parallel examples. At HPC2N, these modules have the following prerequisites
+
+.. code-block:: sh
+
+   module load GCC/12.3.0 Python/3.11.3
 
 .. code-block:: sh
 
@@ -80,8 +84,8 @@ As mentioned in the general section, you start python with either ``python`` or 
 
     .. code-block:: sh
 
-        b-an01 [~/proj/nobackup/hpc2n-support/bbrydsoe/Python-in-HPC/examples/hpc2n]$ module load GCCcore/10.3.0 Python/3.9.5
-        b-an01 [~/proj/nobackup/hpc2n-support/bbrydsoe/Python-in-HPC/examples/hpc2n]$ python
+        $ module load GCCcore/10.3.0 Python/3.9.5
+        $ python
         Python 3.9.5 (default, Jun  3 2021, 02:53:39) 
         [GCC 10.3.0] on linux
         Type "help", "copyright", "credits" or "license" for more information.
@@ -94,7 +98,7 @@ As mentioned in the general section, you start python with either ``python`` or 
    
    .. code-block:: sh
 
-       b-an01 [~/proj/nobackup/hpc2n-support/bbrydsoe/Python-in-HPC/examples/hpc2n]$ sbatch run_mmmult.sh 
+       $ sbatch run_mmmult.sh 
        Submitted batch job 20358127
     
 It will create a file named ``slurm-<jobid>.out``. Look at the contents with ``cat`` or ``vi``. 

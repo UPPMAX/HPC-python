@@ -250,10 +250,10 @@ The following steps need to be performed before running this example:
 
       module load python_ML_packages python/3.9.5 gcc/10.3.0 build-tools cmake/3.22.2
 
-      cd /proj/naiss2023-22-1126/<mydir-name>
+      cd /proj/hpc-python/<mydir-name>
       python -m venv --system-site-packages env-horovod
 
-      source /proj/naiss2023-22-1126/<mydir-name>/env-horovod/bin/activate
+      source /proj/hpc-python/<mydir-name>/env-horovod/bin/activate
 
       pip install --no-cache-dir --no-build-isolation horovod
 
@@ -268,7 +268,7 @@ A sample batch script for running this Horovod example is here:
       .. code-block:: sh 
 
           #!/bin/bash -l
-          #SBATCH -A naiss2023-22-1126
+          #SBATCH -A naiss2024-22-415
           #SBATCH -t 00:05:00
           #SBATCH -M snowy
           #SBATCH -n 1
@@ -278,7 +278,7 @@ A sample batch script for running this Horovod example is here:
 
           # Set a path where the example programs are installed.
           # Change the below to your own path to where you placed the example programs
-          MYPATH=/proj/naiss2023-22-1126/<mydir-name>/HPC-python/Exercises/examples/programs/
+          MYPATH=/proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
 
           ml purge
           module load uppmax
@@ -286,7 +286,7 @@ A sample batch script for running this Horovod example is here:
           module load gcc/10.3.0 build-tools cmake/3.22.2
 
           # Change the below to your own path to the virtual environment you installed horovod to
-          source /proj/naiss2023-22-1126/<mydir-name>/env-horovod/bin/activate
+          source /proj/hpc-python/<mydir-name>/env-horovod/bin/activate
 
           srun python $MYPATH/Transfer_Learning_NLP_Horovod.py --epochs 10 --batch-size 64
 

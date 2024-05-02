@@ -18,8 +18,8 @@ UPPMAX clusters
 UPPMAX packages
 ---------------
     
-Some of the ackages included in the python/3.9.5 module
-#######################################################
+Some of the packages included in the python/3.9.5 and python/3.11.8 modules
+###########################################################################
 
 - Jupyter Notebook
 
@@ -34,8 +34,6 @@ Some of the ackages included in the python/3.9.5 module
 - Graphviz/0.16
 
 - scipy
-
-- mpi4py
 
 Packages that can be loaded with 'module load'
 ##############################################
