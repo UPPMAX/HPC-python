@@ -53,8 +53,8 @@ Summary
       - The loading are slightly different at the clusters
          - UPPMAX: All tools are available from the module ``python_ML_packages/3.11.8``
          - HPC2N: 
-           - For TensorFlow ``module load GCC/11.3.0  OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2``
-           - For the rest: ``module load GCC/12.3.0 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 PyTorch/2.1.2 scikit-learn/1.3.1``
+            - For TensorFlow ``module load GCC/11.3.0  OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2``
+            - For the rest: ``module load GCC/12.3.0 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 PyTorch/2.1.2 scikit-learn/1.3.1``
 
 
 .. seealso::
