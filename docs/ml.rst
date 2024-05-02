@@ -463,7 +463,7 @@ Exercises
 
    In this exercise you will be using the course environment that you prepared in the "Install packages" section (here: https://uppmax.github.io/HPC-python/install_packages.html#prepare-the-course-environment). 
 
-   You will run the Python code ``simple_lightgbm.py`` found in the ``Exercises/examples/programs```directory. The code was taken from https://github.com/microsoft/LightGBM/tree/master and lightly modified. 
+   You will run the Python code ``simple_lightgbm.py`` found in the ``Exercises/examples/programs`` directory. The code was taken from https://github.com/microsoft/LightGBM/tree/master and lightly modified. 
 
    Try to write a batch script that runs this code. Remember to activate the course environment. 
 
