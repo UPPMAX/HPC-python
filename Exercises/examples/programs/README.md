@@ -1,8 +1,15 @@
 # Directory overview for programs folder
 
-Contains Python scripts as well as a few Julia scripts. 
+Contains Python scripts, as well as a few Julia and Fortran 90 scripts. Also contains some data files needed for the Python scripts. 
 
-## Python scripts
+## Python scripts and data files 
+
+In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnekaise. 
+
+| Name | Section used | Modules needed | System | Comments |  
+| ---- | ------------ | -------------- | ------ | -------- | 
+| example.py | Load/run | U: python/3.11.8 <br>H: Python/3.11.3 | U, H | |
+
 
 - add2.py                           
 - add-list.py                       
@@ -11,6 +18,7 @@ Contains Python scripts as well as a few Julia scripts.
 - call_julia_code.py               
 - compute.py                        
 - dot.py                           
+- **example.py**: Used in Load/run section. Hello world. 
 - example-tf.py                     
 - hello-world-array.py             
 - integration2d_gpu.py      
@@ -22,14 +30,14 @@ Contains Python scripts as well as a few Julia scripts.
 - integration2d_threading.py        
 - mmmult.py             
 - pandas_matplotlib-batch.py
-- pandas_matplotlib-kebnekaise.py
+- **pandas_matplotlib-kebnekaise.py**: Used in Load/run section. Example with pandas and matplotlib. For running on Kebnekaise.
 - pandas_matplotlib-linreg-batch.py
-- pandas_matplotlib-linreg-kebnekaise.py
+- **pandas_matplotlib-linreg-kebnekaise.py**: Used in Load/run section. Example with pandas, matplotlib, and scipy. For running on Kebnekaise. 
 - pandas_matplotlib-linreg-pretty-batch.py
 - pandas_matplotlib-linreg-pretty-kebnekaise.py
 - pandas_matplotlib-linreg-pretty-rackham.py
 - pandas_matplotlib-linreg-rackham.py
-- pandas_matplotlib-rackham.py
+- **pandas_matplotlib-rackham.py**: Used in Load/run section. Example with pandas and matplotlib. For running on Rackham. 
 - pytorch_fitting_gpu.py
 - seaborn-example.py
 - simple_example.py
