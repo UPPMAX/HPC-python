@@ -275,23 +275,20 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
      
       **First go to the directory you want your environment in.**
 
-      .. admonition:: Installing lightgbm on Kebnekaise 
-
-         Load modules for Python, SciPy-bundle, matplotlib, create the virtual environment, activate the environment, and install lightgbm and sckit-learn (since the versions available are not compatible with this Python) on Kebnekaise at HPC2N 
-         :class: dropdown
+      Load modules for Python, SciPy-bundle, matplotlib, create the virtual environment, activate the environment, and install lightgbm and scikit-learn (since the versions available are not compatible with this Python) on Kebnekaise at HPC2N 
    
-         .. code-block:: console
+      .. code-block:: console
            
-            $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
-            $ python -m venv --system-site-packages vpyenv
-            $ source vpyenv/bin/activate
-            (vpyenv) $ pip install --no-cache-dir --no-build-isolation lightgbm scikit-learn 
+         $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+         $ python -m venv --system-site-packages vpyenv
+         $ source vpyenv/bin/activate
+         (vpyenv) $ pip install --no-cache-dir --no-build-isolation lightgbm scikit-learn 
    
-         Deactivating a virtual environment.
+      Deactivating a virtual environment.
 
-         .. code-block:: console
+      .. code-block:: console
 
-            (vpyenv) $ deactivate
+         (vpyenv) $ deactivate
 
       Every time you need the tools available in the virtual environment you activate it as above (after first loading the modules for Python, Python packages, and prerequisites)
 
