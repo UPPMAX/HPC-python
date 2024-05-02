@@ -232,10 +232,10 @@ Preliminary schedule
    * - 9:00
      - Syllabus and the clusters
      -
-   * - 9:20
+   * - 9:15
      - Introduction to Python 
      - Lecture
-   * - 9:30
+   * - 9:25
      - Loading and running Python and using installed packages
      - Lecture + type-along 
    * - 9:55
@@ -244,13 +244,13 @@ Preliminary schedule
    * - 10:10
      - Installing packages and isolated environments 
      - Lecture + type-along 
-   * - 10:35
+   * - 10:45
      - SLURM Batch scripts and arraysfor Python jobs  
      - Lecture + type-along + exercise
-   * - 11:10
+   * - 11.05
      - **Short leg stretch**
      - 
-   * - 11:20
+   * - 11:30
      - Interactive
      - Lecture + type-along
    * - 11:50
@@ -262,26 +262,23 @@ Preliminary schedule
    * - 13:00
      - Parallelising simple Python codes
      - Lecture + type-along + exercise
-   * - 13:40
-     - Using GPU:s for Python
-     - Lecture + type-along + exercise
-   * - 14:20
+   * - 14:00
      - **Short leg stretch**
      - 
-   * - 14:30
-     - Using Python for Machine Learning jobs
+   * - 14:10
+     - Using GPU:s for Python
      - Lecture + type-along + exercise
-   * - 15.10
+   * - 14.50
      - **Coffee**
      - 
-   * - 15.25
-     - Summary
+   * - 15:05
+     - Using Python for Machine Learning jobs
+     - Lecture + type-along + exercise
+   * - 15.35
+     - Summary + Evaluation
      -
-   * - 15.30
+   * - 15.50
      - Exercises and Q&A on-demand
-     -
-   * - 15.55
-     - Evaluation info
      -
    * - 16.00
      - END
