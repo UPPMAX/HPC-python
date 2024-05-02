@@ -173,12 +173,26 @@ serial code (without optimization) can be seen in the following code block.
 
 We can run this code on the terminal as follows (similarly at both HPC2N and UPPMAX): 
 
+.. warning::
 
-.. code-block:: console 
+   Although this works on the terminal, having many users doing computations at the same time
+   for this course, could create delays for other users
 
-    $ python integration2d_serial.py
-    Integral value is -7.117752e-17, Error is 7.117752e-17
-    Time spent: 20.39 sec
+   .. code-block:: console 
+
+       $ python integration2d_serial.py
+       Integral value is -7.117752e-17, Error is 7.117752e-17
+       Time spent: 20.39 sec
+
+   Because of that, we can use for **short-time** jobs the following command:
+
+   .. code-block:: console 
+
+       $ srun -A <your-projec-id> -n 1 -t 00:10:00 python integration2d_serial.py
+       Integral value is -7.117752e-17, Error is 7.117752e-17
+       Time spent: 20.39 sec    
+
+   where ``srun`` has the flags that are used in a standard batch file. 
 
 Note that outputs can be different, when timing a code a more realistic approach
 would be to run it several times to get statistics.
