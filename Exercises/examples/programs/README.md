@@ -15,10 +15,12 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 | pandas_matplotlib-linreg-rackham.py | Load/run | python/3.11.8 | U(R) | None | Will be modified in the ML section | 
 | pandas_matplotlib-linreg-pretty-kebnekaise.py | Load/run | GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | (H(K) | None | Will be modified in the ML section | 
 | pandas_matplotlib-linreg-pretty-rackham.py | Load/run | python/3.11.8 | U(R) | None | Will be modified in the ML section | 
+
 | ---- | --------------- | -------------- | ------ | -------------------- | -------- |
 | mmmult.py | Batch | U: python/3.11.8 <br>H: GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 | U, H | run_mmmult.sh (U, H) | | 
 | compute.py | Batch | U: uppmax python/3.11.8 python_ML_packages/3.11.8-gpu <br> H: GCC/12.3.0 OpenMPI/4.1.5 Python/3.11.3 SciPy-bundle/2023.07 numba/0.58.1  | U(S), H(K) | run_compute.sh (U, H) | | 
 | sum-2args.py | Batch | U: python/3.11.8 <br> H: GCC/12.3.0 Python/3.11.3 | U(R), H(K) | run_sum-2args.sh (U, H) | | 
+
 | ---- | --------------- | -------------- | ------ | -------------------- | -------- |
 | add2.py | Interactive | U: python/3.11.8 <br> H: GCC/12.3.0 Python/3.11.3 | U(R), H(K) | None | | 
 | ---- | --------------- | -------------- | ------ | -------------------- | -------- | 
