@@ -228,7 +228,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
       Batch script, ``add-list.sh``, to run the same GPU Python script (the numba code, ``add-list.py``) at Kebnekaise. 
       As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
       
-      .. code-block:: console
+      .. code-block:: bash
 
           #!/bin/bash
           # Remember to change this to your own project ID after the course!
