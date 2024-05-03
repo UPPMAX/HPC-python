@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A hpc2nXXXX-YYY
+#SBATCH -A hpc2n2024-052
 #SBATCH -t 00:08:00
 #SBATCH -N 1
 #SBATCH -n 28
@@ -10,16 +10,13 @@
 #SBATCH --exclusive
 
 ml purge > /dev/null 2>&1
-ml GCC/10.3.0 Python/3.9.5 OpenMPI/4.1.1
-ml SciPy-bundle/2021.05 
-ml CUDA/11.4.1
+ml GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5
+ml SciPy-bundle/2023.07
+ml CUDA/12.0.0 numba/0.58.1 
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/nobackup/<your-proj-id>/<mydir-name>/HPC-python/Exercises/examples/programs/
-
-# CHANGE TO YOUR OWN PATH AND THE NAME OF YOUR VIRTUAL ENVIRONMENT!
-source /proj/nobackup/<your-proj-id>/<mydir-name>/<path-to-vpyenv-python-course>/bin/activate
+MYPATH=/proj/nobackup/python-hpc/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 python $MYPATH/integration2d_gpu.py
 python $MYPATH/integration2d_gpu_shared.py

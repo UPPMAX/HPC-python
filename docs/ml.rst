@@ -113,7 +113,7 @@ Batch scripts for running on Rackham and Kebnekaise.
 
 Submit with ``sbatch <batch-script.sh>``. 
 
-The batch scripts can be found in the directories for hpc2n and uppmax, under ``Exercises/examples/``, and they are named ``pandas_matplotlib-batch-rackham.sh`` and ``pandas_matplotlib-batch-kebnekaise.sh``. 
+The batch scripts can be found in the directories for hpc2n and uppmax, under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` . 
 
 PyTorch
 -------

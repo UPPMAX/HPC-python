@@ -61,8 +61,8 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 | pandas_matplotlib-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> H: GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H(K) | run_pandas_matplotlib-batch.sh (U, H) | |  
 | pytorch_fitting_gpu.py | U: uppmax python/3.11.8 python_ML_packages/3.11.8-gpu <br> H: GCC/12.3.0 OpenMPI/4.1.5 PyTorch/2.1.2-CUDA-12.1.1 | U(S), H(K) | pytorch_fitting_gpu.sh (U(S), H(K)) | |
 | example-tf.py | U: uppmax python_ML_packages/3.11.8-gpu <br> H: GCC/11.3.0 Python/3.10.4 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2 | U(S), H(K) | example-tf.sh (U, H) | | 
-| pandas_matplotlib-linreg-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H (K) | pandas_matplotlib-linreg-batch-<kebnekaise/rackham>.sh | |
-| pandas_matplotlib-linreg-pretty-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H (K) | pandas_matplotlib-linreg-pretty-batch-<kebnekaise/rackham>.sh | |
+| pandas_matplotlib-linreg-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H (K) | pandas_matplotlib-linreg-batch.sh | |
+| pandas_matplotlib-linreg-pretty-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H (K) | pandas_matplotlib-linreg-pretty-batch.sh | |
 | simple-lightgbm.py | U: uppmax <br> H: GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U, H | simple-lightgbm.sh (U, H) | You need a virtual environment with lightgbm (and scipy for HPC2N) installed and activated to run this | 
 
 ### Extra/other 

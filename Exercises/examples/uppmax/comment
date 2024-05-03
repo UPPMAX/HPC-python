@@ -1,3 +1,5 @@
+!!! THIS IS NO LONGER NECESSARY !!! 
+
 To fix the OpenMPI problem with the integration2d_mpi.sh : 
 
 Either add to the batch script: 
