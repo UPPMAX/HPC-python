@@ -409,7 +409,7 @@ Exercises
             #SBATCH -n 28
             #SBATCH -o output_%j.out   # output file
             #SBATCH -e error_%j.err    # error messages
-            #SBATCH --gres=gpu:V100:2
+            #SBATCH --gres=gpu:v100:2
             #SBATCH --exclusive
      
             ml purge > /dev/null 2>&1
