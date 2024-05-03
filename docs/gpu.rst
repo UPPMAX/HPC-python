@@ -99,8 +99,9 @@ environment created earlier here. We also need numpy, so we are loading SciPy-bu
         .. code-block:: console
       
              $ module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
-             $ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate 
-             (vpyenv) b-an01 [/proj/nobackup/support-hpc2n/bbrydsoe]$ pip install --no-cache-dir --no-build-isolation numba
+             $ virtualenv --system-site-packages /proj/nobackup/<your-project-directory>/vpyenv-gpu
+             $ source /proj/nobackup/<your-project-directory>/vpyenv-gpu/bin/activate 
+             (vpyenv) $ pip install --no-cache-dir --no-build-isolation numba
 
              Collecting numba
                Downloading numba-0.58.1-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.7 kB)
@@ -199,7 +200,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       .. code-block:: console
 
-         $ salloc -A hpc2nXXXX-YYY --time=00:30:00 -n 1 --gres=gpu:V100:1 
+         $ salloc -A hpc2nXXXX-YYY --time=00:30:00 -n 1 --gres=gpu:v100:1 
          salloc: Pending job allocation 20346979
          salloc: job 20346979 queued and waiting for resources
          salloc: job 20346979 has been allocated resources
@@ -208,10 +209,18 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          salloc: Nodes b-cn1101 are ready for job
          $
          $ module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
-         $ source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
-         (vpyenv) b-an01 [~/store/bbrydsoe/Python-in-HPC/gpu]$ srun python add-list.py
+         $ source /proj/nobackup/<your-project-directory>/vpyenv-gpu/bin/activate
+         (vpyenv) b-an01$ srun python add-list.py
          CPU function took 31.905025 seconds.
          GPU function took 0.684060 seconds.
+
+      Because this is a short job, you can also use this shortcut as we did in the ``Parallel`` session: 
+
+      .. code-block:: console
+
+         $ module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
+         $ source /proj/nobackup/<your-project-directory>/vpyenv-gpu/bin/activate
+         $ srun -A hpc2nXXXX-YYY -n 1 --gres=gpu:v100:1 -t 00:10:00 python add-list.py
 
 
    .. tab:: Batch script for HPC2N
@@ -226,8 +235,8 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
           #SBATCH -A hpc2nXXXX-YYY     # HPC2N ID - change to naiss2024-22-415 for UPPMAX
           # We are asking for 5 minutes
           #SBATCH --time=00:05:00
-          # Asking for one V100
-          #SBATCH --gres=gpu:V100:1     # For HPC2N. Remove if on UPPMAX
+          # Asking for one v100
+          #SBATCH --gres=gpu:v100:1     # For HPC2N. Remove if on UPPMAX
           ##SBATCH -M snowy            # For UPPMAX. Remove leading # to use
           ##SBATCH --gres=gpu:1        # For UPPMAX. Remove leading # to use
 
