@@ -57,6 +57,7 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 
 | Name | Modules needed | System | Related batch script | Comments |
 | ---- | -------------- | ------ | -------------------- | -------- |
+| pandas_matplotlib-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> H: GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H(K) | 
 | example-tf.py | 
 - hello-world-array.py             
 - pandas_matplotlib-batch.py
