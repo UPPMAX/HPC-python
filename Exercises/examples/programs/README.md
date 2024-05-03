@@ -45,12 +45,20 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 | call_fortran_code_openmp.py | U: python/3.9.5 gcc/10.3.0 <br> H: GCC/11.2.0 Python/3.9.6 | U(R), H(K) | None | Run in same virtual environment as you compiled ``fortran_function_openmp.f90`` in. Set ``export OMP_NUM_THREADS=4`` first. | 
 | integration2d_multiprocessing.py | U: python/3.9.5 <br> H: GCC/11.2.0 Python/3.9.6 | U(R), H(K) | None | | 
 | integration2d_mpi.py | U: python/3.9.5 gcc/9.3.0 openmpi/3.1.5 <br> H: GCC/11.2.0 Python/3.9.6 OpenMPI/4.1.1 | U, H | integration2d_mpi.sh (U, H) | Create a virtual environment, activate it, and install mpi4py in it | 
-- add-list.py                       
-- call_fortran_code_openmp.py       
-- example-tf.py                     
+
+### Section "GPU" 
+
+| Name | Modules needed | System | Related batch script | Comments |
+| ---- | -------------- | ------ | -------------------- | -------- |
+| add-list.py | U: python/3.9.5 <br> H: GCC/11.2.0 Python/3.9.6 OpenMPI/4.1.1 CUDA/11.4.1 | add-list.sh (U, H) | First create a virtual environment, activate it, and install numba with pip. | 
+| integration2d_gpu.py <br> integration2d_gpu_shared.py | U: python/3.9.5 <br> H: GCC/11.2.0 Python/3.9.6 OpenMPI/4.1.1 CUDA/11.4.1 | job-gpu.sh (H) or integration2d_gpu_shared.sh (U, H) | You need to use the same virtual environment you created for ``add-list.py`` | 
+
+### Section "ML" 
+
+| Name | Modules needed | System | Related batch script | Comments |
+| ---- | -------------- | ------ | -------------------- | -------- |
+| example-tf.py | 
 - hello-world-array.py             
-- integration2d_gpu.py      
-- integration2d_gpu_shared.py       
 - pandas_matplotlib-batch.py
 - pandas_matplotlib-linreg-batch.py
 - pandas_matplotlib-linreg-pretty-batch.py
