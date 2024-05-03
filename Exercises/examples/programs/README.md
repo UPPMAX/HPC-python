@@ -43,8 +43,8 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 | integration2d_threading.py | U: python/3.9.5 <br> H: GCC/11.2.0 Python/3.9.6 | U(R), H(K) | None | | 
 | dot.py | U: python/3.9.5 gcc/10.3.0 <br> H: GCC/11.2.0 Python/3.9.6 OpenMPI/4.1.1 | U(R), H(K) | None | Activate the same environment that numpy is installed in, as you used for ``fortran_function.f90``. Do ``export OMP_NUM_THREADS=<numthreads>``, then run with ``python dot.py``. Try several values of ``numthreads``. |  
 | call_fortran_code_openmp.py | U: python/3.9.5 gcc/10.3.0 <br> H: GCC/11.2.0 Python/3.9.6 | U(R), H(K) | None | Run in same virtual environment as you compiled ``fortran_function_openmp.f90`` in. Set ``export OMP_NUM_THREADS=4`` first. | 
-| integration2d_multiprocessing.py U: python/3.9.5 <br> H: GCC/11.2.0 Python/3.9.6 | U(R), H(K) | None | | 
-| integration2d_mpi.py |    
+| integration2d_multiprocessing.py | U: python/3.9.5 <br> H: GCC/11.2.0 Python/3.9.6 | U(R), H(K) | None | | 
+| integration2d_mpi.py | U: python/3.9.5 gcc/9.3.0 openmpi/3.1.5 <br> H: GCC/11.2.0 Python/3.9.6 OpenMPI/4.1.1 | U, H | integration2d_mpi.sh (U, H) | Create a virtual environment, activate it, and install mpi4py in it | 
 - add-list.py                       
 - call_fortran_code_openmp.py       
 - example-tf.py                     
