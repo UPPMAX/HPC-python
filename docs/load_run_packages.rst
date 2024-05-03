@@ -243,7 +243,7 @@ Run Python script
 
    You can run a python script in the shell like this:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ python example.py
       # or 
@@ -260,7 +260,7 @@ Run an interactive Python shell
 
 - You can start a simple python terminal by:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ python 
     

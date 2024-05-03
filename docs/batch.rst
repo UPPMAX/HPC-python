@@ -136,7 +136,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
         Short serial example script for Rackham. Loading Python 3.11.8. Numpy is preinstalled and does not need to be loaded. 
 
-        .. code-block:: sh
+        .. code-block:: bash
 
             #!/bin/bash -l 
             #SBATCH -A naiss2024-22-415 # Change to your own after the course
@@ -154,7 +154,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
         Short serial example for running on Kebnekaise. Loading SciPy-bundle/2023.07 and Python/3.11.3  
        
-        .. code-block:: sh
+        .. code-block:: bash
 
             #!/bin/bash
             #SBATCH -A hpc2n2024-052 # Change to your own
@@ -214,7 +214,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
         Short serial example for running on Rackham. Loading python/3.11.8 + using any Python packages you have installed yourself with venv.  
 
-        .. code-block:: sh
+        .. code-block:: bash
         
             #!/bin/bash -l 
             #SBATCH -A naiss2024-22-415 # Change to your own after the course
@@ -236,7 +236,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
         Short serial example for running on Kebnekaise. Loading SciPy-bundle/2023.07, Python/3.11.3, matplotlib/3.7.2 + using any Python packages you have installed yourself with virtual environment.  
        
-        .. code-block:: sh
+        .. code-block:: bash
 
             #!/bin/bash
             #SBATCH -A hpc2n2024-052 # Change to your own 
@@ -254,6 +254,73 @@ This first example shows how to run a short, serial script. The batch script (na
             python <my_program.py>
 
 
+**Job arrays** 
+
+This is a very simple example of how to run a Python script with a job array. 
+
+.. hint::
+
+   Do not type along! You can try it later during exercise time if you want! 
+   
+.. tabs:: 
+
+   .. tab:: hello-world-array.py   
+      
+      .. code-block:: python 
+
+         # import sys library (we need this for the command line args)
+         import sys
+
+         # print task number
+         print('Hello world! from task number: ', sys.argv[1])
+
+   .. tab:: UPPMAX
+
+      .. code-block:: bash 
+
+         #!/bin/bash -l
+         # This is a very simple example of how to run a Python script with a job array
+         #SBATCH -A naiss2024-22-415 # Change to your own after the course
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH --array=1-10   # how many tasks in the array 
+         #SBATCH -c 1 # Asking for 1 core    # one core per task 
+         #SBATCH -o hello-world-%j-%a.out
+
+         # Set a path where the example programs are installed. 
+         # Change the below to your own path to where you placed the example programs
+         MYPATH=/proj/hpc-python/<userdir>/HPC-python/Exercises/examples/programs/
+
+         # Load any modules you need, here for Python 3.11.8
+         ml uppmax
+         ml python/3.11.8
+
+         # Run your Python script
+         srun python $MYPATH/hello-world-array.py $SLURM_ARRAY_TASK_ID
+
+
+   .. tab:: HPC2N 
+
+      .. code-block:: bash 
+
+         #!/bin/bash
+         # This is a very simple example of how to run a Python script with a job array
+         #SBATCH -A hpc2n2024-052 # Change to your own!
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH --array=1-10   # how many tasks in the array 
+         #SBATCH -c 1 # Asking for 1 core    # one core per task 
+         #SBATCH -o hello-world-%j-%a.out
+
+         # Set a path where the example programs are installed. 
+         # Change the below to your own path to where you placed the example programs
+         MYPATH=/proj/nobackup/python-hpc/<your-dir>/HPC-python/Exercises/examples/programs/
+
+         # Load any modules you need, here for Python 3.11.3 
+         ml GCC/12.3.0 Python/3.11.3
+
+         # Run your Python script
+         srun python $MYPATH/hello-world-array.py $SLURM_ARRAY_TASK_ID
+
+
 **GPU code**
 
 .. hint:: 
@@ -266,7 +333,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
         Short GPU example for running ``compute.py`` on Snowy.         
        
-        .. code-block:: sh
+        .. code-block:: bash
 
             #!/bin/bash -l
             #SBATCH -A naiss2024-22-415
@@ -289,7 +356,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
         Example with running ``compute.py`` on Kebnekaise.        
        
-        .. code-block:: sh
+        .. code-block:: bash
 
             #!/bin/bash
             #SBATCH -A hpc2n2024-052 # Change to your own
@@ -362,7 +429,7 @@ Exercises
     
           This batch script is for Kebnekaise. Adding the numbers 2 and 3. 
           
-          .. code-block:: sh
+          .. code-block:: bash
  
             #!/bin/bash
             #SBATCH -A hpc2n2024-052 # Change to your own
@@ -380,7 +447,7 @@ Exercises
     
           This batch script is for UPPMAX. Adding the numbers 2 and 3. 
           
-          .. code-block:: sh
+          .. code-block:: bash
  
             #!/bin/bash -l
             #SBATCH -A naiss2024-22-415 # Change to your own after the course

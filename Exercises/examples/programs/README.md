@@ -4,7 +4,7 @@ Contains Python scripts, as well as a few Julia and Fortran 90 scripts. Also con
 
 ## Python scripts and data files 
 
-In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnekaise. 
+In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnekaise. Batch scripts for HPC2N are located in the ``/Exercises/examples/hpc2n/`` directory and the ones for UPPMAX are located in ``Exercises/examples/uppmax``. 
 
 ### Section "Loading and running"
 
@@ -22,7 +22,8 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 
 | Name | Modules needed | System | Related batch script | Comments |
 | ---- | -------------- | ------ | -------------------- | -------- |
-| mmmult.py | U: python/3.11.8 <br>H: GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 | U, H | run_mmmult.sh (U, H) | | 
+| mmmult.py | U: python/3.11.8 <br>H: GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 | U, H | run_mmmult.sh (U, H) | |
+| hello-world-array.py | U: python/3.11.8 <br>H: GCC/12.3.0 Python/3.11.3 | U, H | hello-world-array.sh (U, H) | |  
 | compute.py | U: uppmax python/3.11.8 python_ML_packages/3.11.8-gpu <br> H: GCC/12.3.0 OpenMPI/4.1.5 Python/3.11.3 SciPy-bundle/2023.07 numba/0.58.1  | U(S), H(K) | run_compute.sh (U, H) | | 
 | sum-2args.py | U: python/3.11.8 <br> H: GCC/12.3.0 Python/3.11.3 | U(R), H(K) | run_sum-2args.sh (U, H) | | 
 
@@ -57,25 +58,28 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 
 | Name | Modules needed | System | Related batch script | Comments |
 | ---- | -------------- | ------ | -------------------- | -------- |
-| pandas_matplotlib-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> H: GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H(K) | 
-| example-tf.py | 
-- hello-world-array.py             
-- pandas_matplotlib-batch.py
-- pandas_matplotlib-linreg-batch.py
-- pandas_matplotlib-linreg-pretty-batch.py
-- pytorch_fitting_gpu.py
-- seaborn-example.py
-- simple_example.py
-- Transfer_Learning_NLP_Horovod.py
+| pandas_matplotlib-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> H: GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H(K) | run_pandas_matplotlib-batch.sh (U, H) | |  
+| pytorch_fitting_gpu.py | U: uppmax python/3.11.8 python_ML_packages/3.11.8-gpu <br> H: GCC/12.3.0 OpenMPI/4.1.5 PyTorch/2.1.2-CUDA-12.1.1 | U(S), H(K) | pytorch_fitting_gpu.sh (U(S), H(K)) | |
+| example-tf.py | U: uppmax python_ML_packages/3.11.8-gpu <br> H: GCC/11.3.0 Python/3.10.4 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2 | U(S), H(K) | example-tf.sh (U, H) | | 
+| pandas_matplotlib-linreg-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H (K) | pandas_matplotlib-linreg-batch-<kebnekaise/rackham>.sh | |
+| pandas_matplotlib-linreg-pretty-batch-<kebnekaise/rackham>.py | U: python/3.11.8 <br> GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U(R), H (K) | pandas_matplotlib-linreg-pretty-batch-<kebnekaise/rackham>.sh | |
+| simple-lightgbm.py | U: uppmax <br> H: GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 | U, H | simple-lightgbm.sh (U, H) | You need a virtual environment with lightgbm (and scipy for HPC2N) installed and activated to run this | 
+
+### Extra/other 
+
+| Name | Modules needed | System | Related batch script | Comments |
+| ---- | -------------- | ------ | -------------------- | -------- |
+| Transfer_Learning_NLP_Horovod.py | U: uppmax python_ML_packages python/3.9.5 gcc/10.3.0 build-tools cmake/3.22.2 <br> H: GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5 TensorFlow/2.4.1 Horovod/0.21.1-TensorFlow-2.4.1 | U, H | run_horovod.sh (U, H) | A virtual environment with tensorflow_hub and sklearn installed with pip is needed on Kebnekaise, and one with horovod and tensorflow-hub installed with pip is needed on Rackham/Snowy. | 
+| seaborn-example.py | | | None | Old example. Needed seaborn installed in a virtual environment |  
 
 ### Data files related to above Python scripts
 
 | Name | Section(s) used | Related Python scripts | Related batch scripts | Comments | 
 | ---- | --------------- | ---------------------- | --------------------- | -------- | 
-| mtcars.csv | 
-| regression.test | 
-| regression.train | 
-| scottish_hills.csv | 
+| mtcars.csv | None (old example) | seaborn-example.py | None | Old example. Needed seaborn installed in a virtual environment | 
+| regression.test | ML | simple_lightgbm.py | simple-lightgbm.sh (U, H) | | 
+| regression.train | ML | simple_lightgbm.py | simple-lightgbm.sh (U, H) | | 
+| scottish_hills.csv | Load/run, ML | pandas_matplotlib-*.py | pandas_matplotlib-*.sh | | 
 
 ## Julia scripts 
 

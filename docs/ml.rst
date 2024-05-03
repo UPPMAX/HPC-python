@@ -41,7 +41,7 @@ This is the same example that was shown in the section about loading and running
 
       Remove the # if running on Kebnekaise
 
-      .. code-block::
+      .. code-block:: python
 
          import pandas as pd
          #import matplotlib
@@ -57,9 +57,9 @@ This is the same example that was shown in the section about loading and running
 
    .. tab:: From a Batch-job 
 
-      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory. 
+      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory. 
 
-      .. code-block:: 
+      .. code-block:: python
 
          import pandas as pd
          #import matplotlib
@@ -83,7 +83,7 @@ Batch scripts for running on Rackham and Kebnekaise.
 
    .. tab:: Rackham 
 
-      .. code-block::
+      .. code-block:: bash
 
          #!/bin/bash -l
          #SBATCH -A naiss2024-22-415
@@ -98,7 +98,7 @@ Batch scripts for running on Rackham and Kebnekaise.
 
    .. tab:: Kebnekaise 
 
-      .. code-block::
+      .. code-block:: bash
 
          #!/bin/bash
          #SBATCH -A hpc2n2024-052
@@ -113,7 +113,7 @@ Batch scripts for running on Rackham and Kebnekaise.
 
 Submit with ``sbatch <batch-script.sh>``. 
 
-The batch scripts can be found in the directories for hpc2n and uppmax, under ``Exercises/examples/``, and they are named ``pandas_matplotlib-batch.sh`` and ``pandas_matplotlib-batch-kebnekaise.sh``. 
+The batch scripts can be found in the directories for hpc2n and uppmax, under ``Exercises/examples/``, and they are named ``pandas_matplotlib-batch-rackham.sh`` and ``pandas_matplotlib-batch-kebnekaise.sh``. 
 
 PyTorch
 -------
@@ -189,7 +189,7 @@ This is an example of a batch script for running the above example, using PyTorc
 .. admonition:: Example batch script, running on Kebnekaise 
     :class: dropdown
 
-        .. code-block:: sh 
+        .. code-block:: bash 
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
@@ -212,7 +212,7 @@ This is an example of a batch script for running the above example, using PyTorc
 .. admonition:: UPPMAX as run in an interactive Snowy session
     :class: dropdown
 
-        .. code-block:: sh
+        .. code-block:: bash
 
             $ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
             You receive the high interactive priority.
@@ -284,7 +284,7 @@ On UPPMAX we are using TensorFlow 2.15.0 (included in python_ML_packages/3.11.8-
 .. admonition:: We will work with this example (example-tf.py) 
     :class: dropdown
 
-        .. code-block:: sh 
+        .. code-block:: python 
         
             # mlp for binary classification
             from pandas import read_csv
@@ -332,7 +332,7 @@ In order to run the above example, we will create a batch script and submit it.
 
       Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.10.4, and scikit-learn 1.1.2 
       
-      .. code-block:: sh 
+      .. code-block:: bash 
         
             #!/bin/bash 
             # Remember to change this to your own project ID after the course! 
@@ -353,7 +353,7 @@ In order to run the above example, we will create a batch script and submit it.
 
       Example batch script for Snowy, Python version 3.11.8, and the python_ML_packages/3.11.8-gpu containing Tensorflow 
       
-      .. code-block:: sh 
+      .. code-block:: bash 
         
             #!/bin/bash -l  
             # Remember to change this to your own project ID after the course! 
@@ -400,7 +400,7 @@ This example shows how you would run several programs or variations of programs 
 
       Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.11.3
 
-      .. code-block:: sh 
+      .. code-block:: bash 
         
          #!/bin/bash 
          # Remember to change this to your own project ID after the course! 
@@ -425,7 +425,7 @@ This example shows how you would run several programs or variations of programs 
 
       Example batch script for Snowy, TensorFlow version 2.15 and Python version 3.11.8. 
       
-      .. code-block:: sh 
+      .. code-block:: bash 
 
          #!/bin/bash -l
          # Remember to change this to your own project ID after the course!
@@ -455,7 +455,7 @@ Exercises
 
 .. challenge::
 
-   Try to modify the files ``pandas_matplotlib-linreg-<rackham/kebnekaise>.py`` and ``pandas_matplotlib-linreg-pretty-<rackham/kebnekaise>.py so they could be run from a batch job (change the pop-up plots to save-to-file).
+   Try to modify the files ``pandas_matplotlib-linreg-<rackham/kebnekaise>.py`` and ``pandas_matplotlib-linreg-pretty-<rackham/kebnekaise>.py`` so they could be run from a batch job (change the pop-up plots to save-to-file).
 
    Also change the batch script ``pandas_matplotlib.sh`` (or ``pandas_matplotlib-kebnekaise.sh``) to run your modified python codes. 
 
@@ -471,7 +471,7 @@ Exercises
 
       .. tab:: simple_lightgbm.py 
 
-         .. code-block::
+         .. code-block:: python
          
             # coding: utf-8
             from pathlib import Path
@@ -530,7 +530,7 @@ Exercises
          .. admonition:: Click to reveal the solution! 
              :class: dropdown
 
-                   .. code-block:: 
+                   .. code-block:: bash 
 
                       #!/bin/bash -l
                       # Change to your own project ID after the course!
@@ -557,7 +557,7 @@ Exercises
          .. admonition:: Click to reveal the solution! 
              :class: dropdown 
 
-                   .. code-block:: 
+                   .. code-block:: bash 
 
                       #!/bin/bash
                       # Change to your own project ID after the course!

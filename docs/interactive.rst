@@ -224,13 +224,13 @@ When you have finished using the allocation, either wait for it to end, or close
    
       .. code-block:: console
                   
-                  [bjornc@r484 ~]$ exit
+                  $ exit
       
                   exit
                   [screen is terminating]
                   Connection to r484 closed.
       
-                  [bjornc@rackham2 ~]$
+                  $
 
    .. tab:: HPC2N
    
