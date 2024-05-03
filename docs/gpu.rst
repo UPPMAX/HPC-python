@@ -399,7 +399,7 @@ Exercises
      .. admonition:: ``job-gpu.sh``
         :class: dropdown
       
-         .. code-block:: console 
+         .. code-block:: bash 
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
