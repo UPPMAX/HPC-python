@@ -297,13 +297,6 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
          $ source vpyenv/bin/activate
     
 
-      Note: If there are any problems with the installation (complaints about incompatible versions etc.) you should be able to fix it by instead doing: 
-
-      .. code-block:: console
-
-         $ pip install --no-cache-dir --no-build-isolation numba==0.57 scipy==1.8 seaborn 
-
-         
 Using the self-installed packages in Python
 ###########################################
 
