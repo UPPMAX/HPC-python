@@ -10,14 +10,13 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/hpc2n-python/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
 module load uppmax
 module load python/3.11.8
-# Remove the out-commenting if you need the ML packages for your python script 
-# module load python_ML_packages/3.11.8-gpu
+module load python_ML_packages/3.11.8-gpu
 
 # Run your Python script
 python $MYPATH/compute.py

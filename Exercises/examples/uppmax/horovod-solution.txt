@@ -30,7 +30,7 @@ pip install --no-cache-dir --no-build-isolation tensorflow-hub
 4) Make a batch script like the below (UPPMAX) and submit it: 
 
 #!/bin/bash -l
-#SBATCH -A naiss2023-22-1126
+#SBATCH -A naiss2024-22-415
 #SBATCH -t 00:05:00
 #SBATCH -M snowy
 #SBATCH -n 1
@@ -40,7 +40,7 @@ pip install --no-cache-dir --no-build-isolation tensorflow-hub
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/naiss2023-22-1126/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 ml purge
 module load uppmax 
@@ -51,7 +51,7 @@ module load build-tools
 module load cmake/3.22.2
 
 # Change the below to your own path to the virtual environment you installed horovod to 
-source /proj/naiss2023-22-1126/<mydir-name>/env-horovod/bin/activate
+source /proj/hpc-python/<mydir-name>/env-horovod/bin/activate
 
 srun python $MYPATH/Transfer_Learning_NLP_Horovod.py --epochs 10 --batch-size 64
 
