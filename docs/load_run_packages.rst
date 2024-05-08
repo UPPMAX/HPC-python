@@ -260,7 +260,7 @@ Run an interactive Python shell
 
 - You can start a simple python terminal by:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ python 
     
@@ -558,7 +558,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
         .. code-block:: console
 
-           ml python/3.11.8
+           $ ml python/3.11.8
 
       .. tab:: HPC2N
 
@@ -566,7 +566,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
          .. code-block:: console
 
-            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+            $ ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
    
    1. From inside Python/interactive (if you are on Kebnekaise, mind the warning above):
 
