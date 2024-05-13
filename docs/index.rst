@@ -289,7 +289,7 @@ Preliminary schedule
    - For graphics, ThinLinc may be the best option.
       - The `ThinLinc app <https://www.cendio.com/thinlinc/download/>`_.
       - Rackham has a web browser interface with ThinLinc: https://rackham-gui.uppmax.uu.se
-
+      - `ThinLinc user guide at UPPMAX <http://docs.uppmax.uu.se/cluster_guides/thinlinc/>_`
     
 .. tabs::
 
