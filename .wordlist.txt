@@ -666,3 +666,10 @@ openmp
 recides
 tf
 xzvf
+
+cmake
+mtcars
+PyJulia
+scottish
+tensorflow
+wishlist
