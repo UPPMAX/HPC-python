@@ -64,6 +64,11 @@ Material for improving your programming skills
 
 .. admonition:: Second level
 
+   Other course/wrskhops given by NAISS HPC centres:
+
+   - `Pandas by LUNARC <https://github.com/rlpitts/Intro-to-Pandas>`_
+
+
    CodeRefinery develops and maintains training material on software best practices for researchers that already write code. Their material addresses all academic disciplines and tries to be as programming language-independent as possible. 
 
    - `Lessons <https://coderefinery.org/lessons/>`_ 
