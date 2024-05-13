@@ -249,7 +249,7 @@ Linux
 
 - some familiarity with the LINUX command line (recordings from HPC2N:s Linux intro and UPPMAX Intro course), 
 
-    - `Short introductions <https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632>`_
+    - `Short introduction <https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632>`_
     - `Linux "cheat sheet" <https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet>`_
     - UPPMAX
     
