@@ -378,8 +378,15 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
    - For this course, when having many windows open, it may be better to run in terminal in most of the cases, for space issues.
    
    
-    
+Content of the course
+---------------------
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Pre-requirements:
+
+   prereqs.md
+    
 .. toctree::
    :maxdepth: 2
    :caption: Lessons:
