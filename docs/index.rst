@@ -71,11 +71,11 @@ Welcome to "Using Python in an HPC environment" course material
    - having a terminal with X-forwarding available and/or ThinLinc app or two-factor authentication for web-login.
    - familiarity with the LINUX command line
   
-      - `Short introductions <https://uppsala.instructure.com/courses/67267/pages/using-the-command-line-bash?module_item_id=455632>`_
+      - `Short introduction <http://docs.uppmax.uu.se/getting_started/linux/>`_
       - `Linux "cheat sheet" <https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet>`_
       - `HPC2N's intro course material (including link to recordings) <https://github.com/hpc2n/intro-course>`_
-      - `UPPMAX's intro course material <https://www.uppmaxx.uu.se/support/courses-and-workshops/introductory-course-winter-2022/>`_
-      - `UPPMAX software library <https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641>`_
+      - `UPPMAX's intro course material <https://www.uu.se/en/centre/uppmax/study/courses-and-workshops/introduction-to-uppmax>`_
+      - `UPPMAX software library <http://docs.uppmax.uu.se/cluster_guides/modules/>`_
 
 
 Some practicals
@@ -100,7 +100,7 @@ Some practicals
 .. admonition:: Q/A collabration document
 
     - Use the Q/A page for the workshop with your questions.
-        - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EW-973oMzNZBn4ns7yvIwBUBo3MVOz4Zt6dtQNg1N-75dQ?e=NlF4VH     
+        - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EZJ2RH0InOlIqCSF1DAhxXgBVirUT04xQsaHka17j2ZJIw?rtime=4q1KLG9z3Eg
 
     - Depending on how many helpers there are we'll see how fast there are answers. 
         - Some answers may come after the workshop.
@@ -111,11 +111,12 @@ Some practicals
 
    - You can download the exercises from the course GitHub repo, under the "Exercises" directory: ``https://github.com/UPPMAX/HPC-python/tree/main/Exercises``
       - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/support-hpc2n/bbrydsoe/examples.tar.gz``
-      - On UPPMAX you can copy the exercises in a tarball from ``/proj/naiss2023-22-1126/examples.tar.gz``
+      - On UPPMAX you can copy the exercises in a tarball from ``/proj/naiss2024-22-415/examples.tar.gz``
+
     
 .. admonition:: Project
 
-    - The course project on UPPMAX (Rackham) is: ``naiss2023-22-1126``
+    - The course project on UPPMAX (Rackham) is: ``naiss2024-22-415``
 
     - If you work on Kebnekaise you may use existing projects you have already. The CPU-hrs used in this course is probably negligable.
 
