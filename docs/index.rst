@@ -153,7 +153,7 @@ The two HPC centers UPPMAX and HPC2N
 
    - At both HPC2N and UPPMAX we call the applications available via the *module system* **modules**. 
 
-      - <https://www.uppmax.uu.se/resources/software/module-system/> 
+      - <http://docs.uppmax.uu.se/cluster_guides/modules/> 
       - <https://www.hpc2n.umu.se/documentation/environment/lmod>
    
    - To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
@@ -290,7 +290,7 @@ Preliminary schedule
    - For graphics, ThinLinc may be the best option.
       - The `ThinLinc app <https://www.cendio.com/thinlinc/download/>`_.
       - Rackham has a web browser interface with ThinLinc: https://rackham-gui.uppmax.uu.se
-      - `ThinLinc user guide at UPPMAX <http://docs.uppmax.uu.se/cluster_guides/thinlinc/>_`
+      - `ThinLinc user guide at UPPMAX <http://docs.uppmax.uu.se/cluster_guides/thinlinc/>`_
     
 .. tabs::
 
