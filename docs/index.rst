@@ -153,8 +153,8 @@ The two HPC centers UPPMAX and HPC2N
 
    - At both HPC2N and UPPMAX we call the applications available via the *module system* **modules**. 
 
-      - https://www.uppmax.uu.se/resources/software/module-system/ 
-      - https://www.hpc2n.umu.se/documentation/environment/lmod
+      - <https://www.uppmax.uu.se/resources/software/module-system/> 
+      - <https://www.hpc2n.umu.se/documentation/environment/lmod>
    
    - To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
@@ -300,7 +300,7 @@ Preliminary schedule
       - Rackham through ThinLinc, 
        
          - use the app with user: ``<user>@rackham-gui.uppmax.uu.se``
-         - or go to https://rackham-gui.uppmax.uu.se
+         - or go to <https://rackham-gui.uppmax.uu.se>
 
            - here, you'll need two factor authentication.
           
@@ -346,13 +346,13 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
 
         .. code-block:: sh
 
-            /proj/naiss2023-22-1126/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+            /proj/naiss2024-22-415/MYDIR-NAME/HPC-python/Exercises/examples/programs/
 
         Batch submit files 
 
         .. code-block:: sh
 
-            /proj/naiss2023-22-1126/MYDIR-NAME/HPC-python/Exercises/examples/uppmax
+            /proj/naiss2024-22-415/MYDIR-NAME/HPC-python/Exercises/examples/uppmax
 
 
    .. tab:: HPC2N
