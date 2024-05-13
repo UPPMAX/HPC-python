@@ -19,11 +19,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Using Python in an HPC environment'
-copyright = '2023, UPPMAX/HPC2N'
+copyright = '2024, UPPMAX/HPC2N'
 author = 'UPPMAX/HPC2N'
 github_user = "UPPMAX"
 github_repo_name = "HPC-python"  # auto-detected from dirname if blank
-github_version = "main/"
+github_version = "main"
 conf_py_path = "/docs/" 
 # The full version, including alpha/beta/rc tags
 release = '2.0'
@@ -111,6 +111,8 @@ html_context = {
     "github_user": github_user,
     # Auto-detect directory name.  This can break, but
     # useful as a default.
+    # "github_repo": github_repo_name or basename(dirname(realpath(__file__))),
+    # Richel: trying to fix 'Edit on GitHub link' onhttps://uppmax.github.io/R-python-julia-HPC/index.html
     "github_repo": github_repo_name or basename(dirname(realpath(__file__))),
     "github_version": github_version,
     "conf_py_path": conf_py_path,
