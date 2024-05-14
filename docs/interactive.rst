@@ -1,9 +1,6 @@
 Interactive work on the compute nodes
 =====================================
 
-sfdfcdfdsf
-
-
 .. tabs::
 
    .. tab:: Learning objectives
@@ -60,21 +57,18 @@ Introduction
 ------------
 
 Some users develop Python code in a line-by-line fashion. 
-These users typically want to run a (calculation-heavy) 
-script frequently, to test if the code works.
-However, scheduling each new line is too slow, as it
-can take minutes before the new code is run.
-Instead, there is a way to directly work 
-with such code: use an interactive session.
+
+- These users typically want to run a (calculation-heavy) script frequently, to test if the code works.
+- However, scheduling each new line is too slow, as it can take minutes before the new code is run.
+- Instead, there is a way to directly work with such code: use an interactive session.
 
 Some other users want to run programs that 
 (1) use a lot of CPU and memory, and (2) need to be persistent/available.
 One good example is Jupyter. 
-Running such a program on a login nodes would
-harm all other users on the login node.
-Running such a program on a computer node using ``sbatch``
-would not allow a user to connect to it.
-In such a case: use an interactive session.
+
+- Running such a program on a login nodes would harm all other users on the login node.
+- Running such a program on a computer node using ``sbatch`` would not allow a user to connect to it.
+- In such a case: use an interactive session.
 
 .. admonition:: **About Jupyter**
 
