@@ -76,13 +76,13 @@ In such a case: use an interactive session.
 
 .. admonition:: **About Jupyter**
 
-    For HPC2N, using 
-    `Jupyter on HPC2N <https://www.hpc2n.umu.se/resources/software/jupyter>`_ is possible, 
-    yet harder to get to work correctly
-    If you need it anyway, please contact ``support@hpc2n.umu.se``.
+   - It will be shown in the parallel session how to run Jupyter on the compute nodes.
 
-    For UPPMAX, using Jupyter is easier 
-    and this will be shown in this course, in `the UPPMAX-only session on Jupyter <https://uppmax.github.io/HPC-python/jupyter.html>`_.
+   - You can also check the lesson about `Jupyter on compute nodes <https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html>`_ in our **Introduction to running R, Python and Julia in HPC workshop**)
+
+   - Documentation about `Jupyter on HPC2N <https://www.hpc2n.umu.se/resources/software/jupyter>`_ 
+   - Documentation about `Jupyter on UPPMAX <http://docs.uppmax.uu.se/software/jupyter/>`_ 
+
 
 An interactive session is a session with direct access to a compute node.
 Or alternatively: an interactive session is a session,
@@ -556,23 +556,673 @@ When you have finished using the allocation, either wait for it to end, or close
                   salloc: Job allocation 20174806 has been revoked.
                   $
 
-.. admonition:: Running Jupyter on compute nodes at 
 
-   - UPPMAX: https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html#uppmax
-   - HPC2N: https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html#kebnekaise
+Running a Python script in an interactive session
+-------------------------------------------------
 
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      To run a Python script in an interactive session,
+      first load the Python modules:
+
+      .. code-block:: console
+
+         module load python/3.11.8
+
+      To run a Python script on 1 core, do:
+
+      .. code-block:: console
+
+         python [my_script.py]
+
+      where `[my_script.py]` is the path to a Python script, for example
+      ``srun python ~/my_script.py``.
+
+      To run a Python script on each of the requested cores, do:
+
+      .. code-block:: console
+
+         srun python [my_script.py]
+
+      where `[my_script.py]` is the path to a Python script, for example
+      ``srun python ~/my_script.py``.
+      
+   .. tab:: HPC2N
+
+      To run a Python script in an interactive session,
+      first load the Python modules:
+
+      .. code-block:: console
+
+         module load python/3.11.8
+
+      To run a Python script on each of the requested cores, do:
+
+      .. code-block:: console
+
+         srun python [my_script.py]
+
+      where `[my_script.py]` is the path to a Python script, for example
+      ``srun python ~/my_script.py``.
+
+Not all Python scripts are suitable for an interactive session.
+This will be demonstrated by two Python example scripts.
+
+Our first example Python script is called `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py>`_:
+it is a simple script that adds two numbers from command-line arguments:
+ 
+.. code-block:: python
+
+    import sys
+  
+    x = int(sys.argv[1])
+    y = int(sys.argv[2])
+  
+    sum = x + y
+  
+    print("The sum of the two numbers is: {0}".format(sum))
+
+Our second example Python script is called `add2.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py>`_:
+it is a simple script that adds two numbers from user input:
+ 
+.. code-block:: python
+
+    # This program will add two numbers that are provided by the user
+
+    # Get the numbers
+    a = int(input("Enter the first number: ")) 
+    b = int(input("Enter the second number: "))
+
+    # Add the two numbers together
+    sum = a + b
+
+    # Output the sum
+    print("The sum of {0} and {1} is {2}".format(a, b, sum))
+
+
+End the interactive session
+---------------------------
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      To end and interactive session, do:
+
+      .. code-block:: console
+
+         exit
+
+      This will look similar to this:
+
+      .. code-block:: console 
+                  
+          [bjornc@r484 ~]$ exit
+
+          exit
+          [screen is terminating]
+          Connection to r484 closed.
+
+          [bjornc@rackham2 ~]$
+
+      Note that the prompt has changed to contain ``rackham[number].uppmax.uu.se``, 
+      where ``[number]`` is a number, which indicates one is back on a login node.
+      
+   .. tab:: HPC2N
+
+      To end and interactive session, do:
+
+      .. code-block:: console
+
+         exit
+
+      It will look similar to this:
+
+      .. code-block:: console 
+                  
+          b-an01 [~]$ exit
+          exit
+          salloc: Relinquishing job allocation 20174806
+          salloc: Job allocation 20174806 has been revoked.
+          b-an01 [~]$
+
+      The prompt will remain the same.
+
+Exercises
+---------
+
+In these exercises:
+
+- we prepare to use two Python example scripts
+- we use a minimal interactive session
+- we use a more optimized interactive session
+
+Exercise 0: be able to use the Python scripts
+---------------------------------------------
+
+Exercise 0.1. be able to use the first Python script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tabs::
+
+   .. tab:: Exercise 0.1. be able to use the first Python script
+
+      Find or download the first Python script, `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py>`_.
+
+      Run it using ``python sum-2args.py 3 14``.
+
+   .. tab:: UPPMAX
+
+      Navigate to the folder with exercises, or download the script locally:
+
+      .. code-block:: console
+      
+          # Go to the folder with exercises:
+          cd /proj/r-py-jl/[username]/[exercise_folder]
+          # For example
+          # cd /proj/r-py-jl/sven/my_exercises
+
+          # Download the script locally:
+          wget https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py
+
+      After loading a Python module, run it.
+      
+   .. tab:: HPC2N
+
+      Navigate to the folder with exercises, or download the script locally:
+
+      .. code-block:: console
+      
+          # Go to the folder with exercises:
+          cd /proj/nobackup/hpc2n2024-025/[username]/[exercise_folder]
+          # For example
+          # cd /proj/nobackup/hpc2n2024-025/sven/my_exercises
+
+          # Download the script locally:
+          wget https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py
+
+      After loading the modules needed to run Python, run the script as indicated.
+                  
+Exercise 0.2. be able to use the second Python script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 0.2. be able to use the second Python script
+
+      Find or download the second Python script, `add2.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py>`_,
+
+      Run it using ``python add2.py``.
+
+   .. tab:: UPPMAX
+
+      Navigate to the folder with exercises, or download the script locally:
+
+      .. code-block:: console
+      
+          # Go to the folder with exercises:
+          cd /proj/r-py-jl/[username]/[exercise_folder]
+          # For example
+          # cd /proj/r-py-jl/sven/my_exercises
+
+          # Download the script locally:
+          wget https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py
+
+      After loading a Python module, run it.
+      
+   .. tab:: HPC2N
+
+      Navigate to the folder with exercises, or download the script locally:
+
+      .. code-block:: console
+      
+          # Go to the folder with exercises:
+          cd /proj/nobackup/hpc2n2024-025/[username]/[exercise_folder]
+          # For example
+          # cd /proj/nobackup/hpc2n2024-025/sven/my_exercises
+
+          # Download the script locally:
+          wget https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py
+
+      After loading the modules needed to run Python, run the script as indicated.
+
+Exercise 1
+----------
+
+.. admonition:: Learning objectives
+
+    - Start an interactive session with 1 core
+    - Test to be on an interactive node
+    - Test to be on an interactive session with 1 core
+    - Run Python scripts on 1 core
+    - End an interactive session
+
+Exercise 1.1: start an interactive node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 1.1: start an interactive node
+
+      Start an interactive node in the simplest way possible.
+
+   .. tab:: UPPMAX
+
+      On UPPMAX, ``interactive`` is recommended:
+
+      .. code-block:: console
+
+         interactive -A naiss2024-22-107
+      
+   .. tab:: HPC2N
+
+      .. code-block:: console
+          
+         salloc -A hpc2n2024-025
+
+Exercise 1.2: check to be in an interactive session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 1.2: confirm to be on a compute node
+
+      Confirm to be on a compute node.
+
+   .. tab:: UPPMAX
+
+      Use:
+
+      .. code-block:: console
+
+         hostname
+
+      If the output is ``r[number].uppmax.uu.se``, where ``[number]``
+      is a number, you are on a computer node. Well done!
+
+      If the output is ``rackham[number].uppmax.uu.se``, where ``[number]``
+      is a number, you are still on a login node.
+      
+   .. tab:: HPC2N
+
+      Use:
+
+      .. code-block:: console
+
+         srun hostname
+
+      If the output is ``b-cn[number].hpc2n.umu.se``, where ``[number]``
+      is a number, you are more-or-less on a computer node. Well done!
+
+      If the output is ``[something else]``, where ``[number]``
+      is a number, you are still on a login node.
+
+      Misleading would be to use:
+
+      .. code-block:: console
+
+         hostname
+
+      This will always show that you are on a login node
+
+
+Exercise 1.3: check to have booked the expected amount of cores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 1.3: confirm to have booked one core
+
+      Confirm to have booked one core.
+
+   .. tab:: UPPMAX
+
+      Use:
+
+      .. code-block:: console
+
+         srun hostname
+
+      The output should be one line of ``r[number].uppmax.uu.se``, where ``[number]``
+      is a number, you have booked one core.
+
+      If the output is more than one line of ``r[number].uppmax.uu.se``, where ``[number]``
+      is a number, you have booked more than one core. 
+
+      If the output is ``rackham[number].uppmax.uu.se``, where ``[number]``
+      is a number, you are still on a login node.
+      
+   .. tab:: HPC2N
+
+      Use:
+
+      .. code-block:: console
+
+         srun hostname
+
+      The output should be one line of ``b-cn[number].hpc2n.umu.se``, where ``[number]``
+      is a number, you have booked one core.
+
+      If the output is more than one line of ``b-cn[number].hpc2n.umu.se``, where ``[number]``
+      is a number, you have booked more than one core. 
+
+      If the output is ``[something else]``, where ``[number]``
+      is a number, you are still on a login node.
+
+Exercise 1.4.1. Running the first Python script in an interactive session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tabs::
+
+   .. tab:: Exercise 1.4.1. Running the first Python script in an interactive session
+
+      Run the first Python example script, `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py>`_,
+      in the interactive session.
+
+   .. tab:: UPPMAX
+
+      Run the script using ``python``:
+         
+      .. code-block:: console
+      
+          b-an01 [~]$ python sum-2args.py 3 4
+          The sum of the two numbers is: 7
+          b-an01 [~]$             
+      
+   .. tab:: HPC2N
+
+      Run the script using ``srun``:
+         
+      .. code-block:: console
+      
+          b-an01 [~]$ srun python sum-2args.py 3 4
+          The sum of the two numbers is: 7
+          b-an01 [~]$             
+
+                  
+Exercise 1.4.2. Running a second Python script in an interactive session on all nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 1.4.2. Running a second Python script in an interactive session
+
+      Run the second Python example script, `add2.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py>`_,
+      in the interactive session.
+
+   .. tab:: UPPMAX
+
+      Run the script using ``python``:
+                  
+      .. code-block:: console 
+                  
+          b-an01 [~]$ python add2.py 
+          Enter the first number: 2
+          Enter the second number: 3
+          The sum of 2 and 3 is 5
+      
+   .. tab:: HPC2N
+
+      Run the script using ``srun``:
+                  
+      .. code-block:: console 
+                  
+          b-an01 [~]$ srun python add2.py 
+          Enter the first number: 2
+          Enter the second number: 3
+          The sum of 2 and 3 is 5
+
+Exercise 1.5: exit
+^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 1.5: exit
+
+      Exit the interactive node
+
+   .. tab:: UPPMAX
+
+      Use:
+
+      .. code-block:: console
+
+         exit
+
+      The prompt should change to contain ``rackham[number].uppmax.uu.se``, 
+      where ``[number]`` is a number, which indicates you are back on a login node.
+      
+   .. tab:: HPC2N
+
+      Use:
+
+      .. code-block:: console
+
+         exit
+
+      The prompt will remain the same.
+
+
+Exercise 2
+----------
+
+.. admonition:: Learning objectives
+
+    - Start an interactive session with multiple cores
+    - Test to be on an interactive node with multiple cores
+    - Run an interactive-friendly Python script on multiple cores
+    - Run an interactive-unfriendly Python script on multiple cores
+    - End an interactive session
+
+Exercise 2.1: start an interactive node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 2.1: start an interactive node
+
+      Start an interactive node in the simplest way possible.
+
+   .. tab:: UPPMAX
+
+      On UPPMAX, ``interactive`` is recommended:
+
+      .. code-block:: console
+
+         interactive -A naiss2024-22-107
+      
+   .. tab:: HPC2N
+
+      .. code-block:: console
+          
+         salloc -A hpc2n2024-025
+
+Exercise 2.2: check to be in an interactive session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 2.2: confirm to be on a compute node
+
+      Confirm to be on a compute node.
+
+   .. tab:: UPPMAX
+
+      Use:
+
+      .. code-block:: console
+
+         hostname
+
+      If the output is ``r[number].uppmax.uu.se``, where ``[number]``
+      is a number, you are on a computer node. Well done!
+
+      If the output is ``rackham[number].uppmax.uu.se``, where ``[number]``
+      is a number, you are still on a login node.
+      
+   .. tab:: HPC2N
+
+      Use:
+
+      .. code-block:: console
+
+         srun hostname
+
+      If the output is ``b-cn[number].hpc2n.umu.se``, where ``[number]``
+      is a number, you are more-or-less on a computer node. Well done!
+
+      If the output is ``[something else]``, where ``[number]``
+      is a number, you are still on a login node.
+
+      Misleading would be to use:
+
+      .. code-block:: console
+
+         hostname
+
+      This will always show that you are on a login node
+
+
+Exercise 2.3: check to have booked the expected amount of cores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 2.3: confirm to have booked one core
+
+      Confirm to have booked one core.
+
+   .. tab:: UPPMAX
+
+      Use:
+
+      .. code-block:: console
+
+         srun hostname
+
+      The output should be one line of ``r[number].uppmax.uu.se``, where ``[number]``
+      is a number, you have booked one core.
+
+      If the output is more than one line of ``r[number].uppmax.uu.se``, where ``[number]``
+      is a number, you have booked more than one core. 
+
+      If the output is ``rackham[number].uppmax.uu.se``, where ``[number]``
+      is a number, you are still on a login node.
+      
+   .. tab:: HPC2N
+
+      Use:
+
+      .. code-block:: console
+
+         srun hostname
+
+      The output should be one line of ``b-cn[number].hpc2n.umu.se``, where ``[number]``
+      is a number, you have booked one core.
+
+      If the output is more than one line of ``b-cn[number].hpc2n.umu.se``, where ``[number]``
+      is a number, you have booked more than one core. 
+
+      If the output is ``[something else]``, where ``[number]``
+      is a number, you are still on a login node.
+
+Exercise 2.4.1. Running the first Python script in an interactive session on all nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 2.4.1. Running the first Python script in an interactive session
+
+      Run the first Python example script, `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py>`_,
+      in an interactive session, on all nodes.
+
+   .. tab:: HPC2N and UPPMAX
+
+      Run the script using ``srun``:
+         
+      .. code-block:: console
+      
+          b-an01 [~]$ srun python sum-2args.py 3 4
+          The sum of the two numbers is: 7
+          The sum of the two numbers is: 7
+          The sum of the two numbers is: 7
+          The sum of the two numbers is: 7
+          b-an01 [~]$             
+
+      Similar to ``srun hostname``, 
+      this script is run once per node
+      and works as expected.
+                        
+Exercise 2.4.2. Running a second Python script in an interactive session on all nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 2.4.2. Running a second Python script in an interactive session
+
+      Run the second Python example script, `add2.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py>`_,
+      in an interactive session, on all nodes.
+
+   .. tab:: HPC2N and UPPMAX
+
+      Run the script using ``srun``:
+
+      .. code-block:: console 
+         
+          b-an01 [~]$ srun python add2.py 
+          2
+          3
+          Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+          Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+          Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+          Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+      
+      As you can see, it is possible, 
+      but it will not show any interaction it otherwise would have. 
+
+Exercise 2.5: exit
+^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+   .. tab:: Exercise 2.5: exit
+
+      Exit the interactive node
+
+   .. tab:: UPPMAX
+
+      Use:
+
+      .. code-block:: console
+
+         exit
+
+      The prompt should change to contain ``rackham[number].uppmax.uu.se``, 
+      where ``[number]`` is a number, which indicates you are back on a login node.
+      
+   .. tab:: HPC2N
+
+      Use:
+
+      .. code-block:: console
+
+         exit
+
+      The prompt will remain the same.
+
+Conclusion
+----------
 
 .. keypoints::
 
-   - Start an interactive session on a calculation node by a SLURM allocation
-   
-      - At HPC2N: ``salloc`` ...
-      - At UPPMAX: ``interactive`` ...
-      
-   - Follow the same procedure as usual by loading the Python module and possible prerequisites.
-   - CPU-hours are more effectively used in "batch jobs". Therefore:
-   
-     - Use "interactive" for testing and developing
-     - Don't book too many cores/nodes and try to be effective when the session is going.
-     
-    
+   You have:
+
+   - seen how to use a compute node interactively,
+     which differs between HPC2N and UPPMAX
+   - checked if we are in an interactive session
+   - checked if we have booked the right number of cores
+   - run Python scripts in an interactive session,
+     which differs between HPC2N and UPPMAX
+   - seen that not all Python scripts 
+     can be run interactively on multiples cores
+   - exited an interactive session
