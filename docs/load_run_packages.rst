@@ -524,8 +524,8 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 	  - ``Cython``
 	  - ``Flask``
 
-Exercises
----------
+Demo/Type-along 
+---------------
 
 This is an exercise that combines loading, running, and using site-installed packages. Later, during the ML session, we will look at running the same exercise, but as a batch job. There is also a follow-up exercise of an extended version of the script, if you want to try run that as well (see further down on the page). 
 
@@ -650,6 +650,11 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 	      
 If you have time, you can also try and run these extended versions, which also requires the ``scipy`` packages (included with python at UPPMAX and with the same modules loaded as for ``pandas`` for HPC2N):
 
+Exercises  (C. 10 min)
+----------------------
+
+
+
 .. exercise:: Python example that requires ``pandas``, ``matplotlib``, and ``scipy`` packages.
 
    You can either save the scripts or run them line by line inside Python. The scripts are also available in the directory ``<path-to>/Exercises/examples/programs``, as ``pandas_matplotlib-linreg.py`` and ``pandas_matplotlib-linreg-pretty.py``.
@@ -683,7 +688,7 @@ If you have time, you can also try and run these extended versions, which also r
 
       plt.show()
 
-   ``pandas_matplotlib-linreg-pretty.py`   
+   ``pandas_matplotlib-linreg-pretty.py``
 
    .. code-block:: python
 
