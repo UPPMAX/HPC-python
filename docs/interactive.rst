@@ -139,38 +139,271 @@ The command to request an interactive node differs per HPC cluster:
 | UPPMAX  | Recommended     | Works       |
 +---------+-----------------+-------------+
 
+Start an interactive session in the simplest way
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Python "interactively" on the compute nodes 
--------------------------------------------
-
-To run interactively, you need to allocate resources on the cluster first. 
-You can use the command salloc to allow interactive use of resources allocated to your job. 
-When the resources are allocated, you need to preface commands with ``srun`` in order to 
-run on the allocated nodes instead of the login node. 
-      
-- First, you make a request for resources with ``interactive``/``salloc``, like this:
+To start an interactive session in the simplest way, is shown here:
 
 .. tabs::
 
-   .. tab:: UPPMAX (interactive)
+   .. tab:: UPPMAX
+
+     Use:
+
+      .. code-block:: console
+
+         interactive -A [project_name]
+
+      Where ``[project_name]`` is the UPPMAX project name,
+      for example ``interactive -A naiss2024-22-107``.
+
+      The output will look similar to this:
+
+      .. code-block:: console
+
+          [richel@rackham4 ~]$ interactive -A naiss2024-22-107
+          You receive the high interactive priority.
+          You may run for at most one hour.
+          Your job has been put into the devcore partition and is expected to start at once.
+          (Please remember, you may not simultaneously have more than one devel/devcore job, running or queued, in the batch system.)
+
+          Please, use no more than 8 GB of RAM.
+
+          salloc: Pending job allocation 9093699
+          salloc: job 9093699 queued and waiting for resources
+          salloc: job 9093699 has been allocated resources
+          salloc: Granted job allocation 9093699
+          salloc: Waiting for resource configuration
+          salloc: Nodes r314 are ready for job
+           _   _ ____  ____  __  __    _    __  __
+          | | | |  _ \|  _ \|  \/  |  / \   \ \/ /   | System:    r314
+          | | | | |_) | |_) | |\/| | / _ \   \  /    | User:      richel
+          | |_| |  __/|  __/| |  | |/ ___ \  /  \    | 
+           \___/|_|   |_|   |_|  |_/_/   \_\/_/\_\   | 
+
+          ###############################################################################
+
+                        User Guides: http://www.uppmax.uu.se/support/user-guides
+                        FAQ: http://www.uppmax.uu.se/support/faq
+
+                        Write to support@uppmax.uu.se, if you have questions or comments.
+
+
+          [richel@r314 ~]$ 
+
+      Note that the prompt has changed to show that one is on an interactive node.
+      
+   .. tab:: HPC2N
 
       .. code-block:: console
           
-         $ interactive -n <tasks> --time=HHH:MM:SS -A naiss2024-22-415
+         salloc -A [project_name]
+
+      Where ``[project_name]`` is the HPC2N project name,
+      for example ``interactive -A hpc2n2024-025``.
+
+      This will look similar to this:
+
+      .. code-block:: console
+
+          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2024-025 
+          salloc: Pending job allocation 20174806
+          salloc: job 20174806 queued and waiting for resources
+          salloc: job 20174806 has been allocated resources
+          salloc: Granted job allocation 20174806
+          salloc: Waiting for resource configuration
+          salloc: Nodes b-cn0241 are ready for job
+          b-an01 [~]$ module load GCC/12.3.0 Python/3.11.3
+          b-an01 [~]$ 
+
+Indeed, all you need is the UPPMAX/HPC2N project name.
+However, this simplest way may have some defaults settings 
+that do not fit you.
+
+Start an interactive session in a more elaborate way
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The simplest way to start an interactive session
+may have some defaults settings that do not fit you:
+
+- session duration is too short
+- the session has too few cores available
+
+Here we show how start an interactive session in a more elaborate way,
+with a custom session duration and a custom amount of cores:
       
-   .. tab:: HPC2N (salloc)
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      Here we start an interactive session on the ``devcore`` partition,
+      with a custom session duration and a custom amount of cores:
 
       .. code-block:: console
           
-         $ salloc -n <tasks> --time=HHH:MM:SS -A hpc2n2024-052
-         
-      
-- where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project (on UPPMAX this is **naiss2024-22-415** for this course, on HPC2N it is **hpc2n2024-052**)
+         interactive -p devcore -n [n_tasks] --time=[duration] -A naiss2024-22-107
 
-- Your request enters the job queue just like any other job, and ``interactive``/``salloc`` will tell you that it is waiting for the requested resources. When ``interactive``/``salloc`` tells you that your job has been allocated resources, you can interactively run programs on those resources with ``srun``. The commands you run with ``srun`` will then be executed on the resources your job has been allocated. **NOTE** If you do not preface with ``srun`` the command is run on the login node! 
+      where ``[n_tasks]`` is the number of tasks,
+      ``[duration]`` is the time given in ``HHH:MM:SS`` format,
+      and ``[project_name]`` is the UPPMAX project name.
+
+      The parameters ``-p devcore`` mean that the ``devcore`` partition is used,
+      which results in jobs that start either faster or just as fast. Nice!
+
+      As an example, here an interactive job is started with 4 tasks,
+      for 1 hour, for the UPPMAX project ``naiss2024-22-107``:
+
+      .. code-block:: console
+
+         interactive -p devcore -n 4 --time=1:00:00 -A naiss2024-22-107
+
+      Note that, as Slurm uses 1 task per core by default, we request 4 cores.
+
+      The output will be similar to this:
+
+      .. code-block:: console
       
-- You can now run Python scripts on the allocated resources directly instead of waiting for your batch job to return a result. This is an advantage if you want to test your Python script or perhaps figure out which parameters are best.
+          [bjornc@rackham2 ~]$ interactive -A naiss2024-22-107 -p devcore -n 4 -t 10:00
+          You receive the high interactive priority.
+          There are free cores, so your job is expected to start at once.
+      
+          Please, use no more than 6.4 GB of RAM.
+      
+          Waiting for job 29556505 to start...
+          Starting job now -- you waited for 1 second.
+
+      
+   .. tab:: HPC2N
+
+      Here we start an interactive session,
+      with a custom session duration and a custom amount of cores:
+
+      .. code-block:: console
+          
+         interactive -n [n_tasks] --time=[duration] -A naiss2024-22-107
+
+      where ``[n_tasks]`` is the number of tasks,
+      ``[duration]`` is the time given in ``HHH:MM:SS`` format,
+      and ``[project_name]`` is the HPC2N project name.
+
+      As an example, here an interactive job is started with 4 tasks,
+      for 1 hour, for the HPC2N project ``hpc2n2024-025``:
+
+      .. code-block:: console
+          
+         salloc -n 4 --time=1:00:00 -A hpc2n2024-025
+
+      Note that, as Slurm uses 1 task per core by default, we request 4 cores.
+
+Check to be in an interactive session
+-------------------------------------
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      To check to be in an interactive session, do:
+
+      .. code-block:: console
+
+         hostname
+
+      If the output is ``r[number].uppmax.uu.se``, where ``[number]``
+      is a number, you are on a computer node. Well done!
+
+      If the output is ``rackham[number].uppmax.uu.se``, where ``[number]``
+      is a number, you are still on a login node.
+      
+   .. tab:: HPC2N
+
+      To check to be in an interactive session, do:
+
+      .. code-block:: console
+
+         srun hostname
+
+      If the output is ``b-cn[number].hpc2n.umu.se``, where ``[number]``
+      is a number, you are more-or-less on a computer node. Well done!
+
+      If the output is ``[something else]``, where ``[number]``
+      is a number, you are still on a login node.
+
+      This is an example of output when 4 cores have been booked:
+
+      .. code-block:: console
                   
+           b-an01 [~]$ srun hostname
+           b-cn0241.hpc2n.umu.se
+           b-cn0241.hpc2n.umu.se
+           b-cn0241.hpc2n.umu.se
+           b-cn0241.hpc2n.umu.se
+
+      Misleading would be to use:
+
+      .. code-block:: console
+
+         hostname
+
+      This will always show that you are on a login node
+
+Check to have booked the expected amount of cores
+-------------------------------------------------
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      To check to have booked the expected amount of cores:
+
+      .. code-block:: console
+
+         srun hostname
+
+      The output should be one line of ``r[number].uppmax.uu.se``, where ``[number]``
+      is a number, you have booked one core.
+
+      If the output is more than one line of ``r[number].uppmax.uu.se``, where ``[number]``
+      is a number, you have booked more than one core. 
+
+      If the output is ``rackham[number].uppmax.uu.se``, where ``[number]``
+      is a number, you are still on a login node.
+
+      Here is an example of output when 4 cores had been booked:
+
+      .. code-block:: console
+      
+          [bjornc@r483 ~]$ srun hostname
+          r483.uppmax.uu.se
+          r483.uppmax.uu.se
+          r483.uppmax.uu.se
+          r483.uppmax.uu.se
+      
+   .. tab:: HPC2N
+
+      To check to have booked the expected amount of cores:
+
+      .. code-block:: console
+
+         srun hostname
+
+      The output should be one line of ``b-cn[number].hpc2n.umu.se``, where ``[number]``
+      is a number, you have booked one core.
+
+      If the output is more than one line of ``b-cn[number].hpc2n.umu.se``, where ``[number]``
+      is a number, you have booked more than one core. 
+
+      If the output is ``[something else]``, where ``[number]``
+      is a number, you are still on a login node.
+
+      This is an example of output when 4 cores have been booked:
+
+      .. code-block:: console
+                  
+           b-an01 [~]$ srun hostname
+           b-cn0241.hpc2n.umu.se
+           b-cn0241.hpc2n.umu.se
+           b-cn0241.hpc2n.umu.se
+           b-cn0241.hpc2n.umu.se
 
 Example
 #######
