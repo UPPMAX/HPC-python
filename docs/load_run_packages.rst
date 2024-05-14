@@ -215,7 +215,7 @@ Run Python script
    
          - (``&`` is for letting you use the terminal while editor window is open)
 
-         - Requires ThinLinc or ``ssh -Y ...`` or ``ssh -X``
+         - Requires ThinLinc or ``ssh -X``
 
       - Terminal: ``$ nano <script>``
 
