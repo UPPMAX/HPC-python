@@ -12,7 +12,7 @@ Install packages
 
 .. questions::
 
-   - How to work with isolated environments at HPC2N and UPPMAX?
+   - How to work with isolated environments at Swedish HPC centers (examples: HPC2N and UPPMAX)?
    
 .. objectives:: 
 
