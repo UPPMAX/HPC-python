@@ -693,9 +693,9 @@ Exercise 1.4.1. Running the first Python script in an interactive session on all
 
 .. tabs::
 
-   .. tab:: Exercise 1.4.1. Running `sum-2args.py ` in an interactive session
+   .. tab:: Exercise 1.4.1. Running `sum-2args.py` in an interactive session
 
-      Run the first Python example script, `sum-2args.py `, in an interactive session, on all cores.
+      Run the first Python example script, `sum-2args.py`, in an interactive session, on all cores.
 
    .. tab:: HPC2N and UPPMAX
 
