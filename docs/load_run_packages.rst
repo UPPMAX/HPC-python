@@ -450,6 +450,18 @@ Does it work? Then it is there!
 
 Otherwise, you can either use ``pip`` or ``conda``.
 
+.. info:: Check path to the package you are using,
+
+   - Is the package/module local to you, or from a central installation or a module system module?
+   - In a python session, type:
+
+   .. code-block:: python
+   
+      import [a_module]
+      print([a_module].__file__)
+
+   - The print-out tells you the path to the `.pyc` file, but should give you a hint.
+
 .. exercise:: Check packages (5 min)
 
    - See if the following packages are installed. Use python version ``3.11.8`` on Rackham and ``3.11.3`` on Kebnekaise (remember: the Python module on kebnekaise has a prerequisite). 
