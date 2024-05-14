@@ -2,7 +2,7 @@ Load and run python and use packages
 ====================================
 
 At both UPPMAX and HPC2N we call the applications available via the module system modules. 
-    - https://www.uppmax.uu.se/resources/software/module-system/ 
+    - http://docs.uppmax.uu.se/cluster_guides/modules/
     - https://www.hpc2n.umu.se/documentation/environment/lmod 
 
    
@@ -71,24 +71,24 @@ Check for Python versions
 
          $ module spider Python/3.9.5 
 
-.. admonition:: Output at UPPMAX as of Nov 30 2023
+.. admonition:: Output at UPPMAX as of May 14, 2024
    :class: dropdown
     
        .. code-block::  tcl
     
-          -------------------------------------- /sw/mf/rackham/applications ---------------------------------------
-           python_GIS_packages/3.10.8      python_ML_packages/3.9.5-gpu (D)
-           python_ML_packages/3.9.5-cpu    wrf-python/1.3.1
+           ----------------------------------- /sw/mf/rackham/applications -----------------------------------
+              python_GIS_packages/3.10.8      python_ML_packages/3.9.5-gpu         wrf-python/1.3.1
+              python_ML_packages/3.9.5-cpu    python_ML_packages/3.11.8-cpu (D)
+           
+           ------------------------------------ /sw/mf/rackham/compilers -------------------------------------
+              python/2.7.6     python/3.4.3    python/3.9.5         python3/3.6.8     python3/3.11.8
+              python/2.7.9     python/3.5.0    python/3.10.8        python3/3.7.2     python3/3.12.1 (D)
+              python/2.7.11    python/3.6.0    python/3.11.4        python3/3.8.7
+              python/2.7.15    python/3.6.8    python/3.11.8        python3/3.9.5
+              python/3.3       python/3.7.2    python/3.12.1 (D)    python3/3.10.8
+              python/3.3.1     python/3.8.7    python3/3.6.0        python3/3.11.4
 
-           --------------------------------------- /sw/mf/rackham/compilers ----------------------------------------
-           python/2.7.6     python/3.3      python/3.6.0    python/3.9.5           python3/3.7.2
-           python/2.7.6     python/3.3.1    python/3.7.2         python3/3.6.0    python3/3.10.8
-           python/2.7.9     python/3.4.3    python/3.8.7         python3/3.6.8    python3/3.11.4 (D)
-           python/2.7.11    python/3.5.0    python/3.9.5         python3/3.7.2
-           python/2.7.15    python/3.6.0    python/3.10.8        python3/3.8.7
-           python/3.3       python/3.6.8    python/3.11.4 (D)    python3/3.9.5
-
-           Where:
+          Where:
            D:  Default Module
 
            Use module spider" to find all possible modules and extensions.
