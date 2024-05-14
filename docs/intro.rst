@@ -29,21 +29,19 @@ In particular, what sets Python apart from other languages is its fantastic
 open-source ecosystem for scientific computing and machine learning with
 libraries like NumPy, SciPy, scikit-learn and Pytorch.
 
-- Official Python documentation is found `here <https://www.python.org/doc/>_` 
-- Python forum is found `here <https://python-forum.io/>_`
-- A nice introduction to packages can be found here: https://aaltoscicomp.github.io/python-for-scicomp/dependencies/
+- `Official Python documentation <https://www.python.org/doc/>`_ 
+- `Python forum is found `here <https://python-forum.io/>`_
+- `A nice introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
 - The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python and the book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
     
-    - And, if you feel a little unfamiliar to the LINUX world, have a look at the Introduction to UPPMAX course material here: https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-winter-2022/
-    
-The two HPC centers UPPMAX and HPC2N
+ The two HPC centers UPPMAX and HPC2N
 ------------------------------------
 
    
 .. warning:: 
 
    - At both HPC2N UPPMAX we call the applications available via the *module system* **modules**. 
-   - https://www.uppmax.uu.se/resources/software/module-system/ 
+   - http://docs.uppmax.uu.se/cluster_guides/modules/
    - https://www.hpc2n.umu.se/documentation/environment/lmod
    
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
@@ -64,7 +62,7 @@ Material for improving your programming skills
 
 .. admonition:: Second level
 
-   Other course/wrskhops given by NAISS HPC centres:
+   Other course/workhops given by NAISS HPC centres:
 
    - `Pandas by LUNARC <https://github.com/rlpitts/Intro-to-Pandas>`_
 
@@ -94,7 +92,7 @@ Material for improving your programming skills
 
    - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
     
-Other NAISS centres
+Documentations at other NAISS centres
 -------------------
 
 .. seealso::
@@ -116,10 +114,9 @@ Other NAISS centres
     
     - teach you how to navigate the module system at HPC2N and UPPMAX
     - show you how to find out which versions of Python and packages are installed
-    - look at the package handler **pip** (and **Conda** for UPPMAX)
+    - look at the package handler **pip**
     - explain how to create and use virtual environments
     - show you how to run batch jobs 
     - show some examples with parallel computing and using GPUs
     - guide you in how to start Python tools for Machine Learning
  
-
