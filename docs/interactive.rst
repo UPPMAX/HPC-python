@@ -1,3 +1,7 @@
+Interactive work on the compute nodes
+=====================================
+
+
 .. tabs::
 
    .. tab:: Learning objectives
