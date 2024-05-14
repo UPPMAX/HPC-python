@@ -299,7 +299,7 @@ Preliminary schedule
       - Rackham: ``ssh <user>@rackham.uppmax.uu.se``       
       - Rackham through ThinLinc, 
        
-         - use the app with user: ``<user>@rackham-gui.uppmax.uu.se``
+         - use the app with user: ``<user>@rackham-gui.uppmax.uu.se``  NB: leave out the ``https://www.``!
          - or go to <https://rackham-gui.uppmax.uu.se>
 
            - here, you'll need two factor authentication.
