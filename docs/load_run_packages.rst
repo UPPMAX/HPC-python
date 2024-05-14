@@ -122,7 +122,10 @@ Check for Python versions
                 Python/3.9.6   
                 Python/3.10.4-bare
                 Python/3.10.4
+                Python/3.10.8-bare
+                Python/3.10.8
                 Python/3.11.3
+                Python/3.11.5
             Other possible modules matches:
                 Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
            ----------------------------------------------------------------------------
