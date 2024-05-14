@@ -69,7 +69,7 @@ Common features
      - 128-4096 GB
      - 128-512 GB
    * - GPU
-     - NVidia V100 + 3 NVidia A100, :raw-html:`<br />` 2 AMD MI100, 2 NVidia H100, :raw-html:`<br />` and 10 NVidia L40S
+     - NVidia V100 + 3 NVidia A100, :raw-html:`<br/>` 2 AMD MI100, 2 NVidia H100, :raw-html:`<br />` and 10 NVidia L40S
      - None
      - Nvidia T4 
      - 2 NVIDIA A100
