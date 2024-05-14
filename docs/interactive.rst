@@ -1,51 +1,143 @@
-Interactive work on the compute nodes
-=====================================
+.. tabs::
 
-.. note::
+   .. tab:: Learning objectives
 
-   - It is possible to run Python directly on the login (including ThinLinc) nodes.
-   - *Only* be done for shorter jobs or jobs that do not use a lot of resources, as the login nodes can otherwise become slow for all users. 
-   - If you want to work **interactively** with your code or data like for plotting graphs or developing, you should start an **interactive session** if it requires much CPU or RAM.
-   - If you rather will run a script which won't use any interactive user input while running, you can instead start a batch job, see last session.
-   
-.. questions::
+      - Understand what an interactive session is
+      - Understand why one may need an interactive session
+      - Start an interactive session
+      - Test to be on an interactive node with the right amount of cores
+      - End an interactive session
+      - Start an interactive session with multiple cores
+      - Test to be on an interactive node with multiple cores
+      - Run an interactive-friendly Python script on multiple cores
+      - Run an interactive-unfriendly Python script on multiple cores
+      - End an interactive session with multiple cores
 
-   - How to reach the compute/calculation nodes
-   - How do I proceed to work interactively?
-   
-.. objectives:: 
+   .. tab:: For teachers
 
-   - Show how to reach the compute/calculation nodes on UPPMAX and HPC2N
-   - Test some commands on the compute/calculation nodes
+      Teaching goals are:
 
-General
--------
+      - Learners have heard what an interactive session is
+      - Learners have heard why one may need an interactive session
+      - Learners have started an interactive session
+      - Learners have tested to be on an interactive node
+      - Learners have ended an interactive session
+      - Learners have started an interactive session with multiple cores
+      - Learners have tested to be on an interactive node with multiple cores
+      - Learners have ended an interactive session with multiple cores
 
-- Running interactively a compute node involves either:
+      Lesson plan (60 minutes in total):
 
-   - **developing** python code and running it and test and fix the upcoming bugs.
-   - using a GUI, like Jupyter, and working interactively with data, and possibly plotting graphs.
-      
-      - **Jupyter-notebook/lab** are available on both UPPMAX and HPC2N.
+      - 5 mins: prior knowledge
+         - What types of nodes do our HPC clusters have?
+         - What is the purpose of each of these nodes?
+         - Imagine you are developing a Python script in a line-by-line fashion. How to do so best?
+         - Why not do so on the login node?
+         - Why not do so by using ``sbatch``?
+      - 5 mins: presentation
+      - 20 mins: challenge
+      - 5 mins: feedback
+      - 20 mins: continue challenge
+      - 5 mins: feedback
+         - What is the drawback of using an interactive node?
 
-- You allocate a compute node in the SLURM system, using the same options as for batch jobs. 
-- The way it works differs, however, between UPPMAX and HPC2N.
+      Shortened lesson plan (20 minutes in total):
 
-   - At UPPMAX, you actually are "physically" on the compute node.
+      - 5 mins: prior knowledge
+         - What types of nodes do our HPC clusters have?
+         - What is the purpose of each of these nodes?
+         - Imagine you are developing a Python script in a line-by-line fashion. How to do so best?
+         - Why not do so on the login node?
+         - Why not do so by using ``sbatch``?
+      - 5 mins: presentation
+      - 5 mins: challenge
+      - 5 mins: recap
+         - What is the drawback of using an interactive node?
 
-      - You can also ask for "devcore" partition, with ``-p devcore`` if you run for shorter than 1 hour. Then waiting times are short.
 
-   - At HPC2N, you are *not* "physically" on the compute node, but can see the output of the commands run in "batch mode"
+.. admonition:: Compute allocations in this workshop 
 
-- Running Jupyter and other graphics benefit from being run in **ThinLinc** or other places *closer* to your own computer.
-   - See more in the Jupyter section from this `course session <https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html>`_.
+   - Rackham: ``naiss2024-22-107``
+   - Kebnekaise: ``hpc2n2024-025``
 
-- We will also deal with Jupyter in the next session about parallel computing. 
+.. admonition:: Storage space for this workshop 
 
-.. warning::
+   - Rackham: ``/proj/r-py-jl``
+   - Kebnekaise: ``/proj/nobackup/hpc2n2024-025``
 
-    (HPC2N) Do note that it is not *real* interactivity as you probably mean it, as you will have to run it as a Python script instead of by starting Python and giving commands inside it. The reason for this is that you are not actually logged into the compute node and only sees the output of the commands you run. 
+Introduction
+------------
 
+Some users develop Python code in a line-by-line fashion. 
+These users typically want to run a (calculation-heavy) 
+script frequently, to test if the code works.
+However, scheduling each new line is too slow, as it
+can take minutes before the new code is run.
+Instead, there is a way to directly work 
+with such code: use an interactive session.
+
+Some other users want to run programs that 
+(1) use a lot of CPU and memory, and (2) need to be persistent/available.
+One good example is Jupyter. 
+Running such a program on a login nodes would
+harm all other users on the login node.
+Running such a program on a computer node using ``sbatch``
+would not allow a user to connect to it.
+In such a case: use an interactive session.
+
+.. admonition:: **About Jupyter**
+
+    For HPC2N, using 
+    `Jupyter on HPC2N <https://www.hpc2n.umu.se/resources/software/jupyter>`_ is possible, 
+    yet harder to get to work correctly
+    If you need it anyway, please contact ``support@hpc2n.umu.se``.
+
+    For UPPMAX, using Jupyter is easier 
+    and this will be shown in this course, in `the UPPMAX-only session on Jupyter <https://uppmax.github.io/HPC-python/jupyter.html>`_.
+
+An interactive session is a session with direct access to a compute node.
+Or alternatively: an interactive session is a session,
+in which there is no queue before a command is run on a compute node.
+
+In this session, we show how to:
+- the different way HPC2N and UPPMAX provide for an interactive session
+- start an interactive session
+- check to be in an interactive session
+- check to have booked the expected amount of cores
+- end the interactive session
+
+The different way HPC2N and UPPMAX provide for an interactive session
+---------------------------------------------------------------------
+
+.. mermaid:: interactive_node_transitions.mmd 
+
+Here we define an interactive session as a session 
+with direct access to a compute node.
+Or alternatively: an interactive session is a session,
+in which there is no queue before a command is run on a compute node.
+
+This differs between HPC2N and UPPMAX:
+
+- HPC2N: the user remains on a login node. 
+  All commands can be sent directly to the compute node using ``srun``
+- UPPMAX: the user is actually on a computer node.
+  Whatever command is done, it is run on the compute node
+
+Start an interactive session
+----------------------------
+
+To start an interactive session, 
+one needs to allocate resources on the cluster first.
+
+The command to request an interactive node differs per HPC cluster:
+
++---------+-----------------+-------------+
+| Cluster | ``interactive`` | ``salloc``  |
++=========+=================+=============+
+| HPC2N   | Works           | Recommended |
++---------+-----------------+-------------+
+| UPPMAX  | Recommended     | Works       |
++---------+-----------------+-------------+
 
 
 Python "interactively" on the compute nodes 
