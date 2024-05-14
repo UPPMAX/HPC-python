@@ -109,7 +109,7 @@ In this session, we show how to:
 The different way HPC2N and UPPMAX provide for an interactive session
 ---------------------------------------------------------------------
 
-.. mermaid:: interactive_node_transitions.mmd 
+.. mermaid:: mermaid/interactive_node_transitions.mmd 
 
 Here we define an interactive session as a session 
 with direct access to a compute node.
