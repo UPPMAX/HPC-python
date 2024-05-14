@@ -144,13 +144,13 @@ To start an interactive session in the simplest way, is shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the UPPMAX project name,
-      for example ``interactive -A naiss2024-22-107``.
+      for example ``interactive -A naiss2024-22-415``.
 
       The output will look similar to this:
 
       .. code-block:: console
 
-          [richel@rackham4 ~]$ interactive -A naiss2024-22-107
+          [richel@rackham4 ~]$ interactive -A naiss2024-22-415
           You receive the high interactive priority.
           You may run for at most one hour.
           Your job has been put into the devcore partition and is expected to start at once.
@@ -230,7 +230,7 @@ with a custom session duration and a custom amount of cores:
 
       .. code-block:: console
           
-         interactive -p devcore -n [n_tasks] --time=[duration] -A naiss2024-22-107
+         interactive -p devcore -n [n_tasks] --time=[duration] -A naiss2024-22-415
 
       where ``[n_tasks]`` is the number of tasks,
       ``[duration]`` is the time given in ``HHH:MM:SS`` format,
@@ -240,11 +240,11 @@ with a custom session duration and a custom amount of cores:
       which results in jobs that start either faster or just as fast. Nice!
 
       As an example, here an interactive job is started with 4 tasks,
-      for 1 hour, for the UPPMAX project ``naiss2024-22-107``:
+      for 1 hour, for the UPPMAX project ``naiss2024-22-415``:
 
       .. code-block:: console
 
-         interactive -p devcore -n 4 --time=1:00:00 -A naiss2024-22-107
+         interactive -p devcore -n 4 --time=1:00:00 -A naiss2024-22-415
 
       Note that, as Slurm uses 1 task per core by default, we request 4 cores.
 
@@ -252,7 +252,7 @@ with a custom session duration and a custom amount of cores:
 
       .. code-block:: console
       
-          [bjornc@rackham2 ~]$ interactive -A naiss2024-22-107 -p devcore -n 4 -t 10:00
+          [bjornc@rackham2 ~]$ interactive -A naiss2024-22-415 -p devcore -n 4 -t 10:00
           You receive the high interactive priority.
           There are free cores, so your job is expected to start at once.
       
@@ -269,7 +269,7 @@ with a custom session duration and a custom amount of cores:
 
       .. code-block:: console
           
-         interactive -n [n_tasks] --time=[duration] -A naiss2024-22-107
+         interactive -n [n_tasks] --time=[duration] -A naiss2024-22-415
 
       where ``[n_tasks]`` is the number of tasks,
       ``[duration]`` is the time given in ``HHH:MM:SS`` format,
