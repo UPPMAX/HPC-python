@@ -562,7 +562,7 @@ On HPC2N
 
 .. code-block:: console
 
-   python sum-2args.py 3 14``
+   python sum-2args.py 3 14
 
 .. code-block:: console
 
