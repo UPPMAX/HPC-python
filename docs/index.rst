@@ -181,38 +181,6 @@ Briefly about the cluster hardware and system at UPPMAX and HPC2N
 
 - The **calculation nodes** have to be used for intense computing. 
 
-
-Common features
-###############
-
-- Intel CPUs
-- Linux kernel
-- Bash shell
-
-.. list-table:: Hardware
-   :widths: 25 25 25 25 25
-   :header-rows: 1
-
-   * - Technology
-     - Kebnekaise
-     - Rackham
-     - Snowy
-     - Bianca
-   * - Cores/compute node
-     - 28 (72 for largemem part)
-     - 20
-     - 16
-     - 16
-   * - Memory/compute node
-     - 128-3072 GB 
-     - 128-1024 GB
-     - 128-4096 GB
-     - 128-512 GB
-   * - GPU
-     - NVidia V100, A100, old K80s
-     - None
-     - NVidia T4 
-     - NVidia A100
  
 Overview of the UPPMAX systems
 ##############################
@@ -299,7 +267,9 @@ Preliminary schedule
       - Rackham: ``ssh <user>@rackham.uppmax.uu.se``       
       - Rackham through ThinLinc, 
        
-         - use the app with user: ``<user>@rackham-gui.uppmax.uu.se``  NB: leave out the ``https://www.``!
+         - use the App with
+             - address: ``rackham-gui.uppmax.uu.se``  NB: leave out the ``https://www.``!
+             - user: ``<username-at-uppmax>``  NB: leave out the ``https://www.``!
          - or go to <https://rackham-gui.uppmax.uu.se>
 
            - here, you'll need two factor authentication.
@@ -309,7 +279,7 @@ Preliminary schedule
          
       - Example. If your username is "mrspock" and you are at UPPMAX, then we recommend you to create a user folder in the project folder of the course and step into that: 
 
-         - ``cd /proj/naiss2023-22-1126``
+         - ``cd /proj/naiss2024-22-415``
          - ``mkdir mrspock``
          - ``cd mrspock``
 
@@ -375,7 +345,7 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
 .. admonition:: Use Thinlinc or terminal?
 
    - It is up to you!
-   - Graphics come easier with Thinlinc
+   - Graphics come easier with Thinlinc, so recomended in the early session when we will plot a figure.
    - For this course, when having many windows open, it may be better to run in terminal in most of the cases, for space issues.
    
    
@@ -408,7 +378,7 @@ Content of the course
 
    packages_deeper.rst
    isolated_deeper.rst
-   jupyter.md
+   #jupyter.md
    ML_deeper.rst
    uppmax.rst
    kebnekaise.md
