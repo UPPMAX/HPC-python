@@ -541,92 +541,36 @@ In these exercises:
 Exercise 0: be able to use the Python scripts
 ---------------------------------------------
 
+- Go to the program directory in your cloned HPC-Python repository
+- There you'll find the two programs that we will use:
 
+ `sum-2args.py`and `add2.py`
 
-Exercise 0.1. be able to use the first Python script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. tabs::
+- On UPPMAX: 
 
-   .. tab:: Exercise 0.1. be able to use the first Python script
+.. code-block:: console
+ 
+   cd /proj/HPC-python/[username]/HPC-python/Exercises/examples/programs
 
-      Find or download the first Python script, `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py>`_.
+On HPC2N
 
-      Run it using ``python sum-2args.py 3 14``.
+.. code-block:: console
 
-   .. tab:: UPPMAX
+   cd /proj/nobackup/python-hpc/[username]/HPC-python/Exercises/examples/programs``
 
-      Navigate to the folder with exercises, or download the script locally:
+- After loading a Python module, run it.
 
-      .. code-block:: console
-      
-          # Go to the folder with exercises:
-          cd /proj/r-py-jl/[username]/[exercise_folder]
-          # For example
-          # cd /proj/r-py-jl/sven/my_exercises
+.. code-block:: console
 
-          # Download the script locally:
-          wget https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py
+   python sum-2args.py 3 14``
 
-      After loading a Python module, run it.
-      
-   .. tab:: HPC2N
+.. code-block:: console
 
-      Navigate to the folder with exercises, or download the script locally:
+   python add2.py
 
-      .. code-block:: console
-      
-          # Go to the folder with exercises:
-          cd /proj/nobackup/hpc2n2024-025/[username]/[exercise_folder]
-          # For example
-          # cd /proj/nobackup/hpc2n2024-025/sven/my_exercises
+- Add numbers according to prompts.
 
-          # Download the script locally:
-          wget https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py
-
-      After loading the modules needed to run Python, run the script as indicated.
-                  
-Exercise 0.2. be able to use the second Python script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. tabs::
-
-   .. tab:: Exercise 0.2. be able to use the second Python script
-
-      Find or download the second Python script, `add2.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py>`_,
-
-      Run it using ``python add2.py``.
-
-   .. tab:: UPPMAX
-
-      Navigate to the folder with exercises, or download the script locally:
-
-      .. code-block:: console
-      
-          # Go to the folder with exercises:
-          cd /proj/r-py-jl/[username]/[exercise_folder]
-          # For example
-          # cd /proj/r-py-jl/sven/my_exercises
-
-          # Download the script locally:
-          wget https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py
-
-      After loading a Python module, run it.
-      
-   .. tab:: HPC2N
-
-      Navigate to the folder with exercises, or download the script locally:
-
-      .. code-block:: console
-      
-          # Go to the folder with exercises:
-          cd /proj/nobackup/hpc2n2024-025/[username]/[exercise_folder]
-          # For example
-          # cd /proj/nobackup/hpc2n2024-025/sven/my_exercises
-
-          # Download the script locally:
-          wget https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py
-
-      After loading the modules needed to run Python, run the script as indicated.
+- If this works you are good to go for the interactive session below!
 
 Exercise 1
 ----------
