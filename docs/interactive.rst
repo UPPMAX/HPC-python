@@ -693,9 +693,9 @@ Exercise 1.4.1. Running the first Python script in an interactive session on all
 
 .. tabs::
 
-   .. tab:: Exercise 1.4.1. Running the first Python script in an interactive session
+   .. tab:: Exercise 1.4.1. Running `sum-2args.py ` in an interactive session
 
-      Run the first Python example script, `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py>`_, in an interactive session, on all nodes.
+      Run the first Python example script, `sum-2args.py `, in an interactive session, on all cores.
 
    .. tab:: HPC2N and UPPMAX
 
@@ -718,9 +718,9 @@ Exercise 1.4.2. Running a second Python script in an interactive session on all 
 
 .. tabs::
 
-   .. tab:: Exercise 1.4.2. Running a second Python script in an interactive session
+   .. tab:: Exercise 1.4.2. Running `add2.py` in an interactive session
 
-      Run the second Python example script, `add2.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py>`_, in an interactive session, on all nodes.
+      Run the second Python example script, `add2.py`, in an interactive session, on all cores.
 
    .. tab:: HPC2N and UPPMAX
 
