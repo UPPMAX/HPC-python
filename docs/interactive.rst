@@ -532,6 +532,10 @@ End the interactive session
 Exercises
 ---------
 
+.. challenge:: 
+
+   10 minutes
+
 In these exercises:
 
 - we prepare to use two Python example scripts
@@ -572,8 +576,8 @@ On HPC2N
 
 - If this works you are good to go for the interactive session below!
 
-Exercise 1
-----------
+Exercises
+---------
 
 .. admonition:: Learning objectives
 
@@ -583,12 +587,12 @@ Exercise 1
     - Run an interactive-unfriendly Python script on multiple cores
     - End an interactive session
 
-Exercise 1.1: start an interactive node
+Exercise 1: start an interactive node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
-   .. tab:: Exercise 1.1: start an interactive node
+   .. tab:: Exercise 1: start an interactive node
 
       Start an interactive node with 2 cores
 
@@ -606,12 +610,12 @@ Exercise 1.1: start an interactive node
           
          salloc -A hpc2n2024-025 -n 3
 
-Exercise 1.2: check to be in an interactive session
+Exercise 2: check to be in an interactive session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
-   .. tab:: Exercise 1.2: confirm to be on a compute node
+   .. tab:: Exercise 2: confirm to be on a compute node
 
       Confirm to be on a compute node.
 
@@ -652,12 +656,12 @@ Exercise 1.2: check to be in an interactive session
       This will always show that you are on a login node
 
 
-Exercise 1.3: check to have booked the expected amount of cores
+Exercise 3: check to have booked the expected amount of cores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
-   .. tab:: Exercise 1.3: confirm to have booked one core
+   .. tab:: Exercise 3: confirm to have booked one core
 
       Confirm to have booked one core.
 
@@ -688,12 +692,12 @@ Exercise 1.3: check to have booked the expected amount of cores
       If the output is ``[something else]``, where ``[number]``
       is a number, you are still on a login node.
 
-Exercise 1.4.1. Running the first Python script in an interactive session on all cores
+Exercise 4.1. Running the first Python script in an interactive session on all cores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
-   .. tab:: Exercise 1.4.1. Running `sum-2args.py` in an interactive session
+   .. tab:: Exercise 4.1. Running `sum-2args.py` in an interactive session
 
       Run the first Python example script, `sum-2args.py`, in an interactive session, on all cores.
 
@@ -713,12 +717,12 @@ Exercise 1.4.1. Running the first Python script in an interactive session on all
       this script is run once per node
       and works as expected.
                         
-Exercise 1.4.2. Running a second Python script in an interactive session on all cores
+Exercise 4.2. Running a second Python script in an interactive session on all cores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
-   .. tab:: Exercise 1.4.2. Running `add2.py` in an interactive session
+   .. tab:: Exercise 4.2. Running `add2.py` in an interactive session
 
       Run the second Python example script, `add2.py`, in an interactive session, on all cores.
 
@@ -738,7 +742,7 @@ Exercise 1.4.2. Running a second Python script in an interactive session on all 
       As you can see, it is possible, 
       but it will not show any interaction it otherwise would have. 
 
-Exercise 1.5: exit
+Exercise 5: exit
 ^^^^^^^^^^^^^^^^^^
 
 .. tabs::
