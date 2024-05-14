@@ -30,22 +30,11 @@ open-source ecosystem for scientific computing and machine learning with
 libraries like NumPy, SciPy, scikit-learn and Pytorch.
 
 - `Official Python documentation <https://www.python.org/doc/>`_ 
-- `Python forum is found `here <https://python-forum.io/>`_
+- `Python forum <https://python-forum.io/>`_
 - `A nice introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
-- The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python and the book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
+- The youtube video `Thinking about Concurrency <https://www.youtube.com/watch?v=Bv25Dwe84g0>`_ is a good introduction to writing concurrent programs in Python
+- The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
     
- The two HPC centers UPPMAX and HPC2N
-------------------------------------
-
-   
-.. warning:: 
-
-   - At both HPC2N UPPMAX we call the applications available via the *module system* **modules**. 
-   - http://docs.uppmax.uu.se/cluster_guides/modules/
-   - https://www.hpc2n.umu.se/documentation/environment/lmod
-   
-   To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
-   
 Material for improving your programming skills
 ::::::::::::::::::::::::::::::::::::::::::::::
 
