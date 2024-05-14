@@ -695,8 +695,7 @@ Exercise 1.4.1. Running the first Python script in an interactive session on all
 
    .. tab:: Exercise 1.4.1. Running the first Python script in an interactive session
 
-      Run the first Python example script, `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py>`_,
-      in an interactive session, on all nodes.
+      Run the first Python example script, `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py>`_, in an interactive session, on all nodes.
 
    .. tab:: HPC2N and UPPMAX
 
@@ -704,11 +703,11 @@ Exercise 1.4.1. Running the first Python script in an interactive session on all
          
       .. code-block:: console
       
-          b-an01 [~]$ srun python sum-2args.py 3 4
-          The sum of the two numbers is: 7
-          The sum of the two numbers is: 7
-          The sum of the two numbers is: 7
-          b-an01 [~]$             
+         b-an01 [~]$ srun python sum-2args.py 3 4
+         The sum of the two numbers is: 7
+         The sum of the two numbers is: 7
+         The sum of the two numbers is: 7
+         b-an01 [~]$             
 
       Similar to ``srun hostname``, 
       this script is run once per node
@@ -721,8 +720,7 @@ Exercise 1.4.2. Running a second Python script in an interactive session on all 
 
    .. tab:: Exercise 1.4.2. Running a second Python script in an interactive session
 
-      Run the second Python example script, `add2.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py>`_,
-      in an interactive session, on all nodes.
+      Run the second Python example script, `add2.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py>`_, in an interactive session, on all nodes.
 
    .. tab:: HPC2N and UPPMAX
 
@@ -730,12 +728,12 @@ Exercise 1.4.2. Running a second Python script in an interactive session on all 
 
       .. code-block:: console 
          
-          b-an01 [~]$ srun python add2.py 
-          2
-          3
-          Enter the first number: Enter the second number: The sum of 2 and 3 is 5
-          Enter the first number: Enter the second number: The sum of 2 and 3 is 5
-          Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+         b-an01 [~]$ srun python add2.py 
+         2
+         3
+         Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+         Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+         Enter the first number: Enter the second number: The sum of 2 and 3 is 5
       
       As you can see, it is possible, 
       but it will not show any interaction it otherwise would have. 
@@ -745,7 +743,7 @@ Exercise 1.5: exit
 
 .. tabs::
 
-   .. tab:: Exercise 2.5: exit
+   .. tab:: Exercise 1.5: exit
 
       Exit the interactive node
 
