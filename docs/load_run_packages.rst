@@ -26,7 +26,9 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
 .. warning::
    
    - Note that the module systems at UPPMAX and HPC2N are slightly different. 
-   - While all modules at UPPMAX not directly related to bio-informatics are shown by ``ml avail``, modules at HPC2N are hidden until one has loaded a prerequisite like the compiler ``GCC``.
+   - While all modules at 
+       - UPPMAX not directly related to bio-informatics are shown by ``ml avail`` 
+       - HPC2N are hidden until one has loaded a prerequisite like the compiler ``GCC``.
 
 
 - For reproducibility reasons, you should always load a specific version of a module instead of just the default version
@@ -194,12 +196,15 @@ For this course, we recommend using Python 3.11.x (except for some GPU examples 
 
 .. admonition:: Why are there both Python/2.X.Y and Python/3.Z.W modules?
 
-    Some existing software might use `Python2` and some will use `Python3`. Some of the Python packages have both `Python2` and `Python3` versions. Check what your software as well as the installed modules need when you pick!   
+   - Some existing software might use `Python2` and some will use `Python3`. 
+   - Some of the Python packages have both `Python2` and `Python3` versions. 
+   - Check what your software as well as the installed modules need when you pick!   
     
 .. admonition:: UPPMAX: Why are there both python/3.X.Y and python3/3.X.Y modules?
 
-    Sometimes existing software might use `python2` and there's nothing you can do about that. In pipelines and other toolchains the different tools may together require both `python2` and `python3`.
-    Here's how you handle that situation:
+   - Sometimes existing software might use `python2` and there's nothing you can do about that.
+   - In pipelines and other toolchains the different tools may together require both `python2` and `python3`.
+   - Here's how you handle that situation:
     
     + You can run two python modules at the same time if ONE of the module is ``python/2.X.Y`` and the other module is ``python3/3.X.Y`` (not ``python/3.X.Y``).
     
@@ -224,7 +229,7 @@ Run Python script
 
    - Otherwise you would know what to do!
    - |:warning:| The teachers may use their common editor, like ``vi``/``vim``
-      - If you get stuck, press: ``<esc>`` and then ``:q`` !
+      - If you get stuck in ``vim``, press: ``<esc>`` and then ``:q`` !
  
 
 .. type-along::
@@ -605,6 +610,9 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png`` containing the plot. This is what you would do if you were running a python script in a batch job. 
 
+      - On UPPMAX you can view png files with the program ``eog``
+	   - Test: ``eog myplot.png &``
+
    2. As a Python script (if you are on Kebnekaise, mind the warning above):
 
       Copy and save this script as a file (or just run the file ``pandas_matplotlib-<system>.py`` that is located in the ``<path-to>/Exercises/examples/programs`` directory you got from the repo or copied. Where <system> is either ``rackham`` or ``kebnekaise``. 
@@ -652,6 +660,8 @@ If you have time, you can also try and run these extended versions, which also r
 
    Examples are from https://ourcodingclub.github.io/tutorials/pandas-python-intro/
 
+   ``pandas_matplotlib-linreg.py``
+
    .. code-block:: python 
 
       import pandas as pd
@@ -672,6 +682,8 @@ If you have time, you can also try and run these extended versions, which also r
       plt.plot(x, m * x + b, color="red")   # I've added a color argument here
 
       plt.show()
+
+   ``pandas_matplotlib-linreg-pretty.py`   
 
    .. code-block:: python
 
