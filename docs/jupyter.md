@@ -56,5 +56,3 @@ or
 
     This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.
 
-
-[broken link](this_borken.link.com)
