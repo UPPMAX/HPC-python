@@ -338,7 +338,7 @@ For more interactiveness you can run Ipython.
 
       And load one of them (here 7.25.0) with
 
-      ..code-block:: console
+      .. code-block:: console
 	 
         $ ml IPython/7.25.0
          
