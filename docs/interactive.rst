@@ -556,7 +556,7 @@ Exercise 0: be able to use the Python scripts
  
    cd /proj/HPC-python/[username]/HPC-python/Exercises/examples/programs
 
-On HPC2N
+- On HPC2N:
 
 .. code-block:: console
 
