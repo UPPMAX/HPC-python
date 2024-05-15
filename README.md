@@ -7,3 +7,5 @@ The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (K
 # Rendered material
 
 - https://uppmax.github.io/HPC-python/index.html
+
+aelrguWBEPFEUIP
