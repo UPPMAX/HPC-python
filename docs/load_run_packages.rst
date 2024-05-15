@@ -623,6 +623,8 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       - On UPPMAX you can view png files with the program ``eog``
 	   - Test: ``eog myplot.png &``
+      - On HPC2N you can view png files with the program ``eom``
+	   - Test: ``eom myplot.png &``
 
    2. As a Python script (if you are on Kebnekaise, mind the warning above):
 
