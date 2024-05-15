@@ -46,12 +46,12 @@ Interactive work on the compute nodes
 .. admonition:: Compute allocations in this workshop 
 
    - Rackham: ``naiss2024-22-415``
-   - Kebnekaise: ``<your-HPC2N-project-id>``
+   - Kebnekaise: ``hpc2n2024-052``
 
 .. admonition:: Storage space for this workshop 
 
-   - Rackham: ``/proj/r-py-jl``
-   - Kebnekaise: ``/proj/nobackup/<your-HPC2N-project-id>``
+   - Rackham: ``/proj/hpc-python``
+   - Kebnekaise: ``/proj/nobackup/python-hpc``
 
 Introduction
 ------------
@@ -185,13 +185,13 @@ To start an interactive session in the simplest way, is shown here:
          salloc -A [project_name]
 
       Where ``[project_name]`` is the HPC2N project name,
-      for example ``interactive -A hpc2n2024-025``.
+      for example ``interactive -A hpc2n2024-052``.
 
       This will look similar to this:
 
       .. code-block:: console
 
-          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2024-025 
+          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2024-052 
           salloc: Pending job allocation 20174806
           salloc: job 20174806 queued and waiting for resources
           salloc: job 20174806 has been allocated resources
@@ -270,18 +270,18 @@ with a custom session duration and a custom amount of cores:
 
       .. code-block:: console
           
-         interactive -n [n_tasks] --time=[duration] -A naiss2024-22-415
+         interactive -n [n_tasks] --time=[duration] -A hpc2n2024-052
 
       where ``[n_tasks]`` is the number of tasks,
       ``[duration]`` is the time given in ``HHH:MM:SS`` format,
       and ``[project_name]`` is the HPC2N project name.
 
       As an example, here an interactive job is started with 4 tasks,
-      for 1 hour, for the HPC2N project ``hpc2n2024-025``:
+      for 1 hour, for the HPC2N project ``hpc2n2024-052``:
 
       .. code-block:: console
           
-         salloc -n 4 --time=1:00:00 -A hpc2n2024-025
+         salloc -n 4 --time=1:00:00 -A hpc2n2024-052
 
       Note that, as Slurm uses 1 task per core by default, we request 4 cores.
 
@@ -608,7 +608,7 @@ Exercise 1: start an interactive node
 
       .. code-block:: console
           
-         salloc -A hpc2n2024-025 -n 3
+         salloc -A hpc2n2024-052 -n 3
 
 Exercise 2: check to be in an interactive session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
