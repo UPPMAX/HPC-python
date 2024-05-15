@@ -514,7 +514,7 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 
       - The python application at HPC2N comes with several preinstalled packages - check first before installing yourself!. 
       - HPC2N has both Python 2.7.x and Python 3.x installed. 
-      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.9.5
+      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.11.3.
 
 	NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: `Anaconda <https://www.hpc2n.umu.se/documentation/guides/anaconda>`_.
 
