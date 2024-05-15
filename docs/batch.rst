@@ -225,7 +225,7 @@ This first example shows how to run a short, serial script. The batch script (na
             module load python/3.11.8
             
             # Activate your virtual environment. 
-            source /proj/hpc-python/<user-dir>/<path-to-virtenv>/<virtenv> 
+            source /proj/hpc-python/<user-dir>/<path-to-virtenv>/<virtenv>/bin/activate  
             
             # Run your Python script (remember to add the path to it 
             # or change to the directory with it first)
