@@ -548,7 +548,7 @@ Exercise 0: be able to use the Python scripts
 - Go to the program directory in your cloned HPC-Python repository
 - There you'll find the two programs that we will use:
 
- `sum-2args.py`and `add2.py`
+ ``sum-2args.py`` and ``add2.py``
 
 - On UPPMAX: 
 
