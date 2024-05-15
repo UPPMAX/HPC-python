@@ -8,7 +8,7 @@
 
 # Change to the directory where the data files and program are located
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
+cd /proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
