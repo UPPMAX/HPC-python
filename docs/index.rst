@@ -306,11 +306,12 @@ Preliminary schedule
    - On HPC2N, you can copy the exercises in a tarball  ``cp /proj/nobackup/python-hpc/exercises.tar.gz .``
    - On UPPMAX you can copy the exercises in a tarball from ``cp /proj/hpc-python/exercises.tar.gz .``
 
+   - Untar it: ``tar xzvf exercises.tar.gz``
+
+ 
    **Clone the git directory**
 
    - ``git clone git@github.com:UPPMAX/HPC-python.git`` 
-
-
 
 **NOTE** If you are downloading / cloning from the course GitHub repo and into the above directory, your Python examples and batch submit file examples will be in a subdirectory of that.
 
