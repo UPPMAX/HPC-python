@@ -304,7 +304,7 @@ Preliminary schedule
    **Download**
 
    - On HPC2N, you can copy the exercises in a tarball  ``cp /proj/nobackup/support-hpc2n/bbrydsoe/examples.tar.gz .``
-   - On UPPMAX you can copy the exercises in a tarball from ``cp /proj/naiss2024-22-415/examples.tar.gz``
+   - On UPPMAX you can copy the exercises in a tarball from ``cp /proj/naiss2024-22-415/examples.tar.gz .``
 
    **Clone the git directory**
 
