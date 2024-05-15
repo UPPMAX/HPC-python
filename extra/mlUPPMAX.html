@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Python for Machine Learning jobs &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=0c089442" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+        <script src="../_static/minipres.js?v=a0d29692"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/logo-python-hpc-course.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../load_run_packages.html">Load and run python and use packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml.html">Using Python for Machine Learning jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary.html">Summary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra reading:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exercises:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">Exercises and demos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using Python for Machine Learning jobs</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/extra/mlUPPMAX.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-python-for-machine-learning-jobs">
+<h1>Using Python for Machine Learning jobs<a class="headerlink" href="#using-python-for-machine-learning-jobs" title="Link to this heading"></a></h1>
+<p>While Python does not run fast, it is still well suited for machine learning. However, it is fairly easy to code in, and this is particularly useful in machine learning where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for machine learning in Python, making it a good choice for this area.</p>
+<p>Some of the most used libraries in Python for machine learning are:</p>
+<ul class="simple">
+<li><p>PyTorch</p></li>
+<li><p>scikit-learn</p></li>
+<li><p>TensorFlow</p></li>
+</ul>
+<p>These are all available at UPPMAX and HPC2N.</p>
+<p>In this course we will look at two examples: PyTorch and TensorFlow, and show how you run them at our centres.</p>
+<p>There are some examples for beginners at <a class="reference external" href="https://machinelearningmastery.com/start-here/#python">https://machinelearningmastery.com/start-here/#python</a> and at <a class="reference external" href="https://pytorch.org/tutorials/beginner/pytorch_with_examples.html">https://pytorch.org/tutorials/beginner/pytorch_with_examples.html</a></p>
+<section id="pytorch">
+<h2>PyTorch<a class="headerlink" href="#pytorch" title="Link to this heading"></a></h2>
+<p>PyTorch has:</p>
+<ul class="simple">
+<li><p>An n-dimensional Tensor, similar to numpy, but can run on GPUs</p></li>
+<li><p>Automatic differentiation for building and training neural networks</p></li>
+</ul>
+<p>The example we will use in this course is taken from the official PyTorch page: <a class="reference external" href="https://pytorch.org/">https://pytorch.org/</a> and the problem is of fitting <span class="math notranslate nohighlight">\(y=sin⁡(x)\)</span> with a third order polynomial. We will run an example as a batch job.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">We use PyTorch Tensors to fit a third order polynomial to a sine function. The forward and backward passes through the network are manually implemented.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="c1"># device = torch.device(&quot;cuda:0&quot;) # Uncomment this to run on GPU</span>
+
+<span class="c1"># Create random input and output data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Randomly initialize weights</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="c1"># Forward pass: compute predicted y</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">d</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span>
+
+    <span class="c1"># Compute and print loss</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+
+    <span class="c1"># Backprop to compute gradients of a, b, c, d with respect to loss</span>
+    <span class="n">grad_y_pred</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">grad_a</span> <span class="o">=</span> <span class="n">grad_y_pred</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">grad_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">grad_y_pred</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">grad_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">grad_y_pred</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">grad_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">grad_y_pred</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="c1"># Update weights using gradient descent</span>
+    <span class="n">a</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_a</span>
+    <span class="n">b</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_b</span>
+    <span class="n">c</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_c</span>
+    <span class="n">d</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_d</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Result: y = </span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1"> x + </span><span class="si">{</span><span class="n">c</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1"> x^2 + </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1"> x^3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>You can find the full list of examples for this problem here: <a class="reference external" href="https://pytorch.org/tutorials/beginner/pytorch_with_examples.html">https://pytorch.org/tutorials/beginner/pytorch_with_examples.html</a></p>
+<p>In order to run this at HPC2N (and at UPPMAX?) you should use a batch job.</p>
+<p>This is an example of a batch script for running the above example, using PyTorch 1.10.0 and Python 3.9.5, running on GPUs.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example batch script, running the above example on Kebnekaise (assuming it is named pytorch_fitting_gpu.py)</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A SNIC2022-22-641</span>
+<span class="c1"># We are asking for 5 minutes</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1"># The following two lines splits the output in a file for any errors and a file for other output.</span>
+<span class="c1">#SBATCH --error=job.%J.err</span>
+<span class="c1">#SBATCH --output=job.%J.out</span>
+<span class="c1"># Asking for one K80</span>
+<span class="c1">#SBATCH --gres=gpu:k80:1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/10.3.0<span class="w">  </span>OpenMPI/4.1.1<span class="w"> </span>PyTorch/1.10.0-CUDA-11.3.1
+
+srun<span class="w"> </span>python<span class="w"> </span>pytorch_fitting_gpu.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</section>
+<section id="tensorflow">
+<h2>TensorFlow<a class="headerlink" href="#tensorflow" title="Link to this heading"></a></h2>
+<p>The example comes from <a class="reference external" href="https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/">https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/</a> but there are also good examples at <a class="reference external" href="https://www.tensorflow.org/tutorials">https://www.tensorflow.org/tutorials</a></p>
+<p>We are using Tensorflow 2.6.0 and Python 3.9.5. Since there is no scikit-learn for these versions, we have to install that too:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Installing scikit-learn compatible with TensorFlow version 2.6.0 and Python version 3.9.5</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Load modules: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">GCC/10.3.0</span>&#160; <span class="pre">OpenMPI/4.1.1</span> <span class="pre">TensorFlow/2.6.0-CUDA-11.3.1</span></code></p></li>
+<li><p>Create virtual environment: <code class="docutils literal notranslate"><span class="pre">virtualenv</span> <span class="pre">--system-site-packages</span> <span class="pre">&lt;path-to-install-dir&gt;/vpyenv</span></code></p></li>
+<li><p>Activate the virtual environment: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">&lt;path-to-install-dir&gt;/vpyenv/bin/activate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--no-cache-dir</span> <span class="pre">--no-build-isolation</span> <span class="pre">scikit-learn</span></code></p></li>
+</ul>
+</div></blockquote>
+</div>
+<p>We can now use scikit-learn in our example.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">We will work with this example</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># mlp for binary classification</span>
+from<span class="w"> </span>pandas<span class="w"> </span>import<span class="w"> </span>read_csv
+from<span class="w"> </span>sklearn.model_selection<span class="w"> </span>import<span class="w"> </span>train_test_split
+from<span class="w"> </span>sklearn.preprocessing<span class="w"> </span>import<span class="w"> </span>LabelEncoder
+from<span class="w"> </span>tensorflow.keras<span class="w"> </span>import<span class="w"> </span>Sequential
+from<span class="w"> </span>tensorflow.keras.layers<span class="w"> </span>import<span class="w"> </span>Dense
+<span class="c1"># load the dataset</span>
+<span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/jbrownlee/Datasets/master/ionosphere.csv&#39;</span>
+<span class="nv">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>read_csv<span class="o">(</span>path,<span class="w"> </span><span class="nv">header</span><span class="o">=</span>None<span class="o">)</span>
+<span class="c1"># split into input and output columns</span>
+X,<span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df.values<span class="o">[</span>:,<span class="w"> </span>:-1<span class="o">]</span>,<span class="w"> </span>df.values<span class="o">[</span>:,<span class="w"> </span>-1<span class="o">]</span>
+<span class="c1"># ensure all data are floating point values</span>
+<span class="nv">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>X.astype<span class="o">(</span><span class="s1">&#39;float32&#39;</span><span class="o">)</span>
+<span class="c1"># encode strings to integer</span>
+<span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>LabelEncoder<span class="o">()</span>.fit_transform<span class="o">(</span>y<span class="o">)</span>
+<span class="c1"># split into train and test datasets</span>
+X_train,<span class="w"> </span>X_test,<span class="w"> </span>y_train,<span class="w"> </span><span class="nv">y_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>train_test_split<span class="o">(</span>X,<span class="w"> </span>y,<span class="w"> </span><span class="nv">test_size</span><span class="o">=</span><span class="m">0</span>.33<span class="o">)</span>
+print<span class="o">(</span>X_train.shape,<span class="w"> </span>X_test.shape,<span class="w"> </span>y_train.shape,<span class="w"> </span>y_test.shape<span class="o">)</span>
+<span class="c1"># determine the number of input features</span>
+<span class="nv">n_features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>X_train.shape<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="c1"># define model</span>
+<span class="nv">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Sequential<span class="o">()</span>
+model.add<span class="o">(</span>Dense<span class="o">(</span><span class="m">10</span>,<span class="w"> </span><span class="nv">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span>,<span class="w"> </span><span class="nv">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span>,<span class="w"> </span><span class="nv">input_shape</span><span class="o">=(</span>n_features,<span class="o">)))</span>
+model.add<span class="o">(</span>Dense<span class="o">(</span><span class="m">8</span>,<span class="w"> </span><span class="nv">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span>,<span class="w"> </span><span class="nv">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="o">))</span>
+model.add<span class="o">(</span>Dense<span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="nv">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="o">))</span>
+<span class="c1"># compile the model</span>
+model.compile<span class="o">(</span><span class="nv">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span>,<span class="w"> </span><span class="nv">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span>,<span class="w"> </span><span class="nv">metrics</span><span class="o">=[</span><span class="s1">&#39;accuracy&#39;</span><span class="o">])</span>
+<span class="c1"># fit the model</span>
+model.fit<span class="o">(</span>X_train,<span class="w"> </span>y_train,<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">150</span>,<span class="w"> </span><span class="nv">batch_size</span><span class="o">=</span><span class="m">32</span>,<span class="w"> </span><span class="nv">verbose</span><span class="o">=</span><span class="m">0</span><span class="o">)</span>
+<span class="c1"># evaluate the model</span>
+loss,<span class="w"> </span><span class="nv">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>model.evaluate<span class="o">(</span>X_test,<span class="w"> </span>y_test,<span class="w"> </span><span class="nv">verbose</span><span class="o">=</span><span class="m">0</span><span class="o">)</span>
+print<span class="o">(</span><span class="s1">&#39;Test Accuracy: %.3f&#39;</span><span class="w"> </span>%<span class="w"> </span>acc<span class="o">)</span>
+<span class="c1"># make a prediction</span>
+<span class="nv">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>,0,0.99539,-0.05889,0.85243,0.02306,0.83398,-0.37708,1,0.03760,0.85243,-0.17755,0.59755,-0.44945,0.60536,-0.38223,0.84356,-0.38542,0.58212,-0.32192,0.56971,-0.29674,0.36946,-0.47357,0.56811,-0.51171,0.41078,-0.46168,0.21266,-0.34090,0.42267,-0.54487,0.18641,-0.45300<span class="o">]</span>
+<span class="nv">yhat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>model.predict<span class="o">([</span>row<span class="o">])</span>
+print<span class="o">(</span><span class="s1">&#39;Predicted: %.3f&#39;</span><span class="w"> </span>%<span class="w"> </span>yhat<span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>In order to run the above example, we will create a batch script and submit it.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5, and the scikit-learn we installed</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A SNIC2022-22-641</span>
+<span class="c1"># We are asking for 5 minutes</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1"># Asking for one K80</span>
+<span class="c1">#SBATCH --gres=gpu:k80:1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/10.3.0<span class="w">  </span>OpenMPI/4.1.1<span class="w"> </span>TensorFlow/2.6.0-CUDA-11.3.1
+
+<span class="c1"># Activate the virtual environment we installed to</span>
+<span class="nb">source</span><span class="w"> </span>&lt;path-to-install-dir&gt;/vpyenv/bin/activate
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>&lt;my_tf_program.py&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>Submit with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">&lt;myjobscript.sh&gt;</span></code>. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">&lt;username&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">scontrol</span> <span class="pre">show</span> <span class="pre">&lt;job-id&gt;</span></code>.</p>
+<p>The output and errors will in this case be written to <code class="docutils literal notranslate"><span class="pre">slurm-&lt;job-id&gt;.out</span></code>.</p>
+</section>
+<section id="general">
+<h2>General<a class="headerlink" href="#general" title="Link to this heading"></a></h2>
+<p>You almost always want to run several iterations of your machine learning code with changed parameters and/or added layers. If you are doing this in a batch job, it is easiest to either make a batch script that submits several variations of your Python script (changed parameters, changed layers), or make a script that loops over and submits jobs with the changes.</p>
+<section id="running-several-jobs-from-within-one-job">
+<h3>Running several jobs from within one job<a class="headerlink" href="#running-several-jobs-from-within-one-job" title="Link to this heading"></a></h3>
+<p>This example shows how you would run several programs or variations of programs sequentially within the same job:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example batch script for Kebnekaise, TensorFlow version 2.6.0 and Python version 3.9.5)</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A SNIC2022-22-641</span>
+<span class="c1"># We are asking for 5 minutes</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1"># Asking for one K80</span>
+<span class="c1">#SBATCH --gres=gpu:k80:1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/10.3.0<span class="w">  </span>OpenMPI/4.1.1<span class="w"> </span>TensorFlow/2.6.0-CUDA-11.3.1
+
+<span class="c1"># Output to file - not needed if your job creates output in a file directly</span>
+<span class="c1"># In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).</span>
+
+python<span class="w"> </span>&lt;my_tf_program.py&gt;<span class="w"> </span>&lt;param1&gt;<span class="w"> </span>&lt;param2&gt;<span class="w"> </span>&gt;<span class="w"> </span>myoutput1<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+cp<span class="w"> </span>myoutput1<span class="w"> </span>mydatadir
+python<span class="w"> </span>&lt;my_tf_program.py&gt;<span class="w"> </span>&lt;param3&gt;<span class="w"> </span>&lt;param4&gt;<span class="w"> </span>&gt;<span class="w"> </span>myoutput2<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+cp<span class="w"> </span>myoutput2<span class="w"> </span>mydatadir
+python<span class="w"> </span>&lt;my_tf_program.py&gt;<span class="w"> </span>&lt;param5&gt;<span class="w"> </span>&lt;param6&gt;<span class="w"> </span>&gt;<span class="w"> </span>myoutput3<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+cp<span class="w"> </span>myoutput3<span class="w"> </span>mydatadir
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, UPPMAX/HPC2N.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
