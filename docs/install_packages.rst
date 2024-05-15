@@ -401,7 +401,7 @@ Working with virtual environments defined from files
 
    - This approach is more advanced and should, in our opinion, be used only if the above are not enough for the purpose. 
    - ``pyenv`` allows you to install your **own python version**, like 3.10.2, and much more… 
-   - `Pyenv at UPPMAX <https://www.uppmax.uu.se/support/user-guides/python-user-guide/#tocjump_7997229232093896_12>`_
+   - `Pyenv at UPPMAX <http://docs.uppmax.uu.se/software/python_pyenv/>`_
    - Probably Conda will work well for you anyway...
 
 Jupyter in a virtual environment
