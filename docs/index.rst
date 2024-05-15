@@ -280,7 +280,7 @@ Preliminary schedule
          
       - Example. If your username is "mrspock" and you are at UPPMAX, then we recommend you to create a user folder in the project folder of the course and step into that: 
 
-         - ``cd /proj/naiss2024-22-415``
+         - ``cd /proj/hpc-python``
          - ``mkdir mrspock``
          - ``cd mrspock``
 
@@ -293,7 +293,7 @@ Preliminary schedule
    
       - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
      
-         /proj/nobackup/hpc2nYYYY-XXX/bbrydsoe/HPC-python
+         /proj/nobackup/hpc2n2024-052/bbrydsoe/HPC-python
 
 .. admonition:: Exercises
 
@@ -303,8 +303,8 @@ Preliminary schedule
    
    **Download**
 
-   - On HPC2N, you can copy the exercises in a tarball  ``cp /proj/nobackup/support-hpc2n/bbrydsoe/examples.tar.gz .``
-   - On UPPMAX you can copy the exercises in a tarball from ``cp /proj/naiss2024-22-415/examples.tar.gz .``
+   - On HPC2N, you can copy the exercises in a tarball  ``cp /proj/nobackup/python-hpc/exercises.tar.gz .``
+   - On UPPMAX you can copy the exercises in a tarball from ``cp /proj/hpc-python/exercises.tar.gz .``
 
    **Clone the git directory**
 
@@ -324,13 +324,13 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
 
         .. code-block:: sh
 
-            /proj/naiss2024-22-415/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+            /proj/hpc-python/MYDIR-NAME/HPC-python/Exercises/examples/programs/
 
         Batch submit files 
 
         .. code-block:: sh
 
-            /proj/naiss2024-22-415/MYDIR-NAME/HPC-python/Exercises/examples/uppmax
+            /proj/hpc-python/MYDIR-NAME/HPC-python/Exercises/examples/uppmax
 
 
    .. tab:: HPC2N
@@ -339,13 +339,13 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
 
       .. code-block:: sh
 
-          /proj/nobackup/<your-HPC2N-project-id>/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+          /proj/nobackup/python-hpc/MYDIR-NAME/HPC-python/Exercises/examples/programs/
 
       Batch submit files
 
       .. code-block:: sh
 
-          /proj/nobackup/<your-HPC2N-project-id>/MYDIR-NAME/HPC-python/Exercises/examples/hpc2n/
+          /proj/nobackup/python-hpc/MYDIR-NAME/HPC-python/Exercises/examples/hpc2n/
 
 
 
