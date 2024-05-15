@@ -13,6 +13,7 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
 
 .. admonition:: Short cheat sheet
     :class: dropdown 
+    :open:
     
     - See which modules exists: ``module spider`` or ``ml spider``
     - Find module versions for a particular software: ``module spider <software>``
