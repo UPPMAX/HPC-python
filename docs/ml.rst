@@ -94,7 +94,7 @@ Batch scripts for running on Rackham and Kebnekaise.
          ml python/3.11.8
 
          # Run your Python script
-         python pandas_matplotlib-batch.py 
+         python pandas_matplotlib-batch-rackham.py 
 
    .. tab:: Kebnekaise 
 
@@ -457,7 +457,7 @@ Exercises
 
    Try to modify the files ``pandas_matplotlib-linreg-<rackham/kebnekaise>.py`` and ``pandas_matplotlib-linreg-pretty-<rackham/kebnekaise>.py`` so they could be run from a batch job (change the pop-up plots to save-to-file).
 
-   Also change the batch script ``pandas_matplotlib.sh`` (or ``pandas_matplotlib-kebnekaise.sh``) to run your modified python codes. 
+   Also change the batch script ``pandas_matplotlib.sh`` to run your modified python codes. 
 
 .. challenge:: 
 
@@ -539,18 +539,20 @@ Exercises
                       #SBATCH --time=00:10:00
                       #SBATCH -n 1
 
-                      # Set a path where the example programs are installed. 
+                      # Change to where the example programs and data are installed. 
                       # Change the below to your own path to where you placed the example programs
-                      MYPATH=/proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
-                      # Activate the course environment (assuming it was called vpyenv) 
-                      source /proj/hpc-python/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
+                      cd /proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
+
                       # Remove any loaded modules and load the ones we need
                       module purge  > /dev/null 2>&1
                       module load uppmax
                       module load python/3.11.8
 
+                      # Activate the course environment (assuming it was called vpyenv) 
+                      source /proj/hpc-python/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
+
                       # Run your Python script
-                      python $MYPATH/simple_lightgbm.py
+                      python simple_lightgbm.py
                                      
       .. tab:: Kebnekaise 
 
@@ -566,9 +568,9 @@ Exercises
                       #SBATCH --time=00:10:00
                       #SBATCH -n 1
 
-                      # Set a path where the example programs are installed. 
+                      # Change to where the example programs are installed. 
                       # Change the below to your own path to where you placed the example programs
-                      MYPATH=/proj/nobackup/python-hpc/<mydir-name>/HPC-python/Exercises/examples/programs/
+                      cd /proj/nobackup/python-hpc/<mydir-name>/HPC-python/Exercises/examples/programs/
 
                       # Remove any loaded modules and load the ones we need
                       module purge  > /dev/null 2>&1
@@ -578,7 +580,7 @@ Exercises
                       source /proj/nobackup/python-hpc/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
 
                       # Run your Python script
-                      python $MYPATH/simple_lightgbm.py
+                      python simple_lightgbm.py
 
 
 .. keypoints::

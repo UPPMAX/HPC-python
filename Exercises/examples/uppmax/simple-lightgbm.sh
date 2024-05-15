@@ -9,13 +9,13 @@
 # Change the below to your own path to where you placed the example programs
 cd proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
 
-# Activate the course environment (assuming it was called vpyenv)
-source /proj/hpc-python/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
-
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
 module load uppmax
 module load python/3.11.8
+
+# Activate the course environment (assuming it was called vpyenv)
+source /proj/hpc-python/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
 
 # Run your Python script
 python simple_lightgbm.py
