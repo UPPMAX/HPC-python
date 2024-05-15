@@ -11,8 +11,7 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
    - Show how to load Python
    - Show how to run Python scripts and start the Python command line
 
-.. admonition:: Short cheat sheet
-    :class: dropdown 
+.. dropdown:: Short cheat sheet
     :open:
     
     - See which modules exists: ``module spider`` or ``ml spider``
