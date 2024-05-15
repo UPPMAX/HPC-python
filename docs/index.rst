@@ -311,7 +311,7 @@ Preliminary schedule
  
    **Clone the git directory**
 
-   - ``git clone git@github.com:UPPMAX/HPC-python.git`` 
+   - ``git clone https://github.com/UPPMAX/HPC-python.git`` 
 
 **NOTE** If you are downloading / cloning from the course GitHub repo and into the above directory, your Python examples and batch submit file examples will be in a subdirectory of that.
 
