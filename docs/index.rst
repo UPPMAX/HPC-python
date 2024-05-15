@@ -28,6 +28,11 @@ Welcome to "Using Python in an HPC environment" course material
       - use Python for ML and on GPUs. 
    - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
 
+    **Not covered**
+    
+    - Improve python *coding* skills 
+    - Specifics of other clusters
+
    - **We aim to give this course in spring and fall every year.**
 
 .. admonition:: **Your expectations?**
@@ -106,20 +111,6 @@ Some practicals
         - Some answers may come after the workshop.
  
     - Create a new line for new questions. Take care if others are editing at the same time. 
-
-.. admonition:: Exercises
-
-   - You can download the exercises from the course GitHub repo, under the "Exercises" directory: ``https://github.com/UPPMAX/HPC-python/tree/main/Exercises``
-      - On HPC2N, you can copy the exercises in a tarball from ``/proj/nobackup/support-hpc2n/bbrydsoe/examples.tar.gz``
-      - On UPPMAX you can copy the exercises in a tarball from ``/proj/naiss2024-22-415/examples.tar.gz``
-
-    
-.. admonition:: Project
-
-    - The course project on UPPMAX (Rackham) is: ``naiss2024-22-415``
-
-    - If you work on Kebnekaise you may use existing projects you have already. The CPU-hrs used in this course is probably negligable.
-
 
 The two HPC centers UPPMAX and HPC2N
 ------------------------------------
@@ -259,6 +250,16 @@ Preliminary schedule
       - The `ThinLinc app <https://www.cendio.com/thinlinc/download/>`_.
       - Rackham has a web browser interface with ThinLinc: https://rackham-gui.uppmax.uu.se
       - `ThinLinc user guide at UPPMAX <http://docs.uppmax.uu.se/cluster_guides/thinlinc/>`_
+
+    
+.. admonition:: Project
+
+    - The course project on UPPMAX (Rackham) is: ``naiss2024-22-415``
+
+    - If you work on Kebnekaise you may use existing projects you have already. The CPU-hrs used in this course is probably negligable.
+
+
+
     
 .. tabs::
 
@@ -283,10 +284,6 @@ Preliminary schedule
          - ``mkdir mrspock``
          - ``cd mrspock``
 
-      - Clone the course repo
-
-         - ``git clone https://github.com/UPPMAX/HPC-python.git`` 
-
    .. tab:: HPC2N
 
       - Kebnekaise: ``<user>@kebnekaise.hpc2n.umu.se``     
@@ -298,9 +295,20 @@ Preliminary schedule
      
          /proj/nobackup/hpc2nYYYY-XXX/bbrydsoe/HPC-python
 
-      - Clone the course repo in that folder:
+.. admonition:: Exercises
 
-         - ``git clone git@github.com:UPPMAX/HPC-python.git`` 
+   - Stay in the folder you just created above!
+   - You can download the exercises from the course GitHub repo, under the "Exercises" directory or clone the whole repo!
+   - Get an overview here: ``https://github.com/UPPMAX/HPC-python/tree/main/Exercises``
+   
+   **Download**
+
+   - On HPC2N, you can copy the exercises in a tarball  ``cp /proj/nobackup/support-hpc2n/bbrydsoe/examples.tar.gz .``
+   - On UPPMAX you can copy the exercises in a tarball from ``cp /proj/naiss2024-22-415/examples.tar.gz``
+
+   **Clone the git directory**
+
+   - ``git clone git@github.com:UPPMAX/HPC-python.git`` 
 
 
 
