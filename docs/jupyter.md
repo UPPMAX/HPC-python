@@ -32,7 +32,7 @@ Keep this session open and running. Note the node on which you are got the inter
 
 ### In ThinLinc
 
-- If you are connected to Rackham via [ThinLinc session](http://docs.uppmax.uu.se/cluster_guides/thinlinc/), open a browser with the link you got but modified to point to r486 i.e. 
+- If you are connected to Rackham via [ThinLinc session](https://docs.uppmax.uu.se/software/thinlinc/), open a browser with the link you got but modified to point to r486 i.e. 
 ``http://r486:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 
 ### On own computer
