@@ -1,0 +1,1344 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercises and demos &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=7ab3649f" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_lesson.css?v=0c089442" />
+      <link rel="stylesheet" type="text/css" href="_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="_static/minipres.js?v=a0d29692"></script>
+      <script src="_static/tabs.js?v=3030b3cb"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="On Bianca cluster" href="bianca.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="_static/logo-python-hpc-course.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prereqs.html">Pre-requirements</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_run_packages.html">Load and run python and use packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml.html">Using Python for Machine Learning jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra reading:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bianca.html">On Bianca cluster</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exercises:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exercises and demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#load-and-run">Load and run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-packages">Install packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interactive">Interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-mode">Batch mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#machine-learning">Machine Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tensorflow">TensorFlow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general">General</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#running-several-jobs-from-within-one-job">Running several jobs from within one job</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu">GPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#numba-example-2">Numba example 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Exercises and demos</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/exercises.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="exercises-and-demos">
+<h1>Exercises and demos<a class="headerlink" href="#exercises-and-demos" title="Link to this heading"></a></h1>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<section id="load-and-run">
+<h3>Load and run<a class="headerlink" href="#load-and-run" title="Link to this heading"></a></h3>
+<p>You need the data-file [scottish_hills.csv](<a class="reference external" href="https://raw.githubusercontent.com/UPPMAX/HPC-python/main/Exercises/examples/programs/scottish_hills.csv">https://raw.githubusercontent.com/UPPMAX/HPC-python/main/Exercises/examples/programs/scottish_hills.csv</a>). Download here or find in the <code class="docutils literal notranslate"><span class="pre">Exercises/examples/programs</span></code> directory in the files you got from cloning the repo.</p>
+<blockquote>
+<div><p>Since the exercise opens a plot, you need to login with ThinLinc (or otherwise have an x11 server running on your system and login with <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">...</span></code>).</p>
+</div></blockquote>
+<p>The exercise is modified from an example found on <a class="reference external" href="https://ourcodingclub.github.io/tutorials/pandas-python-intro/">https://ourcodingclub.github.io/tutorials/pandas-python-intro/</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Not relevant if using UPPMAX. Only if you are using HPC2N!</strong></p>
+<p>You need to also load Tkinter. Use this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3</span>
+</pre></div>
+</div>
+<p>In addition, you need to add the following two lines to the top of your python script/run them first in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;TkAgg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-python-example-with-packages-pandas-and-matplotlib exercise important admonition" id="exercise-0">
+<p class="admonition-title">Python example with packages pandas and matplotlib</p>
+<p>We are using Python version <code class="docutils literal notranslate"><span class="pre">3.11.x</span></code>. To access the packages <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, you may need to load other modules, depending on the site where you are working.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">HPC2N</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><blockquote>
+<div><p>Here you only need to load the <code class="docutils literal notranslate"><span class="pre">python</span></code> module, as the relevant packages are included (as long as you are not using GPUs, but that is talked about later in the course). Thus, you just do:</p>
+</div></blockquote>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml python/3.11.8</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>On Kebnekaise you also need to load <code class="docutils literal notranslate"><span class="pre">SciPy-bundle</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> (and their prerequisites). These versions will work well together:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2</span>
+</pre></div>
+</div>
+</div></div>
+<ol class="arabic">
+<li><p>From inside Python/interactive (if you are on Kebnekaise, mind the warning above):</p>
+<p>Start python and run these lines:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;scottish_hills.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Height</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Latitude</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you change the last line to <code class="docutils literal notranslate"><span class="pre">plt.savefig(&quot;myplot.png&quot;)</span></code> then you will instead get a file <code class="docutils literal notranslate"><span class="pre">myplot.png</span></code> containing the plot. This is what you would do if you were running a python script in a batch job.</p>
+</li>
+<li><p>As a Python script (if you are on Kebnekaise, mind the warning above):</p>
+<p>Copy and save this script as a file (or just run the file <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-&lt;system&gt;.py</span></code> that is located in the <code class="docutils literal notranslate"><span class="pre">&lt;path-to&gt;/Exercises/examples/programs</span></code> directory you got from the repo or copied. Where &lt;system&gt; is either <code class="docutils literal notranslate"><span class="pre">rackham</span></code> or <code class="docutils literal notranslate"><span class="pre">kebnekaise</span></code>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">rackham</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">kebnekaise</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;scottish_hills.csv&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Height</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Latitude</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;TkAgg&#39;</span><span class="p">)</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;scottish_hills.csv&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Height</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Latitude</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></div>
+</li>
+</ol>
+</div>
+</section>
+<section id="install-packages">
+<h3>Install packages<a class="headerlink" href="#install-packages" title="Link to this heading"></a></h3>
+<p>This is for the course environment and needed for one of the exercisesin the ML section.</p>
+<p>Create a virtual environment called <code class="docutils literal notranslate"><span class="pre">vpyenv</span></code>. First load the python version you want to base your virtual environment on, as well as the site-installed ML packages.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">HPC2N</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>uppmax
+<span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>python/3.11.8
+<span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>python_ML_packages/3.11.8-cpu
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span>/proj/hpc-python/&lt;user-dir&gt;/vpyenv
+</pre></div>
+</div>
+<p>Activate it.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/proj/hpc-python/&lt;user-dir&gt;/vpyenv/bin/activate
+</pre></div>
+</div>
+<p>Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.</p>
+<p>Install your packages with <code class="docutils literal notranslate"><span class="pre">pip</span></code> (<code class="docutils literal notranslate"><span class="pre">--user</span></code> not needed as you are in your virtual environment) and (optionally) giving the correct versions, like:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(vpyenv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>--no-build-isolation<span class="w"> </span>scikit-build-core<span class="w"> </span>cmake<span class="w"> </span>lightgbm
+</pre></div>
+</div>
+<p>The reason for the other packages (<code class="docutils literal notranslate"><span class="pre">scikit-build-core</span></code> and <code class="docutils literal notranslate"><span class="pre">cmake</span></code>) being installed is that they are prerequisites for <code class="docutils literal notranslate"><span class="pre">lightgbm</span></code>.</p>
+<p>Check what was installed</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(vpyenv)</span> <span class="gp">$ </span>pip<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Deactivate it.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(vpyenv)</span> <span class="gp">$ </span>deactivate
+</pre></div>
+</div>
+<p>Everytime you need the tools available in the virtual environment you activate it as above, after loading the python module.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/proj/hpc-python/&lt;user-dir&gt;/vpyenv/bin/activate
+</pre></div>
+</div>
+<p>More on virtual environment: <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">https://docs.python.org/3/tutorial/venv.html</a></p>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><p><strong>First go to the directory you want your environment in.</strong></p>
+<p>Load modules for Python, SciPy-bundle, matplotlib, create the virtual environment, activate the environment, and install lightgbm and scikit-learn (since the versions available are not compatible with this Python) on Kebnekaise at HPC2N</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3<span class="w"> </span>SciPy-bundle/2023.07<span class="w"> </span>matplotlib/3.7.2
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span>vpyenv
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>vpyenv/bin/activate
+<span class="gp gp-VirtualEnv">(vpyenv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>--no-build-isolation<span class="w"> </span>lightgbm<span class="w"> </span>scikit-learn
+</pre></div>
+</div>
+<p>Deactivating a virtual environment.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(vpyenv)</span> <span class="gp">$ </span>deactivate
+</pre></div>
+</div>
+<p>Every time you need the tools available in the virtual environment you activate it as above (after first loading the modules for Python, Python packages, and prerequisites)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>vpyenv/bin/activate
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="interactive">
+<h3>Interactive<a class="headerlink" href="#interactive" title="Link to this heading"></a></h3>
+<div class="dropdown admonition">
+<p class="admonition-title">Example, Kebnekaise, Requesting 4 cores for 30 minutes, then running Python</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an01<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--time<span class="o">=</span><span class="m">00</span>:30:00<span class="w"> </span>-A<span class="w"> </span>hpc2n2024-052
+salloc:<span class="w"> </span>Pending<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">20174806</span>
+salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">20174806</span><span class="w"> </span>queued<span class="w"> </span>and<span class="w"> </span>waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resources
+salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">20174806</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>allocated<span class="w"> </span>resources
+salloc:<span class="w"> </span>Granted<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">20174806</span>
+salloc:<span class="w"> </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resource<span class="w"> </span>configuration
+salloc:<span class="w"> </span>Nodes<span class="w"> </span>b-cn0241<span class="w"> </span>are<span class="w"> </span>ready<span class="w"> </span><span class="k">for</span><span class="w"> </span>job
+b-an01<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3
+b-an01<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Adding two numbers from user input (add2.py)</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This program will add two numbers that are provided by the user</span>
+
+<span class="c1"># Get the numbers</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the first number: &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the second number: &quot;</span><span class="p">))</span>
+
+<span class="c1"># Add the two numbers together</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="c1"># Output the sum</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of </span><span class="si">{0}</span><span class="s2"> and </span><span class="si">{1}</span><span class="s2"> is </span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="nb">sum</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Adding two numbers given as arguments (sum-2args.py)</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of the two numbers is: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>Now for the examples:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example, Kebnekaise, Running a Python script in the allocation we made further up. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an01<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span>srun<span class="w"> </span>python<span class="w"> </span>sum-2args.py<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span>
+The<span class="w"> </span>sum<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>two<span class="w"> </span>numbers<span class="w"> </span>is:<span class="w"> </span><span class="m">7</span>
+The<span class="w"> </span>sum<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>two<span class="w"> </span>numbers<span class="w"> </span>is:<span class="w"> </span><span class="m">7</span>
+The<span class="w"> </span>sum<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>two<span class="w"> </span>numbers<span class="w"> </span>is:<span class="w"> </span><span class="m">7</span>
+The<span class="w"> </span>sum<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>two<span class="w"> </span>numbers<span class="w"> </span>is:<span class="w"> </span><span class="m">7</span>
+b-an01<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Example, Running a Python script in the above allocation, but this time a script that expects input from you.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an01<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span>srun<span class="w"> </span>python<span class="w"> </span>add2.py
+<span class="m">2</span>
+<span class="m">3</span>
+Enter<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>number:<span class="w"> </span>Enter<span class="w"> </span>the<span class="w"> </span>second<span class="w"> </span>number:<span class="w"> </span>The<span class="w"> </span>sum<span class="w"> </span>of<span class="w"> </span><span class="m">2</span><span class="w"> </span>and<span class="w"> </span><span class="m">3</span><span class="w"> </span>is<span class="w"> </span><span class="m">5</span>
+Enter<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>number:<span class="w"> </span>Enter<span class="w"> </span>the<span class="w"> </span>second<span class="w"> </span>number:<span class="w"> </span>The<span class="w"> </span>sum<span class="w"> </span>of<span class="w"> </span><span class="m">2</span><span class="w"> </span>and<span class="w"> </span><span class="m">3</span><span class="w"> </span>is<span class="w"> </span><span class="m">5</span>
+Enter<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>number:<span class="w"> </span>Enter<span class="w"> </span>the<span class="w"> </span>second<span class="w"> </span>number:<span class="w"> </span>The<span class="w"> </span>sum<span class="w"> </span>of<span class="w"> </span><span class="m">2</span><span class="w"> </span>and<span class="w"> </span><span class="m">3</span><span class="w"> </span>is<span class="w"> </span><span class="m">5</span>
+Enter<span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>number:<span class="w"> </span>Enter<span class="w"> </span>the<span class="w"> </span>second<span class="w"> </span>number:<span class="w"> </span>The<span class="w"> </span>sum<span class="w"> </span>of<span class="w"> </span><span class="m">2</span><span class="w"> </span>and<span class="w"> </span><span class="m">3</span><span class="w"> </span>is<span class="w"> </span><span class="m">5</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</section>
+<section id="batch-mode">
+<h3>Batch mode<a class="headerlink" href="#batch-mode" title="Link to this heading"></a></h3>
+<p><strong>Serial code</strong></p>
+<p>This first example shows how to run a short, serial script. The batch script (named <code class="docutils literal notranslate"><span class="pre">run_mmmult.sh</span></code>) can be found in the directory /HPC-Python/Exercises/examples/&lt;center&gt;, where &lt;center&gt; is hpc2n or uppmax. The Python script is in /HPC-Python/Exercises/examples/programs and is named <code class="docutils literal notranslate"><span class="pre">mmmult.py</span></code>.</p>
+<ol class="arabic simple">
+<li><p>The batch script is run with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_mmmult.sh</span></code>.</p></li>
+<li><p>Try type <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">&lt;username&gt;</span></code> to see if it is pending or running.</p></li>
+<li><p>When it has run, look at the output with <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">slurm-&lt;jobid&gt;.out</span></code>.</p></li>
+</ol>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-3-3-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-2" name="3-2" role="tab" tabindex="-1">mmmult.py</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><p>Short serial example script for Rackham. Loading Python 3.11.8. Numpy is preinstalled and does not need to be loaded.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -A naiss2024-22-415 # Change to your own after the course</span>
+<span class="c1">#SBATCH --time=00:10:00 # Asking for 10 minutes</span>
+<span class="c1">#SBATCH -n 1 # Asking for 1 core</span>
+
+<span class="c1"># Load any modules you need, here Python 3.11.8.</span>
+module<span class="w"> </span>load<span class="w"> </span>python/3.11.8
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>mmmult.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><p>Short serial example for running on Kebnekaise. Loading SciPy-bundle/2023.07 and Python/3.11.3</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2n2024-052 # Change to your own</span>
+<span class="c1">#SBATCH --time=00:10:00 # Asking for 10 minutes</span>
+<span class="c1">#SBATCH -n 1 # Asking for 1 core</span>
+
+<span class="c1"># Load any modules you need, here for Python/3.11.3 and compatible SciPy-bundle</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3<span class="w"> </span>SciPy-bundle/2023.07
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>mmmult.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-3-2" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-2" name="3-2" role="tabpanel" tabindex="0"><p>Python example code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">starttime</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1701</span><span class="p">)</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is matrix A:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The shape of matrix A is &quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is matrix B:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The shape of matrix B is &quot;</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Doing matrix-matrix multiplication...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The product of matrices A and B is:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The shape of the resulting matrix is &quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time elapsed for generating matrices and multiplying them is &quot;</span><span class="p">,</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">starttime</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
+<p><strong>GPU code</strong></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-4-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-4-4-0" name="4-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-4-4-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-1" name="4-1" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-4-4-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-2" name="4-2" role="tab" tabindex="-1">compute.py</button></div><div aria-labelledby="tab-4-4-0" class="sphinx-tabs-panel" id="panel-4-4-0" name="4-0" role="tabpanel" tabindex="0"><p>Short GPU example for running <code class="docutils literal notranslate"><span class="pre">compute.py</span></code> on Snowy.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -A naiss2024-22-415</span>
+<span class="c1">#SBATCH -t 00:10:00</span>
+<span class="c1">#SBATCH --exclusive</span>
+<span class="c1">#SBATCH -n 1</span>
+<span class="c1">#SBATCH -M snowy</span>
+<span class="c1">#SBATCH --gres=gpu=1</span>
+
+<span class="c1"># Load any modules you need, here loading python 3.11.8 and the ML packages</span>
+module<span class="w"> </span>load<span class="w"> </span>uppmax
+module<span class="w"> </span>load<span class="w"> </span>python/3.11.8
+module<span class="w"> </span>load<span class="w"> </span>python_ML_packages/3.11.8-gpu
+
+<span class="c1"># Run your code</span>
+python<span class="w"> </span>compute.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-1" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-1" name="4-1" role="tabpanel" tabindex="0"><p>Example with running <code class="docutils literal notranslate"><span class="pre">compute.py</span></code> on Kebnekaise.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2n2024-052 # Change to your own</span>
+<span class="c1">#SBATCH --time=00:10:00  # Asking for 10 minutes</span>
+<span class="c1"># Asking for one V100 card</span>
+<span class="c1">#SBATCH --gres=gpu:v100:1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>OpenMPI/4.1.5<span class="w"> </span>Python/3.11.3<span class="w"> </span>SciPy-bundle/2023.07<span class="w"> </span>numba/0.58.1
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>compute.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-2" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-2" name="4-2" role="tabpanel" tabindex="0"><p>This Python script can (just like the batch scripts for UPPMAX and HPC2N), be found in the <code class="docutils literal notranslate"><span class="pre">/HPC-Python/Exercises/examples</span></code> directory, under the subdirectory <code class="docutils literal notranslate"><span class="pre">programs</span></code> - if you have cloned the repo or copied the tarball with the exercises.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span><span class="p">,</span> <span class="n">cuda</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># to measure exec time</span>
+<span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
+
+<span class="c1"># normal function to run on cpu</span>
+<span class="k">def</span> <span class="nf">func</span> <span class="n">a</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># function optimized to run on gpu</span>
+<span class="nd">@jit</span><span class="p">(</span><span class="n">target_backend</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">10000000</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+    <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;without GPU:&quot;</span><span class="p">,</span> <span class="n">timer</span><span class="p">()</span><span class="o">-</span><span class="n">start</span><span class="p">)</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+    <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;with GPU:&quot;</span><span class="p">,</span> <span class="n">timer</span><span class="p">()</span><span class="o">-</span><span class="n">start</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
+<div class="admonition-run-the-first-serial-example-script-from-further-up-on-the-page-for-this-short-python-code-sum-2args-py exercise important admonition" id="exercise-1">
+<p class="admonition-title">Run the first serial example script from further up on the page for this short Python code (sum-2args.py)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of the two numbers is: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Remember to give the two arguments to the program in the batch script.</p>
+</div>
+<div class="dropdown solution important admonition" id="solution-0">
+<p class="admonition-title">Solution for HPC2N</p>
+<blockquote>
+<div><p>This batch script is for Kebnekaise. Adding the numbers 2 and 3.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2n2024-052 # Change to your own</span>
+<span class="c1">#SBATCH --time=00:05:00 # Asking for 5 minutes</span>
+<span class="c1">#SBATCH -n 1 # Asking for 1 core</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.11.3</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w">  </span>Python/3.11.3
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>sum-2args.py<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown solution important admonition" id="solution-1">
+<p class="admonition-title">Solution for UPPMAX</p>
+<blockquote>
+<div><p>This batch script is for UPPMAX. Adding the numbers 2 and 3.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -A naiss2024-22-415 # Change to your own after the course</span>
+<span class="c1">#SBATCH --time=00:05:00 # Asking for 5 minutes</span>
+<span class="c1">#SBATCH -n 1 # Asking for 1 core</span>
+
+<span class="c1"># Load any modules you need, here for python 3.11.8</span>
+module<span class="w"> </span>load<span class="w"> </span>python/3.11.8
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>sum-2args.py<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</section>
+<section id="machine-learning">
+<h3>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading"></a></h3>
+<p><strong>Pandas and matplotlib</strong></p>
+<p>This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-5-5-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-5-5-0" name="5-0" role="tab" tabindex="0">Directly</button><button aria-controls="panel-5-5-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-5-5-1" name="5-1" role="tab" tabindex="-1">From a Batch-job</button></div><div aria-labelledby="tab-5-5-0" class="sphinx-tabs-panel" id="panel-5-5-0" name="5-0" role="tabpanel" tabindex="0"><p>Remove the # if running on Kebnekaise</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1">#import matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#matplotlib.use(&#39;TkAgg&#39;)</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;scottish_hills.csv&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Height</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Latitude</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-5-5-1" class="sphinx-tabs-panel" hidden="true" id="panel-5-5-1" name="5-1" role="tabpanel" tabindex="0"><p>Remove the # if running on Kebnekaise. The script below can be found as <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-batch.py</span></code> or <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-batch-kebnekaise.py</span></code> in the <code class="docutils literal notranslate"><span class="pre">Exercises/examples/programs</span></code> directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1">#import matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#matplotlib.use(&#39;TkAgg&#39;)</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;scottish_hills.csv&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Height</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">Latitude</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;myplot.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
+<p>Batch scripts for running on Rackham and Kebnekaise.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-6-6-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-6-6-0" name="6-0" role="tab" tabindex="0">Rackham</button><button aria-controls="panel-6-6-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-6-6-1" name="6-1" role="tab" tabindex="-1">Kebnekaise</button></div><div aria-labelledby="tab-6-6-0" class="sphinx-tabs-panel" id="panel-6-6-0" name="6-0" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -A naiss2024-22-415</span>
+<span class="c1">#SBATCH --time=00:05:00 # Asking for 5 minutes</span>
+<span class="c1">#SBATCH -n 1 # Asking for 1 core</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.11.8</span>
+<span class="n">ml</span> <span class="n">python</span><span class="o">/</span><span class="mf">3.11.8</span>
+
+<span class="c1"># Run your Python script</span>
+<span class="n">python</span> <span class="n">pandas_matplotlib</span><span class="o">-</span><span class="n">batch</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-6-6-1" class="sphinx-tabs-panel" hidden="true" id="panel-6-6-1" name="6-1" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2n2024-052</span>
+<span class="c1">#SBATCH --time=00:05:00 # Asking for 5 minutes</span>
+<span class="c1">#SBATCH -n 1 # Asking for 1 core</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.11.3</span>
+<span class="n">ml</span> <span class="n">GCC</span><span class="o">/</span><span class="mf">12.3.0</span> <span class="n">Python</span><span class="o">/</span><span class="mf">3.11.3</span> <span class="n">SciPy</span><span class="o">-</span><span class="n">bundle</span><span class="o">/</span><span class="mf">2023.07</span> <span class="n">matplotlib</span><span class="o">/</span><span class="mf">3.7.2</span>
+
+<span class="c1"># Run your Python script</span>
+<span class="n">python</span> <span class="n">pandas_matplotlib</span><span class="o">-</span><span class="n">batch</span><span class="o">-</span><span class="n">kebnekaise</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div></div>
+<p>Submit with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">&lt;batch-script.sh&gt;</span></code>.</p>
+<p>The batch scripts can be found in the directories for hpc2n and uppmax, under <code class="docutils literal notranslate"><span class="pre">Exercises/examples/</span></code>, and they are named <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-batch.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-batch-kebnekaise.sh</span></code>.</p>
+<p><strong>PyTorch</strong></p>
+<div class="dropdown admonition">
+<p class="admonition-title">We use PyTorch Tensors to fit a third order polynomial to a sine function. The forward and backward passes through the network are manually implemented.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span><span class="p">)</span> <span class="c1"># Comment this out to not run on GPU</span>
+
+<span class="c1"># Create random input and output data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Randomly initialize weights</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="c1"># Forward pass: compute predicted y</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">d</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span>
+
+    <span class="c1"># Compute and print loss</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+
+    <span class="c1"># Backprop to compute gradients of a, b, c, d with respect to loss</span>
+    <span class="n">grad_y_pred</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">grad_a</span> <span class="o">=</span> <span class="n">grad_y_pred</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">grad_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">grad_y_pred</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">grad_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">grad_y_pred</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">grad_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">grad_y_pred</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="c1"># Update weights using gradient descent</span>
+    <span class="n">a</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_a</span>
+    <span class="n">b</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_b</span>
+    <span class="n">c</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_c</span>
+    <span class="n">d</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad_d</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Result: y = </span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1"> x + </span><span class="si">{</span><span class="n">c</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1"> x^2 + </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1"> x^3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>In order to run this at HPC2N/UPPMAX you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.</p>
+<p>This is an example of a batch script for running the above example, using PyTorch 2.1.x and Python 3.11.x, and running on GPUs.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example batch script, running on Kebnekaise</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A hpc2n2024-052</span>
+<span class="c1"># We are asking for 5 minutes</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1"># The following two lines splits the output in a file for any errors and a file for other output.</span>
+<span class="c1">#SBATCH --error=job.%J.err</span>
+<span class="c1">#SBATCH --output=job.%J.out</span>
+<span class="c1"># Asking for one V100</span>
+<span class="c1">#SBATCH --gres=gpu:V100:1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>OpenMPI/4.1.5<span class="w"> </span>PyTorch/2.1.2-CUDA-12.1.1
+
+srun<span class="w"> </span>python<span class="w"> </span>pytorch_fitting_gpu.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">UPPMAX as run in an interactive Snowy session</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>interactive<span class="w"> </span>-A<span class="w"> </span>naiss2024-22-415<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-M<span class="w"> </span>snowy<span class="w"> </span>--gres<span class="o">=</span>gpu:1<span class="w">  </span>-t<span class="w"> </span><span class="m">1</span>:00:01
+You<span class="w"> </span>receive<span class="w"> </span>the<span class="w"> </span>high<span class="w"> </span>interactive<span class="w"> </span>priority.
+
+Please,<span class="w"> </span>use<span class="w"> </span>no<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">8</span><span class="w"> </span>GB<span class="w"> </span>of<span class="w"> </span>RAM.
+
+Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>job<span class="w"> </span><span class="m">6907137</span><span class="w"> </span>to<span class="w"> </span>start...
+Starting<span class="w"> </span>job<span class="w"> </span>now<span class="w"> </span>--<span class="w"> </span>you<span class="w"> </span>waited<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">90</span><span class="w"> </span>seconds.
+
+$<span class="w">  </span>ml<span class="w"> </span>uppmax
+$<span class="w">  </span>ml<span class="w"> </span>python/3.11.8
+$<span class="w">  </span>module<span class="w"> </span>load<span class="w"> </span>python_ML_packages/3.11.8-gpu
+$<span class="w">  </span><span class="nb">cd</span><span class="w"> </span>/proj/naiss2024-22-415/&lt;user-dir&gt;/HPC-python/Exercises/examples/programs
+$<span class="w"> </span>srun<span class="w"> </span>python<span class="w"> </span>pytorch_fitting_gpu.py
+<span class="m">99</span><span class="w"> </span><span class="m">134</span>.71942138671875
+<span class="m">199</span><span class="w"> </span><span class="m">97</span>.72868347167969
+<span class="m">299</span><span class="w"> </span><span class="m">71</span>.6167221069336
+<span class="m">399</span><span class="w"> </span><span class="m">53</span>.178802490234375
+<span class="m">499</span><span class="w"> </span><span class="m">40</span>.15779113769531
+<span class="m">599</span><span class="w"> </span><span class="m">30</span>.9610652923584
+<span class="m">699</span><span class="w"> </span><span class="m">24</span>.464630126953125
+<span class="m">799</span><span class="w"> </span><span class="m">19</span>.875120162963867
+<span class="m">899</span><span class="w"> </span><span class="m">16</span>.632421493530273
+<span class="m">999</span><span class="w"> </span><span class="m">14</span>.341087341308594
+<span class="m">1099</span><span class="w"> </span><span class="m">12</span>.721846580505371
+<span class="m">1199</span><span class="w"> </span><span class="m">11</span>.577451705932617
+<span class="m">1299</span><span class="w"> </span><span class="m">10</span>.76859188079834
+<span class="m">1399</span><span class="w"> </span><span class="m">10</span>.196844100952148
+<span class="m">1499</span><span class="w"> </span><span class="m">9</span>.792669296264648
+<span class="m">1599</span><span class="w"> </span><span class="m">9</span>.506935119628906
+<span class="m">1699</span><span class="w"> </span><span class="m">9</span>.304922103881836
+<span class="m">1799</span><span class="w"> </span><span class="m">9</span>.162087440490723
+<span class="m">1899</span><span class="w"> </span><span class="m">9</span>.061092376708984
+<span class="m">1999</span><span class="w"> </span><span class="m">8</span>.989676475524902
+Result:<span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.013841948471963406<span class="w"> </span>+<span class="w"> </span><span class="m">0</span>.855550229549408<span class="w"> </span>x<span class="w"> </span>+<span class="w"> </span>-0.002387965563684702<span class="w"> </span>x^2<span class="w"> </span>+<span class="w"> </span>-0.09316103905439377<span class="w"> </span>x^3
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</section>
+</section>
+<section id="tensorflow">
+<h2>TensorFlow<a class="headerlink" href="#tensorflow" title="Link to this heading"></a></h2>
+<p>The example comes from <a class="reference external" href="https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/">https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/</a> but there are also good examples at <a class="reference external" href="https://www.tensorflow.org/tutorials">https://www.tensorflow.org/tutorials</a></p>
+<p>We are using Tensorflow 2.11.0-CUDA-11.7.0 (and Python 3.10.4) at HPC2N, since that is the newest GPU-enabled TensorFlow currently installed there.</p>
+<p>On UPPMAX we are using TensorFlow 2.15.0 (included in python_ML_packages/3.11.8-gpu) and Python 3.11.8.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-7-7-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-7-7-0" name="7-0" role="tab" tabindex="0">HPC2N</button><button aria-controls="panel-7-7-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-7-7-1" name="7-1" role="tab" tabindex="-1">UPPMAX</button></div><div aria-labelledby="tab-7-7-0" class="sphinx-tabs-panel" id="panel-7-7-0" name="7-0" role="tabpanel" tabindex="0"><p>Since we need scikit-learn, we are also loading the scikit-learn/1.1.2 which is compatible with the other modules we are using.</p>
+<p>Thus, load modules: <code class="docutils literal notranslate"><span class="pre">GCC/11.3.0</span>&#160; <span class="pre">OpenMPI/4.1.4</span> <span class="pre">TensorFlow/2.11.0-CUDA-11.7.0</span> <span class="pre">scikit-learn/1.1.2</span></code> in your batch script.</p>
+</div><div aria-labelledby="tab-7-7-1" class="sphinx-tabs-panel" hidden="true" id="panel-7-7-1" name="7-1" role="tabpanel" tabindex="0"><p>UPPMAX has scikit-learn in the python_ML_packages, so we do not need to load anything extra there.</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Load modules: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">uppmax</span> <span class="pre">python/3.11.8</span> <span class="pre">python_ML_packages/3.11.8-gpu</span></code></dt><dd><ul>
+<li><p>On Rackham we should use python_ML-packages/3.11.8-cpu, while on a GPU node the GPU version should be loaded (like we do in this example, which will work either in a batch script submitted to Snowy or in an interactive job running on Snowy).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div></div>
+<div class="dropdown admonition">
+<p class="admonition-title">We will work with this example</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># mlp for binary classification</span>
+from<span class="w"> </span>pandas<span class="w"> </span>import<span class="w"> </span>read_csv
+from<span class="w"> </span>sklearn.model_selection<span class="w"> </span>import<span class="w"> </span>train_test_split
+from<span class="w"> </span>sklearn.preprocessing<span class="w"> </span>import<span class="w"> </span>LabelEncoder
+from<span class="w"> </span>tensorflow.keras<span class="w"> </span>import<span class="w"> </span>Sequential
+from<span class="w"> </span>tensorflow.keras.layers<span class="w"> </span>import<span class="w"> </span>Dense
+<span class="c1"># load the dataset</span>
+<span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://raw.githubusercontent.com/jbrownlee/Datasets/master/ionosphere.csv&#39;</span>
+<span class="nv">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>read_csv<span class="o">(</span>path,<span class="w"> </span><span class="nv">header</span><span class="o">=</span>None<span class="o">)</span>
+<span class="c1"># split into input and output columns</span>
+X,<span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df.values<span class="o">[</span>:,<span class="w"> </span>:-1<span class="o">]</span>,<span class="w"> </span>df.values<span class="o">[</span>:,<span class="w"> </span>-1<span class="o">]</span>
+<span class="c1"># ensure all data are floating point values</span>
+<span class="nv">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>X.astype<span class="o">(</span><span class="s1">&#39;float32&#39;</span><span class="o">)</span>
+<span class="c1"># encode strings to integer</span>
+<span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>LabelEncoder<span class="o">()</span>.fit_transform<span class="o">(</span>y<span class="o">)</span>
+<span class="c1"># split into train and test datasets</span>
+X_train,<span class="w"> </span>X_test,<span class="w"> </span>y_train,<span class="w"> </span><span class="nv">y_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>train_test_split<span class="o">(</span>X,<span class="w"> </span>y,<span class="w"> </span><span class="nv">test_size</span><span class="o">=</span><span class="m">0</span>.33<span class="o">)</span>
+print<span class="o">(</span>X_train.shape,<span class="w"> </span>X_test.shape,<span class="w"> </span>y_train.shape,<span class="w"> </span>y_test.shape<span class="o">)</span>
+<span class="c1"># determine the number of input features</span>
+<span class="nv">n_features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>X_train.shape<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="c1"># define model</span>
+<span class="nv">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Sequential<span class="o">()</span>
+model.add<span class="o">(</span>Dense<span class="o">(</span><span class="m">10</span>,<span class="w"> </span><span class="nv">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span>,<span class="w"> </span><span class="nv">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span>,<span class="w"> </span><span class="nv">input_shape</span><span class="o">=(</span>n_features,<span class="o">)))</span>
+model.add<span class="o">(</span>Dense<span class="o">(</span><span class="m">8</span>,<span class="w"> </span><span class="nv">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span>,<span class="w"> </span><span class="nv">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="o">))</span>
+model.add<span class="o">(</span>Dense<span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="nv">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="o">))</span>
+<span class="c1"># compile the model</span>
+model.compile<span class="o">(</span><span class="nv">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span>,<span class="w"> </span><span class="nv">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span>,<span class="w"> </span><span class="nv">metrics</span><span class="o">=[</span><span class="s1">&#39;accuracy&#39;</span><span class="o">])</span>
+<span class="c1"># fit the model</span>
+model.fit<span class="o">(</span>X_train,<span class="w"> </span>y_train,<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">150</span>,<span class="w"> </span><span class="nv">batch_size</span><span class="o">=</span><span class="m">32</span>,<span class="w"> </span><span class="nv">verbose</span><span class="o">=</span><span class="m">0</span><span class="o">)</span>
+<span class="c1"># evaluate the model</span>
+loss,<span class="w"> </span><span class="nv">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>model.evaluate<span class="o">(</span>X_test,<span class="w"> </span>y_test,<span class="w"> </span><span class="nv">verbose</span><span class="o">=</span><span class="m">0</span><span class="o">)</span>
+print<span class="o">(</span><span class="s1">&#39;Test Accuracy: %.3f&#39;</span><span class="w"> </span>%<span class="w"> </span>acc<span class="o">)</span>
+<span class="c1"># make a prediction</span>
+<span class="nv">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>,0,0.99539,-0.05889,0.85243,0.02306,0.83398,-0.37708,1,0.03760,0.85243,-0.17755,0.59755,-0.44945,0.60536,-0.38223,0.84356,-0.38542,0.58212,-0.32192,0.56971,-0.29674,0.36946,-0.47357,0.56811,-0.51171,0.41078,-0.46168,0.21266,-0.34090,0.42267,-0.54487,0.18641,-0.45300<span class="o">]</span>
+<span class="nv">yhat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>model.predict<span class="o">([</span>row<span class="o">])</span>
+print<span class="o">(</span><span class="s1">&#39;Predicted: %.3f&#39;</span><span class="w"> </span>%<span class="w"> </span>yhat<span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>In order to run the above example, we will create a batch script and submit it.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.10.4, and scikit-learn 1.1.2</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A hpc2n2024-052</span>
+<span class="c1"># We are asking for 5 minutes</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1"># Asking for one V100 GPU</span>
+<span class="c1">#SBATCH --gres=gpu:v100:1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/11.3.0<span class="w"> </span>Python/3.10.4<span class="w"> </span>OpenMPI/4.1.4<span class="w"> </span>TensorFlow/2.11.0-CUDA-11.7.0<span class="w"> </span>scikit-learn/1.1.2
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>example-tf.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Example batch script for Snowy, Python version 3.11.8, and the python_ML_packages/3.11.8-gpu containing Tensorflow</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A naiss2024-22-415</span>
+<span class="c1"># We want to run on Snowy</span>
+<span class="c1">#SBATCH -M snowy</span>
+<span class="c1"># We are asking for 15 minutes</span>
+<span class="c1">#SBATCH --time=00:15:00</span>
+<span class="c1">#SBATCH --gres=gpu:1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>uppmax
+module<span class="w"> </span>load<span class="w"> </span>python_ML_packages/3.11.8-gpu
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>example-tf.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>Submit with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">&lt;myjobscript.sh&gt;</span></code>. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">&lt;username&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">scontrol</span> <span class="pre">show</span> <span class="pre">&lt;job-id&gt;</span></code>.</p>
+<p>Note: if you are logged in to Rackham on UPPMAX and have submitted a GPU job to Snowy, then you need to use this to see the job queue:</p>
+<p><code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-M</span> <span class="pre">snowy</span> <span class="pre">-u</span> <span class="pre">&lt;username&gt;</span></code></p>
+<p>The output and errors will in this case be written to <code class="docutils literal notranslate"><span class="pre">slurm-&lt;job-id&gt;.out</span></code>.</p>
+<section id="general">
+<h3>General<a class="headerlink" href="#general" title="Link to this heading"></a></h3>
+<p>You almost always want to run several iterations of your machine learning code with changed parameters and/or added layers. If you are doing this in a batch job, it is easiest to either make a batch script that submits several variations of your Python script (changed parameters, changed layers), or make a script that loops over and submits jobs with the changes.</p>
+<section id="running-several-jobs-from-within-one-job">
+<h4>Running several jobs from within one job<a class="headerlink" href="#running-several-jobs-from-within-one-job" title="Link to this heading"></a></h4>
+<p>This example shows how you would run several programs or variations of programs sequentially within the same job:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-8-8-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-8-8-0" name="8-0" role="tab" tabindex="0">HPC2N</button><button aria-controls="panel-8-8-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-8-8-1" name="8-1" role="tab" tabindex="-1">UPPMAX</button></div><div aria-labelledby="tab-8-8-0" class="sphinx-tabs-panel" id="panel-8-8-0" name="8-0" role="tabpanel" tabindex="0"><p>Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.11.3</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A hpc2n2024-052</span>
+<span class="c1"># We are asking for 5 minutes</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1"># Asking for one V100</span>
+<span class="c1">#SBATCH --gres=gpu:v100:1</span>
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/10.3.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>SciPy-bundle/2021.05<span class="w"> </span>TensorFlow/2.6.0-CUDA-11.3-1
+<span class="c1"># Output to file - not needed if your job creates output in a file directly</span>
+<span class="c1"># In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).</span>
+python<span class="w"> </span>&lt;my_tf_program.py&gt;<span class="w"> </span>&lt;param1&gt;<span class="w"> </span>&lt;param2&gt;<span class="w"> </span>&gt;<span class="w"> </span>myoutput1<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+cp<span class="w"> </span>myoutput1<span class="w"> </span>mydatadir
+python<span class="w"> </span>&lt;my_tf_program.py&gt;<span class="w"> </span>&lt;param3&gt;<span class="w"> </span>&lt;param4&gt;<span class="w"> </span>&gt;<span class="w"> </span>myoutput2<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+cp<span class="w"> </span>myoutput2<span class="w"> </span>mydatadir
+python<span class="w"> </span>&lt;my_tf_program.py&gt;<span class="w"> </span>&lt;param5&gt;<span class="w"> </span>&lt;param6&gt;<span class="w"> </span>&gt;<span class="w"> </span>myoutput3<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+cp<span class="w"> </span>myoutput3<span class="w"> </span>mydatadir
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-8-8-1" class="sphinx-tabs-panel" hidden="true" id="panel-8-8-1" name="8-1" role="tabpanel" tabindex="0"><p>Example batch script for Snowy, TensorFlow version 2.15 and Python version 3.11.8.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A naiss2024-22-415</span>
+<span class="c1"># We are asking for at least 1 hour</span>
+<span class="c1">#SBATCH --time=01:00:01</span>
+<span class="c1">#SBATCH -M snowy</span>
+<span class="c1">#SBATCH --gres=gpu:1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>uppmax
+module<span class="w"> </span>load<span class="w"> </span>python_ML_packages/3.11.8-gpu
+<span class="c1"># Output to file - not needed if your job creates output in a file directly</span>
+<span class="c1"># In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).</span>
+python<span class="w"> </span>tf_program.py<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>&gt;<span class="w"> </span>myoutput1<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+cp<span class="w"> </span>myoutput1<span class="w"> </span>mydatadir
+python<span class="w"> </span>tf_program.py<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>&gt;<span class="w"> </span>myoutput2<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+cp<span class="w"> </span>myoutput2<span class="w"> </span>mydatadir
+python<span class="w"> </span>tf_program.py<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span>&gt;<span class="w"> </span>myoutput3<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+cp<span class="w"> </span>myoutput3<span class="w"> </span>mydatadir
+</pre></div>
+</div>
+</div></div>
+<p>The challenge here is to adapt the above batch scripts to suitable python scripts and directories.</p>
+<div class="admonition-exercise exercise important admonition" id="exercise-2">
+<p class="admonition-title">Exercise</p>
+<p>Try to modify the files <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-linreg-&lt;rackham/kebnekaise&gt;.py</span></code> and <a href="#id1"><span class="problematic" id="id2">``</span></a>pandas_matplotlib-linreg-pretty-&lt;rackham/kebnekaise&gt;.py so they could be run from a batch job (change the pop-up plots to save-to-file).</p>
+<p>Also change the batch script <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib.sh</span></code> (or <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-kebnekaise.sh</span></code>) to run your modified python codes.</p>
+</div>
+<div class="admonition-exercise exercise important admonition" id="exercise-3">
+<p class="admonition-title">Exercise</p>
+<p>In this exercise you will be using the course environment that you prepared in the “Install packages” section (here: <a class="reference external" href="https://uppmax.github.io/HPC-python/install_packages.html#prepare-the-course-environment">https://uppmax.github.io/HPC-python/install_packages.html#prepare-the-course-environment</a>).</p>
+<p>You will run the Python code <code class="docutils literal notranslate"><span class="pre">simple_lightgbm.py</span></code> found in the <code class="docutils literal notranslate"><span class="pre">Exercises/examples/programs</span></code> directory. The code was taken from <a class="reference external" href="https://github.com/microsoft/LightGBM/tree/master">https://github.com/microsoft/LightGBM/tree/master</a> and lightly modified.</p>
+<p>Try to write a batch script that runs this code. Remember to activate the course environment.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-9-9-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-9-9-0" name="9-0" role="tab" tabindex="0">simple_lightgbm.py</button><button aria-controls="panel-9-9-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-9-9-1" name="9-1" role="tab" tabindex="-1">Rackham</button><button aria-controls="panel-9-9-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-9-9-2" name="9-2" role="tab" tabindex="-1">Kebnekaise</button></div><div aria-labelledby="tab-9-9-0" class="sphinx-tabs-panel" id="panel-9-9-0" name="9-0" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding: utf-8</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="kn">import</span> <span class="nn">lightgbm</span> <span class="k">as</span> <span class="nn">lgb</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading data...&quot;</span><span class="p">)</span>
+<span class="c1"># load or create your dataset</span>
+<span class="n">df_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;regression.train&quot;</span><span class="p">),</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;regression.test&quot;</span><span class="p">),</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">df_test</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">df_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">df_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># create dataset for lightgbm</span>
+<span class="n">lgb_train</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">lgb_eval</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="n">lgb_train</span><span class="p">)</span>
+
+<span class="c1"># specify your configurations as a dict</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;boosting_type&quot;</span><span class="p">:</span> <span class="s2">&quot;gbdt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;objective&quot;</span><span class="p">:</span> <span class="s2">&quot;regression&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;l2&quot;</span><span class="p">,</span> <span class="s2">&quot;l1&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;num_leaves&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>
+    <span class="s2">&quot;feature_fraction&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+    <span class="s2">&quot;bagging_fraction&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="s2">&quot;bagging_freq&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting training...&quot;</span><span class="p">)</span>
+<span class="c1"># train</span>
+<span class="n">gbm</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+    <span class="n">params</span><span class="p">,</span> <span class="n">lgb_train</span><span class="p">,</span> <span class="n">num_boost_round</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">valid_sets</span><span class="o">=</span><span class="n">lgb_eval</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">lgb</span><span class="o">.</span><span class="n">early_stopping</span><span class="p">(</span><span class="n">stopping_rounds</span><span class="o">=</span><span class="mi">5</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving model...&quot;</span><span class="p">)</span>
+<span class="c1"># save model to file</span>
+<span class="n">gbm</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="s2">&quot;model.txt&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting predicting...&quot;</span><span class="p">)</span>
+<span class="c1"># predict</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">gbm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">num_iteration</span><span class="o">=</span><span class="n">gbm</span><span class="o">.</span><span class="n">best_iteration</span><span class="p">)</span>
+<span class="c1"># eval</span>
+<span class="n">rmse_test</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The RMSE of prediction is: </span><span class="si">{</span><span class="n">rmse_test</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-9-9-1" class="sphinx-tabs-panel" hidden="true" id="panel-9-9-1" name="9-1" role="tabpanel" tabindex="0"><div class="dropdown admonition">
+<p class="admonition-title">Click to reveal the solution!</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -l
+# Change to your own project ID after the course!
+#SBATCH -A naiss2024-22-415
+# We are asking for 10 minutes
+#SBATCH --time=00:10:00
+#SBATCH -n 1
+
+# Set a path where the example programs are installed.
+# Change the below to your own path to where you placed the example programs
+MYPATH=/proj/hpc-python/&lt;mydir-name&gt;/HPC-python/Exercises/examples/programs/
+# Activate the course environment (assuming it was called vpyenv)
+source /proj/hpc-python/&lt;mydir-name&gt;/&lt;path-to-my-venv&gt;/vpyenv/bin/activate
+# Remove any loaded modules and load the ones we need
+module purge  &gt; /dev/null 2&gt;&amp;1
+module load uppmax
+module load python/3.11.8
+
+# Run your Python script
+python $MYPATH/simple_lightgbm.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div><div aria-labelledby="tab-9-9-2" class="sphinx-tabs-panel" hidden="true" id="panel-9-9-2" name="9-2" role="tabpanel" tabindex="0"><div class="dropdown admonition">
+<p class="admonition-title">Click to reveal the solution!</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+# Change to your own project ID after the course!
+#SBATCH -A hpc2n2024-052
+# We are asking for 10 minutes
+#SBATCH --time=00:10:00
+#SBATCH -n 1
+
+# Set a path where the example programs are installed.
+# Change the below to your own path to where you placed the example programs
+MYPATH=/proj/nobackup/python-hpc/&lt;mydir-name&gt;/HPC-python/Exercises/examples/programs/
+
+# Remove any loaded modules and load the ones we need
+module purge  &gt; /dev/null 2&gt;&amp;1
+module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+
+# Activate the course environment (assuming it was called vpyenv)
+source /proj/nobackup/python-hpc/&lt;mydir-name&gt;/&lt;path-to-my-venv&gt;/vpyenv/bin/activate
+
+# Run your Python script
+python $MYPATH/simple_lightgbm.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div></div>
+</div>
+</section>
+</section>
+<section id="gpu">
+<h3>GPU<a class="headerlink" href="#gpu" title="Link to this heading"></a></h3>
+<p>Numba is installed as a module at HPC2N, but not in a version compatible with the Python we are using in this course (3.10.4), so we will have to install it ourselves. The process is the same as in the examples given for the isolated/virtual environment, and we will be using the virtual environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Load Python 3.10.4 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>Python/3.9.6<span class="w"> </span>SciPy-bundle/2021.10<span class="w"> </span>CUDA/11.7.0
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span>vpyenv
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/proj/nobackup/python-hpc/bbrydsoe/vpyenv/bin/activate
+<span class="o">(</span>vpyenv<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>--no-build-isolation<span class="w"> </span>numba
+Collecting<span class="w"> </span>numba
+<span class="w">  </span>Downloading<span class="w"> </span>numba-0.56.0-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl<span class="w"> </span><span class="o">(</span><span class="m">3</span>.5<span class="w"> </span>MB<span class="o">)</span>
+<span class="w">       </span>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class="w"> </span><span class="m">3</span>.5/3.5<span class="w"> </span>MB<span class="w"> </span><span class="m">38</span>.7<span class="w"> </span>MB/s<span class="w"> </span>eta<span class="w"> </span><span class="m">0</span>:00:00
+Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>setuptools<span class="w"> </span><span class="k">in</span><span class="w"> </span>/pfs/proj/nobackup/fs/projnb10/python-hpc/bbrydsoe/vpyenv/lib/python3.9/site-packages<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>numba<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">63</span>.1.0<span class="o">)</span>
+Requirement<span class="w"> </span>already<span class="w"> </span>satisfied:<span class="w"> </span>numpy&lt;<span class="m">1</span>.23,&gt;<span class="o">=</span><span class="m">1</span>.18<span class="w"> </span><span class="k">in</span><span class="w"> </span>/cvmfs/ebsw.hpc2n.umu.se/amd64_ubuntu2004_bdw/software/SciPy-bundle/2021.05-foss-2021a/lib/python3.9/site-packages<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>numba<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">1</span>.20.3<span class="o">)</span>
+Collecting<span class="w"> </span>llvmlite&lt;<span class="m">0</span>.40,&gt;<span class="o">=</span><span class="m">0</span>.39.0dev0
+<span class="w">  </span>Downloading<span class="w"> </span>llvmlite-0.39.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl<span class="w"> </span><span class="o">(</span><span class="m">34</span>.6<span class="w"> </span>MB<span class="o">)</span>
+<span class="w">       </span>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class="w"> </span><span class="m">34</span>.6/34.6<span class="w"> </span>MB<span class="w"> </span><span class="m">230</span>.0<span class="w"> </span>MB/s<span class="w"> </span>eta<span class="w"> </span><span class="m">0</span>:00:00
+Installing<span class="w"> </span>collected<span class="w"> </span>packages:<span class="w"> </span>llvmlite,<span class="w"> </span>numba
+Successfully<span class="w"> </span>installed<span class="w"> </span>llvmlite-0.39.0<span class="w"> </span>numba-0.56.0
+
+<span class="o">[</span>notice<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>new<span class="w"> </span>release<span class="w"> </span>of<span class="w"> </span>pip<span class="w"> </span>available:<span class="w"> </span><span class="m">22</span>.1.2<span class="w"> </span>-&gt;<span class="w"> </span><span class="m">22</span>.2.2
+<span class="o">[</span>notice<span class="o">]</span><span class="w"> </span>To<span class="w"> </span>update,<span class="w"> </span>run:<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</pre></div>
+</div>
+<p>Let us try using it. We are going to use the following program for testing (it was taken from <a class="reference external" href="https://linuxhint.com/gpu-programming-python/">https://linuxhint.com/gpu-programming-python/</a> but there are also many great examples at <a class="reference external" href="https://numba.readthedocs.io/en/stable/cuda/examples.html">https://numba.readthedocs.io/en/stable/cuda/examples.html</a>):</p>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Python example using Numba</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">vectorize</span>
+
+<span class="c1"># This should be a substantially high value.</span>
+<span class="n">NUM_ELEMENTS</span> <span class="o">=</span> <span class="mi">100000000</span>
+
+<span class="c1"># This is the CPU version.</span>
+<span class="k">def</span> <span class="nf">vector_add_cpu</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">NUM_ELEMENTS</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_ELEMENTS</span><span class="p">):</span>
+      <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">c</span>
+
+<span class="c1"># This is the GPU version. Note the @vectorize decorator. This tells</span>
+<span class="c1"># numba to turn this into a GPU vectorized function.</span>
+<span class="nd">@vectorize</span><span class="p">([</span><span class="s2">&quot;float32(float32, float32)&quot;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">vector_add_gpu</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+  <span class="n">a_source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">NUM_ELEMENTS</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  <span class="n">b_source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">NUM_ELEMENTS</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+  <span class="c1"># Time the CPU function</span>
+  <span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+  <span class="n">vector_add_cpu</span><span class="p">(</span><span class="n">a_source</span><span class="p">,</span> <span class="n">b_source</span><span class="p">)</span>
+  <span class="n">vector_add_cpu_time</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+  <span class="c1"># Time the GPU function</span>
+  <span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+  <span class="n">vector_add_gpu</span><span class="p">(</span><span class="n">a_source</span><span class="p">,</span> <span class="n">b_source</span><span class="p">)</span>
+  <span class="n">vector_add_gpu_time</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+   <span class="c1"># Report times</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CPU function took </span><span class="si">%f</span><span class="s2"> seconds.&quot;</span> <span class="o">%</span> <span class="n">vector_add_cpu_time</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GPU function took </span><span class="si">%f</span><span class="s2"> seconds.&quot;</span> <span class="o">%</span> <span class="n">vector_add_gpu_time</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>As before, we need a batch script to run the code. There are no GPUs on the login node.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Batch script to run the numba code (add-list.py) at Kebnekaise</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A hpc2nXXXX-YYY</span>
+<span class="c1"># We are asking for 5 minutes</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1"># Asking for one K80</span>
+<span class="c1">#SBATCH --gres=gpu:k80:1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>Python/3.9.6<span class="w"> </span>SciPy-bundle/2021.10<span class="w"> </span>CUDA/11.7.0
+
+<span class="c1"># Activate the virtual environment we installed to</span>
+<span class="nb">source</span><span class="w"> </span>/proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>add-list.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>As before, submit with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">add-list.sh</span></code> (assuming you called the batch script thus - change to fit your own naming style).</p>
+</section>
+</section>
+<section id="numba-example-2">
+<h2>Numba example 2<a class="headerlink" href="#numba-example-2" title="Link to this heading"></a></h2>
+<p>An initial implementation of the 2D integration problem with the CUDA support for Numba could be
+as follows:</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">integration2d_gpu.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">cuda</span><span class="p">,</span> <span class="n">float32</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="mi">1024</span>
+<span class="n">threadsPerBlock</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">blocksPerGrid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="n">threadsPerBlock</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">threadsPerBlock</span><span class="p">)</span>
+
+<span class="c1"># interval size (same for X and Y)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nd">@cuda</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">dotprod</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="n">tid</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockDim</span><span class="o">.</span><span class="n">x</span>
+
+    <span class="k">if</span> <span class="n">tid</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="c1">#cummulative variable</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># fine-grain integration in the X axis</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">tid</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># regular integration in the Y axis</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">C</span><span class="p">[</span><span class="n">tid</span><span class="p">]</span> <span class="o">=</span> <span class="n">mysum</span>
+
+
+<span class="c1"># array for collecting partial sums on the device</span>
+<span class="n">C_global_mem</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">device_array</span><span class="p">((</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">dotprod</span><span class="p">[</span><span class="n">blocksPerGrid</span><span class="p">,</span><span class="n">threadsPerBlock</span><span class="p">](</span><span class="n">C_global_mem</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">C_global_mem</span><span class="o">.</span><span class="n">copy_to_host</span><span class="p">()</span>
+<span class="n">integral</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>The time for executing the kernel and doing some postprocessing to the outputs (copying
+the C array and doing a reduction)  was 4.35 sec. which is a much smaller value than the
+time for the serial numba code of 152 sec.</p>
+<p>Notice the larger size of the grid in the present case (100*1024) compared to the
+serial case’s size we used previously (10000). Large computations are necessary on the GPUs
+to get the benefits of this architecture.</p>
+<p>One can take advantage of the shared memory in a thread block to write faster code. Here,
+we wrote the 2D integration example from the previous section where threads in a block
+write on a <cite>shared[]</cite> array. Then, this array is reduced (values added) and the output is
+collected in the array <code class="docutils literal notranslate"><span class="pre">C</span></code>. The entire code is here:</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">integration2d_gpu_shared.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">cuda</span><span class="p">,</span> <span class="n">float32</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="mi">1024</span>
+<span class="n">threadsPerBlock</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">blocksPerGrid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="n">threadsPerBlock</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">threadsPerBlock</span><span class="p">)</span>
+
+<span class="c1"># interval size (same for X and Y)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nd">@cuda</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">dotprod</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="c1"># using the shared memory in the thread block</span>
+    <span class="n">shared</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">threadsPerBlock</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="n">tid</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockDim</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">shrIndx</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span>
+
+    <span class="k">if</span> <span class="n">tid</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="c1">#cummulative variable</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># fine-grain integration in the X axis</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">tid</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># regular integration in the Y axis</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">shared</span><span class="p">[</span><span class="n">shrIndx</span><span class="p">]</span> <span class="o">=</span> <span class="n">mysum</span>
+
+    <span class="n">cuda</span><span class="o">.</span><span class="n">syncthreads</span><span class="p">()</span>
+
+    <span class="c1"># reduction for the whole thread block</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockDim</span><span class="o">.</span><span class="n">x</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">shrIndx</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">shared</span><span class="p">[</span><span class="n">shrIndx</span><span class="p">]</span> <span class="o">+=</span> <span class="n">shared</span><span class="p">[</span><span class="n">shrIndx</span> <span class="o">+</span> <span class="n">s</span><span class="p">]</span>
+        <span class="n">s</span> <span class="o">*=</span> <span class="mi">2</span>
+        <span class="n">cuda</span><span class="o">.</span><span class="n">syncthreads</span><span class="p">()</span>
+    <span class="c1"># collecting the reduced value in the C array</span>
+    <span class="k">if</span> <span class="n">shrIndx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">C</span><span class="p">[</span><span class="n">cuda</span><span class="o">.</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">shared</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># array for collecting partial sums on the device</span>
+<span class="n">C_global_mem</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">device_array</span><span class="p">((</span><span class="n">blocksPerGrid</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">dotprod</span><span class="p">[</span><span class="n">blocksPerGrid</span><span class="p">,</span><span class="n">threadsPerBlock</span><span class="p">](</span><span class="n">C_global_mem</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">C_global_mem</span><span class="o">.</span><span class="n">copy_to_host</span><span class="p">()</span>
+<span class="n">integral</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>We need a batch script to run this Python code, an example script is here:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A project_ID</span>
+<span class="c1">#SBATCH -t 00:05:00</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -n 28</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+<span class="c1">#SBATCH --gres=gpu:k80:2</span>
+<span class="c1">#SBATCH --exclusive</span>
+
+ml<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+ml<span class="w"> </span>GCCcore/11.2.0<span class="w"> </span>Python/3.9.6
+ml<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1
+ml<span class="w"> </span>CUDA/11.7.0
+
+virtualenv<span class="w"> </span>--system-site-packages<span class="w"> </span>/proj/nobackup/&lt;your-project-storage&gt;/vpyenv-python-course
+<span class="nb">source</span><span class="w"> </span>/proj/nobackup/&lt;your-project-storage&gt;/vpyenv-python-course/bin/activate
+
+python<span class="w"> </span>integration2d_gpu.py
+</pre></div>
+</div>
+<p>The simulation time for this problem’s size
+was 1.87 sec.</p>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<div class="admonition-run-the-first-serial-example-from-further-up-on-the-page-for-this-short-python-code-sum-2args-py exercise important admonition" id="exercise-4">
+<p class="admonition-title">Run the first serial example from further up on the page for this short Python code (sum-2args.py)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of the two numbers is: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Remember to give the two arguments to the program in the batch script.</p>
+</div>
+<div class="dropdown solution important admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<blockquote>
+<div><p>This is for Kebnekaise. Adding the numbers 2 and 3.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2nXXXX-YYY # Change to your own after the course</span>
+<span class="c1">#SBATCH --time=00:05:00 # Asking for 5 minutes</span>
+<span class="c1">#SBATCH -n 1 # Asking for 1 core</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.9.6</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/11.2.0<span class="w">  </span>OpenMPI/4.1.1<span class="w"> </span>Python/3.9.6
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>sum-2args.py<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bianca.html" class="btn btn-neutral float-left" title="On Bianca cluster" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, UPPMAX/HPC2N.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
