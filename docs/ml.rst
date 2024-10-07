@@ -436,8 +436,7 @@ This example shows how you would run several programs or variations of programs 
          #SBATCH --gres=gpu:1
          #SBATCH --mail-type=begin        # send email when job begins
          #SBATCH --mail-type=end          # send email when job ends
-         #SBATCH --mail-user=bjorn.claremar@uppmax.uu.se
-         # Remove any loaded modules and load the ones we need
+          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
          module load uppmax
          module load python_ML_packages/3.11.8-gpu
