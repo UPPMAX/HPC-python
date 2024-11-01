@@ -182,7 +182,7 @@ Overview of the UPPMAX systems
 Preliminary schedule
 ====================
 
-.. list-table:: Preliminary schedule
+.. list-table:: Preliminary schedule Thursday 5 December
    :widths: 25 25 50
    :header-rows: 1
 
@@ -204,45 +204,90 @@ Preliminary schedule
    * - 10:10
      - Installing packages and isolated environments 
      - Lecture + type-along 
-   * - 10:45
-     - SLURM Batch scripts and arraysfor Python jobs  
-     - Lecture + type-along + exercise
-   * - 11.05
+   * - 11.00
      - **Short leg stretch**
      - 
-   * - 11:30
-     - Interactive
-     - Lecture + type-along
+   * - 11:10
+     - Reaching compute nodes with Batch or interactive work 
+     - Lecture + type-along + exercise
    * - 11:50
      - Catch-up time and Q/A (no recording)
      - Q/A
    * - 12:00
      - **LUNCH**
      -
-   * - 13:00
-     - Parallelising simple Python codes
+   * - 13:00-14:30
+     - Analysis with Python
      - Lecture + type-along + exercise
-   * - 14:00
-     - **Short leg stretch**
+   * - 13.55
+     - **Short leg stretch** 15m
      - 
-   * - 14:10
+   * - 14:30-15:30
      - Using GPU:s for Python
      - Lecture + type-along + exercise
    * - 14.50
-     - **Coffee**
+     - **Coffee** 15 min
      - 
-   * - 15:05
-     - Using Python for Machine Learning jobs
+   * - 15:35
+     - Use cases and Q/A
      - Lecture + type-along + exercise
-   * - 15.35
+   * - 16.35
      - Summary + Evaluation
      -
+
+.. list-table:: Preliminary schedule Friday 6 December
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Time
+     - Topic
+     - Activity
+   * - 9:00
+     - Analysis with Python part I
+     -
+   * - 9:50
+     - **Coffee**
+     - 
+   * - 10:05
+     - Analysis with Python part II
+     -
+   * - 10.55
+     - **Short leg stretch**
+     - 
+   * - 11:10
+     - Parallelism part I: MPI, Processes, Dask
+     - Lecture + type-along + exercise
+   * - 12:00
+     - **LUNCH**
+     -
+   * - 13:00
+     - Parallelism part II: MPI, Processes, Dask
+     - Lecture + type-along + exercise
+   * - 13:15
+     - Big Data with Python
+     - Lecture + type-along + exercise
+   * - 13:50
+     - **Short leg stretch**
+     - 
+   * - 14:05
+     - Machine and Deep Learning part I
+     - Lecture + type-along + exercise
+   * - 14.55
+     - **Coffee**
+     - 
+   * - 15:10
+     - Machine and Deep Learning part II
+     - Lecture + type-along + exercise
    * - 15.50
-     - Exercises and Q&A on-demand
-     -
+     - **Short leg stretch**
+     - 
    * - 16.00
-     - END
+     - Use cases and Q&A
      -
+   * - 16.45
+     - Ending with evaluation
+     -
+
 .. admonition:: Prepare your environment now!
   
    - Please log in to Rackham, Kebnekaise or other cluster that you are using.
