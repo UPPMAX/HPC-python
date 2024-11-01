@@ -183,7 +183,7 @@ Preliminary schedule
 ====================
 
 .. list-table:: Preliminary schedule Thursday 5 December
-   :widths: 25 25 50
+   :widths: 20 25 40 15
    :header-rows: 1
 
    * - Time
@@ -252,7 +252,7 @@ Preliminary schedule
      - 
 
 .. list-table:: Preliminary schedule Friday 6 December
-   :widths: 25 25 50
+   :widths: 20 25 40 15
    :header-rows: 1
 
    * - Time
