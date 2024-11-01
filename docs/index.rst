@@ -188,52 +188,68 @@ Preliminary schedule
 
    * - Time
      - Topic
-     - Activity
+     - Content
+     - Teacher(s)
    * - 9:00
      - Syllabus and the clusters
-     -
+     - 
+     - 
    * - 9:15
      - Introduction to Python 
-     - Lecture
+     - 
+     - 
    * - 9:25
      - Loading and running Python and using installed packages
-     - Lecture + type-along 
+     - 
+     - 
    * - 9:55
      - **Coffee**
      - 
+     - 
    * - 10:10
      - Installing packages and isolated environments 
-     - Lecture + type-along 
+     - 
+     - 
    * - 11.00
      - **Short leg stretch**
      - 
+     - 
    * - 11:10
      - Reaching compute nodes with Batch or interactive work 
-     - Lecture + type-along + exercise
+     - 
+     - 
    * - 11:50
      - Catch-up time and Q/A (no recording)
-     - Q/A
+     - 
+     - 
    * - 12:00
      - **LUNCH**
-     -
+     - 
+     - 
    * - 13:00-14:30
      - Analysis with Python
-     - Lecture + type-along + exercise
+     - 
+     - 
    * - 13.55
      - **Short leg stretch** 15m
      - 
+     - 
    * - 14:30-15:30
      - Using GPU:s for Python
-     - Lecture + type-along + exercise
+     - 
+     - 
    * - 14.50
      - **Coffee** 15 min
      - 
+     - 
    * - 15:35
      - Use cases and Q/A
-     - Lecture + type-along + exercise
+     - 
+     - 
    * - 16.35
      - Summary + Evaluation
-     -
+     - 
+     - 
 
 .. list-table:: Preliminary schedule Friday 6 December
    :widths: 25 25 50
@@ -241,52 +257,68 @@ Preliminary schedule
 
    * - Time
      - Topic
-     - Activity
+     - Content
+     - Teacher
    * - 9:00
      - Analysis with Python part I
-     -
+     - 
+     - 
    * - 9:50
      - **Coffee**
      - 
+     - 
    * - 10:05
      - Analysis with Python part II
-     -
+     - 
+     - 
    * - 10.55
      - **Short leg stretch**
      - 
+     - 
    * - 11:10
      - Parallelism part I: MPI, Processes, Dask
-     - Lecture + type-along + exercise
+     - 
+     - 
    * - 12:00
      - **LUNCH**
-     -
+     - 
+     - 
    * - 13:00
      - Parallelism part II: MPI, Processes, Dask
-     - Lecture + type-along + exercise
+     - 
+     - 
    * - 13:15
      - Big Data with Python
-     - Lecture + type-along + exercise
+     - 
+     - 
    * - 13:50
      - **Short leg stretch**
      - 
+     - 
    * - 14:05
      - Machine and Deep Learning part I
-     - Lecture + type-along + exercise
+     - 
+     - 
    * - 14.55
      - **Coffee**
      - 
+     - 
    * - 15:10
      - Machine and Deep Learning part II
-     - Lecture + type-along + exercise
+     - 
+     - 
    * - 15.50
      - **Short leg stretch**
      - 
+     - 
    * - 16.00
      - Use cases and Q&A
-     -
+     - 
+     - 
    * - 16.45
      - Ending with evaluation
-     -
+     - 
+     - 
 
 .. admonition:: Prepare your environment now!
   
