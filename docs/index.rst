@@ -227,7 +227,7 @@ Preliminary schedule
      - 
      - 
    * - 14:30-15:30
-     - Using GPU:s for Python
+     - Using GPUs for Python
      - Pedro?
      - 
    * - 14.50
