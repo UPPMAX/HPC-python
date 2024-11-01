@@ -191,33 +191,25 @@ Preliminary schedule
      - Content
      - Teacher(s)
    * - 9:00
-     - Syllabus and the clusters
-     - 
-     - 
-   * - 9:15
-     - Introduction to Python 
-     - 
-     - 
-   * - 9:25
-     - Loading and running Python and using installed packages
-     - 
-     - 
+     - Introduction to the course and log in
+     - Getting started with practical things
+     - All
    * - 9:55
      - **Coffee**
      - 
      - 
    * - 10:10
-     - Installing packages and isolated environments 
-     - 
-     - 
+     - Packages and isolated environments 
+     - Install, create and handle
+     - Björn
    * - 11.00
      - **Short leg stretch**
      - 
      - 
    * - 11:10
-     - Reaching compute nodes with Batch or interactive work 
-     - 
-     - 
+     - Reaching compute nodes with Slurm  
+     - Batch jobs vs interactive work in IDEs
+     - Birgitte
    * - 11:50
      - Catch-up time and Q/A (no recording)
      - 
@@ -228,15 +220,15 @@ Preliminary schedule
      - 
    * - 13:00-14:30
      - Analysis with Python
-     - 
-     - 
+     - Matplotlib, IDEs and plots from scripts
+     - Rebecca
    * - 13.55
      - **Short leg stretch** 15m
      - 
      - 
    * - 14:30-15:30
      - Using GPU:s for Python
-     - 
+     - Pedro?
      - 
    * - 14.50
      - **Coffee** 15 min
@@ -244,8 +236,8 @@ Preliminary schedule
      - 
    * - 15:35
      - Use cases and Q/A
-     - 
-     - 
+     - Bring your own problems
+     - All
    * - 16.35
      - Summary + Evaluation
      - 
@@ -261,62 +253,62 @@ Preliminary schedule
      - Teacher
    * - 9:00
      - Analysis with Python part I
-     - 
-     - 
+     - Pandas
+     - Rebecca
    * - 9:50
      - **Coffee**
      - 
      - 
    * - 10:05
      - Analysis with Python part II
-     - 
-     - 
+     - Pandas & Seaborn
+     - Rebecca
    * - 10.55
      - **Short leg stretch**
      - 
      - 
    * - 11:10
      - Parallelism part I: MPI, Processes, Dask
-     - 
-     - 
+     - Processes, MPI
+     - Pedro
    * - 12:00
      - **LUNCH**
      - 
      - 
    * - 13:00
      - Parallelism part II: MPI, Processes, Dask
-     - 
-     - 
+     - Dask
+     - Pedro
    * - 13:15
      - Big Data with Python
-     - 
-     - 
+     - File formats and packages, Chunking
+     - Björn
    * - 13:50
      - **Short leg stretch**
      - 
      - 
    * - 14:05
      - Machine and Deep Learning part I
-     - 
-     - 
+     - Pytorch, Tensorflow, ScikitLearn
+     - Jayant
    * - 14.55
      - **Coffee**
      - 
      - 
    * - 15:10
      - Machine and Deep Learning part II
-     - 
-     - 
+     - Pytorch, Tensorflow, ScikitLearn
+     - Jayant
    * - 15.50
      - **Short leg stretch**
      - 
      - 
    * - 16.00
      - Use cases and Q&A
-     - 
-     - 
+     - Bring your own problems
+     - All
    * - 16.45
-     - Ending with evaluation
+     - Ending, with evaluation
      - 
      - 
 
