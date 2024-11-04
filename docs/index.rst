@@ -10,9 +10,10 @@ Welcome to "Using Python in an HPC environment" course material
    
    Here you will find the content of the workshop Using Python in an HPC environment.
    
-   - Documentation at the HPC centres UPPMAX and HPC2N
+   - Documentation at the HPC centres UPPMAX, HPC2N, and LUNARC
       - UPPMAX: http://docs.uppmax.uu.se/software/python/
-      - HPC2N: https://www.hpc2n.umu.se/resources/software/user_installed/python
+      - HPC2N: https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages
+      - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/
 
 
 .. exercise:: Content
@@ -51,34 +52,34 @@ Welcome to "Using Python in an HPC environment" course material
 
   **Target group**
  
-  - The course is for present or presumptive users at UPPMAX or HPC2N or possibly other clusters in Sweden. 
-  - Therefore we apply python solutions on both clusters, so a broad audience can benefit.
+  - The course is for present or presumptive users at UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden. 
+  - Therefore we apply python solutions on all three clusters, so a broad audience can benefit.
   - We also provide links to the Python/Jupyter documentation at other Swedish HPC centres with personell affiliated to NAISS.
 
   **Cluster-specific approaches**
   
-   - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise). The main focus will be on UPPMAX's systems, but Kebnekaise will be included as well. If you already have an account at Kebnekaise, you can use that system for the hands-ons. 
-   - In most cases there is little or no difference between UPPMAX's systems and HPC2N's systems (and the other HPC systems in Sweden), except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
+   - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca), HPC2N (Kebnekaise), and LUNARC (Cosmos). The main focus will be on UPPMAX's systems, but Kebnekaise and Cosmos will be included as well. If you already have an account at Kebnekaise or Cosmos, you can use those systems for the hands-ons. 
+   - In most cases there is little or no difference between UPPMAX's systems, HPC2N's systems, and LUNARC's systems (and the other HPC systems in Sweden), except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
 
-   - See further below a short introduction to the centre-specific cluster architectures of UPPMAX and HPC2N.
+   - See further below a short introduction to the centre-specific cluster architectures of UPPMAX, HPC2N, and LUNARC.
 
 .. admonition:: How is the workshop run?
   
-   - General sessions with small differences shown for UPPMAX and HPC2N in tabs
-   - Main focus on the NAISS resources at UPPMAX, but Kebnekaise specifics will be covered
-   - Users who already have accounts/projects at HPC2N/Kebnekaise are welcome to use that for the exercises. UPPMAX/Rackham will be used for everyone else. 
+   - General sessions with small differences shown for UPPMAX, HPC2N, and LUNARC in tabs
+   - Main focus on the NAISS resources at UPPMAX, but Kebnekaise/Cosmos specifics will be covered
+   - Users who already have accounts/projects at HPC2N (Kebnekaise) or LUNARC (Cosmos) are welcome to thoses systems for the exercises. UPPMAX/Rackham will be used for everyone else. 
 
 
 .. prereq::
 
    - Python at a basic level
-   - user account on either Kebnekaise at HPC2N or Rackham at UPPMAX
+   - user account on either Kebnekaise at HPC2N, Rackham at UPPMAX, or Cosmos at LUNARC
    - having a terminal with X-forwarding available and/or ThinLinc app or two-factor authentication for web-login.
    - familiarity with the LINUX command line
   
       - `Short introduction <http://docs.uppmax.uu.se/getting_started/linux/>`_
-      - `Linux "cheat sheet" <https://www.hpc2n.umu.se/documentation/guides/linux-cheat-sheet>`_
-      - `HPC2N's intro course material (including link to recordings) <https://github.com/hpc2n/intro-course>`_
+      - `Linux tutorial and "cheat sheet" <https://docs.hpc2n.umu.se/tutorials/linuxguide/>`_
+      - `HPC2N's Linux intro course material (including link to recordings) <https://github.com/hpc2n/intro-linux>`_
       - `UPPMAX's intro course material <https://www.uu.se/en/centre/uppmax/study/courses-and-workshops/introduction-to-uppmax>`_
       - `UPPMAX software library <http://docs.uppmax.uu.se/cluster_guides/modules/>`_
 
@@ -112,10 +113,10 @@ Some practicals
  
     - Create a new line for new questions. Take care if others are editing at the same time. 
 
-The two HPC centers UPPMAX and HPC2N
-------------------------------------
+The three HPC centers UPPMAX, HPC2N, and LUNARC
+------------------------------------------------
 
-.. admonition:: Two HPC centers
+.. admonition:: Three HPC centers
 
    - There are many similarities:
    
@@ -126,7 +127,7 @@ The two HPC centers UPPMAX and HPC2N
      
    - ... and small differences:
    
-     - commands to load Python, Python packages, R, Julia
+     - commands to load Python, Python packages
      - slightly different flags to Slurm
      
    - ... and some bigger differences:
@@ -138,19 +139,26 @@ The two HPC centers UPPMAX and HPC2N
        - Bianca for sensitive data and has GPUs
 
      - HPC2N has Kebnekaise with GPUs  
-     - Conda is recommended only for UPPMAX users
+
+     - LUNARC has two systems 
+     
+       - Cosmos (CPUs and GPUs)
+       - Cosmos-SENS (sensitive data) 
+
+     - Conda is recommended only for UPPMAX and LUNARC users
     
 .. warning:: 
 
-   - At both HPC2N and UPPMAX we call the applications available via the *module system* **modules**. 
+   - At HPC2N, UPPMAX, and LUNARC we call the applications available via the *module system* **modules**. 
 
       - <http://docs.uppmax.uu.se/cluster_guides/modules/> 
-      - <https://www.hpc2n.umu.se/documentation/environment/lmod>
+      - <https://docs.hpc2n.umu.se/documentation/modules/>
+      - <https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/>  
    
    - To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
-Briefly about the cluster hardware and system at UPPMAX and HPC2N
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Briefly about the cluster hardware and system at UPPMAX, HPC2N, and LUNARC
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **What is a cluster?**
 
@@ -167,10 +175,10 @@ Briefly about the cluster hardware and system at UPPMAX and HPC2N
 
   - Here the file management and lighter data analysis can be performed.
 
-.. figure:: img/nodes.png
+.. figure:: img/cluster.png
    :align: center
 
-- The **calculation nodes** have to be used for intense computing. 
+- The **calculation/compute nodes** have to be used for intense computing. 
 
  
 Overview of the UPPMAX systems
@@ -178,6 +186,16 @@ Overview of the UPPMAX systems
 
 .. mermaid:: mermaid/uppmax2.mmd
 
+Overview of HPC2N's system 
+##########################
+
+.. mermaid:: mermaid/kebnekaise.mmd
+
+Overview of LUNARC's systems
+############################
+
+.. figure:: img/cosmos-resources.png
+   :align: center
 
 Preliminary schedule
 ====================
@@ -314,10 +332,12 @@ Preliminary schedule
 
 .. admonition:: Prepare your environment now!
   
-   - Please log in to Rackham, Kebnekaise or other cluster that you are using.
+   - Please log in to Rackham, Kebnekaise, Cosmos or other cluster that you are using.
    - For graphics, ThinLinc may be the best option.
       - The `ThinLinc app <https://www.cendio.com/thinlinc/download/>`_.
-      - Rackham has a web browser interface with ThinLinc: https://rackham-gui.uppmax.uu.se
+      - Rackham has both access through a regular ThinLinc client and a web browser interface with ThinLinc: 
+        - Client: 
+        . Web browser interface: https://rackham-gui.uppmax.uu.se
       - `ThinLinc user guide at UPPMAX <http://docs.uppmax.uu.se/cluster_guides/thinlinc/>`_
 
     
