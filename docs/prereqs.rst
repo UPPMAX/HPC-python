@@ -103,6 +103,7 @@ Add X11 graphics to terminal
    - Graphics can be sent through the SSH connection you’re using to connect
       - Use primarily `ssh -X <...>` and secondary `ssh -Y <...>`
       - http://docs.uppmax.uu.se/software/ssh_x_forwarding/
+      - https://docs.hpc2n.umu.se/documentation/access/#ssh__x11__forwarding 
 
    - The X servers that enables graphics are needed, as mentioned above!
       - When starting a graphical program, a new window will open, but your terminal will be “locked”.
@@ -165,7 +166,8 @@ Try to log in
 
       - https://www.uppmax.uu.se/support/user-guides/setting-up-two-factor-authentication/
 
-- When logging in the first time in ThinLinc, choose XFCE desktop. 
+- When logging in to UPPMAX the first time in ThinLinc, choose XFCE desktop. 
+- On HPC2N, you will use the MATE desktop as default. 
 
 - Test it!
 
