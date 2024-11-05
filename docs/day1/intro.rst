@@ -8,7 +8,7 @@ Introduction
    
    - Load Python modules and site-installed Python packages
    - Create a virtual environment
-   - Install Python packages with pip (Kebnekaise, Rackham, Snowy)
+   - Install Python packages with pip (Kebnekaise, Rackham, Snowy, Cosmos)
    - Write a batch script for running Python
    - Use the compute nodes interactively
    - Use Python in parallel

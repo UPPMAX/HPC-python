@@ -115,7 +115,7 @@ Add X11 graphics to terminal
 ThinLinc
 ########
 
-- Rackham, Kebnekaise and Bianca offer graphical login.
+- Rackham, Kebnekaise, Bianca, and Cosmos offer graphical login.
 - This gives you a desktop environment, as if you were working on your own computer!
 - Install ThinLinc client
      - https://www.cendio.com/thinlinc/download
@@ -140,6 +140,14 @@ ThinLinc
 
       - password
 
+   .. tab:: Cosmos
+
+      - server: cosmos-dt.lunarc.lu.se
+
+      - username
+
+      - password
+
 .. figure:: ./img/Thinlinc2.jpg
 
 
@@ -154,29 +162,39 @@ Try to log in
 .. warning::
 
    - Using ThinLinc to log in to Rackham may require 2FA
-     - https://www.uppmax.uu.se/support/user-guides/setting-up-two-factor-authentication/
+
+      - https://www.uppmax.uu.se/support/user-guides/setting-up-two-factor-authentication/
 
 - When logging in the first time in ThinLinc, choose XFCE desktop. 
 
 - Test it!
 
+.. warning::
+
+   - When you login to Cosmos, whether through ThinLinc or regular SSH client, you need 2FA 
+     
+      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/
+
+
 .. seealso::
 
-   `Log in to Rackham <http://docs.uppmax.uu.se/getting_started/login_rackham/>`_ 
-   `Log in to Kebnekaise <http://docs.uppmax.uu.se/getting_started/login_rackham/>`_ 
+   - `Log in to Rackham <http://docs.uppmax.uu.se/getting_started/login_rackham/>`_ 
+   - `Log in to Kebnekaise <http://docs.uppmax.uu.se/getting_started/login_rackham/>`_ 
+
+   - `Log in to Cosmos <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/>`_
 
 .. keypoints::
 
    - When you log in from your local computer you will always arrive at a login node with limited resources. 
        - You reach the calculations nodes from within the login node (See  Submitting jobs section)
-   - You reach UPPMAX clusters either using a terminal client or Thinlinc
+   - You reach UPPMAX/HPC2N/LUNARC clusters either using a terminal client or Thinlinc
    - Graphics are included in Thinlinc and from terminal if you have enabled X11.
    - Which client to use?
        - Graphics and easy to use
        - ThinLinc
    - Best integrated systems
-      - Visual Studio Code has several extensions (remote, SCP, programming IDE:s)
-      - Windows: MobaXterm is somewhat easier to use.
+       - Visual Studio Code has several extensions (remote, SCP, programming IDE:s)
+       - Windows: MobaXterm is somewhat easier to use.
   
 
 Text editors on the Clusters
@@ -188,6 +206,7 @@ Text editors on the Clusters
 .. seealso::
 
    - http://docs.uppmax.uu.se/software/text_editors/
+   - https://docs.hpc2n.umu.se/tutorials/linuxguide/#editors 
 
 .. hint::
 
@@ -236,9 +255,9 @@ Text editors on the Clusters
 Coding
 ------
 
-- Basic knowledge of the languages used the different days. 
+- Basic knowledge of Python. 
 - We won't test your skills though.
-- Rather you will learn to understand the ecosystems and navigations for the the different languages on a HPC cluster.
+- Rather you will learn to understand the ecosystems and navigations for using Python on a HPC cluster.
 
 See below for links to useful material if you need a refresher before the course.
 
@@ -260,8 +279,9 @@ Linux
       
     - HPC2N
     
-      - `HPC2N's intro course material (including link to recordings) <https://github.com/hpc2n/intro-course>`_
-      - `HPC2N's YouTube channel video on Linux <https://www.youtube.com/watch?v=gq4Dvt2LeDg>`_
+      - `HPC2N Linux tutorial <https://docs.hpc2n.umu.se/tutorials/linuxguide/#>`_ 
+      - `HPC2N's Linux intro course material (including link to recordings) <https://hpc2n.github.io/intro-linux/>`_
+      - `HPC2N's YouTube channel video playlist on Linux <https://www.youtube.com/watch?v=37-OBMd_tIk&list=PL6jMHLEmPVLzoudy66m5isl2LD-YY_05L>`_
 
 
 Material for improving your programming skills
@@ -293,10 +313,10 @@ Third level
 Understanding clusters
 ----------------------
 
-The two HPC centers UPPMAX and HPC2N
-------------------------------------
+The HPC centers UPPMAX, HPC2N, and LUNARC
+------------------------------------------
 
-.. admonition:: Two HPC centers
+.. admonition:: Three HPC centers
 
    - There are many similarities:
    
@@ -319,18 +339,20 @@ The two HPC centers UPPMAX and HPC2N
        - Bianca for sensitive data and has GPUs
 
    - HPC2N has Kebnekaise with GPUs  
-   - Conda is recommended only for UPPMAX users
+   - LUNARC has Cosmos with GPUs (and Cosmos-SENS) 
+   - Conda is recommended only for UPPMAX/LUNARC users
     
 .. warning:: 
 
-   - At both HPC2N and UPPMAX we call the applications available via the *module system* **modules**. 
+   - At HPC2N, UPPMAX, and LUNARC we call the applications available via the *module system* **modules**. 
    - https://www.uppmax.uu.se/resources/software/module-system/ 
-   - https://www.hpc2n.umu.se/documentation/environment/lmod
+   - https://docs.hpc2n.umu.se/documentation/modules/
+   - https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/  
    
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
-Briefly about the cluster hardware and system at UPPMAX and HPC2N
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Briefly about the cluster hardware and system at UPPMAX, HPC2N, and LUNARC 
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **What is a cluster?**
 
@@ -356,7 +378,7 @@ Briefly about the cluster hardware and system at UPPMAX and HPC2N
 Common features
 ###############
 
-- Intel CPUs
+- Intel (and for HPC2N/LUNARC, also AMD) CPUs
 - Linux kernel
 - Bash shell
 
@@ -369,22 +391,25 @@ Common features
      - Rackham
      - Snowy
      - Bianca
+     - Cosmos  
    * - Cores/compute node
-     - 28 (72 for largemem part)
+     - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
      - 20
      - 16
      - 16
+     - 48  
    * - Memory/compute node
      - 128-3072 GB 
      - 128-1024 GB
      - 128-4096 GB
      - 128-512 GB
+     - 256-512 GB  
    * - GPU
-     - NVidia V100, A100, old K80s
+     - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
      - None
      - NVidia T4 
      - NVidia A100
-
+     - NVidia A100 
 
 
 Overview of the UPPMAX systems
@@ -396,3 +421,10 @@ Overview of the HPC2N system
 ############################
 
 .. mermaid:: mermaid/kebnekaise.mmd
+
+Overview of the LUNARC system 
+############################# 
+
+.. figure:: ./img/cosmos-resources.png 
+   :align: center
+
