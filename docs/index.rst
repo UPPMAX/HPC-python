@@ -458,17 +458,22 @@ Content of the course
     
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons:
+   :caption: Lessons day 1:
 
-   intro.rst
-   load_run_packages.rst
-   install_packages.rst
-   batch.md
-   interactive.md
-   parallel.rst
-   gpu.md
-   ml.md
+   day1/intro.rst
+   day1/load_run_packages.rst
+   day1/install_packages.rst
+   day1/batch.md
+   day1/interactive.md
+   day1/gpu.md
    summary.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Lessons day 1:
+
+   day2/parallel.rst
+   day2/ml.md
 
 .. toctree::
    :maxdepth: 2
