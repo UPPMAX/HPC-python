@@ -470,19 +470,20 @@ Content of the course
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons day 1:
+   :caption: Lessons day 2:
 
    day2/parallel.rst
    day2/ml.md
+   day2/ML_deeper.rst
 
 .. toctree::
    :maxdepth: 2
    :caption: Extra reading:
 
-   packages_deeper.rst
-   isolated_deeper.rst
+   extra/packages_deeper.rst
+   extra/isolated_deeper.rst
+   extra/interactive_deeper.rst
    #jupyter.md
-   ML_deeper.rst
    uppmax.rst
    kebnekaise.md
    bianca.rst
