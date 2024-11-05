@@ -1,11 +1,11 @@
 Load and run python and use packages
 ====================================
 
-At both UPPMAX and HPC2N we call the applications available via the module system modules. 
+At UPPMAX, HPC2N, and LUNARC (and most other Swedish HPC centres) we call the applications available via the module system modules. 
     - http://docs.uppmax.uu.se/cluster_guides/modules/
-    - https://www.hpc2n.umu.se/documentation/environment/lmod 
+    - https://docs.hpc2n.umu.se/documentation/modules/
+    - https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/ 
 
-   
 .. objectives:: 
 
    - Show how to load Python
@@ -24,14 +24,14 @@ At both UPPMAX and HPC2N we call the applications available via the module syste
     
 .. warning::
    
-   - Note that the module systems at UPPMAX and HPC2N are slightly different. 
+   - Note that the module systems at UPPMAX, HPC2N, and LUNARC are slightly different. 
    - While all modules at 
        - UPPMAX not directly related to bio-informatics are shown by ``ml avail`` 
-       - HPC2N are hidden until one has loaded a prerequisite like the compiler ``GCC``.
+       - HPC2N and LUNARC are hidden until one has loaded a prerequisite like the compiler ``GCC``.
 
 
 - For reproducibility reasons, you should always load a specific version of a module instead of just the default version
-- Many modules have prerequisite modules which needs to be loaded first (at HPC2N this is also the case for the Python modules). When doing ``module spider <module>/<version>`` you will get a list of which other modules needs to be loaded first
+- Many modules have prerequisite modules which needs to be loaded first (at HPC2N/LUNARC this is also the case for the Python modules). When doing ``module spider <module>/<version>`` you will get a list of which other modules needs to be loaded first
 
 
 Check for Python versions
@@ -66,12 +66,33 @@ Check for Python versions
    
          $ module spider Python/<version>
 
-      Example for Python 3.9.5
+      Example for Python 3.11.3 
 
       .. code-block:: console
 
-         $ module spider Python/3.9.5 
+         $ module spider Python/3.11.3
 
+   .. tab:: LUNARC 
+
+      Check all available Python versions with: 
+
+      .. code-block:: console 
+
+         $ module spider Python 
+
+      To see how to load a specific version of Python, including the prerequisites, do 
+
+      .. code-block:: console 
+
+         $ module spider Python/<version>
+
+      Example for Python 3.11.3 
+
+      .. code-block:: console
+
+         $ module spider Python/3.11.3
+
+   
 .. admonition:: Output at UPPMAX as of May 14, 2024
    :class: dropdown
     
@@ -140,12 +161,59 @@ Check for Python versions
             $ module spider Python/3.9.5
            ----------------------------------------------------------------------------
 
+.. admonition:: Output at LUNARC as of Nov 5, 2024
+    :class: dropdown
+
+        .. code-block:: console
+
+           $ module spider Python
+
+           --------------------------------------------------------------------------------------------------------
+             Python:
+           --------------------------------------------------------------------------------------------------------
+               Description:
+                 Python is a programming language that lets you work more quickly and integrate your systems more effectively.
+
+                Versions:
+                   Python/2.7.18-bare
+                   Python/2.7.18
+                   Python/3.8.6
+                   Python/3.9.5-bare
+                   Python/3.9.5
+                   Python/3.9.6-bare
+                   Python/3.9.6
+                   Python/3.10.4-bare 
+                   Python/3.10.4
+                   Python/3.10.8-bare
+                   Python/3.10.8
+                   Python/3.11.3
+                   Python/3.11.5
+                   Python/3.12.3
+                Other possible modules matches:
+                   Biopython  GitPython  IPython  Python-bundle  Python-bundle-PyPI  bx-python  flatbuffers-python  ...
+
+           --------------------------------------------------------------------------------------------------------
+              To find other possible module matches execute:
+
+                 $ module -r spider '.*Python.*'
+
+           --------------------------------------------------------------------------------------------------------
+             For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
+             Note that names that have a trailing (E) are extensions provided by other modules.
+             For example:
+
+                $ module spider Python/3.12.3
+           --------------------------------------------------------------------------------------------------------
+
+.. note:: 
+
+   Unless otherwise said, we recomment using Python 3.11.x in this course. 
+
+
 Load a Python module
 --------------------
 
 For reproducibility, we recommend ALWAYS loading a specific module instad of using the default version! 
-
-For this course, we recommend using Python 3.11.x (except for some GPU examples that may perhaps use 3.9.5).
 
 .. tip::
     
@@ -185,12 +253,29 @@ For this course, we recommend using Python 3.11.x (except for some GPU examples 
 
          $ ml GCC/12.3.0 Python/3.11.3
 
+   .. tab:: LUNARC
+
+      To load Python version 3.11.3, do:
+
+      .. code-block:: console
+
+         $ module load GCC/12.3.0 Python/3.11.3
+
+      Note: Uppercase ``P``.
+      For short, you can also use:
+
+      .. code-block:: console
+
+         $ ml GCC/12.3.0 Python/3.11.3
+
+
 .. warning::
 
    + UPPMAX: Don’t use system-installed python (2.7.5)
    + UPPMAX: Don't use system installed python3 (3.6.8)
    + HPC2N: Don’t use system-installed python (2.7.18)
    + HPC2N: Don’t use system-installed python3  (3.8.10)
+   + LUNARC: Don’t use system-installed python/python3 (3.9.18)  
    + ALWAYS use python module
 
 .. admonition:: Why are there both Python/2.X.Y and Python/3.Z.W modules?
@@ -207,6 +292,13 @@ For this course, we recommend using Python 3.11.x (except for some GPU examples 
     
     + You can run two python modules at the same time if ONE of the module is ``python/2.X.Y`` and the other module is ``python3/3.X.Y`` (not ``python/3.X.Y``).
     
+
+
+.. admonition:: LUNARC: Are python and python3 equivalent, or does the former load Python/2.X.Y?
+
+   The answer depends on which module is loaded. If Python/3.X.Y is loaded, then python is just an alias for python3 and it will start the same command line. However, if Python/2.7.X is loaded, then python will start the Python/2.7.X command line while python3 will start the system version (3.9.18). If you load Python/2.7.X and then try to load Python/3.X.Y as well, or vice-versa, the most recently loaded Python version will replace anything loaded prior, and all dependencies will be upgraded or downgraded to match. Only the system’s Python/3.X.Y version can be run at the same time as a version of Python/2.7.X.
+
+
 Run
 ---
 
@@ -335,11 +427,11 @@ For more interactiveness you can run Ipython.
 
          $ module spider IPython
 
-      And load one of them (here 7.25.0) with
+      And load one of them (here 8.14.0) with
 
       .. code-block:: console
 	 
-        $ ml IPython/7.25.0
+        $ ml GCC/12.3.0 IPython/8.14.0 
          
       Then start Ipython with (lowercase):
       
@@ -351,6 +443,28 @@ For more interactiveness you can run Ipython.
 
       - https://www.hpc2n.umu.se/resources/software/jupyter 
 
+   .. tab:: LUNARC 
+
+      NOTE: remember to load an IPython module first. You can see possible modules with 
+
+      .. code-block:: console
+
+         $ module spider IPython
+
+      And load one of them (here 8.14.0) with
+
+      .. code-block:: console
+         
+        $ ml GCC/12.3.0 IPython/8.14.0 
+         
+      Then start Ipython with (lowercase):
+      
+      .. code-block:: console
+
+         $ ipython 
+
+      LUNARC also has ``JupyterLab``, ``JupyterNotebook``, and ``JupyterHub`` installed.  
+   
 
 - Exit IPython with <Ctrl-D>, ``quit()`` or ``exit()`` in the python prompt
 
@@ -382,7 +496,7 @@ Packages/Python modules
 
    - How do I find which packages and versions are available?
    - What to do if I need other packages?
-   - Are there differences between HPC2N and UPPMAX?
+   - Are there differences between HPC2N, LUNARC, and UPPMAX?
    
 .. objectives:: 
 
@@ -392,8 +506,8 @@ Packages/Python modules
 Check current available packages
 --------------------------------
 
-General for both centers
-########################
+General for all three centers
+############################# 
 
 Some python packages are working as stand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:
 
@@ -430,6 +544,23 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
 	   $ module -r spider ’.*python.*’
    
 	Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
+
+   .. tab:: LUNARC 
+
+      At LUNARC, a way to find Python packages that you are unsure how are names, would be to do
+
+        .. code-block:: console
+
+           $ module -r spider ’.*Python.*’
+   
+        or
+
+        .. code-block:: console
+
+           $ module -r spider ’.*python.*’
+   
+        Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
+
    
 Check the pre-installed packages of a loaded python module, in shell:
 
@@ -462,7 +593,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
 .. exercise:: Check packages (5 min)
 
-   - See if the following packages are installed. Use python version ``3.11.8`` on Rackham and ``3.11.3`` on Kebnekaise (remember: the Python module on kebnekaise has a prerequisite). 
+   - See if the following packages are installed. Use python version ``3.11.8`` on Rackham and ``3.11.3`` on Kebnekaise/Cosmos (remember: the Python module on kebnekaise/cosmos has a prerequisite). 
 
       - ``numpy``
       - ``mpi4py``
@@ -473,7 +604,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
       
 .. solution::
 
-   - Rackham has for ordinary python/3.9.5 module already installed: 
+   - Rackham has for ordinary python/3.11.8 module already installed: 
       - ``numpy`` |:white_check_mark:|
       - ``pandas`` |:white_check_mark:|
       - ``mpi4py`` |:x:|
@@ -490,11 +621,21 @@ Otherwise, you can either use ``pip`` or ``conda``.
       - ``multiprocessing`` |:white_check_mark:|  (standard library)
       - ``time`` |:white_check_mark:|  (standard library)
       - ``dask``  |:x:|
+
+   - Cosmos has for ordinary Python/3.11.3 module already installed: 
+      - ``numpy`` |:x:|
+      - ``pandas`` |:x:| 
+      - ``mpi4py`` |:x:|
+      - ``distributed`` |:x:|
+      - ``multiprocessing`` |:white_check_mark:|  (standard library)
+      - ``time`` |:white_check_mark:|  (standard library)
+      - ``dask``  |:x:|
+
    - See next session how to find more pre-installed packages!
 
-**NOTE**: at HPC2N, the available Python packages needs to be loaded as modules before using! See a list of some of them below, under the HPC2N tab or find more as mentioned above, using ``module spider -r ...``
+**NOTE**: at HPC2N and LUNARC, the available Python packages needs to be loaded as modules/module-bundles before using! See a list of some of them below, under the HPC2N/LUNARC tab or find more as mentioned above, using ``module spider -r ...``
 
-A selection of the Python packages and libraries installed on UPPMAX and HPC2N are give in extra reading: `UPPMAX clusters <https://uppmax.github.io/HPC-python/uppmax.html>`_ and `Kebnekaise cluster <https://uppmax.github.io/HPC-python/kebnekaise.html>`_
+A selection of the Python packages and libraries installed on UPPMAX and HPC2N are given in extra reading: `UPPMAX clusters <https://uppmax.github.io/HPC-python/uppmax.html>`_ and `Kebnekaise cluster <https://uppmax.github.io/HPC-python/kebnekaise.html>`_
 
 .. tabs::
 
@@ -506,16 +647,16 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
       - Note that bioinformatics-related tools can be reached only after loading ``bioinfo-tools``. 
       - Two modules contains topic specific packages. These are:
          
-         - Machine learning: ``python_ML_packages`` (cpu and gpu versions and based on python/3.9.5)
+         - Machine learning: ``python_ML_packages`` (cpu and gpu versions and based on python/3.9.5 and python/3.11.8)
 	 - GIS: ``python_GIS_packages`` (cpu version based on python/3.10.8)
 
    .. tab:: HPC2N
 
-      - The python application at HPC2N comes with several preinstalled packages - check first before installing yourself!. 
+      - The python application at HPC2N comes with several preinstalled packages - check first before installing yourself! 
       - HPC2N has both Python 2.7.x and Python 3.x installed. 
       - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.11.3.
 
-	NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: `Anaconda <https://www.hpc2n.umu.se/documentation/guides/anaconda>`_.
+	NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: `Anaconda <https://docs.hpc2n.umu.se/tutorials/anaconda/>`_.
 
 
       - This is a selection of the packages and libraries installed at HPC2N. These are all installed as **modules** and need to be loaded before use. 
@@ -529,10 +670,32 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 	  - ``matplotlib``
 	  - ``scikit-learn``
 	  - ``scikit-image``
-	  - ``pip``
 	  - ``iPython``
 	  - ``Cython``
 	  - ``Flask``
+          - ``JupyterLab``  
+          - ``Python-bundle-PyPI`` (Bundle of Python packages from PyPi)
+
+   .. tab:: LUNARC 
+
+      - The python application at LUNARC comes with several preinstalled packages - check first before installing yourself! 
+      - LUNARC has both Python 2.7.x and Python 3.x installed. 
+      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.11.3.
+
+      - This is a selection of the packages and libraries installed at LUNARC. These are all installed as **modules** and need to be loaded before use. 
+
+          - ``PyTorch``
+          - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
+          - ``TensorFlow``
+          - ``matplotlib``
+          - ``scikit-learn``
+          - ``scikit-image``
+          - ``iPython``
+          - ``Cython``
+          - ``Biopython``  
+          - ``JupyterLab`` 
+          - ``Python-bundle`` (NumPy, SciPy, Matplotlib, JupyterLab, MPI4PY, ...)  
+  
 
 Demo/Type-along 
 ---------------
