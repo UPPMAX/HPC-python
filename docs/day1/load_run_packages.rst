@@ -712,15 +712,23 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
 .. warning::
 
-   **Not relevant if using UPPMAX. Only if you are using HPC2N!**
+   **Not relevant if using UPPMAX. Only if you are using HPC2N or LUNARC!**
 
-   You need to also load Tkinter. Use this:
+   You need to also load Tkinter. 
 
-   .. code-block:: console
+   **For HPC2N:**
+
+   .. code-block:: console 
 
       ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
 
-   In addition, you need to add the following two lines to the top of your python script/run them first in Python:
+   **For LUNARC**
+
+   .. code-block:: console
+
+      ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
+
+   In addition, you need to add the following two lines to the top of your python script/run them first in Python, for both HPC2N and LUNARC:
 
    .. code-block:: python
 
@@ -743,13 +751,20 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       .. tab:: HPC2N
 
-         On Kebnekaise you also need to load ``SciPy-bundle`` and ``matplotlib`` (and their prerequisites). These versions will work well together: 
+         On Kebnekaise you also need to load ``SciPy-bundle`` and ``matplotlib`` (and their prerequisites). These versions will work well together (and with the Tkinter/3.11.3): 
 
          .. code-block:: console
 
             $ ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
    
-   1. From inside Python/interactive (if you are on Kebnekaise, mind the warning above):
+      .. tab:: LUNARC
+
+         On Cosmos you also need to load ``SciPy-bundle`` and ``matplotlib`` (and their prerequisites). These versions will work well together (and with the Tkinter/3.11.5): 
+
+         .. code-block:: console
+
+            $ ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2     
+   1. From inside Python/interactive (if you are on Kebnekaise/Cosmos, mind the warning above about loading a compatible Tkinter and adding the two lines importing matplotlib and setting TkAgg at the top):
 
       Start python and run these lines: 
 
@@ -783,12 +798,12 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png`` containing the plot. This is what you would do if you were running a python script in a batch job. 
 
-      - On UPPMAX you can view png files with the program ``eog``
+      - On UPPMAX and LUNARC you can view png files with the program ``eog``
 	   - Test: ``eog myplot.png &``
       - On HPC2N you can view png files with the program ``eom``
 	   - Test: ``eom myplot.png &``
 
-   2. As a Python script (if you are on Kebnekaise, mind the warning above):
+   2. As a Python script (if you are on Kebnekaise/LUNARC, mind the warning above):
 
       Copy and save this script as a file (or just run the file ``pandas_matplotlib-<system>.py`` that is located in the ``<path-to>/Exercises/examples/programs`` directory you got from the repo or copied. Where <system> is either ``rackham`` or ``kebnekaise``. 
 
@@ -823,7 +838,23 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
                plt.scatter(x, y)
                plt.show()
 	      
-If you have time, you can also try and run these extended versions, which also requires the ``scipy`` packages (included with python at UPPMAX and with the same modules loaded as for ``pandas`` for HPC2N):
+         .. tab:: Cosmos 
+
+            .. code-block:: python 
+
+               import pandas as pd
+               import matplotlib
+               import matplotlib.pyplot as plt
+              
+               matplotlib.use('TkAgg')
+
+               dataframe = pd.read_csv("scottish_hills.csv")
+               x = dataframe.Height
+               y = dataframe.Latitude
+               plt.scatter(x, y)
+               plt.show()
+      
+If you have time, you can also try and run these extended versions, which also requires the ``scipy`` packages (included with python at UPPMAX and with the same modules loaded as for ``pandas`` for HPC2N/LUNARC):
 
 Exercises  (C. 10 min)
 ----------------------
