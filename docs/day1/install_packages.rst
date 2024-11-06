@@ -2,7 +2,7 @@ Install packages
 ================
 
 .. note::
-   Isolated environments solve a couple of problems:
+   Isolated/virtual environments solve a couple of problems:
    
    - You can install specific, also older, versions into them.
    - You can create one for each project and no problem if the two projects require different versions.
@@ -12,7 +12,7 @@ Install packages
 
 .. questions::
 
-   - How to work with isolated environments at Swedish HPC centers (examples: HPC2N and UPPMAX)?
+   - How to work with isolated environments at Swedish HPC centers (examples: HPC2N, UPPMAX, and LUNARC)?
    
 .. objectives:: 
 
@@ -31,7 +31,7 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
 
 There are different tools for creating an isolated environement, but they all have some things in common. 
 
-At both UPPMAX and HPC2N (and most other Swedish HPC centers that use modules) the workflow is: 
+At UPPMAX, HPC2N, and LUNARC (and most other Swedish HPC centers that use modules) the workflow is: 
 
 - You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option)
 - You create the isolated environment with something like venv, virtualenv, or conda
@@ -44,9 +44,9 @@ At both UPPMAX and HPC2N (and most other Swedish HPC centers that use modules) t
 
 In this course we will look at the following tools for creating and using isolated environments: 
 
-   - venv            UPPMAX+HPC2N
-   - virtualenv      UPPMAX+HPC2N
-   - Conda           UPPMAX
+   - venv            UPPMAX+HPC2N+LUNARC
+   - virtualenv      UPPMAX+HPC2N+LUNARC
+   - Conda           UPPMAX+LUNARC
 
 
 .. admonition:: venv vs. virtualenv
@@ -61,7 +61,8 @@ In this course we will look at the following tools for creating and using isolat
    - There are different tools to create virtual environments.
       - UPPMAX has Conda and venv and virtualenv
       - HPC2N has venv and virtualenv.
-         - At UPPMAX, you load python directly, while at HPC2N you need to load "prerequisites" first, and the module is named Python with a capital P. 
+      - LUNARC has Conda and venv and virtualenv   
+         - At UPPMAX, you load python directly, while at HPC2N and LUNARC you need to load "prerequisites" first, and the module is named Python with a capital P. 
       - More details to follow!
  
    
@@ -119,13 +120,32 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
       "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
 
+   .. tab:: LUNARC 
 
+      ``virtualenv`` way
+
+      .. code-block:: console
+
+         $ module load GCC/12.3.0 Python/3.11.3 
+         $ virtualenv --system-site-packages Example
+    
+      "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
+
+      ``venv`` way
+
+      .. code-block:: console
+
+         $ module load GCC/12.3.0 Python/3.11.3
+         $ python -m venv --system-site-packages Example2
+
+      "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
+      
 .. note::
 
    To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
    ``--system-site-packages`` includes the packages already installed in the loaded python module.
 
-   At HPC2N, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
+   At HPC2N and LUNARC, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
    
    .. code-block:: console
 
