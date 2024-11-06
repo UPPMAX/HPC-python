@@ -865,7 +865,7 @@ Exercises  (C. 10 min)
 
    You can either save the scripts or run them line by line inside Python. The scripts are also available in the directory ``<path-to>/Exercises/examples/programs``, as ``pandas_matplotlib-linreg.py`` and ``pandas_matplotlib-linreg-pretty.py``.
 
-   NOTE that there are separate versions for rackham and kebnekaise and that you for kebnekaise need to again add the same lines as mentioned under the warning before the previous exercise. 
+   NOTE that there are separate versions for rackham, kebnekaise, and cosmos and that you for kebnekaise and cosmos need to again add the same lines as mentioned under the warning before the previous exercise. 
 
    Remember that you also need the data file ``scottish_hills.csv`` located in the above directory. 
 
@@ -941,10 +941,10 @@ Exercises  (C. 10 min)
    	- from the Python shell with the ``import`` command
 	- from BASH shell with the 
 	
-		- ``pip list`` command at both centers
+		- ``pip list`` command at all three centers
 		- ``ml help python/<version>`` at UPPMAX
 		
    - Installation of Python packages can be done either with **PYPI** or **Conda**
    - You install own packages with the ``pip install`` command (This is the recommended way on HPC2N)
-   - At UPPMAX Conda is also available (See Conda section)
+   - At UPPMAX and LUNARC Conda is also available (See Conda section)
 
