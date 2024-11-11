@@ -959,6 +959,321 @@ Dask is very popular for data analysis and is used by a number of high-level Pyt
 - Operations are delayed (lazy computing) e.g. tasks are queued and no computations is performed until you actually ask values to be computed (for instance print mean values). 
 - Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
 
+Exercises
+---------
+
+.. challenge:: Running a parallel code efficiently
+   :class: dropdown
+
+   In this exercise we will run a parallelized code that performs a 2D integration:
+
+      .. math:: 
+          \int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0
+
+   One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
+   More specifically, one divides the integration range in both directions into ``n`` bins.
+
+   Here is a parallel code using the ``multiprocessing`` module in Python (call it 
+   ``integration2d_multiprocessing.py``):  
+
+   .. admonition:: integration2d_multiprocessing.py
+      :class: dropdown
+
+      .. code-block:: python
+
+            import multiprocessing
+            from multiprocessing import Array
+            import math
+            import sys
+            from time import perf_counter
+
+            # grid size
+            n = 5000
+            # number of processes
+            numprocesses = *FIXME*
+            # partial sum for each thread
+            partial_integrals = Array('d',[0]*numprocesses, lock=False)
+
+            # Implementation of the 2D integration function (non-optimal implementation)
+            def integration2d_multiprocessing(n,numprocesses,processindex):
+               global partial_integrals;
+               # interval size (same for X and Y)
+               h = math.pi / float(n)
+               # cummulative variable 
+               mysum = 0.0
+               # workload for each process
+               workload = n/numprocesses
+
+               begin = int(workload*processindex)
+               end = int(workload*(processindex+1))
+               # regular integration in the X axis
+               for i in range(begin,end):
+                  x = h * (i + 0.5)
+                  # regular integration in the Y axis
+                  for j in range(n):
+                        y = h * (j + 0.5)
+                        mysum += math.sin(x + y)
+            
+               partial_integrals[processindex] = h**2 * mysum
+
+
+            if __name__ == "__main__":
+
+               starttime = perf_counter()
+            
+               processes = []
+               for i in range(numprocesses):
+                  p = multiprocessing.Process(target=integration2d_multiprocessing, args=(n,numprocesses,i))
+                  processes.append(p)
+                  p.start()
+
+               # waiting for the processes
+               for p in processes:
+                  p.join()
+
+               integral = sum(partial_integrals)
+               endtime = perf_counter()
+
+            print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+            print("Time spent: %.2f sec" % (endtime-starttime))
+
+
+   Run the code with the following batch script.             
+
+   .. admonition:: job.sh
+      :class: dropdown
+
+      .. tabs::
+
+         .. tab:: UPPMAX
+
+               .. code-block:: sh
+                  
+                  #!/bin/bash -l
+                  #SBATCH -A naiss202X-XY-XYZ     # your project_ID
+                  #SBATCH -J job-serial           # name of the job
+                  #SBATCH -n *FIXME*              # nr. tasks/coresw
+                  #SBATCH --time=00:20:00         # requested time
+                  #SBATCH --error=job.%J.err      # error file
+                  #SBATCH --output=job.%J.out     # output file
+
+                  # Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle
+                  module load python/3.11.8
+                  python integration2d_multiprocessing.py
+
+
+         .. tab:: HPC2N
+
+               .. code-block:: sh
+                  
+                  #!/bin/bash            
+                  #SBATCH -A hpc2n202X-XYZ     # your project_ID       
+                  #SBATCH -J job-serial        # name of the job         
+                  #SBATCH -n *FIXME*           # nr. tasks  
+                  #SBATCH --time=00:20:00      # requested time
+                  #SBATCH --error=job.%J.err   # error file
+                  #SBATCH --output=job.%J.out  # output file  
+
+                  # Do a purge and load any modules you need, here for Python 
+                  ml purge > /dev/null 2>&1
+                  ml GCCcore/11.2.0 Python/3.9.6
+                  python integration2d_multiprocessing.py
+
+
+         .. tab:: LUNARC
+
+               .. code-block:: sh
+                  
+                  #!/bin/bash            
+                  #SBATCH -A lu202X-XX-XX      # your project_ID
+                  #SBATCH -J job-serial        # name of the job         
+                  #SBATCH -n *FIXME*           # nr. tasks  
+                  #SBATCH --time=00:20:00      # requested time
+                  #SBATCH --error=job.%J.err   # error file
+                  #SBATCH --output=job.%J.out  # output file 
+                  # reservation (optional)
+                  #SBATCH --reservation=RPJM-course*FIXME* 
+
+                  # Do a purge and load any modules you need, here for Python 
+                  ml purge > /dev/null 2>&1
+                  ml GCCcore/12.3.0 Python/3.11.3
+                  python integration2d_multiprocessing.py
+
+
+   Try different number of cores for this batch script (*FIXME* string) using the sequence:
+   1,2,4,8,12, and 14. Note: this number should match the number of processes 
+   (also a *FIXME* string) in the Python script. Collect the timings that are
+   printed out in the **job.*.out**. According to these execution times what would be
+   the number of cores that gives the optimal (fastest) simulation? 
+
+   Challenge: Increase the grid size (``n``) to 15000 and submit the batch job with 4 workers (in the
+   Python script) and request 5 cores in the batch script. Monitor the usage of resources
+   with tools available at your center, for instance ``top`` (UPPMAX) or
+   ``job-usage`` (HPC2N).
+
+
+
+
+
+
+
+
+
+
+.. challenge:: Parallelizing a *for loop* workflow (Advanced)
+   :class: dropdown
+
+   Create a Data Frame containing two features, one called **ID** which has integer values 
+   from 1 to 10000, and the other called **Value** that contains 10000 integers starting from 3
+   and goes in steps of 2 (3, 5, 7, ...). The following codes contain parallelized workflows
+   whose goal is to compute the average of the whole feature **Value** using some number of 
+   workers. Substitute the **FIXME** strings in the following codes to perform the tasks given
+   in the comments. 
+
+   *The main idea for all languages is to divide the workload across all workers*.
+   You can run the codes as suggested for each language. 
+
+   Pandas is available in the following combo ``ml GCC/12.3.0 SciPy-bundle/2023.07`` (HPC2N) and 
+   ``ml python/3.11.8`` (UPPMAX). Call the script ``script-df.py``. 
+
+   .. code-block:: python
+
+         import pandas as pd
+         import multiprocessing
+
+         # Create a DataFrame with two sets of values ID and Value
+         data_df = pd.DataFrame({
+            'ID': range(1, 10001),
+            'Value': range(3, 20002, 2)  # Generate 10000 odd numbers starting from 3
+         })
+
+         # Define a function to calculate the sum of a vector
+         def calculate_sum(values):
+            total_sum = *FIXME*(values)
+            return *FIXME*
+
+         # Split the 'Value' column into chunks of size 1000
+         chunk_size = *FIXME*
+         value_chunks = [data_df['Value'][*FIXME*:*FIXME*] for i in range(0, len(data_df['*FIXME*']), *FIXME*)]
+
+         # Create a Pool of 4 worker processes, this is required by multiprocessing
+         pool = multiprocessing.Pool(processes=*FIXME*)
+
+         # Map the calculate_sum function to each chunk of data in parallel
+         results = pool.map(*FIXME: function*, *FIXME: chunk size*)
+
+         # Close the pool to free up resources, if the pool won't be used further
+         pool.close()
+
+         # Combine the partial results to get the total sum
+         total_sum = sum(results)
+
+         # Compute the mean by dividing the total sum by the total length of the column 'Value'
+         mean_value = *FIXME* / len(data_df['*FIXME*'])
+
+         # Print the mean value
+         print(mean_value)
+
+   Run the code with the batch script: 
+   
+   .. tabs::
+
+      .. tab:: UPPMAX
+
+            .. code-block:: sh
+               
+               #!/bin/bash -l
+               #SBATCH -A naiss2024-22-107  # your project_ID
+               #SBATCH -J job-parallel      # name of the job
+               #SBATCH -n 4                 # nr. tasks/coresw
+               #SBATCH --time=00:20:00      # requested time
+               #SBATCH --error=job.%J.err   # error file
+               #SBATCH --output=job.%J.out  # output file
+
+               # Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle
+               module load python/3.11.8
+               python script-df.py
+
+      .. tab:: HPC2N
+
+            .. code-block:: sh
+               
+               #!/bin/bash            
+               #SBATCH -A hpc2n202x-XXX     # your project_ID       
+               #SBATCH -J job-parallel      # name of the job         
+               #SBATCH -n 4                 # nr. tasks  
+               #SBATCH --time=00:20:00      # requested time
+               #SBATCH --error=job.%J.err   # error file
+               #SBATCH --output=job.%J.out  # output file  
+
+               # Load any modules you need, here for Python 3.11.3 and compatible SciPy-bundle
+               module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07
+               python script-df.py
+
+      .. tab:: LUNARC
+
+            .. code-block:: sh
+                  
+               #!/bin/bash            
+               #SBATCH -A lu202X-XX-XX      # your project_ID
+               #SBATCH -J job-parallel      # name of the job         
+               #SBATCH -n 4	             # nr. tasks  
+               #SBATCH --time=00:20:00      # requested time
+               #SBATCH --error=job.%J.err   # error file
+               #SBATCH --output=job.%J.out  # output file 
+               #SBATCH --reservation=RPJM-course*FIXME* # reservation (optional)
+
+               # Purge and load any modules you need, here for Python & SciPy-bundle
+               ml purge
+               ml GCCcore/12.3.0  Python/3.11.3  SciPy-bundle/2023.07
+               python script-df.py
+
+
+      
+.. solution:: Solution
+     
+.. code-block:: python
+
+   import pandas as pd
+   import multiprocessing
+
+   # Create a DataFrame with two sets of values ID and Value
+   data_df = pd.DataFrame({
+      'ID': range(1, 10001),
+      'Value': range(3, 20002, 2)  # Generate 10000 odd numbers starting from 3
+   })
+
+   # Define a function to calculate the sum of a vector
+   def calculate_sum(values):
+      total_sum = sum(values)
+      return total_sum
+
+   # Split the 'Value' column into chunks
+   chunk_size = 1000
+   value_chunks = [data_df['Value'][i:i+chunk_size] for i in range(0, len(data_df['Value']), chunk_size)]
+
+   # Create a Pool of 4 worker processes, this is required by multiprocessing
+   pool = multiprocessing.Pool(processes=4)
+
+   # Map the calculate_sum function to each chunk of data in parallel
+   results = pool.map(calculate_sum, value_chunks)
+
+   # Close the pool to free up resources, if the pool won't be used further
+   pool.close()
+
+   # Combine the partial results to get the total sum
+   total_sum = sum(results)
+
+   # Compute the mean by dividing the total sum by the total length of the column 'Value'
+   mean_value = total_sum / len(data_df['Value'])
+
+   # Print the mean value
+   print(mean_value)               
+
+
+
+
+
 .. seealso:: 
 
    - `Dask documentation <https://docs.dask.org/en/stable/>`_
