@@ -858,7 +858,7 @@ command. This will give you a URL that you can copy and then paste in your local
 browser. The results can be seen in a graphical manner a couple of minutes after the
 job starts running, here there is one example of how this looks like:
 
-.. figure:: img/monitoring-jobs.png
+.. figure:: ../img/monitoring-jobs.png
    :align: center
 
    The resources used by a job can be monitored in your local browser.   
