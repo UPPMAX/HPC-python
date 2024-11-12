@@ -89,7 +89,19 @@ The list is not exhaustive, but lists the more popular ML/DL libraries.
      - BeautifulSoup
      - Seaborn
      - Horovod (up to Python 3.11.3)
-   * - LUNARC     
+   * - LUNARC (Python 3.11.3/3.11.5) 
+     - SciPy-bundle
+     - SciPy-bundle
+     - scikit-learn 
+     - - 
+     - TensorFlow (up to Python 3.10.4) 
+     - TensorFlow (up to Python 3.10.4)
+     - PyTorch (up to Python 3.10.4) 
+     - SciPy-bundle
+     - matplotlib
+     - BeautifulSoup
+     - Seaborn (up to Python 3.10.8) 
+     - -    
      
 
 PyTorch
