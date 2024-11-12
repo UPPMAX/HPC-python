@@ -53,7 +53,7 @@ The list is not exhaustive, but lists the more popular ML/DL libraries.
    * - Tool
      - NumPy
      - SciPy
-     - Scikit-Learn
+     - Scikit-Learn (sklearn)
      - Theano
      - TensorFlow
      - Keras
@@ -66,10 +66,20 @@ The list is not exhaustive, but lists the more popular ML/DL libraries.
      - PyCaret
      - OpenCV
      - Caffe 
-   * - UPPMAX
-     - included with python
-     - included with python
-     -     
+   * - UPPMAX (python 3.11.8)
+     - python
+     - python
+     - python_ML_packages 
+     - .
+     - python_ML_packages
+     - python_ML_packages
+     - .
+     - python
+     - python
+     - .
+     - .
+     - python
+         
 
    .. tab:: HPC2N
 
