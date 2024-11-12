@@ -1,119 +1,80 @@
-Using Python for Machine Learning jobs
-======================================
+Using Python for Machine Learning and Deep Learning jobs
+========================================================
 
 .. questions::
 
-   - Which machine learning tools are installed at HPC2N and UPPMAX?
-   - How to start the tools at HPC2N and UPPMAX
-   - How to deploy GPU:s at HPC2N and UPPMAX?
-   
+   - Which machine learning and deep learning tools are installed at HPC2N, UPPMAX, and LUNARC?
+   - How to start the tools at HPC2N, UPPMAX, and LUNARC
+   - How to deploy GPU:s with ML/DL at HPC2N, UPPMAX, and LUNARC?
+   - Examples
+       - How to use PyTorch at the above HPC centres
+       - How to use TensorFlow at the above HPC centres
+       - How to work with sklearn at the above HPC centres 
 
 .. objectives::
 
-   - Get general overview of installed Machine Learning tools at HPC2N and UPPMAX
-   - Get started with Machine learning in Python
-   - Code along and demos (Kebnekaise and Snowy)
+   - Give a general overview of ML/DL with Python???? 
+   - Get general overview of installed ML/DL tools at HPC2N, UPPMAX, and LUNARC
+   - Get started with ML/DL in Python
+   - Code along and demos (Kebnekaise, Rackham/Snowy, Cosmos)
 
 
+ML/DL with Python
+------------------
    
-   While Python does not run fast, it is still well suited for machine learning. For instance, it is fairly easy to code in, and this is particularly useful in machine learning where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for machine learning in Python, making it a good choice for this area. 
+   While Python does not run fast, it is still well suited for machine learning and deep learning. For instance, it is fairly easy to code in, and this is particularly useful in ML/DL where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for ML and DL in Python, making it a good choice for this area. 
 
-Some of the most used libraries in Python for machine learning are: 
+Installed ML/DL tools 
+---------------------
+
+Some of the most used libraries in Python for ML/DL are: 
 
 - PyTorch
 - scikit-learn
 - TensorFlow
 
-These are all available at UPPMAX and HPC2N. 
+These are all available at UPPMAX, HPC2N, and LUNARC. 
 
-In this course we will look at two examples: PyTorch and TensorFlow, and show how you run them at our centres. 
+In this course we will look at examples for these, and show how you run them at our centres. 
 
 There are some examples for beginners at https://machinelearningmastery.com/start-here/#python and at https://pytorch.org/tutorials/beginner/pytorch_with_examples.html 
 
-Pandas and matplotlib
----------------------
+List of installed ML/DL tools
+############################# 
 
-This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script. 
+There are minor differences depending on the version of python. This is for python 3.11.x. 
 
-.. tabs::
+The list is not exhaustive, but lists the more popular ML/DL libraries. 
 
-   .. tab:: Directly
+.. list-table:: Installed tools
+   :widths: 20 20 20 40
+   :header-rows: 1
 
-      Remove the # if running on Kebnekaise
+   * - Tool
+     - NumPy
+     - SciPy
+     - Scikit-Learn
+     - Theano
+     - TensorFlow
+     - Keras
+     - PyTorch
+     - Pandas
+     - Matplotlib
+     - Beautiful Soup
+     - Scrapy
+     - Seaborn
+     - PyCaret
+     - OpenCV
+     - Caffe 
+   * - UPPMAX
+     - included with python
+     - included with python
+     -     
 
-      .. code-block:: python
+   .. tab:: HPC2N
 
-         import pandas as pd
-         #import matplotlib
-         import matplotlib.pyplot as plt
+   .. tab:: LUNARC
 
-         #matplotlib.use('TkAgg')
-
-         dataframe = pd.read_csv("scottish_hills.csv")
-         x = dataframe.Height
-         y = dataframe.Latitude
-         plt.scatter(x, y)
-         plt.show()
-
-   .. tab:: From a Batch-job 
-
-      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory. 
-
-      .. code-block:: python
-
-         import pandas as pd
-         #import matplotlib
-         import matplotlib.pyplot as plt
-         
-         #matplotlib.use('TkAgg')
-
-         dataframe = pd.read_csv("scottish_hills.csv")
-         x = dataframe.Height
-         y = dataframe.Latitude
-         plt.scatter(x, y)
-         plt.savefig("myplot.png")
-
-.. hint::
-
-   Type along!
-   
-Batch scripts for running on Rackham and Kebnekaise. 
-
-.. tabs:: 
-
-   .. tab:: Rackham 
-
-      .. code-block:: bash
-
-         #!/bin/bash -l
-         #SBATCH -A naiss2024-22-415
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
-
-         # Load any modules you need, here for Python 3.11.8
-         ml python/3.11.8
-
-         # Run your Python script
-         python pandas_matplotlib-batch-rackham.py 
-
-   .. tab:: Kebnekaise 
-
-      .. code-block:: bash
-
-         #!/bin/bash
-         #SBATCH -A hpc2n2024-052
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
-
-         # Load any modules you need, here for Python 3.11.3
-         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
-
-         # Run your Python script
-         python pandas_matplotlib-batch-kebnekaise.py
-
-Submit with ``sbatch <batch-script.sh>``. 
-
-The batch scripts can be found in the directories for hpc2n and uppmax, under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` . 
 
 PyTorch
 -------
@@ -251,8 +212,8 @@ This is an example of a batch script for running the above example, using PyTorc
 
 
 
-TensorFlow
-----------
+TensorFlow (and sklearn)
+------------------------
 
 The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials 
 
@@ -379,6 +340,7 @@ Note: if you are logged in to Rackham on UPPMAX and have submitted a GPU job to 
 
 ``squeue -M snowy -u <username>``
 
+There is also a Horovod example under the "More about ML" section: https://uppmax.github.io/HPC-python/day2/ML_deeper.html 
 
 General
 -------

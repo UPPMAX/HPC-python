@@ -468,4 +468,111 @@ Exercises
    - A batch script consists of a part with SLURM parameters describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
    
       - Remember to include possible input arguments to the Python script in the batch script.
-    
+
+**Example from previously in th ML section - redo** 
+
+Pandas and matplotlib
+---------------------
+
+This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script.
+
+.. tabs::
+
+   .. tab:: Directly
+
+      Remove the # if running on Kebnekaise
+
+      .. code-block:: python
+
+         import pandas as pd
+         #import matplotlib
+         import matplotlib.pyplot as plt
+
+         #matplotlib.use('TkAgg')
+
+         dataframe = pd.read_csv("scottish_hills.csv")
+         x = dataframe.Height
+         y = dataframe.Latitude
+         plt.scatter(x, y)
+         plt.show()
+
+   .. tab:: From a Batch-job
+
+      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory.
+
+      .. code-block:: python
+
+         import pandas as pd
+         #import matplotlib
+         import matplotlib.pyplot as plt
+
+         #matplotlib.use('TkAgg')
+
+         dataframe = pd.read_csv("scottish_hills.csv")
+         x = dataframe.Height
+         y = dataframe.Latitude
+         plt.scatter(x, y)
+         plt.show()
+
+   .. tab:: From a Batch-job 
+
+      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory. 
+
+      .. code-block:: python
+
+         import pandas as pd
+         #import matplotlib
+         import matplotlib.pyplot as plt
+         
+         #matplotlib.use('TkAgg')
+
+         dataframe = pd.read_csv("scottish_hills.csv")
+         x = dataframe.Height
+         y = dataframe.Latitude
+         plt.scatter(x, y)
+         plt.savefig("myplot.png")
+
+.. hint::
+
+   Type along!
+   
+Batch scripts for running on Rackham and Kebnekaise.
+
+.. tabs:: 
+
+   .. tab:: Rackham 
+
+      .. code-block:: bash
+
+         #!/bin/bash -l
+         #SBATCH -A naiss2024-22-415
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
+
+         # Load any modules you need, here for Python 3.11.8
+         ml python/3.11.8
+
+         # Run your Python script
+         python pandas_matplotlib-batch-rackham.py 
+
+   .. tab:: Kebnekaise 
+
+      .. code-block:: bash
+
+         #!/bin/bash
+         #SBATCH -A hpc2n2024-052
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
+
+         # Load any modules you need, here for Python 3.11.3
+         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+
+         # Run your Python script
+         python pandas_matplotlib-batch-kebnekaise.py
+
+Submit with ``sbatch <batch-script.sh>``.
+
+The batch scripts can be found in the directories for hpc2n and uppmax, under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` .
+
+
+
