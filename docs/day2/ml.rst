@@ -81,10 +81,6 @@ The list is not exhaustive, but lists the more popular ML/DL libraries.
      - python
          
 
-   .. tab:: HPC2N
-
-   .. tab:: LUNARC
-
 
 PyTorch
 -------
