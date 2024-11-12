@@ -57,30 +57,40 @@ The list is not exhaustive, but lists the more popular ML/DL libraries.
      - Theano
      - TensorFlow
      - Keras
-     - PyTorch
+     - PyTorch (torch)
      - Pandas
      - Matplotlib
-     - Beautiful Soup
-     - Scrapy
+     - Beautiful Soup (beautifulsoup4)
      - Seaborn
-     - PyCaret
-     - OpenCV
-     - Caffe 
+     - Horovod 
    * - UPPMAX (python 3.11.8)
      - python
      - python
      - python_ML_packages 
-     - .
+     - -
      - python_ML_packages
      - python_ML_packages
-     - .
+     - python_ML_packages
      - python
      - python
-     - .
-     - .
+     - python_ML_packages
      - python
-         
-
+     - -
+   * - HPC2N (Python 3.11.3/3.11.5)
+     - SciPy-bundle
+     - SciPy-bundle
+     - scikit-learn (no never than for GCC/12.3.0 and Python 3.11.3)  
+     - Theano (only for some older Python versions)
+     - TensorFlow (newest version is for Python 3.11.3)
+     - Keras (no newer than Python 3.8.6), TensorFlow (Python 3.11.3)
+     - PyTorch (up to Python 3.11.3) 
+     - SciPy-bundle
+     - matplotlib
+     - BeautifulSoup
+     - Seaborn
+     - Horovod (up to Python 3.11.3)
+   * - LUNARC     
+     
 
 PyTorch
 -------
