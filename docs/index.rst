@@ -209,7 +209,7 @@ Preliminary schedule
      - Content
      - Teacher(s)
    * - 9:00
-     - Introduction to the course and log in
+     - Introduction to the course, log in, load/run Python, find packages
      - Getting started with practical things
      - All
    * - 9:55
@@ -217,7 +217,7 @@ Preliminary schedule
      - 
      - 
    * - 10:10
-     - Packages and isolated environments 
+     - Install packages and isolated environments 
      - Install, create and handle
      - Björn
    * - 11.00
