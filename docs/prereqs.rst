@@ -202,7 +202,9 @@ Try to log in
 
    - `Log in to Cosmos <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/>`_
 
-   - 'Log in to Tetralith <https://www.nsc.liu.se/support/getting-started/>'_ and 'Log in to Tetralith with graphical applications (scroll down for ThinLinc) <https://www.nsc.liu.se/support/graphics/>'_ 
+   - `Log in to Tetralith <https://www.nsc.liu.se/support/getting-started/>`_ 
+
+       - `Log in to Tetralith with graphical applications (scroll down for ThinLinc) <https://www.nsc.liu.se/support/graphics/>`_ 
 
 .. keypoints::
 
