@@ -104,6 +104,7 @@ Add X11 graphics to terminal
       - Use primarily `ssh -X <...>` and secondary `ssh -Y <...>`
       - http://docs.uppmax.uu.se/software/ssh_x_forwarding/
       - https://docs.hpc2n.umu.se/documentation/access/#ssh__x11__forwarding 
+      - https://www.nsc.liu.se/support/graphics/ 
 
    - The X servers that enables graphics are needed, as mentioned above!
       - When starting a graphical program, a new window will open, but your terminal will be “locked”.
@@ -116,7 +117,7 @@ Add X11 graphics to terminal
 ThinLinc
 ########
 
-- Rackham, Kebnekaise, Bianca, and Cosmos offer graphical login.
+- Rackham, Kebnekaise, Bianca, Cosmos, and Tetralith all offer graphical login.
 - This gives you a desktop environment, as if you were working on your own computer!
 - Install ThinLinc client
      - https://www.cendio.com/thinlinc/download
@@ -149,6 +150,14 @@ ThinLinc
 
       - password
 
+   .. tab:: Tetralith
+
+      - server: tetralith.nsc.liu.se
+
+      - username
+
+      - password
+
 .. figure:: ./img/Thinlinc2.jpg
 
 
@@ -168,6 +177,8 @@ Try to log in
 
 - When logging in to UPPMAX the first time in ThinLinc, choose XFCE desktop. 
 - On HPC2N, you will use the MATE desktop as default. 
+- Whe logging in to LUNARC the first time in ThinLinc, choose GNOME Classis Desktop.  
+- On NSC you will use XFCE desktop as default. 
 
 - Test it!
 
@@ -176,7 +187,13 @@ Try to log in
    - When you login to Cosmos, whether through ThinLinc or regular SSH client, you need 2FA 
      
       - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/
+      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/authenticator_howto/
 
+.. warning::
+
+   - When you login to Tetralith, whether through ThinLinc or regular SSH client, you need 2FA 
+
+      - https://www.nsc.liu.se/support/2fa/ 
 
 .. seealso::
 
@@ -184,6 +201,8 @@ Try to log in
    - `Log in to Kebnekaise <http://docs.uppmax.uu.se/getting_started/login_rackham/>`_ 
 
    - `Log in to Cosmos <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/>`_
+
+   - 'Log in to Tetralith <https://www.nsc.liu.se/support/getting-started/>'_ and 'Log in to Tetralith with graphical applications (scroll down for ThinLinc) <https://www.nsc.liu.se/support/graphics/>'_ 
 
 .. keypoints::
 
@@ -315,10 +334,10 @@ Third level
 Understanding clusters
 ----------------------
 
-The HPC centers UPPMAX, HPC2N, and LUNARC
-------------------------------------------
+The HPC centers UPPMAX, HPC2N, LUNARC, and NSC 
+----------------------------------------------
 
-.. admonition:: Three HPC centers
+.. admonition:: Four HPC centers
 
    - There are many similarities:
    
@@ -329,7 +348,8 @@ The HPC centers UPPMAX, HPC2N, and LUNARC
      
    - ... and small differences:
    
-     - commands to load Python, Python packages, R, Julia
+     - commands to load Python, Python packages
+     - sometimes different versions of Python, etc.   
      - slightly different flags to Slurm
      
    - ... and some bigger differences:
@@ -342,19 +362,30 @@ The HPC centers UPPMAX, HPC2N, and LUNARC
 
    - HPC2N has Kebnekaise with GPUs  
    - LUNARC has Cosmos with GPUs (and Cosmos-SENS) 
-   - Conda is recommended only for UPPMAX/LUNARC users
+   - NSC has several clusters
+       - BerzeLiUs (AI/ML, NAISS)
+       - Tetralith (NAISS)
+       - Sigma (LiU local)
+       - Freja (R&D, located at SMHI)
+       - Nebula (MET Norway R&D)
+       - Stratus (weather forecasts, located at NSC)
+       - Cirrus (weather forecasts, located at SMHI)
+       - We will be using Tetralith, which also has GPUs 
+
+   - Conda is recommended only for UPPMAX/LUNARC/NSC users
     
 .. warning:: 
 
-   - At HPC2N, UPPMAX, and LUNARC we call the applications available via the *module system* **modules**. 
+   - At HPC2N, UPPMAX, LUNARC, and NSC we call the applications available via the *module system* **modules**. 
    - https://www.uppmax.uu.se/resources/software/module-system/ 
    - https://docs.hpc2n.umu.se/documentation/modules/
    - https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/  
-   
+   - https://www.nsc.liu.se/software/modules/
+
    To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
-Briefly about the cluster hardware and system at UPPMAX, HPC2N, and LUNARC 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, and NSC 
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **What is a cluster?**
 
@@ -394,24 +425,28 @@ Common features
      - Snowy
      - Bianca
      - Cosmos  
+     - Tetralith   
    * - Cores/compute node
      - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
      - 20
      - 16
      - 16
      - 48  
+     - 32  
    * - Memory/compute node
      - 128-3072 GB 
      - 128-1024 GB
      - 128-4096 GB
      - 128-512 GB
      - 256-512 GB  
+     - 96-384 GB   
    * - GPU
      - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
      - None
      - NVidia T4 
      - NVidia A100
      - NVidia A100 
+     - NVidia T4   
 
 
 Overview of the UPPMAX systems
@@ -429,4 +464,7 @@ Overview of the LUNARC system
 
 .. figure:: ./img/cosmos-resources.png 
    :align: center
+
+Overview of the NSC systems
+########################### 
 
