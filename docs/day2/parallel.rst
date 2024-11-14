@@ -116,6 +116,46 @@ Parallel computing with Python
          
       Quit Python, you should be ready to go!
 
+   .. tab:: NSC
+      
+      - These guidelines are working for Tetralith:
+      
+      .. code-block:: console
+
+         $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/11.3.0 Python/3.10.4
+
+         $ ml GCC/11.3.0 OpenMPI/4.1.4
+
+         $ python -m /path-to-your-project/venv  vpyenv-python-course
+
+         $ source /path-to-your-project/vpyenv-python-course/bin/activate
+
+      - For the ``mpi4py`` example add the following modules:
+
+      .. code-block:: console
+
+         $ pip install mpi4py
+
+
+      - For the ``numba`` example install the corresponding module:
+
+      .. code-block:: console
+
+         $ pip install numba 
+
+      - For the Julia example we will need PyJulia:
+        
+      .. code-block:: console
+       
+         $ ml julia/1.9.4-bdist 
+
+         $ pip install JuliaCall
+
+      Start Julia on the command line and add the following package:
+
+      .. code-block:: julia
+       
+         pkg> add PythonCall
 
 
 In Python there are different schemes that can be used to parallelize your code. 
