@@ -57,9 +57,10 @@ On the LUNARC HPC Desktop, the Applications menu lists all the applications avai
    If you don't see the program you want to run interactively listed under any other ``Applications`` sub-menus, you may still be able to launch it via one of the terminals under ``Applications - General``, or the **GPU Accelerated Terminal** (GPU support) under ``Applications - Visualization``.  
    
    
-   .. figure:: ../../img/Cosmos-AppMenu.png
+   .. figure:: ../img/Cosmos-AppMenu.png
       :width: 400
       :align: center
+
    
    The CPU terminal allows for a wall time of up to 168 hours (7 days), while the two GPU terminals can only run for 48 hours (2 days) at most. For more on the specifications of the different nodes these terminals can run on, see `LUNARC's webpage on COSMOS <https://www.lunarc.lu.se/systems/cosmos/>`_.
 
@@ -80,13 +81,27 @@ For most programs, the start-up process is roughly the same:
       #. **Resource** - which kind of node you want in terms of the architecture (AMD or Intel) and number of cores in the CPU (or GPU). Options and defaults vary by program, but it is recommended that you leave the default node type in place.
       #. **Project** - choose from a drop-down menu the project with which your work is associated. This is mainly to keep your usage in line with your licenses and permissions, and to send any applicable invoices to the correct PI. Licensed software will only work for projects whose group members are covered by the license.
 
-(Insert figure)
+   .. figure:: ../img/cosmos-on-demand-resource-specs.png
+      :width: 550
+      :align: center
+
+      The GfxLauncher GUI (here used to launch Spyder). The box on the left is the basic menu and the box on the right is what pops up when the gear icon next to ``Requirements`` is clicked.
+
 
 4. When you're happy with your settings, click "Start". The Gfx Launcher menu will stay open in the background so that you can monitor your remaining time and resources with the ``Usage`` bar.
 
 If you want, you can also look at the associated SLURM scripts by clicking the "More" button at the bottom of the Gfx Launcher menu and clicking the "Script" tab (example below), or view the logs under the "Logg" tab.
 
-(Insert figure)
+   .. figure:: ../img/cosmos-on-demand-more.png
+      :width: 400
+      :align: center
 
-For a few applications (e.g. Jupyter Lab), GfxLauncher will also offer an additional menu item titled ``Job Settings``. This is where you can load additional modules if absolutely necessary. However, this feature is still a work in progress; any module already in the module list when you first open Job Settings is likely necessary to run the program, and searching for additional modules tends to erase any listed previously. For now, additional modules must be entered by hand (not always including the version number) in a comma-separated list. Moreover, incompatible and redundant modules tend to make the application shut down as soon as it is queued, raising a spurious alert that the requested walltime has expired.
+For a few applications (e.g. Jupyter Lab), GfxLauncher will also offer an additional menu item titled ``Job settings...``. This is where you can load custom environments or additional modules if absolutely necessary. However, this feature is still a work in progress; any module already in the module box when you first open ``Job settings`` is likely necessary to run the program, and searching for additional modules (Select modules button) tends to erase any listed previously. For now, additional modules must be entered by hand (not always including the version number) in a comma-separated list. Moreover, incompatible and redundant modules tend to make the application shut down as soon as it is queued, raising a spurious alert that the requested walltime has expired.
+
+   .. figure:: ../img/cosmos-on-demand-job-settings.png
+      :width: 550
+      :align: center
+
+      The Job Properties menu (right) pops up when the box titled ``Job settings...`` in the main GfxLauncher window (left) is clicked. Only use it if you know what you're doing!
+
 
