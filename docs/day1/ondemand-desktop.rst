@@ -82,7 +82,7 @@ For most programs, the start-up process is roughly the same:
       #. **Project** - choose from a drop-down menu the project with which your work is associated. This is mainly to keep your usage in line with your licenses and permissions, and to send any applicable invoices to the correct PI. Licensed software will only work for projects whose group members are covered by the license.
 
    .. figure:: ../img/cosmos-on-demand-resource-specs.png
-      :width: 550
+      :width: 600
       :align: center
 
       The GfxLauncher GUI (here used to launch Spyder). The box on the left is the basic menu and the box on the right is what pops up when the gear icon next to ``Requirements`` is clicked.
