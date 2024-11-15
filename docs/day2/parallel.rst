@@ -451,8 +451,8 @@ A caller script for Julia would be,
                   integral = Main.integration2d_julia(n)
                   endtime = perf_counter()
                
-               print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-               print("Time spent: %.2f sec" % (endtime-starttime))
+                  print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+                  print("Time spent: %.2f sec" % (endtime-starttime))
 
          .. tab:: Julia v. 1.9.4
 
@@ -699,8 +699,8 @@ the generated module can be then loaded,
              integral = myfunction_openmp.integration2d_fortran_openmp(n)
              endtime = perf_counter()
          
-         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-         print("Time spent: %.2f sec" % (endtime-starttime))
+             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+             print("Time spent: %.2f sec" % (endtime-starttime))
 
 the execution time by using 4 threads is:
 
@@ -778,8 +778,8 @@ instance.
              integral = sum(partial_integrals)
              endtime = perf_counter()
          
-         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-         print("Time spent: %.2f sec" % (endtime-starttime))
+             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+             print("Time spent: %.2f sec" % (endtime-starttime))
 
 In this case, the execution time is reduced:
 
@@ -848,9 +848,9 @@ More details for the MPI parallelization scheme in Python can be found in a prev
          
              endtime = perf_counter()
          
-         if myrank == 0:
-             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-             print("Time spent: %.2f sec" % (endtime-starttime))
+             if myrank == 0:
+                 print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+                 print("Time spent: %.2f sec" % (endtime-starttime))
 
 
 Execution of this code gives the following output:
