@@ -403,31 +403,25 @@ the Julia code can look like this:
    .. admonition:: ``julia_function.jl``
       :class: dropdown
 
-      .. tabs::
+      .. code-block:: julia
 
-         .. tab:: Julia v. 1.9.3
-            
-            - If not already done so:
-            
+         function integration2d_julia(n::Int)
+         # interval size
+         h = π/n
+         # cummulative variable
+         mysum = 0.0
+         # regular integration in the X axis
+         for i in 0:n-1
+            x = h*(i+0.5)
+         #   regular integration in the Y axis
+            for j in 0:n-1
+               y = h*(j + 0.5)
+               mysum = mysum + sin(x+y)
+            end
+         end
+         return mysum*h*h
+         end
 
-            .. code-block:: julia
-
-               function integration2d_julia(n::Int)
-               # interval size
-               h = π/n
-               # cummulative variable
-               mysum = 0.0
-               # regular integration in the X axis
-               for i in 0:n-1
-                  x = h*(i+0.5)
-               #   regular integration in the Y axis
-                  for j in 0:n-1
-                     y = h*(j + 0.5)
-                     mysum = mysum + sin(x+y)
-                  end
-               end
-               return mysum*h*h
-               end
 
 
 A caller script for Julia would be,
@@ -436,25 +430,55 @@ A caller script for Julia would be,
    .. admonition:: ``call_julia_code.py``
       :class: dropdown
 
-      .. code-block:: python
+      .. tabs::
 
-         from time import perf_counter
-         import julia
-         from julia import Main
-         
-         Main.include('julia_function.jl')
-         
-         # grid size
-         n = 10000
-         
-         if __name__ == "__main__":
-         
-             starttime = perf_counter()
-             integral = Main.integration2d_julia(n)
-             endtime = perf_counter()
-         
-         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-         print("Time spent: %.2f sec" % (endtime-starttime))
+         .. tab:: Julia v. 1.9.3
+
+            .. code-block:: python
+
+               from time import perf_counter
+               import julia
+               from julia import Main
+               
+               Main.include('julia_function.jl')
+               
+               # grid size
+               n = 10000
+               
+               if __name__ == "__main__":
+               
+                  starttime = perf_counter()
+                  integral = Main.integration2d_julia(n)
+                  endtime = perf_counter()
+               
+               print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+               print("Time spent: %.2f sec" % (endtime-starttime))
+
+         .. tab:: Julia v. 1.9.4
+
+            .. code-block:: python
+
+               from time import perf_counter
+               from juliacall import Main as julia
+
+               # Include the Julia script
+               julia.include("julia_function.jl")
+
+               # grid size
+               n = 10000
+
+               if __name__ == "__main__":
+
+
+                  starttime = perf_counter()
+                  # Call the function defined in the julia script
+                  integral = julia.integration2d_julia(n)  # function takes arguments
+                  endtime = perf_counter()
+
+                  print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+                  print("Time spent: %.2f sec" % (endtime-starttime))
+
+
 
 Timing in this case is similar to the Fortran serial case,
 
