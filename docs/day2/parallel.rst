@@ -5,15 +5,15 @@ Parallel computing with Python
 
    - What is parallel computing?
    - What are the different parallelization mechanisms for Python?
-   - How to implement parallel in Python code?
-   - How to deploy threads and workers at HPC2N and UPPMAX?
+   - How to implement parallel algorithms in Python code?
+   - How to deploy threads and workers at our HPC centers?
   
 
 .. objectives::
 
-   - Learn common schemes for the parallelization of codes
    - Learn general concepts for parallel computing
-
+   - Gain knowledge on the tools for parallel programming in different languages
+   - Familiarize with the tools to monitor the usage of resources 
 
 
 **Prerequisites**
