@@ -834,18 +834,9 @@ A selection of the Python packages and libraries installed on UPPMAX, HPC2N, LUN
 
       - This is a selection of the packages and libraries installed at NSC (Tetralith). These are all installed as **modules** and need to be loaded before use. 
 
-          - ``PyTorch``
           - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
-          - ``TensorFlow``
           - ``matplotlib``
-          - ``scikit-learn``
-          - ``scikit-image``
-          - ``iPython``
-          - ``Cython``
-          - ``Biopython``  
-          - ``JupyterLab`` 
-          - ``Python-bundle`` (NumPy, SciPy, Matplotlib, JupyterLab, MPI4PY, ...)  
-  
+          - ``iPython``  
           
 
 Demo/Type-along 
@@ -888,7 +879,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
 .. exercise:: Python example with packages pandas and matplotlib 
 
-   We are using Python version ``3.11.x``. To access the packages ``pandas`` and ``matplotlib``, you may need to load other modules, depending on the site where you are working. 
+   We are using Python version ``3.11.x`` except on Tetralith where we use Python/3.10.4. To access the packages ``pandas`` and ``matplotlib``, you may need to load other modules, depending on the site where you are working. 
      
    .. tabs:: 
 
@@ -915,6 +906,14 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
          .. code-block:: console
 
             $ ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2     
+      .. tab:: NSC (Tetralith) 
+
+         On Tetralith you also need to load ``SciPy-bundle`` and ``matplotlib`` (and their prerequisites). In this example we will use Python 3.10.4 as that is the one that has compatible versions and has a compatible TKinter 3.10.4): 
+
+         .. code-block:: console
+
+            $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4     
+   
    1. From inside Python/interactive (if you are on Kebnekaise/Cosmos, mind the warning above about loading a compatible Tkinter and adding the two lines importing matplotlib and setting TkAgg at the top):
 
       Start python and run these lines: 
