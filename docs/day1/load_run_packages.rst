@@ -665,6 +665,23 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
    
         Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
 
+   .. tab:: NSC (Tetralith) 
+
+      At NSC, a way to find Python packages that you are unsure how are names, would be to do
+
+        .. code-block:: console
+
+           $ module -r spider ’.*Python.*’
+   
+        or
+
+        .. code-block:: console
+
+           $ module -r spider ’.*python.*’
+   
+        Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
+
+        
    
 Check the pre-installed packages of a loaded python module, in shell:
 
@@ -697,7 +714,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
 .. exercise:: Check packages (5 min)
 
-   - See if the following packages are installed. Use python version ``3.11.8`` on Rackham and ``3.11.3`` on Kebnekaise/Cosmos (remember: the Python module on kebnekaise/cosmos has a prerequisite). 
+   - See if the following packages are installed. Use python version ``3.11.8`` on Rackham, ``3.11.3`` on Kebnekaise, and ``3.11.5`` on Cosmos/Tetralith (remember: the Python module on kebnekaise/cosmos/tetralith has prerequisite(s)). 
 
       - ``numpy``
       - ``mpi4py``
@@ -726,7 +743,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
       - ``time`` |:white_check_mark:|  (standard library)
       - ``dask``  |:x:|
 
-   - Cosmos has for ordinary Python/3.11.3 module already installed: 
+   - Cosmos has for ordinary Python/3.11.5 module already installed: 
       - ``numpy`` |:x:|
       - ``pandas`` |:x:| 
       - ``mpi4py`` |:x:|
@@ -735,11 +752,20 @@ Otherwise, you can either use ``pip`` or ``conda``.
       - ``time`` |:white_check_mark:|  (standard library)
       - ``dask``  |:x:|
 
+   - Tetralith has for ordinary Python/3.11.5 module already installed: 
+      - ``numpy`` |:x:|
+      - ``pandas`` |:x:| 
+      - ``mpi4py`` |:x:|
+      - ``distributed`` |:x:|
+      - ``multiprocessing`` |:x:|  (standard library)
+      - ``time`` |:x:|  (standard library)
+      - ``dask``  |:x:|
+      
    - See next session how to find more pre-installed packages!
 
-**NOTE**: at HPC2N and LUNARC, the available Python packages needs to be loaded as modules/module-bundles before using! See a list of some of them below, under the HPC2N/LUNARC tab or find more as mentioned above, using ``module spider -r ...``
+**NOTE**: at HPC2N, LUNARC, and NSC, the available Python packages needs to be loaded as modules/module-bundles before using! See a list of some of them below, under the HPC2N/LUNARC/NSC tab or find more as mentioned above, using ``module spider -r ...``
 
-A selection of the Python packages and libraries installed on UPPMAX and HPC2N are given in extra reading: `UPPMAX clusters <https://uppmax.github.io/HPC-python/uppmax.html>`_ and `Kebnekaise cluster <https://uppmax.github.io/HPC-python/kebnekaise.html>`_
+A selection of the Python packages and libraries installed on UPPMAX, HPC2N, LUNARC, and NSC are given in extra reading: `UPPMAX clusters <https://uppmax.github.io/HPC-python/uppmax.html>`_ and `Kebnekaise cluster <https://uppmax.github.io/HPC-python/kebnekaise.html>`_ and `LUNARC cluster <>`_ and 
 
 .. tabs::
 
@@ -784,7 +810,7 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 
       - The python application at LUNARC comes with several preinstalled packages - check first before installing yourself! 
       - LUNARC has both Python 2.7.x and Python 3.x installed. 
-      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.11.3.
+      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Cosmos is 3.11.5.
 
       - This is a selection of the packages and libraries installed at LUNARC. These are all installed as **modules** and need to be loaded before use. 
 
@@ -800,6 +826,27 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
           - ``JupyterLab`` 
           - ``Python-bundle`` (NumPy, SciPy, Matplotlib, JupyterLab, MPI4PY, ...)  
   
+   .. tab:: NSC (Tetralith) 
+
+      - The python application at NSC (Tetralith) comes with very few preinstalled packages, but many can be found in extra modules - check first before installing yourself! 
+      - NSC has both Python 2.7.x and Python 3.x installed. 
+      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Tetralith is 3.11.5.
+
+      - This is a selection of the packages and libraries installed at NSC (Tetralith). These are all installed as **modules** and need to be loaded before use. 
+
+          - ``PyTorch``
+          - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
+          - ``TensorFlow``
+          - ``matplotlib``
+          - ``scikit-learn``
+          - ``scikit-image``
+          - ``iPython``
+          - ``Cython``
+          - ``Biopython``  
+          - ``JupyterLab`` 
+          - ``Python-bundle`` (NumPy, SciPy, Matplotlib, JupyterLab, MPI4PY, ...)  
+  
+          
 
 Demo/Type-along 
 ---------------
