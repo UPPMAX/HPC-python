@@ -905,6 +905,25 @@ example,
        
          mpirun -np 4 python integration2d_mpi.py
 
+   .. tab:: NSC 
+
+      .. code-block:: sh 
+
+         #!/bin/bash -l
+         #SBATCH -A naiss202X-XY-XYZ
+         #SBATCH -t 00:05:00
+         #SBATCH -n 4
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+
+         ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/11.3.0 Python/3.10.4
+         ml GCC/11.3.0 OpenMPI/4.1.4
+         #ml julia/1.9.4-bdist  # if Julia is needed
+
+         source /path-to-your-project/vpyenv-python-course/bin/activate
+
+         mpirun -np 4 python integration2d_mpi.py
+
 Monitoring resources' usage
 ---------------------------
 
@@ -1170,6 +1189,21 @@ Exercises
                   ml GCCcore/12.3.0 Python/3.11.3
                   python integration2d_multiprocessing.py
 
+         .. tab:: NSC
+
+               .. code-block:: sh
+                  
+                  #!/bin/bash -l
+                  #SBATCH -A naiss202X-XY-XYZ     # your project_ID
+                  #SBATCH -J job-serial           # name of the job
+                  #SBATCH -n *FIXME*              # nr. tasks/coresw
+                  #SBATCH --time=00:20:00         # requested time
+                  #SBATCH --error=job.%J.err      # error file
+                  #SBATCH --output=job.%J.out     # output file
+
+                  # Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle
+                  ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/11.3.0 Python/3.10.4
+                  python integration2d_multiprocessing.py
 
    Try different number of cores for this batch script (*FIXME* string) using the sequence:
    1,2,4,8,12, and 14. Note: this number should match the number of processes 
@@ -1356,13 +1390,13 @@ Exercises
       - `Dask-MPI <http://mpi.dask.org/en/latest/index.html>`_
 
 
-Additional information about general parallelism in Python
-----------------------------------------------------------
+   - Additional information about general parallelism in Python
+
          
-* `On parallel software engineering education using python <https://link.springer.com/article/10.1007/s10639-017-9607-0>`_
-* `List of parallel libraries for Python <https://wiki.python.org/moin/ParallelProcessing>`_
-* `Wikipedias' article on Parallel Computing <https://en.wikipedia.org/wiki/Parallel_computing>`_ 
-* The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
+      - `On parallel software engineering education using python <https://link.springer.com/article/10.1007/s10639-017-9607-0>`_
+      - `List of parallel libraries for Python <https://wiki.python.org/moin/ParallelProcessing>`_
+      - `Wikipedias' article on Parallel Computing <https://en.wikipedia.org/wiki/Parallel_computing>`_ 
+      - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
 
 
 .. keypoints::
