@@ -1,10 +1,11 @@
 Load and run python and use packages
 ====================================
 
-At UPPMAX, HPC2N, and LUNARC (and most other Swedish HPC centres) we call the applications available via the module system modules. 
+At UPPMAX, HPC2N, LUNARC, and NSC (and most other Swedish HPC centres) we call the applications available via the module system modules. 
     - http://docs.uppmax.uu.se/cluster_guides/modules/
     - https://docs.hpc2n.umu.se/documentation/modules/
     - https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/ 
+    - https://www.nsc.liu.se/software/modules/
 
 .. objectives:: 
 
@@ -24,14 +25,15 @@ At UPPMAX, HPC2N, and LUNARC (and most other Swedish HPC centres) we call the ap
     
 .. warning::
    
-   - Note that the module systems at UPPMAX, HPC2N, and LUNARC are slightly different. 
+   - Note that the module systems at UPPMAX, HPC2N, LUNARC, and NSC are slightly different. 
    - While all modules at 
        - UPPMAX not directly related to bio-informatics are shown by ``ml avail`` 
+       - NSC are show by ``ml avail``
        - HPC2N and LUNARC are hidden until one has loaded a prerequisite like the compiler ``GCC``.
 
 
 - For reproducibility reasons, you should always load a specific version of a module instead of just the default version
-- Many modules have prerequisite modules which needs to be loaded first (at HPC2N/LUNARC this is also the case for the Python modules). When doing ``module spider <module>/<version>`` you will get a list of which other modules needs to be loaded first
+- Many modules have prerequisite modules which needs to be loaded first (at HPC2N/LUNARC/NSC this is also the case for the Python modules). When doing ``module spider <module>/<version>`` you will get a list of which other modules needs to be loaded first
 
 
 Check for Python versions
@@ -45,11 +47,13 @@ Check for Python versions
 
    .. tab:: UPPMAX
 
-     Check all available Python versions with:
+      Check all available Python versions with:
 
       .. code-block:: console
 
           $ module avail python
+
+      NOTE that python is written in lower case!
 
 
    .. tab:: HPC2N
@@ -86,13 +90,33 @@ Check for Python versions
 
          $ module spider Python/<version>
 
-      Example for Python 3.11.3 
+      Example for Python 3.11.5 
 
       .. code-block:: console
 
-         $ module spider Python/3.11.3
+         $ module spider Python/3.11.5
 
-   
+   .. tab:: NSC
+
+      Check all available Python versions with: 
+
+      .. code-block:: console
+
+         $ module spider Python
+
+      To see how to load a specific version of Python, including the prerequisites, do 
+
+      .. code-block:: console 
+
+         $ module spider Python/<version>
+
+      Example for Python 3.11.5
+
+      .. code-block:: console
+
+         $ module spider Python/3.11.5
+
+
 .. admonition:: Output at UPPMAX as of May 14, 2024
    :class: dropdown
     
@@ -205,6 +229,50 @@ Check for Python versions
                 $ module spider Python/3.12.3
            --------------------------------------------------------------------------------------------------------
 
+.. admonition:: Output at NSC (Tetralith) as of Nov 20, 2024
+    :class: dropdown
+
+        .. code-block:: console
+
+           $ module spider Python
+           ####################################################################################################################################
+           # NOTE: At NSC the output of 'module spider' is generally not helpful as all relevant software modules are shown by 'module avail' #
+           # Some HPC centers hide software until the necessary dependencies have been loaded. NSC does not do that.                          #
+           ####################################################################################################################################
+
+           ----------------------------------------------------------------------------
+             Python:
+           ----------------------------------------------------------------------------
+                Versions:
+                   Python/recommendation
+                   Python/2.7.18-bare-hpc1-gcc-2022a-eb
+                   Python/2.7.18-bare
+                   Python/3.10.4-bare-hpc1-gcc-2022a-eb
+                   Python/3.10.4-bare
+                   Python/3.10.4-env-hpc1-gcc-2022a-eb
+                   Python/3.10.4-env-hpc2-gcc-2022a-eb
+                   Python/3.10.4
+                   Python/3.10.8-bare
+                   Python/3.10.8
+                   Python/3.11.3
+                   Python/3.11.5
+                Other possible modules matches:
+                   IPython  netcdf4-python
+
+           ----------------------------------------------------------------------------
+             To find other possible module matches execute:
+
+                 $ module -r spider '.*Python.*'
+
+           ----------------------------------------------------------------------------
+             For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
+             Note that names that have a trailing (E) are extensions provided by other modules.
+              For example:
+
+                $ module spider Python/3.11.5
+           ----------------------------------------------------------------------------
+
+
 .. note:: 
 
    Unless otherwise said, we recomment using Python 3.11.x in this course. 
@@ -255,18 +323,33 @@ For reproducibility, we recommend ALWAYS loading a specific module instad of usi
 
    .. tab:: LUNARC
 
-      To load Python version 3.11.3, do:
+      To load Python version 3.11.5, do:
 
       .. code-block:: console
 
-         $ module load GCC/12.3.0 Python/3.11.3
+         $ module load GCC/13.2.0 Python/3.11.5
 
       Note: Uppercase ``P``.
       For short, you can also use:
 
       .. code-block:: console
 
-         $ ml GCC/12.3.0 Python/3.11.3
+         $ ml GCC/13.2.0 Python/3.11.5
+
+   .. tab:: NSC (Tetralith)
+
+      To load Python version 3.11.5, do:
+
+      .. code-block:: console
+
+         $ module load buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/13.2.0 GCC/13.2.0 Python/3.11.5
+
+      Note: Uppercase ``P``.
+      For short, you can also use:
+
+      .. code-block:: console
+
+         $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/13.2.0 GCC/13.2.0 Python/3.11.5
 
 
 .. warning::
@@ -276,6 +359,7 @@ For reproducibility, we recommend ALWAYS loading a specific module instad of usi
    + HPC2N: Don’t use system-installed python (2.7.18)
    + HPC2N: Don’t use system-installed python3  (3.8.10)
    + LUNARC: Don’t use system-installed python/python3 (3.9.18)  
+   + NSC: Don't use system-installed python/python3 (3.9.18) 
    + ALWAYS use python module
 
 .. admonition:: Why are there both Python/2.X.Y and Python/3.Z.W modules?
@@ -464,7 +548,27 @@ For more interactiveness you can run Ipython.
          $ ipython 
 
       LUNARC also has ``JupyterLab``, ``JupyterNotebook``, and ``JupyterHub`` installed.  
-   
+
+   .. tab:: NSC (Tetralith) 
+
+      NOTE: remember to load an IPython module first. You can see possible modules with 
+
+      .. code-block:: console
+
+         $ module spider IPython
+
+      And load one of them (here 8.5.0) with
+
+      .. code-block:: console
+         
+        $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0 IPython/8.5.0
+         
+      Then start Ipython with (lowercase):
+      
+      .. code-block:: console
+
+         $ ipython 
+
 
 - Exit IPython with <Ctrl-D>, ``quit()`` or ``exit()`` in the python prompt
 
@@ -496,7 +600,7 @@ Packages/Python modules
 
    - How do I find which packages and versions are available?
    - What to do if I need other packages?
-   - Are there differences between HPC2N, LUNARC, and UPPMAX?
+   - Are there differences between HPC2N, LUNARC, UPPMAX, and NSC?
    
 .. objectives:: 
 
@@ -504,9 +608,9 @@ Packages/Python modules
    - show how to install own packages on the different clusters
 
 Check current available packages
---------------------------------
+-------------------------------- 
 
-General for all three centers
+General for all four centers
 ############################# 
 
 Some python packages are working as stand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:

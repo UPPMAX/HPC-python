@@ -102,7 +102,7 @@ Documentations at other NAISS centres
 
     We will:
     
-    - teach you how to navigate the module system at HPC2N and UPPMAX
+    - teach you how to navigate the module system at HPC2N, UPPMAX, LUNARC, and NSC
     - show you how to find out which versions of Python and packages are installed
     - look at the package handler **pip**
     - explain how to create and use virtual environments
