@@ -854,7 +854,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
 .. warning::
 
-   **Not relevant if using UPPMAX. Only if you are using HPC2N or LUNARC!**
+   **Not relevant if using UPPMAX. Only if you are using HPC2N, LUNARC, or NSC!**
 
    You need to also load Tkinter. 
 
@@ -870,7 +870,13 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
 
-   In addition, you need to add the following two lines to the top of your python script/run them first in Python, for both HPC2N and LUNARC:
+   **For NSC (Tetralith)**
+
+   .. code-block:: console
+
+      ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2 Tkinter/3.10.4
+
+   In addition, you need to add the following two lines to the top of your python script/run them first in Python, for HPC2N, LUNARC, and NSC:
 
    .. code-block:: python
 
@@ -906,6 +912,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
          .. code-block:: console
 
             $ ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2     
+
       .. tab:: NSC (Tetralith) 
 
          On Tetralith you also need to load ``SciPy-bundle`` and ``matplotlib`` (and their prerequisites). In this example we will use Python 3.10.4 as that is the one that has compatible versions and has a compatible TKinter 3.10.4): 
@@ -914,7 +921,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
             $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4     
    
-   1. From inside Python/interactive (if you are on Kebnekaise/Cosmos, mind the warning above about loading a compatible Tkinter and adding the two lines importing matplotlib and setting TkAgg at the top):
+   1. From inside Python/interactive (if you are on Kebnekaise/Cosmos/Tetralith, mind the warning above about loading a compatible Tkinter and adding the two lines importing matplotlib and setting TkAgg at the top):
 
       Start python and run these lines: 
 
@@ -948,14 +955,14 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
       If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png`` containing the plot. This is what you would do if you were running a python script in a batch job. 
 
-      - On UPPMAX and LUNARC you can view png files with the program ``eog``
+      - On UPPMAX, LUNARC, and NSC you can view png files with the program ``eog``
 	   - Test: ``eog myplot.png &``
       - On HPC2N you can view png files with the program ``eom``
 	   - Test: ``eom myplot.png &``
 
-   2. As a Python script (if you are on Kebnekaise/LUNARC, mind the warning above):
+   2. As a Python script (if you are on Kebnekaise/Cosmos/Tetralith, mind the warning above about Tkinter):
 
-      Copy and save this script as a file (or just run the file ``pandas_matplotlib-<system>.py`` that is located in the ``<path-to>/Exercises/examples/programs`` directory you got from the repo or copied. Where <system> is either ``rackham`` or ``kebnekaise``. 
+      Copy and save this script as a file (or just run the file ``pandas_matplotlib-<system>.py`` that is located in the ``<path-to>/Exercises/examples/programs`` directory you got from the repo or copied. Where <system> is either ``rackham``, ``kebnekaise``, ``cosmos``, or ``tetralith``. 
 
       .. tabs::
 
@@ -1004,7 +1011,24 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
                plt.scatter(x, y)
                plt.show()
       
-If you have time, you can also try and run these extended versions, which also requires the ``scipy`` packages (included with python at UPPMAX and with the same modules loaded as for ``pandas`` for HPC2N/LUNARC):
+         .. tab:: Tetralith 
+
+            .. code-block:: python 
+
+               import pandas as pd
+               import matplotlib
+               import matplotlib.pyplot as plt
+              
+               matplotlib.use('TkAgg')
+
+               dataframe = pd.read_csv("scottish_hills.csv")
+               x = dataframe.Height
+               y = dataframe.Latitude
+               plt.scatter(x, y)
+               plt.show()
+      
+               
+If you have time, you can also try and run these extended versions, which also requires the ``scipy`` packages (included with python at UPPMAX and with the same modules loaded as for ``pandas`` for HPC2N/LUNARC/NSC):
 
 Exercises  (C. 10 min)
 ----------------------
@@ -1015,7 +1039,7 @@ Exercises  (C. 10 min)
 
    You can either save the scripts or run them line by line inside Python. The scripts are also available in the directory ``<path-to>/Exercises/examples/programs``, as ``pandas_matplotlib-linreg.py`` and ``pandas_matplotlib-linreg-pretty.py``.
 
-   NOTE that there are separate versions for rackham, kebnekaise, and cosmos and that you for kebnekaise and cosmos need to again add the same lines as mentioned under the warning before the previous exercise. 
+   NOTE that there are separate versions for rackham, kebnekaise, cosmos, and tetralith and that you for kebnekaise, cosmos, and tetralith need to again add the same lines regarding TkAgg as mentioned under the warning before the previous exercise. 
 
    Remember that you also need the data file ``scottish_hills.csv`` located in the above directory. 
 
@@ -1096,5 +1120,5 @@ Exercises  (C. 10 min)
 		
    - Installation of Python packages can be done either with **PYPI** or **Conda**
    - You install own packages with the ``pip install`` command (This is the recommended way on HPC2N)
-   - At UPPMAX and LUNARC Conda is also available (See Conda section)
+   - At UPPMAX, LUNARC, and NSC Conda is also available (See Conda section)
 
