@@ -110,11 +110,11 @@ Check for Python versions
 
          $ module spider Python/<version>
 
-      Example for Python 3.11.5
+      Example for Python 3.10.4
 
       .. code-block:: console
 
-         $ module spider Python/3.11.5
+         $ module spider Python/3.10.4
 
 
 .. admonition:: Output at UPPMAX as of May 14, 2024
@@ -275,7 +275,7 @@ Check for Python versions
 
 .. note:: 
 
-   Unless otherwise said, we recomment using Python 3.11.x in this course. 
+   Unless otherwise said, we recommend using Python 3.11.x in this course at HPC2N, UPPMAX, and LUNARC. We will us Python 3.10.4 at NSC, unless otherwise said. 
 
 
 Load a Python module
@@ -338,18 +338,18 @@ For reproducibility, we recommend ALWAYS loading a specific module instad of usi
 
    .. tab:: NSC (Tetralith)
 
-      To load Python version 3.11.5, do:
+      To load Python version 3.10.4, do:
 
       .. code-block:: console
 
-         $ module load buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/13.2.0 GCC/13.2.0 Python/3.11.5
+         $ module load buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0 Python/3.10.4
 
       Note: Uppercase ``P``.
       For short, you can also use:
 
       .. code-block:: console
 
-         $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/13.2.0 GCC/13.2.0 Python/3.11.5
+         $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0 Python/3.10.4 
 
 
 .. warning::
@@ -752,13 +752,13 @@ Otherwise, you can either use ``pip`` or ``conda``.
       - ``time`` |:white_check_mark:|  (standard library)
       - ``dask``  |:x:|
 
-   - Tetralith has for ordinary Python/3.11.5 module already installed: 
+   - Tetralith has for ordinary Python/3.10.4 module already installed: 
       - ``numpy`` |:x:|
       - ``pandas`` |:x:| 
       - ``mpi4py`` |:x:|
       - ``distributed`` |:x:|
-      - ``multiprocessing`` |:x:|  (standard library)
-      - ``time`` |:x:|  (standard library)
+      - ``multiprocessing`` |:white_check_mark:|  (standard library)
+      - ``time`` |:white_check_mark:|  (standard library)
       - ``dask``  |:x:|
       
    - See next session how to find more pre-installed packages!
@@ -830,7 +830,7 @@ A selection of the Python packages and libraries installed on UPPMAX, HPC2N, LUN
 
       - The python application at NSC (Tetralith) comes with very few preinstalled packages, but many can be found in extra modules - check first before installing yourself! 
       - NSC has both Python 2.7.x and Python 3.x installed. 
-      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Tetralith is 3.11.5.
+      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Tetralith is 3.10.4. 
 
       - This is a selection of the packages and libraries installed at NSC (Tetralith). These are all installed as **modules** and need to be loaded before use. 
 
