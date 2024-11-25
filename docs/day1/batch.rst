@@ -3,7 +3,7 @@ Running Python in batch mode
 
 .. questions::
 
-   - What are the UPPMAX and HPC2N clusters?
+   - What are the UPPMAX, HPC2N, LUNARC, and NSC clusters?
    - What is a batch job?
    - How to make a batch job?
  
@@ -14,8 +14,8 @@ Running Python in batch mode
    - Show structure of a batch script
    - Try example
 
-Briefly about the cluster hardware and system at UPPMAX and HPC2N
------------------------------------------------------------------
+Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, and NSC
+-------------------------------------------------------------------------------
 
 **What is a cluster?**
 
@@ -58,29 +58,37 @@ Common features
      - Rackham
      - Snowy
      - Bianca
+     - Cosmos
+     - Tetralith  
    * - Cores per calculation node
      - 28 (72 for largemem part + 8 nodes with 128)
      - 20
      - 16
      - 16
+     - 48 (AMD) and 32 (Intel) 
+     - 32   
    * - Memory per calculation node
      - 128-3072 GB 
      - 128-1024 GB
      - 128-4096 GB
      - 128-512 GB
+     - 256-512 GB 
+     - 96-384 GB  
    * - GPU
-     - NVidia V100 + 3 NVidia A100, :raw-html:`<br/>` 2 AMD MI100, 2 NVidia H100, :raw-html:`<br />` and 10 NVidia L40S
+     - NVidia V100 + NVidia A100, :raw-html:`<br/>` AMD MI100, NVidia H100, :raw-html:`<br />` Nvidia A600, and 10 NVidia L40S
      - None
      - Nvidia T4 
      - 2 NVIDIA A100
+     - NVidia A100
+     - NVidia T4 
 
 
-Running your programs and scripts on UPPMAX and HPC2N
------------------------------------------------------
+Running your programs and scripts on UPPMAX, HPC2N, LUNARC, and NSC
+--------------------------------------------------------------------
 
 Any longer, resource-intensive, or parallel jobs must be run through a **batch script**.
 
-The batch system used at both UPPMAX and HPC2N is called SLURM. 
+The batch system used at UPPMAX, HPC2N, LUNARC, and NSC is called SLURM. 
 
 SLURM is an Open Source job scheduler, which provides three key functions
 
@@ -90,7 +98,12 @@ SLURM is an Open Source job scheduler, which provides three key functions
 
 In order to run a batch job, you need to create and submit a SLURM submit file (also called a batch submit file, a batch script, or a job script).
 
-Guides and documentation at: http://www.hpc2n.umu.se/support and http://docs.uppmax.uu.se/cluster_guides/slurm/
+Guides and documentation at: 
+
+- HPC2N: http://www.hpc2n.umu.se/support 
+- UPPMAX: http://docs.uppmax.uu.se/cluster_guides/slurm/
+- LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_intro/
+- NSC: https://www.nsc.liu.se/support/batch-jobs/   
 
 **Workflow**
 
@@ -124,7 +137,7 @@ Example Python batch scripts
 
    Type along!
 
-This first example shows how to run a short, serial script. The batch script (named ``run_mmmult.sh``) can be found in the directory /HPC-Python/Exercises/examples/<center>, where <center> is hpc2n or uppmax. The Python script is in /HPC-Python/Exercises/examples/programs and is named ``mmmult.py``. 
+This first example shows how to run a short, serial script. The batch script (named ``run_mmmult.sh``) can be found in the directory /HPC-Python/Exercises/examples/<center>, where <center> is hpc2n, uppmax, lunarc, or nsc. The Python script is in /HPC-Python/Exercises/examples/programs and is named ``mmmult.py``. 
 
 1. The batch script is run with ``sbatch run_mmmult.sh``. 
 2. Try type ``squeue -u <username>`` to see if it is pending or running. 
@@ -139,7 +152,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash -l 
-            #SBATCH -A naiss2024-22-415 # Change to your own after the course
+            #SBATCH -A naiss2024-22-1442 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -157,7 +170,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2024-052 # Change to your own
+            #SBATCH -A hpc2n2024-142 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -167,6 +180,39 @@ This first example shows how to run a short, serial script. The batch script (na
             # Run your Python script 
             python mmmult.py    
             
+   .. tab:: LUNARC
+
+        Short serial example for running on Cosmos. Loading SciPy-bundle/2023.11 and Python/3.11.5  
+       
+        .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A lu2024-2-88 # Change to your own
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+            module load GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11
+            
+            # Run your Python script 
+            python mmmult.py    
+            
+   .. tab:: NSC
+
+        Short serial example for running on Tetralith. Loading SciPy-bundle/2022.05 and Python/3.10.4 
+       
+        .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A naiss2024-22-1493 # Change to your own
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
+            
+            # Run your Python script 
+            python mmmult.py                
             
    .. tab:: mmmult.py 
    
@@ -217,7 +263,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
         
             #!/bin/bash -l 
-            #SBATCH -A naiss2024-22-415 # Change to your own after the course
+            #SBATCH -A naiss2024-22-1442 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -225,7 +271,7 @@ This first example shows how to run a short, serial script. The batch script (na
             module load python/3.11.8
             
             # Activate your virtual environment. 
-            source /proj/hpc-python/<user-dir>/<path-to-virtenv>/<virtenv>/bin/activate  
+            source /proj/hpc-python-fall/<user-dir>/<path-to-virtenv>/<virtenv>/bin/activate  
             
             # Run your Python script (remember to add the path to it 
             # or change to the directory with it first)
@@ -239,7 +285,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2024-052 # Change to your own 
+            #SBATCH -A hpc2n2024-142 # Change to your own 
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -247,12 +293,55 @@ This first example shows how to run a short, serial script. The batch script (na
             module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
             
             # Activate your virtual environment. 
-            source /proj/nobackup/python-hpc/<user-dir>/<path-to-virt-env>/bin/activate
+            source /proj/nobackup/hpc-python-fall-hpc2n/<user-dir>/<path-to-virt-env>/bin/activate
             
             # Run your Python script  (remember to add the path to it 
             # or change to the directory with it first)
             python <my_program.py>
 
+   .. tab:: LUNARC
+
+        Short serial example for running on Cosmos. Loading SciPy-bundle/2023.11, Python/3.11.5, matplotlib/3.8.2 + using any Python packages you have installed yourself with virtual environment.  
+       
+        .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A lu2024-2-88 # Change to your own 
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+            module load GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
+            
+            # Activate your virtual environment. 
+            source <path-to-virt-env>/bin/activate
+            
+            # Run your Python script  (remember to add the path to it 
+            # or change to the directory with it first)
+            python <my_program.py>
+
+   .. tab:: NSC
+
+        Short serial example for running on Tetralith. Loading SciPy-bundle/2022.05, Python/3.10.4, matplotlib/3.5.2 + using any Python packages you have installed yourself with virtual environment.  
+       
+        .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A naiss2024-22-1493 # Change to your own 
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2
+            
+            # Activate your virtual environment. 
+            source /proj/hpc-python-fall-nsc/<user-dir>/<path-to-virt-env>/bin/activate
+            
+            # Run your Python script  (remember to add the path to it 
+            # or change to the directory with it first)
+            python <my_program.py>
+
+            
 
 **Job arrays** 
 

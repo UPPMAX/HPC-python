@@ -714,7 +714,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
 .. exercise:: Check packages (5 min)
 
-   - See if the following packages are installed. Use python version ``3.11.8`` on Rackham, ``3.11.3`` on Kebnekaise, and ``3.11.5`` on Cosmos/Tetralith (remember: the Python module on kebnekaise/cosmos/tetralith has prerequisite(s)). 
+   - See if the following packages are installed. Use python version ``3.11.8`` on Rackham, ``3.11.3`` on Kebnekaise, ``3.11.5`` on Cosmos, and 3.10.4 on Tetralith (remember: the Python module on kebnekaise/cosmos/tetralith has prerequisite(s)). 
 
       - ``numpy``
       - ``mpi4py``
