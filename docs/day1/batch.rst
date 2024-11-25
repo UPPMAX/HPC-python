@@ -491,10 +491,11 @@ This is a very simple example of how to run a Python script with a job array.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2024-052 # Change to your own
+            #SBATCH -A hpc2n2024-142 # Change to your own
             #SBATCH --time=00:10:00  # Asking for 10 minutes
             # Asking for one V100 card
-            #SBATCH --gres=gpu:v100:1
+            #SBATCH --gpus=1
+            #SBATCH -C v100
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
@@ -503,6 +504,55 @@ This is a very simple example of how to run a Python script with a job array.
             # Run your Python script
             python compute.py
            
+   .. tab:: LUNARC
+
+        Example with running ``compute.py`` on Kebnekaise.        
+       
+        .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A lu2024-2-88 # Change to your own
+            #SBATCH --time=00:10:00  # Asking for 10 minutes
+            # Asking for one GPU
+            #SBATCH -p gpua100 
+            #SBATCH --gres=gpu:1
+            
+            # Remove any loaded modules and load the ones we need
+            module purge  > /dev/null 2>&1
+            module load GCC/12.3.0  Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 numba/0.58.1    
+            
+            # Run your Python script
+            python compute.py
+           
+   .. tab:: NSC
+
+        Example with running ``compute.py`` on Kebnekaise.        
+       
+        .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A naiss2024-22-1493 # Change to your own
+            #SBATCH --time=00:10:00  # Asking for 10 minutes
+            #SBATCH -n 1
+            #SBATCH -c 32
+            # Asking for one GPU 
+            #SBATCH --gpus-per-task=1
+            
+            # Remove any loaded modules and load the ones we need
+            module purge  > /dev/null 2>&1
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05    
+            
+            # Load a virtual environment where numba is installed
+            # You can create it with 
+            # ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
+            # python -m venv mynumba
+            # source mynumba/bin/activate
+            # pip install numba
+            #
+            source <path-to>/mynumba 
+
+            # Run your Python script
+            python compute.py
 
    .. tab:: compute.py
 
@@ -564,7 +614,7 @@ Exercises
           .. code-block:: bash
  
             #!/bin/bash
-            #SBATCH -A hpc2n2024-052 # Change to your own
+            #SBATCH -A hpc2n2024-142 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -582,7 +632,7 @@ Exercises
           .. code-block:: bash
  
             #!/bin/bash -l
-            #SBATCH -A naiss2024-22-415 # Change to your own after the course
+            #SBATCH -A naiss2024-22-1442 # Change to your own after the course
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -591,6 +641,42 @@ Exercises
             
             # Run your Python script 
             python sum-2args.py 2 3 
+
+.. solution:: Solution for LUNARC
+    :class: dropdown
+    
+          This batch script is for Cosmos. Adding the numbers 2 and 3. 
+          
+          .. code-block:: bash
+ 
+            #!/bin/bash
+            #SBATCH -A lu2024-2-88 # Change to your own
+            #SBATCH --time=00:05:00 # Asking for 5 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python 3.11.5
+            module load GCC/13.2.0  Python/3.11.5
+            
+            # Run your Python script 
+            python sum-2args.py 2 3 
+
+.. solution:: Solution for NSC
+    :class: dropdown
+
+          This batch script is for Tetralith. Adding the numbers 2 and 3.
+
+          .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A naiss2024-22-1493 # Change to your own
+            #SBATCH --time=00:05:00 # Asking for 5 minutes
+            #SBATCH -n 1 # Asking for 1 core
+
+            # Load any modules you need, here for Python 3.10.4
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 Python/3.10.4
+
+            # Run your Python script
+            python sum-2args.py 2 3
 
 .. keypoints::
 
@@ -601,18 +687,18 @@ Exercises
    
       - Remember to include possible input arguments to the Python script in the batch script.
 
-**Example from previously in th ML section - redo** 
-
 Pandas and matplotlib
 ---------------------
 
 This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script.
 
+We will not talk about pandas and matplotlib otherwise. You will learn more about them tomorrow. 
+
 .. tabs::
 
    .. tab:: Directly
 
-      Remove the # if running on Kebnekaise
+      Remove the # if running on Kebnekaise, Cosmos, or Tetralith
 
       .. code-block:: python
 
@@ -630,7 +716,7 @@ This is the same example that was shown in the section about loading and running
 
    .. tab:: From a Batch-job
 
-      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory.
+      Remove the # if running on Kebnekaise, Cosmos, or Tetralith. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` or ``pandas_matplotlib-batch-cosmos.py`` or ``pandas_matplotlib-batch-tetralith.py`` in the ``Exercises/examples/programs`` directory.
 
       .. code-block:: python
 
@@ -648,7 +734,7 @@ This is the same example that was shown in the section about loading and running
 
    .. tab:: From a Batch-job 
 
-      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory. 
+      Remove the # if running on Kebnekaise, Cosmos, or Tetralith. The script below can be found as ``pandas_matplotlib-batch-rackham-file.py`` or ``pandas_matplotlib-batch-kebnekaise-file.py`` or ``pandas_matplotlib-batch-cosmos-file.py`` or ``pandas_matplotlib-batch-tetralith-file.py`` in the ``Exercises/examples/programs`` directory. 
 
       .. code-block:: python
 
@@ -668,7 +754,7 @@ This is the same example that was shown in the section about loading and running
 
    Type along!
    
-Batch scripts for running on Rackham and Kebnekaise.
+Batch scripts for running on Rackham, Kebnekaise, Cosmos, and Tetralith.
 
 .. tabs:: 
 
@@ -677,7 +763,7 @@ Batch scripts for running on Rackham and Kebnekaise.
       .. code-block:: bash
 
          #!/bin/bash -l
-         #SBATCH -A naiss2024-22-415
+         #SBATCH -A naiss2024-22-1442
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH -n 1 # Asking for 1 core
 
@@ -685,14 +771,14 @@ Batch scripts for running on Rackham and Kebnekaise.
          ml python/3.11.8
 
          # Run your Python script
-         python pandas_matplotlib-batch-rackham.py 
+         python pandas_matplotlib-batch-rackham-file.py 
 
    .. tab:: Kebnekaise 
 
       .. code-block:: bash
 
          #!/bin/bash
-         #SBATCH -A hpc2n2024-052
+         #SBATCH -A hpc2n2024-142
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH -n 1 # Asking for 1 core
 
@@ -700,11 +786,43 @@ Batch scripts for running on Rackham and Kebnekaise.
          ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
 
          # Run your Python script
-         python pandas_matplotlib-batch-kebnekaise.py
+         python pandas_matplotlib-batch-kebnekaise-file.py
+
+   .. tab:: Cosmos
+
+      .. code-block:: bash
+
+         #!/bin/bash
+         #SBATCH -A lu2024-2-88
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
+
+         # Load any modules you need, here for Python 3.11.3
+         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+
+         # Run your Python script
+         python pandas_matplotlib-batch-cosmos-file.py
+
+   .. tab:: Tetralith
+
+      .. code-block:: bash
+
+         #!/bin/bash
+         #SBATCH -A naiss2024-22-1493
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
+
+         # Load any modules you need, here for Python 3.10.4
+         ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2 Tkinter/3.10.4
+
+         # Run your Python script
+         python pandas_matplotlib-batch-tetralith-file.py
+         
+
 
 Submit with ``sbatch <batch-script.sh>``.
 
-The batch scripts can be found in the directories for hpc2n and uppmax, under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` .
+The batch scripts can be found in the directories for hpc2n, uppmax, lunarc, and nsc, under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` .
 
 
 
