@@ -97,6 +97,36 @@ Documentations at other NAISS centres
    - PDC
       - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_
 
+.. important::
+
+   Project ID and storage directory 
+
+   - UPPMAX: 
+       - Project ID: naiss2024-22-1442
+       - Storage directory: /proj/hpc-python-fall  
+   - HPC2N: 
+       - Project ID: hpc2n2024-142
+       - Storage directory: /proj/nobackup/hpc-python-fall-hpc2n
+   - LUNARC: 
+       - Project ID: lu2024-2-88
+       - Storage directory: 
+   - NSC: 
+       - Project ID: naiss2024-22-1493
+       - Storage directory: /proj/hpc-python-fall-nsc  
+
+   Login to the center you have an account at, go to the storage directory, and create a directory below it for you to work in. You can call this directory what you want, but your username is a good option. 
+
+.. important::
+
+   Course material 
+
+   - You can get the course material, including exercises, from the course repository on GitHub. You can either (on of these): 
+       - Clone it: ``git clone https://github.com/UPPMAX/HPC-python.git``
+       - Download the zip file and unzip it: 
+           - ``wget https://github.com/UPPMAX/HPC-python/archive/refs/heads/main.zip``  
+           - ``unzip main.zip``
+
+   - You should do either of the above from your space under the course directory on the HPC center of your choice. 
 
 .. objectives:: 
 
