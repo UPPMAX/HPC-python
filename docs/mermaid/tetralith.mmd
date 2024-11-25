@@ -1,0 +1,10 @@
+ graph TB
+
+
+        Terminal/ThinLinc -- usr --> Node1
+        
+
+        subgraph "Tetralith"
+        Node1[Login] -- interactive --> Node2[compute nodes]
+        Node1 -- sbatch --> Node2
+        end
