@@ -197,6 +197,12 @@ Overview of LUNARC's systems
 .. figure:: img/cosmos-resources.png
    :align: center
 
+Overview of NSC's system
+############################
+
+.. mermaid:: mermaid/tetralith.mmd
+
+
 Preliminary schedule
 ====================
 
