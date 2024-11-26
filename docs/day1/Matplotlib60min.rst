@@ -419,7 +419,7 @@ descriptions, including notes about common gotchas.
 
 -  ``.stackplot(x, ys, baseline=0)`` resembles layers of
    ``fill_between()`` plots; ``x`` must be 1D, but ``ys`` can be a 2D array or a dictionary
-      of 1D arrays.
+   of 1D arrays.
 
 -  ``.stairs(y, edges=[x[0]]+x)`` is a way of rendering a stepwise
    function or histogram where each step is height ``y`` between
@@ -817,12 +817,15 @@ from indexes of ``x`` and ``y`` in anticlockwise order.
    contour lines (the number of which can be specified with the
    ``levels`` kwarg) on an unstructured triangular grid according to
    the intensity ``z``.
+
 -  ``.tricontourf(Triangulation, z)`` or ``.tricontourf(x, y, z)``
    are the same as the previous function except instead of
    dilineating the edges of each level with a thin line, every level
    is shaded across its full width.
+
 -  ``.triplot(Triangulation)`` or ``.triplot(x, y)`` draw only the
    edges of a triangular mesh.
+
 -  ``.tripcolor(Triangulation, c)`` or ``.tripcolor(x, y, c)`` shade
    the triangles of a triangular mesh according to the array ``c`` to
    generate a pseudocolor image whose "pixels" are triangles.
@@ -874,18 +877,23 @@ To render in 3D, all functions below must be plotted on figure with ``fig, ax = 
 
 -  ``.voxels([x, y, z], filled)`` (``filled`` is a 3D boolean mask)
    fills a volume with cubic pixel blocks.
+
 -  ``.plot_surface(X, Y, Z)`` (``X``, ``Y``, and ``Z`` are computed
    with ``np.meshgrid()``) essentially makes an elevation map where
    the surface is shaded like it would be for an image plotted with
    ``imshow`` or ``hist2d``.
+
 -  ``.plot_wireframe(X, Y, Z)`` (``X``, ``Y``, and ``Z`` are computed
    with ``np.meshgrid()``) plots the surface so it resembles a net or
    curved grid.
+
 -  ``.plot_trisurf(x, y, z)`` is similar to ``plot_wireframe`` except
    the net is made of triangles.
+
 -  ``.bar3d(x, y, bottom, width, depth, top, shade=True)`` can either
    plot multiple rows of 2D bar plots stacked depthwise, or make a
    figure that looks like a Manhattan skyline.
+
 -  ``.quiver(x, y, z, u, v, w)`` plots a 3D field of arrows where
    (x,y,z) define the arrow positions and (u,v,w) defines their
    directions.
