@@ -553,7 +553,7 @@ boundaries of cells in the grid.
    import matplotlib.pyplot as plt
    %matplotlib inline 
    import pandas as pd
-   wwii_spending = pd.read_csv('wwii-military-spending-pct-gdp.txt',delimiter='\t',
+   wwii_spending = pd.read_csv('docs/day1/wwii-military-spending-pct-gdp.txt',delimiter='\t',
                               index_col=0)
    print(wwii_spending)
    year = wwii_spending.index.to_numpy()
@@ -1005,7 +1005,7 @@ are of the positions of the Sun and its nearest 20 stellar neighbors.
    import numpy as np
    import matplotlib.pyplot as plt
    %matplotlib inline 
-   x,y,z,c = np.genfromtxt('solar_neighborhood.txt', encoding='ascii', 
+   x,y,z,c = np.genfromtxt('docs/day1/solar_neighborhood.txt', encoding='ascii', 
                         dtype=[('x','<f8'),('y','<f8'),('z','<f8'), ('c','<U12')],
                         converters={3:lambda s: 'tab:'+str(s)}, unpack=True)
    zsun = abs(min(z))
