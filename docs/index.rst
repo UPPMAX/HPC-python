@@ -498,6 +498,7 @@ Content of the course
    day1/batch.md
    day1/interactive.md
    day1/gpu.md
+   day1/Matplotlib60min.rst
    summary.rst
 
 .. toctree::
