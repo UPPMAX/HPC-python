@@ -40,7 +40,7 @@ Packages
 Check current available packages
 --------------------------------
 
-General for both centers
+General for all centers
 ########################
 
 Some python packages are working as stand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:
