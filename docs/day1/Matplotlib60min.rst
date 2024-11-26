@@ -980,7 +980,7 @@ are of the positions of the Sun and its nearest 20 stellar neighbors.
    plt.show()
 
 
-------------------------------------
+
 Formatting and Placing Plot Elements
 ------------------------------------
 
