@@ -12,4 +12,9 @@ sphinxemoji
 sphinx-copybutton
 sphinxcontrib-mermaid
 sphinxcontrib-plantuml
+jupyter
 jupyter_sphinx
+numpy
+matplotlib
+pandas
+seaborn
