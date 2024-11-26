@@ -1,8 +1,6 @@
 Packages
 ========
 
-
-
 .. admonition:: Python modules AKA Python packages
 
    - Python **packages broaden the use of python** to almost infinity! 
@@ -21,8 +19,10 @@ Packages
    
 .. objectives:: 
 
-   - Show how to check for Python packages
-   - show how to install own packages on the different clusters
+   Learners
+
+   - can check for Python packages
+   - know how to install own packages on the different clusters
 
 
 .. admonition:: There are two package installation systems
