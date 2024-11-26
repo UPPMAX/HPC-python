@@ -400,76 +400,26 @@ descriptions, including notes about common gotchas.
    of unlabeled lines on the same plot, OR plot one line or set of
    pairwise data with arbitrary format and a label.
 
-   -  A 3- to 4-character ``fmt`` string can be used specify the
-      marker style, color (one of the 8 that can be specified with 1
-      letter), and linestyle, although each of those can instead be
-      controlled separately with their own kwargs.
-   -  Linestyle values include ``'-'`` for solid, ``'--'`` for
-      dashed, ``'-.'`` for dash-dotted, and ``':'`` for dotted.
-   -  If you don't want a line connecting the points, you must
-      explicitly set\ ``linestyle='None'`` (a string, not the
-      built-in value). Labels cannot be included when plotting
-      multiple datasets using a single call to ``plot()``.
+   - ``.semilogx()``, ``.semilogy()``, and ``.loglog()`` are wrappers for ``.plot()`` that accept the same args and kwargs but rescale the x, y, or both axes to log scale.
 
 -  ``.scatter(x, y, s=rcParams['lines.markersize'] ** 2, c=‘tab:blue’)``
    plots data as points with tunable shapes, sizes, and colors.
-
-   -  The size argument ``s`` accepts a scalar or an array of the
-      same size as x and y (formerly this was the ``markersize`` or
-      ``ms`` kwarg, which only accepted a fixed number). If only 3
-      positional arguments are given, the third will now be
-      interpreted as size, not color (as was the case in earlier
-      releases). To specify the color and use the default size, the
-      color must be given as a kwarg.
-   -  The color argument ``c`` can be a solid color, a list of colors
-      the same length as ``x`` and ``y``, or an array of values the
-      same length as ``x`` and ``y`` that are mapped to colors via
-      the kwarg ``cmap``.
-   -  Marker styles, opacities, and edge- and fill colors can all be
-      specified separately.
 
 -  ``.stem(x, y[, z])`` is visually similar to scatter with lines
    connecting the points to a baseline (default = x-axis), and
    returns a 3-tuple of the markers, stemlines, and baseline.
 
-   -  The default baseline settings assume the data are sequential,
-      and control marker colors and line styles is limited and
-      tedious to implement because they require you to modify
-      elements of the returned tuple afterward. Unfortunately this
-      limits its utility in 3D.
-
 -  ``.fill_between(x, y1, y2=0, color=‘tab:blue’, alpha=1)`` lets you
    plot 2 lines and shade between them, which is handy for, say,
-   showing an uncertainty region around a model function.
+   showing an uncertainty region around a model function. A ``where`` 
+   kwarg lets you fill only areas that match 1 specific condition.
 
-   -  The ``where`` kwarg lets you fill only areas that match a
-      certain condition, which you can use to highlight where a
-      function is above or below some threshold.
-   -  The ``where`` kwarg can only accommodate one condition at a
-      time, so if you wanted to, say, color the function blue if it's
-      above a line and red if it's below, you would have to call
-      ``.fill_between()`` twice.
-
--  ``.bar(cat, count)`` and ``.barh(cat, count)`` produce vertical
+-  ``.bar(cat, count, bottom=0)`` and ``.barh(cat, count, left=0)`` produce vertical
    and horizontal bar plots, respectively.
 
-   -  The first positional arg ``cat`` replaces the typical ``label``
-      kwarg.
-   -  To stack bars, there is a ``bottom`` kwarg for ``bar()`` and a
-      ``left`` kwarg for ``barh()`` to change the baselines of
-      successive bars.
-   -  Grouped bars require manual offsets. See
-      `https://matplotlib.org/stable/gallery/lines_bars_and_markers/barchart.html#grouped-bar-chart-with-labels <this%20Matplotlib%20official%20demo%20for%20details>`__.
-
 -  ``.stackplot(x, ys, baseline=0)`` resembles layers of
-   ``fill_between()`` plots.
-
-   -  ``x`` must be 1D, but ``ys`` can be a 2D array or a dictionary
+   ``fill_between()`` plots; ``x`` must be 1D, but ``ys`` can be a 2D array or a dictionary
       of 1D arrays.
-   -  Also supports a format called a *streamgraph*, where the
-      ``baseline`` kwarg is changed from the default 0 to ``wiggle``;
-      in this case, the baseline is a sort of center-of-mass value
-      with variation both above and below.
 
 -  ``.stairs(y, edges=[x[0]]+x)`` is a way of rendering a stepwise
    function or histogram where each step is height ``y`` between
@@ -477,12 +427,8 @@ descriptions, including notes about common gotchas.
    always have 1 more element than ``y``.
 
 -  ``.step(x, y, where=‘pre’)`` is superficially similar to
-   ``stairs``, but ``x`` and ``y`` are the same length.
-
-   -  The ``where`` kwarg lets you choose whether each (``x,y``) is
-      to be treated as the left edge of a step (``'pre'``), the
-      center of a step (``'mid'``), or the right edge of a step
-      (``'post'``).
+   ``stairs``, but ``x`` and ``y`` are the same length, and you can
+   adjust how the steps are aligned with respect to ``x``.
 
 Apart from ``.scatter()``, most of these plots are more suited for
 models rather than measurements. Related plots are shown on grids so
@@ -616,31 +562,14 @@ Statistical plots include the following:
       choice.
 
 -  ``.hexbin(x, y, C=None, gridsize=100)`` is functionally somewhere
-   between ``hist2d`` and ``imshow`` (see section on grid data).
-
-   -  ``x`` and ``y`` can be scattered points or the coordinates of
-      the data ``C``.
-   -  If ``C`` is ``None``, the points (x\ :math:`_i`,y\ :math:`_i`)
-      are binned on a hexagonal grid and colored by counts in each
-      hexagon.
-   -  If ``C`` is given, then every point in ``C`` must be the
-      intensity at each (x\ :math:`_i`,y\ :math:`_i`), which is then
-      internally resampled onto a hexagonal grid (default size 100
-      hexagons along the ``x`` axis and whatever number along the
-      ``y`` axis makes the hexagons symmetric.)
+   between ``hist2d`` and ``imshow`` (see section on grid data); ``x``
+   and ``y`` can be scattered data or the coordinates of the data ``C``.
 
 -  ``.boxplot(X)`` takes an array-like ``X``, represening *n* 1D
    distributions, plots a rectangle spanning the upper and lower
    quartiles with a line marking the median and errorbar-like
    "whiskers" extending 1.5 times the interquartile range from the
    box.
-
-   -  Data beyond the box-and-whiskers, called "fliers", are plotted
-      as open circles along the same vertical axis as the associated
-      box.
-   -  Many kwargs are available to change the appearance of the
-      boxes, and whether/how to show statistical benchmarks like the
-      mean or median, etc.
 
 -  ``.violinplot(X)`` is similar to ``boxplot()`` but instead of the
    boxes and whiskers, it shows bidirectional histogram KDEs
@@ -652,20 +581,12 @@ Statistical plots include the following:
    ``hist(x, bins=len(x), cumulative=True)``, i.e. it's a cumulative
    stepwise function where every point is its own step.
 
--  ``.eventplot(X)`` plots sequences of parallel lines at the
+-  ``.eventplot(X)`` (rare outside neurology) plots sequences of parallel lines at the
    positions given by ``X``, which may be 1D or 2D depending on
    whether there are multiple sequences of events to plot or just 1.
 
-   -  This plot type is rare outside of neurology, where it is used
-      to chart the activation patterns of individually labeled
-      neurons.
-
 -  ``.pie(wedges)`` plots a pie chart given relative or absolute
-   wedge sizes.
-
-   -  This plot type is spatially inefficient and poor at
-      communicating the minimal information contained, and so it
-      should generally be avoided.
+   wedge sizes. Avoid this. It's inefficient.
 
 
 It's hard to load a good data set to demonstrate statistical plots without Pandas and Seaborn, and since we'll cover those tomorrow, it's not worth the effort to avoid them. Seaborn includes some public datasets accessible via the ``load_dataset()`` function, which it loads into a Pandas DataFrame. The Penguins dataset is a collection of real measurements of the bills and flippers of 3 species of penguin: Adelaide, Chinstrap, and Gentoo.
@@ -766,29 +687,19 @@ Plots for Gridded Data
    according to the height/intensity of ``Z`` on the grid ``X,Y``,
    while the latter fills between the lines.
 
-   -  The total integer number of equidistant levels or an array of
-      specific level markers can be passed to the ``levels`` kwarg.
    -  The line contour function ``contour()``, if assigned to a
       variable, has a ``clabel()`` method you can call to print the
       numerical value of each level along each of the contours.
 
--  ``.imshow(Z)`` can plot a 2D intensity image, a $n\\times m \\times$3 stack of RGB images, or a $n\\times m \\times$4 stack of RGB-A images (A is a fractional opacity value between 0 and 1), on a grid of rectangular pixels whose aspect ratio is determined by the ``aspect`` kwarg (default ``'equal'``).
+-  ``.imshow(Z, origin='upper')`` can plot and optionally interpolate a 2D intensity image, a $n\\times m \\times$3 stack of RGB images, or a $n\\times m \\times$4 stack of RGB-A images (A is a fractional opacity value between 0 and 1), on a grid of rectangular pixels whose aspect ratio is determined by the ``aspect`` kwarg (default ``'equal'``).
 
    -  Typically, one must set ``origin='lower'`` to render the image the right way up.
    -  If each pixel is an integer width in the desired units, one can
-      use the ``extent`` kwarg to assign the coordinates. This is
-      generally less reliable than using, a standard geological map
-      projection or an astronomical coordinate system structure, both
-      of which require field-specific packages to set up a coordinate
-      system specifier than Matplotlib can accept.
-   -  There are also a number of interpolation methods for up- or
-      down-sampling image data internally.
+      use the ``extent`` kwarg to assign the coordinates (less reliable than standard coordinate projections).
 
 -  ``.pcolormesh(X, Y, Z)`` is slower than ``imshow`` but gives more
-   control over the shape of the grid.
-
-   -  Grid pixels do not need to have right-angled corners or
-      straight sides.
+   control over the shape of the grid because grid pixels need not
+   have right-angled corners or straight sides.
 
 -  ``.pcolor(X, Y, Z)`` is a generalized version of ``pcolormesh()``
    that allows one to pass masked grids ``X`` and ``Y`` in addition
@@ -956,12 +867,10 @@ To render in 3D, all functions below must be plotted on figure with ``fig, ax = 
    ``.scatter(x, y, z)``, ``.plot(x, y, z)``,
    ``.stem(x, y, z)``,\ ``.errorbar(x, y, z)``, etc.
 
-   -  For scattered data, it is preferred if you can draw a line from
-      the point to some baseline, but ``stem()`` is not necessarily a
+   -  For scattered data, it is good to draw a lines from the
+      points to some baseline, but ``stem()`` is not necessarily a
       good way to do this because of the formatting limitations and
-      because there is no ``zorder`` kwarg that you can use to force
-      points to appear above a base-level surface that is not at the
-      bottom of the rendering box.
+      because there is no ``zorder`` kwarg.
 
 -  ``.voxels([x, y, z], filled)`` (``filled`` is a 3D boolean mask)
    fills a volume with cubic pixel blocks.
