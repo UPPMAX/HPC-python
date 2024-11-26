@@ -12,3 +12,4 @@ sphinxemoji
 sphinx-copybutton
 sphinxcontrib-mermaid
 sphinxcontrib-plantuml
+jupyter_sphinx
