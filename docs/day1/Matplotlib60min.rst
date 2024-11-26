@@ -9,7 +9,7 @@ explanations of function arguments.
 
 
 Prerequisites
-^^^^^^^^^^^^^
+#############
 
 In order to follow this course, you will need to be familiar with:
 
@@ -83,7 +83,7 @@ For everything else on a typical plot, there's this handy graphic:
 
 
 ``fig``? ``ax``? What are those?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+################################
 
 There are 2 choices of application programming interface (API,
 basically a standardized coding style) in Matplotlib:
@@ -150,7 +150,7 @@ format 2 or more separate sets of axes on the same figure.
 
 
 Subplots and Subplot Mosaics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+############################
 
 For the standard ``plt.subplots(nrows=nrows, ncols=ncols)`` command,
 the shape of ``axes`` will be 2D if both ``nrows`` and ``ncols`` are
@@ -256,7 +256,7 @@ More on that later.
 
 
 Controlling the Display
-^^^^^^^^^^^^^^^^^^^^^^^
+#######################
 
 At the regular terminal, Matplotlib figures will not display unless
 you a set *backend* that allows displays and is compatible with your
@@ -298,7 +298,7 @@ of 80 dpi.
 
 
 Saving your Data
-^^^^^^^^^^^^^^^^
+################
 
 The Matplotlib GUI has a typical save menu option (indicated by the
 usual floppy disc icon) that lets you set the name, file type, and
@@ -390,7 +390,7 @@ and `which colormaps to choose based on the types of data and your
 audience <https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py>`__.
 
 Pairwise Plots
-^^^^^^^^^^^^^^
+##############
 
 The following is a list of plain pairwise plot commands and
 descriptions, including notes about common gotchas.
@@ -525,7 +525,7 @@ boundaries of cells in the grid.
 
 
 Statistical Plots
-^^^^^^^^^^^^^^^^^
+#################
 
 Statistical plots include the following:
 
@@ -680,7 +680,7 @@ To combine the ``hist()`` and ``hist2d()`` examples, let's make a plot of joint 
 
 
 Plots for Gridded Data
-^^^^^^^^^^^^^^^^^^^^^^
+######################
 
 -  ``.contour(X, Y, Z)`` and ``.contourf(X, Y, Z)`` are nearly
    identical except that the former plots only line contours
@@ -801,7 +801,7 @@ computed with ``np.meshgrid()``.
 
 
 Plots for Data on Irregular or Non-Cartesian Grids
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+##################################################
 
 Most of the following functions accept a ``Triangulation`` object in
 lieu of ``x`` and ``y``, and indeed do the triangulation internally
@@ -862,7 +862,7 @@ where adjacent z-values are spatially correlated.
 
 
 Volumetric Plots
-^^^^^^^^^^^^^^^^
+################
 
 To render in 3D, all functions below must be plotted on figure with ``fig, ax = plt.subplots(subplot_kw = {"projection": "3d"})`` or an axes instance with ``ax = plt.subplot(nrows, ncols, index, projection = "3d")``:
 
@@ -985,7 +985,7 @@ Formatting and Placing Plot Elements
 ------------------------------------
 
 Placing Legends and Text
-^^^^^^^^^^^^^^^^^^^^^^^^
+########################
 
 **Text.** There are 2 functions for adding text to plots at arbitrary
 points: ``.annotate()`` and ``.text()``
@@ -1026,7 +1026,7 @@ plot.
 
 
 Mathtext
-^^^^^^^^
+########
 
 Most journals expect that you typeset all variables and math scripts
 so they appear the same in your plots main text. `Matplotlib now
@@ -1087,7 +1087,7 @@ You *can* use string insertion inside of formatting operators like the super- an
 
 
 Formatting Axes
-^^^^^^^^^^^^^^^
+###############
 
 Axes objects (the ``ax`` in ``fig,ax=plt.subplots()``) have dozens of
 methods and attributes apart from the function methods covered in the
@@ -1146,7 +1146,7 @@ labels (next section).
 
 
 Axis Ticks and Locators
-^^^^^^^^^^^^^^^^^^^^^^^
+#######################
 
 Usually automatic tick spacing is fine. However, you may need to
 modify the auto-generated tick labels and locators, or set them
@@ -1235,7 +1235,7 @@ a day:
 
 
 Placing and Formatting Color Bars
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#################################
 
 Colorbars are methods of ``Figure``, not ``Axes``, in the explicit
 API. Each axis object must be passed to each ``colorbar()`` command
