@@ -1,41 +1,48 @@
-# Check links on the 8st day of the month.
-# 21st as the first letter of this repo is the 8st letter in the alphabet.
+# Checks if all links are valid, i.e. not broken
+#
+# Errors are reported via an Issue being created,
+# instead of via en email to all repository Watchers
+name: Check links
+
+# Only run this on the main branch, or with Pull Requests
 on:
   push:
+    branches:
+      - main
   pull_request:
-  schedule:
-  - cron: "0 0 8 * *"
-
-name: check-links
 
 jobs:
-  check-links:
+  check_links:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      # The link checker will only work if mlc_config.json is a valid JSON
-      - name: Validate JSON
-        uses: docker://orrosenblatt/validate-json-action:latest
-        env:
-          INPUT_SCHEMA: .github/workflows/valid_json_schema.json
-          INPUT_JSONS: mlc_config.json
+      - name: Remove folders that need not to be checked
+        run: |
+          rm -rf docs/not_used/
+          rm -rf docs/python/not_used/
+          rm -rf docs/julia/not_used/
+          rm -rf docs/R/not_used/
+          rm -rf docs/matlab/not_used/
 
-      # These are status code that cannot be ignored.
-      #
-      # If there is a valid external link that fails,
-      # add it to mlc_config.json
-      - name: External links must be checked, do not allow '0' in the 'aliveStatusCodes' of mlc_config.json
-        run: if [[ $(grep --regexp "[^0-9]0[^0-9]" mlc_config.json | wc --lines) == "1" ]]; then echo "FOUND"; exit 42; fi
-
-      - name: Internal links must checked, do not allow '400' in the 'aliveStatusCodes' of mlc_config.json
-        run: if [[ $(grep --regexp "[^0-9]400[^0-9]" mlc_config.json | wc --lines) == "1" ]]; then echo "FOUND"; exit 42; fi
-
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      - name: Restore lychee cache
+        uses: actions/cache@v4
         with:
-          config-file: 'mlc_config.json'
-          use-quiet-mode: 'yes'
-          use-verbose-mode: 'no'
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
 
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v1.10.0
+        with:
+          # Check all reStructuredText files in repo 
+          args: --base docs/ --max-redirects 10 --user-agent "curl/8.4.0" --verbose --no-progress './**/*.rst'
+
+      - name: Create Issue From File
+        if: env.lychee_exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee/out.md
+          labels: report, automated issue
