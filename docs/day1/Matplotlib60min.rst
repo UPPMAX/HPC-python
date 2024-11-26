@@ -100,7 +100,7 @@ imports ``matplotlib.pyplot`` (usually as ``plt``) and then plugs
 their data into their choice of plotting function,
 ``plt.<function>(*args,**kwargs)``.
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -124,7 +124,7 @@ that most of the formatting methods now start with ``set_`` when
 called upon an ``axes`` object.
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -156,7 +156,7 @@ given, 1D if either ``nrows`` or ``ncols`` are provided but not both,
 and 0D (not iterable) if neither are given.
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -181,7 +181,7 @@ provide is that different coordinate projections can be set for each
 subplot in a figure with multiple subplots. The example below
 demonstrates ``plt.subplot()``.
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -224,7 +224,7 @@ keys (the same ASCII characters used to denote each subplot in the
 layout string) and kwargs, which is useful if you need to specify a
 different axis projection for each plot.
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -489,7 +489,7 @@ you can see how indexed axes objects work. Note that ``sharex`` (and
 boundaries of cells in the grid.
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -525,7 +525,7 @@ boundaries of cells in the grid.
    plt.show()
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -545,7 +545,7 @@ boundaries of cells in the grid.
    axes[1].set_xlabel("Jane's scores")
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -668,7 +668,7 @@ Statistical plots include the following:
 
 It's hard to load a good data set to demonstrate statistical plots without Pandas and Seaborn, and since we'll cover those tomorrow, it's not worth the effort to avoid them. Seaborn includes some public datasets accessible via the ``load_dataset()`` function, which it loads into a Pandas DataFrame. The Penguins dataset is a collection of real measurements of the bills and flippers of 3 species of penguin: Adelaide, Chinstrap, and Gentoo.
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -695,7 +695,7 @@ It's hard to load a good data set to demonstrate statistical plots without Panda
 
 To combine the ``hist()`` and ``hist2d()`` examples, let's make a plot of joint and marginal distributions, based on the `official demo with histogram marginal distributions around a scatter plot <https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter_hist.html>`__. A proper corner plot is *much* simpler to do with Seaborn, but this will demonstrate not just of how the histogram functions look, but how to scale and position connected subplots that are not the same size as the main plot, and how to place a colorbar within a subplot mosaic.
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -733,7 +733,7 @@ To combine the ``hist()`` and ``hist2d()`` examples, let's make a plot of joint 
    cb.set_label('Number of Penguins')
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -813,7 +813,7 @@ of the vectors, and ``C`` is the color (optional). For all of the
 above where ``X`` and ``Y`` appear, ``X`` and ``Y`` must generally be
 computed with ``np.meshgrid()``.
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -833,7 +833,7 @@ computed with ``np.meshgrid()``.
    fig.colorbar(CF) #yes, colorbars for contours are automatically discretized
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -848,7 +848,7 @@ computed with ``np.meshgrid()``.
    ax.pcolormesh(Xskew, Yskew, np.random.rand(6, 10))
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -925,7 +925,7 @@ off making a histogram or contouring a kernel density estimation. The
 each triangle vertex is already associated with some z-value, and
 where adjacent z-values are spatially correlated.
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -998,7 +998,7 @@ readers to be able to read off coordinates to some extent. The plots
 are of the positions of the Sun and its nearest 20 stellar neighbors.
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -1030,7 +1030,7 @@ are of the positions of the Sun and its nearest 20 stellar neighbors.
    plt.show()
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -1149,7 +1149,7 @@ made to resolve the collision.
 You *can* use string insertion inside of formatting operators like the super- and subscript commands, but it can require a *lot* of sequential curly braces. The following is an example demonstrating some tricky typesetting. Note that you generally cannot split the string text over multiple lines because the backslash has other essential uses to the typesetting.
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -1260,7 +1260,7 @@ Let's walk through the following example demonstrating both
 ``subs`` kwargs are not very good) and
 ``ax.secondary_xaxis('top', functions=(prim2sec,sec2prim))``:
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
@@ -1349,7 +1349,7 @@ kwargs of ``colorbar()``.
    you'll need to use the ``FuncFormatter`` approach).
 
 
-.. jupyter-execute
+.. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
