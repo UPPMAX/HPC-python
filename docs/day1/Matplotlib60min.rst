@@ -902,14 +902,15 @@ To render in 3D, all functions below must be plotted on figure with ``fig, ax = 
       the arrow tips tend to be truncated and different pieces of
       each arrow may get a different color.
 
-Be aware that Matplotlib's algorithm for determining the relative
-depth of multiple 3D elements is error-prone, particularly in the
-non-interactive in-line display used by Jupyter. It's generally
-better to work on 3D graphics in a GUI (e.g. with Spyder, PyCharm, or
-VSCode) that lets you rotate the image to select the clearest angle
-anyway, but the rendering order may not be correct, even if you try
-to brute-force it with the ``zorder`` kwarg. Sometimes 2D projections
-are just safer.
+.. admonition::
+   Be aware that Matplotlib's algorithm for determining the relative
+   depth of multiple 3D elements is error-prone, particularly in the
+   non-interactive in-line display used by Jupyter. It's generally
+   better to work on 3D graphics in a GUI (e.g. with Spyder, PyCharm, or
+   VSCode) that lets you rotate the image to select the clearest angle
+   anyway, but the rendering order may not be correct, even if you try
+   to brute-force it with the ``zorder`` kwarg. Sometimes 2D projections
+   are just safer.
 
 Below is a sample of how ``scatter(x,y,z)`` handles depth, and how
 you can achieve something similar with ``stem()`` if you want your
@@ -980,7 +981,7 @@ are of the positions of the Sun and its nearest 20 stellar neighbors.
    plt.show()
 
 
-
+------------------------------------
 Formatting and Placing Plot Elements
 ------------------------------------
 
