@@ -18,7 +18,7 @@ Using GPUs with Python
 In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU
 architecture with a GPU based architecture. Here, there is a schemematics of the former:
 
-.. figure:: img/cpus.png
+.. figure:: ../img/cpus.png
    :align: center
 
    Pure CPU architecture (single node). In the present case there are 28 cores, each with 
@@ -27,7 +27,7 @@ architecture with a GPU based architecture. Here, there is a schemematics of the
 
 As for the GPU architecture, a K80 engine looks like this:
 
-.. figure:: img/gpu.png
+.. figure:: ../img/gpu.png
    :align: center
 
    A single GPU engine of a K80 card. Each green dot represents a core (single precision) which
@@ -39,7 +39,7 @@ hybrid architecture. The CPU component is called the host and the GPU part the d
 One possible layout (Kebnekaise) is as follows:
 
 
-.. figure:: img/cpu-gpu.png
+.. figure:: ../img/cpu-gpu.png
    :align: center
 
    Schematics of a hybrid CPU-GPU architecture. A GPU K80 card consisting of two engines is attached
@@ -56,7 +56,7 @@ of the CPUs and GPUs with cars as in the figure below. A CPU would be compact ro
 racing cars can drive whereas a GPU would be a broader road where plenty of slow cars can drive.
 
 
-.. figure:: img/cpu-gpu-highway.png
+.. figure:: ../img/cpu-gpu-highway.png
    :align: center
 
    Cars and roads analogy for the CPU and GPU behavior. The compact road is analogous to the CPU
