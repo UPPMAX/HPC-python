@@ -19,11 +19,10 @@ jobs:
 
       - name: Remove folders that need not to be checked
         run: |
-          rm -rf docs/not_used/
-          rm -rf docs/python/not_used/
-          rm -rf docs/julia/not_used/
-          rm -rf docs/R/not_used/
-          rm -rf docs/matlab/not_used/
+          rm -rf docs/*/not_used/
+          rm -rf docs/May23
+          rm -rf docs/feb23_course
+          rm -rf docs/mermaid
 
       - name: Restore lychee cache
         uses: actions/cache@v4
