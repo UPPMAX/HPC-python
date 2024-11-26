@@ -81,6 +81,7 @@ For everything else on a typical plot, there's this handy graphic:
 |anatomy of a plot|
 .. |anatomy of a plot| image:: https://matplotlib.org/stable/_images/anatomy.png
 
+
 ``fig``? ``ax``? What are those?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -146,6 +147,7 @@ work with both APIs, but there is a lot that can be done with the
 explicit API but not the implicit API. A prime example is using the
 subplots function for its main purpose, which is to support and
 format 2 or more separate sets of axes on the same figure.
+
 
 Subplots and Subplot Mosaics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
