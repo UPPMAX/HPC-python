@@ -378,9 +378,9 @@ For reproducibility, we recommend ALWAYS loading a specific module instad of usi
     
 
 
-.. admonition:: LUNARC: Are python and python3 equivalent, or does the former load Python/2.X.Y?
+.. admonition:: LUNARC: Are ``python`` and ``python3`` equivalent, or does the former load Python/2.X.Y?
 
-   The answer depends on which module is loaded. If Python/3.X.Y is loaded, then python is just an alias for python3 and it will start the same command line. However, if Python/2.7.X is loaded, then python will start the Python/2.7.X command line while python3 will start the system version (3.9.18). If you load Python/2.7.X and then try to load Python/3.X.Y as well, or vice-versa, the most recently loaded Python version will replace anything loaded prior, and all dependencies will be upgraded or downgraded to match. Only the system’s Python/3.X.Y version can be run at the same time as a version of Python/2.7.X.
+   The answer depends on which module is loaded. If Python/3.X.Y is loaded, then ``python`` is just an alias for ``python3`` and it will start the same command line. However, if Python/2.7.X is loaded, then ``python`` will start the Python/2.7.X command line while ``python3`` will start the system version (3.9.18). If you load Python/2.7.X and then try to load Python/3.X.Y as well, or vice-versa, the most recently loaded Python version will replace anything loaded prior, and all dependencies will be upgraded or downgraded to match. Only the system’s Python/3.X.Y version can be run at the same time as a version of Python/2.7.X.
 
 
 Run
@@ -464,8 +464,6 @@ Run an interactive Python shell
     >>> <Ctrl-D>
     >>> quit()
     >>> exit()
-
-
 
 
 
