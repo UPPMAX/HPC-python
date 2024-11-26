@@ -43,6 +43,7 @@ extensions = ["sphinx_lesson",
     'sphinx.ext.graphviz',
     'sphinxcontrib.mermaid',
     'sphinx_copybutton',
+    'jupyter_sphinx'
 ]
 
 mermaid_output_format = 'raq'
