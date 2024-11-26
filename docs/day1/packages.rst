@@ -63,7 +63,7 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
   
 	
 	
-   .. tab:: HPC2N
+   .. tab:: HPC2N and LUNARC
    
 	At HPC2N, a way to find Python packages that you are unsure how are names, would be to do
 
