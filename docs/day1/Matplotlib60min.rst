@@ -52,7 +52,7 @@ attributes are:
    and methods is that attributes do not take arguments.
 
 
--------------------------------------------------------
+
 Basic Terms and Application Programming Interface (API)
 -------------------------------------------------------
 
@@ -327,7 +327,7 @@ supported natively but can be used with the installation of the
 images into arrays for use wth
 ``pyplot.imshow()``. <https://matplotlib.org/stable/tutorials/images.html>`__
 
------------------------------
+
 Standard Available Plot Types
 -----------------------------
 
@@ -981,7 +981,7 @@ are of the positions of the Sun and its nearest 20 stellar neighbors.
    plt.show()
 
 
-------------------------------------
+
 Formatting and Placing Plot Elements
 ------------------------------------
 
@@ -1290,7 +1290,7 @@ kwargs of ``colorbar()``.
    plt.show()
 
 
-----------
+
 Key Points
 ----------
 
