@@ -106,11 +106,11 @@ Intro to Pandas
 
      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
 
-
-.. hint:: Flow-Chart: Should I use Pandas?
+To know if Pandas is the right tool for your job, you can consult this flowchart:
 
   .. image:: ../img/when-to-use-pandas.png
      :width: 600 px
+
 
 .. objectives:: You will learn...
 
