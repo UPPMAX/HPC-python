@@ -1,5 +1,6 @@
+########################
 Matplotlib in 60 Minutes
-========================
+########################
 
 Matplotlib is one of the most popular and flexible function libraries
 for data visualization in use today. This crash course is meant to
@@ -8,48 +9,47 @@ encouraged to refer to the original documentation for fuller
 explanations of function arguments.
 
 
-Prerequisites
-~~~~~~~~~~~~~
+.. admonition:: **Prerequisites**
 
-In order to follow this course, you will need to be familiar with:
+   In order to follow this course, you will need to be familiar with:
+   
+   -  The Python 3.X language, data structures (e.g. dictionaries), and built-in functions (e.g. string manipulation functions)
+   -  NumPy: array I/O and manipulation
 
--  The Python 3.X language, data structures (e.g. dictionaries), and built-in functions (e.g. string manipulation functions)
--  NumPy: array I/O and manipulation
-
-It will also help to have experience with:
-
--  SciPy
--  Pandas
--  LaTeX math typesetting (reference links are provided)
-
-Before we get started, let's the meanings of the terms ``args`` and ``kwargs``, since they will appear frequently:
-
--  ``args`` refer to *positional arguments*, which are usually
-   mandatory, but not always. These always come before the
-   ``kwargs``.
--  ``kwargs`` are short for *keyword arguments*. These are usually
-   optional, but it's fairly common for some python functions to
-   require a variable subset of all available kwargs dependent on
-   previous inputs. These always come after ``args``.
-
-It will also help you to remember what classes, methods, and
-attributes are:
-
--  ``classes`` are templates to make Python objects. They have a
-   built-in ``__init__()`` function to set initial properties that
-   must be defined when an object of this class is created, and they
-   methods and attributes to compute values or functions with. Once a
-   class is defined, you typically define an instance of it like
-   ``obj = MyClass(...)``.
--  ``methods`` associate *functions* with the class and allow quick
-   evaluation for each class instance. For an object ``obj`` of class
-   ``MyClass`` that has methods, the method syntax looks like this:
-   ``obj.MyMethod()`` or ``obj.MyMethod(*args, **kwargs)``.
--  ``attributes`` let you automatically compute and store *values*
-   that can be derived for any instance of the class. For an object
-   ``obj`` with an attribute ``MyAttribute``, the syntax is
-   ``obj.MyAttribute``; i.e. the main difference between attributes
-   and methods is that attributes do not take arguments.
+   It will also help to have experience with:
+   
+   -  SciPy
+   -  Pandas
+   -  LaTeX math typesetting (reference links are provided)
+   
+   Before we get started, let's the meanings of the terms ``args`` and ``kwargs``, since they will appear frequently:
+   
+   -  ``args`` refer to *positional arguments*, which are usually
+      mandatory, but not always. These always come before the
+      ``kwargs``.
+   -  ``kwargs`` are short for *keyword arguments*. These are usually
+      optional, but it's fairly common for some python functions to
+      require a variable subset of all available kwargs dependent on
+      previous inputs. These always come after ``args``.
+   
+   It will also help you to remember what classes, methods, and
+   attributes are:
+   
+   -  ``classes`` are templates to make Python objects. They have a
+      built-in ``__init__()`` function to set initial properties that
+      must be defined when an object of this class is created, and they
+      methods and attributes to compute values or functions with. Once a
+      class is defined, you typically define an instance of it like
+      ``obj = MyClass(...)``.
+   -  ``methods`` associate *functions* with the class and allow quick
+      evaluation for each class instance. For an object ``obj`` of class
+      ``MyClass`` that has methods, the method syntax looks like this:
+      ``obj.MyMethod()`` or ``obj.MyMethod(*args, **kwargs)``.
+   -  ``attributes`` let you automatically compute and store *values*
+      that can be derived for any instance of the class. For an object
+      ``obj`` with an attribute ``MyAttribute``, the syntax is
+      ``obj.MyAttribute``; i.e. the main difference between attributes
+      and methods is that attributes do not take arguments.
 
 
 
