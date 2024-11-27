@@ -207,3 +207,142 @@ Text editors on the Clusters
       # or 
       $ python3 example.py
 
+Prepare the course environment
+##############################
+
+
+.. admonition:: Prepare your environment now!
+  
+   - Please log in to Rackham, Kebnekaise, Cosmos or other cluster that you are using.
+   - For graphics, ThinLinc may be the best option.
+      - The `ThinLinc app <https://www.cendio.com/thinlinc/download/>`_.
+   - Rackham has access for regular SSH, through a regular ThinLinc client and a through a web browser interface with ThinLinc: 
+       - SSH: rackham.uppmax.uu.se  
+       - ThinLinc client: rackham-gui.uppmax.uu.se 
+       - Web browser interface: https://rackham-gui.uppmax.uu.se
+       - `ThinLinc user guide at UPPMAX <http://docs.uppmax.uu.se/cluster_guides/thinlinc/>`_
+           - 2FA may be needed, which can be handled by logging in with regular SSH, doing 2FA, logging out again, then there is a grace period of some minutes for you to login to ThinLinc. `More here: <https://www.uu.se/en/centre/uppmax/get-started/2-factor>`_
+   - Kebnekaise has access for regular SSH, ThinLinc clients, and through a web browser interface with ThinLinc: 
+       - SSH: kebnekaise.hpc2n.umu.se 
+       - ThinLinc client: kebnekaise-tl.hpc2n.umu.se 
+       - From webbrowser: https://kebnekaise-tl.hpc2n.umu.se:300/ 
+   - Cosmos: 
+       - SSH: cosmos.lunarc.lu.se 
+       - ThinLinc: cosmos-dt.lunarc.lu.se 
+           - 2FA required! For more info, `go here: <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/>`_ 
+
+.. admonition:: Project
+
+    - The course project on UPPMAX (Rackham) is: ``naiss2024-22-1442``
+    - The course project on HPC2N (Kebnekaise) is: ``hpc2n2024-142``
+    - The course project on LUNARC (Cosmos) is: `` ``
+
+
+    
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      - Rackham: ``ssh <user>@rackham.uppmax.uu.se``       
+      - Rackham through ThinLinc, 
+       
+         - use the App with
+             - address: ``rackham-gui.uppmax.uu.se``  NB: leave out the ``https://www.``!
+             - user: ``<username-at-uppmax>``  NB: leave out the ``https://www.``!
+         - or go to <https://rackham-gui.uppmax.uu.se>
+
+           - here, you'll need two factor authentication.
+          
+      - Create a working directory where you can code along. We recommend creating it under the course project storage directory
+   
+         - Example. If your username is "mrspock" and you are at UPPMAX, then we recommend you to create a user folder in the project folder of the course and step into that: 
+
+         - ``cd /proj/hpc-python-fall``
+         - ``mkdir mrspock``
+         - ``cd mrspock``
+
+   .. tab:: HPC2N
+
+      - Kebnekaise: ``<user>@kebnekaise.hpc2n.umu.se``     
+      - Kebnekaise through ThinLinc, use the client and put
+        
+         - as server: ``kebnekaise-tl.hpc2n.umu.se`` 
+         - as user: ``<username-at-HPC2N>`` NOTE: Leave out the ``@hpc2n.umu.se``
+      - Create a working directory where you can code along. We recommend creating it under the course project storage directory
+   
+      - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
+     
+          - ``/proj/nobackup/hpc-python-fall-hpc2n/bbrydsoe``
+
+   .. tab:: LUNARC 
+
+      - Cosmos with SSH: ``cosmos.lunarc.lu.se``
+      - Cosmos through ThinLinc: ``cosmos-dt.lunarc.lu.se``
+
+          - as server: ``cosmos-dt.lunarc.lu.se``
+          - as user: ``<username-at-lunarc>`` NOTE: leave out the ``@lunarc.lu.se`` 
+
+      - Create a working directory where you can code along.     
+
+.. admonition:: Exercises
+
+   - Stay in/go to the folder you just created above!
+   - You can download the exercises from the course GitHub repo, under the "Exercises" directory or clone the whole repo!
+ 
+       - Clone it with: ``git clone https://github.com/UPPMAX/HPC-python.git``
+       - Copy the tarball with ``wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz`` and then uncompress with ``tar -zxvf exercises.tar.gz``  
+
+   - Get an overview here: ``https://github.com/UPPMAX/HPC-python/tree/main/Exercises``
+   
+**NOTE** If you downladed the tarball and uncompressed it, the exercises are under ``exercises/`` in the directory you picked. Under that you find Python scripts in ``programs`` and batch scripts in the directories named for the sites. 
+
+**NOTE** If you are downloading / cloning from the course GitHub repo and into the above directory, your Python examples and batch submit file examples will be in a subdirectory of that.
+
+Assuming you created a directory MYDIR-NAME under the project storage, you will find the examples as follows:
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+        Python programs
+
+        .. code-block:: sh
+
+            /proj/hpc-python-fall/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+
+        Batch submit files 
+
+        .. code-block:: sh
+
+            /proj/hpc-python-fall/MYDIR-NAME/HPC-python/Exercises/examples/uppmax
+
+
+   .. tab:: HPC2N
+ 
+      Python programs
+
+      .. code-block:: sh
+
+          /proj/nobackup/python-hpc-fall-hpc2n/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+
+      Batch submit files
+
+      .. code-block:: sh
+
+          /proj/nobackup/python-hpc-fall-hpc2n/MYDIR-NAME/HPC-python/Exercises/examples/hpc2n/
+
+   .. tab:: LUNARC
+
+      Python programs
+
+      .. code-block:: sh
+
+      TO_BE_DONE
+
+      Batch submit files
+
+      .. code-block::
+
+      TO_BE_DONE 
+    
+
