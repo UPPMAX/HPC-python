@@ -487,8 +487,8 @@ Content of the course
    :maxdepth: 2
    :caption: Pre-requirements:
 
-   prereqs.md
-   preparations.md
+   prereqs.rst
+   preparations.rst
     
 .. toctree::
    :maxdepth: 2
