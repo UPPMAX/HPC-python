@@ -55,11 +55,10 @@ explanations of function arguments.
 
   .. tab:: HPC2N
 
-     If you use Matplotlib at the command line, you after importing matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in your script or at the Python prompt in order to view your plots.
+     If you use Matplotlib at the command line, after importing matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in your script or at the Python prompt in order to view your plots.
 
-      Alternatively, you can load the Spyder module ``Spyder/4.1.5-Python-3.8.2`` with its prerequisites, start it with the command ``spyder3``, and display your graphics in the plots pane (which you can undock and expand). Unfortunately the only version of Spyder available is fairly old.
+     Alternatively, you can use a GUI, either JupyterLab or Spyder, but you will still have to pre-load Matplotlib and any other modules you want to use (if you forget any, you'll have to close the GUI and reopen it after loading the missing modules) before loading either of them. The command to start Jupyter Lab after you load it is ``jupyter-lab``, and the Spyder launch command is `spyder3`. Unfortunately the only version of Spyder available is pretty old.
 
-      Either way, you will also need to load all the prerequisite modules (don't forget the SciPy-bundle if you plan to use NumPy, SciPy, or Pandas!) before starting either the Python command line or Spyder.
 
      As of 27-11-2024, ``ml spider matplotlib`` outputs the following versions:
 
