@@ -511,6 +511,8 @@ Content of the course
    :maxdepth: 2
    :caption: Lessons day 2:
 
+   day2/pandas.rst
+   day2/Seaborn-Intro.rst
    day2/parallel.rst
    day2/big_data.md
    day2/ml.md
