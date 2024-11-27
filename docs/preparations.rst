@@ -20,6 +20,44 @@ These are discussed in detail below
 Log in to one of the HPC systems covered in this course
 -------------------------------------------------------
 
+.. admonition:: To be done before
+
+   - Follow the steps in the emailed instructions.
+   - First time you need to use a terminal to set password
+   - When password is set you can begin to use ThinLinc as well.
+
+
+.. warning::
+
+   - When logging in to UPPMAX the first time in ThinLinc, choose XFCE desktop. 
+   - On HPC2N, you will use the MATE desktop as default. 
+   - Whe logging in to LUNARC the first time in ThinLinc, choose GNOME Classis Desktop.  
+   - On NSC you will use XFCE desktop as default. 
+
+.. warning::
+
+   - When you login to Cosmos, whether through ThinLinc or regular SSH client, you need 2FA 
+     
+      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/
+      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/authenticator_howto/
+
+.. warning::
+
+   - When you login to Tetralith, whether through ThinLinc or regular SSH client, you need 2FA 
+
+      - https://www.nsc.liu.se/support/2fa/ 
+
+.. seealso::
+
+   - `Log in to Rackham <http://docs.uppmax.uu.se/getting_started/login_rackham/>`_ 
+   - `Log in to Kebnekaise <http://docs.uppmax.uu.se/getting_started/login_rackham/>`_ 
+
+   - `Log in to Cosmos <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/>`_
+
+   - `Log in to Tetralith <https://www.nsc.liu.se/support/getting-started/>`_ 
+
+       - `Log in to Tetralith with graphical applications (scroll down for ThinLinc) <https://www.nsc.liu.se/support/graphics/>`_ 
+
 These are the ways to access your HPC cluster and how that looks like:
 
 +---------------------------------------------+-------------------------------------------------------------------+
@@ -101,3 +139,71 @@ Need help? Contact support:
 +------------+------------------------+----------------------------------------------+
 | UPPMAX     | `Contact UPPMAX support <https://docs.uppmax.uu.se/support/>`_        |
 +------------+------------------------+----------------------------------------------+
+
+.. keypoints::
+
+   - When you log in from your local computer you will always arrive at a login node with limited resources. 
+       - You reach the calculations nodes from within the login node (See  Submitting jobs section)
+   - You reach UPPMAX/HPC2N/LUNARC clusters either using a terminal client or Thinlinc
+   - Graphics are included in Thinlinc and from terminal if you have enabled X11.
+   - Which client to use?
+       - Graphics and easy to use
+       - ThinLinc
+   - Best integrated systems
+       - Visual Studio Code has several extensions (remote, SCP, programming IDE:s)
+       - Windows: MobaXterm is somewhat easier to use.
+
+Text editors on the Clusters
+----------------------------
+- Nano
+- gedit
+- mobaxterm built-in
+
+.. seealso::
+
+   - http://docs.uppmax.uu.se/software/text_editors/
+   - https://docs.hpc2n.umu.se/tutorials/linuxguide/#editors 
+
+.. hint::
+
+   - There are many ways to edit your scripts.
+   - If you are rather new.
+
+      - Graphical: ``$ gedit <script> &`` 
+   
+         - (``&`` is for letting you use the terminal while editor window is open)
+
+         - Requires ThinLinc or ``ssh -Y ...`` or ``ssh -X``
+
+      - Terminal: ``$ nano <script>``
+
+   - Otherwise you would know what to do!
+   - |:warning:| The teachers may use their common editor, like ``vi``/``vim``
+      - If you get stuck, press: ``<esc>`` and then ``:q`` !
+ 
+
+.. demo::
+
+   - Let's make a script with the name ``example.py``  
+
+   .. code-block:: console
+
+      $ nano example.py
+
+   - Insert the following text
+
+   .. code-block:: python
+
+      # This program prints Hello, world!
+      print('Hello, world!')
+
+   - Save and exit. In nano: ``<ctrl>+O``, ``<ctrl>+X``
+
+   You can run a python script in the shell like this:
+
+   .. code-block:: console
+
+      $ python example.py
+      # or 
+      $ python3 example.py
+
