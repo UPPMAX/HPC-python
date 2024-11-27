@@ -154,7 +154,7 @@ explanations of function arguments.
                  matplotlib/3.3.3-fosscuda-2020b
                  matplotlib/3.4.3-foss-2021b
 
-     The native backend should work.
+     The native backend should work if you are logged in via Thinlinc. Plots cannot be viewed over SSH.
 
 
 
