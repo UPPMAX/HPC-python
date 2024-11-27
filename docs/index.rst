@@ -146,6 +146,10 @@ The three HPC centers UPPMAX, HPC2N, and LUNARC
        - Cosmos (CPUs and GPUs)
        - Cosmos-SENS (sensitive data) 
 
+     - NSC has one NAISS system 
+     
+       - Tetralith (CPUs and GPUs)
+
      - Conda is recommended only for UPPMAX and LUNARC users
     
 .. warning:: 
