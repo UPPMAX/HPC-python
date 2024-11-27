@@ -127,7 +127,7 @@ explanations of function arguments.
 
   .. tab:: UPPMAX
 
-     On Rackham, ``module spider matplotlib`` outputs the following versions as of 27-11-2024:
+     On Rackham, **loading Python version 3.8.7 or newer will allow you to import Matplotlib and NumPy** without having to load anything else. For earlier versions, ``module spider matplotlib`` outputs the following versions:
 
      .. code-block:: console
 
