@@ -99,6 +99,32 @@ explanations of function arguments.
 
      As of 27-11-2024, ``ml spider matplotlib`` outputs the following versions:
 
+     .. code-block:: console
+
+         ----------------------------------------------------------------------------
+           matplotlib:
+         ----------------------------------------------------------------------------
+             Description:
+               matplotlib is a python 2D plotting library which produces publication
+               quality figures in a variety of hardcopy formats and interactive
+               environments across platforms. matplotlib can be used in python
+               scripts, the python and ipython shell, web application servers, and
+               six graphical user interface toolkits.
+         
+              Versions:
+                 matplotlib/2.2.5-Python-2.7.18
+                 matplotlib/3.3.3
+                 matplotlib/3.4.2
+                 matplotlib/3.4.3
+                 matplotlib/3.5.2
+                 matplotlib/3.7.0
+                 matplotlib/3.7.2
+                 matplotlib/3.8.2
+                 matplotlib/3.9.2
+         
+         ----------------------------------------------------------------------------
+
+
   .. tab:: UPPMAX
 
      On Rackham, ``module spider matplotlib`` outputs the following versions as of 27-11-2024:
