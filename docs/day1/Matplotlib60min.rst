@@ -51,6 +51,80 @@ explanations of function arguments.
       ``obj.MyAttribute``; i.e. the main difference between attributes
       and methods is that attributes do not take arguments.
 
+.. tabs:: Loading Matplotlib
+
+  .. tab:: HPC2N
+
+     If you use Matplotlib at the command line, once in Python, you will need to ``import matplotlib`` and set ``matplotlib.use('Tkinter')`` in order to view your plots. Alternatively, you can load the Spyder module ``Spyder/4.1.5-Python-3.8.2`` with its prerequisites, start it with the command ``spyder3``, and display your graphics in the plots pane (which you can undock and expand). Either way, you will also need to load all the prerequisite modules (don't forget the SciPy-bundle if you plan to use NumPy or SciPy!) before starting either the Python command line or Spyder.
+
+     As of 27-11-2024, ``ml spider matplotlib`` outputs the following versions:
+
+     .. code-block:: console
+
+         ----------------------------------------------------------------------------
+           matplotlib:
+         ----------------------------------------------------------------------------
+              Versions:
+                 matplotlib/2.2.4-Python-2.7.15
+                 matplotlib/2.2.4-Python-2.7.16
+                 matplotlib/2.2.4 (E)
+                 matplotlib/2.2.5-Python-2.7.18
+                 matplotlib/2.2.5 (E)
+                 matplotlib/3.1.1-Python-3.7.4
+                 matplotlib/3.1.1 (E)
+                 matplotlib/3.2.1-Python-3.8.2
+                 matplotlib/3.2.1 (E)
+                 matplotlib/3.3.3
+                 matplotlib/3.3.3 (E)
+                 matplotlib/3.4.2
+                 matplotlib/3.4.2 (E)
+                 matplotlib/3.4.3
+                 matplotlib/3.4.3 (E)
+                 matplotlib/3.5.2-Python-3.8.6
+                 matplotlib/3.5.2
+                 matplotlib/3.5.2 (E)
+                 matplotlib/3.7.0
+                 matplotlib/3.7.0 (E)
+                 matplotlib/3.7.2
+                 matplotlib/3.7.2 (E)
+                 matplotlib/3.8.2
+                 matplotlib/3.8.2 (E)
+         
+         Names marked by a trailing (E) are extensions provided by another module.
+        
+
+  .. tab:: LUNARC
+
+     On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter applications to use Matplotlib. If you must work on the command line, then you will need to load all the prerequisite modules (don't forget the SciPy-bundle if you plan to use NumPy or SciPy!), and you will need to ``import matplotlib`` and set ``matplotlib.use('Tkinter')`` in order to view your plots.
+
+     As of 27-11-2024, ``ml spider matplotlib`` outputs the following versions:
+
+  .. tab:: UPPMAX
+
+     On Rackham, ``module spider matplotlib`` outputs the following versions as of 27-11-2024:
+
+     .. code-block:: console
+
+         ----------------------------------------------------------------------------
+           matplotlib:
+         ----------------------------------------------------------------------------
+             Description:
+               matplotlib is a python 2D plotting library which produces publication
+               quality figures in a variety of hardcopy formats and interactive
+               environments across platforms. matplotlib can be used in python
+               scripts, the python and ipython shell, web application servers, and
+               six graphical user interface toolkits.
+         
+              Versions:
+                 matplotlib/2.2.3-fosscuda-2018b-Python-2.7.15
+                 matplotlib/3.0.0-intel-2018b-Python-3.6.6
+                 matplotlib/3.0.3-foss-2019a-Python-3.7.2
+                 matplotlib/3.3.3-foss-2020b
+                 matplotlib/3.3.3-fosscuda-2020b
+                 matplotlib/3.4.3-foss-2021b
+
+     The native backend should work.
+
 
 
 Basic Terms and Application Programming Interface (API)
