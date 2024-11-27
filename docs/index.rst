@@ -10,10 +10,11 @@ Welcome to "Using Python in an HPC environment" course material
    
    Here you will find the content of the workshop Using Python in an HPC environment.
    
-   - Documentation at the HPC centres UPPMAX, HPC2N, and LUNARC
-      - UPPMAX: http://docs.uppmax.uu.se/software/python/
-      - HPC2N: https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages
-      - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/
+   - Documentation at the HPC centres UPPMAX, HPC2N, LUNARC and NSC
+      - UPPMAX: <https://docs.uppmax.uu.se/software/python/>
+      - HPC2N: <https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages>
+      - LUNARC: <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>
+      - NSC: <https://www.nsc.liu.se/support/>
 
 
 .. exercise:: Content
@@ -506,8 +507,8 @@ Content of the course
    :caption: Lessons day 2:
 
    day2/parallel.rst
+   day2/big_data.md
    day2/ml.md
-   day2/ML_deeper.rst
 
 .. toctree::
    :maxdepth: 2
