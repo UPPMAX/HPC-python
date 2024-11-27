@@ -232,14 +232,14 @@ Preliminary schedule
      - Install, create and handle
      - Björn
    * - 11.00
-     - **Short leg stretch**
+     - **Short leg stretch** 10m
      - 
      - 
-   * - 11:10
-     - Reaching compute nodes with Slurm  
+   * - 10:40
+     - Reaching compute nodes with Slurm   (70)
      - Batch jobs vs interactive work in IDEs
      - Birgitte
-   * - 11:50
+   * - ~~11:50~~
      - Catch-up time and Q/A (no recording)
      - 
      - 
@@ -247,30 +247,30 @@ Preliminary schedule
      - **LUNCH**
      - 
      - 
-   * - 13:00-14:30
-     - Analysis with Python
+   * - 13:00-14:45
+     - Analysis with Python (90m)
      - Matplotlib, IDEs and plots from scripts
      - Rebecca
    * - 13.55
      - **Short leg stretch** 15m
      - 
      - 
-   * - 14:30-15:30
-     - Using GPUs for Python
-     - Pedro?
-     - 
-   * - 14.50
+   * - 14.45
      - **Coffee** 15 min
      - 
      - 
-   * - 15:35
+   * - 15.00
+     - Using GPUs for Python (30m)
+     - Birgitte
+     - 
+   * - 15:30
+     - Summary + Q/A Evaluation
+     - 
+     - 
+   * - ~15.50
      - Use cases and Q/A
      - Bring your own problems
      - All
-   * - 16.35
-     - Summary + Evaluation
-     - 
-     - 
 
 .. list-table:: Preliminary schedule Friday 6 December
    :widths: 20 25 40 15
