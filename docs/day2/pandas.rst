@@ -1,6 +1,6 @@
-===============
+###############
 Intro to Pandas
-===============
+###############
 
 **Pandas**, short for PANel Data AnalysiS, is a Python data library for cleaning, organizing, and statistically analyzing moderately large ($lesssim3$ GiB) data sets. It was originally developed for analyzing and modelling financial records (panel data) over time, and has since expanded into a package rivaling SciPy in the number and complexity of available functions. Pandas offers:
 - Explicit, automatic data alignment: all entries have corresponding row and column labels/indexes.
@@ -130,9 +130,13 @@ Basic Object Classes and Data Types
 -----------------------------------
 
 The main object classes of Pandas are ``Series and ``DataFrame``.
+
 - ``pandas.Series(data, index=None, name=None, **kwargs)`` instantiates a 1D array with customizable indexes (labels) attached to every entry for easy access, and optionally a name for later addition to a DataFrame as a column
-  - Indexes can be numbers (integer or float), strings, datetime objects, or even tuples; the default is 0-based integer indexing
+
+  - Indexes can be numbers (integer or float), strings, datetime objects, or even tuples; the default is 0-based integer indexing. Indexes are also themselves a Pandas data type.
+
 - ``pandas.DataFrame(data, columns=None, index=None, **kwargs)`` instantiates a 2D array where every column is a Series: all entries are accessible by column and row labels
+
   - Any function that works with a DataFrame will work with a Series unless the function specifically requires column or index arguments
   - Column labels and row indexes/labels can be safely (re)assigned as needed
 
