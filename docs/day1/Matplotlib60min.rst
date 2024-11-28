@@ -51,7 +51,11 @@ explanations of function arguments.
       ``obj.MyAttribute``; i.e. the main difference between attributes
       and methods is that attributes do not take arguments.
 
-.. tabs:: Loading Matplotlib
+
+Load and Run
+------------
+
+.. tabs::
 
   .. tab:: HPC2N
 
