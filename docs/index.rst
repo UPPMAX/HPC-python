@@ -281,7 +281,7 @@ Preliminary schedule
      - Content
      - Teacher
    * - 9:00
-     - Analysis with Python part I
+     - Analysis with Python part I (50)
      - Pandas
      - Rebecca
    * - 9:50
@@ -289,7 +289,7 @@ Preliminary schedule
      - 
      - 
    * - 10:05
-     - Analysis with Python part II
+     - Analysis with Python part II (50)
      - Pandas & Seaborn
      - Rebecca
    * - 10.55
@@ -309,7 +309,7 @@ Preliminary schedule
      - Dask
      - Pedro
    * - 13:15
-     - Big Data with Python
+     - Big Data with Python (35)
      - File formats and packages, Chunking
      - Björn
    * - 13:50
@@ -317,7 +317,7 @@ Preliminary schedule
      - 
      - 
    * - 14:05
-     - Machine and Deep Learning part I
+     - Machine and Deep Learning part I (50)
      - Pytorch, Tensorflow, ScikitLearn
      - Jayant
    * - 14.55
@@ -325,7 +325,7 @@ Preliminary schedule
      - 
      - 
    * - 15:10
-     - Machine and Deep Learning part II
+     - Machine and Deep Learning part II (40)
      - Pytorch, Tensorflow, ScikitLearn
      - Jayant
    * - 15.50
@@ -333,11 +333,15 @@ Preliminary schedule
      - 
      - 
    * - 16.00
+     - Summar and  Q&A and avaluation
+     - 
+     - 
+   * - 16.20
      - Use cases and Q&A
      - Bring your own problems
      - All
    * - 16.45
-     - Ending, with evaluation
+     - 
      - 
      - 
 
