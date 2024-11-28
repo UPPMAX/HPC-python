@@ -161,8 +161,8 @@ For the rest of this lesson, example DataFrames will be abbreviated as ``df`` an
 
 Pandas assigns the data in a Series and each column of a DataFrame a datatype based on built-in or NumPy datatypes or other formatting cues. The main Pandas datatypes are as follows.
 
-* ``float64`` and ``int64`` are used for most numerical data. You can convert to 32-, 16-, and even 8-bit versions of either to save memory.
-* ``object`` stores any of the built-in types ``str``, ``Bool``, ``list``, ``tuple``, and mixed data types. Malformed data are also often designated as ``object`` type.
+* Numerical data are stored as ``float64`` or ``int64``. You can convert to 32-, 16-, and even 8-bit versions of either to save memory.
+* The ``object`` datatype stores any of the built-in types ``str``, ``Bool``, ``list``, ``tuple``, and mixed data types. Malformed data are also often designated as ``object`` type.
 
   - A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of ``object``.
 
@@ -189,7 +189,7 @@ This is far from an exhaustive list.
 .. warning:: Nomenclature for Row and Column Labels
    
    Pandas documentation has inconsistent nomenclature for row and column labels/indexes: 
-  
+   
    - "Indexes" usually refer to just the row labels, but may sometimes refer to both row and column labels.
    - "Columns" may refer to the labels and contents of columns collectively, or only the labels.
    - Column labels, and rarely also row indexes, are sometimes called “Keys”, particularly in commands designed to mimic SQL functions.
@@ -234,7 +234,7 @@ The ``index_col=0`` part sets the first column as the row labels, and the reader
 Building a DataFrame or Series from scratch is also easy. Lists and arrays can be converted directly to Series and DataFrames, respectively.
 
 * Both ``pd.Series()`` and ``pd.DataFrame()`` have an ``index`` kwarg to assign a list of numbers, names, times, or other hashable keys to each row. 
-* ``pd.DataFrame()`` has a ``columns`` kwarg to a sign a list of names to the columns of the table. The equivalent for ``pd.Series()`` is just ``name``, which only takes a single value and doesn't do anything unless you plan to join that Series to a larger DataFrame.
+* You can use the ``columns`` kwarg in ``pd.DataFrame()`` to assign a list of names to the columns of the table. The equivalent for ``pd.Series()`` is just ``name``, which only takes a single value and doesn't do anything unless you plan to join that Series to a larger DataFrame.
 * Dictionaries and record arrays can be converted to DataFrames with ``pd.DataFrame.from_dict(myDict)`` and ``pd.DataFrame.from_records(myRecArray)``, respectively, and the keys will automatically be converted to column labels.
 
 **Example**
@@ -257,27 +257,26 @@ Inspection
 
 The main data inspection functions for DataFrames (and Series) are as follows.
 
-* ``df.head()`` prints first 5 rows of data with row and column labels.  ``df.tail()`` does same for last 5 rows. Both accept and integer argument to print a different number of rows.
-* ``df.info()`` prints the number of rows with their first and last index values; titles, index numbers, valid data counts, and datatypes of columns; and the estimated size of ``df`` in memory. Don't rely on this memory estimate; it is only accurate for numerical columns.
-* ``df.describe()`` prints summary statistics for all the numerical columns in ``df``.
-* ``df.nunique()`` prints counts of the unique values in each column.
-* ``df.value_counts()`` prints each unique value and the number of of occurrences for every combination of row and column values for as many of each as are selected (usually applied to just a couple of columns at a time at most)
-* ``df.sample()`` randomly selects a given number of rows ``n=nrows``, or a decimal fraction ``frac`` of the total number of rows.
-* ``df.nlargest(n, columns)`` and ``df.nsmallest(n, columns)`` take an integer ``n`` and a column name or list of column names to sort the table by, and then return the ``n`` rows with the largest or smallest values in the columns used for sorting. These functions do not return ``df`` sorted.
+``df.head()`` prints first 5 rows of data with row and column labels.  ``df.tail()`` does same for last 5 rows. Both accept and integer argument to print a different number of rows.
+
+``df.info()`` prints the number of rows with their first and last index values; titles, index numbers, valid data counts, and datatypes of columns; and the estimated size of ``df`` in memory. Don't rely on this memory estimate; it is only accurate for numerical columns.
+
+``df.describe()`` prints summary statistics for all the numerical columns in ``df``.
+
+``df.nunique()`` prints counts of the unique values in each column.
+
+``df.value_counts()`` prints each unique value and the number of of occurrences for every combination of row and column values for as many of each as are selected (usually applied to just a couple of columns at a time at most)
+
+``df.sample()`` randomly selects a given number of rows ``n=nrows``, or a decimal fraction ``frac`` of the total number of rows.
+
+``df.nlargest(n, columns)`` and ``df.nsmallest(n, columns)`` take an integer ``n`` and a column name or list of column names to sort the table by, and then return the ``n`` rows with the largest or smallest values in the columns used for sorting. These functions do not return ``df`` sorted.
 
 .. important:: The ``memory_usage()`` function
 
-  ``df.memory_usage(deep=False)`` returns the estimated memory usage of each column. With the default 
-  ``deep=False``, the sum of the estimated memory size of all columns is the same as what is included 
-  with ``df.info()``, which is not accurate. However, with ``deep=True``, the sizes of strings and other 
-  non-numeric data are factored in, giving a much better estimate of the total size of ``df`` in memory. 
+   ``df.memory_usage(deep=False)`` returns the estimated memory usage of each column. With the default ``deep=False``, the sum of the estimated memory size of all columns is the same as what is included with ``df.info()``, which is not accurate. However, with ``deep=True``, the sizes of strings and other non-numeric data are factored in, giving a much better estimate of the total size of ``df`` in memory.
   
-  This is because numeric columns are fixed width in memory and can be stored contiguously, but object-
-  type columns are variable in size, so only pointers can be stored at the location of the main DataFrame
-  in memory. The strings that those pointers refer to are kept elsewhere. When ``deep=False``, or when 
-  the memory usage is estimated with ``df.info()``, the memory estimate includes all the numeric data but
-  only the pointers to non-numeric data.
-  
+   This is because numeric columns are fixed width in memory and can be stored contiguously, but object-type columns are variable in size, so only pointers can be stored at the location of the main DataFrame in memory. The strings that those pointers refer to are kept elsewhere. When ``deep=False``, or when the memory usage is estimated with df.info()``, the memory estimate includes all the numeric data but only the pointers to non-numeric data.
+
 
 Data Selection Syntax
 ^^^^^^^^^^^^^^^^^^^^^
@@ -291,8 +290,6 @@ To Access...                         Syntax
 1 named row                          ``df.loc['row_name']``
 1 row by index                       ``df.iloc[index]``
 1 column by index (rarely used)      ``df.iloc[:,index]``
-1 cell by row and column labels      ``df.at['row_name','col_name']`` or ``df.at[index,'col_name']``
-1 cell by row and column indexes     ``df.iat[row_index, col_index]``
 subset of columns                    ``df[['col0', 'col1', 'col2']]``
 subset of named rows                 ``df.loc[['rowA','rowB','rowC']]``
 subset of rows by index              ``df.iloc[i_m:i_n]`` or ``df.take([i_m, ..., i_n])`` where ``i_m`` and ``i_n`` are the m :sup:`th` and n :sup:`th` integer indexes
@@ -300,3 +297,9 @@ subset of rows by index              ``df.iloc[i_m:i_n]`` or ``df.take([i_m, ...
 2 or more rows and columns by index  ``df.iloc[i_m:i_n, j_p:j_q]`` where i and j are row and column indexes, respectively
 columns by name and rows by index    **You can mix ``.loc[]`` and ``.iloc[]`` for selection, but NOT assignment!**
 ===================================  ==================================================================================================================================
+
+To select by conditions, any binary comparison operator (>, <, ==, =>, =<, !=) and most logical operators can be used inside the square brackets of ``df[...]``, ``df.loc[...]``, and ``df.iloc[...]`` with some conditions.
+
+* Bitwise logical operators (``&``, ``|``, ``^``, ``~``) must be used in lieu of plain-English counterparts (``and``, ``or``, ``xor``, ``not``)
+* When 2 or more conditions are specified, **each individual condition must be bracketed by parentheses** or code will raise TypeError
+* The "is" operator does not work within ``.loc[]``. Use ``.isna()`` or ``.notna()`` to check for invalid data, and ``.isin()``, ``.notin()``, or ``.str.contains()`` to check for the presence of substrings.
