@@ -269,31 +269,49 @@ The main data inspection functions for DataFrames (and Series) are as follows.
    
    ``df.memory_usage(deep=False)`` returns the estimated memory usage of each column. With the default ``deep=False``, the sum of the estimated memory size of all columns is the same as what is included with ``df.info()``, which is not accurate. However, with ``deep=True``, the sizes of strings and other non-numeric data are factored in, giving a much better estimate of the total size of ``df`` in memory.
   
-   This is because numeric columns are fixed width in memory and can be stored contiguously, but object-type columns are variable in size, so only pointers can be stored at the location of the main DataFrame in memory. The strings that those pointers refer to are kept elsewhere. When ``deep=False``, or when the memory usage is estimated with df.info()``, the memory estimate includes all the numeric data but only the pointers to non-numeric data.
+   This is because numeric columns are fixed width in memory and can be stored contiguously, but object-type columns are variable in size, so only pointers can be stored at the location of the main DataFrame in memory. The strings that those pointers refer to are kept elsewhere. When ``deep=False``, or when the memory usage is estimated with ``df.info()``, the memory estimate includes all the numeric data but only the pointers to non-numeric data.
 
 
 Data Selection Syntax
 ^^^^^^^^^^^^^^^^^^^^^
 
-Here is a table of the syntax for how to select different subsets or cross-sections of a DataFrame
+Here is a table of the syntax for how to select different subsets or cross-sections of a DataFrame.
 
-===================================  =================================================================================================================================
-To Access...                         Syntax
-===================================  =================================================================================================================================
-1 column                             ``df['col_name']`` or ``df.col_name``
-1 named row                          ``df.loc['row_name']``
-1 row by index                       ``df.iloc[index]``
-1 column by index (rarely used)      ``df.iloc[:,index]``
-subset of columns                    ``df[['col0', 'col1', 'col2']]``
-subset of named rows                 ``df.loc[['rowA','rowB','rowC']]``
-subset of rows by index              ``df.iloc[i_m:i_n]`` or ``df.take([i_m, ..., i_n])`` where ``i_m`` and ``i_n`` are the m :sup:`th` and n :sup:`th` integer indexes
-1 or more rows and columns by name   ``df.loc['row','col']`` or ``df.loc[['rowA','rowB', ...],['col0', 'col1', ...]]``
-2 or more rows and columns by index  ``df.iloc[i_m:i_n, j_p:j_q]`` where i and j are row and column indexes, respectively
-columns by name and rows by index    **You can mix ``.loc[]`` and ``.iloc[]`` for selection, but NOT assignment!**
-===================================  ==================================================================================================================================
+====================================  ==================================================================================================================================
+To Access...                          Syntax
+====================================  ==================================================================================================================================
+1 column                              ``df['col_name']`` or ``df.col_name``
+1 named row                           ``df.loc['row_name']``
+1 row by index                        ``df.iloc[index]``
+1 column by index (rarely used)       ``df.iloc[:,index]``
+subset of columns                     ``df[['col0', 'col1', 'col2']]``
+subset of named rows                  ``df.loc[['rowA','rowB','rowC']]``
+subset of rows by index               ``df.iloc[i_m:i_n]`` or ``df.take([i_m, ..., i_n])`` where ``i_m`` and ``i_n`` are the m :sup:`th` and n :sup:`th` integer indexes
+1 or more rows and columns by name    ``df.loc['row','col']`` or ``df.loc[['rowA','rowB', ...],['col0', 'col1', ...]]``
+2 or more rows and columns by index   ``df.iloc[i_m:i_n, j_p:j_q]`` where i and j are row and column indexes, respectively
+columns by name and rows by index     You can mix ``.loc[]`` and ``.iloc[]`` for selection, **but NOT for assignment!**
+====================================  ==================================================================================================================================
 
 To select by conditions, any binary comparison operator (``>``, ``<``, ``==``, ``=>``, ``=<``, ``!=``) and most logical operators can be used inside the square brackets of ``df[...]``, ``df.loc[...]``, and ``df.iloc[...]`` with some conditions.
 
 * Bitwise logical operators (``&``, ``|``, ``^``, ``~``) must be used in lieu of plain-English counterparts (``and``, ``or``, ``xor``, ``not``)
 * When 2 or more conditions are specified, **each individual condition must be bracketed by parentheses** or code will raise TypeError
-* The "is" operator does not work within ``.loc[]``. Use ``.isna()`` or ``.notna()`` to check for invalid data, and ``.isin()``, ``.notin()``, or ``.str.contains()`` to check for the presence of substrings.
+* The "is" operator does not work within ``.loc[]``. Use ``.isin()``, ``.notin()``, or ``.str.contains()`` to check for the presence of substrings.
+
+
+Finding and Handling Bad or Missing Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Use ``.isna()`` or ``.notna()`` to check for missing or invalid data.
+* If you need to find infinities, use ``np.isinf(data_copy.to_numpy())`` where ``data_copy`` is a copy of the column/row to search.
+* Use ``df.dropna(axis=axis)`` to remove whole rows (``axis=0``) or columns (``axis=1``) containing invalid entries (recommend keeping inplace=False).
+* Use ``df.fillna()`` to replace NaNs with a fixed value, or ``df.interpolate()`` to fill gaps based on surrounding data. You can use any interpolation algorithm allowed as the ``method`` kwarg of ``scipy.interpolate()``.
+
+.. warning::
+
+   Pandas assumes whitespaces are intentional, so ``.isna()`` will not detect them. If a numerical data column contains spaces where there are missing data, the whole column will be misclassified as ``object`` type. The fix for this is ``df['col'] = df['col'].replace(' ', np.nan).astype('float64')``.
+
+* If 2 or more rows are identical, use ``df.drop_duplicates()`` to return duplicate-free copy of the DataFrame (default) or remove duplicates in-place (``inplace=True``). You can use the ``subset`` kwarg to remove duplicates by specific columns (more aggressive).
+* Use ``df.drop(data, axis=axis)`` to get rid of unneeded columns (``axis=1``) or rows (``axis=0``) by name or index; set ``inplace=True`` to modify ``df`` in-place.
+* To mask bad numeric data (or infinities), use ``df.mask(condition, other=None)``, where ``other`` (default ``NaN``) passes scalars or a Series/DataFrame to replace values with.
+* If data are predictably malformed, use ``df.replace(to_replace=old, value=new)`` where ``old`` and/or ``new`` can be of types ``str``, ``regex``, ``list``, ``dict``, ``Series``, ``int``, ``float``, or ``None``. If ``old`` is a dict, key-value pairs are interpreted as ``'old': 'new'`` unless the ``value`` kwarg is supplied; then the key-value pairs are interpreted as ``in_column: 'old'``.
