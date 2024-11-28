@@ -126,7 +126,7 @@ To know if Pandas is the right tool for your job, you can consult the flowchart 
    * How to compare data, implement complex and/or user-defined functions, and perform windowed operations
    * How to use or create time series data (if time allows)
    * Advanced topics (if time allows) - How to prep for ML/AI, what are memory-saving data types
-   
+
 
 We will also have a short sesion after this on plotting with Seaborn, a package for easily making publication-ready statistical plots with Pandas data structures.
 
@@ -149,14 +149,14 @@ For the rest of this lesson, example DataFrames will be abbreviated as ``df`` an
 
 
 .. admonition:: Important Attributes
+
+   The API reference in the `official Pandas documentation <https://pandas.pydata.org/docs/user_guide/index.html>`_ shows hundreds of methods and attributes for Series and DataFrames. The following is a list of the most important attributes and what they output.
    
-  The API reference in the `official Pandas documentation <https://pandas.pydata.org/docs/user_guide/index.html>`_ shows hundreds of methods and attributes for Series and DataFrames. The following is a list of the most important attributes and what they output.
-   
-  - ``df.index`` returns a list of row labels as an array of Pandas datatype ``Index``
-  - ``df.columns`` returns a list of column labels as an array of Pandas datatype ``Index``
-  - ``df.dtypes`` lists datatypes by column
-  - ``df.shape`` gives a tuple of the number of rows and columns in ``df``
-  - ``df.values`` returns ``df`` converted to a NumPy array (also applicable to ``df.columns`` and ``df.index``)
+   - ``df.index`` returns a list of row labels as an array of Pandas datatype ``Index``
+   - ``df.columns`` returns a list of column labels as an array of Pandas datatype ``Index``
+   - ``df.dtypes`` lists datatypes by column
+   - ``df.shape`` gives a tuple of the number of rows and columns in ``df``
+   - ``df.values`` returns ``df`` converted to a NumPy array (also applicable to ``df.columns`` and ``df.index``)
    
 
 Pandas assigns the data in a Series and each column of a DataFrame a datatype based on built-in or NumPy datatypes or other formatting cues. The main Pandas datatypes are as follows.
@@ -181,19 +181,19 @@ This is far from an exhaustive list.
 
 
 .. note:: Index-Class Objects
-  :class: dropdown
+   :class: dropdown
    
-  Index-class objects, like those returned by ``df.columns`` and ``df.index``, are immutable, hashable sequences used to align data for easy access. All of the previously mentioned categorical, interval, and time series data types have a corresponding Index subclass. Indexes have many Series-like attributes and set-operation methods, but Index methods only return copies, whereas the same methods for DataFrames and Series might return either copies or views into the original depending on the method.
+   Index-class objects, like those returned by ``df.columns`` and ``df.index``, are immutable, hashable sequences used to align data for easy access. All of the previously mentioned categorical, interval, and time series data types have a corresponding Index subclass. Indexes have many Series-like attributes and set-operation methods, but Index methods only return copies, whereas the same methods for DataFrames and Series might return either copies or views into the original depending on the method.
   
 
 .. warning:: Nomenclature for Row and Column Labels
    
-  Pandas documentation has inconsistent nomenclature for row and column labels/indexes: 
+   Pandas documentation has inconsistent nomenclature for row and column labels/indexes: 
   
-  - "Indexes" usually refer to just the row labels, but may sometimes refer to both row and column labels.
-  - "Columns" may refer to the labels and contents of columns collectively, or only the labels.
-  - Column labels, and rarely also row indexes, are sometimes called “Keys”, particularly in commands designed to mimic SQL functions.
-  - A column label may be called a “name”, after the optional Series label.
+   - "Indexes" usually refer to just the row labels, but may sometimes refer to both row and column labels.
+   - "Columns" may refer to the labels and contents of columns collectively, or only the labels.
+   - Column labels, and rarely also row indexes, are sometimes called “Keys”, particularly in commands designed to mimic SQL functions.
+   - A column label may be called a “name”, after the optional Series label.
 
 
 Input/Output and Making DataFrames from Scratch
@@ -204,7 +204,7 @@ Most of the time, Series and DataFrames will be loaded from files, not made from
 ======  ========================================  ===================================================  =================================
 Type    Data Description                          Reader                                               Writer
 ======  ========================================  ===================================================  =================================
-text    CSV / ASCII text with standard delimiter  ``read_csv(path_or_url, sep=’,’, **kwargs)``         ``to_csv()``
+text    CSV / ASCII text with standard delimiter  ``read_csv(path_or_url, sep=',', **kwargs)``         ``to_csv()``
 text    Fixed-Width Text File                     ``read_fwf()``                                       N/A
 text    JSON                                      ``read_json()``                                      ``to_json()``
 text    HTML                                      ``read_html()``                                      ``to_html()``
@@ -226,8 +226,8 @@ As an example, if there was a CSV file called "exoplanets_5250_EarthUnits.csv" i
 
 .. code-block:: python
 
-   >> import pandas as pd
-   >> df = pd.read_csv('exoplanets_5250_EarthUnits.csv',index_col=0)
+    >>> import pandas as pd
+    >>> df = pd.read_csv('exoplanets_5250_EarthUnits.csv',index_col=0)
 
 The ``index_col=0`` part sets the first column as the row labels, and the reader functions take the first row as the list of column names by default. If you forget to set a column as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
 
@@ -241,11 +241,10 @@ Building a DataFrame or Series from scratch is also easy. Lists and arrays can b
 
 .. jupyter-execute::
 
-   import numpy as np
-   import pandas as pd
-
-   df = pd.DataFrame( np.random.randint(0,100, size=(4,4)), columns=['a','b','c','d'], index=['w','x','y','z'] )
-   print(df)
+    import numpy as np
+    import pandas as pd
+    df = pd.DataFrame( np.random.randint(0,100, size=(4,4)), columns=['a','b','c','d'], index=['w','x','y','z'] )
+    print(df)
 
 It is also possible to convert DataFrames and Series to NumPy arrays (with or without the indexes), dictionaries, record arrays, or strings with the methods ``.to_numpy()``, ``.to_dict()``, ``to_records()``, and ``to_string()``.
 
