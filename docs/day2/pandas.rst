@@ -127,44 +127,44 @@ To know if Pandas is the right tool for your job, you can consult the flowchart 
    * How to use or create time series data (if time allows)
    * Advanced topics (if time allows) - How to prep for ML/AI, what are memory-saving data types
    
-   We will also have a short sesion after this on plotting with Seaborn, a package for easily making publication-ready statistical plots with Pandas data structures.
+
+We will also have a short sesion after this on plotting with Seaborn, a package for easily making publication-ready statistical plots with Pandas data structures.
 
 
 Basic Data Types and Object Classes
------------------------------------
+------------------------------------
 
 The main object classes of Pandas are ``Series`` and ``DataFrame``. There is also a separate object class called ``Index`` for the row indexes/labels and column labels, if applicable. Data that you load from file will mainly be loaded into either Series or DataFrames. Indexes are typically extracted later.
 
-* ``pandas.Series(data, index=None, name=None, **kwargs)`` instantiates a 1D array with customizable indexes (labels) attached to every entry for easy access, and optionally a name for later addition to a DataFrame as a column.
+* ``pandas.Series(data, index=None, name=None, ...)`` instantiates a 1D array with customizable indexes (labels) attached to every entry for easy access, and optionally a name for later addition to a DataFrame as a column.
 
-  * Indexes can be numbers (integer or float), strings, datetime objects, or even tuples. The default is 0-based integer indexing. Indexes are also themselves a Pandas data type.
+  - Indexes can be numbers (integer or float), strings, datetime objects, or even tuples. The default is 0-based integer indexing. Indexes are also themselves a Pandas data type.
 
-* ``pandas.DataFrame(data, columns=None, index=None, **kwargs)`` instantiates a 2D array where every column is a Series. All entries are accessible by column and row labels/indexes.
+* ``pandas.DataFrame(data, columns=None, index=None, ...)`` instantiates a 2D array where every column is a Series. All entries are accessible by column and row labels/indexes.
 
-  * Any function that works with a DataFrame will work with a Series unless the function specifically requires column or index arguments.
-  * Column labels and row indexes/labels can be safely (re)assigned as needed.
+  - Any function that works with a DataFrame will work with a Series unless the function specifically requires column or index arguments.
+  - Column labels and row indexes/labels can be safely (re)assigned as needed.
 
 For the rest of this lesson, example DataFrames will be abbreviated as ``df`` and example Series will be abbreviated as ``ser`` in code snippets.
 
 
 .. admonition:: Important Attributes
    
-   The API reference in the `official Pandas documentation <https://pandas.pydata.org/docs/user_guide/index.html>`_ shows *hundreds* of methods and
-   attributes for Series and DataFrames. The following is a list of the most important attributes and what they output.
+  The API reference in the `official Pandas documentation <https://pandas.pydata.org/docs/user_guide/index.html>`_ shows hundreds of methods and attributes for Series and DataFrames. The following is a list of the most important attributes and what they output.
    
-   - ``df.index`` returns a list of row labels as an array of Pandas datatype ``Index``
-   - ``df.columns`` returns a list of column labels as an array of Pandas datatype ``Index``
-   - ``df.dtypes`` lists datatypes by column
-   - ``df.shape`` gives a tuple of the number of rows and columns in ``df``
-   - ``df.values`` returns ``df`` converted to a NumPy array (also applicable to ``df.columns`` and ``df.index``)
-  
+  - ``df.index`` returns a list of row labels as an array of Pandas datatype ``Index``
+  - ``df.columns`` returns a list of column labels as an array of Pandas datatype ``Index``
+  - ``df.dtypes`` lists datatypes by column
+  - ``df.shape`` gives a tuple of the number of rows and columns in ``df``
+  - ``df.values`` returns ``df`` converted to a NumPy array (also applicable to ``df.columns`` and ``df.index``)
+   
 
 Pandas assigns the data in a Series and each column of a DataFrame a datatype based on built-in or NumPy datatypes or other formatting cues. The main Pandas datatypes are as follows.
 
 * ``float64`` and ``int64`` are used for most numerical data. You can convert to 32-, 16-, and even 8-bit versions of either to save memory.
 * ``object`` stores any of the built-in types ``str``, ``Bool``, ``list``, ``tuple``, and mixed data types. Malformed data are also often designated as ``object`` type.
 
-  * A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of ``object``.
+  - A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of ``object``.
 
 
 A significant fraction of Pandas functions are devoted to time series data in particular, so there are several datatypes based on NumPy datetimes and timedeltas, as well as calendar functions from the ``datetime`` module. Unfortunately, we won't have time to cover those at any length.
@@ -172,29 +172,28 @@ A significant fraction of Pandas functions are devoted to time series data in pa
 Finally, there are some specialized datatypes for, e.g. saving on memory or performing windowed operations, including
 
 * ``Categorical`` is a set-like datatype for non-numeric data with few unique values. The unique values are stored in the attribute ``.categories``, that are mapped to a number of low-bit-size integers, and those integers replace the actual values in the DataFrame as it is stored in memory, which can save a lot on memory usage.
+
 * ``Interval`` is a datatype for tuples of bin edges, all of which must be open or closed on the same sides, usually output by Pandas discretizing functions.
+
 * ``Sparse[float64, <omitted>]`` is a datatype based on the SciPy sparse matrices, where ``<omitted>`` can be NaN, 0, or any other missing value placeholder. This placeholder value is stored in the datatype, and the DataFrame itself is compressed in memory by not storing anything at the coordinates of the missing values. 
 
 This is far from an exhaustive list.
 
 
 .. note:: Index-Class Objects
-   :class: dropdown
+  :class: dropdown
    
-   Index-class objects, like those returned by ``df.columns`` and ``df.index``, are immutable, hashable sequences used to align data for easy access.
-   All of the previously mentioned categorical, interval, and time series data types have a corresponding Index subclass. Indexes have many Series-like
-   attributes and set-operation methods, but Index methods only return copies, whereas the same methods for DataFrames and Series might return either
-   copies or views into the original depending on the method.
-
+  Index-class objects, like those returned by ``df.columns`` and ``df.index``, are immutable, hashable sequences used to align data for easy access. All of the previously mentioned categorical, interval, and time series data types have a corresponding Index subclass. Indexes have many Series-like attributes and set-operation methods, but Index methods only return copies, whereas the same methods for DataFrames and Series might return either copies or views into the original depending on the method.
+  
 
 .. warning:: Nomenclature for Row and Column Labels
    
-   Pandas documentation has inconsistent nomenclature for row and column labels/indexes: 
-
-   * “Indexes” usually refer to just the row labels, but may sometimes refer to both row and column labels.
-   * “Columns” may refer to the labels and contents of columns collectively, or only the labels.
-   * Column labels, and rarely also row indexes, are sometimes called “Keys”, particularly in commands designed to mimic SQL functions.
-   * A column label may be called a “name”, after the optional Series label.
+  Pandas documentation has inconsistent nomenclature for row and column labels/indexes: 
+  
+  - "Indexes" usually refer to just the row labels, but may sometimes refer to both row and column labels.
+  - "Columns" may refer to the labels and contents of columns collectively, or only the labels.
+  - Column labels, and rarely also row indexes, are sometimes called “Keys”, particularly in commands designed to mimic SQL functions.
+  - A column label may be called a “name”, after the optional Series label.
 
 
 Input/Output and Making DataFrames from Scratch
@@ -202,24 +201,24 @@ Input/Output and Making DataFrames from Scratch
 
 Most of the time, Series and DataFrames will be loaded from files, not made from scratch. The following table lists I/O functions for the most common data formats. Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise). 
 
-======  ========================================  ===============================================  ===============================
-Type    Data Description                          Reader                                           Writer
-======  ========================================  ===============================================  ===============================
-text    CSV / ASCII text with standard delimiter  read_csv(path_or_url, sep=’,’, **kwargs)         to_csv()
-text    Fixed-Width Text File                     read_fwf()                                       N/A
-text    JSON                                      read_json()                                      to_json()
-text    HTML                                      read_html()                                      to_html()
-text    LaTeX                                     N/A                                              Styler.to_latex()
-text    XML                                       read_xml()                                       to_xml()
-text    Local clipboard                           read_clipboard()                                 to_clipboard()
-SQL     SQLite table or query                     read_sql()                                       to_sql()
-SQL     Google BigQuery                           read_gbq()                                       to_gbq()
-binary  Python Pickle Format                      read_pickle()                                    to_pickle()
-binary  MS Excel                                  read_excel(path_or_url, sheet_name=0, **kwargs)  to_excel(path, sheet_name=...) 
-binary  OpenDocument                              read_excel(path_or_url, sheet_name=0, **kwargs)  to_excel(path, engine="odf")
-binary  HDF5 Format                               read_hdf()                                       to_hdf()
-binary  Apache Parquet                            read_parquet()                                   to_parquet()
-======  ========================================  ===============================================  ===============================
+======  ========================================  ===================================================  =================================
+Type    Data Description                          Reader                                               Writer
+======  ========================================  ===================================================  =================================
+text    CSV / ASCII text with standard delimiter  ``read_csv(path_or_url, sep=’,’, **kwargs)``         ``to_csv()``
+text    Fixed-Width Text File                     ``read_fwf()``                                       N/A
+text    JSON                                      ``read_json()``                                      ``to_json()``
+text    HTML                                      ``read_html()``                                      ``to_html()``
+text    LaTeX                                     N/A                                                  ``Styler.to_latex()``
+text    XML                                       ``read_xml()``                                       ``to_xml()``
+text    Local clipboard                           ``read_clipboard()``                                 ``to_clipboard()``
+SQL     SQLite table or query                     ``read_sql()``                                       ``to_sql()``
+SQL     Google BigQuery                           ``read_gbq()``                                       ``to_gbq()``
+binary  Python Pickle Format                      ``read_pickle()``                                    ``to_pickle()``
+binary  MS Excel                                  ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, sheet_name=...)``
+binary  OpenDocument                              ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, engine="odf")``
+binary  HDF5 Format                               ``read_hdf()``                                       ``to_hdf()``
+binary  Apache Parquet                            ``read_parquet()``                                   ``to_parquet()``
+======  ========================================  ===================================================  =================================
 
 This is not a complete list, and most of these functions have several dozen possible kwargs. It is left to the reader to determine what kwargs are needed. As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
 
@@ -260,7 +259,7 @@ Inspection
 The main data inspection functions for DataFrames (and Series) are as follows.
 
 * ``df.head()`` prints first 5 rows of data with row and column labels.  ``df.tail()`` does same for last 5 rows. Both accept and integer argument to print a different number of rows.
-* ``df.info()`` prints the number of rows with their first and last index values; titles, index numbers, valid data counts, and datatypes of columns; and the estimated size of ``df`` in memory. Don't rely on this memory estimate; it's only accurate for numerical columns.
+* ``df.info()`` prints the number of rows with their first and last index values; titles, index numbers, valid data counts, and datatypes of columns; and the estimated size of ``df`` in memory. Don't rely on this memory estimate; it is only accurate for numerical columns.
 * ``df.describe()`` prints summary statistics for all the numerical columns in ``df``.
 * ``df.nunique()`` prints counts of the unique values in each column.
 * ``df.value_counts()`` prints each unique value and the number of of occurrences for every combination of row and column values for as many of each as are selected (usually applied to just a couple of columns at a time at most)
@@ -269,25 +268,26 @@ The main data inspection functions for DataFrames (and Series) are as follows.
 
 .. important:: The ``memory_usage()`` function
 
-   ``df.memory_usage(deep=False)`` returns the estimated memory usage of each column. With the default 
-   ``deep=False``, the sum of the estimated memory size of all columns is the same as what is included 
-   with ``df.info()``, which is not accurate. However, with ``deep=True``, the sizes of strings and other 
-   non-numeric data are factored in, giving a much better estimate of the total size of ``df`` in memory. 
-   
-   This is because numeric columns are fixed width in memory and can be stored contiguously, but object-
-   type columns are variable in size, so only pointers can be stored at the location of the main DataFrame
-   in memory. The strings that those pointers refer to are kept elsewhere. When ``deep=False``, or when 
-   the memory usage is estimated with ``df.info()``, the memory estimate includes all the numeric data but
-   only the pointers to non-numeric data.
+  ``df.memory_usage(deep=False)`` returns the estimated memory usage of each column. With the default 
+  ``deep=False``, the sum of the estimated memory size of all columns is the same as what is included 
+  with ``df.info()``, which is not accurate. However, with ``deep=True``, the sizes of strings and other 
+  non-numeric data are factored in, giving a much better estimate of the total size of ``df`` in memory. 
+  
+  This is because numeric columns are fixed width in memory and can be stored contiguously, but object-
+  type columns are variable in size, so only pointers can be stored at the location of the main DataFrame
+  in memory. The strings that those pointers refer to are kept elsewhere. When ``deep=False``, or when 
+  the memory usage is estimated with ``df.info()``, the memory estimate includes all the numeric data but
+  only the pointers to non-numeric data.
+  
 
 Data Selection Syntax
 ^^^^^^^^^^^^^^^^^^^^^
 
 Here is a table of the syntax for how to select different subsets or cross-sections of a DataFrame
 
-===================================  ===============================================================================================================================
+===================================  =================================================================================================================================
 To Access...                         Syntax
-===================================  ===============================================================================================================================
+===================================  =================================================================================================================================
 1 column                             ``df['col_name']`` or ``df.col_name``
 1 named row                          ``df.loc['row_name']``
 1 row by index                       ``df.iloc[index]``
@@ -296,8 +296,8 @@ To Access...                         Syntax
 1 cell by row and column indexes     ``df.iat[row_index, col_index]``
 subset of columns                    ``df[['col0', 'col1', 'col2']]``
 subset of named rows                 ``df.loc[['rowA','rowB','rowC']]``
-subset of rows by index              ``df.iloc[i_m:i_n]`` or ``df.take([i_m, ..., i_n])`` where ``i_m`` & ``i_n`` are the m :sup:`th` and n :sup:`th` integer indexes
+subset of rows by index              ``df.iloc[i_m:i_n]`` or ``df.take([i_m, ..., i_n])`` where ``i_m`` and ``i_n`` are the m :sup:`th` and n :sup:`th` integer indexes
 1 or more rows and columns by name   ``df.loc['row','col']`` or ``df.loc[['rowA','rowB', ...],['col0', 'col1', ...]]``
 2 or more rows and columns by index  ``df.iloc[i_m:i_n, j_p:j_q]`` where i and j are row and column indexes, respectively
-columns by name & rows by index      **You can mix ``.loc[]`` and ``.iloc[]`` for selection, but NOT assignment!**
-===================================  ================================================================================================================================
+columns by name and rows by index    **You can mix ``.loc[]`` and ``.iloc[]`` for selection, but NOT assignment!**
+===================================  ==================================================================================================================================
