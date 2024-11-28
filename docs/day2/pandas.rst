@@ -13,7 +13,10 @@ Intro to Pandas
 
 **Limitations.** Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like ``dask`` and ``polars`` that can help. In partcular, ``dask`` will be covered in a later lecture in this workshop. There is also the ``xarray`` package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.
 
-.. tabs:: How is Pandas Provided?
+Load and Run
+------------
+
+.. tabs::
 
   .. tab:: HPC2N
      
@@ -115,7 +118,7 @@ To know if Pandas is the right tool for your job, you can consult this flowchart
 .. objectives:: You will learn...
 
   - What are the basic object classes, data types, and their most important attributes and methods
-  - How to input/output work
+  - How to input/output Pandas data
   - How to inspect, clean, and sort data for later operations
   - How to perform basic operations: statistics, binary operators, vectorized math and string methods
   - What are GroupBy objects and their uses
@@ -126,21 +129,94 @@ To know if Pandas is the right tool for your job, you can consult this flowchart
   We will also have a short sesion after this on plotting with Seaborn, a package for easily making publication-ready statistical plots.
 
 
-Basic Object Classes and Data Types
+Basic Data Types and Object Classes
 -----------------------------------
 
-The main object classes of Pandas are ``Series and ``DataFrame``.
+
+**The main object classes of Pandas are ``Series`` and ``DataFrame``.** There is also a separate object class called ``Index`` for the row indexes/labels and column labels, if applicable. Data that you load from file will mainly be loaded into either Series or DataFrames. Indexes are typically extracted later. If Series or DataFrames are constructed from scratch
 
 - ``pandas.Series(data, index=None, name=None, **kwargs)`` instantiates a 1D array with customizable indexes (labels) attached to every entry for easy access, and optionally a name for later addition to a DataFrame as a column
 
   - Indexes can be numbers (integer or float), strings, datetime objects, or even tuples; the default is 0-based integer indexing. Indexes are also themselves a Pandas data type.
+  - For the rest of this lesson, example Series will be abbreviated as ``ser`` in code snippets.
 
 - ``pandas.DataFrame(data, columns=None, index=None, **kwargs)`` instantiates a 2D array where every column is a Series: all entries are accessible by column and row labels
 
   - Any function that works with a DataFrame will work with a Series unless the function specifically requires column or index arguments
   - Column labels and row indexes/labels can be safely (re)assigned as needed
+  - For the rest of this lesson, example DataFrames will be abbreviated as ``df`` in code snippets.
 
-The API reference in the [official Pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html) shows *hundreds* of methods and attributes for each.
+.. important::
+
+  The API reference in the [official Pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html) shows *hundreds* of methods and attributes for Series and DataFrames. The following is a list of the most important attributes and what they output:
+  
+  - ``df.index``: returns a list of row labels as an array of Pandas datatype ``Index``
+  - ``df.columns``: returns a list of column labels as an array of Pandas datatype ``Index``
+  - ``df.dtypes`` lists datatypes by column
+  - ``df.shape`` gives a tuple of the number of rows and columns in ``df``
+  - ``df.values`` returns ``df`` converted to a NumPy array (also applicable to ``df.columns`` and ``df.index``)
 
 
+Pandas assigns the data in a Series and each column of a DataFrame a datatype based on built-in or NumPy datatypes or other formatting cues. The main Pandas datatypes are as follows:
 
+- ``float64`` and ``int64`` are used for most numerical data. You can convert to 32-, 16-, and even 8-bit versions of either to save memory.
+- ``object`` stores any of the built-in types ``str``, ``Bool``, ``list``, ``tuple``, and mixed data types. Malformed data also often end up assigned as ``object`` type.
+
+.. tip::
+
+   A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of ``object``.
+
+
+A significant fraction of Pandas functions are devoted to time series data in particular, so there are several datatypes based on NumPy datetimes and timedeltas, as well as calendar functions from the ``datetime`` module:
+
+- ``datetime64[ns(,tz)]``: for timestamps formatted like NumPy datetime objects, with or without timezones
+- ``timedelta64[ns]``: time increments (or decrements) relative to a fixed timestamp, usually in nanoseconds (anchor point defaults to 0)
+- ``period[<unit>]``: time increments defined by specifying a divisible timespan (e.g. a particular month) and the units of subdivision (e.g. days)
+
+Finally, there are some specialized datatypes for, e.g. saving on memory or performing windowed operations, including:
+
+- ``Categorical``: a set-like datatype for non-numeric data with few unique values. The unique values are stored in the attribute ``.categories``, that are mapped to a number of low-bit-size integers, and those integers replace the actual values in the DataFrame as it is stored in memory, which can save a lot on memory usage.
+- ``Interval``: a datatype for tuples of bin edges, all of which must be open or closed on the same sides, usually output by Pandas discretizing functions.
+- ``Sparse[float64, <omitted>]``: a datatype based on the SciPy sparse matrices, where ``<omitted>`` can be NaN, 0, or any other missing value placeholder. This placeholder value is stored in the datatype, and the DataFrame itself is compressed in memory by not storing anything at the coordinates of the missing values. 
+
+This is far from an exhaustive list.
+
+.. note::
+
+   Index-class objects, like those returned by ``df.columns`` and ``df.index``, are immutable, hashable sequences used to align data for easy access. All of the previously mentioned time series, categorical, and interval data types have a corresponding Index subclass. Indexes have many Series-like attributes and set-operation methods, but Index methods only return copies, whereas the same methods for DataFrames and Series might return either copies or views into the original depending on the method.
+
+.. warning:: Nomenclature for Row and Column Labels
+
+  Pandas documentation has inconsistent nomenclature for row and column labels/indexes: 
+
+  - “Indexes” usually refer to just the row labels, but may sometimes refer to both row and column labels.
+  - “Columns” may refer to the labels and contents of columns collectively, or only the labels.
+  - Column labels, and very occasionally also row indexes, are sometimes called “Keys”, particularly in commands designed to mimic SQL functions.
+  - A column label may be called a “name”, after the optional Series label.
+
+
+Input/Output and Making DataFrames from Scratch
+-----------------------------------------------
+
+The following is a table of I/O functions for the most common data input formats. Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter. 
+
+======  ========================================  ===============================================  ===============================
+Type    Data Description                          Reader                                           Writer
+======  ========================================  ===============================================  ===============================
+text    CSV / ASCII text with standard delimiter  read_csv(path_or_url, sep=’,’, **kwargs)         to_csv()
+text    Fixed-Width Text File                     read_fwf()                                       N/A
+text    JSON                                      read_json()                                      to_json()
+text    HTML                                      read_html()                                      to_html()
+text    LaTeX                                     N/A                                              Styler.to_latex()
+text    XML                                       read_xml()                                       to_xml()
+text    Local clipboard                           read_clipboard()                                 to_clipboard()
+SQL     SQLite table or query                     read_sql()                                       to_sql()
+SQL     Google BigQuery                           read_gbq()                                       to_gbq()
+binary  Python Pickle Format                      read_pickle()                                    to_pickle()
+binary  MS Excel                                  read_excel(path_or_url, sheet_name=0, **kwargs)  to_excel(path, sheet_name=...) 
+binary  OpenDocument                              read_excel(path_or_url, sheet_name=0, **kwargs)  to_excel(path, engine="odf")
+binary  HDF5 Format                               read_hdf()                                       to_hdf()
+binary  Apache Parquet                            read_parquet()                                   to_parquet()
+======  ========================================  ===============================================  ===============================
+
+This is not a complete list, and most of these functions have several dozen possible kwargs. It is left to the reader to determine what kwargs are needed.
