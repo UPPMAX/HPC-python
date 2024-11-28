@@ -146,9 +146,10 @@ Basic Data Types and Object Classes
   - Column labels and row indexes/labels can be safely (re)assigned as needed
   - For the rest of this lesson, example DataFrames will be abbreviated as ``df`` in code snippets.
 
-.. important::
+.. admontion:: Important Attributes
 
-  The API reference in the [official Pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html) shows *hundreds* of methods and attributes for Series and DataFrames. The following is a list of the most important attributes and what they output:
+  The API reference in the [official Pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html) shows *hundreds* of methods and
+  attributes for Series and DataFrames. The following is a list of the most important attributes and what they output:
   
   - ``df.index``: returns a list of row labels as an array of Pandas datatype ``Index``
   - ``df.columns``: returns a list of column labels as an array of Pandas datatype ``Index``
@@ -162,7 +163,8 @@ Pandas assigns the data in a Series and each column of a DataFrame a datatype ba
 - ``float64`` and ``int64`` are used for most numerical data. You can convert to 32-, 16-, and even 8-bit versions of either to save memory.
 - ``object`` stores any of the built-in types ``str``, ``Bool``, ``list``, ``tuple``, and mixed data types. Malformed data also often end up assigned as ``object`` type.
 
-.. tip::
+
+.. admonition::
 
    A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of ``object``.
 
@@ -181,18 +183,23 @@ Finally, there are some specialized datatypes for, e.g. saving on memory or perf
 
 This is far from an exhaustive list.
 
-.. note::
 
-   Index-class objects, like those returned by ``df.columns`` and ``df.index``, are immutable, hashable sequences used to align data for easy access. All of the previously mentioned time series, categorical, and interval data types have a corresponding Index subclass. Indexes have many Series-like attributes and set-operation methods, but Index methods only return copies, whereas the same methods for DataFrames and Series might return either copies or views into the original depending on the method.
+.. admonition:: Index-class Objects
+
+   Index-class objects, like those returned by ``df.columns`` and ``df.index``, are immutable, hashable sequences used to align data for easy access.
+   All of the previously mentioned time series, categorical, and interval data types have a corresponding Index subclass. Indexes have many Series-like
+   attributes and set-operation methods, but Index methods only return copies, whereas the same methods for DataFrames and Series might return either
+   copies or views into the original depending on the method.
+
 
 .. warning:: Nomenclature for Row and Column Labels
 
-  Pandas documentation has inconsistent nomenclature for row and column labels/indexes: 
+   Pandas documentation has inconsistent nomenclature for row and column labels/indexes: 
 
-  - “Indexes” usually refer to just the row labels, but may sometimes refer to both row and column labels.
-  - “Columns” may refer to the labels and contents of columns collectively, or only the labels.
-  - Column labels, and very occasionally also row indexes, are sometimes called “Keys”, particularly in commands designed to mimic SQL functions.
-  - A column label may be called a “name”, after the optional Series label.
+   - “Indexes” usually refer to just the row labels, but may sometimes refer to both row and column labels.
+   - “Columns” may refer to the labels and contents of columns collectively, or only the labels.
+   - Column labels, and rarely also row indexes, are sometimes called “Keys”, particularly in commands designed to mimic SQL functions.
+   - A column label may be called a “name”, after the optional Series label.
 
 
 Input/Output and Making DataFrames from Scratch
