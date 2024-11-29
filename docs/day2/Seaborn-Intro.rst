@@ -73,7 +73,7 @@ Seaborn is a plotting library built predominantly on Matplotlib and designed to 
 
   .. tab:: UPPMAX
 
-     Seaborn is not installed on Rackham yet.
+     On Rackham, Seaborn/0.13.2 is included in ``python_ML_packages/3.11.8-cpu``. Jupyter-Lab is available but Spyder is not installed centrally.
 
 Seaborn can produce a wide variety of statistical plots, and even offers built-in regression functions, 
 but in the interest of time, we will focus on just a few that are hard to replicate with Matplotlib 
