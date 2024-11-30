@@ -53,28 +53,28 @@ Welcome to "Using Python in an HPC environment" course material
 
   **Target group**
  
-  - The course is for present or presumptive users at UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden. 
+  - The course is for present or presumptive users at UPPMAX, HPC2N, LUNARC, NSC or possibly other clusters in Sweden. 
   - Therefore we apply python solutions on all three clusters, so a broad audience can benefit.
   - We also provide links to the Python/Jupyter documentation at other Swedish HPC centres with personell affiliated to NAISS.
 
   **Cluster-specific approaches**
   
-   - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca), HPC2N (Kebnekaise), and LUNARC (Cosmos). The main focus will be on UPPMAX's systems, but Kebnekaise and Cosmos will be included as well. If you already have an account at Kebnekaise or Cosmos, you can use those systems for the hands-ons. 
-   - In most cases there is little or no difference between UPPMAX's systems, HPC2N's systems, and LUNARC's systems (and the other HPC systems in Sweden), except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
+   - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca), HPC2N (Kebnekaise), and LUNARC (Cosmos). The main focus will be on UPPMAX's and NSC's systems, but Kebnekaise and Cosmos will be included as well. If you already have an account at Kebnekaise or Cosmos, you can use those systems for the hands-ons. 
+   - In most cases there is little or no difference between UPPMAX's systems, HPC2N's systems, LUNARC's, or NSC's systems (and the other HPC systems in Sweden), except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
 
-   - See further below a short introduction to the centre-specific cluster architectures of UPPMAX, HPC2N, and LUNARC.
+   - See further below a short introduction to the centre-specific cluster architectures of UPPMAX, HPC2N, LUNARC, NSC.
 
 .. admonition:: How is the workshop run?
   
-   - General sessions with small differences shown for UPPMAX, HPC2N, and LUNARC in tabs
-   - Main focus on the NAISS resources at UPPMAX, but Kebnekaise/Cosmos specifics will be covered
-   - Users who already have accounts/projects at HPC2N (Kebnekaise) or LUNARC (Cosmos) are welcome to thoses systems for the exercises. UPPMAX/Rackham will be used for everyone else. 
+   - General sessions with small differences shown for UPPMAX, HPC2N, LUNARC, and NSC in tabs
+   - Main focus on the NAISS resources at UPPMAX and NSC, but Kebnekaise/Cosmos specifics will be covered
+   - Users who already have accounts/projects at HPC2N (Kebnekaise) or LUNARC (Cosmos) are welcome to thoses systems for the exercises. UPPMAX/Rackham and NSC/Tetralith will be used for everyone else. 
 
 
 .. prereq::
 
    - Python at a basic level
-   - user account on either Kebnekaise at HPC2N, Rackham at UPPMAX, or Cosmos at LUNARC
+   - user account on either Kebnekaise at HPC2N, Rackham at UPPMAX, Cosmos at LUNARC, or Tetralith at NSC 
    - having a terminal with X-forwarding available and/or ThinLinc app or two-factor authentication for web-login.
    - familiarity with the LINUX command line
   
@@ -114,10 +114,10 @@ Some practicals
  
     - Create a new line for new questions. Take care if others are editing at the same time. 
 
-The three HPC centers UPPMAX, HPC2N, and LUNARC
-------------------------------------------------
+The four HPC centers UPPMAX, HPC2N, LUNARC, and NSC
+----------------------------------------------------
 
-.. admonition:: Three HPC centers
+.. admonition:: Four HPC centers
 
    - There are many similarities:
    
@@ -130,6 +130,7 @@ The three HPC centers UPPMAX, HPC2N, and LUNARC
    
      - commands to load Python, Python packages
      - slightly different flags to Slurm
+     - Some different versions of modules 
      
    - ... and some bigger differences:
    
@@ -146,24 +147,25 @@ The three HPC centers UPPMAX, HPC2N, and LUNARC
        - Cosmos (CPUs and GPUs)
        - Cosmos-SENS (sensitive data) 
 
-     - NSC has one NAISS system 
+     - NSC has one NAISS system (and several others) 
      
        - Tetralith (CPUs and GPUs)
 
-     - Conda is recommended only for UPPMAX and LUNARC users
+     - Conda is recommended only for UPPMAX, LUNARC, and NSC users
     
 .. warning:: 
 
-   - At HPC2N, UPPMAX, and LUNARC we call the applications available via the *module system* **modules**. 
+   - At HPC2N, UPPMAX, LUNARC, and NSC we call the applications available via the *module system* **modules**. 
 
       - <http://docs.uppmax.uu.se/cluster_guides/modules/> 
       - <https://docs.hpc2n.umu.se/documentation/modules/>
       - <https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/>  
-   
+      - <https://www.nsc.liu.se/software/modules/>
+
    - To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
-Briefly about the cluster hardware and system at UPPMAX, HPC2N, and LUNARC
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, And NSC
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **What is a cluster?**
 
@@ -347,7 +349,7 @@ Preliminary schedule
 
 .. admonition:: Prepare your environment now!
   
-   - Please log in to Rackham, Kebnekaise, Cosmos or other cluster that you are using.
+   - Please log in to Rackham, Kebnekaise, Cosmos, Tetralith, or other cluster that you are using.
    - For graphics, ThinLinc may be the best option.
       - The `ThinLinc app <https://www.cendio.com/thinlinc/download/>`_.
    - Rackham has access for regular SSH, through a regular ThinLinc client and a through a web browser interface with ThinLinc: 
@@ -364,12 +366,17 @@ Preliminary schedule
        - SSH: cosmos.lunarc.lu.se 
        - ThinLinc: cosmos-dt.lunarc.lu.se 
            - 2FA required! For more info, `go here: <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/>`_ 
+   - Tetralith: 
+       - SSH: tetralith.nsc.liu.se  
+       - ThinLinc: tetralith.nsc.liu.se  
+       - 2FA is needed. Info here about setup: <https://www.nsc.liu.se/support/2fa/>  
 
 .. admonition:: Project
 
     - The course project on UPPMAX (Rackham) is: ``naiss2024-22-1442``
     - The course project on HPC2N (Kebnekaise) is: ``hpc2n2024-142``
-    - The course project on LUNARC (Cosmos) is: `` ``
+    - The course project on LUNARC (Cosmos) is: ``lu2024-2-88``
+    - The course project on NSC (Tetralith) is: ``naiss2024-22-1493``  
 
 
     
@@ -402,7 +409,7 @@ Preliminary schedule
         
          - as server: ``kebnekaise-tl.hpc2n.umu.se`` 
          - as user: ``<username-at-HPC2N>`` NOTE: Leave out the ``@hpc2n.umu.se``
-      - Create a working directory where you can code along. We recommend creating it under the course project storage directory
+      - Create a working directory where you can code along. We recommend creating it under the course project storage directory: /proj/nobackup/hpc2-python-fall-hpc2n
    
       - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
      
@@ -417,6 +424,18 @@ Preliminary schedule
           - as user: ``<username-at-lunarc>`` NOTE: leave out the ``@lunarc.lu.se`` 
 
       - Create a working directory where you can code along.     
+
+   .. tab:: NSC 
+
+      - Tetralith with SSH: ``tetralith.nsc.liu.se``
+      - Tetralith through ThinLinc: ``tetralith.nsc.liu.se``
+
+          - as server: tetralith.nsc.liu.se``
+          - as user: ``<username-at-nsc>`` NOTE: leave out the ``@nsc.liu.se``
+
+          - Create a working directory where you can code along. 
+
+      - 2FA is needed. Info here about setup: <https://www.nsc.liu.se/support/2fa/>   
 
 .. admonition:: Exercises
 
@@ -457,13 +476,13 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
 
       .. code-block:: sh
 
-          /proj/nobackup/python-hpc-fall-hpc2n/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+          /proj/nobackup/hpc-python-fall-hpc2n/MYDIR-NAME/HPC-python/Exercises/examples/programs/
 
       Batch submit files
 
       .. code-block:: sh
 
-          /proj/nobackup/python-hpc-fall-hpc2n/MYDIR-NAME/HPC-python/Exercises/examples/hpc2n/
+          /proj/nobackup/hpc-python-fall-hpc2n/MYDIR-NAME/HPC-python/Exercises/examples/hpc2n/
 
    .. tab:: LUNARC
 
@@ -478,6 +497,20 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
       .. code-block::
 
       TO_BE_DONE 
+
+   .. tab:: NSC
+
+      Python programs
+
+      .. code-block:: sh
+
+         /proj/hpc-python-fall-nsc/MYDIR-NAME/HPC-python/Exercises/examples/programs/
+
+      Batch submit files 
+
+      .. code-block:: sh 
+
+      /proj/hpc-python-fall-nsc/MYDIR-NAME/HPC-python/Exercises/examples/nsc    
     
 
 
