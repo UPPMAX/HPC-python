@@ -717,7 +717,7 @@ Exercises
 
    .. tabs::
 
-      .. tab:: Directly
+      .. tab:: Directly - remember to change so it does not open the plot 
 
          Remove the # if running on Kebnekaise, Cosmos, or Tetralith
 
@@ -735,33 +735,27 @@ Exercises
             plt.scatter(x, y)
             plt.show()
 
-   .. tab:: From a Batch-job
+.. admonition:: The Python script changes to work from a batch script 
+   :class: dropdown
 
-      Remove the # if running on Kebnekaise, Cosmos, or Tetralith. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` or ``pandas_matplotlib-batch-cosmos.py`` or ``pandas_matplotlib-batch-tetralith.py`` in the ``Exercises/examples/programs`` directory.
+       Remove the # if running on Kebnekaise, Cosmos, or Tetralith. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` or ``pandas_matplotlib-batch-cosmos.py`` or ``pandas_matplotlib-batch-tetralith.py`` in the ``Exercises/examples/programs`` directory.
 
-      .. code-block::
+       .. code-block::
+ 
+          import pandas as pd
+          #import matplotlib
+          import matplotlib.pyplot as plt
 
-         import pandas as pd
-         #import matplotlib
-         import matplotlib.pyplot as plt
+          #matplotlib.use('TkAgg')
 
-         #matplotlib.use('TkAgg')
+          dataframe = pd.read_csv("scottish_hills.csv")
+          x = dataframe.Height
+          y = dataframe.Latitude
+          plt.scatter(x, y)
+          plt.savefig("myplot.png")
 
-         dataframe = pd.read_csv("scottish_hills.csv")
-         x = dataframe.Height
-         y = dataframe.Latitude
-         plt.scatter(x, y)
-         plt.savefig("myplot.png")
-
-.. hint::
-
-   Type along!
-
-Batch scripts for running on Rackham, Kebnekaise, Cosmos, and Tetralith.
-
-.. tabs::
-
-   .. tab:: Rackham
+.. solution:: Solution: batch script for Rackham
+   :class: dropdown 
 
       .. code-block:: bash
 
@@ -776,7 +770,8 @@ Batch scripts for running on Rackham, Kebnekaise, Cosmos, and Tetralith.
          # Run your Python script
          python pandas_matplotlib-batch-rackham-file.py
 
-   .. tab:: Kebnekaise
+.. solution:: Solution: batch script for Kebnekaise
+   :class: dropdown    
 
       .. code-block:: bash
 
