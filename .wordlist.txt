@@ -678,3 +678,8 @@ xarray
 netcdf
 hdf
 dask
+ENCCS
+enccs
+hpda
+scalable
+NetCDF
