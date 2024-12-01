@@ -105,7 +105,8 @@ Guides and documentation at:
 - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_intro/
 - NSC: https://www.nsc.liu.se/support/batch-jobs/   
 
-**Workflow**
+Workflow
+########
 
 - Write a batch script
 
@@ -131,7 +132,8 @@ Useful commands to the batch system
 Example Python batch scripts
 ---------------------------- 
 
-**Serial code**
+Serial code
+###########
 
 .. hint:: 
 
@@ -248,7 +250,8 @@ This first example shows how to run a short, serial script. The batch script (na
 
             
         
-**Serial code + self-installed package in virt. env.**
+Serial code + self-installed package in virt. env.
+##################################################
 
 .. hint::
 
@@ -343,7 +346,8 @@ This first example shows how to run a short, serial script. The batch script (na
 
             
 
-**Job arrays** 
+Job arrays
+##########
 
 This is a very simple example of how to run a Python script with a job array. 
 
@@ -453,7 +457,45 @@ This is a very simple example of how to run a Python script with a job array.
          # Run your Python script
          srun python $MYPATH/hello-world-array.py $SLURM_ARRAY_TASK_ID
 
-**GPU code**
+MPI code
+########
+
+We will talk more about parallel code in the session "Parallel computing with Python" tomorrow. This is a simple example of a batch script to run an MPI code. 
+
+.. code-block::
+
+   #!/bin/bash
+   # The name of the account you are running in, mandatory.
+   #SBATCH -A NAISSXXXX-YY-ZZZ
+   # Request resources - here for eight MPI tasks
+   #SBATCH -n 8
+   # Request runtime for the job (HHH:MM:SS) where 168 hours is the maximum. Here asking for 15 min. 
+   #SBATCH --time=00:15:00 
+
+   # Clear the environment from any previously loaded modules
+   module purge > /dev/null 2>&1
+
+   # Load the module environment suitable for the job, it could be more or
+   # less, depending on other package needs. This is for a simple job needing 
+   # mpi4py. Remove # from the relevant center line 
+   # Rackham: here mpi4py are not installed and you need a virtual env.
+   # module load python/3.11.8 python_ML_packages/3.11.8-cpu openmpi/4.1.5
+   # python -m venv mympi4py
+   # source mympi4py/bin/activate
+   # pip install mpi4py
+   # Kebnekaise
+   # ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 OpenMPI/4.1.5 mpi4py/3.1.4 
+   # Cosmos
+   # ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 OpenMPI/4.1.6 mpi4py/3.1.5 
+   # Tetralith
+   # ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 
+
+   # And finally run the job - use srun for MPI jobs, but not for serial jobs 
+   srun ./my_mpi_program
+
+         
+GPU code
+######## 
 
 We will talk more about Python on GPUs in the section "Using GPUs with Python". 
 
@@ -768,7 +810,7 @@ Exercises
          ml python/3.11.8
 
          # Run your Python script
-         python pandas_matplotlib-batch-rackham-file.py
+         python pandas_matplotlib-batch-rackham.py
 
 .. solution:: Solution: batch script for Kebnekaise
    :class: dropdown    
@@ -781,12 +823,13 @@ Exercises
          #SBATCH -n 1 # Asking for 1 core
 
          # Load any modules you need, here for Python 3.11.3
-         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
 
          # Run your Python script
-         python pandas_matplotlib-batch-kebnekaise-file.py
+         python pandas_matplotlib-batch-kebnekaise.py
 
-   .. tab:: Cosmos
+.. solution:: Solution: batch script for Cosmos
+   :class: dropdown
 
       .. code-block:: bash
 
@@ -795,13 +838,14 @@ Exercises
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH -n 1 # Asking for 1 core
 
-         # Load any modules you need, here for Python 3.11.3
-         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+         # Load any modules you need, here for Python 3.11.5
+         ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
 
          # Run your Python script
-         python pandas_matplotlib-batch-cosmos-file.py
+         python pandas_matplotlib-batch-cosmos.py
 
-   .. tab:: Tetralith
+.. solution:: Solution: batch script for Tetralith
+   :class: dropdown 
 
       .. code-block:: bash
 
@@ -814,7 +858,7 @@ Exercises
          ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2 Tkinter/3.10.4
 
          # Run your Python script
-         python pandas_matplotlib-batch-tetralith-file.py
+         python pandas_matplotlib-batch-tetralith.py
 
 
 
@@ -833,143 +877,4 @@ The batch scripts can be found in the directories for hpc2n, uppmax, lunarc, and
    - A batch script consists of a part with SLURM parameters describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
    
       - Remember to include possible input arguments to the Python script in the batch script.
-
-Pandas and matplotlib
----------------------
-
-This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script.
-
-We will not talk about pandas and matplotlib otherwise. You will learn more about them tomorrow. 
-
-.. tabs::
-
-   .. tab:: Directly
-
-      Remove the # if running on Kebnekaise, Cosmos, or Tetralith
-
-      .. code-block:: python
-
-         import pandas as pd
-         #import matplotlib
-         import matplotlib.pyplot as plt
-
-         #matplotlib.use('TkAgg')
-
-         dataframe = pd.read_csv("scottish_hills.csv")
-         x = dataframe.Height
-         y = dataframe.Latitude
-         plt.scatter(x, y)
-         plt.show()
-
-   .. tab:: From a Batch-job
-
-      Remove the # if running on Kebnekaise, Cosmos, or Tetralith. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` or ``pandas_matplotlib-batch-cosmos.py`` or ``pandas_matplotlib-batch-tetralith.py`` in the ``Exercises/examples/programs`` directory.
-
-      .. code-block:: python
-
-         import pandas as pd
-         #import matplotlib
-         import matplotlib.pyplot as plt
-
-         #matplotlib.use('TkAgg')
-
-         dataframe = pd.read_csv("scottish_hills.csv")
-         x = dataframe.Height
-         y = dataframe.Latitude
-         plt.scatter(x, y)
-         plt.show()
-
-   .. tab:: From a Batch-job 
-
-      Remove the # if running on Kebnekaise, Cosmos, or Tetralith. The script below can be found as ``pandas_matplotlib-batch-rackham-file.py`` or ``pandas_matplotlib-batch-kebnekaise-file.py`` or ``pandas_matplotlib-batch-cosmos-file.py`` or ``pandas_matplotlib-batch-tetralith-file.py`` in the ``Exercises/examples/programs`` directory. 
-
-      .. code-block:: python
-
-         import pandas as pd
-         #import matplotlib
-         import matplotlib.pyplot as plt
-         
-         #matplotlib.use('TkAgg')
-
-         dataframe = pd.read_csv("scottish_hills.csv")
-         x = dataframe.Height
-         y = dataframe.Latitude
-         plt.scatter(x, y)
-         plt.savefig("myplot.png")
-
-.. hint::
-
-   Type along!
-   
-Batch scripts for running on Rackham, Kebnekaise, Cosmos, and Tetralith.
-
-.. tabs:: 
-
-   .. tab:: Rackham 
-
-      .. code-block:: bash
-
-         #!/bin/bash -l
-         #SBATCH -A naiss2024-22-1442
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
-
-         # Load any modules you need, here for Python 3.11.8
-         ml python/3.11.8
-
-         # Run your Python script
-         python pandas_matplotlib-batch-rackham-file.py 
-
-   .. tab:: Kebnekaise 
-
-      .. code-block:: bash
-
-         #!/bin/bash
-         #SBATCH -A hpc2n2024-142
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
-
-         # Load any modules you need, here for Python 3.11.3
-         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
-
-         # Run your Python script
-         python pandas_matplotlib-batch-kebnekaise-file.py
-
-   .. tab:: Cosmos
-
-      .. code-block:: bash
-
-         #!/bin/bash
-         #SBATCH -A lu2024-2-88
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
-
-         # Load any modules you need, here for Python 3.11.3
-         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
-
-         # Run your Python script
-         python pandas_matplotlib-batch-cosmos-file.py
-
-   .. tab:: Tetralith
-
-      .. code-block:: bash
-
-         #!/bin/bash
-         #SBATCH -A naiss2024-22-1493
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
-
-         # Load any modules you need, here for Python 3.10.4
-         ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2 Tkinter/3.10.4
-
-         # Run your Python script
-         python pandas_matplotlib-batch-tetralith-file.py
-         
-
-
-Submit with ``sbatch <batch-script.sh>``.
-
-The batch scripts can be found in the directories for hpc2n, uppmax, lunarc, and nsc, under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` .
-
-
 
