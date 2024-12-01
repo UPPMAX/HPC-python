@@ -623,7 +623,7 @@ Some python packages are working as stand-alone tools, for instance in bioinform
 
    $ module spider <tool-name or tool-name part> 
     
-Using ``module spider`` lets you search regardless of upper- or lowercase characters and regardless of already loaded modules (like ``GCC`` on HPC2N and ``bioinfo-tools`` on UPPMAX).
+Using ``module spider`` lets you search regardless of upper- or lowercase characters and regardless of already loaded modules (like ``GCC`` on HPC2N/LUNARC/NSC and ``bioinfo-tools`` on UPPMAX).
 
 .. tabs::
 
@@ -765,6 +765,8 @@ Otherwise, you can either use ``pip`` or ``conda``.
       - ``time`` |:white_check_mark:|  (standard library)
       - ``dask``  |:x:|
       
+   - You could check for another Python version, say 3.11.5 on Tetralith!
+
    - See next session how to find more pre-installed packages!
 
 **NOTE**: at HPC2N, LUNARC, and NSC, the available Python packages needs to be loaded as modules/module-bundles before using! See a list of some of them below, under the HPC2N/LUNARC/NSC tab or find more as mentioned above, using ``module spider -r ...``
@@ -832,21 +834,24 @@ A selection of the Python packages and libraries installed on UPPMAX, HPC2N, LUN
   
    .. tab:: NSC (Tetralith) 
 
-      - The python application at NSC (Tetralith) comes with very few preinstalled packages, but many can be found in extra modules - check first before installing yourself! 
+      - The python application at NSC (Tetralith) comes with few preinstalled packages, but many can be found in extra modules - check first before installing yourself! 
       - NSC has both Python 2.7.x and Python 3.x installed. 
-      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Tetralith is 3.10.4. 
+      - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Tetralith is 3.11.5 in most cases, but 3.10.4 will be used for some examples. 
 
       - This is a selection of the packages and libraries installed at NSC (Tetralith). These are all installed as **modules** and need to be loaded before use. 
 
           - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
           - ``matplotlib``
           - ``iPython``  
+          - ``JupyterLab`` 
           
 
 Demo/Type-along 
 ---------------
 
-This is an exercise that combines loading, running, and using site-installed packages. Later, during the ML session, we will look at running the same exercise, but as a batch job. There is also a follow-up exercise of an extended version of the script, if you want to try run that as well (see further down on the page). 
+This is an exercise that combines loading, running, and using site-installed packages. Later, during the batch session, we will look at running the same exercise, but as a batch job. There is also a follow-up exercise of an extended version of the script, if you want to try run that as well (see further down on the page). 
+
+We will **use** the pandas and matplotlib packages in this very simple example, but not explain anything about them. That comes later in the course! 
 
 .. note:: 
 
@@ -889,6 +894,8 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
 .. exercise:: Python example with packages pandas and matplotlib 
 
+   **NOTE** if you have loaded a different Python version than what we use here, do ``ml purge`` first to get a clean work area. 
+
    We are using Python version ``3.11.x`` except on Tetralith where we use Python/3.10.4. To access the packages ``pandas`` and ``matplotlib``, you may need to load other modules, depending on the site where you are working. 
      
    .. tabs:: 
@@ -907,7 +914,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
          .. code-block:: console
 
-            $ ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+            $ ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
    
       .. tab:: LUNARC
 
@@ -915,7 +922,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
          .. code-block:: console
 
-            $ ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2     
+            $ ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5     
 
       .. tab:: NSC (Tetralith) 
 
@@ -927,7 +934,15 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
    
    1. From inside Python/interactive (if you are on Kebnekaise/Cosmos/Tetralith, mind the warning above about loading a compatible Tkinter and adding the two lines importing matplotlib and setting TkAgg at the top):
 
-      Start python and run these lines: 
+       **Not on UPPMAX, but on HPC2N, LUNARC, NSC**: Start Python and run these lines:  
+
+       .. code-block:: python
+
+          import matplotlib
+          matplotlib.use('TkAgg')
+
+
+      **On all systems**: Start python (if you have not already) and run these lines: 
 
       .. code-block:: python
 
@@ -1043,7 +1058,7 @@ Exercises  (C. 10 min)
 
    You can either save the scripts or run them line by line inside Python. The scripts are also available in the directory ``<path-to>/Exercises/examples/programs``, as ``pandas_matplotlib-linreg.py`` and ``pandas_matplotlib-linreg-pretty.py``.
 
-   NOTE that there are separate versions for rackham, kebnekaise, cosmos, and tetralith and that you for kebnekaise, cosmos, and tetralith need to again add the same lines regarding TkAgg as mentioned under the warning before the previous exercise. 
+   **NOTE** that there are separate versions for rackham, kebnekaise, cosmos, and tetralith and that you for kebnekaise, cosmos, and tetralith need to again add the same lines regarding TkAgg as mentioned under the warning before the previous exercise. The example below shows how it looks for rackham. 
 
    Remember that you also need the data file ``scottish_hills.csv`` located in the above directory. 
 
