@@ -275,7 +275,7 @@ Check for Python versions
 
 .. note:: 
 
-   Unless otherwise said, we recommend using Python 3.11.x in this course at HPC2N, UPPMAX, and LUNARC. We will us Python 3.10.4 at NSC, unless otherwise said. 
+   Unless otherwise said, we recommend using Python 3.11.x in this course at HPC2N, UPPMAX, LUNARC, and NSC. We will us Python 3.10.4 at NSC for a small number of examples, since more packages are installed for that. 
 
 
 Load a Python module
@@ -338,6 +338,12 @@ For reproducibility, we recommend ALWAYS loading a specific module instad of usi
 
    .. tab:: NSC (Tetralith)
 
+      To load Python version 3.11.5, do: 
+
+      .. code-block:: console
+
+         $ ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
+
       To load Python version 3.10.4, do:
 
       .. code-block:: console
@@ -345,7 +351,7 @@ For reproducibility, we recommend ALWAYS loading a specific module instad of usi
          $ module load buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0 Python/3.10.4
 
       Note: Uppercase ``P``.
-      For short, you can also use:
+      For short, you can also use (Python/3.10.4):
 
       .. code-block:: console
 
