@@ -224,8 +224,8 @@ In the example below, a CSV file called "exoplanets_5250_EarthUnits.csv" in the 
 .. code-block:: python
 
     import pandas as pd
-    df = pd.read_csv('exoplanets_5250_EarthUnits.csv',index_col=0)
-    df.to_csv('exoplanets_5250_EarthUnits.txt', sep='|',decimal=',', index=True)
+    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df.to_csv('./docs/day2/exoplanets_5250_EarthUnits.txt', sep='|',decimal=',', index=True)
 
 In most reader functions, including ``index_col=0`` sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
 
