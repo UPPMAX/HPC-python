@@ -16,8 +16,11 @@ Install packages
    
 .. objectives:: 
 
-   - Give a general *theoretical* introduction to isolated environments 
-   - Site-specific procedures.
+   Learners can 
+
+   - work (create, activate, work, deactivate) with virtual environments
+   - install a python package
+   - export and import a virtual environment
 
 General procedures   
 ------------------
