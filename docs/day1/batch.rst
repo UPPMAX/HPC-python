@@ -252,7 +252,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
 .. hint::
 
-   Don't type along! We will go through an example like this with your self-installed virtual environment under the ML section. 
+   Don't type along! We will go through an example like this with your self-installed virtual environment later. 
 
 .. tabs::
 
@@ -322,7 +322,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
    .. tab:: NSC
 
-        Short serial example for running on Tetralith. Loading SciPy-bundle/2022.05, Python/3.10.4, matplotlib/3.5.2 + using any Python packages you have installed yourself with virtual environment.  
+        Short serial example for running on Tetralith. Loading SciPy-bundle, Python/3.11.5, JupyterLab (containing some extra packages) + using any Python packages you have installed yourself with virtual environment.  
        
         .. code-block:: bash
 
@@ -331,10 +331,10 @@ This first example shows how to run a short, serial script. The batch script (na
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
-            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2
+            # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
             
-            # Activate your virtual environment. 
+            # Activate your virtual environment. matplotlib is not available for this Python version on Tetralith, so that would for instance need to be installed in a virtual environment
             source /proj/hpc-python-fall-nsc/<user-dir>/<path-to-virt-env>/bin/activate
             
             # Run your Python script  (remember to add the path to it 
@@ -447,13 +447,15 @@ This is a very simple example of how to run a Python script with a job array.
          # Change the below to your own path to where you placed the example programs
          MYPATH=/proj/nobackup/hpc-python-fall-nsc/<your-dir>/HPC-python/Exercises/examples/programs/
 
-         # Load any modules you need, here for Python 3.10.4
-         ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 Python/3.10.4
+         # Load any modules you need, here for Python 3.11.5
+         ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
          # Run your Python script
          srun python $MYPATH/hello-world-array.py $SLURM_ARRAY_TASK_ID
 
 **GPU code**
+
+We will talk more about Python on GPUs in the section "Using GPUs with Python". 
 
 .. hint:: 
 
@@ -526,7 +528,7 @@ This is a very simple example of how to run a Python script with a job array.
            
    .. tab:: NSC
 
-        Example with running ``compute.py`` on Kebnekaise.        
+        Example with running ``compute.py`` on Kebnekaise. Note that you need the virtual environment from the previous section, "Install packages", in order to use numba on NSC     
        
         .. code-block:: bash
 
@@ -540,11 +542,12 @@ This is a very simple example of how to run a Python script with a job array.
             
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05    
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
             
             # Load a virtual environment where numba is installed
-            # You can create it with 
-            # ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
+            # Use the one you created previously under "Install packages" 
+            # or you can create it with the following steps: 
+            # ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
             # python -m venv mynumba
             # source mynumba/bin/activate
             # pip install numba
@@ -591,7 +594,7 @@ This is a very simple example of how to run a Python script with a job array.
 Exercises
 ---------
 
-.. challenge:: Run the first serial example script from further up on the page for this short Python code (sum-2args.py)
+.. challenge:: Run the first serial example script (the one that was used to run mmmult.py) from further up on the page for this short Python code (sum-2args.py) instead 
     
     .. code-block:: python
     
@@ -672,11 +675,160 @@ Exercises
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
 
-            # Load any modules you need, here for Python 3.10.4
-            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 Python/3.10.4
+            # Load any modules you need, here for Python 3.11.5
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
             # Run your Python script
             python sum-2args.py 2 3
+
+.. challenge:: Continuation of the Pandas and matplotlib example from "Load and run".  
+
+   This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script.
+
+   **NOTE** We will not talk about pandas and matplotlib otherwise. You will learn more about them tomorrow.
+
+   **NOTE** the exercise is to write a batch script that runs the pandas/matplotlib example from "Load and run" 
+
+   Reminder, this is how it was run directly, after loading the following (do ``ml purge`` first if you have other modules loaded): 
+  
+   - Rackham
+     
+     .. code-block:: 
+
+        ml python/3.11.8
+
+   - Kebnekaise
+
+     .. code-block:: 
+
+        ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+
+   - Cosmos
+
+     .. code-block:: 
+
+        ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5
+
+   - Tetralith
+
+     .. code-block::
+
+        ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4
+
+   .. tabs::
+
+      .. tab:: Directly
+
+         Remove the # if running on Kebnekaise, Cosmos, or Tetralith
+
+         .. code-block:: python
+
+            import pandas as pd
+            #import matplotlib
+            import matplotlib.pyplot as plt
+
+            #matplotlib.use('TkAgg')
+
+            dataframe = pd.read_csv("scottish_hills.csv")
+            x = dataframe.Height
+            y = dataframe.Latitude
+            plt.scatter(x, y)
+            plt.show()
+
+   .. tab:: From a Batch-job
+
+      Remove the # if running on Kebnekaise, Cosmos, or Tetralith. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` or ``pandas_matplotlib-batch-cosmos.py`` or ``pandas_matplotlib-batch-tetralith.py`` in the ``Exercises/examples/programs`` directory.
+
+      .. code-block::
+
+         import pandas as pd
+         #import matplotlib
+         import matplotlib.pyplot as plt
+
+         #matplotlib.use('TkAgg')
+
+         dataframe = pd.read_csv("scottish_hills.csv")
+         x = dataframe.Height
+         y = dataframe.Latitude
+         plt.scatter(x, y)
+         plt.savefig("myplot.png")
+
+.. hint::
+
+   Type along!
+
+Batch scripts for running on Rackham, Kebnekaise, Cosmos, and Tetralith.
+
+.. tabs::
+
+   .. tab:: Rackham
+
+      .. code-block:: bash
+
+         #!/bin/bash -l
+         #SBATCH -A naiss2024-22-1442
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
+
+         # Load any modules you need, here for Python 3.11.8
+         ml python/3.11.8
+
+         # Run your Python script
+         python pandas_matplotlib-batch-rackham-file.py
+
+   .. tab:: Kebnekaise
+
+      .. code-block:: bash
+
+         #!/bin/bash
+         #SBATCH -A hpc2n2024-142
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
+
+         # Load any modules you need, here for Python 3.11.3
+         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+
+         # Run your Python script
+         python pandas_matplotlib-batch-kebnekaise-file.py
+
+   .. tab:: Cosmos
+
+      .. code-block:: bash
+
+         #!/bin/bash
+         #SBATCH -A lu2024-2-88
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
+
+         # Load any modules you need, here for Python 3.11.3
+         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+
+         # Run your Python script
+         python pandas_matplotlib-batch-cosmos-file.py
+
+   .. tab:: Tetralith
+
+      .. code-block:: bash
+
+         #!/bin/bash
+         #SBATCH -A naiss2024-22-1493
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH -n 1 # Asking for 1 core
+
+         # Load any modules you need, here for Python 3.10.4
+         ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2 Tkinter/3.10.4
+
+         # Run your Python script
+         python pandas_matplotlib-batch-tetralith-file.py
+
+
+
+Submit with ``sbatch <batch-script.sh>``.
+
+The batch scripts can be found in the directories for hpc2n, uppmax, lunarc, and nsc, under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` .
+
+
+
 
 .. keypoints::
 
