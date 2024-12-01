@@ -405,7 +405,7 @@ If any rows or columns need to be added manually, ``df.reindex(labels, index=row
     dummy1.loc['h']=[7,8,5,6]
     print(dummy0,'\n')
     print(dummy1,'\n')
-    print(pd.merge(dummy2,dummy3, how='inner', on=['B','C']))
+    print(pd.merge(dummy0,dummy1, how='inner', on=['B','C']))
 
 
 Intro to GroupBy Objects
