@@ -59,7 +59,7 @@ Introduction
 Some users develop Python code in a line-by-line fashion. 
 
 - These users typically want to run a (calculation-heavy) script frequently, to test if the code works.
-- However, scheduling each new line is too slow, as it can take minutes before the new code is run.
+- However, scheduling each new line is too slow, as it can take minutes (or sometimes hours) before the new code is run.
 - Instead, there is a way to directly work with such code: use an interactive session.
 
 Some other users want to run programs that 
@@ -70,31 +70,20 @@ One good example is Jupyter.
 - Running such a program on a computer node using ``sbatch`` would not allow a user to connect to it.
 - In such a case: use an interactive session.
 
-.. admonition:: **About Jupyter**
+.. admonition:: In this session we will talk about 
 
-   - It will be shown in the parallel session how to run Jupyter on the compute nodes.
+   - interactive/salloc
+   - Jupyter
+   - VScode
+   - Spyder
+   - Open-on-demand desktop 
 
-   - You can also check the lesson about `Jupyter on compute nodes <https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html>`_ in our **Introduction to running R, Python and Julia in HPC workshop**)
+An interactive session is a session with direct access to a compute node. Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
 
-   - Documentation about `Jupyter on HPC2N <https://www.hpc2n.umu.se/resources/software/jupyter>`_ 
-   - Documentation about `Jupyter on UPPMAX <http://docs.uppmax.uu.se/software/jupyter/>`_ 
+The different way HPC2N, UPPMAX, LUNARC, and NSC provide for an interactive session
+-----------------------------------------------------------------------------------
 
-
-An interactive session is a session with direct access to a compute node.
-Or alternatively: an interactive session is a session,
-in which there is no queue before a command is run on a compute node.
-
-In this session, we show how to:
-- the different way HPC2N and UPPMAX provide for an interactive session
-- start an interactive session
-- check to be in an interactive session
-- check to have booked the expected amount of cores
-- end the interactive session
-
-The different way HPC2N and UPPMAX provide for an interactive session
----------------------------------------------------------------------
-
-.. mermaid:: mermaid/interactive_node_transitions.mmd 
+.. mermaid:: ../mermaid/interactive_node_transitions.mmd 
 
 Here we define an interactive session as a session 
 with direct access to a compute node.
