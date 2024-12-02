@@ -351,6 +351,11 @@ Where I have marked a line with relevant info. Note that the port will change.
    
 6. Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5. 
 
+   - Input that line (url with token) in a browser on your local machine. You wil get something similar to this: 
+
+   .. figure:: ../img/local-jupyter-lab.png
+   :width: 450
+   :align: center
 
 
 More information
