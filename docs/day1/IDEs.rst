@@ -282,6 +282,24 @@ NSC
 Through ThinLinc
 ^^^^^^^^^^^^^^^^
 
+1. Login with ThinLinc (https://www.nsc.liu.se/support/graphics/) 
+
+   - Download the client matching your local computer's OS and install it.
+   - Start the ThinLinc client.
+   - Change the “Server” setting to “tetralith.nsc.liu.se”.
+   - Change the “Name” setting to your Tetralith username (e.g x_abcde).
+   - Enter your cluster Tetralith password in the “Password” box.
+   - Press the “Connect” button.
+   - If you connect for the first time, you will see the “The server’s host key is not cached …” dialog. 
+
+2. Load a JupyterLab module
+   
+   - This is an example for JupyterLab 4.2.0
+   - module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0   
+
+3.    
+
+
 On your own computer through SSH tunneling 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
