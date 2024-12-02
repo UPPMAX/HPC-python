@@ -234,6 +234,18 @@ Dask is very popular for data analysis and is used by a number of high-level Pyt
       Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs 
       with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.
 
+.. seealso:: 
+
+   - `Dask documentation <https://docs.dask.org/en/stable/>`_
+   - `Introduction to Dask by Aalto Scientific Computing and CodeRefinery <https://aaltoscicomp.github.io/python-for-scicomp/parallel/#dask-and-task-queues>`_
+   - `Intermediate level Dask by ENCCS <https://enccs.github.io/hpda-python/dask/>`_.
+   - Not tested yet at UPPMAX/HPC2N (?):
+
+      - `Dask jobqueue <https://jobqueue.dask.org/en/latest/>`_
+      - `Dask-MPI <http://mpi.dask.org/en/latest/index.html>`_
+
+
+
 .. keypoints
 
    - Dask uses lazy execution
