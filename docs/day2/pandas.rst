@@ -688,7 +688,7 @@ Let's say you did an experiment where you tested 100 people to see if their pref
                            columns=['brand','container_material','with_ice'])
     print(soda_df.head())
     print("\n Memory usage:\n",soda_df.memory_usage(deep=True),"\n")
-    dummy_df = pd.get_dummies(sodas_df, drop_first=True, columns=['brand','container_material'],
+    dummy_df = pd.get_dummies(soda_df, drop_first=True, columns=['brand','container_material'],
                               prefix=['was','in'], dtype=int)
     print("Dummy version:\n",dummy_df.head())
     print("\n Memory usage:\n",dummy_df.memory_usage(deep=True))
