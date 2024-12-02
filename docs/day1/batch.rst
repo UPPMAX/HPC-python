@@ -28,6 +28,23 @@ Running Python in batch mode
    - Cosmos: ``lu2024-17-44``
    - Tetralith: ``/proj/hpc-python-fall-nsc``
 
+.. admonition:: Reservation
+
+   Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX it is "
+magnetic" and so follows the project ID without you having to add the reservatio
+n name. 
+
+   - UPPMAX 
+       - naiss2024-22-1442_1 for cpu on Thursday
+       - naiss2024-22-1442_2 for gpu on Thursday
+       - naiss2024-22-1442_3 for cpu on Friday
+       - naiss2024-22-1442_4 for gpu on Friday 
+   - HPC2N
+       - hpc-python-cpu-th for cpu on Thursday
+       - hpc-python-gpu-th for gpu on Thursday
+       - hpc-python-cpu-fr for cpu on Friday
+       - hpc-python-gpu-fr for gpu on Friday
+
 
 Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, and NSC
 -------------------------------------------------------------------------------

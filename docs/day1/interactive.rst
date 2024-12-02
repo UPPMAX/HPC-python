@@ -1,7 +1,7 @@
 Interactive work on the compute nodes
 =====================================
 
-.. Learningobjectives:: Learning objectives
+.. admonition:: Learning objectives
 
    - Understand what an interactive session is
    - Understand why one may need an interactive session
@@ -15,6 +15,7 @@ Interactive work on the compute nodes
    - On-demand desktop       
 
 .. questions:: 
+   
    - Imagine you are developing a Python script in a line-by-line fashion. How to do so best?
        - Why not do so on the login node?
        - Why not do so by using ``sbatch``?
@@ -34,6 +35,23 @@ Interactive work on the compute nodes
    - Kebnekaise: ``/proj/nobackup/hpc-python-fall-hpc2n``
    - Cosmos: ``lu2024-17-44``
    - Tetralith: ``/proj/hpc-python-fall-nsc``
+
+.. admonition:: Reservation
+
+   Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name. 
+
+   **NOTE** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for. 
+
+   - UPPMAX 
+       - naiss2024-22-1442_1 for cpu on Thursday
+       - naiss2024-22-1442_2 for gpu on Thursday
+       - naiss2024-22-1442_3 for cpu on Friday
+       - naiss2024-22-1442_4 for gpu on Friday 
+   - HPC2N
+       - hpc-python-cpu-th for cpu on Thursday
+       - hpc-python-gpu-th for gpu on Thursday
+       - hpc-python-cpu-fr for cpu on Friday
+       - hpc-python-gpu-fr for gpu on Friday
 
 Introduction
 ------------
