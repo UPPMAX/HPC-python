@@ -664,3 +664,30 @@ For demonstration, here is an example based loosely on the climate of your teach
 Advanced Topics
 ---------------
 
+Time Series
+^^^^^^^^^^^
+
+If data are loaded into a Series or DataFrame with timestamps or other datetime-like data, those columns will automatically be converted to the relevant Pandas time series datatype. If the time increments are smaller than weeks, this can be nice because it enables things like windowing and resampling based on time increments even if the samples are irregular.
+
+Below is a table of those datatypes, how they vary depending on whether you're looking at individual values or a whole column.
+
++----------------+--------------------+--------------------------+-------------------------------------------------+
+| Scalar Class   | Index Subclass     | Pandas Data Type         |  Creation/Conversion Method                     |
++================+====================+==========================+=================================================+
+| ``Timestamp``  | ``DatetimeIndex``  | ``datetime64[ns(, tz)]`` | ``.to_datetime(dates)`` or                      |
+| (datetime or   |                    | (may or may not have     | ``.date_range(start, end=None, periods=None,    |
+| date only)     |                    | time zone info)          | freq=None)`` (need 2 out of 3 kwargs)           |
++----------------+--------------------+--------------------------+-------------------------------------------------+
+| ``Timedelta``  | ``TimedeltaIndex`` | ``timedelta64[ns]``      | ``.to_timedelta(tdelts)`` or                    |
+| (increments    |                    | (units can be anything   | ``.timedelta_range(start=None, end=None,        |
+| from t[start]) |                    | from ns to *weeks*)      | periods=None, freq=None)`` (need 3 of 4 kwargs) |
++----------------+--------------------+--------------------------+-------------------------------------------------+
+| ``Period``     | ``PeriodIndex``    | ``period[freq]``         | ``.Period(t_init, freq=None)`` or               |
+| (fixed-width   |                    | (units can be anything   | ``.period_range(start=None, end=None,           |
+| bins in time)  |                    | from ns to *years*)      | periods=None)`` (need 2 out of 3 kwargs)        |
++----------------+--------------------+--------------------------+-------------------------------------------------+
+| ``DateOffset`` | N/A                | N/A                      | ``.tseries.offsets.DateOffset(unit = n_units)`` |
+|                |                    |                          | (``unit`` can be day, month, ...)               |
++----------------+--------------------+--------------------------+-------------------------------------------------+
+
+
