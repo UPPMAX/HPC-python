@@ -306,9 +306,6 @@ Through ThinLinc
    - It will look similar to this: 
 
    .. figure:: ../img/jupyter-thinlinc-nsc.png
-   :width: 450
-   :align: center
- 
 
 On your own computer through SSH tunneling 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -332,8 +329,6 @@ On your own computer through SSH tunneling
    - You get something that looks like this: 
 
    .. figure:: ../img/jupyter-no-browser-nsc.png
-   :width: 450
-   :align: center
 
 Where I have marked a line with relevant info. Note that the port will change. 
 
@@ -346,16 +341,12 @@ Where I have marked a line with relevant info. Note that the port will change.
    - ``ssh -N -L localhost:8867:localhost:8867 x_birbr@tetralith1.nsc.liu.se``
 
    .. figure:: ../img/local-ssh-to-nsc.png
-   :width: 450
-   :align: center
    
 6. Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5. 
 
    - Input that line (url with token) in a browser on your local machine. You wil get something similar to this: 
 
    .. figure:: ../img/local-jupyter-lab.png
-   :width: 450
-   :align: center
 
 
 More information

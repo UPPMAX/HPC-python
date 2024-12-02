@@ -429,7 +429,7 @@ Exercises
 - If this works you are good to go for the interactive session exercises!
 
 Exercise 1: start an interactive session
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+########################################
 
 In this example we will start a session with 2 cores
 
@@ -462,7 +462,7 @@ In this example we will start a session with 2 cores
          interactive -A naiss2024-22-1493 -n 2
 
 Exercise 2: check to be in an interactive session
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#################################################
 
 .. tabs::
 
@@ -492,7 +492,7 @@ Exercise 2: check to be in an interactive session
 
 
 Exercise 3: check to have booked the expected amount of cores
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#############################################################
 
 .. tabs::
 
@@ -517,7 +517,7 @@ Exercise 3: check to have booked the expected amount of cores
          srun hostname
 
 Exercise 4.1. Running the first Python script in an interactive session on all cores
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+####################################################################################
 
 Running `sum-2args.py` in an interactive session
 
@@ -535,7 +535,7 @@ Running `sum-2args.py` in an interactive session
    Similar to ``srun hostname``, this script is run once per node and works as expected.
                         
 Exercise 4.2. Running a second Python script in an interactive session on all cores
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+###################################################################################
 
 .. tabs::
 
@@ -556,7 +556,7 @@ Running `add2.py` in an interactive session
    As you can see, it is possible, but it will not show any interaction it otherwise would have. At least not at HPC2N. Is it different elsewhere? 
 
 Exercise 5: exit
-^^^^^^^^^^^^^^^^^^
+################
 
 Exit the interactive mode 
 
