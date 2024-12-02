@@ -5,7 +5,7 @@ Interactive work on the compute nodes
 
    - Understand what an interactive session is
    - Understand why one may need an interactive session
-   - Work with an interactive session (single + multiple cores)
+   - How to work with an interactive session (single + multiple cores)
    - Run an interactive-friendly Python script
    - Run an interactive-unfriendly Python script
    - How to load IDEs
@@ -254,9 +254,6 @@ To start an interactive session in the simplest way, is shown here:
          [x_birbr@n302 ~]$ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
          [x_birbr@n302 ~]$
 
-
-You leave interactive mode with ``exit``. 
-
 Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC.
 
 However, this simplest way may have some defaults settings that do not fit you. 
@@ -267,6 +264,12 @@ However, this simplest way may have some defaults settings that do not fit you.
 You can add more resources the same way as for batch jobs.
 
 There is some information here: <https://uppmax.github.io/R-python-julia-matlab-HPC/python/interactivePython.html#start-an-interactive-session-in-a-more-elaborate-way>.
+
+End an interactive session
+--------------------------
+
+You leave interactive mode with ``exit``. 
+
 
 Check to be in an interactive session
 -------------------------------------
@@ -307,15 +310,16 @@ Check to be in an interactive session
 
    for HPC2n as it will always show that you are on a login node
 
-.. admonition:: Check number of cores booked 
+Check that the number of cores booked is correct
+------------------------------------------------
 
-   You can do this with 
+You can do this with 
 
-   .. code-block:: 
+.. code-block:: 
 
-      $ srun hostname
+   $ srun hostname
 
-   And then you will get one line of output per core booked
+And then you will get one line of output per core booked. 
 
 
 Running a Python script in an interactive session
@@ -323,14 +327,13 @@ Running a Python script in an interactive session
 
 .. tabs::
 
-   .. tab:: UPPMAX
+   .. tab:: UPPMAX/LUNARC/NSC
 
-      To run a Python script in an interactive session,
-      first load the Python modules:
+      To run a Python script in an interactive session, first load the Python modules:
 
       .. code-block:: console
 
-         module load python/3.11.8
+         module load [python/version + any prerequisites]
 
       To run a Python script on 1 core, do:
 
@@ -338,8 +341,7 @@ Running a Python script in an interactive session
 
          python [my_script.py]
 
-      where `[my_script.py]` is the path to a Python script, for example
-      ``srun python ~/my_script.py``.
+      where `[my_script.py]` is the Python script (including the path if it is ot in the current directory), for example ``srun python ~/my_script.py``.
 
       To run a Python script on each of the requested cores, do:
 
@@ -347,17 +349,15 @@ Running a Python script in an interactive session
 
          srun python [my_script.py]
 
-      where `[my_script.py]` is the path to a Python script, for example
-      ``srun python ~/my_script.py``.
+      where `[my_script.py]` is the Python script (including the path if it is noth in the current directory), for example ``srun python ~/my_script.py``.
       
    .. tab:: HPC2N
 
-      To run a Python script in an interactive session,
-      first load the Python modules:
+      To run a Python script in an interactive session, first load the Python modules + prerequisites:
 
       .. code-block:: console
 
-         module load python/3.11.8
+         module load GCC/12.3.0 Python/3.11.3
 
       To run a Python script on each of the requested cores, do:
 
@@ -365,13 +365,12 @@ Running a Python script in an interactive session
 
          srun python [my_script.py]
 
-      where `[my_script.py]` is the path to a Python script, for example
-      ``srun python ~/my_script.py``.
+      where `[my_script.py]` is the Python script (including the path if it is noth in the current directory), for example ``srun python ~/my_script.py``.
 
 Not all Python scripts are suitable for an interactive session.
 This will be demonstrated by two Python example scripts.
 
-Our first example Python script is called `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/sum-2args.py>`_:
+Our first example Python script is called `sum-2args.py <https://raw.githubusercontent.com/UPPMAX/HPC-python/refs/heads/main/Exercises/examples/programs/sum-2args.py>`_:
 it is a simple script that adds two numbers from command-line arguments:
  
 .. code-block:: python
@@ -385,7 +384,7 @@ it is a simple script that adds two numbers from command-line arguments:
   
     print("The sum of the two numbers is: {0}".format(sum))
 
-Our second example Python script is called `add2.py <https://raw.githubusercontent.com/UPPMAX/R-python-julia-HPC/main/exercises/python/add2.py>`_:
+Our second example Python script is called `add2.py <https://raw.githubusercontent.com/UPPMAX/HPC-python/refs/heads/main/Exercises/examples/programs/add2.py>`_:
 it is a simple script that adds two numbers from user input:
  
 .. code-block:: python
@@ -402,54 +401,25 @@ it is a simple script that adds two numbers from user input:
     # Output the sum
     print("The sum of {0} and {1} is {2}".format(a, b, sum))
 
+.. question:: 
 
-End the interactive session
----------------------------
+   - Why is/is it not a good script for interactive?
+   - Try and run them! 
 
-.. tabs::
+Loading IDEs
+------------
 
-   .. tab:: UPPMAX
+There are several popular IDEs that are commonly used for interactive work with Python. Here we will show how to load ``Jupyter``, ``VScode``, and ``Spyder``. 
 
-      To end and interactive session, do:
+Jupyter
+#######
 
-      .. code-block:: console
+VScode
+######
 
-         exit
+Spyder
+######
 
-      This will look similar to this:
-
-      .. code-block:: console 
-                  
-          [bjornc@r484 ~]$ exit
-
-          exit
-          [screen is terminating]
-          Connection to r484 closed.
-
-          [bjornc@rackham2 ~]$
-
-      Note that the prompt has changed to contain ``rackham[number].uppmax.uu.se``, 
-      where ``[number]`` is a number, which indicates one is back on a login node.
-      
-   .. tab:: HPC2N
-
-      To end and interactive session, do:
-
-      .. code-block:: console
-
-         exit
-
-      It will look similar to this:
-
-      .. code-block:: console 
-                  
-          b-an01 [~]$ exit
-          exit
-          salloc: Relinquishing job allocation 20174806
-          salloc: Job allocation 20174806 has been revoked.
-          b-an01 [~]$
-
-      The prompt will remain the same.
 
 Exercises
 ---------
