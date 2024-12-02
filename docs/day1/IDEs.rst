@@ -274,18 +274,18 @@ You shut it down from the menu with "File" > "Shut Down"
 LUNARC
 ######
 
-
+See the `Desktop on Demand <https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html>`_ section for this. 
 
 NSC
-^^^
+### 
 
 
 
 
 VScode
-######
+------
 
 Spyder
-######
+------
 
 
