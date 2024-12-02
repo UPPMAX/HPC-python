@@ -404,43 +404,17 @@ it is a simple script that adds two numbers from user input:
 .. question:: 
 
    - Why is/is it not a good script for interactive?
-   - Try and run them! 
-
 
 Exercises
 ---------
 
-.. challenge:: 
-
-   10 minutes
-
-In these exercises:
-
-- we prepare to use two Python example scripts
-- we use a minimal interactive session
-- we use a more optimized interactive session
-
-Exercise 0: be able to use the Python scripts
----------------------------------------------
-
 - Go to the program directory in your cloned HPC-Python repository
+    - cd <path-to-your-area-under-the-storage-dir>/HPC-python/Exercises/examples/programs
 - There you'll find the two programs that we will use:
 
  ``sum-2args.py`` and ``add2.py``
 
-- On UPPMAX: 
-
-.. code-block:: console
- 
-   cd /proj/HPC-python/[username]/HPC-python/Exercises/examples/programs
-
-- On HPC2N:
-
-.. code-block:: console
-
-   cd /proj/nobackup/python-hpc/[username]/HPC-python/Exercises/examples/programs``
-
-- After loading a Python module, run it.
+- After loading a Python module (potentially with prerequisites), run the two programs.
 
 .. code-block:: console
 
@@ -452,18 +426,7 @@ Exercise 0: be able to use the Python scripts
 
 - Add numbers according to prompts.
 
-- If this works you are good to go for the interactive session below!
-
-Exercises
----------
-
-.. admonition:: Learning objectives
-
-    - Start an interactive session with multiple cores
-    - Test to be on an interactive node with multiple cores
-    - Run an interactive-friendly Python script on multiple cores
-    - Run an interactive-unfriendly Python script on multiple cores
-    - End an interactive session
+- If this works you are good to go for the interactive session exercises!
 
 Exercise 1: start an interactive node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -480,13 +443,25 @@ Exercise 1: start an interactive node
 
       .. code-block:: console
 
-         interactive -A naiss2024-22-415 -p core -n 2
+         interactive -A naiss2024-22-1442 -p core -n 2
       
    .. tab:: HPC2N
 
       .. code-block:: console
           
-         salloc -A hpc2n2024-052 -n 3
+         salloc -A hpc2n2024-142 -n 2 -t 00:30:00
+
+   .. tab:: LUNARC
+
+      .. code-block:: console
+
+         interactive -A lu2024-2-88 -t 00:30:00 -n 2
+
+   .. tab:: NSC
+
+      .. code-block:: console
+
+         interactive -A naiss2024-22-1493 -n 2
 
 Exercise 2: check to be in an interactive session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -497,7 +472,7 @@ Exercise 2: check to be in an interactive session
 
       Confirm to be on a compute node.
 
-   .. tab:: UPPMAX
+   .. tab:: UPPMAX/LUNARC/NSC
 
       Use:
 
@@ -505,12 +480,6 @@ Exercise 2: check to be in an interactive session
 
          hostname
 
-      If the output is ``r[number].uppmax.uu.se``, where ``[number]``
-      is a number, you are on a computer node. Well done!
-
-      If the output is ``rackham[number].uppmax.uu.se``, where ``[number]``
-      is a number, you are still on a login node.
-      
    .. tab:: HPC2N
 
       Use:
@@ -518,12 +487,6 @@ Exercise 2: check to be in an interactive session
       .. code-block:: console
 
          srun hostname
-
-      If the output is ``b-cn[number].hpc2n.umu.se``, where ``[number]``
-      is a number, you are more-or-less on a computer node. Well done!
-
-      If the output is ``[something else]``, where ``[number]``
-      is a number, you are still on a login node.
 
       Misleading would be to use:
 
@@ -539,11 +502,11 @@ Exercise 3: check to have booked the expected amount of cores
 
 .. tabs::
 
-   .. tab:: Exercise 3: confirm to have booked one core
+   .. tab:: Exercise 3: confirm to have booked two cores
 
-      Confirm to have booked one core.
+      Confirm to have booked two cores. 
 
-   .. tab:: UPPMAX
+   .. tab:: UPPMAX/LUNARC/NSC
 
       Use:
 
@@ -551,11 +514,6 @@ Exercise 3: check to have booked the expected amount of cores
 
          srun hostname
 
-      The output should be 3 lines of ``r[number].uppmax.uu.se``, where ``[number]``. 
-
-      If the output is ``rackham[number].uppmax.uu.se``, where ``[number]``
-      is a number, you are still on a login node.
-      
    .. tab:: HPC2N
 
       Use:
@@ -563,12 +521,6 @@ Exercise 3: check to have booked the expected amount of cores
       .. code-block:: console
 
          srun hostname
-
-      The output should be 3 lines of ``b-cn[number].hpc2n.umu.se``, where ``[number]``
-      is a number, you have booked one core.
-
-      If the output is ``[something else]``, where ``[number]``
-      is a number, you are still on a login node.
 
 Exercise 4.1. Running the first Python script in an interactive session on all cores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -579,7 +531,7 @@ Exercise 4.1. Running the first Python script in an interactive session on all c
 
       Run the first Python example script, `sum-2args.py`, in an interactive session, on all cores.
 
-   .. tab:: HPC2N and UPPMAX
+   .. tab:: HPC2N, UPPMAX, LUNARC, and NSC
 
       Run the script using ``srun``:
          
@@ -588,12 +540,9 @@ Exercise 4.1. Running the first Python script in an interactive session on all c
          b-an01 [~]$ srun python sum-2args.py 3 4
          The sum of the two numbers is: 7
          The sum of the two numbers is: 7
-         The sum of the two numbers is: 7
          b-an01 [~]$             
 
-      Similar to ``srun hostname``, 
-      this script is run once per node
-      and works as expected.
+      Similar to ``srun hostname``, this script is run once per node and works as expected.
                         
 Exercise 4.2. Running a second Python script in an interactive session on all cores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -604,7 +553,7 @@ Exercise 4.2. Running a second Python script in an interactive session on all co
 
       Run the second Python example script, `add2.py`, in an interactive session, on all cores.
 
-   .. tab:: HPC2N and UPPMAX
+   .. tab:: HPC2N, UPPMAX, LUNARC, NSC
 
       Run the script using ``srun``:
 
@@ -615,21 +564,19 @@ Exercise 4.2. Running a second Python script in an interactive session on all co
          3
          Enter the first number: Enter the second number: The sum of 2 and 3 is 5
          Enter the first number: Enter the second number: The sum of 2 and 3 is 5
-         Enter the first number: Enter the second number: The sum of 2 and 3 is 5
       
-      As you can see, it is possible, 
-      but it will not show any interaction it otherwise would have. 
+      As you can see, it is possible, but it will not show any interaction it otherwise would have. At least not at HPC2N. Is it different elsewhere? 
 
 Exercise 5: exit
 ^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
-   .. tab:: Exercise 1.5: exit
+   .. tab:: Exercise 5: exit
 
       Exit the interactive node
 
-   .. tab:: UPPMAX
+   .. tab:: UPPMAX, LUNARC, NSC
 
       Use:
 
@@ -637,8 +584,7 @@ Exercise 5: exit
 
          exit
 
-      The prompt should change to contain ``rackham[number].uppmax.uu.se``, 
-      where ``[number]`` is a number, which indicates you are back on a login node.
+      The prompt should change to contain the name of the login node (contain rackham, cosmos, or tetralith), which indicates you are back on a login node.
       
    .. tab:: HPC2N
 
@@ -658,11 +604,12 @@ Conclusion
    You have:
 
    - seen how to use a compute node interactively,
-     which differs between HPC2N and UPPMAX
+     which differs between HPC2N, UPPMAX, LUNARC, and NSC (particularly between HPC2N and the others) 
    - checked if we are in an interactive session
    - checked if we have booked the right number of cores
    - run Python scripts in an interactive session,
-     which differs between HPC2N and UPPMAX
+     which differs between HPC2N and the others
    - seen that not all Python scripts 
      can be run interactively on multiples cores
    - exited an interactive session
+
