@@ -131,7 +131,7 @@ The command to request an interactive node differs per HPC cluster:
 
 
 Start an interactive session in the simplest way
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+################################################
 
 To start an interactive session in the simplest way, is shown here:
 
@@ -413,6 +413,41 @@ There are several popular IDEs that are commonly used for interactive work with 
 
 Jupyter
 #######
+
+Jupyter is web application that (among other things) allows literature programming for Python. That is, Jupyter allows to create documents where Python code is shown and run and its results shown, surrounded by written text (e.g. English).
+
+Additionally, Jupyter allows to share files and hence includes a file manager.
+
+Jupyter is:
+
+- started and run on a server, for example, an interactive node
+
+- displayed in a web browser, such as firefox.
+
+Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppmax.uu.se`` or ``kebnekaise-tl.hpc2n.umu.se``).
+
+- For HPC2N, as JupyterLab it is only accessible from within HPC2N’s, and there is no way to improve any slowness
+
+- For UPPMAX, one can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX `documentation on ThinLinc on how to install the ThinLinc client locally <https://docs.uppmax.uu.se/software/thinlinc/>`_ 
+
+- For LUNARC, you can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_. 
+
+- For NSC, you can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster. 
+
+UPPMAX
+^^^^^^
+
+HPC2N
+^^^^^
+
+LUNARC
+^^^^^^
+
+NSC
+^^^
+
+
+
 
 VScode
 ######
