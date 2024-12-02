@@ -745,7 +745,7 @@ Efficient Data Types
     ptypes=df['planet_type'].astype('category')
     print("After:\n", ptypes.memory_usage(deep=True))
     # assert order (coincidentally alphabetical order is also reverse mass-order)
-    ptypes = ptypes.reorder_categories(ptypes.cat.categories[::-1], ordered=True)
+    ptypes = ptypes.cat.reorder_categories(ptypes.cat.categories[::-1], ordered=True)
     print(ptypes)
     
 
