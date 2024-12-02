@@ -279,6 +279,12 @@ See the `Desktop on Demand <https://uppmax.github.io/HPC-python/day1/ondemand-de
 NSC
 ### 
 
+Through ThinLinc
+^^^^^^^^^^^^^^^^
+
+On your own computer through SSH tunneling 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 
 
