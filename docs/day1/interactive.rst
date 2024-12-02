@@ -62,13 +62,19 @@ Some users develop Python code in a line-by-line fashion.
 - However, scheduling each new line is too slow, as it can take minutes (or sometimes hours) before the new code is run.
 - Instead, there is a way to directly work with such code: use an interactive session.
 
-Some other users want to run programs that 
-(1) use a lot of CPU and memory, and (2) need to be persistent/available.
+Some other users want to run programs that (1) use a lot of CPU and memory, and (2) need to be persistent/available.
 One good example is Jupyter. 
 
 - Running such a program on a login nodes would harm all other users on the login node.
 - Running such a program on a computer node using ``sbatch`` would not allow a user to connect to it.
 - In such a case: use an interactive session.
+
+.. admonition:: About Jupyter
+
+   - For HPC2N, using Jupyter on HPC2N is possible, through a batch job. 
+   - For UPPMAX, using Jupyter is easier. 
+   - For LUNARC, using Jupyter (<https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>) works best using the LUNARC HPC Desktop. Go to the Applications menu, hover over Applications - Python, and select Jupyter Lab from the menu that pops up to the right.
+   - For NSC, using Jupyter is easiest done through ThinLinc, but can also be used via an SSH tunnel. 
 
 .. admonition:: In this session we will talk about 
 
@@ -83,19 +89,25 @@ An interactive session is a session with direct access to a compute node. Or alt
 The different way HPC2N, UPPMAX, LUNARC, and NSC provide for an interactive session
 -----------------------------------------------------------------------------------
 
+Example, HPC2N vs. UPPMAX vs. LUNARC (NSC is similar to LUNARC): 
+
 .. mermaid:: ../mermaid/interactive_node_transitions.mmd 
 
-Here we define an interactive session as a session 
-with direct access to a compute node.
-Or alternatively: an interactive session is a session,
-in which there is no queue before a command is run on a compute node.
+.. figure:: ../../img/cosmos-interactive.png
+      :width: 400
+      :align: center
 
-This differs between HPC2N and UPPMAX:
+Here we define an interactive session as a session with direct access to a compute node.
+Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
+
+This differs between HPC2N and UPPMAX :
 
 - HPC2N: the user remains on a login node. 
   All commands can be sent directly to the compute node using ``srun``
 - UPPMAX: the user is actually on a computer node.
   Whatever command is done, it is run on the compute node
+- LUNARC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node
+- NSC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node  
 
 Start an interactive session
 ----------------------------
@@ -105,13 +117,18 @@ one needs to allocate resources on the cluster first.
 
 The command to request an interactive node differs per HPC cluster:
 
-+---------+-----------------+-------------+
-| Cluster | ``interactive`` | ``salloc``  |
-+=========+=================+=============+
-| HPC2N   | Works           | Recommended |
-+---------+-----------------+-------------+
-| UPPMAX  | Recommended     | Works       |
-+---------+-----------------+-------------+
++---------+-----------------+-------------+-------------+
+| Cluster | ``interactive`` | ``salloc``  | GfxLauncher |
++=========+=================+=============+=============+
+| HPC2N   | Works           | Recommended | N/A         |
++---------+-----------------+-------------+-------------+
+| UPPMAX  | Recommended     | Works       | N/A         |
++---------+-----------------+-------------+-------------+
+| LUNARC  | Works           | N/A         | Recommended | 
++---------+-----------------+-------------+-------------+
+| NSC     | Recommended     | N/A         | N/A         | 
++---------+-----------------+-------------+-------------+ 
+
 
 Start an interactive session in the simplest way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,13 +146,13 @@ To start an interactive session in the simplest way, is shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the UPPMAX project name,
-      for example ``interactive -A naiss2024-22-415``.
+      for example ``interactive -A naiss2024-22-1442``.
 
       The output will look similar to this:
 
       .. code-block:: console
 
-          [richel@rackham4 ~]$ interactive -A naiss2024-22-415
+          [richel@rackham4 ~]$ interactive -A naiss2024-22-1442
           You receive the high interactive priority.
           You may run for at most one hour.
           Your job has been put into the devcore partition and is expected to start at once.
@@ -174,13 +191,13 @@ To start an interactive session in the simplest way, is shown here:
          salloc -A [project_name]
 
       Where ``[project_name]`` is the HPC2N project name,
-      for example ``interactive -A hpc2n2024-052``.
+      for example ``interactive -A hpc2n2024-142``.
 
       This will look similar to this:
 
       .. code-block:: console
 
-          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2024-052 
+          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2024-142
           salloc: Pending job allocation 20174806
           salloc: job 20174806 queued and waiting for resources
           salloc: job 20174806 has been allocated resources
@@ -189,6 +206,12 @@ To start an interactive session in the simplest way, is shown here:
           salloc: Nodes b-cn0241 are ready for job
           b-an01 [~]$ module load GCC/12.3.0 Python/3.11.3
           b-an01 [~]$ 
+
+  .. tab:: LUNARC 
+
+     .. code-block:: console 
+
+          
 
 Indeed, all you need is the UPPMAX/HPC2N project name.
 However, this simplest way may have some defaults settings 
