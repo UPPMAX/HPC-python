@@ -1288,18 +1288,6 @@ Exercises
 
 
 .. seealso:: 
-
-   - `Dask documentation <https://docs.dask.org/en/stable/>`_
-   - `Introduction to Dask by Aalto Scientific Computing and CodeRefinery <https://aaltoscicomp.github.io/python-for-scicomp/parallel/#dask-and-task-queues>`_
-   - `Intermediate level Dask by ENCCS <https://enccs.github.io/hpda-python/dask/>`_.
-   - Not tested yet at UPPMAX/HPC2N (?):
-
-      - `Dask jobqueue <https://jobqueue.dask.org/en/latest/>`_
-      - `Dask-MPI <http://mpi.dask.org/en/latest/index.html>`_
-
-
-   - Additional information about general parallelism in Python
-
          
       - `On parallel software engineering education using python <https://link.springer.com/article/10.1007/s10639-017-9607-0>`_
       - `List of parallel libraries for Python <https://wiki.python.org/moin/ParallelProcessing>`_
