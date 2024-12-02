@@ -660,6 +660,27 @@ For demonstration, here is an example based loosely on the climate of your teach
           j.groupby('season')[['highs_C', 'lows_C']].rolling(window=2).mean())
 
 
+.. important:: Speed-up with Numba
+
+   If you have Numba installed, setting ``engine=numba`` in functions like ``.transform()``, ``.apply()``, and NumPy-like statistics functions calculated over rolling windows, can boost performance if the function has to be run multiple times over many columns, particularly if you can set `engine_kwargs={"parallel": True}`. **Parellelization occurs column-wise, so performance will be boosted if and only if the function is repeated many times over many columns.** 
+
+
+.. tip:: Check your work with the ``.plot()`` wrapper!
+
+   Pandas allows you to call some of the simpler Matplotlib methods off of Series and DataFrames without having to import Matplotlib or extract your data to NumPy arrays. If you have a Series with meaningful Indexes, ``.plot(kind='line')`` (or ``.plot.<kind>()``) with no args plots the values of the Series against the Indexes. With a DataFrame, all you have to do is pass the column names to plot and the kind of function you want. The default plot kind is, as written above, 'line'. Others you can choose are as follows.
+   
+   - ``'bar'`` | ``'barh'`` for a bar plot
+   - ``'hist'`` for a histogram
+   - ``'box'`` for a boxplot
+   - ``'area'`` for an area plot (lines filled underneath)
+   - ``'kde'`` | ``'density'`` for a Kernel Density Estimation plot (can also be called as ``.plot.kde()``)
+   - ``'pie'`` for a pie plot (don’t use this, though)
+   - ``'scatter'`` for a scatter plot (**DataFrame only**)
+   - ``'hexbin'`` for a hexbin plot (**DataFrame only**)
+   
+   Most of the args and kwargs that can normally be passed to any of the above plot types in Matplotlib, as well as most of the axis controlling parameters, can be passed as kwargs to the ``.plot()`` wrapper after ``kind``. The list can get long and hard to follow, though, so it's better to use Matplotlib or Seaborn for code you intend to share.
+
+
 Advanced Topics
 ---------------
 
@@ -701,18 +722,58 @@ Efficient Data Types
 
 **Categorical data.** As the memory usage outputs show in the example above, a single 5-8-letter word uses almost 8 times as much memory as a 64-bit float. The ``Categorical`` datatype provides, among other benefits, a way to get the memory savings of a dummy variable array without having to create one, as long as the number of unique values is much smaller than the number of entries in the column(s) to be converted to ``Categorical`` type. Internally, the ``Categorical`` type maps all the unique values of a column to short numerical codes in the column's place in memory, stores the codes in the smallest integer format that fits the largest-valued code, and only converts the codes to the associated strings when the data are printed. 
 
-* To convert a column in an existing Dataframe, simply set that column equal to itself with ``.astype('category')`` at the end.
-* If defining a new Series that you want to be categorical, simply include ``dtype='category'``.
-* To get attributes or methods of ``Categorical`` data, use the ``.cat`` accessor followed by the attribute or method. E.g., to get the category names back as an index object, use ``df['cat_col'].cat.categories``.
-* ``.cat`` methods include operations to add, remove, rename, and even rearrange categories.
-* The order of categories can be asserted either in the definition of a ``Categorical`` object or via ``cat.reorder_categories()`` as in ``series.cat.reorder_categories([newcats], ordered=True)``
-* Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``
+* To convert a column in an existing Dataframe, simply set that column equal to itself with ``.astype('category')`` at the end. If defining a new Series that you want to be categorical, simply include ``dtype='category'``.
+* To get attributes or call methods of ``Categorical`` data, use the ``.cat`` accessor followed by the attribute or method. E.g., to get the category names as an index object, use ``df['cat_col'].cat.categories``.
+* ``.cat`` methods include operations to add, remove, rename, and even rearrange categories in a specific hierarchy.
+* The order of categories can be asserted either in the definition of a ``Categorical`` object to be used as the indexes of a series, by calling ``.cat.as_ordered()`` on the Series if you're happy with the current order, or by passing a rearranged or even a completely new list of categories to either ``.cat.set_categories([newcats], ordered=True)`` or ``.cat.reorder_categories([newcats], ordered=True)``.
 
-**Sparse Data.**
+  - When an order is asserted, it becomes possible to use ``.min()`` and ``.max()`` on the categories.
+
+* Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order.
+
+.. jupyter-execute::
+
+    import pandas as pd
+    import numpy as np
+    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
+    df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
+    df.mask(df['eccentricity']==0.0, inplace=True)
+    
+    print("Before:\n", df['planet_type'].memory_usage(deep=True))
+    # Convert planet_type to categorical
+    ptypes=df['planet_type'].astype('category')
+    print("After:\n", ptypes.memory_usage(deep=True))
+    # assert order (coincidentally alphabetical order is also reverse mass-order)
+    ptypes = ptypes.reorder_categories(ptypes.cat.categories[::-1], ordered=True)
+    print(ptypes)
+    
+
+.. jupyter-execute::
+
+    import pandas as pd
+    import numpy as np
+    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
+    df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
+    df.mask(df['eccentricity']==0.0, inplace=True)
+    # look at the radius distribution before binning, (and get rid of nonsense)
+    df['radius_RE'].loc[df['radius_RE']<30].plot(kind='kde', xlim=(0,30), title='Radius distribution (Earth radii)')
+    #xlabel normally works but not for 'kde' for some reason
+    # Looks bimodal around 2.5 and 13ish. Let's cut it at 5, 11, and 16 earth radii
+    pcut = pd.cut(df['radius_RE'], bins=[df['radius_RE'].min(), 5, 11, 16, df['radius_RE'].max()], 
+                  labels=['Rocky', 'Neptunian', 'Jovian', 'Puffy'], )
+    print("Bins: ", pcut.unique())
+    print("\n Grouped data, nth rows:\n", df.groupby(pcut).nth(1))
 
 
+**Sparse Data.** I you have a DataFrame with lots of rows or columns that are mostly NaN, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory.
+Initialize Series or DataFrames as `SparseDtype` by setting the kwarg ``dtype=SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", np.nan))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>` also work on Sparse Arrays. The only other methods and attributes are
 
-
+- ``df.sparse.density``: prints fraction of data that are non-NaN
+- ``df.sparse.fill_value``: prints fill value for NaNs, if any (might just return NaN)
+- ``df.sparse.from_spmatrix(data)``: makes a new `SparseDtype` DataFrame from a SciPy sparse matrix
+- ``df.sparse.to_coo()``: converts a DataFrame (or Series) to sparse SciPy COO type (`more on those here <https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_array.html#scipy.sparse.coo_array>`_)
 
 
 Time Series
