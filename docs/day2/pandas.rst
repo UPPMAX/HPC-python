@@ -124,8 +124,7 @@ To know if Pandas is the right tool for your job, you can consult the flowchart 
    * How to perform basic operations - statistics, binary operators, vectorized math and string methods
    * What are GroupBy objects and their uses
    * How to compare data, implement complex and/or user-defined functions, and perform windowed operations
-   * How to use or create time series data (if time allows)
-   * Advanced topics (if time allows) - How to prep for ML/AI, what are memory-saving data types
+   * Advanced topics (if time allows) - time series, memory-saving data types, how to prep for ML/AI
 
 
 We will also have a short session after this on plotting with Seaborn, a package for easily making publication-ready statistical plots with Pandas data structures.
@@ -664,12 +663,64 @@ For demonstration, here is an example based loosely on the climate of your teach
 Advanced Topics
 ---------------
 
+Getting Dummy Variables for Machine Learning
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ML programs like TensorFlow and PyTorch take Series/DataFrame inputs, but they generally require numeric input. If some of the variables that you want to predict are categorical (e.g. species, sex, or some other classification), they need to be converted to a numerical form that TensorFlow and PyTorch can use. Standard practice is turn a categorical variable with $N$ unique values into $N$ or $N-1$ boolean columns, where a row entry that was assigned a given category value has a 1 or True in the boolean column corresponding to that category and 0 or False in all the other boolean category columns.
+
+The Pandas function that does this is ``pd.get_dummies(data, dtype=bool, drop_first=False, prefix=pref, columns=columns)``.
+
+  * ``dtype`` can be ``bool`` (default, less memory), ``float`` (more memory usage), ``int`` (same memory as float), or a more specific string identifier like ``'float32'`` or ``'uint16'``
+  * ``drop_first``, when True, lets you get rid of one of the categories on the assumption that not fitting any of the remaining categories is perfectly correlated with fitting the dropped category. Be aware that the only way to choose which column is dropped is to rearrange the original data so that the column you want dropped is first.
+  * ``prefix`` is just a set of strings you can add to dummy column names to make clear which ones are related.
+  * If nothing is passed to ``columns``, Pandas will try to convert the entire DataFrame to dummy variables, which is usually a bad idea. Always pass the subset of columns you want to convert to ``columns``.
+
+Let's say you did an experiment where you tested 100 people to see if their preference for Coke or Pepsi correlated with whether the container it came in was made of aluminum, plastic, or glass, and whether it was served with or without ice.
+
+.. jupyter-execute::
+
+    from random import choices
+    import pandas as pd
+    sodas = choices(['Coke','Pepsi'],k=100)
+    containers = choices(['aluminum','glass','plastic'],k=100)
+    ices = choices([1, 0],k=100) #will skip this one
+    soda_df = pd.DataFrame(list(zip(sodas,containers,ices)),
+                           columns=['brand','container_material','with_ice'])
+    print(soda_df.head())
+    print("\n Memory usage:\n",soda_df.memory_usage(deep=True),"\n")
+    dummy_df = pd.get_dummies(sodas_df, drop_first=True, columns=['brand','container_material'],
+                              prefix=['was','in'], dtype=int)
+    print("Dummy version:\n",dummy_df.head())
+    print("\n Memory usage:\n",dummy_df.memory_usage(deep=True))
+
+Dummy variables can also be converted back to categorical variable columns with ``pd.from_dummies()`` as long as their column names had prefixes to group related variables. But given the memory savings, you might not want to.
+
+
+Efficient Data Types
+^^^^^^^^^^^^^^^^^^^^
+
+**Categorical data.** As the memory usage outputs show in the example above, a single 5-8-letter word uses almost 8 times as much memory as a 64-bit float. The ``Categorical`` datatype provides, among other benefits, a way to get the memory savings of a dummy variable array without having to create one, as long as the number of unique values is much smaller than the number of entries in the column(s) to be converted to ``Categorical`` type. Internally, the ``Categorical`` type maps all the unique values of a column to short numerical codes in the column's place in memory, stores the codes in the smallest integer format that fits the largest-valued code, and only converts the codes to the associated strings when the data are printed. 
+
+* To convert a column in an existing Dataframe, simply set that column equal to itself with ``.astype('category')`` at the end.
+* If defining a new Series that you want to be categorical, simply include ``dtype='category'``.
+* To get attributes or methods of ``Categorical`` data, use the ``.cat`` accessor followed by the attribute or method. E.g., to get the category names back as an index object, use ``df['cat_col'].cat.categories``.
+* ``.cat`` methods include operations to add, remove, rename, and even rearrange categories.
+* The order of categories can be asserted either in the definition of a ``Categorical`` object or via ``cat.reorder_categories()`` as in ``series.cat.reorder_categories([newcats], ordered=True)``
+* Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``
+
+**Sparse Data.**
+
+
+
+
+
+
 Time Series
 ^^^^^^^^^^^
 
-If data are loaded into a Series or DataFrame with timestamps or other datetime-like data, those columns will automatically be converted to the relevant Pandas time series datatype. If the time increments are smaller than weeks, this can be nice because it enables things like windowing and resampling based on time increments even if the samples are irregular.
+If data are loaded into a Series or DataFrame with timestamps or other datetime-like data, those columns will automatically be converted to the relevant Pandas time series datatype. If the time increments are smaller than weeks, this can be nice because it enables things like windowing and resampling based on time increments even if the samples are irregular. With the right choice of plotting interface, time series are also automatically correctly formatted in plots.
 
-Below is a table of those datatypes, how they vary depending on whether you're looking at individual values or a whole column.
+Below is a table of time series datatypes, how they vary depending on whether you're looking at individual values or a whole column.
 
 +----------------+--------------------+--------------------------+-------------------------------------------------+
 | Scalar Class   | Index Subclass     | Pandas Data Type         |  Creation/Conversion Method                     |
@@ -689,5 +740,7 @@ Below is a table of those datatypes, how they vary depending on whether you're l
 | ``DateOffset`` | N/A                | N/A                      | ``.tseries.offsets.DateOffset(unit = n_units)`` |
 |                |                    |                          | (``unit`` can be day, month, ...)               |
 +----------------+--------------------+--------------------------+-------------------------------------------------+
+
+The relatively niche ``DateOffset`` type is imported from the ``dateutil`` package to help deal with calendar irregularities like leap-years and DST.
 
 
