@@ -306,6 +306,14 @@ On your own computer through SSH tunneling
 
 
 
+More information
+################
+
+- You can also check the lesson about `Jupyter on compute nodes <https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html>`_ in our **Introduction to running R, Python and Julia in HPC workshop**)
+- Documentation about `Jupyter on HPC2N <https://www.hpc2n.umu.se/resources/software/jupyter>`_
+- Documentation about `Jupyter on UPPMAX <http://docs.uppmax.uu.se/software/jupyter/>`_
+
+
 VScode
 ------
 
