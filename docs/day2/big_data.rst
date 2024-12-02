@@ -1,7 +1,7 @@
 Big data with Python
 ====================
 
-.. info:: "Learning outcomes"
+.. admonition:: "Learning outcomes"
 
    Learners can
 
@@ -132,7 +132,8 @@ Dask is very popular for data analysis and is used by a number of high-level Pyt
 
 
 
-## Exercises   
+Exercises
+---------
 
 .. exercise:: Use Xarray to work with NetCDF files
 
