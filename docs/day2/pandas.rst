@@ -2,7 +2,7 @@
 Intro to Pandas
 ###############
 
-**Pandas**, short for PANel Data AnalysiS, is a Python data library for cleaning, organizing, and statistically analyzing moderately large ($lesssim3$ GiB) data sets. It was originally developed for analyzing and modelling financial records (panel data) over time, and has since expanded into a package rivaling SciPy in the number and complexity of available functions. Pandas offers:
+**Pandas**, short for PANel Data AnalysiS, is a Python data library for cleaning, organizing, and statistically analyzing moderately large ($\lesssim3$ GiB) data sets. It was originally developed for analyzing and modelling financial records (panel data) over time, and has since expanded into a package rivaling SciPy in the number and complexity of available functions. Pandas offers:
 
 * Explicit, automatic data alignment: all entries have corresponding row and column labels/indexes.
 * Easy methods to add, remove, transform, compare, broadcast, and aggregate data within and across data structures.
@@ -165,7 +165,7 @@ Pandas assigns the data in a Series and each column of a DataFrame a datatype ba
 
   - A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of ``object``.
 
-* Pandas has many functions devoted to time series, so there are several datatypes - ``datetime``, ``timedelta``, and ``period`` - the first two of which are based on `NumPy data types of the same name <https://numpy.org/devdocs/reference/arrays.datetime.html>`_. Unfortunately, we won't have time to cover those at depth.
+* Pandas has many functions devoted to time series, so there are several datatypes---``datetime``, ``timedelta``, and ``period``. The first two are based on `NumPy data types of the same name <https://numpy.org/devdocs/reference/arrays.datetime.html>`_, and ``period`` is a time-interval type specified by a starting datetime and a recurrence rate. Unfortunately, we won't have time to cover these at depth.
 
 There are also specialized datatypes for, e.g. saving on memory or performing windowed operations, including
 
@@ -281,20 +281,20 @@ The main data inspection functions for DataFrames (and Series) are as follows.
     print('\n Compare: \n',df.memory_usage(deep=True))
 
 
-Data Selection Syntax
-^^^^^^^^^^^^^^^^^^^^^
+Data Selection/Assignment Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here is a table of the syntax for how to select different subsets or cross-sections of a DataFrame.
+Below is a table of the syntax for how to select or assign different subsets or cross-sections of a DataFrame. To summmarize it briefly, columns can be selected like dictionary keys, but for everything else there is ``.loc[]`` to select by name and ``.iloc[]`` to select by index. To select multiple entries at once, pass a list to ``.loc[]`` or array slice notation to ``.iloc[]``. 
 
 ====================================  =====================================================================================================
-To Access...                          Syntax
+To Access/Assign...                   Syntax
 ====================================  =====================================================================================================
 1 column                              ``df['col_name']`` or ``df.col_name``
 1 named row                           ``df.loc['row_name']``
 1 row by index                        ``df.iloc[index]``
 1 column by index (rarely used)       ``df.iloc[:,index]``
 1 cell by row and column labels       ``df.loc['row_name','col_name']`` or ``df.at['row_name','col_name']`` or ``df.at[index,'col_name']`` 
-1 cell by row and column indexes      ``df.iat[row_index, col_index]``
+1 cell by row and column indexes      ``df.iloc[row_index, col_index]`` or ``df.iat[row_index, col_index]``
 multiple columns                      ``df[['col0', 'col1', 'col2']]``
 multiple named rows                   ``df.loc[['rowA','rowB','rowC']]``
 multiple rows by index                ``df.iloc[j:n]`` or ``df.take([j, ..., n])``
@@ -620,9 +620,47 @@ If the transformation you need to apply to your data cannot be simply constructe
           hdf = df.groupby('planet_type')[['planet_type','mass_ME']].apply(scale_mass)
           print(hdf.head())
 
+
 Windowing Operations
 ^^^^^^^^^^^^^^^^^^^^
 
-There are 4 methods for evaluating other methods over moving/expanding windows, with a similar API to GroupBy objects (most allow similar aggregating methods).
+There are 4 methods for evaluating other methods and functions over moving/expanding windows, usually specified as $n$ rows or time increments passed to the mandatory kwarg ``window``, with a similar API to GroupBy objects (most allow similar aggregating methods). All windowing methods have a ``min_periods`` kwarg to specify the minimum number of valid data points a window must contain for the window to be passed to any subsequent functions; results for any windows that don't have enough data points will be filled with NaN.
 
++---------------------------------+--------------------------+----------------+-----------+-----------------+
+| Method                          | Windowing Type           | Allows time-   | Allows 2D | Accepts GroupBy |
+|                                 |                          | based windows? | windows?  | Objects?        |
++=================================+==========================+================+===========+=================+
+| ``.rolling()``                  | rolling/moving/sliding   | Yes            | Yes       | Yes             | 
++---------------------------------+--------------------------+----------------+-----------+-----------------+
+| ``.rolling(win_type='<func>')`` | rolling, weighted by     | No             | No        | No              | 
+|                                 | `SciPy.signal` functions |                |           |                 |
++---------------------------------+--------------------------+----------------+-----------+-----------------+
+| ``.expanding()``                | expanding (cumulative)   | No             | Yes       | Yes             | 
++---------------------------------+--------------------------+----------------+-----------+-----------------+
+| ``.emw()``\*                    | exponentially-weighted   | only if given  | No        | Yes             | 
+|                                 | moving                   | ``halflife``   |           |                 |
++---------------------------------+--------------------------+----------------+-----------+-----------------+
+
+``.rolling()`` (unweighted version) and  ``.expanding()`` allow windows to span **and aggregate over** multiple columns with ``method='table'`` set in the kwargs, but any function to be evaluated over those windows must then have ``engine='numba'`` set in its kwargs as well. If all you want to do is compute the same function over the same window increments for multiple separate columns simultaneously, setting ``method='table'`` is not necessary.
+
+\* To clarify, ``.emw()`` is similar to the expanding window, but every data point prior to wherever the window is centered is down-weighted by an exponential decay function. Further information on what exponential decay functions can be specified and how can be found `in the official documentation <https://pandas.pydata.org/docs/user_guide/indow.html#exponentially-weighted-window>`_, as this level of detail is beyond the scope of the course.
+
+For demonstration, here is an example based loosely on the climate of your teacher's hometown.
+
+.. jupiter-execute
+
+    import numpy as np
+    import pandas as pd
+    j = pd.DataFrame(np.array([[18.,20.,24., 27.,30.,32., 33.,33.,31., 27.,23.,20.],
+                               [6.,8.,10., 14.,18.,22., 23.,23.,21., 16.,11.,8.],
+                               ['fall','spring','spring', 'spring','dry summer','dry summer', 
+                               'wet summer','wet summer','wet summer', 'wet summer','fall','fall']]).T,
+                     columns = ['highs_C', 'lows_C', 'season'],
+                     index=range(1,13))
+    print('Mean temperatures by season:\n',
+          j.groupby('season')[['highs_C', 'lows_C']].rolling(window=2).mean())
+
+
+Advanced Topics
+---------------
 
