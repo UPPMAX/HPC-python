@@ -33,7 +33,7 @@ Interactive work on the compute nodes
 
    - Rackham: ``/proj/hpc-python-fall``
    - Kebnekaise: ``/proj/nobackup/hpc-python-fall-hpc2n``
-   - Cosmos: ``lu2024-17-44``
+   - Cosmos: ``/lunarc/nobackup/projects/lu2024-17-44``
    - Tetralith: ``/proj/hpc-python-fall-nsc``
 
 .. admonition:: Reservation
@@ -93,7 +93,7 @@ Example, HPC2N vs. UPPMAX vs. LUNARC (NSC is similar to LUNARC):
 
 .. mermaid:: ../mermaid/interactive_node_transitions.mmd 
 
-.. figure:: ../../img/cosmos-interactive.png
+.. figure:: ../img/cosmos-interactive.png
       :width: 400
       :align: center
 
