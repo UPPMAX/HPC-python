@@ -293,11 +293,15 @@ Through ThinLinc
    - If you connect for the first time, you will see the “The server’s host key is not cached …” dialog. 
 
 2. Load a JupyterLab module
-   
-   - This is an example for JupyterLab 4.2.0
-   - module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0   
 
-3.    
+   - Open a terminal    
+   - This is an example for JupyterLab 4.2.0
+   - ``module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0``   
+
+3. Start JupyterLab
+
+   - Type ``jupyter-lab`` in the terminal 
+   - It will show some text, including telling you to open a url in a browser  
 
 
 On your own computer through SSH tunneling 
