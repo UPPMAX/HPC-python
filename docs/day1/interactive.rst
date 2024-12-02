@@ -428,14 +428,12 @@ Exercises
 
 - If this works you are good to go for the interactive session exercises!
 
-Exercise 1: start an interactive node
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Exercise 1: start an interactive session
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this example we will start a session with 2 cores
 
 .. tabs::
-
-   .. tab:: Exercise 1: start an interactive node
-
-      Start an interactive node with 2 cores
 
    .. tab:: UPPMAX
 
@@ -467,10 +465,6 @@ Exercise 2: check to be in an interactive session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
-
-   .. tab:: Exercise 2: confirm to be on a compute node
-
-      Confirm to be on a compute node.
 
    .. tab:: UPPMAX/LUNARC/NSC
 

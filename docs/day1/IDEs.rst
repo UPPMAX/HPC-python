@@ -1,10 +1,10 @@
 Loading IDEs
-------------
+============
 
 There are several popular IDEs that are commonly used for interactive work with Python. Here we will show how to load ``Jupyter``, ``VScode``, and ``Spyder``. 
 
 Jupyter
-#######
+-------
 
 Jupyter is web application that (among other things) allows literature programming for Python. That is, Jupyter allows to create documents where Python code is shown and run and its results shown, surrounded by written text (e.g. English).
 
@@ -27,7 +27,7 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
 - For NSC, you can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster. 
 
 UPPMAX
-^^^^^^
+######
 
 UPPMAX procedure step 1: login to a remote desktop
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,7 +88,7 @@ If you use the remote desktop website:
 In both cases, you can access Jupyter from your local computer
 
 - start ``firefox`` on your local computer
-- browse to the second URL, which will be similar to
+- browse to the second URL, which will be **similar** to
   ``http://r486:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 
 On own computer
@@ -104,13 +104,13 @@ On own computer
     - If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
     - If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
 
-.. figure:: ../../img/putty.png
+.. figure:: ../img/putty.png
    :width: 450
    :align: center
 
 [SSH port forwarding](https://uplogix.com/docs/local-manager-user-guide/advanced-features/ssh-port-forwarding)
 
-On your computer open  the address you got but replace r486 with localhost i.e.
+On your computer open the address you got but replace r486 with localhost i.e. you get something like this
 
 ``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 or
@@ -142,9 +142,9 @@ or
 
 
 HPC2N
-^^^^^
+#####
 
-Since the JupyterLab will only be accessible from within HPC2N's domain, it is by far easiest to do this from inside ThinLinc, so **this is highly recommended**. You can find information about using ThinLinc at HPC2N here: https://www.hpc2n.umu.se/documentation/guides/thinlinc
+Since the JupyterLab will only be accessible from within HPC2N's domain, it is by far easiest to do this from inside ThinLinc, so **this is highly recommended**. You can find information about using ThinLinc at `HPC2N's documentation <https://docs.hpc2n.umu.se/tutorials/jupyter/>`_ 
 
 1. At HPC2N, you currently need to start JupyterLab on a specific compute node. To do that you need a submit file and inside that you load the JupyterLab module and its prerequisites (and possibly other Python modules if you need them - more about that later).
 
@@ -169,7 +169,7 @@ Something like the file below will work. Remember to change the project id after
 .. code-block:: slurm
 
    #!/bin/bash
-   #SBATCH -A hpc2n2024-114
+   #SBATCH -A hpc2n2024-142
    # This example asks for 1 core
    #SBATCH -n 1
    # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
@@ -204,40 +204,43 @@ The SLURM output file is as default named ``slurm-<job-id>.out`` where you get t
 
 **NOTE**: Grab the URL with the *hostname* since the localhost one requires you to login to the compute node and so will not work!
 
-The file will look similar to this:
+The file will look **similar** to this:
 
-.. code-block:: sh
-   b-an03 [~]$ cat slurm-24661064.out
-   [I 2024-03-09 15:35:30.595 ServerApp] Package jupyterlab took 0.0000s to import
-   [I 2024-03-09 15:35:30.617 ServerApp] Package jupyter_lsp took 0.0217s to import
-   [W 2024-03-09 15:35:30.617 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
-   [I 2024-03-09 15:35:30.626 ServerApp] Package jupyter_server_terminals took 0.0087s to import
-   [I 2024-03-09 15:35:30.627 ServerApp] Package notebook_shim took 0.0000s to import
-   [W 2024-03-09 15:35:30.627 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
-   [I 2024-03-09 15:35:30.627 ServerApp] jupyter_lsp | extension was successfully linked.
-   [I 2024-03-09 15:35:30.632 ServerApp] jupyter_server_terminals | extension was successfully linked.
-   [I 2024-03-09 15:35:30.637 ServerApp] jupyterlab | extension was successfully linked.
-   [I 2024-03-09 15:35:30.995 ServerApp] notebook_shim | extension was successfully linked.
-   [I 2024-03-09 15:35:31.020 ServerApp] notebook_shim | extension was successfully loaded.
-   [I 2024-03-09 15:35:31.022 ServerApp] jupyter_lsp | extension was successfully loaded.
-   [I 2024-03-09 15:35:31.023 ServerApp] jupyter_server_terminals | extension was successfully loaded.
-   [I 2024-03-09 15:35:31.027 LabApp] JupyterLab extension loaded from /hpc2n/eb/software/JupyterLab/4.0.5-GCCcore-12.3.0/lib/python3.11/site-packages/jupyterlab
-   [I 2024-03-09 15:35:31.027 LabApp] JupyterLab application directory is /cvmfs/ebsw.hpc2n.umu.se/amd64_ubuntu2004_skx/software/JupyterLab/4.0.5-GCCcore-12.3.0/share/jupyter/lab
-   [I 2024-03-09 15:35:31.028 LabApp] Extension Manager is 'pypi'.
-   [I 2024-03-09 15:35:31.029 ServerApp] jupyterlab | extension was successfully loaded.
-   [I 2024-03-09 15:35:31.030 ServerApp] Serving notebooks from local directory: /pfs/stor10/users/home/b/bbrydsoe
-   [I 2024-03-09 15:35:31.030 ServerApp] Jupyter Server 2.7.2 is running at:
-   [I 2024-03-09 15:35:31.030 ServerApp] http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
-   [I 2024-03-09 15:35:31.030 ServerApp]     http://127.0.0.1:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
-   [I 2024-03-09 15:35:31.030 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-   [C 2024-03-09 15:35:31.039 ServerApp]
+.. admonition:: 
+   :class: dropdown
 
-    To access the server, open this file in a browser:
-        file:///pfs/stor10/users/home/b/bbrydsoe/.local/share/jupyter/runtime/jpserver-121683-open.html
-    Or copy and paste one of these URLs:
-        http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
-        http://127.0.0.1:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
-   [I 2024-03-09 15:35:31.078 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+   .. code-block:: sh
+      b-an03 [~]$ cat slurm-24661064.out
+      [I 2024-03-09 15:35:30.595 ServerApp] Package jupyterlab took 0.0000s to import
+      [I 2024-03-09 15:35:30.617 ServerApp] Package jupyter_lsp took 0.0217s to import
+      [W 2024-03-09 15:35:30.617 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+      [I 2024-03-09 15:35:30.626 ServerApp] Package jupyter_server_terminals took 0.0087s to import
+      [I 2024-03-09 15:35:30.627 ServerApp] Package notebook_shim took 0.0000s to import
+      [W 2024-03-09 15:35:30.627 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+      [I 2024-03-09 15:35:30.627 ServerApp] jupyter_lsp | extension was successfully linked.
+      [I 2024-03-09 15:35:30.632 ServerApp] jupyter_server_terminals | extension was successfully linked.
+      [I 2024-03-09 15:35:30.637 ServerApp] jupyterlab | extension was successfully linked.
+      [I 2024-03-09 15:35:30.995 ServerApp] notebook_shim | extension was successfully linked.
+      [I 2024-03-09 15:35:31.020 ServerApp] notebook_shim | extension was successfully loaded.
+      [I 2024-03-09 15:35:31.022 ServerApp] jupyter_lsp | extension was successfully loaded.
+      [I 2024-03-09 15:35:31.023 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+      [I 2024-03-09 15:35:31.027 LabApp] JupyterLab extension loaded from /hpc2n/eb/software/JupyterLab/4.0.5-GCCcore-12.3.0/lib/python3.11/site-packages/jupyterlab
+      [I 2024-03-09 15:35:31.027 LabApp] JupyterLab application directory is /cvmfs/ebsw.hpc2n.umu.se/amd64_ubuntu2004_skx/software/JupyterLab/4.0.5-GCCcore-12.3.0/share/jupyter/lab
+      [I 2024-03-09 15:35:31.028 LabApp] Extension Manager is 'pypi'.
+      [I 2024-03-09 15:35:31.029 ServerApp] jupyterlab | extension was successfully loaded.
+      [I 2024-03-09 15:35:31.030 ServerApp] Serving notebooks from local directory: /pfs/stor10/users/home/b/bbrydsoe
+      [I 2024-03-09 15:35:31.030 ServerApp] Jupyter Server 2.7.2 is running at:
+      [I 2024-03-09 15:35:31.030 ServerApp] http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+      [I 2024-03-09 15:35:31.030 ServerApp]     http://127.0.0.1:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+      [I 2024-03-09 15:35:31.030 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+      [C 2024-03-09 15:35:31.039 ServerApp]
+
+       To access the server, open this file in a browser:
+           file:///pfs/stor10/users/home/b/bbrydsoe/.local/share/jupyter/runtime/jpserver-121683-open.html
+       Or copy and paste one of these URLs:
+           http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+           http://127.0.0.1:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+      [I 2024-03-09 15:35:31.078 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
 
  
 To access the server, go to
@@ -268,11 +271,10 @@ After a few moments JupyterLab starts up:
 
 You shut it down from the menu with "File" > "Shut Down"
 
-   
-
-
 LUNARC
-^^^^^^
+######
+
+
 
 NSC
 ^^^
