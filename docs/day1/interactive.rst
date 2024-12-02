@@ -139,7 +139,7 @@ To start an interactive session in the simplest way, is shown here:
 
    .. tab:: UPPMAX
 
-     Use:
+      Use:
 
       .. code-block:: console
 
