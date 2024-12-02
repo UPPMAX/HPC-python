@@ -1,57 +1,39 @@
 Interactive work on the compute nodes
 =====================================
 
-.. tabs::
+.. Learningobjectives:: Learning objectives
 
-   .. tab:: Learning objectives
+   - Understand what an interactive session is
+   - Understand why one may need an interactive session
+   - Work with an interactive session (single + multiple cores)
+   - Run an interactive-friendly Python script
+   - Run an interactive-unfriendly Python script
+   - How to load IDEs
+       - Jupyter
+       - VScode
+       - spyder
+   - On-demand desktop       
 
-      - Understand what an interactive session is
-      - Understand why one may need an interactive session
-      - Start an interactive session
-      - Test to be on an interactive node with the right amount of cores
-      - End an interactive session
-      - Start an interactive session with multiple cores
-      - Test to be on an interactive node with multiple cores
-      - Run an interactive-friendly Python script on multiple cores
-      - Run an interactive-unfriendly Python script on multiple cores
-      - End an interactive session with multiple cores
-
-   .. tab:: For teachers
-
-      Teaching goals are:
-
-      - Learners have heard what an interactive session is
-      - Learners have heard why one may need an interactive session
-      - Learners have started an interactive session
-      - Learners have tested to be on an interactive node
-      - Learners have ended an interactive session
-      - Learners have started an interactive session with multiple cores
-      - Learners have tested to be on an interactive node with multiple cores
-      - Learners have ended an interactive session with multiple cores
-
-      Shortened lesson plan (20 minutes in total):
-
-      - 5 mins: prior knowledge
-         - What types of nodes do our HPC clusters have?
-         - What is the purpose of each of these nodes?
-         - Imagine you are developing a Python script in a line-by-line fashion. How to do so best?
-         - Why not do so on the login node?
-         - Why not do so by using ``sbatch``?
-      - 5 mins: presentation
-      - 5 mins: challenge
-      - 5 mins: recap
-         - What is the drawback of using an interactive node?
+.. questions:: 
+   - Imagine you are developing a Python script in a line-by-line fashion. How to do so best?
+       - Why not do so on the login node?
+       - Why not do so by using ``sbatch``?
+   - What is the drawback of using an interactive node?
 
 
 .. admonition:: Compute allocations in this workshop 
 
-   - Rackham: ``naiss2024-22-415``
-   - Kebnekaise: ``hpc2n2024-052``
+   - Rackham: ``naiss2024-22-1442``
+   - Kebnekaise: ``hpc2n2024-142``
+   - Cosmos: ``lu2024-2-88``
+   - Tetralith: ``naiss2024-22-1493``  
 
 .. admonition:: Storage space for this workshop 
 
-   - Rackham: ``/proj/hpc-python``
-   - Kebnekaise: ``/proj/nobackup/python-hpc``
+   - Rackham: ``/proj/hpc-python-fall``
+   - Kebnekaise: ``/proj/nobackup/hpc-python-fall-hpc2n``
+   - Cosmos: ``lu2024-17-44``
+   - Tetralith: ``/proj/hpc-python-fall-nsc``
 
 Introduction
 ------------

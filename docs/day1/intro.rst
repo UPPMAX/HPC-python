@@ -109,7 +109,7 @@ Documentations at other NAISS centres
        - Storage directory: /proj/nobackup/hpc-python-fall-hpc2n
    - LUNARC: 
        - Project ID: lu2024-2-88
-       - Storage directory: 
+       - Storage directory: /lunarc/nobackup/projects/lu2024-17-44  
    - NSC: 
        - Project ID: naiss2024-22-1493
        - Storage directory: /proj/hpc-python-fall-nsc  

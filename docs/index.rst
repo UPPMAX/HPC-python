@@ -423,7 +423,7 @@ Preliminary schedule
           - as server: ``cosmos-dt.lunarc.lu.se``
           - as user: ``<username-at-lunarc>`` NOTE: leave out the ``@lunarc.lu.se`` 
 
-      - Create a working directory where you can code along.     
+      - Create a working directory where you can code along, under the storage directory. The storage directory is located under: ``/lunarc/nobackup/projects/lu2024-17-44``    
 
    .. tab:: NSC 
 
@@ -433,7 +433,7 @@ Preliminary schedule
           - as server: tetralith.nsc.liu.se``
           - as user: ``<username-at-nsc>`` NOTE: leave out the ``@nsc.liu.se``
 
-          - Create a working directory where you can code along. 
+          - Create a working directory where you can code along, under ``/proj/hpc-python-fall-nsc``. 
 
       - 2FA is needed. Info here about setup: <https://www.nsc.liu.se/support/2fa/>   
 

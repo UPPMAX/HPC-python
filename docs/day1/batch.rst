@@ -14,6 +14,21 @@ Running Python in batch mode
    - Show structure of a batch script
    - Try example
 
+.. admonition:: Compute allocations in this workshop 
+
+   - Rackham: ``naiss2024-22-1442``
+   - Kebnekaise: ``hpc2n2024-142``
+   - Cosmos: ``lu2024-2-88``
+   - Tetralith: ``naiss2024-22-1493``  
+
+.. admonition:: Storage space for this workshop 
+
+   - Rackham: ``/proj/hpc-python-fall``
+   - Kebnekaise: ``/proj/nobackup/hpc-python-fall-hpc2n``
+   - Cosmos: ``lu2024-17-44``
+   - Tetralith: ``/proj/hpc-python-fall-nsc``
+
+
 Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, and NSC
 -------------------------------------------------------------------------------
 
