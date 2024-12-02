@@ -540,6 +540,7 @@ Content of the course
    day1/install_packages.rst
    day1/batch.md
    day1/interactive.md
+   day1/IDEs.rst
    day1/Matplotlib60min.rst
    day1/gpu.md
    summary.rst
@@ -561,6 +562,7 @@ Content of the course
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
    extra/interactive_deeper.rst
+   extra/jupyterHPC2N.rst
    #jupyter.md
    uppmax.rst
    kebnekaise.md
