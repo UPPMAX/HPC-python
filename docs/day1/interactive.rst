@@ -519,56 +519,48 @@ Exercise 3: check to have booked the expected amount of cores
 Exercise 4.1. Running the first Python script in an interactive session on all cores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. tabs::
+Running `sum-2args.py` in an interactive session
 
-   .. tab:: Exercise 4.1. Running `sum-2args.py` in an interactive session
+.. exercise:: HPC2N, UPPMAX, LUNARC, and NSC
 
-      Run the first Python example script, `sum-2args.py`, in an interactive session, on all cores.
-
-   .. tab:: HPC2N, UPPMAX, LUNARC, and NSC
-
-      Run the script using ``srun``:
+   Run the script using ``srun``:
          
-      .. code-block:: console
+   .. code-block:: console
       
-         b-an01 [~]$ srun python sum-2args.py 3 4
-         The sum of the two numbers is: 7
-         The sum of the two numbers is: 7
-         b-an01 [~]$             
+   b-an01 [~]$ srun python sum-2args.py 3 4
+   The sum of the two numbers is: 7
+   The sum of the two numbers is: 7
+   b-an01 [~]$             
 
-      Similar to ``srun hostname``, this script is run once per node and works as expected.
+   Similar to ``srun hostname``, this script is run once per node and works as expected.
                         
 Exercise 4.2. Running a second Python script in an interactive session on all cores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
-   .. tab:: Exercise 4.2. Running `add2.py` in an interactive session
+Running `add2.py` in an interactive session
 
-      Run the second Python example script, `add2.py`, in an interactive session, on all cores.
+.. exercise:: HPC2N, UPPMAX, LUNARC, NSC
 
-   .. tab:: HPC2N, UPPMAX, LUNARC, NSC
+   Run the script using ``srun``:
 
-      Run the script using ``srun``:
-
-      .. code-block:: console 
+   .. code-block:: console 
          
-         b-an01 [~]$ srun python add2.py 
-         2
-         3
-         Enter the first number: Enter the second number: The sum of 2 and 3 is 5
-         Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+      b-an01 [~]$ srun python add2.py 
+      2
+      3
+      Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+      Enter the first number: Enter the second number: The sum of 2 and 3 is 5
       
-      As you can see, it is possible, but it will not show any interaction it otherwise would have. At least not at HPC2N. Is it different elsewhere? 
+   As you can see, it is possible, but it will not show any interaction it otherwise would have. At least not at HPC2N. Is it different elsewhere? 
 
 Exercise 5: exit
 ^^^^^^^^^^^^^^^^^^
 
+Exit the interactive mode 
+
 .. tabs::
-
-   .. tab:: Exercise 5: exit
-
-      Exit the interactive node
 
    .. tab:: UPPMAX, LUNARC, NSC
 
