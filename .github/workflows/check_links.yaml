@@ -8,6 +8,8 @@ name: Check links
 on:
   schedule:
   - cron: "0 9-21/3 * * *"
+  workflow_dispatch:
+  
 
 jobs:
   check_links:
