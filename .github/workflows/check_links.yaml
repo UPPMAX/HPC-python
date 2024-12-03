@@ -6,10 +6,8 @@ name: Check links
 
 # Only run this on the main branch, or with Pull Requests
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+  schedule:
+  - cron: "0 9-21/3 * * *"
 
 jobs:
   check_links:
