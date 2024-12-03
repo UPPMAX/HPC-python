@@ -332,16 +332,20 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
       
       # Remove any loaded modules and load the ones we need
       module purge  > /dev/null 2>&1
-      module load 
+      module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 julia/1.9.4-bdist OpenMPI/4.1.6198 SciPy-bundle 
+      
+      # Activate the virtual environment we created earlier today 
+      source <path-to>/virtenv/bin/activate
 
+      # Run your Python script 
+      python add-list.py 
 
 Exercises
 ---------
 
 .. challenge:: Integration 2D with Numba
 
-   An initial implementation of the 2D integration problem with the CUDA support for 
-   Numba could be as follows:
+   An initial implementation of the 2D integration problem with the CUDA support for Numba could be as follows:
 
    .. admonition:: ``integration2d_gpu.py``
       :class: dropdown
@@ -472,8 +476,7 @@ Exercises
          print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
          print("Time spent: %.2f sec" % (endtime-starttime))
 
-   Prepare a batch script to run these two versions of the integration 2D with Numba support
-   and monitor the timings for both cases.
+   Prepare a batch script to run these two versions of the integration 2D with Numba support and monitor the timings for both cases.
 
 .. solution:: Solution for HPC2N
     :class: dropdown
@@ -487,39 +490,34 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A hpc2n20XX-XYZ
+            #SBATCH -A hpc2n2024-142
             #SBATCH -t 00:08:00
             #SBATCH -N 1
-            #SBATCH -n 28
+            #SBATCH -n 24
             #SBATCH -o output_%j.out   # output file
             #SBATCH -e error_%j.err    # error messages
-            #SBATCH --gres=gpu:v100:2
-            #SBATCH --exclusive
+            #SBATCH --gpus=1
+            #SBATCH -C l40s 
+            #SBATCH --exclusive 
      
             ml purge > /dev/null 2>&1
-            ml GCCcore/11.2.0 Python/3.9.6
-            ml GCC/11.2.0 OpenMPI/4.1.1
-            ml CUDA/11.4.1
-    
-            # CHANGE TO YOUR OWN PATH! 
-            source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
-       
+            ml GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 
             python integration2d_gpu.py
             python integration2d_gpu_shared.py
 
-     For the ``integration2d_gpu.py`` implementation, the time for executing the kernel 
-     and doing some postprocessing to the outputs (copying the C array and doing a reduction)  
-     was 4.35 sec. which is a much smaller value than the time for the serial numba code of 152 sec
-     obtained previously. 
+     For the ``integration2d_gpu.py`` implementation, the time for executing the kernel and doing some postprocessing to the outputs (copying the C array and doing a reduction) was 4.35 sec. which is a much smaller value than the time for the serial numba code of 152 sec obtained previously. 
 
-     The simulation time for the ``integration2d_shared.py`` implementation was 1.87 sec. 
-     by using the shared memory trick. 
+     The simulation time for the ``integration2d_shared.py`` implementation was 1.87 sec. by using the shared memory trick. 
 
 .. keypoints::
 
    -  You deploy GPU nodes via SLURM, either in interactive mode or batch
    -  In Python the numba package is handy
+  
+.. important::
 
+   - Of course, interactive mode could also be from inside Jupyter, VScode, spyder ... 
+   - We will use GPUs more in the ML/DL section tomorrow! 
 
 Additional information
 ----------------------
