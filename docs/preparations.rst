@@ -50,7 +50,7 @@ Log in to one of the HPC systems covered in this course
 .. seealso::
 
    - `Log in to Rackham <http://docs.uppmax.uu.se/getting_started/login_rackham/>`_ 
-   - `Log in to Kebnekaise <http://docs.uppmax.uu.se/getting_started/login_rackham/>`_ 
+   - `Log in to Kebnekaise <>https://docs.hpc2n.umu.se/tutorials/quickstart/#thinlinc__all__os`_ 
 
    - `Log in to Cosmos <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/>`_
 

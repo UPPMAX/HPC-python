@@ -146,6 +146,9 @@ HPC2N
 
 Since the JupyterLab will only be accessible from within HPC2N's domain, it is by far easiest to do this from inside ThinLinc, so **this is highly recommended**. You can find information about using ThinLinc at `HPC2N's documentation <https://docs.hpc2n.umu.se/tutorials/jupyter/>`_ 
 
+General steps
+^^^^^^^^^^^^^ 
+
 1. At HPC2N, you currently need to start JupyterLab on a specific compute node. To do that you need a submit file and inside that you load the JupyterLab module and its prerequisites (and possibly other Python modules if you need them - more about that later).
 
 To see the currently available versions, do
@@ -266,6 +269,19 @@ After a few moments JupyterLab starts up:
   .. figure:: ../img/jupyterlab_started.png
 
 You shut it down from the menu with "File" > "Shut Down"
+
+For the course
+^^^^^^^^^^^^^^
+
+If you want to start a Jupyter with access to matplotlib and seaborn, for use withis course for the session on matplotlib, then do the following: 
+
+1. Start ThinLinc and login to HPC2N as described under `preparations <https://uppmax.github.io/HPC-python/preparations.html>`_ 
+
+2. Load these modules
+
+   ``module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5``
+
+3.    
 
 LUNARC
 ######
