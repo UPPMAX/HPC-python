@@ -71,39 +71,41 @@ Welcome to "Using Python in an HPC environment" course material
    - Users who already have accounts/projects at HPC2N (Kebnekaise) or LUNARC (Cosmos) are welcome to thoses systems for the exercises. UPPMAX/Rackham and NSC/Tetralith will be used for everyone else. 
 
 
-.. prereq::
 
-   - Python at a basic level
-   - user account on either Kebnekaise at HPC2N, Rackham at UPPMAX, Cosmos at LUNARC, or Tetralith at NSC 
-   - having a terminal with X-forwarding available and/or ThinLinc app or two-factor authentication for web-login.
-   - familiarity with the LINUX command line
-  
-      - `Short introduction <http://docs.uppmax.uu.se/getting_started/linux/>`_
-      - `Linux tutorial and "cheat sheet" <https://docs.hpc2n.umu.se/tutorials/linuxguide/>`_
-      - `HPC2N's Linux intro course material (including link to recordings) <https://github.com/hpc2n/intro-linux>`_
-      - `UPPMAX's intro course material <https://www.uu.se/en/centre/uppmax/study/courses-and-workshops/introduction-to-uppmax>`_
-      - `UPPMAX software library <http://docs.uppmax.uu.se/cluster_guides/modules/>`_
+.. admonition:: Some practicals
+
+   - `Code of Conduct <https://github.com/UPPMAX/R-python-julia-matlab-HPC/blob/main/CODE_OF_CONDUCT.md>`_
+      - Be nice to each other!
+ 
+   - Zoom
+       - You should have gotten an email with the links
+      
+       - Zoom policy:
+
+          - Zoom chat (maintained by co-teachers):
+
+            - technical issues of zoom
+            - technical issues of your settings
+            - direct communication 
+            - each teacher may have somewhat different approach
+
+          -  collaboration document (see below):
+
+             - "explain again"         
+             - elaborating the course content
+             - solutions for your own work
+
+       - Recording policy:
+          - The lectures and demos will be recorded.
+          - The questions asked per microphone during these sessions will be recorded
+          - If you don't want your voice to appear use: 
+
+             - use the collaboration document (see below)
+
+       - The Zoom main room is used for most lectures
+       - Some sessions use breakout rooms for exercises, some of which use a silent room
 
 
-Some practicals
-----------------
-        
-.. admonition:: Zoom
-
-    - You should have gotten an email with the links    
-    - Main room for lectures (recorded)
-    - Breakout rooms
-       - exercises, including a silent room for those who just want to work on their own without interruptions. 
-       - help
-    - The **lectures and demos will be recorded**, but **NOT the exercises**. 
-       - If you ask questions during the lectures, you may thus be recorded. 
-       - If you do not wish to be recorded, then please keep your microphone muted and your camera off during lectures and write your questions in the Q/A document (see more information below about the collaboration documents which are also listed above).
-    - Use your REAL NAME.
-    - Please MUTE your microphone when you are not speaking
-    - Use the “Raise hand” functionality under the “Participants” window during the lecture. 
-    - Please do not clutter the Zoom chat. 
-    - Behave politely!
-    
 .. admonition:: Q/A collabration document
 
     - Use the Q/A page for the workshop with your questions.
@@ -113,6 +115,14 @@ Some practicals
         - Some answers may come after the workshop.
  
     - Create a new line for new questions. Take care if others are editing at the same time. 
+
+.. warning::
+
+   - **Please be sure that you have gone through the `pre-requirements <https://uppmax.github.io/R-python-julia-matlab-HPC/prereqs.html>`_**
+   - It mentions the familiarity with the LINUX command line.
+   - The applications to connect to the clusters
+      - terminals
+      - remote graphical desktop ThinLinc
 
 The four HPC centers UPPMAX, HPC2N, LUNARC, and NSC
 ----------------------------------------------------
@@ -164,7 +174,7 @@ The four HPC centers UPPMAX, HPC2N, LUNARC, and NSC
 
    - To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
    
-Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, And NSC
+Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, and NSC
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **What is a cluster?**
