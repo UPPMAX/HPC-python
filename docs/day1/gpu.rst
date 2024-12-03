@@ -321,24 +321,26 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       Batch script, "add-list-tetralith.sh", to run the same GPU Python script (the numba code, "add-list.py") at Tetralith. As before, submit with "sbatch add-list-tetralith.sh" (assuming you called the batch script thus - change to fit your own naming style). 
 
-      #!/bin/bash
-      # Remember to change this to your own project ID after the course!
-      #SBATCH -A naiss2024-22-1493
-      # We are asking for 5 minutes
-      #SBATCH --time=00:05:00
-      #SBATCH -n 1 
-      #SBATCH -c 32 
-      #SBATCH --gpus-per-task=1
-      
-      # Remove any loaded modules and load the ones we need
-      module purge  > /dev/null 2>&1
-      module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 julia/1.9.4-bdist OpenMPI/4.1.6198 SciPy-bundle 
-      
-      # Activate the virtual environment we created earlier today 
-      source <path-to>/virtenv/bin/activate
+      .. code-block:: 
 
-      # Run your Python script 
-      python add-list.py 
+         #!/bin/bash
+         # Remember to change this to your own project ID after the course!
+         #SBATCH -A naiss2024-22-1493
+         # We are asking for 5 minutes
+         #SBATCH --time=00:05:00
+         #SBATCH -n 1 
+         #SBATCH -c 32 
+         #SBATCH --gpus-per-task=1
+      
+         # Remove any loaded modules and load the ones we need
+         module purge  > /dev/null 2>&1
+         module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 julia/1.9.4-bdist OpenMPI/4.1.6198 SciPy-bundle 
+      
+         # Activate the virtual environment we created earlier today 
+         source <path-to>/virtenv/bin/activate
+
+         # Run your Python script 
+         python add-list.py 
 
 Exercises
 ---------
