@@ -187,8 +187,10 @@ manipulate them.
    elements, like polygons or color bars.
 
 For everything else on a typical plot, there's this handy graphic:
-|anatomy of a plot|
-.. |anatomy of a plot| image:: https://matplotlib.org/stable/_images/anatomy.png
+
+.. image:: https://matplotlib.org/stable/_images/anatomy.png
+   :alt: anatomy
+   :width: 600 px
 
 
 ``fig``? ``ax``? What are those?
