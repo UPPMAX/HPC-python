@@ -721,10 +721,10 @@ ML programs like TensorFlow and PyTorch take Series/DataFrame inputs, but they g
 
 The Pandas function that does this is ``pd.get_dummies(data, dtype=bool, drop_first=False, prefix=pref, columns=columns)``.
 
-  * ``dtype`` can be ``bool`` (default, less memory), ``float`` (more memory usage), ``int`` (same memory as float), or a more specific string identifier like ``'float32'`` or ``'uint16'``
-  * ``drop_first``, when True, lets you get rid of one of the categories on the assumption that not fitting any of the remaining categories is perfectly correlated with fitting the dropped category. Be aware that the only way to choose which column is dropped is to rearrange the original data so that the column you want dropped is first.
-  * ``prefix`` is just a set of strings you can add to dummy column names to make clear which ones are related.
-  * If nothing is passed to ``columns``, Pandas will try to convert the entire DataFrame to dummy variables, which is usually a bad idea. Always pass the subset of columns you want to convert to ``columns``.
+* ``dtype`` can be ``bool`` (default, less memory), ``float`` (more memory usage), ``int`` (same memory as float), or a more specific string identifier like ``'float32'`` or ``'uint16'``
+* ``drop_first``, when True, lets you get rid of one of the categories on the assumption that not fitting any of the remaining categories is perfectly correlated with fitting the dropped category. Be aware that the only way to choose which column is dropped is to rearrange the original data so that the column you want dropped is first.
+* ``prefix`` is just a set of strings you can add to dummy column names to make clear which ones are related.
+* If nothing is passed to ``columns``, Pandas will try to convert the entire DataFrame to dummy variables, which is usually a bad idea. Always pass the subset of columns you want to convert to ``columns``.
 
 Let's say you did an experiment where you tested 100 people to see if their preference for Coke or Pepsi correlated with whether the container it came in was made of aluminum, plastic, or glass, and whether it was served with or without ice.
 
