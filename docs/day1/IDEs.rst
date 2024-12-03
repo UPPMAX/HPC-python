@@ -259,15 +259,11 @@ Or, to access the server you can copy and paste the URL from the file that is SI
 
 5. Start a webbrowser within HPC2N (ThinLinc interface). Open the html or put in the URL you grabbed, including the token:
 
-.. figure:: ../img/jupyterlab-start.png
-   :width: 450
-   :align: center
+  .. figure:: ../img/jupyterlab-start.png
 
 After a few moments JupyterLab starts up:
 
-.. figure:: ../img/jupyterlab_started.png
-   :width: 450
-   :align: center
+  .. figure:: ../img/jupyterlab_started.png
 
 You shut it down from the menu with "File" > "Shut Down"
 
