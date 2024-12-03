@@ -14,7 +14,9 @@ Using GPUs with Python
    - Learn common schemes for GPU code acceleration
    - Learn about the GPU nodes at HPC2N, UPPMAX, LUNARC, and NSC
 
-
+Introduction
+------------ 
+   
 In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU architecture with a GPU based architecture. Here, there is a schemematics of the former:
 
 .. figure:: ../img/cpus.png
@@ -218,7 +220,9 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 .. tabs::
 
    .. tab:: UPPMAX
-      
+
+      Running a GPU Python code interactively - on Snowy. 
+
       .. code-block:: console
       
          $ interactive -A naiss2024-22-1442 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --gres=gpu:1  -t 1:00:01 
@@ -267,7 +271,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          CPU function took 14.216318 seconds.
          GPU function took 0.390335 seconds.
 
-   .. tab:: Batch script for HPC2N
+   .. tab:: HPC2N: batch
 
       Batch script, ``add-list.sh``, to run the same GPU Python script (the numba code, ``add-list.py``) at Kebnekaise. 
       As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
@@ -290,7 +294,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
           # Run your Python script
           python add-list.py
 
-   .. tab:: Batch script for LUNARC
+   .. tab:: LUNARC: batch 
 
       Batch script, "add-list-cosmos.sh", to run the same GPU Python script (the numba code, "add-list.py") at Cosmos. As before, submit with "sbatch add-list-cosmos.sh" (assuming you called the batch script thus - change to fit your own naming style).
 
@@ -313,7 +317,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          # Run your Python script
          python add-list.py
 
-   .. tab:: Batch script for NSC 
+   .. tab:: NSC: batch 
 
       Batch script, "add-list-tetralith.sh", to run the same GPU Python script (the numba code, "add-list.py") at Tetralith. As before, submit with "sbatch add-list-tetralith.sh" (assuming you called the batch script thus - change to fit your own naming style). 
 
@@ -322,8 +326,13 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
       #SBATCH -A naiss2024-22-1493
       # We are asking for 5 minutes
       #SBATCH --time=00:05:00
-      #SBATCH --ntasks-per-node=1
+      #SBATCH -n 1 
+      #SBATCH -c 32 
+      #SBATCH --gpus-per-task=1
       
+      # Remove any loaded modules and load the ones we need
+      module purge  > /dev/null 2>&1
+      module load 
 
 
 Exercises
