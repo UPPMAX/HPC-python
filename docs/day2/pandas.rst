@@ -492,7 +492,7 @@ Pandas Method      Scalar Equivalent
 
 All of the arithmetic operators can be applied in reverse order by adding ``r`` after the ``.`` For example, if ``df1.div(df2)`` is equivalent to ``df1/df2``, then ``df1.rdiv(df2)`` is equivalent to ``df2/df1``
 
-**Comparative Methods.** Binary comparative operators work normally when comparing a DataFrame/Series to a scalar, but to compare two Pandas data structures element-wise, comparison methods are required. After any comparative expression, scalar or element-wise, you can add ``.any()`` or ``.all()`` once to aggregate along the column axis, and twice to get a single value for the entire DataFrame.
+**Comparative Methods.** Binary comparative operators work normally when comparing a DataFrame/Series to a scalar, but to compare any two Pandas data structures element-wise, comparison methods are required. After any comparative expression, scalar or element-wise, you can add ``.any()`` or ``.all()`` once to aggregate along the column axis, and twice to get a single value for the entire DataFrame.
 
 =================  =================
 Pandas Method      Scalar Equivalent
@@ -662,7 +662,25 @@ For demonstration, here is an example based loosely on the climate of your teach
 
 .. important:: Speed-up with Numba
 
-   If you have Numba installed, setting ``engine=numba`` in functions like ``.transform()``, ``.apply()``, and NumPy-like statistics functions calculated over rolling windows, can boost performance if the function has to be run multiple times over many columns, particularly if you can set `engine_kwargs={"parallel": True}`. **Parellelization occurs column-wise, so performance will be boosted if and only if the function is repeated many times over many columns.** 
+   If you have Numba installed, setting ``engine=numba`` in functions like ``.transform()``, ``.apply()``, and NumPy-like statistics functions calculated over rolling windows, can boost performance if the function has to be run multiple times over several columns, particularly if you can set `engine_kwargs={"parallel": True}`. **Parellelization occurs column-wise, so performance will be boosted if and only if the function is repeated many times over many columns.**
+
+   Here is a (somewhat scientifically nonsensical) example using the exoplanets DataFrame to show the speed-up for 5 columns.
+
+   .. jupyter-execute::
+      
+        import numpy as np
+        import pandas as pd
+        df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+        ### Have to redo the cleaning every time
+        df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
+        df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
+        df.mask(df['eccentricity']==0.0, inplace=True)
+        import numba
+        numba.set_num_threads(4)
+        stuff =  df.iloc[:,4:9].sample(n=250000, replace=True, ignore_index=True)
+        %timeit stuff.rolling(500).mean()
+        %timeit stuff.rolling(500).mean(engine='numba', engine_kwargs={"parallel": True})
+
 
 
 .. tip:: Check your work with the ``.plot()`` wrapper!
@@ -679,6 +697,18 @@ For demonstration, here is an example based loosely on the climate of your teach
    - ``'hexbin'`` for a hexbin plot (**DataFrame only**)
    
    Most of the args and kwargs that can normally be passed to any of the above plot types in Matplotlib, as well as most of the axis controlling parameters, can be passed as kwargs to the ``.plot()`` wrapper after ``kind``. The list can get long and hard to follow, though, so it's better to use Matplotlib or Seaborn for code you intend to share.
+
+   .. jupyter-execute::
+    
+       import pandas as pd
+       import numpy as np
+       df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+       df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
+       df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
+       df.mask(df['eccentricity']==0.0, inplace=True)
+       df.mask(df['mass_ME']>80*318, inplace=True) #80 Jupiter masses = minimum stellar mass
+       # look at the radius distribution
+       df['radius_RE'].plot(kind='hist', bins=20, xlabel='Planet radius (Earth radii)')
 
 
 Advanced Topics
@@ -804,4 +834,43 @@ Below is a table of time series datatypes, how they vary depending on whether yo
 
 The relatively niche ``DateOffset`` type is imported from the ``dateutil`` package to help deal with calendar irregularities like leap-years and DST.
 
+**Resampling.** Generally, resampling means taking data from one (time) series and interpolating to other (time) increments within the same bounds, whether those steps are more closely spaced than the original (*upsampling*), more widely spaced (*downsampling*), or merely shifted. In Pandas, resampling methods are exclusively for time series, and the ``.resample()`` method is fundamentally a time-based GroupBy. That means any built-in method you can call on a GroupBy method can be called on the output of ``.resample()``.
 
+* To *shift* or *downsample*, just call the method ``.resample('<unit>')`` on your time Series (or DataFrame, as long as indexes are timestamps) with any accepted ``unit`` alias.
+
+* To *upsample*, ``.resample()`` is not enough by itself---you must choose a fill/interpolation method. 
+
+  - The most basic method is to use ``.resample('<unit>').asfreq()``, but if the chosen upsampled unit does not evenly divide into or align with the original unit, most of the resampled points will be ``NaN``.
+  - There is also the forward-fill method, ``.resample('<unit>').ffill(limit=limit)``, where every data point is propagated forward to intervening sample points either up to the number of points specified by the ``limit`` kwarg or until the next point in the original series is reached. 
+  - For a more proper interpolation, there is ``.resample('<unit>').interpolate(method='linear')``, in which the ``method`` can be any method string accepted by either ``scipy.interpolate.interp1d`` or ``scipy.interpolate.UnivariateSpline``, among others, but even these will tend to fail if the new time steps are poorly aligned with the old ones. Sometimes it is necessary to combine this with, e.g. by forward-filling to the next available new time step (see example below), or extract the data and use a SciPy interpolation method on those data more directly.
+
+.. admonition:: Resampling example
+
+   Let's say you have data collected on the 15th of the month every month for a year (the data shown are the average monthly highs from the instructor's birthplace in 2021). If you wanted weekly data (roughly 52 data points) and the data are well-behaved, you could upsample from a monthly frequency to a weekly frequency. Unfortunately, since months are not all the same length and February is only 28 days, the initial sampling frequency is really bad for interpolation---the upsampled data are NaN until mid-August and then take the value on August 15 for the rest of the year.
+
+   A good quick fix (if you're not that worried about precision) is to do ``resample().ffill(limit=1)`` before ``.interpolate(method='<method>')``. With ``limit=1``, ``ffill()`` propagates the original data forward to the nearest available time step in the upsampled series, and that gives ``interpolate`` enough data to handle the rest. 
+
+   .. jupyter-execute::
+
+        import pandas as pd
+        ts = pd.Series([18.,20.,24.,27.,30.,32.,33.,33.,31.,27.,23.,20.],
+                       index=[pd.to_datetime('2021-{}-15'.format(str(i).zfill(2)))
+                                             for i in range(1,13)])
+        print(ts)
+        tsr = ts.resample('W').ffill(limit=1).interpolate() #linear interpolation
+        tsr.plot() #a Series with datetime indexes plots with x-axis already formatted
+
+
+Key Points
+----------
+
+- Pandas lets you construct list- or table-like data structures with mixed data types, the contents of which can be indexed by arbitrary row and column labels
+- The main data structures are Series (1D) and DataFrames (2D). Each column of a DataFrame is a Series.
+- Data is selected primarily using ``.loc[]`` and ``.iloc[]``, unless you're grabbing whole columns (then the syntax is dict-like).
+- There are hundreds of attributes and methods that can be called on Pandas data structures to inspect, clean, organize, combine, and applying functions to them, including nearly all NumPy ufuncs (universal functions). 
+- The contents of DataFrames can be grouped by one or more columns, and most statistical methods called on the GroupBy object will be aggregated only within the groups.
+- If you need to apply more complex or user-defined functions to your data, you can use ``.map()``, ``.agg()``, ``.transform()``, or ``.apply()`` to evaluate them, depending on the shape of the function output.
+- Most Pandas methods that apply a function can be sped up by multithreading with Numba, if they are applied over multiple columns. Just set ``engine=numba`` and ``engine_kwargs={"parallel": True}`` in the kwargs.
+- You can also call simple Matplotlib functions as methods of Pandas data structures to quickly view your data.
+- ``Categorical`` and ``SparseDtype`` datatypes can help you reduce the memory footprint of your data.
+- Pandas supports datetime- and timedelta-like data and has methods to resample such data to different time steps.
