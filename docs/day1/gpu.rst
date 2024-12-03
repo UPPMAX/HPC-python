@@ -59,41 +59,106 @@ If you are usually working with for instance NumPy and SciPy, you could optimize
 
 One of the most common use of GPUs with Python is for machine learning or deep learning. For these cases you would use something like Tensorflow or PyTorch libraries which can handle CPU and GPU processing internally without the programmer needing to do so. We will talk more about that later in the course. 
 
+GPUs on UPPMAX, HPC2N, LUNARC, and NSC systems
+----------------------------------------------
+
+There are generally either not GPUs on the login nodes or they cannot be accessed for computations.
+To use them you need to either launch an interactive job or submit a batch job.
+
+UPPMAX
+######
+
+Rackham's compute nodes do not have GPUs. You need to use Snowy for that. A useful module on Snowy is ``python_ML_packages/3.11.8-gpu``.
+
+You need to use this batch command (for x being the number of cards, 1):
+
+.. code-block::
+
+   #SBATCH -M snowy
+   #SBATCH --gres=gpu:x
+
+HPC2N
+#####
+
+Kebnekaise's GPU nodes are considered a separate resource, and the regular compute nodes do not have GPUs.
+
+Kebnekaise has a great many different types of GPUs:
+
+- V100 (2 cards/node)
+- A40 (8 cards/node)
+- A6000 (2 cards/node)
+- L40s (2 or 6 cards/node)
+- A100 (2 cards/node)
+- H100 (4 cards/node)
+- MI100 (2 cards/node)
+
+To access them, you need to use this to the batch system:
+
+``#SBATCH --gpus=x``
+
+where x is the number of GPU cards you want. Above are given how many are on each type, so you can ask for up to that number.
+
+In addition, you need to add this to the batch system:
+
+``#SBATCH -C <type>``
+
+where type is
+
+- v100
+- a40
+- a6000
+- l40s
+- a100
+- h100
+- mi100
+
+For more information, see HPC2N's guide to the different parts of the batch system: https://docs.hpc2n.umu.se/documentation/batchsystem/resources/
+
+LUNARC
+######
+
+LUNARC has Nvidia A100 GPUs and Nvidia A40 GPUs, but the latter ones are reserved for interactive graphics work on the on-demand system, and Slurm jobs should not be submitted to them.
+
+Thus in order to use the A100 GPUs on Cosmos, add this to your batch script:
+
+A100 GPUs on AMD nodes:
+
+.. code-block::
+  
+   #SBATCH -p gpua100
+   #SBATCH --gres=gpu:1
+
+These nodes are configured as exclusive access and will not be shared between users. User projects will be charged for the entire node (48 cores). A job on a node will also have access to all memory on the node.
+
+A100 GPUs on Intel nodes:
+
+.. code-block::
+
+   #SBATCH -p gpua100i
+   #SBATCH --gres=gpu:<number>
+
+where ``<number>`` is 1 or 2 (Two of the nodes have 1 GPU and two have 2 GPUs).
+
+
+
+
+NSC
+###
+
+Tetralith has Nvidia T4 GPUs. In order to access them, add this to your batch script or interactive job: 
+
+.. code-block:: 
+
+   #SBATCH -n 1 
+   #SBATCH -c 32 
+   #SBATCH --gpus-per-task=1
+
+
 Numba example
 -------------
 
-Numba is installed on some of the centers, but not all of them, and it is often an old version where it is installed. Because of this we will use the virtual environment created earlier today. 
+Numba is installed on some of the centers as a module (HPC2N and LUNARC), on UPPMAX in python_ML_packages-gpu, but not on NSC except in a very old version. because of this we will use the virtual environment created earlier today at NSC. 
 
-.. admonition::  Python 3.9.6 as the basis
-    :class: dropdown
-   
-        Load Python 3.9.6 and its prerequisites + CUDA, then activate the virtual environment before installing numba
-        Then remember to change the path to your own in the example below!
-   
-        .. code-block:: console
-      
-             $ module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
-             $ virtualenv --system-site-packages /proj/nobackup/<your-project-directory>/vpyenv-gpu
-             $ source /proj/nobackup/<your-project-directory>/vpyenv-gpu/bin/activate 
-             (vpyenv) $ pip install --no-cache-dir --no-build-isolation numba
-
-             Collecting numba
-               Downloading numba-0.58.1-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.7 kB)
-             Collecting llvmlite<0.42,>=0.41.0dev0 (from numba)
-               Downloading llvmlite-0.41.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.8 kB)
-             Collecting numpy<1.27,>=1.22 (from numba)
-               Downloading numpy-1.26.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
-                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 kB 7.9 MB/s eta 0:00:00
-             Downloading numba-0.58.1-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.6 MB)
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 81.0 MB/s eta 0:00:00
-             Downloading llvmlite-0.41.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (43.6 MB)
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.6/43.6 MB 254.1 MB/s eta 0:00:00
-             Downloading numpy-1.26.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 215.6 MB/s eta 0:00:00
-             Installing collected packages: numpy, llvmlite, numba
-             Successfully installed llvmlite-0.41.1 numba-0.58.1 numpy-1.26.2
-
-We can ignore the comment about pip. The package was successfully installed. now let us try using it. 
 We are going to use the following program for testing (it was taken from 
 https://linuxhint.com/gpu-programming-python/ but there are also many great examples at 
 https://numba.readthedocs.io/en/stable/cuda/examples.html): 
@@ -148,54 +213,59 @@ https://numba.readthedocs.io/en/stable/cuda/examples.html):
                  
 As before, we need a batch script to run the code. There are no GPUs on the login node. 
 
+**Note** Type along! 
+
 .. tabs::
 
    .. tab:: UPPMAX
       
       .. code-block:: console
       
-         [bjornc@rackham3 ~]$ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --mail-type=BEGIN --mail-user=bjorn.claremar@uppmax.uu.se
+         $ interactive -A naiss2024-22-1442 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --gres=gpu:1  -t 1:00:01 
          You receive the high interactive priority.
 
          Please, use no more than 8 GB of RAM.
 
-         Waiting for job 6907137 to start...
-         Starting job now -- you waited for 90 seconds.
+         salloc: Pending job allocation 9697978
+         salloc: job 9697978 queued and waiting for resources
+         salloc: job 9697978 has been allocated resources
+         salloc: Granted job allocation 9697978
+         salloc: Waiting for resource configuration
+         salloc: Nodes s195 are ready for job
+          _   _ ____  ____  __  __    _    __  __
+         | | | |  _ \|  _ \|  \/  |  / \   \ \/ /   | System:    s195
+         | | | | |_) | |_) | |\/| | / _ \   \  /    | User:      bbrydsoe
+         | |_| |  __/|  __/| |  | |/ ___ \  /  \    | 
+          \___/|_|   |_|   |_|  |_/_/   \_\/_/\_\   | 
+          ###############################################################################
 
-         [bjornc@s160 ~]$  ml python/3.9.5
-         [bjornc@s160 ~]$ python add-list.py
-         CPU function took 36.849201 seconds.
-         GPU function took 1.574953 seconds.
+                 User Guides: https://docs.uppmax.uu.se/
 
+                 Write to support@uppmax.uu.se, if you have questions or comments.
+
+         [bbrydsoe@s195 python]$ ml uppmax python/3.11.8 python_ML_packages/3.11.8-gpu
+         [bbrydsoe@s195 python]$ python add-list.py 
+         CPU function took 35.272032 seconds.
+         GPU function took 1.324215 seconds.
 
    .. tab:: HPC2N
    
-      Running a GPU Python code interactively. When you code-along, remember to change the activation path for the virtual environment to your own! 
+      Running a GPU Python code interactively. 
 
       .. code-block:: console
 
-         $ salloc -A hpc2nXXXX-YYY --time=00:30:00 -n 1 --gres=gpu:v100:1 
-         salloc: Pending job allocation 20346979
-         salloc: job 20346979 queued and waiting for resources
-         salloc: job 20346979 has been allocated resources
-         salloc: Granted job allocation 20346979
+         $ salloc -A hpc2n2024-142 --time=00:30:00 -n 1 --gpus=1 -C l40s 
+         salloc: Pending job allocation 32126787
+         salloc: job 32126787 queued and waiting for resources
+         salloc: job 32126787 has been allocated resources
+         salloc: Granted job allocation 32126787
          salloc: Waiting for resource configuration
-         salloc: Nodes b-cn1101 are ready for job
-         $
-         $ module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
-         $ source /proj/nobackup/<your-project-directory>/vpyenv-gpu/bin/activate
-         (vpyenv) b-an01$ srun python add-list.py
-         CPU function took 31.905025 seconds.
-         GPU function took 0.684060 seconds.
-
-      Because this is a short job, you can also use this shortcut as we did in the ``Parallel`` session: 
-
-      .. code-block:: console
-
-         $ module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
-         $ source /proj/nobackup/<your-project-directory>/vpyenv-gpu/bin/activate
-         $ srun -A hpc2nXXXX-YYY -n 1 --gres=gpu:v100:1 -t 00:10:00 python add-list.py
-
+         salloc: Nodes b-cn1606 are ready for job
+         $ module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07
+         $ module load CUDA/12.1.1
+         $ srun python add-list.py 
+         CPU function took 14.216318 seconds.
+         GPU function took 0.390335 seconds.
 
    .. tab:: Batch script for HPC2N
 
@@ -206,23 +276,54 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
           #!/bin/bash
           # Remember to change this to your own project ID after the course!
-          #SBATCH -A hpc2nXXXX-YYY     # HPC2N ID - change to naiss2024-22-415 for UPPMAX
+          #SBATCH -A hpc2n2024-142     # HPC2N ID - change to your own
           # We are asking for 5 minutes
           #SBATCH --time=00:05:00
-          # Asking for one v100
-          #SBATCH --gres=gpu:v100:1     # For HPC2N. Remove if on UPPMAX
-          ##SBATCH -M snowy            # For UPPMAX. Remove leading # to use
-          ##SBATCH --gres=gpu:1        # For UPPMAX. Remove leading # to use
+          # Asking for one L40s GPU
+          #SBATCH --gpus=1    
+          #SBATCH -C l40s 
 
           # Remove any loaded modules and load the ones we need
           module purge  > /dev/null 2>&1
-          module load GCCcore/11.2.0 Python/3.9.6 GCC/11.2.0 OpenMPI/4.1.1 CUDA/11.4.1
-
-          # Activate the virtual environment we installed to
-          source /proj/nobackup/support-hpc2n/bbrydsoe/vpyenv/bin/activate
+          module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 
 
           # Run your Python script
           python add-list.py
+
+   .. tab:: Batch script for LUNARC
+
+      Batch script, "add-list-cosmos.sh", to run the same GPU Python script (the numba code, "add-list.py") at Cosmos. As before, submit with "sbatch add-list-cosmos.sh" (assuming you called the batch script thus - change to fit your own naming style).
+
+      .. code-block:: console
+
+         #!/bin/bash
+         # Remember to change this to your own project ID after the course!
+         #SBATCH -A lu2024-2-88 
+         # We are asking for 5 minutes
+         #SBATCH --time=00:05:00
+         #SBATCH --ntasks-per-node=1
+         # Asking for one A100 GPU
+         #SBATCH -p gpua100
+         #SBATCH --gres=gpu:1    
+
+         # Remove any loaded modules and load the ones we need
+         module purge  > /dev/null 2>&1
+         module load GCC/12.2.0  OpenMPI/4.1.4 numba/0.58.0 SciPy-bundle/2023.02 
+
+         # Run your Python script
+         python add-list.py
+
+   .. tab:: Batch script for NSC 
+
+      Batch script, "add-list-tetralith.sh", to run the same GPU Python script (the numba code, "add-list.py") at Tetralith. As before, submit with "sbatch add-list-tetralith.sh" (assuming you called the batch script thus - change to fit your own naming style). 
+
+      #!/bin/bash
+      # Remember to change this to your own project ID after the course!
+      #SBATCH -A naiss2024-22-1493
+      # We are asking for 5 minutes
+      #SBATCH --time=00:05:00
+      #SBATCH --ntasks-per-node=1
+      
 
 
 Exercises
