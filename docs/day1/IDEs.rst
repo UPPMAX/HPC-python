@@ -273,7 +273,7 @@ You shut it down from the menu with "File" > "Shut Down"
 For the course
 ^^^^^^^^^^^^^^
 
-If you want to start a Jupyter with access to matplotlib and seaborn, for use withis course for the session on matplotlib, then do the following: 
+If you want to start a Jupyter with access to matplotlib and seaborn, for use with this course for the session on matplotlib, then do the following: 
 
 1. Start ThinLinc and login to HPC2N as described under `preparations <https://uppmax.github.io/HPC-python/preparations.html>`_ 
 
