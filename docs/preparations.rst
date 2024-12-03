@@ -121,6 +121,10 @@ Here is an overview of where to find the documentation and a video showing the p
 +------------+------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | LUNARC     | Local ThinLinc client  | `here <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/using_hpc_desktop/>`_     | `here <https://youtu.be/wn7TgElj_Ng>`_                     |
 +------------+------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| NSC     | SSH                    | `here <https://www.nsc.liu.se/support/getting-started/>`_           |                       |
++------------+------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| NSC     | Local ThinLinc client  | `here <https://www.nsc.liu.se/support/graphics/>`_ . Scroll down to ThinLinc    |                      |
++------------+------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | UPPMAX     | SSH                    | `here <https://docs.uppmax.uu.se/getting_started/login_rackham_remote_desktop_local_thinlinc_client>`_ | `here <https://youtu.be/TSVGSKyt2bQ>`_                     |
 +------------+------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | UPPMAX     | Local ThinLinc client  | `here <https://docs.uppmax.uu.se/getting_started/login_rackham_console_password/>`_                    | `here <https://youtu.be/PqEpsn74l0g>`_                     |
@@ -139,12 +143,14 @@ Need help? Contact support:
 +------------+------------------------+----------------------------------------------+
 | UPPMAX     | `Contact UPPMAX support <https://docs.uppmax.uu.se/support/>`_        |
 +------------+------------------------+----------------------------------------------+
+| NSC        | `Contact NSC support <https://www.nsc.liu.se/support/>`_              |
++------------+------------------------+----------------------------------------------+
 
 .. keypoints::
 
    - When you log in from your local computer you will always arrive at a login node with limited resources. 
        - You reach the calculations nodes from within the login node (See  Submitting jobs section)
-   - You reach UPPMAX/HPC2N/LUNARC clusters either using a terminal client or Thinlinc
+   - You reach UPPMAX/HPC2N/LUNARC/NSC clusters either using a terminal client or Thinlinc
    - Graphics are included in Thinlinc and from terminal if you have enabled X11.
    - Which client to use?
        - Graphics and easy to use
