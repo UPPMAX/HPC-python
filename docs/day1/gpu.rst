@@ -5,24 +5,22 @@ Using GPUs with Python
 
    - What is GPU acceleration?
    - How to enable GPUs (for instance with CUDA) in Python code?
-   - How to deploy GPUs at HPC2N and UPPMAX?
+   - How to deploy GPUs at HPC2N, UPPMAX, LUNARC, and NSC?
    
    
 
 .. objectives::
 
    - Learn common schemes for GPU code acceleration
-   - Learn about the GPU nodes at HPC2N and UPPMAX
+   - Learn about the GPU nodes at HPC2N, UPPMAX, LUNARC, and NSC
 
 
-In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU
-architecture with a GPU based architecture. Here, there is a schemematics of the former:
+In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU architecture with a GPU based architecture. Here, there is a schemematics of the former:
 
 .. figure:: ../img/cpus.png
    :align: center
 
-   Pure CPU architecture (single node). In the present case there are 28 cores, each with 
-   its own cache memory (LX). There is a shared memory (64 GB/NUMA node) for all these cores.
+   Pure CPU architecture (single node). In the present case there are 28 cores, each with its own cache memory (LX). There is a shared memory (64 GB/NUMA node) for all these cores.
    The base frequency for each core is 2.6 GHz.
 
 As for the GPU architecture, a K80 engine looks like this:
@@ -30,65 +28,41 @@ As for the GPU architecture, a K80 engine looks like this:
 .. figure:: ../img/gpu.png
    :align: center
 
-   A single GPU engine of a K80 card. Each green dot represents a core (single precision) which
-   runs at a frequency of 562 MHz. The cores are arranged in slots called streaming multiprocessors (SMX)
-   in the figure. Cores in the same SMX share some local and fast cache memory.
+   A single GPU engine of a K80 card. Each green dot represents a core (single precision) which runs at a frequency of 562 MHz. The cores are arranged in slots called streaming multiprocessors (SMX) in the figure. Cores in the same SMX share some local and fast cache memory.
 
-In a typical cluster, some GPUs are attached to a single node resulting in a CPU-GPU
-hybrid architecture. The CPU component is called the host and the GPU part the device.
+In a typical cluster, some GPUs are attached to a single node resulting in a CPU-GPU hybrid architecture. The CPU component is called the host and the GPU part the device.
 One possible layout (Kebnekaise) is as follows:
 
 
 .. figure:: ../img/cpu-gpu.png
    :align: center
 
-   Schematics of a hybrid CPU-GPU architecture. A GPU K80 card consisting of two engines is attached
-   to a NUMA island which in turn contains 14 cores. The NUMA island and the GPUs are
-   connected through a PCI-E interconnect which makes the data transfer between both components rather
-   slow.
+   Schematics of a hybrid CPU-GPU architecture. A GPU K80 card consisting of two engines is attached to a NUMA island which in turn contains 14 cores. The NUMA island and the GPUs are connected through a PCI-E interconnect which makes the data transfer between both components rather slow.
 
 We can characterize the CPU and GPU performance with two quantities: the **latency** and the **througput**.
-**Latency** refers to the time spent in a sole computation. **Throughput** denotes the number of 
-computations that can be performed in parallel. Then, we can say that a CPU has low latency
-(able to do fast computations) but low throughput (only a few computations simultaneously).
-In the case of GPUs, the latency is high and the throughput is also high. We can visualize the behavior
-of the CPUs and GPUs with cars as in the figure below. A CPU would be compact road where only a few 
-racing cars can drive whereas a GPU would be a broader road where plenty of slow cars can drive.
+**Latency** refers to the time spent in a sole computation. **Throughput** denotes the number of computations that can be performed in parallel. Then, we can say that a CPU has low latency (able to do fast computations) but low throughput (only a few computations simultaneously).
+In the case of GPUs, the latency is high and the throughput is also high. We can visualize the behavior of the CPUs and GPUs with cars as in the figure below. A CPU would be compact road where only a few racing cars can drive whereas a GPU would be a broader road where plenty of slow cars can drive.
 
 
 .. figure:: ../img/cpu-gpu-highway.png
    :align: center
 
-   Cars and roads analogy for the CPU and GPU behavior. The compact road is analogous to the CPU
-   (low latency, low throughput) and the broader road is analogous to the GPU (high latency, high throughput).
+   Cars and roads analogy for the CPU and GPU behavior. The compact road is analogous to the CPU (low latency, low throughput) and the broader road is analogous to the GPU (high latency, high throughput).
 
 
 
 
-Not every Python program is suitable for GPU acceleration. GPUs process simple functions rapidly, 
-and are best suited for repetitive and highly-parallel computing tasks. GPUs were originally 
-designed to render high-resolution images and video concurrently and fast, but since they can 
-perform parallel operations on multiple sets of data, they are also often used for other, 
-non-graphical tasks. Common uses are machine learning and scientific computation were the GPUs can 
-take advantage of massive parallelism. 
+Not every Python program is suitable for GPU acceleration. GPUs process simple functions rapidly, and are best suited for repetitive and highly-parallel computing tasks. GPUs were originally designed to render high-resolution images and video concurrently and fast, but since they can perform parallel operations on multiple sets of data, they are also often used for other, non-graphical tasks. Common uses are machine learning and scientific computation were the GPUs can take advantage of massive parallelism. 
 
 Many Python packages are not CUDA aware, but some have been written specifically with GPUs in mind. 
-If you are usually working with for instance NumPy and SciPy, you could optimize your code for GPU 
-computing by using CuPy which mimics most of the NumPy functions. Another option is using Numba, which 
-has bindings to CUDA and lets you write CUDA kernels in Python yourself. This means you can
-use custom algorithms. 
+If you are usually working with for instance NumPy and SciPy, you could optimize your code for GPU computing by using CuPy which mimics most of the NumPy functions. Another option is using Numba, which has bindings to CUDA and lets you write CUDA kernels in Python yourself. This means you can use custom algorithms. 
 
-One of the most common use of GPUs with Python is for machine learning or deep learning. For 
-these cases you would use something like Tensorflow or PyTorch libraries which can handle CPU
-and GPU processing internally without the programmer needing to do so. 
+One of the most common use of GPUs with Python is for machine learning or deep learning. For these cases you would use something like Tensorflow or PyTorch libraries which can handle CPU and GPU processing internally without the programmer needing to do so. We will talk more about that later in the course. 
 
 Numba example
 -------------
 
-Numba is installed as a module at HPC2N, but not in a version compatible with the Python we 
-are using in this course (3.9.6->HPC2N, 3.9.5->UPPMAX), so we will have to install it ourselves. The process is the same
-as in the examples given for the isolated/virtual environment, and we will be using the virtual 
-environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before: 
+Numba is installed on some of the centers, but not all of them, and it is often an old version where it is installed. Because of this we will use the virtual environment created earlier today. 
 
 .. admonition::  Python 3.9.6 as the basis
     :class: dropdown
