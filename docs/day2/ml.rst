@@ -1,108 +1,451 @@
-Using Python for Machine Learning and Deep Learning jobs
+Machine Learning and Deep Learning
 ========================================================
 
 .. questions::
 
    - Which machine learning and deep learning tools are installed at HPC2N, UPPMAX, and LUNARC?
-   - How to start the tools at HPC2N, UPPMAX, and LUNARC
+   - How to start the tools at HPC2N, UPPMAX, and LUNARC?
    - How to deploy GPU:s with ML/DL at HPC2N, UPPMAX, and LUNARC?
-   - Examples
-       - How to use PyTorch at the above HPC centres
-       - How to use TensorFlow at the above HPC centres
-       - How to work with sklearn at the above HPC centres 
+   - Examples:
+       - How to use PyTorch at the above HPC centres?
+       - How to use TensorFlow at the above HPC centres?
+       - How to work with sklearn at the above HPC centres? 
 
 .. objectives::
 
-   - Give a general overview of ML/DL with Python???? 
-   - Get general overview of installed ML/DL tools at HPC2N, UPPMAX, and LUNARC
-   - Get started with ML/DL in Python
-   - Code along and demos (Kebnekaise, Rackham/Snowy, Cosmos)
+   - Get a general overview of ML/DL with Python. 
+   - Get a general overview of installed ML/DL tools at HPC2N, UPPMAX, and LUNARC.
+   - Get started with ML/DL in Python.
+   - Code along and demos (Kebnekaise, Rackham/Snowy, Cosmos).
 
 
-ML/DL with Python
+Introduction
 ------------------
    
-   While Python does not run fast, it is still well suited for machine learning and deep learning. For instance, it is fairly easy to code in, and this is particularly useful in ML/DL where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for ML and DL in Python, making it a good choice for this area. 
+   Python is well suited for machine learning and deep learning. For instance, it is fairly easy to code in, and this is particularly useful in ML/DL where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for ML and DL in Python, making it a good choice for this area.  
 
-Installed ML/DL tools 
----------------------
+   Some of the most used libraries in Python for ML/DL are: 
 
-Some of the most used libraries in Python for ML/DL are: 
+   - scikit-learn (sklearn)
+   - PyTorch
+   - TensorFlow
 
-- PyTorch
-- scikit-learn
-- TensorFlow
+Comparison of ML/DL Libraries
+-----------------------------
+
+.. list-table:: 
+   :widths: 20 20 20 20
+   :header-rows: 1
+
+   * - Feature
+     - scikit-learn
+     - PyTorch
+     - TensorFlow
+   * - Primary Use
+     - Traditional machine learning
+     - Deep learning and neural networks
+     - Deep learning and neural networks
+   * - Ease of Use
+     - High, simple API
+     - Moderate, more control over computations
+     - Moderate, high-level Keras API available
+   * - Performance
+     - Good for small to medium datasets
+     - Excellent with GPU support
+     - Excellent with GPU support
+   * - Flexibility
+     - Limited to traditional ML algorithms
+     - High, supports dynamic computation graphs
+     - High, supports both static and dynamic computation graphs
+   * - Community and Support
+     - Large, extensive documentation
+     - Large, growing rapidly
+     - Large, extensive documentation and community support
 
 These are all available at UPPMAX, HPC2N, and LUNARC. 
 
 In this course we will look at examples for these, and show how you run them at our centres. 
 
-There are some examples for beginners at https://machinelearningmastery.com/start-here/#python and at https://pytorch.org/tutorials/beginner/pytorch_with_examples.html 
+.. admonition:: Learning Material
+   :class: dropdown
+
+   For more beginner friendly examples and detailed tutorials, you can visit the following resources:
+
+   - PyTorch examples: https://pytorch.org/tutorials/beginner/pytorch_with_examples.html
+   - TensorFlow tutorials: https://www.tensorflow.org/tutorials
+   - Scikit-Learn basics: https://scikit-learn.org/stable/getting_started.html
+   - Machine Learning with Python: https://machinelearningmastery.com/start-here/#python
 
 List of installed ML/DL tools
 ############################# 
 
-There are minor differences depending on the version of python. This is for python 3.11.x. 
+There are minor differences depending on the version of python. 
 
 The list is not exhaustive, but lists the more popular ML/DL libraries. 
 
-.. list-table:: Installed tools
-   :widths: 20 20 20 40
+.. list-table::
+   :widths: 15 30 30 15 10
    :header-rows: 1
 
    * - Tool
      - UPPMAX (python 3.11.8)
      - HPC2N (Python 3.11.3/3.11.5)
      - LUNARC (Python 3.11.3/3.11.5)
+     - NSC (Python 3.11.3/3.11.5)
    * - NumPy
      - python
      - SciPy-bundle
      - SciPy-bundle
+     - 
    * - SciPy
      - python
      - SciPy-bundle
      - SciPy-bundle
+     -
    * - Scikit-Learn (sklearn)
-     - python_ML_packages 
-     - scikit-learn (no never than for GCC/12.3.0 and Python 3.11.3)  
+     - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu) 
+     - scikit-learn (no newer than for GCC/12.3.0 and Python 3.11.3)  
      - scikit-learn 
+     -
    * - Theano
      - 
      - Theano (only for some older Python versions)
+     -
      -  
    * - TensorFlow
-     - python_ML_packages
+     - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
      - TensorFlow (newest version is for Python 3.11.3)
      - TensorFlow (up to Python 3.10.4) 
+     -
    * - Keras
-     - python_ML_packages
+     - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
      - Keras (up to Python 3.8.6), TensorFlow (Python 3.11.3)
      - TensorFlow (up to Python 3.10.4)
+     -
    * - PyTorch (torch)
-     - python_ML_packages
+     - python_ML_packages (Python 3.11.5-gpu and Python 3.11.8-cpu)
      - PyTorch (up to Python 3.11.3) 
      - PyTorch (up to Python 3.10.4) 
+     -
    * - Pandas
      - python
      - SciPy-bundle
      - SciPy-bundle
+     -
    * - Matplotlib
      - python
      - matplotlib
      - matplotlib
+     -
    * - Beautiful Soup (beautifulsoup4)
-     - python_ML_packages
+     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
      - BeautifulSoup
      - BeautifulSoup
+     -
    * - Seaborn
      - python
      - Seaborn
      - Seaborn (up to Python 3.10.8) 
+     -
    * - Horovod 
      -
      - Horovod (up to Python 3.11.3)
+     -
      -     
-     
+
+Differences between PyTorch and TensorFlow
+------------------------------------------
+
+The following table demonstrates some common tasks in PyTorch and TensorFlow, highlighting their similarities and differences through code examples:
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - **PyTorch**
+     - **TensorFlow**
+   * - 
+       .. code-block:: python
+
+          import torch
+          import torch.nn as nn
+          import torch.optim as optim
+
+          # Tensor creation with gradients enabled
+          x = torch.tensor([[1, 2], [3, 4]], dtype=torch.float32, requires_grad=True)
+
+          # Automatic differentiation
+          y = x.sum()
+          y.backward()
+          print("Gradient of x:", x.grad)
+
+          # Creating and using a neural network layer
+          layer = nn.Linear(2, 2)
+          input_tensor = torch.tensor([[1.0, 2.0]], dtype=torch.float32)
+          output = layer(input_tensor)
+          print("Layer output:", output)
+
+          # Optimizer usage
+          optimizer = optim.SGD(layer.parameters(), lr=0.01)
+          loss = output.sum()
+          optimizer.zero_grad()  # Clear gradients
+          loss.backward()        # Compute gradients
+          optimizer.step()       # Update weights
+          print("Updated weights:", layer.weight)
+
+     - 
+       .. code-block:: python
+
+          import tensorflow as tf
+          from tensorflow.keras.layers import Dense
+          from tensorflow.keras.optimizers import SGD
+
+          # Tensor creation
+          x = tf.Variable([[1, 2], [3, 4]], dtype=tf.float32)
+
+          # Automatic differentiation
+          with tf.GradientTape() as tape:
+              y = tf.reduce_sum(x)
+          grads = tape.gradient(y, x)
+          print("Gradient of x:", grads)
+
+          # Creating and using a neural network layer
+          layer = Dense(2)
+          input_tensor = tf.constant([[1.0, 2.0]], dtype=tf.float32)
+          output = layer(input_tensor)
+          print("Layer output:", output)
+
+          # Optimizer usage
+          optimizer = SGD(learning_rate=0.01)
+          with tf.GradientTape() as tape:
+              loss = tf.reduce_sum(output)
+          gradients = tape.gradient(loss, layer.trainable_variables)
+          optimizer.apply_gradients(zip(gradients, layer.trainable_variables))
+          print("Updated weights:", layer.weights)
+
+
+.. admonition:: Pytorch/TensorFlow
+   :class: dropdown
+
+   .. list-table::
+      :widths: 50 50
+      :header-rows: 1
+      :align: left
+
+      * - **PyTorch**
+        - **TensorFlow**
+      * - 
+         .. code-block:: python
+            
+            import torch
+            from torch import nn
+            from torch.utils.data import DataLoader
+            from torchvision import datasets
+            from torchvision.transforms import ToTensor
+   
+            # Load FashionMNIST data
+            training_data = datasets.FashionMNIST(
+               root="data/pytorch",
+               train=True,
+               download=False,
+               transform=ToTensor(),
+            )
+   
+            test_data = datasets.FashionMNIST(
+               root="data/pytorch",
+               train=False,
+               download=False,
+               transform=ToTensor(),
+            )
+   
+            batch_size = 32
+   
+            # Create data loaders.
+            train_dataloader = DataLoader(training_data, batch_size=batch_size)
+            test_dataloader = DataLoader(test_data, batch_size=batch_size)
+   
+            for X, y in test_dataloader:
+               print(f"Shape of X [N, C, H, W]: {X.shape}")
+               print(f"Shape of y: {y.shape} {y.dtype}")
+               break
+               
+            # Define device
+            device = (
+               "cuda"
+               if torch.cuda.is_available()
+               else "cpu"
+            )
+   
+            print(f"Using {device} device")
+   
+            # Define model
+            class NeuralNetwork(nn.Module):
+               def __init__(self):
+                  super().__init__()
+                  self.flatten = nn.Flatten()
+                  self.linear_relu_stack = nn.Sequential(
+                        nn.Linear(28*28, 128),
+                        nn.ReLU(),
+                        nn.Linear(128, 128),
+                        nn.ReLU(),
+                        nn.Linear(128, 10)
+                  )
+   
+               def forward(self, x):
+                  x = self.flatten(x)
+                  logits = self.linear_relu_stack(x)
+                  return logits
+   
+            model = NeuralNetwork().to(device)
+   
+            loss_fn = nn.CrossEntropyLoss()
+            optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+   
+            # Train and evaluate the model
+            def train(dataloader, model, loss_fn, optimizer):
+               size = len(dataloader.dataset)
+               model.train()
+               for batch, (X, y) in enumerate(dataloader):
+                  X, y = X.to(device), y.to(device)
+   
+                  # Compute prediction error
+                  pred = model(X)
+                  loss = loss_fn(pred, y)
+   
+                  # Backpropagation
+                  loss.backward()
+                  optimizer.step()
+                  optimizer.zero_grad()
+   
+                  if batch % 100 == 0:
+                        loss, current = loss.item(), (batch + 1) * len(X)
+                        print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
+                        
+            def test(dataloader, model, loss_fn):
+               size = len(dataloader.dataset)
+               num_batches = len(dataloader)
+               model.eval()
+               test_loss, correct = 0, 0
+               with torch.no_grad():
+                  for X, y in dataloader:
+                        X, y = X.to(device), y.to(device)
+                        pred = model(X)
+                        test_loss += loss_fn(pred, y).item()
+                        correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+               test_loss /= num_batches
+               correct /= size
+               print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
+               
+            epochs = 10
+            for t in range(epochs):
+               print(f"Epoch {t+1}\n-------------------------------")
+               train(train_dataloader, model, loss_fn, optimizer)
+               test(test_dataloader, model, loss_fn)
+            print("Done!")
+   
+            # Class names for FashionMNIST
+            classes = [
+               "T-shirt/top",
+               "Trouser",
+               "Pullover",
+               "Dress",
+               "Coat",
+               "Sandal",
+               "Shirt",
+               "Sneaker",
+               "Bag",
+               "Ankle boot",
+            ]
+   
+            model.eval()
+   
+            # Predict and display results for one example
+            x, y = test_data[0][0], test_data[0][1]
+            with torch.no_grad():
+               x = x.to(device)
+               pred = model(x)
+               predicted, actual = classes[pred[0].argmax(0)], classes[y]
+               print(f'Predicted: "{predicted}", Actual: "{actual}"')
+               
+        - 
+         .. code-block:: python
+
+            import logging
+            logging.getLogger('tensorflow').disabled = True
+            import tensorflow as tf
+   
+            # Helper libraries
+            import numpy as np
+            from utils import load_data_fromlocalpath
+            
+            # Load FashionMNIST data
+            (train_images, train_labels), (test_images, test_labels) = load_data_fromlocalpath("data/tf")
+   
+            # Normalize the pixel values to range [0, 1]
+            train_images = train_images / 255.0
+            test_images = test_images / 255.0
+               
+            # Define device
+            device = "/GPU:0" if tf.config.list_physical_devices('GPU') else "/CPU:0"
+            print(f"Using {device} device")
+   
+            # Define the model
+            class NeuralNetwork(tf.keras.Model):
+               def __init__(self):
+                  super(NeuralNetwork, self).__init__()
+                  self.flatten = tf.keras.layers.Flatten()
+                  self.dense1 = tf.keras.layers.Dense(128, activation='relu')
+                  self.dense2 = tf.keras.layers.Dense(128, activation='relu')
+                  self.dense3 = tf.keras.layers.Dense(10)
+   
+               def call(self, x):
+                  x = self.flatten(x)
+                  x = self.dense1(x)
+                  x = self.dense2(x)
+                  return self.dense3(x)
+   
+            model = NeuralNetwork()
+               
+            model.compile(optimizer='adam',
+                  loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                  metrics=['accuracy'])
+   
+   
+            # Train and evaluate the model      
+            model.fit(train_images, train_labels, epochs=10)
+   
+            test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
+   
+            print('\nTest accuracy:', test_acc)
+   
+            # Class names for FashionMNIST
+            classes = [
+               "T-shirt/top",
+               "Trouser",
+               "Pullover",
+               "Dress",
+               "Coat",
+               "Sandal",
+               "Shirt",
+               "Sneaker",
+               "Bag",
+               "Ankle boot",
+            ]
+   
+            # Predict and display results for one example
+            probability_model = tf.keras.Sequential([model, 
+                                             tf.keras.layers.Softmax()])
+   
+            # Grab an image from the test dataset.
+            x, y = test_images[1], test_labels[1]
+   
+            # Add the image to a batch where it's the only member.
+            x = (np.expand_dims(x,0))
+            predictions_single = probability_model.predict(x)
+            predicted, actual = classes[np.argmax(predictions_single[0])], classes[y]
+            print(f'Predicted: "{predicted}", Actual: "{actual}"')
+
+
 
 PyTorch
 -------
@@ -367,8 +710,6 @@ Submit with ``sbatch example-tf.sh``. After submitting you will (as usual) be gi
 Note: if you are logged in to Rackham on UPPMAX and have submitted a GPU job to Snowy, then you need to use this to see the job queue: 
 
 ``squeue -M snowy -u <username>``
-
-There is also a Horovod example under the "More about ML" section: https://uppmax.github.io/HPC-python/day2/ML_deeper.html 
 
 General
 -------
