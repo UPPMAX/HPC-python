@@ -512,6 +512,47 @@ Exercises
 
      The simulation time for the ``integration2d_shared.py`` implementation was 1.87 sec. by using the shared memory trick. 
 
+.. solution:: Solution for UPPMAX
+    :class: dropdown
+
+     A template for running the python codes at UPPMAX is here:
+
+     .. admonition:: ``job-gpu.sh``
+        :class: dropdown
+      
+         .. code-block:: bash 
+
+            #!/bin/bash
+            # Remember to change this to your own project ID after the course!
+            #SBATCH -A naiss2024-22-1442
+            # We want to run on Snowy
+            #SBATCH -M snowy
+            # We are asking for 10 minutes
+            #SBATCH --time=00:10:00
+            # Asking for one GPU
+            #SBATCH --gres=gpu:1
+            #SBATCH -o output_%j.out   # output file
+            #SBATCH -e error_%j.err    # error messages
+
+            # Set a path where the example programs are installed.
+            # Change the below to your own path to where you placed the example programs
+            MYPATH=/proj/hpc-python-fall/<mydir-name>/HPC-python/Exercises/examples/programs/
+
+            # Remove any loaded modules and load the ones we need
+            # CHANGE if you used 3.9.5 and a virtual environment instead!
+            module purge  > /dev/null 2>&1
+            module load uppmax
+            module load python_ML_packages/3.11.8-gpu python/3.11.8
+
+            # Activate the virtual environment if you used Python 3.9.5!
+            # source /proj/hpc-python/<mydir-name>/vpyenv/bin/activate
+
+            # Run your Python script
+
+            python integration2d_gpu.py
+            python integration2d_gpu_shared.py
+
+
 .. keypoints::
 
    -  You deploy GPU nodes via SLURM, either in interactive mode or batch
