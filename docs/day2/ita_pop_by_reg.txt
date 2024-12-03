@@ -10,8 +10,8 @@ Liguria	1523084	278
 Lombardia	10026900	418
 Marche	1510898	158
 Molise	299563	65
-P. A. Bolzano	531178	72
-P. A. Trento	541098	87
+P.A. Bolzano	531178	72
+P.A. Trento	541098	87
 Piemonte	4308215	168
 Puglia	3947623	200
 Sardegna	1609313	66
