@@ -334,10 +334,11 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
       
          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
-         module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 julia/1.9.4-bdist OpenMPI/4.1.6198 SciPy-bundle 
-      
+         #module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 julia/1.9.4-bdist OpenMPI/4.1.6 SciPy-bundle/2023.11  
+         module load buildenv-gcccuda/12.2.2-gcc11-hpc1 Python/3.10.4-env-hpc2-gcc-2022a-eb
+
          # Activate the virtual environment we created earlier today 
-         source <path-to>/virtenv/bin/activate
+         source /proj/hpc-python-fall-nsc/venvNSC-numba/bin/activate
 
          # Run your Python script 
          python add-list.py 
