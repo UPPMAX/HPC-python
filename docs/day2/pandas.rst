@@ -760,11 +760,11 @@ Efficient Data Types
     # look at the radius distribution before binning, (and get rid of nonsense)
     df['radius_RE'].loc[df['radius_RE']<30].plot(kind='kde', xlim=(0,30), title='Radius distribution (Earth radii)')
     #xlabel normally works but not for 'kde' for some reason
-    # Looks bimodal around 2.5 and 13ish. Let's cut it at 5, 11, and 16 earth radii
-    pcut = pd.cut(df['radius_RE'], bins=[df['radius_RE'].min(), 5, 11, 16, df['radius_RE'].max()], 
+    # Looks bimodal around 2.5 and 13ish. Let's cut it at 5, 10, and 16 earth radii
+    pcut = pd.cut(df['radius_RE'], bins=[df['radius_RE'].min(), 5, 10, 16, df['radius_RE'].max()], 
                   labels=['Rocky', 'Neptunian', 'Jovian', 'Puffy'], )
     print("Bins: ", pcut.unique())
-    print("\n Grouped data, nth rows:\n", df.groupby(pcut).nth(1))
+    print("\n Grouped data, nth rows:\n", df.groupby(pcut).mean(numeric_only=True))
 
 
 **Sparse Data.** I you have a DataFrame with lots of rows or columns that are mostly NaN, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory.
