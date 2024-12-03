@@ -307,10 +307,6 @@ Preliminary schedule
      - 
      - 
    * - 13:00
-     - Parallelism part II: MPI, Processes, Dask
-     - Dask
-     - Pedro
-   * - 13:15
      - Big Data with Python (35)
      - File formats and packages, Chunking
      - Björn
