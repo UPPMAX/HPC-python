@@ -18,7 +18,7 @@ Jupyter is:
 
 Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppmax.uu.se`` or ``kebnekaise-tl.hpc2n.umu.se``).
 
-- For HPC2N, as JupyterLab it is only accessible from within HPC2N’s, and there is no way to improve any slowness
+- For HPC2N, as JupyterLab it is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
 
 - For UPPMAX, one can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX `documentation on ThinLinc on how to install the ThinLinc client locally <https://docs.uppmax.uu.se/software/thinlinc/>`_ 
 
@@ -402,4 +402,83 @@ VScode
 Spyder
 ------
 
+Spyder is a powerful and flexible IDE originally developed to be the main scripting environment for scientific Anaconda users. It is designed to enable quick and easily repeatable experimentation, with automatic syntax checking, auto-complete suggestions, a runtime variable browser, and a graphics window that makes plots easy to manipulate after creation without additional code.
+
+Spyder is available independent of Anaconda, but conda is still the recommended installer. Packages from the ``conda-forge`` source repo are still open-source, so conda is still usable on some facilities despite the recent changes in licensing. It is also possible to `build a pip environment with Spyder <https://docs.spyder-ide.org/current/installation.html#using-pip>`_, although this is only recommended for experienced Python users running on Linux operating systems.
+
+To use Spyder on one of the HPC center resources, you must have a Thinlinc window open and logged into your choice of HPC resource. For personal use, it is relatively easy to `install as a standalone package on Windows or Mac <https://docs.spyder-ide.org/current/installation.html>`_, and there is also the option of `using Spyder online via Binder <https://mybinder.org/v2/gh/spyder-ide/binder-environments/spyder-stable?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fspyder-ide%252FSpyder-Workshop%26urlpath%3Ddesktop%252F%26branch%3Dmaster>`_.
+
+.. tabs::
+
+   .. tab:: LUNARC (Cosmos)
+
+      On LUNARC, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under ``Applications - Python``. All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes. Refer to `the Desktop On Demand documentation <https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html>`_ to help you fill in GfxLauncher prompt.
+
+      Avoid launching Spyder from the command line on the login node.
+
+   .. tab:: HPC2N (Kebnekaise)
+
+      The only available version of Spyder on Kebnekaise is Spyder/4.1.5 for Python-3.8.2 (the latest release of Spyder available for users to install in their own environments is 6.0.2). Python 3.8.2 is associated with compatible versions of Matplotlib and Pandas, but not Seaborn or any of the ML packages to be covered later. To run the available version of Spyder, run the following commands:
+
+      .. code-block:: console
+
+         ml GCC/9.3.0  OpenMPI/4.0.3  Python  Spyder
+         spyder3
+      
+      If you want a newer version with more and newer compatible Python packages, you will have to create a virtual environment.
+
+   .. tab:: UPPMAX (Rackham)
+
+      Spyder is not available centrally on Rackham. It will have to be installed in your (conda) virtual environment.
+
+   .. tab:: NSC (Tetralith)
+
+      Spyder is not available on Tetralith. It will have to be installed in your (conda) virtual environment.
+
+
+Features
+^^^^^^^^
+
+When you open Spyder, you should see something like the figure below. There should be a large pane on the left for code, and two smaller panes on the right. Each of the 3 panes have their own button with 3 horizontal lines (the menu button or "burger icon") in the top right, each with additional configuration options for those panes.
+
+.. image:: ./docs/img/cosmos-on-demand-spyder.png
+   :width: 800 px
+
+The top right pane has several useful tabs.
+
+* **Help** displays information about commands and starts up with a message instructing you on how to use it.
+* **Variable explorer** shows a table of currently defined variables, their datatypes, and their current values at runtime. It updates every time you either run a script file or run a command in the IPython console.
+* **Files** shows the file tree for your current working directory
+* Depending on the version , there may also be a **Plots** tab for displaying and adjusting graphics produced with, e.g. Matplotlib. 
+
+You can move any of these tabs into separate windows by clicking the menu (burger) button and selecting "Undock". This is especially helpful for the plotting tab.
+
+The bottom right pane shows the IPython console and a history tab. The IPython console is your Python command line, and runs in your current working directory unless changed with ``os.chdir()``. The default path is whatever directory you were in when you launched Spyder, but that can be changed in Preferences. If you run a script file that you've saved to a different directory using the green arrow icon on the menu ribbon, the IPython console will switch your working directory to the one containing that script. The history tab stores the last 500 lines of code excuted in the IPython console.
+
+Most of the icons along the top menu bar under the verbal menu are running and debugging commands. You can hover over any of them to see what they do.
+
+
+Configuring Spyder
+^^^^^^^^^^^^^^^^^^
+
+**Font and icon sizes.** If you are on Thinlinc and/or on a Linux machine, Spyder may be uncomfortably small the first time you open it. To fix this,
+
+#. Click the icon shaped like a wrench (Preferences) or click "Tools" and then "Preferences". A popup should open with a menu down the left side, and the "General" menu option should already be selected (if not, select it now).
+#. You should see a tab titled "Interface" that has options that mention "high-DPI scaling". Select "Set custom high-DPI scaling" and enter the factor by which you'd like the text and icons to be magnified (recommend a number from 1.5 to 2).
+#. Click "Apply". If the popup in the next step doesn't appear immediately, then click "OK".
+#. A pop-up will appear that says you need to restart to view the changes and asks if you want to restart now. Click "Yes" and wait. The terminal may flash some messages like ``QProcess: Destroyed while process ("/hpc2n/eb/software/Python/3.8.2-GCCcore-9.3.0/bin/python") is still running."``, but it should restart within a minute or so. Don't interrupt it or you'll have to start over.
+
+The text and icons should be rescaled when it reopens, and should stay rescaled even if you close and reopen Spyder, as long as you're working in the same session.
+
+**(Optional but recommended) Configure plots to open in separate windows.** In some versions of Spyder, there is a separate Plotting Pane that you can click and drag out of its dock so you can resize figures as needed, but if you don't see that, you will probably want to change your graphics backend. The default is usually "Inline", which is usually too small and not interactive. To change that,
+
+#. Click the icon shaped like a wrench (Preferences) or click "Tools" and then "Preferences" to open the Preferences popup.
+#. In the menu sidebar to the left, click "IPython console". The box to the right should then have 4 tabs, of which the second from the left is "Graphics" (see figure below).
+#. Click "Graphics" and find the "Graphics backend" box below. In that box, next to "Backend" there will be a dropdown menu that probably says "Inline". Click the dropdown and select "Automatic".
+#. Click "Apply" and then "OK" to exit.
+
+.. image:: ./docs/img/cosmos-on-demand-spyder-preferences.png
+   :width: 800 px
+
+Now, graphics should appear in their own popup that has menu options to edit and save the content.
 
