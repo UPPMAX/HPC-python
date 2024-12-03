@@ -281,7 +281,34 @@ If you want to start a Jupyter with access to matplotlib and seaborn, for use wi
 
    ``module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5``
 
-3.    
+3. Make a submit file with this content 
+
+   .. code-block:: 
+
+      #!/bin/bash
+      #SBATCH -A hpc2n2024-142
+      # This example asks for 1 core
+      #SBATCH -n 1
+      # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
+      #SBATCH --time=05:00:00
+
+      # Clear the environment from any previously loaded modules
+      module purge > /dev/null 2>&1
+
+      # Load the module environment suitable for the job
+      module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5 
+
+      # Start JupyterLab
+      jupyter lab --no-browser --ip $(hostname)
+
+4. Get the URL from the SLURM output file (slurm-<job-id>.out).
+
+   It will be **SIMILAR** to this 
+
+   ``http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1``
+
+5. Open a browser inside ThinLinc and put in the URL similar to above. 
+
 
 LUNARC
 ######
