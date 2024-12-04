@@ -258,16 +258,12 @@ Creator/developer
 
    ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
 
-   .. code-block:: 
-
       numpy
       matplotlib
       pandas
       scipy
 
    ``requirements.txt`` with versions that could look like this::
-
-   .. code-block:: 
 
       numpy==1.20.2
       matplotlib==3.2.2
@@ -296,15 +292,6 @@ User
 
    - `Dependency management from course Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
 
-
-.. note:: 
-
-   **pyenv**
-
-   - This approach is more advanced and should, in our opinion, be used only if the above are not enough for the purpose. 
-   - ``pyenv`` allows you to install your **own python version**, like 3.10.2, and much more… 
-   - `Pyenv at UPPMAX <http://docs.uppmax.uu.se/software/python_pyenv/>`_
-   - Probably Conda will work well for you anyway...
 
 .. admonition:: Python packages in HPC and ML
    :class: dropdown
@@ -381,13 +368,6 @@ User
    Often, you also need to load a python module, except in the cases where it is included in ``python`` or ``python_ML_packages`` at UPPMAX or with ``SciPy-bundle`` at HPC2N. 
 
    NOTE that not all versions of Python will have all the above packages installed! 
-
-More info
----------
-
-- UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
-- HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
-
 
 .. admonition:: Summary of workflow
 
@@ -531,9 +511,9 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
    .. tab:: NSC
 
-      **If You do not have matplotlib already outside any virtual environment**
+      **If you do not have matplotlib already outside any virtual environment**
 
-      - Install matplotlib in your .local folder, not in a virtual environment.
+      - Install matplotlib in your ``.local`` folder, not in a virtual environment.
       - Do: 
 
       .. code-block:: console
@@ -546,88 +526,32 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       **Check were to find environments needed for the lessons in the afternoon tomorrow
 
       - browse ``/proj/hpc-python-fall-nsc/`` to see the available environments. 
-
-      **----------------------I'm here. Continue below qith updates---------------------------**
-
+      - their names are
+          - ``venvNSC-torch``
+          - ``venvNSC-torch``
+          - ``venvNSC-numba``
 
    .. tab:: LUNARC 
 
-      Everything will work by just loading modules,see each section
+      - Everything will work by just loading modules, see each last section
+
+      - Extra exercise can be to reproduce the examples above.
 
    .. tab:: UPPMAX
       
-      .. code-block:: console
+      **Check were to find environments needed for the lessons in the afternoon tomorrow
 
-         /proj/hpc-python-fall
-
-          $ module load uppmax 
-	  $ module load python_ML_packages/3.11.8-cpu
-	  $ python -m venv --system-site-packages /proj/hpc-python/<user-dir>/vpyenv
-    
-      Activate it.
-
-      .. code-block:: console
-
-         $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
-
-      Note that your prompt is changing to start with (vpyenv) to show that you are within an environment.
-
-      Install your packages with ``pip`` (``--user`` not needed as you are in your virtual environment) and (optionally) giving the correct versions, like:
-
-      .. code-block:: console
-      
-         (vpyenv) $ pip install --no-cache-dir --no-build-isolation scikit-build-core cmake 
-         (vpyenv) $ pip install --no-cache-dir --no-build-isolation lightgbm
-
-      The reason for the other packages (``scikit-build-core`` and ``cmake``) that are being installed first, is that they are prerequisites for ``lightgbm``. 	 
-
-      Check what was installed
-
-      .. code-block:: console
-      
-         (vpyenv) $ pip list
-
-      Deactivate it.
-
-      .. code-block:: console
-      
-         (vpyenv) $ deactivate
-
-      Everytime you need the tools available in the virtual environment you activate it as above, after loading the python module.
-
-      .. code-block:: console 
-
-         $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
-
-      More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
+      - browse ``/proj/hpc-python-fall/`` to see the available environments. 
+      - Extra exercise can be to reproduce the examples above.
 
    .. tab:: HPC2N
 
-      /proj/nobackup/hpc-python-fall-hpc2n/
+      **Check were to find environments needed for the lessons in the afternoon tomorrow
+
+      - browse ``/proj/nobackup/hpc-python-fall-hpc2n/`` to see the available environments.
      
-      **First go to the directory you want your environment in.**
+      - Extra exercise can be to reproduce the examples above.
 
-      Load modules for Python, SciPy-bundle, matplotlib, create the virtual environment, activate the environment, and install lightgbm and scikit-learn (since the versions available are not compatible with this Python) on Kebnekaise at HPC2N 
-   
-      .. code-block:: console
-           
-         $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
-         $ python -m venv --system-site-packages vpyenv
-         $ source vpyenv/bin/activate
-         (vpyenv) $ pip install --no-cache-dir --no-build-isolation lightgbm scikit-learn 
-   
-      Deactivating a virtual environment.
-
-      .. code-block:: console
-
-         (vpyenv) $ deactivate
-
-      Every time you need the tools available in the virtual environment you activate it as above (after first loading the modules for Python, Python packages, and prerequisites)
-
-      .. code-block:: console
-
-         $ source vpyenv/bin/activate
-    
 
 Using the self-installed packages in Python (MERGE INTO EXERCISE ABOVE)
 ###########################################
@@ -642,16 +566,11 @@ Using the self-installed packages in Python (MERGE INTO EXERCISE ABOVE)
    **Type along!**
 
 
-Using the virtual environment created under "Preparing the course environment" and the ``lightgbm`` we installed there. 
-
-.. admonition:: UPPMAX
-   :class: dropdown
-   
-   Load modules for python, and python_ML_packages, then activate the environment and start python. Try and import the library ``lightgbm``. 
+the library ``lightgbm``. 
 
    .. code-block:: console
          
-      $ module load uppmax python/3.11.8 python_ML_packages/3.11.8-cpu
+      $ module load uppmax python_ML_packages/3.11.8-cpu
       $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
       (vpyenv) $ python
       Python 3.11.8 (main, Feb  8 2024, 11:48:52) [GCC 12.3.0] on linux
@@ -675,9 +594,18 @@ Using the virtual environment created under "Preparing the course environment" a
        >>> 
  
 
-- To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
+.. info::
 
-- To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
+   - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
+
+  - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
+
+.. seealso::
+
+   - UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
+   - HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
+
+
 
 
 .. keypoints::
