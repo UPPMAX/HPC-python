@@ -233,20 +233,19 @@ Everytime you need the tools available in the virtual environment you activate i
 Working with virtual environments defined from files
 ----------------------------------------------------
 
-- First create and activate an environment (see above)
-- Create an environment based on dependencies given in an environment file::
-  
-.. code-block:: console
+Creator/developer
+.................
 
-   $ pip install -r requirements.txt
-   
+- First _create_ and _activate_ an environment (see above)
+- Install packages with pip
 - Create file from present virtual environment::
 
 .. code-block:: console
 
    $ pip freeze > requirements.txt
-  
+
 - That includes also the *system site packages* if you included them with ``--system-site-packages``
+- Test that everything works by running use cases scripts within the environment
 - You can list packages specific for the virtualenv by ``pip list --local`` 
 
 - So, creating a file from just the local environment::
@@ -255,20 +254,44 @@ Working with virtual environments defined from files
 
    $ pip freeze --local > requirements.txt
 
-``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
+.. note:: 
 
-   numpy
-   matplotlib
-   pandas
-   scipy
+   ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
 
-``requirements.txt`` with versions that could look like this::
+   .. code-block:: text
 
-    numpy==1.20.2
-    matplotlib==3.2.2
-    pandas==1.1.2
-    scipy==1.6.2
+      numpy
+      matplotlib
+      pandas
+      scipy
 
+   ``requirements.txt`` with versions that could look like this::
+
+   .. code-block:: text
+
+      numpy==1.20.2
+      matplotlib==3.2.2
+      pandas==1.1.2
+      scipy==1.6.2
+
+- Deactivate
+
+User
+....
+
+- Create an environment based on dependencies given in an environment file
+- This can be done in new virtual environment or as a genera installtion locally (not activating any environment
+  
+.. code-block:: console
+
+   pip install -r requirements.txt
+
+- Check
+
+.. code-block:: console
+
+   pip list
+   
 .. admonition:: More on dependencies
 
    - `Dependency management from course Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
