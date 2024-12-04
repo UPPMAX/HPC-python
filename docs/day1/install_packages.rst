@@ -258,7 +258,7 @@ Creator/developer
 
    ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
 
-   .. code-block:: text
+   .. code-block:: 
 
       numpy
       matplotlib
@@ -267,7 +267,7 @@ Creator/developer
 
    ``requirements.txt`` with versions that could look like this::
 
-   .. code-block:: text
+   .. code-block:: 
 
       numpy==1.20.2
       matplotlib==3.2.2
