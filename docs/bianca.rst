@@ -23,7 +23,7 @@ On Bianca cluster
 
 - If packages are not available, follow the guidelines from the UPPMAX Bianca course:
 
-  - [Packages and libraries to scripting programs](https://uppmax.github.io/bianca_workshop/install/#packages-and-libraries-to-scripting-programs)
+  - [Packages and libraries to scripting programs](https://uppmax.github.io/bianca_workshop/intermediate/install/#packages-and-libraries-to-scripting-programs)
 
   - [Conda on Bianca](https://uppmax.github.io/bianca_workshop/extra/conda/)
 
