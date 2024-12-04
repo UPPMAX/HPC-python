@@ -25,9 +25,9 @@ On Bianca cluster
 
   - [Packages and libraries to scripting programs](https://uppmax.github.io/bianca_workshop/install/#packages-and-libraries-to-scripting-programs)
 
-  - [Conda on Bianca](https://uppmax.github.io/bianca_workshop/conda/)
+  - [Conda on Bianca](https://uppmax.github.io/bianca_workshop/extra/conda/)
 
-  - [Install with pip on Bianca](https://uppmax.github.io/bianca_workshop/pip/)
+  - [Install with pip on Bianca](https://uppmax.github.io/bianca_workshop/extra/pip/)
 
 
 
