@@ -1,12 +1,13 @@
 #!/bin/bash
 # Change to your own project ID!
-#SBATCH -A hpc2nXXXX-YYY
+#SBATCH -A hpc2n2024-142
 #SBATCH -t 00:05:00
 #SBATCH -N X               # nr. nodes - CHANGE TO ACTUAL NUMBER!
 #SBATCH -n Y               # nr. MPI ranks - CHANGE TO ACTUAL NUMBER!
 #SBATCH -o output_%j.out   # output file
 #SBATCH -e error_%j.err    # error messages
-#SBATCH --gres=gpu:v100:2
+#SBATCH --gpus=2
+#SBATCH -C l40s
 #SBATCH --exclusive
 
 # Set a path where the example programs are installed. 
