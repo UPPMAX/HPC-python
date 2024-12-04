@@ -18,7 +18,7 @@ There are 2-3 ways to install missing python packages at a HPC cluster.
     - ``pip install --user [package name]``
 - Isolated environment. Use some packages just needed for a specific use case.
     - ``venv``/``virtualenv`` in combination with ``pip`` 
-        - recommended in all HPC centers in Sweden
+        - recommended/working in all HPC centers in Sweden
     - ``conda``
         - just recommended in some HPC centers in Sweden
 
