@@ -547,10 +547,10 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       - browse ``/proj/hpc-python-fall-nsc/`` to see the available environments. 
 
+      **----------------------I'm here. Continue below qith updates---------------------------**
 
 
-
-   .. tab:: LUNARC
+   .. tab:: LUNARC 
 
       Everything will work by just loading modules,see each section
 
@@ -629,7 +629,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
          $ source vpyenv/bin/activate
     
 
-Using the self-installed packages in Python
+Using the self-installed packages in Python (MERGE INTO EXERCISE ABOVE)
 ###########################################
 
 - To use the Python packages you have installed under your virtual environment, load your Python module + prerequisites, load any site-installed Python packages you used, and then activate the environment.
@@ -678,21 +678,6 @@ Using the virtual environment created under "Preparing the course environment" a
 - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
 
 - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
-
-
-.. challenge:: Create a virtual environment with a requirements file below
-
-   - Create a virtual environment with python-3.9.5 (UPPMAX) and Python/3.8.6 (HPC2N) with the name ``analysis``.
-   - Install packages definde by this ``requirements.txt`` file (save it).
-  
-   .. code-block:: console
-   
-      numpy==1.20.2
-      matplotlib==3.2.2
-      pandas==1.2.0
-    
-   - Check that the packages were installed.
-   - Don't forget to deactivate afterwards.
 
 
 .. keypoints::
