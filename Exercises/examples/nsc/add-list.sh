@@ -1,6 +1,8 @@
 #!/bin/bash
-#SBATCH -A naiss2024-22-1493 # Change to your own 
-#SBATCH --time=00:10:00  # Asking for 10 minutes
+# Remember to change this to your own project ID after the course!
+#SBATCH -A naiss2024-22-1493
+# We are asking for 5 minutes
+#SBATCH --time=00:05:00
 #SBATCH -n 1
 #SBATCH -c 32
 #SBATCH --gpus-per-task=1
@@ -11,11 +13,10 @@ MYPATH=/proj/hpc-python-fall-nsc/<mydir-name>/HPC-python/Exercises/examples/prog
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
-ml load Python/3.11.5
+module load buildenv-gcccuda/12.2.2-gcc11-hpc1 Python/3.10.4-env-hpc2-gcc-2022a-eb
 
-#source torch_env/bin/activate
-source tf_env/bin/activate #unncomment this for tf env and comment torch env
+# Activate the virtual environment we created earlier today
+source /proj/hpc-python-fall-nsc/venvNSC-numba/bin/activate
 
 # Run your Python script
-python $MYPATH/example-tf.py
+python add-list.py
