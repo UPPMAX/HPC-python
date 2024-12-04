@@ -17,7 +17,7 @@ Welcome to "Using Python in an HPC environment" course material
       - NSC: <https://www.nsc.liu.se/support/>
 
 
-.. exercise:: Content
+.. admonition:: Content
 
    - This course aims to give a brief, but comprehensive introduction to using Python in an HPC environment.
    - You will learn how to
@@ -37,24 +37,12 @@ Welcome to "Using Python in an HPC environment" course material
 
    - **We aim to give this course in spring and fall every year.**
 
-.. admonition:: **Your expectations?**
-   
-    - Find best practices for using Python at an HPC centre
-    - Learn how to use and install packages
-    - Use the HPC capabilities of Python
-
-    
-    **Not covered**
-    
-    - Improve python *coding* skills 
-    - Specifics of other clusters
-
 .. warning::
 
   **Target group**
  
   - The course is for present or presumptive users at UPPMAX, HPC2N, LUNARC, NSC or possibly other clusters in Sweden. 
-  - Therefore we apply python solutions on all three clusters, so a broad audience can benefit.
+  - Therefore we apply python solutions on all four clusters, so a broad audience can benefit.
   - We also provide links to the Python/Jupyter documentation at other Swedish HPC centres with personell affiliated to NAISS.
 
   **Cluster-specific approaches**
@@ -70,11 +58,9 @@ Welcome to "Using Python in an HPC environment" course material
    - Main focus on the NAISS resources at UPPMAX and NSC, but Kebnekaise/Cosmos specifics will be covered
    - Users who already have accounts/projects at HPC2N (Kebnekaise) or LUNARC (Cosmos) are welcome to thoses systems for the exercises. UPPMAX/Rackham and NSC/Tetralith will be used for everyone else. 
 
-
-
 .. admonition:: Some practicals
 
-   - `Code of Conduct <https://github.com/UPPMAX/R-python-julia-matlab-HPC/blob/main/CODE_OF_CONDUCT.md>`_
+   - `Code of Conduct <https://github.com/UPPMAX/HPC-python/blob/main/CODE_OF_CONDUCT.md>`_
       - Be nice to each other!
  
    - Zoom
@@ -111,14 +97,13 @@ Welcome to "Using Python in an HPC environment" course material
     - Use the Q/A page for the workshop with your questions.
         - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EZJ2RH0InOlIqCSF1DAhxXgBVirUT04xQsaHka17j2ZJIw?rtime=4q1KLG9z3Eg
 
-    - Depending on how many helpers there are we'll see how fast there are answers. 
-        - Some answers may come after the workshop.
- 
-    - Create a new line for new questions. Take care if others are editing at the same time. 
+   - Use this page for the workshop with your questions
+   - It helps us identify content that is missing in the course material
+   - We answer those questions as soon as possible
 
 .. warning::
 
-   - **Please be sure that you have gone through the `pre-requirements <https://uppmax.github.io/R-python-julia-matlab-HPC/prereqs.html>`_**
+   - Please, be sure that you have gone through the **`pre-requirements <https://uppmax.github.io/HPC-python/prereqs.html>`_** and **`preparations <https://uppmax.github.io/HPC-python/preparations.html>`_**
    - It mentions the familiarity with the LINUX command line.
    - The applications to connect to the clusters
       - terminals
@@ -126,42 +111,25 @@ Welcome to "Using Python in an HPC environment" course material
 
 The four HPC centers UPPMAX, HPC2N, LUNARC, and NSC
 ----------------------------------------------------
-
-.. admonition:: Four HPC centers
-
-   - There are many similarities:
    
-     - Login vs. calculation/compute nodes
-     - Environmental module system with software hidden until loaded with ``module load``
-     - Slurm batch job and scheduling system
-     - ``pip install`` procedure
+- UPPMAX has three different clusters 
+
+    - Rackham for general purpose computing on CPUs only
+    - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
+    - Bianca for sensitive data and has GPUs
+
+- HPC2N has Kebnekaise with GPUs  
+
+- LUNARC has two systems 
      
-   - ... and small differences:
-   
-     - commands to load Python, Python packages
-     - slightly different flags to Slurm
-     - Some different versions of modules 
+    - Cosmos (CPUs and GPUs)
+    - Cosmos-SENS (sensitive data) 
+
+- NSC has one NAISS system (and several others) 
      
-   - ... and some bigger differences:
-   
-     - UPPMAX has three different clusters 
+    - Tetralith (CPUs and GPUs)
 
-       - Rackham for general purpose computing on CPUs only
-       - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
-       - Bianca for sensitive data and has GPUs
-
-     - HPC2N has Kebnekaise with GPUs  
-
-     - LUNARC has two systems 
-     
-       - Cosmos (CPUs and GPUs)
-       - Cosmos-SENS (sensitive data) 
-
-     - NSC has one NAISS system (and several others) 
-     
-       - Tetralith (CPUs and GPUs)
-
-     - Conda is recommended only for UPPMAX, LUNARC, and NSC users
+    - Conda is recommended only for UPPMAX, LUNARC, and NSC users
     
 .. warning:: 
 
@@ -218,7 +186,6 @@ Overview of NSC's system
 ############################
 
 .. mermaid:: mermaid/tetralith.mmd
-
 
 Preliminary schedule
 ====================
@@ -353,7 +320,23 @@ Preliminary schedule
      - 
      - 
 
+Prepare your environment now!
+-----------------------------
+
+.. challenge:: Log in and create a user folder (if not done already)
+
+   - Please log in to Rackham, Kebnekaise, Cosmos or other cluster that you are using.
+
+   .. admonition:: Use Thinlinc or terminal?
+
+      - It is up to you!
+      - Graphics come easier with Thinlinc
+      - For this course, when having many windows open, it may sometimes be better to run in terminal, for screen space issues.
+
+
 .. admonition:: Prepare your environment now!
+
+   :class: dropdown
   
    - Please log in to Rackham, Kebnekaise, Cosmos, Tetralith, or other cluster that you are using.
    - For graphics, ThinLinc may be the best option.
@@ -384,7 +367,7 @@ Preliminary schedule
     - The course project on LUNARC (Cosmos) is: ``lu2024-2-88``
     - The course project on NSC (Tetralith) is: ``naiss2024-22-1493``  
 
-
+Make working directories 
     
 .. tabs::
 
@@ -519,13 +502,6 @@ Assuming you created a directory MYDIR-NAME under the project storage, you will 
       /proj/hpc-python-fall-nsc/MYDIR-NAME/HPC-python/Exercises/examples/nsc    
     
 
-
-.. admonition:: Use Thinlinc or terminal?
-
-   - It is up to you!
-   - Graphics come easier with Thinlinc, so recomended in the early session when we will plot a figure.
-   - For this course, when having many windows open, it may be better to run in terminal in most of the cases, for space issues.
-   
    
 Content of the course
 ---------------------
