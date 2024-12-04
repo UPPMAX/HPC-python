@@ -174,8 +174,7 @@ To start an interactive session in the simplest way, is shown here:
 
           ###############################################################################
 
-                        User Guides: http://www.uppmax.uu.se/support/user-guides
-                        FAQ: http://www.uppmax.uu.se/support/faq
+                        User Guides: https://docs.uppmax.uu.se/
 
                         Write to support@uppmax.uu.se, if you have questions or comments.
 
