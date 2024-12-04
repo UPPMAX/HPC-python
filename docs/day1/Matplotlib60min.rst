@@ -136,7 +136,31 @@ Load and Run
 
   .. tab:: UPPMAX
 
-     On Rackham, **loading Python version 3.8.7 or newer will allow you to import Matplotlib and NumPy** without having to load anything else. For earlier versions, ``module spider matplotlib`` outputs the following versions:
+     On Rackham, **loading Python version 3.8.7 or newer will allow you to import Matplotlib and NumPy** without having to load anything else. If you wish to also import Jupyter, Pandas, and/or Seaborn, those and Matplotlib are also provided all together by ``python_ML_packages``. The output of ``module spider python_ML_packages`` is
+
+     .. code-block:: console
+
+         ----------------------------------------------------------------------------
+           python_ML_packages:
+         ----------------------------------------------------------------------------
+              Versions:
+                 python_ML_packages/3.9.5-cpu
+                 python_ML_packages/3.9.5-gpu
+                 python_ML_packages/3.11.8-cpu
+         
+         ----------------------------------------------------------------------------
+           For detailed information about a specific "python_ML_packages" package (includ
+         ing how to load the modules) use the module's full name.
+           Note that names that have a trailing (E) are extensions provided by other modu
+         les.
+           For example:
+         
+              $ module spider python_ML_packages/3.11.8-cpu
+         ----------------------------------------------------------------------------
+
+     We recommend the latest version, ``python_ML_packages/3.11.8-cpu``
+
+     For versions earlier than Python 3.8.x, ``module spider matplotlib`` outputs the following:
 
      .. code-block:: console
 
