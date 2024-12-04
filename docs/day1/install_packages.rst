@@ -176,13 +176,13 @@ Create a ``venv``. First load the python version you want to base your virtual e
        - Create: ``python -m venv --system-site-packages /proj/hpc-python-fall/$USER/Example``
        - Activate: ``source /proj/hpc-python-fall/<user-dir>/Example/bin/activate``
    - HPC2N: 
-       - Create: ``$ python -m venv --system-site-packages /proj/nobackup/hpc-python-fall-hpc2n/$USER/Example``
+       - Create: ``python -m venv --system-site-packages /proj/nobackup/hpc-python-fall-hpc2n/$USER/Example``
        - Activate: ``source /proj/nobackup/hpc-python-fall-hpc2n/<user-dir>/Example/bin/activate``
    - LUNARC: 
-       - Create: ``$ python -m venv --system-site-packages /lunarc/nobackup/projects/lu2024-17-44/$USER/Example``
+       - Create: ``python -m venv --system-site-packages /lunarc/nobackup/projects/lu2024-17-44/$USER/Example``
        - Activate: ``source /lunarc/nobackup/projects/lu2024-17-44/<user-dir>/Example/bin/activate``
    - NSC: 
-       - Create: ``$ python -m venv --system-site-packages /proj/hpc-python-fall-nsc/$USER/Example``
+       - Create: ``python -m venv --system-site-packages /proj/hpc-python-fall-nsc/$USER/Example``
        - Activate: ``source /proj/hpc-python-fall-nsc/<user-dir>/Example/bin/activate``
         
    Note that your prompt is changing to start with (Example) to show that you are within an environment.
@@ -509,7 +509,7 @@ Exercises
       deactivate
 
       
-Prepare the course environments
+Prepare fore the course environments
 ...............................
 
 .. note::
@@ -531,11 +531,34 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
    .. tab:: NSC
 
+      **If You do not have matplotlib already outside any virtual environment**
+
+      - Install matplotlib in your .local folder, not in a virtual environment.
+      - Do: 
+
+      .. code-block:: console
+
+         ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
+         pip install --user matplotlib
+ 
+      - Check that matplotlib is there by ``pip list``
+
+      **Check were to find environments needed for the lessons in the afternoon tomorrow
+
+      - browse ``/proj/hpc-python-fall-nsc/`` to see the available environments. 
+
+
+
+
    .. tab:: LUNARC
+
+      Everything will work by just loading modules,see each section
 
    .. tab:: UPPMAX
       
       .. code-block:: console
+
+         /proj/hpc-python-fall
 
           $ module load uppmax 
 	  $ module load python_ML_packages/3.11.8-cpu
@@ -579,6 +602,8 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       More on virtual environment: https://docs.python.org/3/tutorial/venv.html 
 
    .. tab:: HPC2N
+
+      /proj/nobackup/hpc-python-fall-hpc2n/
      
       **First go to the directory you want your environment in.**
 
