@@ -36,6 +36,8 @@ Local (general installation)
 Isolated environments
 .....................
 
+As an example, maybe you have been using TensorFlow 1.x.x for your project and now you need to install a package that requires TensorFlow 2.x.x but you will still be needing the old version of TensorFlow for another package, for instance. This is easily solved with isolated environments.
+
 .. note::
   
    Isolated/virtual environments solve a couple of problems:
@@ -43,63 +45,64 @@ Isolated environments
    - You can install specific, also older, versions into them.
    - You can create one for each project and no problem if the two projects require different versions.
    - You can remove the environment and create a new one, if not needed or with errors.
-   
-``conda`` works as an isolated environment. Below we present the ``pip`` way with "virtual environments". Installing with a virtual environment is the only recommended way at HPC2N! 
-
-.. questions::
-
-   - How to work with isolated environments at Swedish HPC centers (examples: HPC2N, UPPMAX, and LUNARC)?
-   
-
-General procedures   
-------------------
-
-You will often have the situation that your project(s) use different versions of Python and different versions of packages. This is great if you need different versions of a package for different tasks, for instance.
-
-As an example, maybe you have been using TensorFlow 1.x.x for your project and now you need to install a package that requires TensorFlow 2.x.x but you will still be needing the old version of TensorFlow for another package, for instance. This is easily solved with isolated environments.
 
 - Isolated environments lets you create separate workspaces for different versions of Python and/or different versions of packages. 
 - You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
 
-There are different tools for creating an isolated environement, but they all have some things in common. 
-
-At UPPMAX, HPC2N, and LUNARC (and most other Swedish HPC centers that use modules) the workflow is: 
-
-- You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option)
-- You create the isolated environment with something like venv, virtualenv, or conda
-- You activate the environment
-- You install (or update) the environment with the packages you need
-- You work in the isolated environment
-- You deactivate the environment after use 
-
 **The tools**
 
-In this course we will look at the following tools for creating and using isolated environments: 
+   - venv            UPPMAX+HPC2N+LUNARC+NSC
+   - virtualenv      UPPMAX+HPC2N+LUNARC+NSC
+   - Conda           LUNARC + UPPMAX (recommended only for Bianca cluster)
 
-   - venv            UPPMAX+HPC2N+LUNARC
-   - virtualenv      UPPMAX+HPC2N+LUNARC
-   - Conda           UPPMAX+LUNARC
+.. warning::
 
+   **About Conda on HPC systems**
+
+   - Conda is good in many ways but can interact negatively when trying to use the pytrhon modules in the HPC systems.
+   - LUNARC seems to have working solutions
+   - At UPPMAX Conda is installed but we have many users that get into problems. 
+	- However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
+
+.. admonition:: Conda in HPC
+
+   - `Anaconda at LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>`_
+   - `Conda at UPPMAX <https://docs.uppmax.uu.se/software/conda/>`_ 
+      - `Conda on Bianca <https://uppmax.github.io/bianca_workshop/intermediate/install/#install-packages-principles>`_
+
+Virtual environment - venv & virtualenv
+---------------------------------------
+
+.. admonition:: Workflow
+
+1. You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option later)
+2. You create the isolated environment with something like venv, virtualenv (use the ``--system-site-packages`` to include all "non-base" packages)
+3. You activate the environment
+4. You install (or update) the environment with the packages you need
+5. You work in the isolated environment
+6. You deactivate the environment after use 
+
+   
 
 .. admonition:: venv vs. virtualenv
 
    - These are almost completely interchangeable
    - The difference being that **virtualenv supports older python versions** and has a few more minor unique features, while **venv is in the standard library**.
+   - Step 1:
+       - Virtualenv: ``virtualenv --system-site-packages Example``
+       - venv: ``python -m venv --system-site-packages Example2``
+   - Next steps are identical and involves "activating" and ``pip installs``
+   - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
 
 .. keypoints::
 
    - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
    - Make it for each project you have for reproducibility.
    - There are different tools to create virtual environments.
-      - UPPMAX has Conda and venv and virtualenv
-      - HPC2N has venv and virtualenv.
-      - LUNARC has Conda and venv and virtualenv   
-         - At UPPMAX, you load python directly, while at HPC2N and LUNARC you need to load "prerequisites" first, and the module is named Python with a capital P. 
-      - More details to follow!
- 
-   
-Virtual environment - venv & virtualenv
----------------------------------------
+       - ``conda``, only recommended for personal use and at some clusters
+       - ``virtualenv``, may require to load extra python bundle modules.
+       - **``venv``**, most straight-forward and available at all HPC centers. **Recommended**
+   - More details to follow!
 
 Example
 #######
