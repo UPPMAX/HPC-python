@@ -11,10 +11,10 @@ Welcome to "Using Python in an HPC environment" course material
    Here you will find the content of the workshop Using Python in an HPC environment.
    
    - Documentation at the HPC centres UPPMAX, HPC2N, LUNARC and NSC
-      - UPPMAX: <https://docs.uppmax.uu.se/software/python/>
-      - HPC2N: <https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages>
-      - LUNARC: <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>
-      - NSC: <https://www.nsc.liu.se/support/>
+      - `UPPMAX: <https://docs.uppmax.uu.se/software/python/>`_
+      - `HPC2N: <https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages>`_
+      - `LUNARC: <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
+      - `NSC: <https://www.nsc.liu.se/support/>`_
 
 
 .. admonition:: Content
@@ -39,16 +39,18 @@ Welcome to "Using Python in an HPC environment" course material
 
 .. warning::
 
-  **Target group**
+   **Target group**
  
-  - The course is for present or presumptive users at UPPMAX, HPC2N, LUNARC, NSC or possibly other clusters in Sweden. 
-  - Therefore we apply python solutions on all four clusters, so a broad audience can benefit.
-  - We also provide links to the Python/Jupyter documentation at other Swedish HPC centres with personell affiliated to NAISS.
+   - The course is for present or presumptive users at UPPMAX, HPC2N, LUNARC, NSC or possibly other clusters in Sweden. 
+   - Therefore we apply python solutions on all four clusters, so a broad audience can benefit.
+   - We also provide links to the Python/Jupyter documentation at other Swedish HPC centres with personnel affiliated to NAISS.
 
-  **Cluster-specific approaches**
+   **Cluster-specific approaches**
   
-   - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca), HPC2N (Kebnekaise), and LUNARC (Cosmos). The main focus will be on UPPMAX's and NSC's systems, but Kebnekaise and Cosmos will be included as well. If you already have an account at Kebnekaise or Cosmos, you can use those systems for the hands-ons. 
-   - In most cases there is little or no difference between UPPMAX's systems, HPC2N's systems, LUNARC's, or NSC's systems (and the other HPC systems in Sweden), except naming of modules and such. We will mention (and cover briefly) instances when there are larger differences.  
+   - The course is a cooperation between
+      - UPPMAX (Rackham, Snowy, Bianca), 
+      - HPC2N (Kebnekaise), 
+      - and LUNARC (Cosmos). 
 
    - See further below a short introduction to the centre-specific cluster architectures of UPPMAX, HPC2N, LUNARC, NSC.
 
@@ -95,8 +97,7 @@ Welcome to "Using Python in an HPC environment" course material
 .. admonition:: Q/A collabration document
 
     - Use the Q/A page for the workshop with your questions.
-        - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EZJ2RH0InOlIqCSF1DAhxXgBVirUT04xQsaHka17j2ZJIw?rtime=4q1KLG9z3Eg
-
+        - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EeQr33ZhejNHsv0crUSoaewBpGlpIdQUhqRsPdktS3xF9w
    - Use this page for the workshop with your questions
    - It helps us identify content that is missing in the course material
    - We answer those questions as soon as possible
@@ -115,10 +116,10 @@ The four HPC centers UPPMAX, HPC2N, LUNARC, and NSC
 - UPPMAX has three different clusters 
 
     - Rackham for general purpose computing on CPUs only
-    - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
+    - Snowy available for local projects and suits long jobs (< 1 month) and has CPUs and GPUs
     - Bianca for sensitive data and has GPUs
 
-- HPC2N has Kebnekaise with GPUs  
+- HPC2N has Kebnekaise with CPUs and GPUs  
 
 - LUNARC has two systems 
      
@@ -128,8 +129,6 @@ The four HPC centers UPPMAX, HPC2N, LUNARC, and NSC
 - NSC has one NAISS system (and several others) 
      
     - Tetralith (CPUs and GPUs)
-
-    - Conda is recommended only for UPPMAX, LUNARC, and NSC users
     
 .. warning:: 
 
