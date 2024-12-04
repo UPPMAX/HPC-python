@@ -1,7 +1,7 @@
 Loading IDEs
 ============
 
-There are several popular IDEs that are commonly used for interactive work with Python. Here we will show how to load ``Jupyter``, ``VScode``, and ``Spyder``. 
+There are several popular IDEs that are commonly used for interactive work with Python. Here we will show how to load ``Jupyter``, ``VS Code``, and ``Spyder``. 
 
 Jupyter
 -------
@@ -396,8 +396,74 @@ More information
 - Documentation about `Jupyter on UPPMAX <http://docs.uppmax.uu.se/software/jupyter/>`_
 
 
-VScode
+VS Code
 ------
+
+VS Code is a powerful and flexible IDE that is popular among developers for its ease of use and flexibility. It is designed to be a lightweight and fast editor that can be customized to suit the user's needs. It has a built-in terminal, debugger, and Git integration, and can be extended with a wide range of plugins.
+
+VS Code can be downloaded and installed on your local machine from the `VS Code website <https://code.visualstudio.com/>`_. It is also available on the HPC center resources, but the installation process is different for each center.
+
+VS Code is available on ThinLinc on UPPMAX and LUNARC only. On HPC2N and NSC, you will have to install it on your own laptop. 
+At UPPMAX(Rackham) load it using ``module load VSCodium``, this is an open source version of VS Code. At LUNARC(Cosmos) you can find it under Applications->Programming->Visual Studio Code.
+
+However, VS Code is best used on your local machine, as it is a resource-intensive application that can slow down the ThinLinc interface. The VS Code Server can be installed on all the HPCs that give your the ability to run your code on the HPCs but edit it on your local machine.
+Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.
+
+On your own computer through SSH tunneling 
+############################################
+
+Install VS Code on your local machine and follow the steps below to connect to the HPC center resources.
+
+.. admonition:: Steps to connect VS Code via SSH
+   :class: dropdown
+
+   .. figure:: ../img/vscode_remote_tunnels_before_install.png
+   
+   .. figure:: ../img/vscode_add_new_remote.png
+   
+   Type ssh [username]@rackham.uppmax.uu.se where [username] is your UPPMAX username, for example, ssh sven@rackham.uppmax.uu.se. 
+   This will change as per the HPC center you are using:  
+   
+   .. figure:: ../img/vscode_ssh_to_rackham.png
+   
+   Use the ~/.ssh/config file:  
+   
+   .. figure:: ../img/vscode_remote_tunnels_use_ssh_config_in_home.png
+   
+   Click on 'Connect':  
+   
+   .. figure:: ../img/vscode_connect_to_rackham.png
+   
+   .. figure:: ../img/vscode_connected_to_rackham.png
+
+When you first establish the ssh connection to Rackham, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
+This also where VS Code will install all your extentions that can quickly fill up your home directory.
+
+Install and manage Extensions on remote VSCode server
+############################################
+
+Manage Extensions
+^^^^^^^^^^^^^^^^^
+
+Go to Command Palette Ctrl+Shift+P or F1. Search for Remote-SSH: Settings and then go to Remote.SSH: Server Install Path. Add Item as remote host rackham.uppmax.uu.se and Value as project folder in which you want to install all your data and extensions ``/proj/uppmax202x-x-xx/nobackup`` (without a trailing slash /).
+
+If you already had your vscode-server running and storing extensions in home directory. Make sure to kill the server by selecting Remote-SSH: KIll VS Code Server on Host on Command Palette and deleting the .vscode-server directory in your home folder.
+
+Install Extensions
+^^^^^^^^^^^^^^^^^^^
+
+You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for Remote: Install Local Extensions in 'SSH: rackham.uppmax.uu.se' in Command Palette. You can alternatively, go to Extensions tab and select each individually.
+
+Selecting Kernels
+^^^^^^^^^^^^^^^^^^^
+
+Request allocation in either HPC compute node depending on your need, for that use interactive (or salloc) slurm command. Load the correct module on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Rackham/Snowy, do module load python_ML_packages. Check the file path for python interpreter by checking ``which python`` and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for "interpreter" for python, then paste the path of your interpreter/kernel.
+
+venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server. 
+
+For jupyter, you need to start the server on the HPC resource first, check `Jupyter`_ section on how to do that. Copy the jupyter server URL which goes something like ``http://s193.uppmax.uu.se:8888/tree?token=xxx`` (in case of Snowy), click on **Select Kernel** on VSCode and select **Existing Jupyter Server**. Past the URL here and confirm your choice.
+The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser.
+NOTE: Selecting kernels/interpreter does not work currently on HPC2N.
 
 Spyder
 ------

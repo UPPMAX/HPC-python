@@ -224,17 +224,15 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
           print("Updated weights:", layer.weights)
 
 
-.. admonition:: Pytorch/TensorFlow
+We now learn by submitting a batch job which consists of loading python module, activating python environment and running DNN code for image classification.
+
+.. admonition:: Fashion MNIST image classification using Pytorch/TensorFlow
    :class: dropdown
 
-   .. list-table::
-      :widths: 50 50
-      :header-rows: 1
-      :align: left
+   .. tabs::
 
-      * - **PyTorch**
-        - **TensorFlow**
-      * - 
+      .. tab:: Pytorch
+
          .. code-block:: python
             
             import torch
@@ -367,23 +365,16 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
                predicted, actual = classes[pred[0].argmax(0)], classes[y]
                print(f'Predicted: "{predicted}", Actual: "{actual}"')
                
-        - 
+      .. tab:: TensorFlow
+         
          .. code-block:: python
 
-            import logging
-            logging.getLogger('tensorflow').disabled = True
             import tensorflow as tf
-   
-            # Helper libraries
             import numpy as np
             from utils import load_data_fromlocalpath
             
             # Load FashionMNIST data
             (train_images, train_labels), (test_images, test_labels) = load_data_fromlocalpath("data/tf")
-   
-            # Normalize the pixel values to range [0, 1]
-            train_images = train_images / 255.0
-            test_images = test_images / 255.0
                
             # Define device
             device = "/GPU:0" if tf.config.list_physical_devices('GPU') else "/CPU:0"
@@ -445,6 +436,103 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
             predicted, actual = classes[np.argmax(predictions_single[0])], classes[y]
             print(f'Predicted: "{predicted}", Actual: "{actual}"')
 
+      .. tab:: utils.py
+
+         .. code-block:: python
+
+            import os
+            import numpy as np
+            import gzip
+
+            def load_data_fromlocalpath(input_path):
+               """Loads the Fashion-MNIST dataset.
+               Author: Henry Huang in 2020/12/24.
+               We assume that the input_path should in a correct path address format.
+               We also assume that potential users put all the four files in the path.
+
+               Load local data from path ‘input_path’.
+
+               Returns:
+                     Tuple of Numpy arrays: `(x_train, y_train), (x_test, y_test)`.
+               """
+               files = [
+                     'train-labels-idx1-ubyte.gz', 'train-images-idx3-ubyte.gz',
+                     't10k-labels-idx1-ubyte.gz', 't10k-images-idx3-ubyte.gz'
+               ]
+
+               paths = []
+               for fname in files:
+                  paths.append(os.path.join(input_path, fname))  # The location of the dataset.
+
+
+               with gzip.open(paths[0], 'rb') as lbpath:
+                  y_train = np.frombuffer(lbpath.read(), np.uint8, offset=8)
+
+               with gzip.open(paths[1], 'rb') as imgpath:
+                  x_train = np.frombuffer(
+                     imgpath.read(), np.uint8, offset=16).reshape(len(y_train), 28, 28)
+
+               with gzip.open(paths[2], 'rb') as lbpath:
+                  y_test = np.frombuffer(lbpath.read(), np.uint8, offset=8)
+
+               with gzip.open(paths[3], 'rb') as imgpath:
+                  x_test = np.frombuffer(
+                     imgpath.read(), np.uint8, offset=16).reshape(len(y_test), 28, 28)
+
+               return (x_train, y_train), (x_test, y_test)
+
+.. admonition:: Batch scripts for running image classification using Pytorch/TensorFlow
+   :class: dropdown
+      
+   .. tabs::
+
+      .. tab:: UPPMAX
+      .. tab:: HPC2N
+
+         .. code-block:: bash 
+
+            #!/bin/bash                                                                     
+            #SBATCH -A hpc2n2024-142 # Change to your own                                   
+            #SBATCH --time=00:10:00 # Asking for 10 minutes                                 
+            #SBATCH -n 1 # Asking for 1 core                                                
+            #SBATCH --gpus=1                                                                
+            #SBATCH -C nvidia_gpu                                                           
+
+            # Load any modules you need, here for Python/3.11.3
+            module load GCC/12.3.0 Python/3.11.3
+
+            source torch_env/bin/activate
+            #source tf_env/bin/activate #unncomment this for tf env and comment torch env
+
+            # Run your Python script                                                        
+            python fashion_mnist.py
+
+
+      .. tab:: LUNARC
+      .. tab:: NSC      
+            
+            .. code-block:: bash 
+   
+               #!/bin/bash
+               #SBATCH -A naiss2024-22-1493 # Change to your own
+               #SBATCH -n 1
+               #SBATCH -c 32
+               #SBATCH -t 00:10:00 # Asking for 10 minutes
+               #SBATCH --gpus-per-task=1
+
+               ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
+               ml load Python/3.11.5
+
+               source torch_env/bin/activate
+               #source tf_env/bin/activate #unncomment this for tf env and comment torch env
+
+               python fashion_mnist.py
+
+
+.. challenge::
+
+   Try and run the either pytorch or tensorflow code for Fasion MNIST dataset by submitting a batch job.
+   The dataset is stored in ``data/pytorch`` or ``data/tf`` directory. Copy the ``data`` directory to your personal folder.
 
 
 PyTorch
