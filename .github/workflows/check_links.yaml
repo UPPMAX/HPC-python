@@ -20,7 +20,7 @@ jobs:
       - name: Remove folders that need not to be checked
         run: |
           rm -rf docs/*/not_used/
-          rm -rf docs/*/may24/
+          rm -rf docs/*/may2024/
           rm -rf docs/May23
           rm -rf docs/May_24
           rm -rf docs/feb23_course
