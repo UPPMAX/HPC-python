@@ -427,8 +427,8 @@ Where I have marked a line with relevant info. Note that the port will change.
 More information
 ################
 
-- You can also check the lesson about `Jupyter on compute nodes <https://uppmax.github.io/R-python-julia-HPC/python/jupyter.html>`_ in our **Introduction to running R, Python and Julia in HPC workshop**)
-- Documentation about `Jupyter on HPC2N <https://www.hpc2n.umu.se/resources/software/jupyter>`_
+- You can also check the lesson about `Jupyter on compute nodes <https://uppmax.github.io/R-python-julia-matlab-HPC/python/jupyter.html>`_ in our **Introduction to running R, Python and Julia in HPC workshop**)
+- Documentation about `Jupyter on HPC2N <https://docs.hpc2n.umu.se/tutorials/jupyter/>`_
 - Documentation about `Jupyter on UPPMAX <http://docs.uppmax.uu.se/software/jupyter/>`_
 
 
