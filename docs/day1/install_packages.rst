@@ -230,7 +230,6 @@ Everytime you need the tools available in the virtual environment you activate i
    - You can do ``pip list --local`` to see what is instaleld by you in the environment.
    - Some IDE:s like Spyder may only find those "local" packages
 
-
 Prepare the course environment
 ------------------------------
 
