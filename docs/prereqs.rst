@@ -25,8 +25,8 @@ Linux
     
       - `Linux <http://docs.uppmax.uu.se/getting_started/linux/>`_
       - `Basic commands <http://docs.uppmax.uu.se/getting_started/linux_basics/>`_
-      - `Whole intro course material <https://www.uppmax.uu.se/support/courses-and-workshops/uppmax-introductory-course/>`_
-      - `UPPMAX software library <https://uppsala.instructure.com/courses/67267/pages/uppmax-basics-software?module_item_id=455641>`_
+      - `Whole intro course material <https://www.uu.se/en/centre/uppmax/study/courses-and-workshops/introduction-to-uppmax/>`_
+      - `UPPMAX software library <https://docs.uppmax.uu.se/software/software-table/>`_
       
     - HPC2N
     
@@ -107,7 +107,7 @@ The HPC centers UPPMAX, HPC2N, LUNARC, and NSC
 .. warning:: 
 
    - At HPC2N, UPPMAX, LUNARC, and NSC we call the applications available via the *module system* **modules**. 
-   - https://www.uppmax.uu.se/resources/software/module-system/ 
+   - https://docs.uppmax.uu.se/cluster_guides/modules/ 
    - https://docs.hpc2n.umu.se/documentation/modules/
    - https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/  
    - https://www.nsc.liu.se/software/modules/
