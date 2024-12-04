@@ -82,8 +82,6 @@ Virtual environment - venv & virtualenv
 5. You work in the isolated environment
 6. You deactivate the environment after use 
 
-   
-
 .. admonition:: venv vs. virtualenv
 
    - These are almost completely interchangeable
@@ -169,43 +167,25 @@ Create a ``venv``. First load the python version you want to base your virtual e
 
 **NOTE**: if you need to for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
       
+.. admonition:: If you want your virtual environment in a certain place...
 
-If you want your virtual environment in a certain place...
-
-.. tabs::
-
-   .. tab:: UPPMAX
-
-      To place it in the course project folder, under your own directory you created there 
-      
-      .. code-block:: console
-
-         $ python -m venv --system-site-packages /proj/hpc-python/<user-dir>/Example
-    
-      Activate it.
-
-      .. code-block:: console
-
-          $ source /proj/hpc-python/<user-dir>/Example/bin/activate
-
-      Note that your prompt is changing to start with (Example) to show that you are within an environment.
-
-   .. tab:: HPC2N
-
-      To place it in a directory below your directory in the project storage (again calling it "Example"): 
-
-      .. code-block:: console
-
-         $ virtualenv --system-site-packages /proj/nobackup/python-hpc/<your-dir>/Example 
-    
-      Activate it.
-
-      .. code-block:: console
-
-          $ source /proj/nobackup/python-hpc/<your-dir>/Example/bin/activate
-
-
-Note that your prompt is changing to start with (name of your vitual environment) to show that you are within it.
+   - Example for course project location and ``$USER`` being you user name. 
+       - If your directory in the project has another name, replace ``$USER`` with that one!
+   
+   - UPPMAX: 
+       - Create: ``python -m venv --system-site-packages /proj/hpc-python-fall/$USER/Example``
+       - Activate: ``source /proj/hpc-python-fall/<user-dir>/Example/bin/activate``
+   - HPC2N: 
+       - Create: ``$ python -m venv --system-site-packages /proj/nobackup/hpc-python-fall-hpc2n/$USER/Example``
+       - Activate: ``source /proj/nobackup/hpc-python-fall-hpc2n/<user-dir>/Example/bin/activate``
+   - LUNARC: 
+       - Create: ``$ python -m venv --system-site-packages /lunarc/nobackup/projects/lu2024-17-44/$USER/Example``
+       - Activate: ``source /lunarc/nobackup/projects/lu2024-17-44/<user-dir>/Example/bin/activate``
+   - NSC: 
+       - Create: ``$ python -m venv --system-site-packages /proj/hpc-python-fall-nsc/$USER/Example``
+       - Activate: ``source /proj/hpc-python-fall-nsc/<user-dir>/Example/bin/activate``
+        
+   Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
 .. note::
 
@@ -213,8 +193,8 @@ Note that your prompt is changing to start with (name of your vitual environment
    - For clarity we use the ``source`` style here.
 
 
-Using pip
----------
+Install packages to the virtual environment with pip
+....................................................
 
 .. tip::
 
@@ -226,13 +206,14 @@ Install your packages with ``pip``. While not always needed, it is often a good 
       
     (Example) $ pip install --no-cache-dir --no-build-isolation numpy==1.20.2 matplotlib==3.2.2
 
+The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
+
 Deactivate the venv.
 
 .. code-block:: console
       
     (Example) $ deactivate
     
-The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
 
 Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
@@ -244,7 +225,10 @@ Everytime you need the tools available in the virtual environment you activate i
    
 .. note::
 
-   You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
+   - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
+   - Some packaegs may be inhereted from the moduels yopu have loaded
+   - You can do ``pip list --local`` to see what is instaleld by you in the environment.
+   - Some IDE:s like Spyder may only find those "local" packages
 
 
 Prepare the course environment
