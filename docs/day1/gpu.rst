@@ -502,11 +502,16 @@ Exercises
             #SBATCH --gpus=1
             #SBATCH -C l40s 
             #SBATCH --exclusive 
-     
+    
+            # Set a path where the example programs are installed.
+            # Change the below to your own path to where you placed the example programs
+            MYPATH=/proj/hpc-python-fall-hpc2n/<mydir-name>/HPC-python/Exercises/examples/programs/
+
+
             ml purge > /dev/null 2>&1
             ml GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 numba/0.58.1  
-            python integration2d_gpu.py
-            python integration2d_gpu_shared.py
+            python $MYPATH/integration2d_gpu.py
+            python $MYPATH/integration2d_gpu_shared.py
 
      For the ``integration2d_gpu.py`` implementation, the time for executing the kernel and doing some postprocessing to the outputs (copying the C array and doing a reduction) was 4.35 sec. which is a much smaller value than the time for the serial numba code of 152 sec obtained previously. 
 
