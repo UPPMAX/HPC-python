@@ -262,7 +262,7 @@ If a kernel is running (shown under kernels), then shut down that kernel and cli
 **NOTE**! Sometimes it is still running on the default kernel. If so, Click the 3 little dots in the right side of the editor-window for the program and *pick your kernel*. Then rerun your files.
 
 Links
----------
+^^^^^
 
 - `The Jupyter project <https://jupyter.org/>`_ contains a lot of information and inspiration
 - `The Jupyter Notebook documentation <https://jupyter-notebook.readthedocs.io/en/stable/>`_  
