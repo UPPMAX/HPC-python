@@ -386,12 +386,114 @@ More info
    - More about packages and virtual/isolated environment to follow in later sections of the course! 
 
 
+Exercises
+---------
+
+.. challenge:: 1. Make a test environment
+
+   1. make a virtual environment with the name ``venv1``. Do not include packages from the the loaded module(s)
+   2. activate
+   3. install ``matplotlib``
+   4. make a requirements file of the content
+   5. deactivate
+   6. make another virtual environment with the name ``venv2``
+   7. activate that
+   8. install with the aid of the requirements file
+   9. check the content
+   10. open python shell from command line and try to import
+   11. exit python
+   12. deactivate
+   
+.. solution:: Solution 
+   :class: dropdown
+    
+   - First load the required Python module(s) if not already done so in earlier lessons. Remember that this steps differ between the HPC centers
+
+   1. make the first environment
+
+   .. code-block:: console
+
+      $ python -m venv venv1
+    
+   2. Activate it.
+
+   .. code-block:: console
+
+      $ source venv1/bin/activate
+
+      - Note that your prompt is changing to start with ``(venv1)`` to show that you are within an environment.
+   
+   3. install ``matplotlib``
+
+   .. code-block:: console
+
+      pip install matplotlib
+
+   4. make a requirements file of the content
+
+   .. code-block:: console
+
+      pip freeze --local > requirements.txt
+
+   5. deactivate
+
+   .. code-block:: console
+
+      deactivate
+
+   6. make another virtual environment with the name ``venv2``
+
+   .. code-block:: console
+
+      python -m venv venv2
+
+   7. activate that
+
+   .. code-block:: console
+
+      source venv2/bin/activate
+
+   8. install with the aid of the requirements file
+
+   .. code-block:: console
+
+      pip install -r requirements.txt
+
+   9. check the content
+
+   .. code-block:: console
+
+      pip list
+
+   10. open python shell from command line and try to import
+
+   .. code-block:: console
+
+      python
+
+   .. code-block:: python
+
+      import matplotlib
+
+   11. exit python
+
+   .. code-block:: python
+
+      exit()
+      
+   12. deactivate
+
+   .. code-block:: console
+
+      deactivate
+
+      
 Prepare the course environments
--------------------------------
+...............................
 
 .. note::
 
-   - All centers has had different approaches in wha tis oincluded in the module system and not
+   - All centers has had different approaches in what is included in the module system and not.
    - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
    - This is left as exercise for you
 
@@ -405,6 +507,10 @@ We will need to install the LightGBM Python package for one of the examples in t
 Create a virtual environment called ``vpyenv``. First load the python version you want to base your virtual environment on, as well as the site-installed ML packages. 
 
 .. tabs::
+
+   .. tab:: NSC
+
+   .. tab:: LUNARC
 
    .. tab:: UPPMAX
       
@@ -541,55 +647,6 @@ Using the virtual environment created under "Preparing the course environment" a
     
    - Check that the packages were installed.
    - Don't forget to deactivate afterwards.
-
-.. solution:: Solution for UPPMAX
-   :class: dropdown
-    
-   .. code-block:: console
-
-      $ module load python/3.9.5
-      $ python -m venv --system-site-packages /proj/naiss2023-22-1126/<user-dir>/analysis
-    
-   Activate it.
-
-   .. code-block:: console
-
-      $ source /proj/naiss2023-22-1126/<user-dir>/analysis/bin/activate
-
-   - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
-   - Install the packages from the file and then check if the right packages were installed::
-      
-        pip install -r requirements.txt
-      
-   .. code-block:: console
-
-         $ pip list
-	 $ deactivate
-      
-.. solution:: Solution for HPC2N
-   :class: dropdown
-    
-   .. code-block:: console
-
-      $ module load GCC/10.2.0 Python/3.8.6 
-      $ python -m venv --system-site-packages /proj/nobackup/<your-proj-dir>/analysis 
-      
-   Activate it.
-
-   .. code-block:: console
-
-      $ source /proj/nobackup/<your-proj-dir>/analysis/bin/activate
-
-   - Note that your prompt is changing to start with (analysis) to show that you are within an environment.
-   - Install the packages from the file and then check if the right packages were installed::
-      
-        pip install -r requirements.txt
-      
-   .. code-block:: console
-
-      $ pip list
-      $ deactivate
-      
 
 
 .. keypoints::
