@@ -575,14 +575,6 @@ Content of the course
    kebnekaise.md
    bianca.rst
    
-.. toctree::
-   :maxdepth: 2
-   :caption: Exercises:
-
-   exercises.rst
-
-  
-
 .. Indices and tables
 .. ==================
 
