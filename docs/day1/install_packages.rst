@@ -111,22 +111,11 @@ Example
     
    **Do not type along!**
 
-Create a ``venv`` or ``virtualenv``. First load the python version you want to base your virtual environment on:
+Create a ``venv``. First load the python version you want to base your virtual environment on:
 
 .. tabs::
 
    .. tab:: UPPMAX
-
-      ``virtualenv`` way
-
-      .. code-block:: console
-
-         $ module load python/3.11.8
-         $ virtualenv --system-site-packages Example
-    
-      "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
-
-      ``venv`` way
 
       .. code-block:: console
 
@@ -137,17 +126,6 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
    .. tab:: HPC2N
 
-      ``virtualenv`` way
-
-      .. code-block:: console
-
-         $ module load GCC/12.3.0 Python/3.11.3 
-         $ virtualenv --system-site-packages Example
-    
-      "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
-
-      ``venv`` way
-
       .. code-block:: console
 
          $ module load GCC/12.3.0 Python/3.11.3
@@ -157,20 +135,18 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
 
    .. tab:: LUNARC 
 
-      ``virtualenv`` way
-
-      .. code-block:: console
-
-         $ module load GCC/12.3.0 Python/3.11.3 
-         $ virtualenv --system-site-packages Example
-    
-      "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
-
-      ``venv`` way
-
       .. code-block:: console
 
          $ module load GCC/12.3.0 Python/3.11.3
+         $ python -m venv --system-site-packages Example2
+
+      "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
+
+   .. tab:: NSC 
+
+      .. code-block:: console
+
+         $ ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
          $ python -m venv --system-site-packages Example2
 
       "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
@@ -180,11 +156,12 @@ Create a ``venv`` or ``virtualenv``. First load the python version you want to b
    To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
    ``--system-site-packages`` includes the packages already installed in the loaded python module.
 
-   At HPC2N and LUNARC, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
+   At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
    
    .. code-block:: console
 
-         $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 
+         $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 # for HPC2N and LUNAR
+         $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
          $ python -m venv --system-site-packages Example3
 
 
