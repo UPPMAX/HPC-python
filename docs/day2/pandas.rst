@@ -874,3 +874,7 @@ Key Points
 - You can also call simple Matplotlib functions as methods of Pandas data structures to quickly view your data.
 - ``Categorical`` and ``SparseDtype`` datatypes can help you reduce the memory footprint of your data.
 - Pandas supports datetime- and timedelta-like data and has methods to resample such data to different time steps.
+
+.. note::
+
+   Exercises and their solutions are provided separately in Jupyter notebooks. You may have to modify the search paths for the associated datafiles. The data files for the Pandas exercises are ``covid19_italy_region.csv`` and ``ita_pop_by_reg.txt``.
