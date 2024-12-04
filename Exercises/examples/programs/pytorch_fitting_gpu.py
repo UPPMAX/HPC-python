@@ -4,7 +4,7 @@ import torch
 import math
 
 dtype = torch.float
-device = torch.device("cpu")
+#device = torch.device("cpu")
 device = torch.device("cuda:0") # Comment this out to run on CPU only
 
 # Create random input and output data

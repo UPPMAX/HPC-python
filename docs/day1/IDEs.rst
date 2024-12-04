@@ -29,7 +29,9 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
 UPPMAX
 ######
 
-UPPMAX procedure step 1: login to a remote desktop
+Depending on your requirement of GPU or CPU, you can use Jupyter on either Rackham or Snowy compute node.
+
+1. login to a remote desktop
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Login to a remote desktop:
@@ -37,27 +39,32 @@ Login to a remote desktop:
 - Login to the remote desktop website at ``rackham-gui.uppmax.uu.se``
 - Login to your local ThinLinc client
 
-UPPMAX procedure step 2: start an interactive session
+2. start an interactive session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Start a terminal. Within that terminal,
 start an interactive session from the login node
 (change to the correct NAISS project ID)
 
-**For Rackham**
+.. tabs::
 
-.. code-block:: sh
+   .. tab:: Rackham
+   
+      .. code-block:: sh
 
-   $ interactive -A <naiss-project-id>  -t 4:00:00
-
-**For Snowy**
-
-.. code-block:: sh
-
-   $ interactive -M snowy -A <naiss-project-id>  -t 4:00:00
+         $ interactive -A <naiss-project-id>  -t 4:00:00
 
 
-UPPMAX procedure step 3: start Jupyter in the interactive session
+   .. tab:: Snowy
+
+      .. code-block:: sh
+
+         $ interactive -M snowy -A <naiss-project-id>  -t 4:00:00
+
+
+
+
+3. start Jupyter in the interactive session
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Within your terminal with the interactive session,
@@ -73,50 +80,79 @@ Then, start ``jupyter-notebook`` (or ``jupyter-lab``):
 
    jupyter-notebook --ip 0.0.0.0 --no-browser
 
-Leave this terminal open.
+This will start a jupyter server session so leave this terminal open.
+The terminal will also display multiple URLs.
 
-UPPMAX procedure step 4: connect to the running notebook
+4. connect to the running notebook
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The terminal will display multiple URLs.
 
-If you use the remote desktop website:
+On ThinLinc
+''''''''''''
 
-- start ``firefox`` on the remote desktop
-- browse to the first URL, which will be similar to ``file://domus/h1/[username]/.local/share/jupyter/runtimejpserver-[number]-open.html``
+If you use the ThinLinc, depending on which Jupyter server (Rackham or Snowy) you want to launch on web browser
 
-In both cases, you can access Jupyter from your local computer
 
-- start ``firefox`` on your local computer
-- browse to the second URL, which will be **similar** to
-  ``http://r486:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+.. tabs::
+
+   .. tab:: Rackham
+
+      - start ``firefox`` on the ThinLinc.
+      - browse to the URLs, which will be similar to ``http://r[xxx]:8888/?token=5c3aeee9fbfc7a11c4a64b2b549622231388241c2``
+      - Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Rackham.
+
+   .. tab:: Snowy
+
+      - start ``firefox`` on the ThinLinc.
+      - browse to the URLs, which will be similar to ``http://s[xxx].uppmax.uu.se:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4``
+      - Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Snowy.
 
 On own computer
 '''''''''''''''
 
-- If you use ssh to connect to Rackham, you need to forward the port of the interactive node to your local computer.
-    - On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
+If you want to connect to the Jupyter server running on Rackham/Snowy from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.
 
-.. code-block:: sh
+.. tabs::
 
-   $ ssh -L 8888:r486:8888 username@rackham.uppmax.uu.se
+   .. tab:: Rackham
 
-    - If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
-    - If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
+      - On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
 
-.. figure:: ../img/putty.png
-   :width: 450
-   :align: center
+      .. code-block:: sh
 
-[SSH port forwarding](https://uplogix.com/docs/local-manager-user-guide/advanced-features/ssh-port-forwarding)
+         $ ssh -L 8888:r486:8888 username@rackham.uppmax.uu.se
 
-On your computer open the address you got but replace r486 with localhost i.e. you get something like this
+      - If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
+      - If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
 
-``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
-or
-``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+      `SSH port forwarding <https://uplogix.com/docs/local-manager-user-guide/advanced-features/ssh-port-forwarding>`_
 
-   This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.
+      - On your computer open the URL you got from step 3. on your webbrowser but replace r486 with localhost i.e. you get something like this
+
+      ``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+      or
+      ``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+
+      - This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.
+
+
+
+   .. tab:: Snowy
+
+      - Similar steps as for Rackham but with the correct port number and hostname pointing to Snowy compute node instead.
+      
+      .. code-block:: sh
+
+         $ ssh -L 8889:s123:8889 username@rackham.uppmax.uu.se
+      
+      - On your computer open the URL you got from step 3. on your webbrowser but replace s123 with localhost i.e. you get something like this
+
+      ``http://localhost:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4``
+      or
+      ``http://127.0.0.0:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4``
+
+      - Paste the url and it will start the Jupyter interface on your computer and all calculations and files will be on Snowy.
+
 
 
 .. warning::
@@ -397,7 +433,7 @@ More information
 
 
 VS Code
-------
+--------
 
 VS Code is a powerful and flexible IDE that is popular among developers for its ease of use and flexibility. It is designed to be a lightweight and fast editor that can be customized to suit the user's needs. It has a built-in terminal, debugger, and Git integration, and can be extended with a wide range of plugins.
 
@@ -440,7 +476,7 @@ When you first establish the ssh connection to Rackham, your VSCode server direc
 This also where VS Code will install all your extentions that can quickly fill up your home directory.
 
 Install and manage Extensions on remote VSCode server
-############################################
+#####################################################
 
 Manage Extensions
 ^^^^^^^^^^^^^^^^^

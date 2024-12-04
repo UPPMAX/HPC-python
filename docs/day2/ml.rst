@@ -16,7 +16,7 @@ Machine Learning and Deep Learning
    - Get a general overview of ML/DL with Python. 
    - Get a general overview of installed ML/DL tools at HPC2N, UPPMAX, and LUNARC.
    - Get started with ML/DL in Python.
-   - Code along and demos (Kebnekaise, Rackham/Snowy, Cosmos).
+   - Code along and demos (Kebnekaise, Rackham/Snowy, Cosmos and Tetralith).
 
 
 Introduction
@@ -153,8 +153,217 @@ The list is not exhaustive, but lists the more popular ML/DL libraries.
      -
      -     
 
-Differences between PyTorch and TensorFlow
-------------------------------------------
+Scikit-Learn
+-------------
+
+Scikit-learn (sklearn) is a powerful and easy-to-use open-source machine learning library for Python. It provides simple and efficient tools for data mining and data analysis, and it is built on NumPy, SciPy, and matplotlib. Scikit-learn is designed to interoperate with the Python numerical and scientific libraries.
+
+More often that not, scikit-learn is used along with other popular libraries like tensorflow and pytorch to perform exploratory data analysis, data preprocessing, model selection, and evaluation. For our examples, we will use jupyter notebook on a CPU node to see visualization of the data and the results.
+
+.. admonition:: Components of Scikit-learn
+   :class: dropdown
+
+   .. list-table::
+      :widths: 20 40 40
+      :header-rows: 1
+
+      * - **Component**
+        - **Definition**
+        - **Examples**
+      
+      * - Estimators
+        - Estimators are the core objects in scikit-learn. They implement algorithms for classification, regression, clustering, and more. An estimator is any object that learns from data; it implements the ``fit`` method, which is used to train the model.
+        - 
+         - ``LinearRegression`` for linear regression
+         - ``KNeighborsClassifier`` for k-nearest neighbors classification
+         - ``DecisionTreeClassifier`` for decision tree classification
+      
+      * - Transformers
+        - Transformers are used for data preprocessing and feature extraction. They implement the ``fit`` and ``transform`` methods. The ``fit`` method learns the parameters from the data, and the ``transform`` method applies the transformation to the data.
+        - 
+            - ``StandardScaler`` for standardizing features by removing the mean and scaling to unit variance
+            - ``PCA`` (Principal Component Analysis) for dimensionality reduction
+            - ``TfidfVectorizer`` for converting a collection of raw documents to a matrix of TF-IDF features
+      
+      * - Pipelines
+        - Pipelines are a way to streamline a machine learning workflow by chaining together multiple steps into a single object. A pipeline can include both transformers and estimators. This ensures that all steps are executed in the correct order and simplifies the process of parameter tuning.
+        - A pipeline that standardizes the data and then applies a linear regression model:
+         
+            .. code-block:: python
+            
+               from sklearn.pipeline import Pipeline
+               from sklearn.preprocessing import StandardScaler
+               from sklearn.linear_model import LinearRegression
+
+               pipeline = Pipeline([
+                  ('scaler', StandardScaler()),
+                  ('regressor', LinearRegression())
+               ])
+         
+      * - Datasets
+        - Scikit-learn provides several built-in datasets for testing and experimenting with machine learning algorithms. These datasets can be loaded using the `datasets` module.
+        - 
+            - ``load_iris`` for the Iris flower dataset
+            - ``load_digits`` for the handwritten digits dataset
+            - ``load_boston`` for the Boston house prices dataset
+
+            Example of loading a dataset:
+         
+            .. code-block:: python
+            
+               from sklearn.datasets import load_iris
+
+               iris = load_iris()
+               X, y = iris.data, iris.target
+         
+      * - Model Evaluation
+        - Scikit-learn provides various tools for evaluating the performance of machine learning models. These include metrics for classification, regression, and clustering, as well as methods for cross-validation.
+        - 
+            - ``accuracy_score`` for classification accuracy
+            - ``mean_squared_error`` for regression error
+            - ``silhouette_score`` for clustering quality
+         
+            Example of evaluating a model:
+            
+            .. code-block:: python
+               
+               from sklearn.metrics import accuracy_score
+               from sklearn.model_selection import train_test_split
+               from sklearn.neighbors import KNeighborsClassifier
+
+               X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+               model = KNeighborsClassifier()
+               model.fit(X_train, y_train)
+               y_pred = model.predict(X_test)
+               accuracy = accuracy_score(y_test, y_pred)
+               print(f'Accuracy: {accuracy:.2f}')
+            
+      * - Parameter Searches
+        - Scikit-learn provides tools for hyperparameter tuning, such as ``GridSearchCV`` and ``RandomizedSearchCV``. These tools help in finding the best parameters for a given model by performing an exhaustive search over specified parameter values.
+        - Example of a parameter search:
+         
+            .. code-block:: python
+               
+               from sklearn.model_selection import GridSearchCV
+               from sklearn.svm import SVC
+
+               param_grid = {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}
+               grid_search = GridSearchCV(SVC(), param_grid, cv=5)
+               grid_search.fit(X_train, y_train)
+               print(f'Best parameters: {grid_search.best_params_}')
+               print(f'Best score: {grid_search.best_score_}')
+         
+
+Scikit-learn provides a comprehensive suite of tools for building and evaluating machine learning models, making it an essential library for data scientists and machine learning practitioners.
+
+.. tabs::
+
+   .. tab:: Example 1: Linear Regression
+
+      .. code-block:: python
+
+         import numpy as np
+         import matplotlib.pyplot as plt
+         from sklearn.linear_model import LinearRegression
+
+         # Generate some data
+         X = np.array([[1], [2], [3], [4], [5]])
+         y = np.array([1, 3, 2, 3, 5])
+
+         # Create and fit the model
+         model = LinearRegression()
+         model.fit(X, y)
+
+         # Make predictions
+         y_pred = model.predict(X)
+
+         # Plot the results
+         plt.scatter(X, y, color='black')
+         plt.plot(X, y_pred, color='blue', linewidth=3)
+         plt.xlabel('X')
+         plt.ylabel('y')
+         plt.title('Linear Regression Example')
+         plt.show()
+
+   .. tab:: Example 2: K-Nearest Neighbors
+
+      .. code-block:: python
+
+         import numpy as np
+         from sklearn.datasets import load_iris
+         from sklearn.model_selection import train_test_split
+         from sklearn.neighbors import KNeighborsClassifier
+         from sklearn.metrics import accuracy_score
+
+         # Load the iris dataset
+         iris = load_iris()
+         X, y = iris.data, iris.target
+
+         # Split the data into training and testing sets
+         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+         # Create and fit the model
+         knn = KNeighborsClassifier(n_neighbors=3)
+         knn.fit(X_train, y_train)
+
+         # Make predictions
+         y_pred = knn.predict(X_test)
+
+         # Calculate accuracy
+         accuracy = accuracy_score(y_test, y_pred)
+         print(f'Accuracy: {accuracy:.2f}')
+
+   .. tab:: Example 3: Decision Tree
+
+      .. code-block:: python
+
+         from sklearn.datasets import load_iris
+         from sklearn.model_selection import train_test_split
+         from sklearn.tree import DecisionTreeClassifier
+         from sklearn.metrics import accuracy_score
+         from sklearn import tree
+         import matplotlib.pyplot as plt
+
+         # Load the iris dataset
+         iris = load_iris()
+         X, y = iris.data, iris.target
+
+         # Split the data into training and testing sets
+         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+         # Create and fit the model
+         clf = DecisionTreeClassifier()
+         clf.fit(X_train, y_train)
+
+         # Make predictions
+         y_pred = clf.predict(X_test)
+
+         # Calculate accuracy
+         accuracy = accuracy_score(y_test, y_pred)
+         print(f'Accuracy: {accuracy:.2f}')
+
+         # Plot the decision tree
+         plt.figure(figsize=(20,10))
+         tree.plot_tree(clf, filled=True)
+         plt.show()
+
+
+.. challenge::
+
+   Try running ``titanic_sklearn.ipynb`` that can be found in ``Exercises/examples/programs`` directory, on an interactive CPU node. Copy the ``.ipynb`` file into your personal folder. Also copy the ``data`` directory into your personal folder as it contains the dataset for this and subsequent Exercises.
+
+   Run it on a jupyter notebook on an interactive CPU node. An interative GPU node will also do. 
+
+   Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC can use prebuilt venv.
+
+   * Learning outcomes:
+      - How to load a jupyter notebook on an interactive node.
+      - How to load correct modules already available on the system, in order to run scikit-learn.
+
+
+
+PyTorch and TensorFlow
+-----------------------
 
 The following table demonstrates some common tasks in PyTorch and TensorFlow, highlighting their similarities and differences through code examples:
 
@@ -487,6 +696,26 @@ We now learn by submitting a batch job which consists of loading python module, 
    .. tabs::
 
       .. tab:: UPPMAX
+
+         .. code-block:: bash 
+
+            #!/bin/bash -l
+            #SBATCH -A naiss2024-22-1442 # Change to your own after the course
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -p node
+            #SBATCH -n 1 # Asking for 1 node
+            #SBATCH -M snowy
+            #SBATCH --gres=gpu:1 # Asking for 1 GPU
+
+            # Load any modules you need, here Python 3.11.8.
+            module load python/3.11.8
+
+            source torch_env/bin/activate
+            source tf_env/bin/activate #unncomment this for tf env and comment torch env
+
+            # Run your Python script
+            python test_pytorch_nn.py
+
       .. tab:: HPC2N
 
          .. code-block:: bash 
@@ -533,141 +762,11 @@ We now learn by submitting a batch job which consists of loading python module, 
 
    Try and run the either pytorch or tensorflow code for Fasion MNIST dataset by submitting a batch job.
    The dataset is stored in ``data/pytorch`` or ``data/tf`` directory. Copy the ``data`` directory to your personal folder.
+   In order to run this at any HPC resource you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
 
-
-PyTorch
--------
-
-PyTorch has: 
-
-- An n-dimensional Tensor, similar to numpy, but can run on GPUs
-- Automatic differentiation for building and training neural networks
-
-The example we will use in this course is taken from the official PyTorch page: https://pytorch.org/ and the problem is of fitting :math:`y=sin⁡(x)` with a third order polynomial. We will run an example as a batch job. 
-
-.. admonition:: We use PyTorch Tensors to fit a third order polynomial to a sine function. The forward and backward passes through the network are manually implemented. 
-    :class: dropdown
-
-        The below program can be found in the ``Exercises/examples/programs`` directory under the name ``pytorch_fitting_gpu.py``. 
-
-        .. code-block:: python
-        
-            # -*- coding: utf-8 -*-
-            
-            import torch
-            import math
-            
-            dtype = torch.float
-            device = torch.device("cpu")
-            device = torch.device("cuda:0") # Comment this out to not run on GPU
-            
-            # Create random input and output data
-            x = torch.linspace(-math.pi, math.pi, 2000, device=device, dtype=dtype)
-            y = torch.sin(x)
-            
-            # Randomly initialize weights
-            a = torch.randn((), device=device, dtype=dtype)
-            b = torch.randn((), device=device, dtype=dtype)
-            c = torch.randn((), device=device, dtype=dtype)
-            d = torch.randn((), device=device, dtype=dtype)
-            
-            learning_rate = 1e-6
-            for t in range(2000):
-                # Forward pass: compute predicted y
-                y_pred = a + b * x + c * x ** 2 + d * x ** 3
-                
-                # Compute and print loss
-                loss = (y_pred - y).pow(2).sum().item()
-                if t % 100 == 99:
-                    print(t, loss)
-                
-                # Backprop to compute gradients of a, b, c, d with respect to loss
-                grad_y_pred = 2.0 * (y_pred - y)
-                grad_a = grad_y_pred.sum()
-                grad_b = (grad_y_pred * x).sum()
-                grad_c = (grad_y_pred * x ** 2).sum()
-                grad_d = (grad_y_pred * x ** 3).sum()
-                
-                # Update weights using gradient descent
-                a -= learning_rate * grad_a
-                b -= learning_rate * grad_b
-                c -= learning_rate * grad_c
-                d -= learning_rate * grad_d
-                
-            print(f'Result: y = {a.item()} + {b.item()} x + {c.item()} x^2 + {d.item()} x^3')
-
-You can find the full list of examples for this problem here: https://pytorch.org/tutorials/beginner/pytorch_with_examples.html
-
-.. hint::
-
-   Type along!
-
-In order to run this at HPC2N/UPPMAX you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
-
-This is an example of a batch script for running the above example, using PyTorch 2.1.x and Python 3.11.x, and running on GPUs. 
-
-.. admonition:: Example batch script, running on Kebnekaise 
-    :class: dropdown
-
-        .. code-block:: bash 
-        
-            #!/bin/bash 
-            # Remember to change this to your own project ID after the course! 
-            #SBATCH -A hpc2n2024-052
-            # We are asking for 5 minutes
-            #SBATCH --time=00:05:00
-            # The following two lines splits the output in a file for any errors and a file for other output. 
-            #SBATCH --error=job.%J.err
-            #SBATCH --output=job.%J.out
-            # Asking for one V100
-            #SBATCH --gres=gpu:V100:1
-            
-            # Remove any loaded modules and load the ones we need
-            module purge  > /dev/null 2>&1
-            module load GCC/12.3.0 OpenMPI/4.1.5 PyTorch/2.1.2-CUDA-12.1.1 
-            
-            srun python pytorch_fitting_gpu.py
-            
-
-.. admonition:: UPPMAX as run in an interactive Snowy session
-    :class: dropdown
-
-        .. code-block:: bash
-
-            $ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
-            You receive the high interactive priority.
-
-            Please, use no more than 8 GB of RAM.
-
-            Waiting for job 6907137 to start...
-            Starting job now -- you waited for 90 seconds.
-
-            $  ml uppmax
-            $  ml python/3.11.8
-            $  module load python_ML_packages/3.11.8-gpu
-            $  cd /proj/naiss2024-22-415/<user-dir>/HPC-python/Exercises/examples/programs
-            $ srun python pytorch_fitting_gpu.py
-            99 134.71942138671875
-            199 97.72868347167969
-            299 71.6167221069336
-            399 53.178802490234375
-            499 40.15779113769531
-            599 30.9610652923584
-            699 24.464630126953125
-            799 19.875120162963867
-            899 16.632421493530273
-            999 14.341087341308594
-            1099 12.721846580505371
-            1199 11.577451705932617
-            1299 10.76859188079834
-            1399 10.196844100952148
-            1499 9.792669296264648
-            1599 9.506935119628906
-            1699 9.304922103881836
-            1799 9.162087440490723
-            1899 9.061092376708984
-            1999 8.989676475524902
-            Result: y = 0.013841948471963406 + 0.855550229549408 x + -0.002387965563684702 x^2 + -0.09316103905439377 x^3
+   * Learning outcomes:
+      - How to submit a batch job on a HPC GPU resource inside a virtual env.
+      - How to load the correct modules and activate the correct environment for running PyTorch or TensorFlow code.
 
 
 
@@ -873,140 +972,110 @@ Exercises
 
 .. challenge::
 
-   Try to modify the files ``pandas_matplotlib-linreg-<rackham/kebnekaise>.py`` and ``pandas_matplotlib-linreg-pretty-<rackham/kebnekaise>.py`` so they could be run from a batch job (change the pop-up plots to save-to-file).
+   Try running a pytorch code for fitting a third degree polynomial to a sine function. Use the pytorch provided by module systems instead of using the virtual environment (except if you are on Tetralith (NSC), there is no pytorch available).
+   Submit the job using either a batch script or run the code interactively on a GPU node (if you already are on one).
 
-   Also change the batch script ``pandas_matplotlib.sh`` to run your modified python codes. 
+   Visit the `List of installed ML/DL tools <#list-of-installed-ml-dl-tools>`_ and make sure to load the correct pre-requisite modules like correct python version and GCC if needed.
 
-.. challenge:: 
+   .. admonition:: Fit a third order polynomial to a sine function.
+    :class: dropdown
 
-   In this exercise you will be using the course environment that you prepared in the "Install packages" section (here: https://uppmax.github.io/HPC-python/install_packages.html#prepare-the-course-environment). 
+        The below program can be found in the ``Exercises/examples/programs`` directory under the name ``pytorch_fitting_gpu.py``. 
 
-   You will run the Python code ``simple_lightgbm.py`` found in the ``Exercises/examples/programs`` directory. The code was taken from https://github.com/microsoft/LightGBM/tree/master and lightly modified. 
+        .. code-block:: python
+        
+            # source : https://pytorch.org/tutorials/beginner/pytorch_with_examples.html#pytorch-tensors
+            
+            import torch
+            import math
+            
+            dtype = torch.float
+            #device = torch.device("cpu")
+            device = torch.device("cuda:0") # Comment this out to not run on GPU
+            
+            # Create random input and output data
+            x = torch.linspace(-math.pi, math.pi, 2000, device=device, dtype=dtype)
+            y = torch.sin(x)
+            
+            # Randomly initialize weights
+            a = torch.randn((), device=device, dtype=dtype)
+            b = torch.randn((), device=device, dtype=dtype)
+            c = torch.randn((), device=device, dtype=dtype)
+            d = torch.randn((), device=device, dtype=dtype)
+            
+            learning_rate = 1e-6
+            for t in range(2000):
+                # Forward pass: compute predicted y
+                y_pred = a + b * x + c * x ** 2 + d * x ** 3
+                
+                # Compute and print loss
+                loss = (y_pred - y).pow(2).sum().item()
+                if t % 100 == 99:
+                    print(t, loss)
+                
+                # Backprop to compute gradients of a, b, c, d with respect to loss
+                grad_y_pred = 2.0 * (y_pred - y)
+                grad_a = grad_y_pred.sum()
+                grad_b = (grad_y_pred * x).sum()
+                grad_c = (grad_y_pred * x ** 2).sum()
+                grad_d = (grad_y_pred * x ** 3).sum()
+                
+                # Update weights using gradient descent
+                a -= learning_rate * grad_a
+                b -= learning_rate * grad_b
+                c -= learning_rate * grad_c
+                d -= learning_rate * grad_d
+                
+            print(f'Result: y = {a.item()} + {b.item()} x + {c.item()} x^2 + {d.item()} x^3')
 
-   Try to write a batch script that runs this code. Remember to activate the course environment. 
+   .. admonition:: Output via an interactive Snowy session
+    :class: dropdown
 
-   .. tabs::
+        .. code-block:: bash
 
-      .. tab:: simple_lightgbm.py 
+            $ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+            You receive the high interactive priority.
 
-         .. code-block:: python
-         
-            # coding: utf-8
-            from pathlib import Path
-  
-            import pandas as pd
-            from sklearn.metrics import mean_squared_error
+            Please, use no more than 8 GB of RAM.
 
-            import lightgbm as lgb
+            Waiting for job 6907137 to start...
+            Starting job now -- you waited for 90 seconds.
 
-            print("Loading data...")
-            # load or create your dataset
-            df_train = pd.read_csv(str("regression.train"), header=None, sep="\t")
-            df_test = pd.read_csv(str("regression.test"), header=None, sep="\t")
+            $  ml uppmax
+            $  ml python/3.11.8
+            $  module load python_ML_packages/3.11.8-gpu
+            $  cd /proj/naiss2024-22-415/<user-dir>/HPC-python/Exercises/examples/programs
+            $ srun python pytorch_fitting_gpu.py
+            99 134.71942138671875
+            199 97.72868347167969
+            299 71.6167221069336
+            399 53.178802490234375
+            499 40.15779113769531
+            599 30.9610652923584
+            699 24.464630126953125
+            799 19.875120162963867
+            899 16.632421493530273
+            999 14.341087341308594
+            1099 12.721846580505371
+            1199 11.577451705932617
+            1299 10.76859188079834
+            1399 10.196844100952148
+            1499 9.792669296264648
+            1599 9.506935119628906
+            1699 9.304922103881836
+            1799 9.162087440490723
+            1899 9.061092376708984
+            1999 8.989676475524902
+            Result: y = 0.013841948471963406 + 0.855550229549408 x + -0.002387965563684702 x^2 + -0.09316103905439377 x^3
 
-            y_train = df_train[0]
-            y_test = df_test[0]
-            X_train = df_train.drop(0, axis=1)
-            X_test = df_test.drop(0, axis=1)
 
-            # create dataset for lightgbm
-            lgb_train = lgb.Dataset(X_train, y_train)
-            lgb_eval = lgb.Dataset(X_test, y_test, reference=lgb_train)
 
-            # specify your configurations as a dict
-            params = {
-                "boosting_type": "gbdt",
-                "objective": "regression",
-                "metric": {"l2", "l1"},
-                "num_leaves": 31,
-                "learning_rate": 0.05,
-                "feature_fraction": 0.9,
-                "bagging_fraction": 0.8,
-                "bagging_freq": 5,
-                "verbose": 0,
-            }
-
-            print("Starting training...")
-            # train
-            gbm = lgb.train(
-                params, lgb_train, num_boost_round=20, valid_sets=lgb_eval, callbacks=[lgb.early_stopping(stopping_rounds=5)]
-            )
-
-            print("Saving model...")
-            # save model to file
-            gbm.save_model("model.txt")
- 
-            print("Starting predicting...")
-            # predict
-            y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration)
-            # eval
-            rmse_test = mean_squared_error(y_test, y_pred) ** 0.5
-            print(f"The RMSE of prediction is: {rmse_test}")
-
-      .. tab:: Rackham 
-
-         .. admonition:: Click to reveal the solution! 
-             :class: dropdown
-
-                   .. code-block:: bash 
-
-                      #!/bin/bash -l
-                      # Change to your own project ID after the course!
-                      #SBATCH -A naiss2024-22-415
-                      # We are asking for 10 minutes
-                      #SBATCH --time=00:10:00
-                      #SBATCH -n 1
-
-                      # Change to where the example programs and data are installed. 
-                      # Change the below to your own path to where you placed the example programs
-                      cd /proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
-
-                      # Remove any loaded modules and load the ones we need
-                      module purge  > /dev/null 2>&1
-                      module load uppmax
-                      module load python/3.11.8
-
-                      # Activate the course environment (assuming it was called vpyenv) 
-                      source /proj/hpc-python/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
-
-                      # Run your Python script
-                      python simple_lightgbm.py
-                                     
-      .. tab:: Kebnekaise 
-
-         .. admonition:: Click to reveal the solution! 
-             :class: dropdown 
-
-                   .. code-block:: bash 
-
-                      #!/bin/bash
-                      # Change to your own project ID after the course!
-                      #SBATCH -A hpc2n2024-052
-                      # We are asking for 10 minutes
-                      #SBATCH --time=00:10:00
-                      #SBATCH -n 1
-
-                      # Change to where the example programs are installed. 
-                      # Change the below to your own path to where you placed the example programs
-                      cd /proj/nobackup/python-hpc/<mydir-name>/HPC-python/Exercises/examples/programs/
-
-                      # Remove any loaded modules and load the ones we need
-                      module purge  > /dev/null 2>&1
-                      module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
-
-                      # Activate the course environment (assuming it was called vpyenv) 
-                      source /proj/nobackup/python-hpc/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
-
-                      # Run your Python script
-                      python simple_lightgbm.py
 
 
 .. keypoints::
 
-  - At all clusters you will find PyTorch, TensorFlow, Scikit-learn
-  - The loading are slightly different at the clusters
-     - UPPMAX: All these tools are available from the modules ``ml python_ML_packages/3.11.8 python/3.11.8``
-     - HPC2N: 
-        - For TensorFlow: ``ml GCC/11.3.0  OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2`` 
-        - For the rest: ``ml GCC/12.3.0 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 PyTorch/2.1.2 scikit-learn/1.3.1``
+  - At all clusters you will find PyTorch, TensorFlow, Scikit-learn under different modules, except Tetralith (NSC). 
+  - When in doubt, search your modules and its correct version using ``module spider``.
+  - If you plan to use mutiple libraries with complex dependencies, it is recommended to use a virtual environment and pip install your libraries.
+  - Always run heavy ML/DL jobs on compute nodes and not on login nodes. For development purpose, you can use an interactive session on a compute node.
 
