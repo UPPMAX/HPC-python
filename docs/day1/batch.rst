@@ -25,7 +25,7 @@ Running Python in batch mode
 
    - Rackham: ``/proj/hpc-python-fall``
    - Kebnekaise: ``/proj/nobackup/hpc-python-fall-hpc2n``
-   - Cosmos: ``lu2024-17-44``
+   - Cosmos: ``/lunarc/nobackup/projects/lu2024-17-44``
    - Tetralith: ``/proj/hpc-python-fall-nsc``
 
 .. admonition:: Reservation

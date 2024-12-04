@@ -504,7 +504,7 @@ Exercises
             #SBATCH --exclusive 
      
             ml purge > /dev/null 2>&1
-            ml GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 
+            ml GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 numba/0.58.1  
             python integration2d_gpu.py
             python integration2d_gpu_shared.py
 
