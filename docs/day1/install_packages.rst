@@ -539,14 +539,14 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
    .. tab:: UPPMAX
       
-      **Check were to find environments needed for the lessons in the afternoon tomorrow
+      **Check were to find environments needed for the lessons in the afternoon tomorrow**
 
       - browse ``/proj/hpc-python-fall/`` to see the available environments. 
       - Extra exercise can be to reproduce the examples above.
 
    .. tab:: HPC2N
 
-      **Check were to find environments needed for the lessons in the afternoon tomorrow
+      **Check were to find environments needed for the lessons in the afternoon tomorrow**
 
       - browse ``/proj/nobackup/hpc-python-fall-hpc2n/`` to see the available environments.
      
@@ -561,9 +561,9 @@ Using the self-installed packages in Python (MERGE INTO EXERCISE ABOVE)
 
 **Test it!**
 
-.. tip::
+.. admonition::
+   :class: dropdown
     
-   **Type along!**
 
 
 the library ``lightgbm``. 
