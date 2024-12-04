@@ -642,7 +642,7 @@ There are 4 methods for evaluating other methods and functions over moving/expan
 
 ``.rolling()`` (unweighted version) and  ``.expanding()`` allow windows to span **and aggregate over** multiple columns with ``method='table'`` set in the kwargs, but any function to be evaluated over those windows must then have ``engine='numba'`` set in its kwargs as well. If all you want to do is compute the same function over the same window increments for multiple separate columns simultaneously, setting ``method='table'`` is not necessary.
 
-\* To clarify, ``.emw()`` is similar to the expanding window, but every data point prior to wherever the window is centered is down-weighted by an exponential decay function. Further information on what exponential decay functions can be specified and how can be found `in the official documentation <https://pandas.pydata.org/docs/user_guide/indow.html#exponentially-weighted-window>`_, as this level of detail is beyond the scope of the course.
+\* To clarify, ``.emw()`` is similar to the expanding window, but every data point prior to wherever the window is centered is down-weighted by an exponential decay function. Further information on what exponential decay functions can be specified and how can be found `in the official documentation <https://pandas.pydata.org/docs/user_guide/window.html#exponentially-weighted-window>`_, as this level of detail is beyond the scope of the course.
 
 For demonstration, here is an example based loosely on the climate of your teacher's hometown.
 
