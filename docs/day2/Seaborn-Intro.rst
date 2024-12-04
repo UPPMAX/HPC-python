@@ -4,7 +4,7 @@ A Brief Introduction to the Seaborn Statistical Plotting Library
 
 Seaborn is a plotting library built entirely with Matplotlib and designed to quickly and easily create presentation-ready statistical plots from Pandas data structures.
 
-Seaborn can produce a wide variety of statistical plots, and even offers built-in regression functions, but in the interest of time, we will focus on just a few that are hard to replicate with Matplotlib alone: ``catplot()``, ``jointplot()``, ``heatmap()``, and ``pairplot()`` (or ``PairGrid()``). We will make extensive use of Seaborn's built-in testing datasets, of which there are many. You will have seen a couple already in the Matplotlib and Pandas lectures.
+Seaborn can produce a wide variety of statistical plots, and even offers built-in regression functions, but in the interest of time, we will focus on just a few that are hard to replicate with Matplotlib alone. We will make extensive use of Seaborn's built-in testing datasets, of which there are many. You will have seen a couple already in the Matplotlib and Pandas lectures.
 
 .. caution:: Don't Rely on Seaborn for Regression Analysis
 
@@ -124,4 +124,10 @@ Apart from the actual plotting commands, much of the customization of the figure
 Plotting with Seaborn
 ---------------------
 
-Here we will explore a few of the plot types Seaborn offers that are difficult to replicate in Matplotlib.
+Here we will explore a few of the plot types Seaborn offers that are difficult to replicate in Matplotlib:
+
+#. ``sb.pairplot()`` and the underlying ``sb.PairGrid()`` function
+#. ``sb.heatmap()`` and ``sb.clustermap()``
+#. ``sb.jointplot()``
+#. ``sb.violinplot()`` (yes, there is a Matplotlib violin plot method, but the Seaborn version produces much nicer figures with much less work)
+
