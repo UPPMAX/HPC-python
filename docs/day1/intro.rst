@@ -46,7 +46,7 @@ Material for improving your programming skills
 
    - `Plotting and Programming in Python <http://swcarpentry.github.io/python-novice-gapminder/>`_ 
 
-   General introduction to Python by UPPMAX at https://www.uppmax.uu.se/support/courses-and-workshops/introductory-course-summer-2023/
+   General introduction to Python by UPPMAX at https://www.uu.se/en/centre/uppmax/study/courses-and-workshops/introduction-to-uppmax
 
 
 .. admonition:: Second level
@@ -95,7 +95,7 @@ Documentations at other NAISS centres
       - `Jupyter <https://www.c3se.chalmers.se/documentation/applications/jupyter/>`_
       - `Python <https://www.nsc.liu.se/software/python/>`_
    - PDC
-      - `Python <https://www.pdc.kth.se/software/software/python/index_general.html>`_
+      - `Python <https://support.pdc.kth.se/doc/software-docs/python/>`_
 
 .. important::
 
