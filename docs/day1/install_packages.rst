@@ -230,14 +230,177 @@ Everytime you need the tools available in the virtual environment you activate i
    - You can do ``pip list --local`` to see what is instaleld by you in the environment.
    - Some IDE:s like Spyder may only find those "local" packages
 
-Prepare the course environment
-------------------------------
+Working with virtual environments defined from files
+----------------------------------------------------
+
+- First create and activate an environment (see above)
+- Create an environment based on dependencies given in an environment file::
+  
+.. code-block:: console
+
+   $ pip install -r requirements.txt
+   
+- Create file from present virtual environment::
+
+.. code-block:: console
+
+   $ pip freeze > requirements.txt
+  
+- That includes also the *system site packages* if you included them with ``--system-site-packages``
+- You can list packages specific for the virtualenv by ``pip list --local`` 
+
+- So, creating a file from just the local environment::
+
+.. code-block:: console
+
+   $ pip freeze --local > requirements.txt
+
+``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
+
+   numpy
+   matplotlib
+   pandas
+   scipy
+
+``requirements.txt`` with versions that could look like this::
+
+    numpy==1.20.2
+    matplotlib==3.2.2
+    pandas==1.1.2
+    scipy==1.6.2
+
+.. admonition:: More on dependencies
+
+   - `Dependency management from course Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
+
+
+.. note:: 
+
+   **pyenv**
+
+   - This approach is more advanced and should, in our opinion, be used only if the above are not enough for the purpose. 
+   - ``pyenv`` allows you to install your **own python version**, like 3.10.2, and much more… 
+   - `Pyenv at UPPMAX <http://docs.uppmax.uu.se/software/python_pyenv/>`_
+   - Probably Conda will work well for you anyway...
+
+Python packages in HPC and ML
+-----------------------------
+
+It is difficult to give an exhaustive list of useful packages for Python in HPC, but this list contains some of the more popular ones: 
+
+.. list-table:: Popular packages
+   :widths: 8 10 10 20 
+   :header-rows: 1
+
+   * - Package
+     - Module to load, UPPMAX
+     - Module to load, HPC2N
+     - Brief description 
+   * - Dask
+     - ``python``
+     - ``dask``
+     - An open-source Python library for parallel computing.
+   * - Keras
+     - ``python_ML_packages``
+     - ``Keras``
+     - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for both the TensorFlow and the Theano libraries. 
+   * - Matplotlib
+     - ``python`` or ``matplotlib``
+     - ``matplotlib``
+     - A plotting library for the Python programming language and its numerical mathematics extension NumPy.
+   * - Mpi4Py
+     - Not installed
+     - ``SciPy-bundle``
+     - MPI for Python package. The library provides Python bindings for the Message Passing Interface (MPI) standard.
+   * - Numba 
+     - ``python``
+     - ``numba``
+     - An Open Source NumPy-aware JIT optimizing compiler for Python. It translates a subset of Python and NumPy into fast machine code using LLVM. It offers a range of options for parallelising Python code for CPUs and GPUs. 
+   * - NumPy
+     - ``python``
+     - ``SciPy-bundle``
+     - A library that adds support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays. 
+   * - Pandas
+     - ``python`` 
+     - ``SciPy-bundle``
+     - Built on top of NumPy. Responsible for preparing high-level data sets for machine learning and training. 
+   * - PyTorch/Torch
+     - ``PyTorch`` or ``python_ML_packages``
+     - ``PyTorch``
+     - PyTorch is an ML library based on the C programming language framework, Torch. Mainly used for natural language processing or computer vision.  
+   * - SciPy
+     - ``python``
+     - ``SciPy-bundle``
+     - Open-source library for data science. Extensively used for scientific and technical computations, because it extends NumPy (data manipulation, visualization, image processing, differential equations solver).  
+   * - Seaborn 
+     - ``python``
+     - Not installed
+     - Based on Matplotlib, but features Pandas’ data structures. Often used in ML because it can generate plots of learning data. 
+   * - Sklearn/SciKit-Learn
+     - ``scikit-learn``
+     - ``scikit-learn``
+     - Built on NumPy and SciPy. Supports most of the classic supervised and unsupervised learning algorithms, and it can also be used for data mining, modeling, and analysis. 
+   * - StarPU
+     - Not installed 
+     - ``StarPU``
+     - A task programming library for hybrid architectures. C/C++/Fortran/Python API, or OpenMP pragmas. 
+   * - TensorFlow
+     - ``TensorFlow``
+     - ``TensorFlow``
+     - Used in both DL and ML. Specializes in differentiable programming, meaning it can automatically compute a function’s derivatives within high-level language. 
+   * - Theano 
+     - Not installed 
+     - ``Theano``
+     - For numerical computation designed for DL and ML applications. It allows users to define, optimise, and gauge mathematical expressions, which includes multi-dimensional arrays.  
+
+Remember, in order to find out how to load one of the modules, which prerequisites needs to be loaded, as well as which versions are available, use ``module spider <module>`` and ``module spider <module>/<version>``. 
+
+Often, you also need to load a python module, except in the cases where it is included in ``python`` or ``python_ML_packages`` at UPPMAX or with ``SciPy-bundle`` at HPC2N. 
+
+NOTE that not all versions of Python will have all the above packages installed! 
+
+More info
+---------
+
+- UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
+- HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
+
+
+
+
+.. admonition:: Summary of workflow
+
+   In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
+   
+ 
+   1) Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
+   2) Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
+   3) Activate your virtual environment (optional): ``source <path-to-virt-env>/bin/activate``
+   4) Install any extra Python packages (optional): ``pip install --no-cache-dir --no-build-isolation <python-package>``
+   5) Start Python or run python script: ``python``
+   6) Do your work
+   7) Deactivate
+
+   - Installed Python modules (modules and own-installed) can be accessed within Python with ``import <package>`` as usual. 
+   - The command ``pip list`` given within Python will list the available modules to import. 
+   - More about packages and virtual/isolated environment to follow in later sections of the course! 
+
+
+Prepare the course environments
+-------------------------------
+
+.. note::
+
+   - All centers has had different approaches in wha tis oincluded in the module system and not
+   - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
+   - This is left as exercise for you
+
 
 We will need to install the LightGBM Python package for one of the examples in the ML section. 
 
 .. tip::
     
-   **Type along!**
+   **Follow the track where you are working right now**
 
 Create a virtual environment called ``vpyenv``. First load the python version you want to base your virtual environment on, as well as the site-installed ML packages. 
 
@@ -248,7 +411,6 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       .. code-block:: console
 
           $ module load uppmax 
-          $ module load python/3.11.8
 	  $ module load python_ML_packages/3.11.8-cpu
 	  $ python -m venv --system-site-packages /proj/hpc-python/<user-dir>/vpyenv
     
@@ -365,190 +527,6 @@ Using the virtual environment created under "Preparing the course environment" a
 
 - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
 
-
-Working with virtual environments defined from files
-----------------------------------------------------
-
-- First create and activate an environment (see above)
-- Create an environment based on dependencies given in an environment file::
-  
-.. code-block:: console
-
-   $ pip install -r requirements.txt
-   
-- Create file from present virtual environment::
-
-.. code-block:: console
-
-   $ pip freeze > requirements.txt
-  
-- That includes also the *system site packages* if you included them with ``--system-site-packages``
-- You can list packages specific for the virtualenv by ``pip list --local`` 
-
-- So, creating a file from just the local environment::
-
-.. code-block:: console
-
-   $ pip freeze --local > requirements.txt
-
-``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
-
-   numpy
-   matplotlib
-   pandas
-   scipy
-
-``requirements.txt`` with versions that could look like this::
-
-    numpy==1.20.2
-    matplotlib==3.2.2
-    pandas==1.1.2
-    scipy==1.6.2
-
-.. admonition:: More on dependencies
-
-   - `Dependency management from course Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
-
-
-.. note:: 
-
-   **pyenv**
-
-   - This approach is more advanced and should, in our opinion, be used only if the above are not enough for the purpose. 
-   - ``pyenv`` allows you to install your **own python version**, like 3.10.2, and much more… 
-   - `Pyenv at UPPMAX <http://docs.uppmax.uu.se/software/python_pyenv/>`_
-   - Probably Conda will work well for you anyway...
-
-Jupyter in a virtual environment
---------------------------------
-
-.. warning:: 
-
-   **Running Jupyter in a virtual environment**
-
-   You could also use ``jupyter`` (``-lab`` or ``-notebook``) in a virtual environment.
-
-   **UPPMAX**: 
-
-   If you decide to use the --system-site-packages configuration you will get ``jupyter`` from the python module you created your virtual environment with.
-   However, you **won't find your locally installed packages** from that jupyter session. To solve this reinstall jupyter within the virtual environment by force::
-
-      $ pip install -I jupyter
-
-   - This overwrites the first version as "seen" by the environment.
-   - Then run::
-
-      $ jupyter-notebook
-   
-   Be sure to start the **kernel with the virtual environment name**, like "Example", and not "Python 3 (ipykernel)".
-
-   **HPC2N**
-
-   To use Jupyter at HPC2N, follow this guide: https://www.hpc2n.umu.se/resources/software/jupyter
-   To use it with extra packages, follow this guide after setting it up as in the above guide: https://www.hpc2n.umu.se/resources/software/jupyter-python
-
-
-Python packages in HPC and ML
------------------------------
-
-It is difficult to give an exhaustive list of useful packages for Python in HPC, but this list contains some of the more popular ones: 
-
-.. list-table:: Popular packages
-   :widths: 8 10 10 20 
-   :header-rows: 1
-
-   * - Package
-     - Module to load, UPPMAX
-     - Module to load, HPC2N
-     - Brief description 
-   * - Dask
-     - ``python``
-     - ``dask``
-     - An open-source Python library for parallel computing.
-   * - Keras
-     - ``python_ML_packages``
-     - ``Keras``
-     - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for both the TensorFlow and the Theano libraries. 
-   * - Matplotlib
-     - ``python`` or ``matplotlib``
-     - ``matplotlib``
-     - A plotting library for the Python programming language and its numerical mathematics extension NumPy.
-   * - Mpi4Py
-     - Not installed
-     - ``SciPy-bundle``
-     - MPI for Python package. The library provides Python bindings for the Message Passing Interface (MPI) standard.
-   * - Numba 
-     - ``python``
-     - ``numba``
-     - An Open Source NumPy-aware JIT optimizing compiler for Python. It translates a subset of Python and NumPy into fast machine code using LLVM. It offers a range of options for parallelising Python code for CPUs and GPUs. 
-   * - NumPy
-     - ``python``
-     - ``SciPy-bundle``
-     - A library that adds support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays. 
-   * - Pandas
-     - ``python`` 
-     - ``SciPy-bundle``
-     - Built on top of NumPy. Responsible for preparing high-level data sets for machine learning and training. 
-   * - PyTorch/Torch
-     - ``PyTorch`` or ``python_ML_packages``
-     - ``PyTorch``
-     - PyTorch is an ML library based on the C programming language framework, Torch. Mainly used for natural language processing or computer vision.  
-   * - SciPy
-     - ``python``
-     - ``SciPy-bundle``
-     - Open-source library for data science. Extensively used for scientific and technical computations, because it extends NumPy (data manipulation, visualization, image processing, differential equations solver).  
-   * - Seaborn 
-     - ``python``
-     - Not installed
-     - Based on Matplotlib, but features Pandas’ data structures. Often used in ML because it can generate plots of learning data. 
-   * - Sklearn/SciKit-Learn
-     - ``scikit-learn``
-     - ``scikit-learn``
-     - Built on NumPy and SciPy. Supports most of the classic supervised and unsupervised learning algorithms, and it can also be used for data mining, modeling, and analysis. 
-   * - StarPU
-     - Not installed 
-     - ``StarPU``
-     - A task programming library for hybrid architectures. C/C++/Fortran/Python API, or OpenMP pragmas. 
-   * - TensorFlow
-     - ``TensorFlow``
-     - ``TensorFlow``
-     - Used in both DL and ML. Specializes in differentiable programming, meaning it can automatically compute a function’s derivatives within high-level language. 
-   * - Theano 
-     - Not installed 
-     - ``Theano``
-     - For numerical computation designed for DL and ML applications. It allows users to define, optimise, and gauge mathematical expressions, which includes multi-dimensional arrays.  
-
-Remember, in order to find out how to load one of the modules, which prerequisites needs to be loaded, as well as which versions are available, use ``module spider <module>`` and ``module spider <module>/<version>``. 
-
-Often, you also need to load a python module, except in the cases where it is included in ``python`` or ``python_ML_packages`` at UPPMAX or with ``SciPy-bundle`` at HPC2N. 
-
-NOTE that not all versions of Python will have all the above packages installed! 
-
-More info
----------
-
-- UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
-- HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
-
-
-
-
-.. admonition:: Summary of workflow
-
-   In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
-   
- 
-   1) Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
-   2) Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
-   3) Activate your virtual environment (optional): ``source <path-to-virt-env>/bin/activate``
-   4) Install any extra Python packages (optional): ``pip install --no-cache-dir --no-build-isolation <python-package>``
-   5) Start Python or run python script: ``python``
-   6) Do your work
-   7) Deactivate
-
-   - Installed Python modules (modules and own-installed) can be accessed within Python with ``import <package>`` as usual. 
-   - The command ``pip list`` given within Python will list the available modules to import. 
-   - More about packages and virtual/isolated environment to follow in later sections of the course! 
 
 .. challenge:: Create a virtual environment with a requirements file below
 
