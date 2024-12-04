@@ -441,7 +441,7 @@ Run Python script
 .. warning::
 
    - *ONLY* run jobs that are short and/or do not use a lot of resources from the command line. 
-   - Otherwise use the batch system (see the `batch session <https://uppmax.github.io/HPC-python/batch.html>`_)
+   - Otherwise use the batch system (see the `batch session <https://uppmax.github.io/HPC-python/day1/batch.html>`_)
     
 
 Run an interactive Python shell
@@ -527,9 +527,9 @@ For more interactiveness you can run Ipython.
 
          $ ipython 
 
-      HPC2N also has ``JupyterLab`` installed. It is available as a module, but the process of using it is somewhat involved. We will cover it more under the session on <a href="https://uppmax.github.io/HPC-python/interactive.html">Interactive work on the compute nodes</a>. Otherwise, see this tutorial: 
+      HPC2N also has ``JupyterLab`` installed. It is available as a module, but the process of using it is somewhat involved. We will cover it more under the session on <a href="https://uppmax.github.io/HPC-python/day1/interactive.html">Interactive work on the compute nodes</a>. Otherwise, see this tutorial: 
 
-      - https://www.hpc2n.umu.se/resources/software/jupyter 
+      - https://docs.hpc2n.umu.se/tutorials/jupyter/ 
 
    .. tab:: LUNARC 
 
