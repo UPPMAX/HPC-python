@@ -24,32 +24,14 @@ explanations of function arguments.
    
    Before we get started, let's the meanings of the terms ``args`` and ``kwargs``, since they will appear frequently:
    
-   -  ``args`` refer to *positional arguments*, which are usually
-      mandatory, but not always. These always come before the
-      ``kwargs``.
-   -  ``kwargs`` are short for *keyword arguments*. These are usually
-      optional, but it's fairly common for some python functions to
-      require a variable subset of all available kwargs dependent on
-      previous inputs. These always come after ``args``.
+   -  ``args`` refer to *positional arguments*, which are usually mandatory, but not always. These always come before the ``kwargs``.
+   -  ``kwargs`` are short for *keyword arguments*. These are usually optional, but it's fairly common for some python functions to require a variable subset of all available kwargs dependent on previous inputs. These always come after ``args``.
    
-   It will also help you to remember what classes, methods, and
-   attributes are:
+   It will also help you to remember what classes, methods, and attributes are:
    
-   -  ``classes`` are templates to make Python objects. They have a
-      built-in ``__init__()`` function to set initial properties that
-      must be defined when an object of this class is created, and they
-      methods and attributes to compute values or functions with. Once a
-      class is defined, you typically define an instance of it like
-      ``obj = MyClass(...)``.
-   -  ``methods`` associate *functions* with the class and allow quick
-      evaluation for each class instance. For an object ``obj`` of class
-      ``MyClass`` that has methods, the method syntax looks like this:
-      ``obj.MyMethod()`` or ``obj.MyMethod(*args, **kwargs)``.
-   -  ``attributes`` let you automatically compute and store *values*
-      that can be derived for any instance of the class. For an object
-      ``obj`` with an attribute ``MyAttribute``, the syntax is
-      ``obj.MyAttribute``; i.e. the main difference between attributes
-      and methods is that attributes do not take arguments.
+   -  ``classes`` are templates to make Python objects. They have a built-in ``__init__()`` function to set initial properties that must be defined when an object of this class is created, and they methods and attributes to compute values or functions with. Once a class is defined, you typically define an instance of it like ``obj = MyClass(...)``.
+   -  ``methods`` associate *functions* with the class and allow quick evaluation for each class instance. For an object ``obj`` of class ``MyClass`` that has methods, the method syntax looks like this: ``obj.MyMethod()`` or ``obj.MyMethod(*args, **kwargs)``.
+   -  ``attributes`` let you automatically compute and store *values* that can be derived for any instance of the class. For an object ``obj`` with an attribute ``MyAttribute``, the syntax is``obj.MyAttribute``; i.e. the main difference between attributes and methods is that attributes do not take arguments.
 
 
 Load and Run
@@ -932,7 +914,7 @@ Axes objects (the ``ax`` in ``fig,ax=plt.subplots()``) have dozens of methods an
 -  ``ax.legend()`` adds a box with the names and markers of each function or data set on a plot
 -  ``ax.grid()`` adds grid lines at the locations of major axes ticks
 -  ``ax.set_xlim()`` and ``ax.set_ylim()``, which change the lower and upper bounds of the axes and readjust the shape of the data and axes scale increments accordingly
--  ``ax.set_xscale()`` and ``ax.set_yscale()`` let you change the spacing of the increments on each axes from linear to log, logit, symlog (log scaling that allows for numbers $\\leq$0), asinh, mercator, function*, or functionlog*.
+-  ``ax.set_xscale()`` and ``ax.set_yscale()`` let you change the spacing of the increments on each axes from linear to log, logit, symlog (log scaling that allows for negative numbers), asinh, mercator, function*, or functionlog*.
 
    -  \*\ ``'function'`` requires one to define both forward and reverse functions for transforming to/from linear and pass them as tuple of function names (e.g. as in ``ax.set_yscale('function', functions=(forward, inverse))``). ``'functionlog'`` is similar but additionally renders the axes with log-scaling.
 
