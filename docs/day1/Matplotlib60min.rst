@@ -1416,4 +1416,7 @@ Key Points
    methods of the ``Figure``, and some commands are methods both.
 
 
+.. note::
+
+   Exercises and their solutions are provided separately in Jupyter notebooks. You may have to modify the search paths for the associated datafile(s). The data file for the Matplotlib exercises is ``exoplanets_5250_EarthUnits.csv``.
 
