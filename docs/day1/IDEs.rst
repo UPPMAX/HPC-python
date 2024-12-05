@@ -531,11 +531,27 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
    .. tab:: UPPMAX (Rackham)
 
-      Spyder is not available centrally on Rackham. It will have to be installed in your (conda) virtual environment.
+      Spyder is not available centrally on Rackham. It will have to be installed in your (conda) virtual environment. 
+
+      - We have prepared a virtual environment. 
+
+      .. code-block:: console
+
+         activate /proj/hpc-python-fall/venv-spyder/bin/activate
+
+      - you can install packages with pip install from inside Spyder
 
    .. tab:: NSC (Tetralith)
 
       Spyder is not available on Tetralith. It will have to be installed in your (conda) virtual environment.
+
+      - We have prepared a virtual environment
+
+      .. code-block:: console
+
+         activate /hpc-python-fall-nsc/venv-spyder/bin/activate
+
+      - you can install packages with pip install from inside Spyder
 
 
 Features
