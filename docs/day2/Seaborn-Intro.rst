@@ -20,7 +20,15 @@ Load and Run Seaborn
 
   .. tab:: HPC2N
 
-     As usual, you can check ``ml spider Seaborn`` to see the available versions and how to load them. These Seaborn modules are built to load their Matplotlib and SciPy-bundle dependencies internally.
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 Seaborn/0.13.2
+
+As usual, you can check ``ml spider Seaborn`` to see the available versions and how to load them. These Seaborn modules are built to load their Matplotlib and SciPy-bundle dependencies internally.
 
      If you work at the command line, after importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots. This is not necessary if you work in a GUI like Jupyter or Spyder.
 
@@ -51,7 +59,15 @@ Load and Run Seaborn
 
   .. tab:: LUNARC
   
-       On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter Lab applications to use Seaborn. These applications are configured to load Seaborn and all its dependencies autonatically, including the SciPy-bundle. The demonstrations will be done on Cosmos with Spyder.
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Seaborn/0.13.2
+
+      On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter Lab applications to use Seaborn. These applications are configured to load Seaborn and all its dependencies autonatically, including the SciPy-bundle. The demonstrations will be done on Cosmos with Spyder.
   
        If you must work on the command line, then you will need to load Seaborn separately, along with any prerequisite modules. After importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots.
   
@@ -85,7 +101,31 @@ Load and Run Seaborn
 
   .. tab:: UPPMAX
 
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            module load python/3.11.8
+     
      On Rackham, Seaborn/0.13.2 is included in ``python_ML_packages/3.11.8-cpu``. Jupyter-Lab is available but Spyder is not installed centrally.
+
+  .. tab:: Tetralith
+     
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+         - And install ``seaborn`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+        
+            pip install seaborn
 
 In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is ``sns``, but for those of us who never watched The West Wing, ``sb`` is fine and is what will be used in this tutorial.
 
