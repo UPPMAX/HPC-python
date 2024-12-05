@@ -30,9 +30,7 @@ Running Python in batch mode
 
 .. admonition:: Reservation
 
-   Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX it is "
-magnetic" and so follows the project ID without you having to add the reservatio
-n name. 
+   Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name. 
 
    - UPPMAX 
        - naiss2024-22-1442_1 for cpu on Thursday
