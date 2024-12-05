@@ -514,6 +514,12 @@ Content of the course
     
 .. toctree::
    :maxdepth: 2
+   :caption: Schedule:
+
+   schedule.rst
+    
+.. toctree::
+   :maxdepth: 2
    :caption: Lessons day 1:
 
    day1/intro.rst
