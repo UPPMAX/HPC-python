@@ -2,7 +2,7 @@
 Intro to Pandas
 ###############
 
-**Pandas**, short for PANel Data AnalysiS, is a Python data library for cleaning, organizing, and statistically analyzing moderately large ($\lesssim3$ GiB) data sets. It was originally developed for analyzing and modelling financial records (panel data) over time, and has since expanded into a package rivaling SciPy in the number and complexity of available functions. Pandas offers:
+**Pandas**, short for PANel Data AnalysiS, is a Python data library for cleaning, organizing, and statistically analyzing moderately large (:math:`\lesssim3` GiB) data sets. It was originally developed for analyzing and modelling financial records (panel data) over time, and has since expanded into a package rivaling SciPy in the number and complexity of available functions. Pandas offers:
 
 * Explicit, automatic data alignment: all entries have corresponding row and column labels/indexes.
 * Easy methods to add, remove, transform, compare, broadcast, and aggregate data within and across data structures.
@@ -152,15 +152,15 @@ The main object classes of Pandas are ``Series`` and ``DataFrame``. There is als
 
 * ``pandas.DataFrame(data, columns=None, index=None, ...)`` instantiates a 2D array where every column is a Series. All entries are accessible by column and row labels/indexes.
 
-  - Any function that works with a DataFrame will work with a Series unless the function specifically requires column or index arguments.
+  - Any function that works with a DataFrame will work with a Series unless the function specifically requires column arguments.
   - Column labels and row indexes/labels can be safely (re)assigned as needed.
 
-For the rest of this lesson, example DataFrames will be abbreviated as ``df`` and example Series will be abbreviated as ``ser`` in code snippets.
+For the rest of this lesson, example DataFrames will be abbreviated as ``df`` in code snippets (and example Series, if they appear, will be abbreviated as ``ser``).
 
 
 .. admonition:: **Important Attributes**
 
-   The API reference in the `official Pandas documentation <https://pandas.pydata.org/docs/user_guide/index.html>`_ shows hundreds of methods and attributes for Series and DataFrames. The following is a list of the most important attributes and what they output.
+   The API reference in the `official Pandas documentation <https://pandas.pydata.org/docs/user_guide/index.html>`_ shows hundreds of methods and attributes for Series and DataFrames. The following is a very brief list of the most important attributes and what they output.
    
    - ``df.index`` returns a list of **row labels** as an array of Pandas datatype ``Index``
    - ``df.columns`` returns a list of **column labels** as an array of Pandas datatype ``Index``
@@ -175,7 +175,7 @@ Pandas assigns the data in a Series and each column of a DataFrame a datatype ba
 
   - A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of ``object``.
 
-* Pandas has many functions devoted to time series, so there are several datatypes---``datetime``, ``timedelta``, and ``period``. The first two are based on `NumPy data types of the same name <https://numpy.org/devdocs/reference/arrays.datetime.html>`_, and ``period`` is a time-interval type specified by a starting datetime and a recurrence rate. Unfortunately, we won't have time to cover these at depth.
+* Pandas has many functions devoted to time series, so there are several datatypes---``datetime``, ``timedelta``, and ``period``. The first two are based on NumPy data types of the same name <https://numpy.org/devdocs/reference/arrays.datetime.html>`_, and ``period`` is a time-interval type specified by a starting datetime and a recurrence rate. Unfortunately, we won't have time to cover these at depth.
 
 There are also specialized datatypes for, e.g. saving on memory or performing windowed operations, including
 
@@ -265,7 +265,8 @@ Inspection
 
 The main data inspection functions for DataFrames (and Series) are as follows.
 
-* ``df.head()`` prints first 5 rows of data with row and column labels.  ``df.tail()`` does same for last 5 rows. Both accept and integer argument to print a different number of rows.
+* ``df.head()`` prints first 5 rows of data with row and column labels by default, and accepts an integer argument to print a different number of rows. 
+* ``df.tail()`` does same as ``df.head()`` for the *last* 5 (or n) rows.
 * ``df.info()`` prints the number of rows with their first and last index values; titles, index numbers, valid data counts, and datatypes of columns; and the estimated size of ``df`` in memory. Don't rely on this memory estimate; it is only accurate for numerical columns.
 * ``df.describe()`` prints summary statistics for all the numerical columns in ``df``.
 * ``df.nunique()`` prints counts of the unique values in each column.
@@ -316,8 +317,8 @@ columns by name and rows by index     You can mix ``.loc[]`` and ``.iloc[]`` for
 **Conditional Selection.** To select by conditions, any binary comparison operator (``>``, ``<``, ``==``, ``=>``, ``=<``, ``!=``) and most logical operators can be used inside the square brackets of ``df[...]``, ``df.loc[...]``, and ``df.iloc[...]`` with some restrictions.
 
 * The bitwise logical operators ``&``, ``|``, ``^``, and ``~`` must be used instead of the plain-English versions (``and``, ``or``, ``xor``, ``not``) unless all of the conditions are passed as a string to ``df.query()`` (``.query()`` syntax is similar to ``exec()`` or ``eval()``).
-* When 2 or more conditions are specified, **each individual condition must be bracketed by parentheses** or the code will raise a TypeError
-* The "is" operator does not work within ``.loc[]``. Use ``.isin()``, ``.notin()``, or ``.str.contains()`` to check for the presence of substrings (see e.g. example below)
+* When 2 or more conditions are specified, **each individual condition must be bracketed by parentheses** or the code will raise a TypeError.
+* The ``is`` operator does not work within ``.loc[]``. Use ``.isin()``, ``.notin()``, or ``.str.contains()`` to check for the presence of substrings (see e.g. example below).
 
 .. jupyter-execute::
 
@@ -330,7 +331,7 @@ columns by name and rows by index     You can mix ``.loc[]`` and ``.iloc[]`` for
 Handling Bad or Missing Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pandas has many standard functions for finding, removing, and replacing both invalid data and data that is real but unwanted. It has its own functions for detecting missing data in order to detect both regular NaNs and the datetime equivalent, NaT.
+Pandas has many standard functions for finding, removing, and replacing missing or unwanted data. It has its own functions for detecting missing data in order to detect both regular NaNs and the datetime equivalent, NaT. Any of the following functions will work on individual columns or any other subset of the DataFrame as well as the whole.
 
 =========================================  ============================================================================
 Pandas Function                            Purpose                                 
@@ -358,7 +359,7 @@ There are a couple of types of bad data that Pandas handles less well: infinitie
     df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
     df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
     df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-    df.mask(df['eccentricity']==0.0, inplace=True)
+    df['eccentricity'].mask(df['eccentricity']==0.0, inplace=True)
     #Eccentricity is never exactly 0; 0s are dummy values
     print(df.sample(n=3))
     print('\n',df.info())
@@ -372,6 +373,10 @@ Some operations, including **all merging operations, require DataFrames to be so
 * Both sorting functions return copies unless ``inplace=True``
 * ``axis`` refers to direction along which values will be shifted, not the fixed axis
 * ``key`` kwarg lets you apply a vectorized function (more on this soon) to the index before sorting. This only alters what the sorting algorithm sees, not the indexes as they will be printed
+* ``.sort_index(axis=0, key=None)`` rearranges rows (axis=0) or columns (axis=1) so that their indexes or labels are in alphanumeric order.
+
+  - All uppercase letters are sorted ahead of all lowercase letters, so a row named "Zebra" would be placed before a row named "aardvark". The ``key`` kwarg can be used to tell ``sort`` to ignore capitalization by passing in, e.g., the ``str.lower`` function.
+
 * ``.sort_values(by=row_or_col, axis=0, kind='quicksort')`` sorts Series or DataFrames by value(s) of column(s)/row(s) passed to the ``by`` kwarg (optional for Series)
 
   - If ``by`` is type ``list``, the resulting order may vary depending on the algorithm given for ``kind``.
@@ -392,14 +397,14 @@ Pandas Function or Method                     Purpose
 ``df1.join(df2)`` (wrapper for ``merge()``)   join 2 DataFrames/Series on given index(es)/column(s)
 ============================================  =========================================================================
 
-All variants of ``merge()`` and ``join()`` use SQL-style set operations to combine the input data using one or more keys (usually columns but may be row indexes), which must be shared by both DataFrames and must be identically sorted in both. When only 1 key is given or when all of the keys are along the same axis, most of the different SQL join methods can be understood via the graphic below.There is also a cross-join method (``how='cross'``) that computes every combination of the data in the columns or rows passed to the ``on`` kwarg.
+All variants of ``merge()`` and ``join()`` use SQL-style set operations to combine the input data using one or more keys (usually columns but may be row indexes), which must be shared by both DataFrames and must be identically sorted in both. When only 1 key is given or when all of the keys are along the same axis, most of the different SQL join methods can be understood via the graphic below. There is also a cross-join method (``how='cross'``) that computes every combination of the data in the columns or rows passed to the ``on`` kwarg.
 
 .. image:: https://www.datasciencemadesimple.com/wp-content/uploads/2017/09/join-or-merge-in-python-pandas-1.png
    :alt: Visual representation of the different merge methods.
 
-When both row and column labels are passed to ``on`` (not advised to use >1 of each), the ``on`` works more like image registration (alignment) coordinates. To the extent that the two DataFrames would overlap if aligned by the keys given to ``on``, overlapping row and column names/indexes must be identical, and depending on ``how``, the data may have to match in that overlap area as well.
+When both row and column labels are passed to ``on`` (it's not advised to use >1 of each), the ``on`` works more like image registration (alignment) coordinates. To the extent that the two DataFrames would overlap if aligned by the keys given to ``on``, overlapping row and column names/indexes must be identical, and depending on ``how``, the data may have to be identical in that overlap area as well.
 
-If any rows or columns need to be added manually, ``df.reindex(labels, index=rows, columns=cols)`` can add and sort them in the order of ``labels`` simultaneously.
+If any rows or columns need to be added manually, there is also a ``df.reindex(labels, index=rows, columns=cols)`` method that can add and sort them in the order of ``labels`` simultaneously.
 
 .. jupyter-execute::
 
@@ -421,7 +426,7 @@ If any rows or columns need to be added manually, ``df.reindex(labels, index=row
 Intro to GroupBy Objects
 ------------------------
 
-One of the most powerful Pandas tools, the ``.groupby()`` method lets you organize data hierarchically and run statistical analyses on different subsets of data simultaneously by sorting the data according to the values in one or more columns, assuming the data in those columns have a relatively small number of unique values. The resulting data structure is called a **GroupBy object**.
+One of the most powerful Pandas tools, the ``.groupby()`` method, lets you organize data hierarchically and run statistical analyses on different subsets of data simultaneously by sorting the data according to the values in one or more columns, assuming the data in those columns have a relatively small number of unique values. The resulting data structure is called a **GroupBy object**.
 
 The basic syntax is
 
@@ -483,7 +488,6 @@ Here's an example with a GroupBy object.
     ### Have to redo the cleaning every time because this isn't a notebook
     df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
     df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-    df.mask(df['eccentricity']==0.0, inplace=True)
     grouped1=df.groupby(['planet_type'])
     print(grouped1['mass_ME'].median()) #planet types are proxies for mass ranges
 
@@ -570,7 +574,6 @@ If the transformation you need to apply to your data cannot be simply constructe
           ### Have to redo the cleaning every time because this isn't a notebook
           df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
           df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-          df.mask(df['eccentricity']==0.0, inplace=True)
           grouped2 = df.groupby(['detection_method','planet_type'])
           print(grouped2[['mass_ME']].agg(lambda x: 'avg: {:.2f}, pct err: {:.0%}'.format(np.nanmean(x),
                                           np.nanstd(x)/np.nanmean(x))))
@@ -617,7 +620,6 @@ If the transformation you need to apply to your data cannot be simply constructe
           ### Have to redo the cleaning every time
           df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
           df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-          df.mask(df['eccentricity']==0.0, inplace=True)
           pmass = {'Jupiter': 317.8, 'Neptune':17.15, 'Earth':1.0}
           def scale_mass(group):
               if group['planet_type'].iloc[0] == 'Gas Giant':
@@ -634,7 +636,7 @@ If the transformation you need to apply to your data cannot be simply constructe
 Windowing Operations
 ^^^^^^^^^^^^^^^^^^^^
 
-There are 4 methods for evaluating other methods and functions over moving/expanding windows, usually specified as $n$ rows or time increments passed to the mandatory kwarg ``window``, with a similar API to GroupBy objects (most allow similar aggregating methods). All windowing methods have a ``min_periods`` kwarg to specify the minimum number of valid data points a window must contain for the window to be passed to any subsequent functions; results for any windows that don't have enough data points will be filled with NaN.
+There are 4 methods for evaluating other methods and functions over moving/expanding windows, usually specified as *n* rows or time increments passed to the mandatory kwarg ``window``, with a similar API to GroupBy objects (most allow similar aggregating methods). All windowing methods have a ``min_periods`` kwarg to specify the minimum number of valid data points a window must contain for the window to be passed to any subsequent functions; results for any windows that don't have enough data points will be filled with NaN.
 
 +---------------------------------+--------------------------+----------------+-----------+-----------------+
 | Method                          | Windowing Type           | Allows time-   | Allows 2D | Accepts GroupBy |
@@ -685,7 +687,6 @@ For demonstration, here is an example based loosely on the climate of your teach
         ### Have to redo the cleaning every time
         df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
         df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-        df.mask(df['eccentricity']==0.0, inplace=True)
         import numba
         numba.set_num_threads(4)
         stuff =  df.iloc[:,4:9].sample(n=250000, replace=True, ignore_index=True)
@@ -716,7 +717,6 @@ For demonstration, here is an example based loosely on the climate of your teach
        df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
        df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
        df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-       df.mask(df['eccentricity']==0.0, inplace=True)
        df.mask(df['mass_ME']>80*318, inplace=True) #80 Jupiter masses = minimum stellar mass
        # look at the radius distribution
        df['radius_RE'].plot(kind='hist', bins=20, xlabel='Planet radius (Earth radii)')
@@ -745,7 +745,7 @@ Let's say you did an experiment where you tested 100 people to see if their pref
     import pandas as pd
     sodas = choices(['Coke','Pepsi'],k=100)
     containers = choices(['aluminum','glass','plastic'],k=100)
-    ices = choices([1, 0],k=100) #will skip this one
+    ices = choices([1, 0],k=100) ###already boolean
     soda_df = pd.DataFrame(list(zip(sodas,containers,ices)),
                            columns=['brand','container_material','with_ice'])
     print(soda_df.head())
@@ -779,7 +779,6 @@ Efficient Data Types
     df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
     df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
     df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-    df.mask(df['eccentricity']==0.0, inplace=True)
     
     print("Before:\n", df['planet_type'].memory_usage(deep=True))
     # Convert planet_type to categorical
@@ -797,7 +796,6 @@ Efficient Data Types
     df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
     df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
     df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-    df.mask(df['eccentricity']==0.0, inplace=True)
     # look at the radius distribution before binning, (and get rid of nonsense)
     df['radius_RE'].loc[df['radius_RE']<30].plot(kind='kde', xlim=(0,30), title='Radius distribution (Earth radii)')
     #xlabel normally works but not for 'kde' for some reason
@@ -809,7 +807,7 @@ Efficient Data Types
 
 
 **Sparse Data.** I you have a DataFrame with lots of rows or columns that are mostly NaN, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory.
-Initialize Series or DataFrames as `SparseDtype` by setting the kwarg ``dtype=SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", np.nan))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>` also work on Sparse Arrays. The only other methods and attributes are
+Initialize Series or DataFrames as `SparseDtype` by setting the kwarg ``dtype=SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", np.nan))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>` also work on Sparse Arrays. Other methods and attributes include
 
 - ``df.sparse.density``: prints fraction of data that are non-NaN
 - ``df.sparse.fill_value``: prints fill value for NaNs, if any (might just return NaN)
