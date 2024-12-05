@@ -537,7 +537,7 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
       .. code-block:: console
 
-         activate /proj/hpc-python-fall/venv-spyder/bin/activate
+         . /proj/hpc-python-fall/venv-spyder/bin/activate
 
       - you can install packages with pip install from inside Spyder
 
@@ -549,7 +549,7 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
       .. code-block:: console
 
-         activate /hpc-python-fall-nsc/venv-spyder/bin/activate
+         . /proj/hpc-python-fall-nsc/venv-spyder-only/bin/activate
 
       - you can install packages with pip install from inside Spyder
 
