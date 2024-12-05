@@ -173,16 +173,16 @@ Create a ``venv``. First load the python version you want to base your virtual e
        - If your directory in the project has another name, replace ``$USER`` with that one!
    
    - UPPMAX: 
-       - Create: ``python -m venv --system-site-packages /proj/hpc-python-fall/$USER/Example``
+       - Create: ``python -m venv /proj/hpc-python-fall/$USER/Example``
        - Activate: ``source /proj/hpc-python-fall/<user-dir>/Example/bin/activate``
    - HPC2N: 
-       - Create: ``python -m venv --system-site-packages /proj/nobackup/hpc-python-fall-hpc2n/$USER/Example``
+       - Create: ``python -m venv /proj/nobackup/hpc-python-fall-hpc2n/$USER/Example``
        - Activate: ``source /proj/nobackup/hpc-python-fall-hpc2n/<user-dir>/Example/bin/activate``
    - LUNARC: 
-       - Create: ``python -m venv --system-site-packages /lunarc/nobackup/projects/lu2024-17-44/$USER/Example``
+       - Create: ``python -m venv /lunarc/nobackup/projects/lu2024-17-44/$USER/Example``
        - Activate: ``source /lunarc/nobackup/projects/lu2024-17-44/<user-dir>/Example/bin/activate``
    - NSC: 
-       - Create: ``python -m venv --system-site-packages /proj/hpc-python-fall-nsc/$USER/Example``
+       - Create: ``python -m venv /proj/hpc-python-fall-nsc/$USER/Example``
        - Activate: ``source /proj/hpc-python-fall-nsc/<user-dir>/Example/bin/activate``
         
    Note that your prompt is changing to start with (Example) to show that you are within an environment.
@@ -204,7 +204,7 @@ Install your packages with ``pip``. While not always needed, it is often a good 
 
 .. code-block:: console
       
-    (Example) $ pip install --no-cache-dir --no-build-isolation numpy==1.20.2 matplotlib==3.2.2
+    (Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
 
 The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
