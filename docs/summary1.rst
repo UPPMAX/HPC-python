@@ -50,13 +50,13 @@ Summary
        - VScode: perhaps shown tomorrow
 
    - Matplotlib
-      - Matplotlib is the essential Python data visualization package, with nearly 40 different plot types to choose from depending on the shape of your data and which qualities you want to highlight.
-      - Almost every plot will start by instantiating the figure, fig (the blank canvas), and 1 or more axes objects, ax, with fig, ax = plt.subplots(*args, **kwargs).
-      - Most of the plotting and formatting commands you will use are methods of Axes objects, but a few, like colorbar are methods of the Figure, and some commands are methods both.
+       - Matplotlib is the essential Python data visualization package, with nearly 40 different plot types to choose from depending on the shape of your data and which qualities you want to highlight.
+       - Almost every plot will start by instantiating the figure, ``fig`` (the blank canvas), and 1 or more ``axes`` objects, ``ax``, with ``fig, ax = plt.subplots(*args, **kwargs)``.
+       - Most of the plotting and formatting commands you will use are methods of Axes objects, but a few, like colorbar are methods of the Figure, and some commands are methods both.
 
    - GPUs
-      -  You deploy GPU nodes via SLURM, either in interactive mode or batch
-      -  In Python the numba package is handy
+       - You deploy GPU nodes via SLURM, either in interactive mode or batch
+       - In Python the numba package is handy
 
 
 .. seealso::
