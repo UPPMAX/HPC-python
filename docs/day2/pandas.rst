@@ -21,6 +21,15 @@ Load and Run
 
   .. tab:: HPC2N
      
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+
+     
      Pandas, like NumPy, has been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
 
      .. important::
@@ -65,6 +74,14 @@ Load and Run
 
   .. tab:: LUNARC
 
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
+     
      On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
 
      If you choose to work at the command line and opt not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use ``ml spider SciPy-bundle`` to see which versions are available, which Python versions they depend on, and how to load them.
@@ -108,17 +125,32 @@ Load and Run
 
   .. tab:: UPPMAX
 
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            module load python/3.11.8
+     
      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
 
   .. tab:: Tetralith
      
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+
+     
      Pandas, like NumPy, has been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
 
-     Load the following modules to be able to follow!
 
-     .. code-block:: console
 
-        module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
 
 To know if Pandas is the right tool for your job, you can consult the flowchart below.
