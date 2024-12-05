@@ -18,7 +18,7 @@ Load and Run Seaborn
 
 .. tabs::
 
-  .. tab:: HPC2N
+   .. tab:: HPC2N
 
       .. important::
 
@@ -28,7 +28,7 @@ Load and Run Seaborn
         
             ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 Seaborn/0.13.2
 
-As usual, you can check ``ml spider Seaborn`` to see the available versions and how to load them. These Seaborn modules are built to load their Matplotlib and SciPy-bundle dependencies internally.
+      As usual, you can check ``ml spider Seaborn`` to see the available versions and how to load them. These Seaborn modules are built to load their Matplotlib and SciPy-bundle dependencies internally.
 
      If you work at the command line, after importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots. This is not necessary if you work in a GUI like Jupyter or Spyder.
 
@@ -57,7 +57,7 @@ As usual, you can check ``ml spider Seaborn`` to see the available versions and 
              $ module spider Seaborn/0.13.2
         ----------------------------------------------------------------------------
 
-  .. tab:: LUNARC
+   .. tab:: LUNARC
   
       .. important::
 
@@ -69,7 +69,7 @@ As usual, you can check ``ml spider Seaborn`` to see the available versions and 
 
       On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter Lab applications to use Seaborn. These applications are configured to load Seaborn and all its dependencies autonatically, including the SciPy-bundle. The demonstrations will be done on Cosmos with Spyder.
   
-       If you must work on the command line, then you will need to load Seaborn separately, along with any prerequisite modules. After importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots.
+      If you must work on the command line, then you will need to load Seaborn separately, along with any prerequisite modules. After importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots.
   
        As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on COSMOS:
   
@@ -99,7 +99,7 @@ As usual, you can check ``ml spider Seaborn`` to see the available versions and 
                $ module spider Seaborn/0.13.2
           ----------------------------------------------------------------------------
 
-  .. tab:: UPPMAX
+   .. tab:: UPPMAX
 
       .. important::
 
@@ -109,9 +109,9 @@ As usual, you can check ``ml spider Seaborn`` to see the available versions and 
         
             module load python/3.11.8
      
-     On Rackham, Seaborn/0.13.2 is included in ``python_ML_packages/3.11.8-cpu``. Jupyter-Lab is available but Spyder is not installed centrally.
+      On Rackham, Seaborn/0.13.2 is included in ``python_ML_packages/3.11.8-cpu``. Jupyter-Lab is available but Spyder is not installed centrally.
 
-  .. tab:: Tetralith
+   .. tab:: Tetralith
      
       .. important::
 
