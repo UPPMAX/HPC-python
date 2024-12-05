@@ -249,7 +249,8 @@ The file will look **similar** to this:
 .. note:: 
    :class: dropdown
 
-   .. code-block:: sh
+   .. code-block:: console
+
       b-an03 [~]$ cat slurm-24661064.out
       [I 2024-03-09 15:35:30.595 ServerApp] Package jupyterlab took 0.0000s to import
       [I 2024-03-09 15:35:30.617 ServerApp] Package jupyter_lsp took 0.0217s to import
