@@ -374,7 +374,7 @@ User
    In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
    
  
-   1. Load Python and prerequisites: `module load <pre-reqs> Python/<version>``
+   1. Load Python and prerequisites: ``module load <pre-reqs> Python/<version>``
    2. Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
    3. Create the virtual environment: ``python -m venv [PATH]/Example``
    3. Activate your virtual environment: ``source <path-to-virt-env>/Example/bin/activate``
