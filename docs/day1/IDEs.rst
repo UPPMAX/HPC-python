@@ -173,6 +173,7 @@ If you want to connect to the Jupyter server running on Rackham/Snowy from your 
    .. code-block:: console
 
       $ jupyter-notebook
+
    Be sure to start the **kernel with the virtual environment name**, like "Example", and not "Python 3 (ipykernel)".
 
 
@@ -245,7 +246,7 @@ The SLURM output file is as default named ``slurm-<job-id>.out`` where you get t
 
 The file will look **similar** to this:
 
-.. admonition:: 
+.. note:: 
    :class: dropdown
 
    .. code-block:: sh
@@ -555,11 +556,11 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
 
 Features
-^^^^^^^^
+########
 
 When you open Spyder, you should see something like the figure below. There should be a large pane on the left for code, and two smaller panes on the right. Each of the 3 panes have their own button with 3 horizontal lines (the menu button or "burger icon") in the top right, each with additional configuration options for those panes.
 
-.. image:: ./docs/img/cosmos-on-demand-spyder.png
+.. image:: ../img/cosmos-on-demand-spyder.png
    :width: 800 px
 
 The top right pane has several useful tabs.
@@ -577,7 +578,7 @@ Most of the icons along the top menu bar under the verbal menu are running and d
 
 
 Configuring Spyder
-^^^^^^^^^^^^^^^^^^
+##################
 
 **Font and icon sizes.** If you are on Thinlinc and/or on a Linux machine, Spyder may be uncomfortably small the first time you open it. To fix this,
 
@@ -595,7 +596,7 @@ The text and icons should be rescaled when it reopens, and should stay rescaled 
 #. Click "Graphics" and find the "Graphics backend" box below. In that box, next to "Backend" there will be a dropdown menu that probably says "Inline". Click the dropdown and select "Automatic".
 #. Click "Apply" and then "OK" to exit.
 
-.. image:: ./docs/img/cosmos-on-demand-spyder-preferences.png
+.. image:: ../img/cosmos-on-demand-spyder-preferences.png
    :width: 800 px
 
 Now, graphics should appear in their own popup that has menu options to edit and save the content.
