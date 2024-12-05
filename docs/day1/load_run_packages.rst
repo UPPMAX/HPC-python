@@ -771,7 +771,7 @@ Otherwise, you can either use ``pip`` or ``conda``.
 
 **NOTE**: at HPC2N, LUNARC, and NSC, the available Python packages needs to be loaded as modules/module-bundles before using! See a list of some of them below, under the HPC2N/LUNARC/NSC tab or find more as mentioned above, using ``module spider -r ...``
 
-A selection of the Python packages and libraries installed on UPPMAX, HPC2N, LUNARC, and NSC are given in extra reading: `UPPMAX clusters <https://uppmax.github.io/HPC-python/uppmax.html>`_ and `Kebnekaise cluster <https://uppmax.github.io/HPC-python/kebnekaise.html>`_ and `LUNARC cluster <>`_ and 
+A selection of the Python packages and libraries installed on UPPMAX, HPC2N, LUNARC, and NSC are given in extra reading: `UPPMAX clusters <https://uppmax.github.io/HPC-python/uppmax.html>`_ and `Kebnekaise cluster <https://uppmax.github.io/HPC-python/kebnekaise.html>`_ and eventually LUNARC cluster and NSC cluster
 
 .. tabs::
 
