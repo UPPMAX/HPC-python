@@ -63,12 +63,12 @@ Summary
     - `Python forum <https://python-forum.io/>`_.
     - `Introduction to packages <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
     - `CodeRefinery lessons <https://coderefinery.org/lessons/>`_
-    - `A workshop more devoted to packages and Conda on UPPMAX <https://uppmax.github.io/R-python-julia-HPC/>`_
+    - `A workshop more devoted to packages and Conda on UPPMAX <https://uppmax.github.io/R-python-julia-matlab-HPC/>`_
 
 .. note::
     
     - Julia language becomes increasingly popular.
-    - `Julia at UPPMAX <https://uppmax.uu.se/support/user-guides/julia-user-guide/>`_
+    - `Julia at UPPMAX <https://docs.uppmax.uu.se/software/julia/>`_
     - `Julia at HPC2N <https://www.hpc2n.umu.se/resources/software/julia>`_
 
 
