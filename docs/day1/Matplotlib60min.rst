@@ -295,7 +295,7 @@ The 3-digit number in parentheses gives the position of that set of axes on the 
 The final alternative is ``plt.subplot_mosaic()``, which allows one to easily set subplots to span multiple rows or columns. 
 
 * Each plot is identified by a single ASCII character (any alphanumeric character) in a string. Multiple occurrences of the same character are used to indicate where that plot spans multiple rows or columns.
-* The character ``.``is used to denote gaps.
+* The character ``.`` is used to denote gaps.
 * The character sequence can be intuitive like in the example below, where each row on the grid is on a separate line, but you can also separate rows with ``;`` for more compact code (no spaces!). 
 * There is a ``per_subplot_kw``, which accepts a nested dictionary where the single-character plot labels are keys, and the values are themselves dictionaries with axes methods or kwargs of ``plt.subplot()`` as keys and their inputs as values. These are useful if you need to, for example, specify a different axis projection for each plot.
 
