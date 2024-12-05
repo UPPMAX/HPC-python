@@ -96,8 +96,8 @@ Welcome to "Using Python in an HPC environment" course material
 
 .. admonition:: Q/A collabration document
 
-    - Use the Q/A page for the workshop with your questions.
-        - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EeQr33ZhejNHsv0crUSoaewBpGlpIdQUhqRsPdktS3xF9w
+   - Use the Q/A page for the workshop with your questions.
+       - https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EeQr33ZhejNHsv0crUSoaewBpGlpIdQUhqRsPdktS3xF9w
    - Use this page for the workshop with your questions
    - It helps us identify content that is missing in the course material
    - We answer those questions as soon as possible
@@ -107,8 +107,8 @@ Welcome to "Using Python in an HPC environment" course material
    - Please, be sure that you have gone through the **`pre-requirements <https://uppmax.github.io/HPC-python/prereqs.html>`_** and **`preparations <https://uppmax.github.io/HPC-python/preparations.html>`_**
    - It mentions the familiarity with the LINUX command line.
    - The applications to connect to the clusters
-      - terminals
-      - remote graphical desktop ThinLinc
+       - terminals
+       - remote graphical desktop ThinLinc
 
 The four HPC centers UPPMAX, HPC2N, LUNARC, and NSC
 ----------------------------------------------------
@@ -546,7 +546,6 @@ Content of the course
    extra/isolated_deeper.rst
    extra/interactive_deeper.rst
    extra/jupyterHPC2N.rst
-   #jupyter.md
    uppmax.rst
    kebnekaise.md
    bianca.rst
