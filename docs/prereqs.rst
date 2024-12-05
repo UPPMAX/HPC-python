@@ -65,7 +65,7 @@ Understanding clusters
 ----------------------
 
 The HPC centers UPPMAX, HPC2N, LUNARC, and NSC 
-----------------------------------------------
+##############################################
 
 .. admonition:: Four HPC centers
 
