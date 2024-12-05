@@ -13,7 +13,7 @@ MYPATH=/proj/nobackup/hpc-python-fall-hpc2n/<mydir-name>/HPC-python/Exercises/ex
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load GCC/12.3.0  OpenMPI/4.1.5 Python/3.11.3 SciPy-bundle/2023.07 CUDA/12.0.0 numba/0.58.1 
+module load GCC/12.3.0  OpenMPI/4.1.5 Python/3.11.3 SciPy-bundle/2023.07 CUDA/12.1.1 numba/0.58.1 
 
 # Run your Python script
 python $MYPATH/add-list.py

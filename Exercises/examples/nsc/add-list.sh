@@ -19,4 +19,4 @@ module load buildenv-gcccuda/12.2.2-gcc11-hpc1 Python/3.10.4-env-hpc2-gcc-2022a-
 source /proj/hpc-python-fall-nsc/venvNSC-numba/bin/activate
 
 # Run your Python script
-python add-list.py
+python $MYPATH/add-list.py
