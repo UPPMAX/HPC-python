@@ -80,7 +80,7 @@ Common features
     :format: html
 
 .. list-table:: Hardware
-   :widths: 25 25 25 25 25
+   :widths: 25 25 25 25 25 25 25
    :header-rows: 1
 
    * - Technology
