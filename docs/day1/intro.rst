@@ -83,7 +83,7 @@ Material for improving your programming skills
    - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
     
 Documentations at other NAISS centres
--------------------
+-------------------------------------
 
 .. seealso::
 
