@@ -19,7 +19,7 @@ Load and Run
 
 .. tabs::
 
-  .. tab:: HPC2N
+   .. tab:: HPC2N
      
       .. important::
 
@@ -30,16 +30,16 @@ Load and Run
             ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
 
      
-     Pandas, like NumPy, has been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
+      Pandas, like NumPy, has been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
 
-     .. important::
+      .. important::
     
         Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
 
 
-     As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Kebnekaise is:
+      As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Kebnekaise is:
 
-     .. code-block:: console
+      .. code-block:: console
 
         ----------------------------------------------------------------------------
           SciPy-bundle:
@@ -72,7 +72,7 @@ Load and Run
           ----------------------------------------------------------------------------
 
 
-  .. tab:: LUNARC
+   .. tab:: LUNARC
 
       .. important::
 
@@ -82,17 +82,17 @@ Load and Run
         
             ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
      
-     On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
+      On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
 
-     If you choose to work at the command line and opt not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use ``ml spider SciPy-bundle`` to see which versions are available, which Python versions they depend on, and how to load them.
+      If you choose to work at the command line and opt not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use ``ml spider SciPy-bundle`` to see which versions are available, which Python versions they depend on, and how to load them.
 
-     .. important::
+      .. important::
     
-        Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
+         Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
 
-     As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Cosmos is:
+      As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Cosmos is:
 
-     .. code-block:: console
+      .. code-block:: console
 
         ----------------------------------------------------------------------------
           SciPy-bundle:
@@ -123,7 +123,7 @@ Load and Run
         ----------------------------------------------------------------------------
 
 
-  .. tab:: UPPMAX
+   .. tab:: UPPMAX
 
       .. important::
 
@@ -133,9 +133,9 @@ Load and Run
         
             module load python/3.11.8
      
-     On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
+      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
 
-  .. tab:: Tetralith
+   .. tab:: Tetralith
      
       .. important::
 
