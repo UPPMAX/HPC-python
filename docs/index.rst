@@ -525,7 +525,7 @@ Content of the course
    day1/ondemand-desktop.rst
    day1/Matplotlib60min.rst
    day1/gpu.md
-   summary.rst
+   summary1.rst
 
 .. toctree::
    :maxdepth: 2
@@ -536,6 +536,7 @@ Content of the course
    day2/parallel.rst
    day2/big_data.md
    day2/ml.md
+   summary2.rst
 
 .. toctree::
    :maxdepth: 2
