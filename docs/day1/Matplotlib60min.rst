@@ -41,9 +41,9 @@ Load and Run
 
   .. tab:: HPC2N
 
-     If you use Matplotlib at the command line, after importing matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in your script or at the Python prompt in order to view your plots.
+     If you use Matplotlib at the command line, you will need to load the module ``Tkinter`` and then, after importing matplotlib, set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots.
 
-     Alternatively, you can use a GUI, either JupyterLab or Spyder, but you will still have to pre-load Matplotlib and any other modules you want to use (if you forget any, you'll have to close the GUI and reopen it after loading the missing modules) before loading either of them. The command to start Jupyter Lab after you load it is ``jupyter-lab``, and the Spyder launch command is `spyder3`. Unfortunately the only version of Spyder available is pretty old.
+     Alternatively, you can use a GUI, either JupyterLab or Spyder, but you will still have to pre-load Matplotlib and any other modules you want to use (if you forget any, you'll have to close the GUI and reopen it after loading the missing modules) before loading either of them. The command to start Jupyter Lab after you load it is ``jupyter-lab``, and the Spyder launch command is ``spyder3``. The only version of Spyder available is pretty old, but the backend should work as-is.
 
 
      As of 27-11-2024, ``ml spider matplotlib`` outputs the following versions:
@@ -86,7 +86,7 @@ Load and Run
 
      On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter applications to use Matplotlib. Some Matplotlib scripts will be demonstrated on Cosmos with Spyder.
       
-     If you must work on the command line, then you will need to load matplotlib separately, along with all the prerequisite modules (don't forget the SciPy-bundle if you plan to use NumPy, SciPy, or Pandas!), and you will need to ``import matplotlib`` and set ``matplotlib.use('Tkinter')`` in order to view your plots.
+     If you must work on the command line, then you will need to load matplotlib separately, along with all the prerequisite modules (don't forget the SciPy-bundle if you plan to use NumPy, SciPy, or Pandas!). The module ``Tkinter`` loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots.
 
      As of 27-11-2024, ``ml spider matplotlib`` outputs the following versions:
 
@@ -164,8 +164,24 @@ Load and Run
                  matplotlib/3.3.3-fosscuda-2020b
                  matplotlib/3.4.3-foss-2021b
 
-     The native backend should work if you are logged in via Thinlinc. Plots cannot be viewed over SSH.
+     The native backend should work if you are logged in via Thinlinc, but if there is a proble, try setting ``matplotlib.use('Qt5Agg')`` in your script. You'll need X-forwarding to view any graphics via SSH, and that may be prohibitively slow.
 
+
+Controlling the Display
+~~~~~~~~~~~~~~~~~~~~~~~
+
+At the regular terminal, Matplotlib figures will typically not display unless you a set *backend* that allows displays and is compatible with your version of python (The exception to this is Rackham, which should run without you having to set a backend). *Backends* are engines for either displaying figures or writing them to image files (see `the matplotlib docs page on backends for more detail <https://matplotlib.org/stable/users/explain/figure/backends.html>`_ for more info).
+
+**Command Line.** For Python 3.11.x, ``Tkinter`` is the backend that generates figure popups when you create a plot and then type ``plt.show()`` at the command line. You can set this by importing the top-level ``matplotlib`` package and then running ``matplotlib.use('Tkinter')`` before doing any plotting (if you forget, you can set it at any time). If for some reason that doesn't work, or if you're on Rackham and the default backend doesn't work for you, you can try ``matplotlib.use('Qt5Agg')``.
+
+**Jupyter.** In Jupyter, after importing matplotlib or any of its sub-modules, you typically need to add ``% matplotlib inline`` before you make any plots. You should not need to set ``matplotlib.use()``.
+
+**Spyder.** In Spyder, the default setting is for figures to be displayed in-line at the IPython console, which is too small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup, go to "Preferences", then "IPython console", click the "Graphics" tab, and switch the Backend from "Inline" to "Automatic" the provided drop-down menu. These settings will be retained from session to session, so you only have to do it the first time you run Spyder.
+
+Matplotlib uses a default resolution of 100 dpi and a default figure size of 6.4" x 4.8" (16.26 x 12.19 cm) in GUIs and with the default backend. The inline backend in Jupyter (what the ``% matplotlib inline`` command sets) uses an even lower-res default of 80 dpi.
+
+-  The ``dpi`` kwarg in ``plt.figure()`` or ``plt.subplots()`` (not a valid kwarg in ``plt.subplot()`` singular) lets you change the figure resolution at runtime. For on-screen display, 100-150 dpi is fine as long as you don't set ``figsize`` too big, but publications often request 300 DPI.
+-  The ``figsize = (i,j)`` kwarg in ``plt.figure()`` and ``plt.subplots()`` also lets you adjust the figure size and aspect ratio. The default unit is inches.
 
 
 Basic Terms and Application Programming Interface (API)
@@ -318,23 +334,6 @@ The final alternative is ``plt.subplot_mosaic()``, which allows one to easily se
 
 
 The above demo also includes an example of how to add text to a plot. More on that later.
-
-
-Controlling the Display
-~~~~~~~~~~~~~~~~~~~~~~~
-
-At the regular terminal, Matplotlib figures will typically not display unless you a set *backend* that allows displays and is compatible with your version of python (The exception to this is Rackham, which should run without you having to set a backend). *Backends* are engines for either displaying figures or writing them to image files (see `the matplotlib docs page on backends for more detail <https://matplotlib.org/stable/users/explain/figure/backends.html>`_ for more info).
-
-**Command Line.** For Python 3.11.x, ``Tkinter`` is the backend that generates figure popups when you create a plot and then type ``plt.show()`` at the command line. You can set this by importing the top-level ``matplotlib`` package and then running ``matplotlib.use('Tkinter')`` before doing any plotting (if you forget, you can set it at any time). If for some reason that doesn't work, or if you're on Rackham and the default backend doesn't work for you, you can try ``matplotlib.use('Qt5Agg')``.
-
-**Jupyter.** In Jupyter, after importing matplotlib or any of its sub-modules, you typically need to add ``% matplotlib inline`` before you make any plots. You should not need to set ``matplotlib.use()``.
-
-**Spyder.** In Spyder, the default setting is for figures to be displayed in-line at the IPython console, which is too small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup, go to "Preferences", then "IPython console", click the "Graphics" tab, and switch the Backend from "Inline" to "Automatic" the provided drop-down menu. These settings will be retained from session to session, so you only have to do it the first time you run Spyder.
-
-Matplotlib uses a default resolution of 100 dpi and a default figure size of 6.4" x 4.8" (16.26 x 12.19 cm) in GUIs and with the default backend. The inline backend in Jupyter (what the ``% matplotlib inline`` command sets) uses an even lower-res default of 80 dpi.
-
--  The ``dpi`` kwarg in ``plt.figure()`` or ``plt.subplots()`` (not a valid kwarg in ``plt.subplot()`` singular) lets you change the figure resolution at runtime. For on-screen display, 100-150 dpi is fine as long as you don't set ``figsize`` too big, but publications often request 300 DPI.
--  The ``figsize = (i,j)`` kwarg in ``plt.figure()`` and ``plt.subplots()`` also lets you adjust the figure size and aspect ratio. The default unit is inches.
 
 
 Saving your Data
