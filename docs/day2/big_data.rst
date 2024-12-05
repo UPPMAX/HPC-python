@@ -13,14 +13,10 @@ To cover
 --------
 
 - File format
-  - csv?
-  - xarray?
-  - netcdf
-  - hdf5
  
 - Methods
-   - chunking (dask+pandas?)
    - RAM allocation 
+   - chunking (dask+pandas?)
 
 
 Load and Run
@@ -37,49 +33,7 @@ Load and Run
          .. code-block:: console
         
             ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
-     
-      Pandas, like NumPy, has been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
-
-      .. important::
-    
-          Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
-
-
-      As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Kebnekaise is:
-
-      .. code-block:: console
-
-        ----------------------------------------------------------------------------
-          SciPy-bundle:
-        ----------------------------------------------------------------------------
-            Description:
-              Bundle of Python packages for scientific software
-        
-             Versions:
-                SciPy-bundle/2019.03
-                SciPy-bundle/2019.10-Python-2.7.16
-                SciPy-bundle/2019.10-Python-3.7.4
-                SciPy-bundle/2020.03-Python-2.7.18
-                SciPy-bundle/2020.03-Python-3.8.2
-                SciPy-bundle/2020.11-Python-2.7.18
-                SciPy-bundle/2020.11
-                SciPy-bundle/2021.05
-                SciPy-bundle/2021.10-Python-2.7.18
-                SciPy-bundle/2021.10
-                SciPy-bundle/2022.05
-                SciPy-bundle/2023.02
-                SciPy-bundle/2023.07-Python-3.8.6
-                SciPy-bundle/2023.07
-                SciPy-bundle/2023.11
-          ----------------------------------------------------------------------------
-            For detailed information about a specific "SciPy-bundle" package (including how to load the modules) use the module's full name.
-            Note that names that have a trailing (E) are extensions provided by other modules.
-            For example:
-          
-               $ module spider SciPy-bundle/2023.11
-          ----------------------------------------------------------------------------
-
-
+   
    .. tab:: LUNARC
 
       .. important::
@@ -90,47 +44,6 @@ Load and Run
         
             ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
 
-      On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
-
-      If you choose to work at the command line and opt not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use ``ml spider SciPy-bundle`` to see which versions are available, which Python versions they depend on, and how to load them.
-
-      .. important::
-    
-         Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
-
-      As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Cosmos is:
-
-      .. code-block:: console
-
-        ----------------------------------------------------------------------------
-          SciPy-bundle:
-        ----------------------------------------------------------------------------
-            Description:
-              Bundle of Python packages for scientific software
-        
-             Versions:
-                SciPy-bundle/2020.11-Python-2.7.18
-                SciPy-bundle/2020.11
-                SciPy-bundle/2021.05
-                SciPy-bundle/2021.10-Python-2.7.18
-                SciPy-bundle/2021.10
-                SciPy-bundle/2022.05
-                SciPy-bundle/2023.02
-                SciPy-bundle/2023.07
-                SciPy-bundle/2023.11
-                SciPy-bundle/2024.05
-        
-        ----------------------------------------------------------------------------
-          For detailed information about a specific "SciPy-bundle" package (including ho
-        w to load the modules) use the module's full name.
-          Note that names that have a trailing (E) are extensions provided by other modu
-        les.
-          For example:
-        
-             $ module spider SciPy-bundle/2024.05
-        ----------------------------------------------------------------------------
-
-
    .. tab:: UPPMAX
 
       .. important::
@@ -140,8 +53,6 @@ Load and Run
          .. code-block:: console
         
             module load python_ML_packages/3.11.8-cpu
-
-      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
 
    .. tab:: NSC
 
@@ -160,21 +71,13 @@ Load and Run
             pip install xarray dask
 
 
+Files formats
+-------------
 
-.. seealso
 
-   Working with data
+Allocating RAM
+--------------
 
-   - https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/
-   
-   Tidy data
-
-   - https://coderefinery.github.io/data-visualization-python/tidy-data/
-   
-   ENCCS
-   - Dask for scalable analysis
-   - https://enccs.github.io/hpda-python/stack/
-   - https://enccs.github.io/hpda-python/dask/ 
 
 Dask
 ----
@@ -373,6 +276,21 @@ Exercises
       On the otherhand, you also want to avoid chunk sizes that are too small as we see in the exercise.
       Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs 
       with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.
+
+.. seealso
+
+   Working with data
+
+   - https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/
+   
+   Tidy data
+
+   - https://coderefinery.github.io/data-visualization-python/tidy-data/
+   
+   ENCCS
+   - Dask for scalable analysis
+   - https://enccs.github.io/hpda-python/stack/
+   - https://enccs.github.io/hpda-python/dask/ 
 
 .. seealso:: 
 
