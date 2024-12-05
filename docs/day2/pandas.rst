@@ -197,24 +197,26 @@ Input/Output and Making DataFrames from Scratch
 
 Most of the time, Series and DataFrames will be loaded from files, not made from scratch. The following table lists I/O functions for the most common data formats. Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise). 
 
-======  ========================================  ===================================================  =================================
-Type    Data Description                          Reader                                               Writer
-======  ========================================  ===================================================  =================================
-text    CSV / ASCII text with standard delimiter  ``read_csv(path_or_url, sep=',', **kwargs)``         ``to_csv()``
-text    Fixed-Width Text File                     ``read_fwf()``                                       N/A
-text    JSON                                      ``read_json()``                                      ``to_json()``
-text    HTML                                      ``read_html()``                                      ``to_html()``
-text    LaTeX                                     N/A                                                  ``Styler.to_latex()``
-text    XML                                       ``read_xml()``                                       ``to_xml()``
-text    Local clipboard                           ``read_clipboard()``                                 ``to_clipboard()``
-SQL     SQLite table or query                     ``read_sql()``                                       ``to_sql()``
-SQL     Google BigQuery                           ``read_gbq()``                                       ``to_gbq()``
-binary  Python Pickle Format                      ``read_pickle()``                                    ``to_pickle()``
-binary  MS Excel                                  ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, sheet_name=...)``
-binary  OpenDocument                              ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, engine="odf")``
-binary  HDF5 Format                               ``read_hdf()``                                       ``to_hdf()``
-binary  Apache Parquet                            ``read_parquet()``                                   ``to_parquet()``
-======  ========================================  ===================================================  =================================
+.. code-block:: sh
+
+   ======  ========================================  ===================================================  =================================
+   Typ1e    Data Description                          Reader                                               Writer
+   ======  ========================================  ===================================================  =================================
+   text    CSV / ASCII text with standard delimiter  ``read_csv(path_or_url, sep=',', **kwargs)``         ``to_csv()``
+   text    Fixed-Width Text File                     ``read_fwf()``                                       N/A
+   text    JSON                                      ``read_json()``                                      ``to_json()``
+   text    HTML                                      ``read_html()``                                      ``to_html()``
+   text    LaTeX                                     N/A                                                  ``Styler.to_latex()``
+   text    XML                                       ``read_xml()``                                       ``to_xml()``
+   text    Local clipboard                           ``read_clipboard()``                                 ``to_clipboard()``
+   SQL     SQLite table or query                     ``read_sql()``                                       ``to_sql()``
+   SQL     Google BigQuery                           ``read_gbq()``                                       ``to_gbq()``
+   binary  Python Pickle Format                      ``read_pickle()``                                    ``to_pickle()``
+   binary  MS Excel                                  ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, sheet_name=...)``
+   binary  OpenDocument                              ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, engine="odf")``
+   binary  HDF5 Format                               ``read_hdf()``                                       ``to_hdf()``
+   binary  Apache Parquet                            ``read_parquet()``                                   ``to_parquet()``
+   ======  ========================================  ===================================================  =================================
 
 This is not a complete list, and most of these functions have several dozen possible kwargs. It is left to the reader to determine what kwargs are needed. As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
 
