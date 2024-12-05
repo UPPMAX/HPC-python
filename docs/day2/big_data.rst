@@ -88,19 +88,19 @@ Load and Run
 
          .. code-block:: console
         
-            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5
 
-     On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
+      On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
 
-     If you choose to work at the command line and opt not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use ``ml spider SciPy-bundle`` to see which versions are available, which Python versions they depend on, and how to load them.
+      If you choose to work at the command line and opt not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use ``ml spider SciPy-bundle`` to see which versions are available, which Python versions they depend on, and how to load them.
 
-     .. important::
+      .. important::
     
-        Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
+         Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
 
-     As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Cosmos is:
+      As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Cosmos is:
 
-     .. code-block:: console
+      .. code-block:: console
 
         ----------------------------------------------------------------------------
           SciPy-bundle:
@@ -139,26 +139,19 @@ Load and Run
 
          .. code-block:: console
         
-            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+            module load python_ML_packages/3.11.8-cpu
 
       On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
 
-   .. tab:: Tetralith
-     
+   .. tab:: NSC
+
       .. important::
 
          You should for this session load
 
          .. code-block:: console
         
-            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
-
-     Load the following modules to be able to follow!
-
-     .. code-block:: console
-
-        module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
-
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
 
 
