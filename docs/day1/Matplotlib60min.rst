@@ -209,14 +209,7 @@ Most people's first attempt to plot something in matplotlib looks like the follo
    plt.title('Demo Plot - Implicit API')
    plt.show()
 
-The *explicit* API looks more like the following example. A figure
-and a set of axes objects are created explicitly, usually with
-``fig,axes = plt.subplots(nrows=nrows, ncols=ncols)``, even if there
-will be only 1 set of axes (in which case the ``nrows`` and ``ncols``
-kwargs are omitted). Then the vast majority of the plotting and
-formatting commands are called as methods of the axes object. Notice
-that most of the formatting methods now start with ``set_`` when
-called upon an ``axes`` object.
+The *explicit* API looks more like the following example. A figure and a set of axes objects are created explicitly, usually with ``fig,axes = plt.subplots(nrows=nrows, ncols=ncols)``, even if there will be only 1 set of axes (in which case the ``nrows`` and ``ncols`` kwargs are omitted). Then the vast majority of the plotting and formatting commands are called as methods of the axes object. Notice that most of the formatting methods now start with ``set_`` when called upon an ``axes`` object.
 
 
 .. jupyter-execute::
@@ -265,7 +258,7 @@ For the standard ``plt.subplots(nrows=nrows, ncols=ncols)`` command, the shape o
    axes[0].set_title('Demo Plot - Explicit API')
    plt.show()
 
-There are also the ``plt.subplot()`` and ``fig.add_subplot()`` methods, but they require more code to put $>$1 plot on a single figure. Each plot much be added 1 at a time, and there can be no more than 9 plots on one figure. The main benefit of these alternatives is that different coordinate projections can be set for each subplot in a figure with multiple subplots, as the example below demonstrates.
+There are also the ``plt.subplot()`` and ``fig.add_subplot()`` methods, but they require more code to put >1 plot on a single figure. Each plot much be added 1 at a time, and there can be no more than 9 plots on one figure. The main benefit of these alternatives is that different coordinate projections can be set for each subplot in a figure with multiple subplots, as the example below demonstrates.
 
 .. jupyter-execute::
 
@@ -623,7 +616,7 @@ Plots for Gridded Data
 
    -  The line contour function ``contour()``, if assigned to a variable, has a ``clabel()`` method you can call to print the numerical value of each level along each of the contours.
 
--  ``.imshow(Z, origin='upper')`` can plot and optionally interpolate a 2D intensity image, a $n\\times m \\times$3 stack of RGB images, or a $n\\times m \\times$4 stack of RGB-A images (A is a fractional opacity value between 0 and 1), on a grid of rectangular pixels whose aspect ratio is determined by the ``aspect`` kwarg (default ``'equal'``).
+-  ``.imshow(Z, origin='upper')`` can plot and optionally interpolate a 2D intensity image, a :math:`n\times m \times` 3 stack of RGB images, or a :math:`n\times m \times` 4 stack of RGB-A images (A is a fractional opacity value between 0 and 1), on a grid of rectangular pixels whose aspect ratio is determined by the ``aspect`` kwarg (default ``'equal'``).
 
    -  Typically, one must set ``origin='lower'`` to render the image the right way up.
    -  If each pixel is an integer width in the desired units, one can
@@ -859,12 +852,12 @@ Placing Legends and Text
 -  ``.text()`` is base function; it only adds and formats text (e.g. ``ha`` and ``va`` set horizontal and vertical alignment)
 -  ``.annotate()`` adds kwargs to format connectors between points and text; coordinates for point and text are specified separately
 
-Positions for both are given in *data* coordinates unless one includes ``transform=ax.transAxes``. ``ax.transAxes`` switches from data coordinates to axes-relative coordinates where (0,0) is lower left corner of the axes object, (1,1) is the top right corner of the axes, and values $<$0 or $>$1 are outside of the axes (figure area will stretch to accommodate up to a point).
+Positions for both are given in *data* coordinates unless one includes ``transform=ax.transAxes``. ``ax.transAxes`` switches from data coordinates to axes-relative coordinates where (0,0) is lower left corner of the axes object, (1,1) is the top right corner of the axes, and values <0 or >1 are outside of the axes (figure area will stretch to accommodate up to a point).
 
 **Legends.** Typically, it's enough to just use ``plt.legend()`` or ``ax.legend()`` if you want to label multiple functions on the same plot.
 
 -  Legends can be placed with the ``loc`` kwarg according to a number from 0 to 10, or with a descriptive string like ``'upper left'`` or ``'lower center'``. In the number code system, 0 (default) tells matplotlib to just try to minimize overlap with data, and the remaining digits represent ninths of the axes area ("center right" is duplicated for some reason).
--  You can also arrange the legend entries in multiple columns by setting the ``ncols`` kwarg to an integer >1, which can help if space is more limited vertically than horizontally.
+-  You can also arrange the legend entries in multiple columns by setting the ``ncols`` kwarg to an integer greater than 1, which can help if space is more limited vertically than horizontally.
 -  Legend placement via ``bbox_to_anchor`` uses unit-axes coordinates (i.e. the same coordinates described above as
    ``transform=ax.transAxes``) by default, and can specify any coordinates on or off the plot area (x and y are within the plot area if they are between 0 and 1, and outside otherwise).
 -  Whole-figure legends (i.e. ``fig.legend()``) can use a 3-word string where the first word is "outside", like ``loc='outside center right'``.
