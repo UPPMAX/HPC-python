@@ -19,6 +19,15 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+      - name: remove unused folders
+        run: |
+          rm -rf docs/*/not_used
+          rm -rf docs/*/may2024
+          rm -rf docs/*/May23
+          rm -rf docs/feb23_course
+          rm -rf docs/may2024
+          rm -rf docs/May23
+
       - name: Sphinx build
         run: |
           sphinx-build docs _build
