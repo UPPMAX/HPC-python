@@ -106,7 +106,7 @@ Allocating RAM
     - divide GB RAM  of the booked node with number of cores
 
 .. list-table:: Hardware
-   :widths: 25 25 25 25 25
+   :widths: 25 25 25 25 25 25 25
    :header-rows: 1
 
    * - Technology
