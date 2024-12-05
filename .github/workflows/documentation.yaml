@@ -27,6 +27,7 @@ jobs:
           rm -rf docs/feb23_course
           rm -rf docs/may2024
           rm -rf docs/May23
+          rm -rf docs/May_24
 
       - name: Sphinx build
         run: |
