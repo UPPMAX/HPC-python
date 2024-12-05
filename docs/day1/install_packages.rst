@@ -75,12 +75,12 @@ Virtual environment - venv & virtualenv
 
 .. admonition:: Workflow
 
-1. You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option later)
-2. You create the isolated environment with something like venv, virtualenv (use the ``--system-site-packages`` to include all "non-base" packages)
-3. You activate the environment
-4. You install (or update) the environment with the packages you need
-5. You work in the isolated environment
-6. You deactivate the environment after use 
+   1. You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option later)
+   2. You create the isolated environment with something like venv, virtualenv (use the ``--system-site-packages`` to include all "non-base" packages)
+   3. You activate the environment
+   4. You install (or update) the environment with the packages you need
+   5. You work in the isolated environment
+   6. You deactivate the environment after use 
 
 .. admonition:: venv vs. virtualenv
 
@@ -238,7 +238,7 @@ Creator/developer
 
 - First _create_ and _activate_ an environment (see above)
 - Install packages with pip
-- Create file from present virtual environment::
+- Create file from present virtual environment:
 
 .. code-block:: console
 
@@ -248,7 +248,7 @@ Creator/developer
 - Test that everything works by running use cases scripts within the environment
 - You can list packages specific for the virtualenv by ``pip list --local`` 
 
-- So, creating a file from just the local environment::
+- So, creating a file from just the local environment:
 
 .. code-block:: console
 
@@ -491,7 +491,7 @@ Exercises
 
       
 Prepare fore the course environments
-...............................
+....................................
 
 .. note::
 
@@ -524,7 +524,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
  
       - Check that matplotlib is there by ``pip list``
 
-      **Check were to find environments needed for the lessons in the afternoon tomorrow
+      **Check were to find environments needed for the lessons in the afternoon tomorrow**
 
       - browse ``/proj/hpc-python-fall-nsc/`` to see the available environments. 
       - their names are
@@ -554,6 +554,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
    .. tab:: HPC2N
 
       **Check were to find possible environments needed for the lessons in the afternoon tomorrow**
+
       - browse ``/proj/nobackup/hpc-python-fall-hpc2n/`` to see the available environments.
       - It may be empty for now but may show up by tomorrow
       - their names may be, for instance
@@ -562,7 +563,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       - Extra exercise can be to reproduce the examples above.
 
-.. info::
+.. note::
 
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
 
@@ -572,7 +573,6 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
    - UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
    - HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
-
 
 .. keypoints::
 
