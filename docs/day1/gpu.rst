@@ -162,7 +162,7 @@ Numba example
 Numba is installed on some of the centers as a module (HPC2N and LUNARC), on UPPMAX in python_ML_packages-gpu, but not on NSC except in a very old version. because of this we will use the virtual environment created earlier today at NSC. 
 
 We are going to use the following program for testing (it was taken from 
-https://linuxhint.com/gpu-programming-python/ but there are also many great examples at 
+a (now absent) linuxhint.com exercise but there are also many great examples at 
 https://numba.readthedocs.io/en/stable/cuda/examples.html): 
 
 .. admonition:: Python example ``add-list.py`` using Numba 
