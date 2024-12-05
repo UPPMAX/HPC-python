@@ -44,7 +44,7 @@ Keep this session open and running. Note the node on which you are got the inter
         ```
     - If you use Windows it may be better to do this in the PowerShell instead of a WSL2.
     - If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
-    ![](./img/putty.png)
+    ![](../img/putty.png)
     
     [SSH port forwarding](https://uplogix.com/docs/local-manager-user-guide/advanced-features/ssh-port-forwarding)
     
