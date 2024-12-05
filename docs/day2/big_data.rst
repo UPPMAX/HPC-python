@@ -88,8 +88,10 @@ Files formats
 
 - Why
 
-.. admonition: Why?
-   :class:dropdown
+.. dropdown: Why?
+
+   Text
+
 - What 
 - How
 - When
@@ -103,7 +105,39 @@ Allocating RAM
     - shared memory
     - divide GB RAM  of the booked node with number of cores
 
-- table again of resources
+.. list-table:: Hardware
+   :widths: 25 25 25 25 25
+   :header-rows: 1
+
+   * - Technology
+     - Kebnekaise
+     - Rackham
+     - Snowy
+     - Bianca
+     - Cosmos  
+     - Tetralith   
+   * - Cores/compute node
+     - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
+     - 20
+     - 16
+     - 16
+     - 48  
+     - 32  
+   * - Memory/compute node
+     - 128-3072 GB 
+     - 128-1024 GB
+     - 128-4096 GB
+     - 128-512 GB
+     - 256-512 GB  
+     - 96-384 GB   
+   * - GPU
+     - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
+     - None
+     - NVidia T4 
+     - NVidia A100
+     - NVidia A100 
+     - NVidia T4   
+
 
 - start interactive session for next sessio
    - tabs
