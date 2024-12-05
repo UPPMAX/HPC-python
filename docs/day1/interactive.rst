@@ -400,7 +400,7 @@ it is a simple script that adds two numbers from user input:
     # Output the sum
     print("The sum of {0} and {1} is {2}".format(a, b, sum))
 
-.. question:: 
+.. challenge:: 
 
    - Why is/is it not a good script for interactive?
 
@@ -536,7 +536,6 @@ Running `sum-2args.py` in an interactive session
 Exercise 4.2. Running a second Python script in an interactive session on all cores
 ###################################################################################
 
-.. tabs::
 
 Running `add2.py` in an interactive session
 
