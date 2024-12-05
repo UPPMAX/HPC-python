@@ -552,15 +552,13 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
    .. tab:: HPC2N
 
-      **Check were to find environments needed for the lessons in the afternoon tomorrow**
-
+      **Check were to find possible environments needed for the lessons in the afternoon tomorrow**
       - browse ``/proj/nobackup/hpc-python-fall-hpc2n/`` to see the available environments.
-      - their names are, for instance
-          - ``venv-spyder``
+      - It may be empty for now but may show up by tomorrow
+      - their names may be, for instance
           - ``venv-TF``
           - ``venv-torch``
 
-     
       - Extra exercise can be to reproduce the examples above.
 
 .. info::
