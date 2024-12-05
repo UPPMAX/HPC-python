@@ -206,18 +206,18 @@ Let's drop 'cylinders', 'model_year', and 'name', and keep 'origin' for the ``hu
                xlabel = g.axes[i,j].xaxis.get_label_text()
                ylabel = g.axes[i,j].yaxis.get_label_text()
                if xlabel == 'mpg':
-                   g.axes[i,0].set_xlabel('Fuel Economy [mpg]')
+                   g.axes[i,j].set_xlabel('Fuel Economy [mpg]')
                elif xlabel=='weight':
-                   g.axes[i,0].set_xlabel('Weight [lbs]')
+                   g.axes[i,j].set_xlabel('Weight [lbs]')
                else:
-                   g.axes[i,0].set_xlabel(string.capwords(xlabel))
+                   g.axes[i,j].set_xlabel(string.capwords(xlabel))
                    
                if ylabel == 'mpg':
-                   g.axes[0,j].set_ylabel('Fuel Economy [mpg]')
+                   g.axes[i,j].set_ylabel('Fuel Economy [mpg]')
                elif ylabel=='weight':
-                   g.axes[0,j].set_ylabel('Weight [lbs]')
+                   g.axes[i,j].set_ylabel('Weight [lbs]')
                else:
-                   g.axes[0,j].set_ylabel(string.capwords(ylabel))
+                   g.axes[i,j].set_ylabel(string.capwords(ylabel))
            except AttributeError:
                pass
 
