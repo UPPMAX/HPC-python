@@ -88,7 +88,7 @@ Files formats
 
 - Why
 
-.. admonition: Why?
+.. admonition:: Why?
    :class: dropdown
 
    Text
