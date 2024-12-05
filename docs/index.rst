@@ -552,7 +552,7 @@ Content of the course
    extra/isolated_deeper.rst
    extra/interactive_deeper.rst
    extra/jupyterHPC2N.rst
-   ML_deeper.rst
+   day2/ML_deeper.rst
    
    uppmax.rst
    kebnekaise.md
