@@ -73,10 +73,27 @@ Load and Run
 
 Files formats
 -------------
+- Why
+
+.. admonition: Why?
+   :class:dropdown
+- What 
+- How
+- When
 
 
 Allocating RAM
 --------------
+
+- allocate many cores
+    - within node only
+    - shared memory
+    - divide GB RAM  of the booked node with number of cores
+
+- table again of resources
+
+- start interactive session for next sessio
+   - tabs
 
 
 Dask
@@ -103,10 +120,11 @@ Python libraries:
 - Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
 
 
+
+
 .. tabs::
 
    .. tab:: HPC2N
-
        
       Jupyter notebooks for other purposes than just reading it, must be
       run in batch mode. First, create a batch script using the following one
@@ -162,16 +180,9 @@ Python libraries:
       - Double-click ``Dask-Ini.ipynb`` 
       - Restart kernel and run all cells!
 
-Dask is very popular for data analysis and is used by a number of high-level Python libraries:
+   .. tab:: LUNARC
 
-    - Dask arrays scale NumPy (see also xarray)
-    - Dask dataframes scale Pandas workflows
-    - Dask-ML scales Scikit-Learn
-
-- Dask divides arrays into many small pieces (chunks), as small as necessary to fit it into memory. 
-- Operations are delayed (lazy computing) e.g. tasks are queued and no computations is performed until you actually ask values to be computed (for instance print mean values). 
-- Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
-
+   .. tab:: NSC
 
 
 Exercises
