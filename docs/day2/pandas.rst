@@ -110,6 +110,17 @@ Load and Run
 
      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
 
+  .. tab:: Tetralith
+     
+     Pandas, like NumPy, has been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
+
+     Load the following modules to be able to follow!
+
+     .. code-block:: console
+
+        module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+
 To know if Pandas is the right tool for your job, you can consult the flowchart below.
 
 .. image:: ../img/when-to-use-pandas.png
