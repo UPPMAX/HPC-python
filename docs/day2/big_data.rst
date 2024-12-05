@@ -88,7 +88,7 @@ Load and Run
 
          .. code-block:: console
         
-            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5
+            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
 
       On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
 
@@ -152,6 +152,12 @@ Load and Run
          .. code-block:: console
         
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+        
+            pip install xarray dask
 
 
 
