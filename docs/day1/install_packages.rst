@@ -377,11 +377,11 @@ User
    1. Load Python and prerequisites: ``module load <pre-reqs> Python/<version>``
    2. Load site-installed Python packages (optional): ``module load <pre-reqs> <python-package>/<version>``
    3. Create the virtual environment: ``python -m venv [PATH]/Example``
-   3. Activate your virtual environment: ``source <path-to-virt-env>/Example/bin/activate``
-   4. Install any extra Python packages: ``pip install --no-cache-dir --no-build-isolation <python-package>``
-   5. Start Python or run python script: ``python``
-   6. Do your work
-   7. Deactivate
+   4. Activate your virtual environment: ``source <path-to-virt-env>/Example/bin/activate``
+   5. Install any extra Python packages: ``pip install --no-cache-dir --no-build-isolation <python-package>``
+   6. Start Python or run python script: ``python``
+   7. Do your work
+   8. Deactivate
 
    - Installed Python modules (modules and own-installed) can be accessed within Python with ``import <package>`` as usual. 
    - The command ``pip list`` given within Python will list the available modules to import. 
