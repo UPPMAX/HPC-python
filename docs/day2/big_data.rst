@@ -34,6 +34,12 @@ Load and Run
         
             ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
    
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+        
+            pip install xarray dask
+
    .. tab:: LUNARC
 
       .. important::
@@ -43,6 +49,12 @@ Load and Run
          .. code-block:: console
         
             ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
+
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+        
+            pip install xarray dask
 
    .. tab:: UPPMAX
 
@@ -73,6 +85,7 @@ Load and Run
 
 Files formats
 -------------
+
 - Why
 
 .. admonition: Why?
