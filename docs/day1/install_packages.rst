@@ -99,11 +99,11 @@ Virtual environment - venv & virtualenv
    - There are different tools to create virtual environments.
        - ``conda``, only recommended for personal use and at some clusters
        - ``virtualenv``, may require to load extra python bundle modules.
-       - **``venv``**, most straight-forward and available at all HPC centers. **Recommended**
+       - ``venv``, most straight-forward and available at all HPC centers. **Recommended**
    - More details to follow!
 
 Example
-#######
+.......
 
 .. tip::
     
@@ -527,9 +527,10 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       - browse ``/proj/hpc-python-fall-nsc/`` to see the available environments. 
       - their names are
-          - ``venvNSC-torch``
+          - ``venvNSC-TF``
           - ``venvNSC-torch``
           - ``venvNSC-numba``
+          - ``venv-spyder-only``
 
    .. tab:: LUNARC 
 
@@ -542,6 +543,11 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       **Check were to find environments needed for the lessons in the afternoon tomorrow**
 
       - browse ``/proj/hpc-python-fall/`` to see the available environments. 
+      - their names are, for instance
+          - ``venv-spyder``
+          - ``venv-TF``
+          - ``venv-torch``
+
       - Extra exercise can be to reproduce the examples above.
 
    .. tab:: HPC2N
@@ -549,50 +555,13 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       **Check were to find environments needed for the lessons in the afternoon tomorrow**
 
       - browse ``/proj/nobackup/hpc-python-fall-hpc2n/`` to see the available environments.
+      - their names are, for instance
+          - ``venv-spyder``
+          - ``venv-TF``
+          - ``venv-torch``
+
      
       - Extra exercise can be to reproduce the examples above.
-
-
-Using the self-installed packages in Python (MERGE INTO EXERCISE ABOVE)
-###########################################
-
-- To use the Python packages you have installed under your virtual environment, load your Python module + prerequisites, load any site-installed Python packages you used, and then activate the environment.
-- Now your own packages can be accessed from within Python, just like any other Python package. 
-
-**Test it!**
-
-.. admonition::
-   :class: dropdown
-    
-
-
-the library ``lightgbm``. 
-
-   .. code-block:: console
-         
-      $ module load uppmax python_ML_packages/3.11.8-cpu
-      $ source /proj/hpc-python/<user-dir>/vpyenv/bin/activate
-      (vpyenv) $ python
-      Python 3.11.8 (main, Feb  8 2024, 11:48:52) [GCC 12.3.0] on linux
-      Type "help", "copyright", "credits" or "license" for more information.
-      >>> import lightgbm 
-      >>> 
-
-.. admonition:: HPC2N
-    :class: dropdown
-
-    Load modules for Python, SciPy-bundle, matplotlib. Then activate the environment created under "Preparing the course environment" and import the library ``lightgbm`` we installed. 
-
-    .. code-block:: console
-         
-       $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
-       $ source /proj/nobackup/python-hpc/<user-dir>/vpyenv/bin/activate
-       (vpyenv)$ python
-       Python 3.11.3 (main, Apr  2 2024, 14:00:42) [GCC 12.3.0] on linux
-       Type "help", "copyright", "credits" or "license" for more information.
-       >>> import lightgbm 
-       >>> 
- 
 
 .. info::
 
@@ -604,8 +573,6 @@ the library ``lightgbm``.
 
    - UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
    - HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
-
-
 
 
 .. keypoints::
