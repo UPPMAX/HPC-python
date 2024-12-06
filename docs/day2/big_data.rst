@@ -148,20 +148,87 @@ Allocating RAM
         - NVidia A100 
         - NVidia T4   
 
+Exercise
+--------
 
-- start interactive session for next session
-   - tabs
+.. challenge:: Start interactive session with Jupyter
+ 
+   .. tabs::
+
+      .. tab:: HPC2N
+
+         Jupyter notebooks for other purposes than just reading it, must be
+         run in batch mode. First, create a batch script using the following one
+         as a template: 
+
+         .. code-block:: sh
+
+            #!/bin/bash
+            #SBATCH -A hpc2n20XX-XYZ
+            #SBATCH -t 00:05:00
+            #SBATCH -n 4
+            #SBATCH -o output_%j.out   # output file
+            #SBATCH -e error_%j.err    # error messages
+
+            ml purge > /dev/null 2>&1
+            ml GCC/12.3.0 OpenMPI/4.1.5 JupyterLab/4.0.5 dask/2023.9.2
+
+            # Start JupyterLab
+            jupyter lab --no-browser --ip $(hostname)
+
+         Then, copy and paste the notebook located here ``Exercises/examples/Dask-Ini.ipynb`` to your
+         current folder. Send the job to the queue (*sbatch job.sh*) and once the job starts copy the line 
+         containing the string **http://b-cnyyyy.hpc2n.umu.se:8888/lab?token=** and paste it 
+         in a local browser on Kebnekaise. Now you can select the notebook. 
+
+      .. tab:: UPPMAX
+
+         - To test this on UPPMAX it is easiest run in an **interactive session** started in a **ThinLinc session**
+         - Also since Dask is installed already in ``Python/3.11.4``, we choose that version instead and run **jupyter-lab**.
+         - The we can start a web browser from the login node on Thinlinc, either from the menu to the upper left or from a new terminal 
+
+         - So, in Thinlinc, in a new terminal:
+
+         .. code-block:: console
+
+            $ interactive -A naiss2024-22-415 -p devcore -n 4 -t 1:0:0
+            $ deactivate # Be sure to deactivate you virtual environment
+            $ cd <git-folder-for-course>
+            $ ml python/3.11.4
+            $ jupyter-lab --ip 0.0.0.0 --no-browser
+
+         - Copy the url in the output, containing the ``r<xxx>.uppmax.uu.se:8888/lab?token=<token-number>``, like for example:
+
+            - Example: ``http://r484.uppmax.uu.se:8888/lab?token=5b72a4bbad15a617c8e75acf0528c70d12bb879807752893``
+            - This address will certainly not work!
+
+         - In ThinLinc, either start **Firefox** from the menu to the upper left 
+
+            - or start a new terminal and type: ``firefox &``
+
+         - Paste the url into the address field and press enter.
+         - jupyter-lab starts
+         - Double-click ``Dask-Ini.ipynb`` 
+         - Restart kernel and run all cells!
+
+      .. tab:: LUNARC
+
+      .. tab:: NSC
+
+
 
 
 Dask
 ----
 
-Dask is a array model extension and task scheduler. By using the new array 
-classes, you can automatically distribute operations across multiple CPUs.
-Dask is a library in Python for flexible parallel computing. Among the features
-are the ability to deal with arrays and data frames, and the possibility of 
-performing asynchronous computations, where first a computation graph is 
-generated and the actual computations are activated later on demand.
+.. image:: ../img/when-to-use-pandas.png
+   :width: 600 px
+
+
+- Dask is a array model extension and task scheduler. 
+- By using the new array classes, you can automatically distribute operations across multiple CPUs.
+- Dask is a library in Python for flexible parallel computing. 
+- Among the features are the ability to deal with arrays and data frames, and the possibility of performing asynchronous computations, where first a computation graph is generated and the actual computations are activated later on demand.
 
 Dask is very popular for data analysis and is used by a number of high-level
 Python libraries:
@@ -177,69 +244,6 @@ Python libraries:
 - Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
 
 
-
-
-.. tabs::
-
-   .. tab:: HPC2N
-       
-      Jupyter notebooks for other purposes than just reading it, must be
-      run in batch mode. First, create a batch script using the following one
-      as a template: 
-
-      .. code-block:: sh
-
-         #!/bin/bash
-         #SBATCH -A hpc2n20XX-XYZ
-         #SBATCH -t 00:05:00
-         #SBATCH -n 4
-         #SBATCH -o output_%j.out   # output file
-         #SBATCH -e error_%j.err    # error messages
-     
-         ml purge > /dev/null 2>&1
-         ml GCC/12.3.0 OpenMPI/4.1.5 JupyterLab/4.0.5 dask/2023.9.2
-
-         # Start JupyterLab
-         jupyter lab --no-browser --ip $(hostname)
-
-      Then, copy and paste the notebook located here ``Exercises/examples/Dask-Ini.ipynb`` to your
-      current folder. Send the job to the queue (*sbatch job.sh*) and once the job starts copy the line 
-      containing the string **http://b-cnyyyy.hpc2n.umu.se:8888/lab?token=** and paste it 
-      in a local browser on Kebnekaise. Now you can select the notebook. 
-
-   .. tab:: UPPMAX
-
-      - To test this on UPPMAX it is easiest run in an **interactive session** started in a **ThinLinc session**
-      - Also since Dask is installed already in ``Python/3.11.4``, we choose that version instead and run **jupyter-lab**.
-      - The we can start a web browser from the login node on Thinlinc, either from the menu to the upper left or from a new terminal 
-    
-      - So, in Thinlinc, in a new terminal:
-
-      .. code-block:: console
-
-         $ interactive -A naiss2024-22-415 -p devcore -n 4 -t 1:0:0
-         $ deactivate # Be sure to deactivate you virtual environment
-         $ cd <git-folder-for-course>
-         $ ml python/3.11.4
-         $ jupyter-lab --ip 0.0.0.0 --no-browser
-
-      - Copy the url in the output, containing the ``r<xxx>.uppmax.uu.se:8888/lab?token=<token-number>``, like for example:
-
-         - Example: ``http://r484.uppmax.uu.se:8888/lab?token=5b72a4bbad15a617c8e75acf0528c70d12bb879807752893``
-         - This address will certainly not work!
-
-      - In ThinLinc, either start **Firefox** from the menu to the upper left 
-        
-         - or start a new terminal and type: ``firefox &``
-    
-      - Paste the url into the address field and press enter.
-      - jupyter-lab starts
-      - Double-click ``Dask-Ini.ipynb`` 
-      - Restart kernel and run all cells!
-
-   .. tab:: LUNARC
-
-   .. tab:: NSC
 
 
 Exercises
