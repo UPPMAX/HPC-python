@@ -58,6 +58,8 @@ Summary
        - You deploy GPU nodes via SLURM, either in interactive mode or batch
        - In Python the numba package is handy
 
+`Summary of second day <summary2.rst>`_
+
 
 .. seealso::
 
