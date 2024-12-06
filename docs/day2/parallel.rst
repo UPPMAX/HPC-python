@@ -30,7 +30,7 @@ Parallel computing with Python
 
          $ ml GCCcore/11.2.0 Python/3.9.6
 
-         $ virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
+         $ virtualenv /proj/nobackup/<your-project-storage>/vpyenv-python-course
 
          $ source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
 
