@@ -150,7 +150,7 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
      - BeautifulSoup
      - N.A.
    * - Seaborn
-     - python
+     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
      - Seaborn
      - Seaborn 
      - N.A.
@@ -984,7 +984,7 @@ Miscellaneous examples
                   
                   # Remove any loaded modules and load the ones we need
                   module purge  > /dev/null 2>&1
-                  #module load GCC/11.3.0 Python/3.10.4 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2 SciPy-bundle/2021.05
+                  module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 scikit-learn/1.4.2
 
                   # Run your Python script 
                   python example-tf.py 
