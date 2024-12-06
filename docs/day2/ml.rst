@@ -1032,8 +1032,6 @@ Miscellaneous examples
 
 
          .. tab:: LUNARC
-
-            Example batch script for Cosmos, TensorFlow version 2.15 and Python version 3.11.8. 
             
             .. code-block:: bash 
 
