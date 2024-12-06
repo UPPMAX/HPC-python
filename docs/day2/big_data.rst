@@ -186,17 +186,20 @@ XARRAY
 Allocating RAM
 --------------
 
-- allocate many cores
+- Allocate many cores or a full node
     - within node only
     - shared memory
     - divide GB RAM  of the booked node with number of cores
 
-.. admonition:: Do you remeber how to allocate several cores?
+.. admonition:: Do you remember how to allocate several cores?
    :class: dropdown
 
    - Slurm flag ``-n <number of cores>``
 
-.. admonition:: Do you remeber how to allocate several cores?
+- Choose, if necessary a node with more RAM
+   - See local HPC center documentation in how to do so!
+
+.. admonition:: Table of hardware
    :class: dropdown
 
 
