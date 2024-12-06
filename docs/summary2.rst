@@ -1,6 +1,8 @@
 Summary day2
 ==============
 
+`Summary of first day <summary1.rst>`_
+
 .. keypoints::
 
    - Intro to Pandas
