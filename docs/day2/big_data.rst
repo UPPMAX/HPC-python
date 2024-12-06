@@ -22,66 +22,6 @@ To cover
 Load and Run
 ------------
 
-.. tabs::
-
-   .. tab:: HPC2N
-
-      .. important::
-
-         You should for this session load
-
-         .. code-block:: console
-        
-            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
-   
-         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
-
-         .. code-block:: console
-        
-            pip install xarray dask
-
-   .. tab:: LUNARC
-
-      .. important::
-
-         You should for this session load
-
-         .. code-block:: console
-        
-            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
-
-         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
-
-         .. code-block:: console
-        
-            pip install xarray dask
-
-   .. tab:: UPPMAX
-
-      .. important::
-
-         You should for this session load
-
-         .. code-block:: console
-        
-            module load python_ML_packages/3.11.8-cpu
-
-   .. tab:: NSC
-
-      .. important::
-
-         You should for this session load
-
-         .. code-block:: console
-        
-            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
-
-         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
-
-         .. code-block:: console
-        
-            pip install xarray dask
-
 
 Files formats
 -------------
@@ -151,6 +91,72 @@ Allocating RAM
 Exercise
 --------
 
+.. tabs::
+
+   .. tab:: HPC2N
+
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+   
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+        
+            pip install xarray dask
+
+   .. tab:: LUNARC
+
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
+
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+        
+            pip install xarray dask
+
+   .. tab:: UPPMAX
+
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            module load python_ML_packages/3.11.8-cpu
+
+         - And install ``xarray`` to ``~/.local/`` if you don't already have it.
+
+         .. code-block:: console
+        
+            pip install xarray
+
+   .. tab:: NSC
+
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+        
+            pip install xarray dask
+
 .. challenge:: Start interactive session with Jupyter
  
    .. tabs::
@@ -191,11 +197,11 @@ Exercise
 
          .. code-block:: console
 
-            $ interactive -A naiss2024-22-415 -p devcore -n 4 -t 1:0:0
+            $ interactive -A naiss2024-22-1442 -p devcore -n 4 -t 1:0:0
             $ deactivate # Be sure to deactivate you virtual environment
             $ cd <git-folder-for-course>
-            $ ml python/3.11.4
-            $ jupyter-lab --ip 0.0.0.0 --no-browser
+            $ ml python_ML_packages/3.11.8-cpu
+            $ jupyter-lab --ip 0.0.0.0 --no-browser &
 
          - Copy the url in the output, containing the ``r<xxx>.uppmax.uu.se:8888/lab?token=<token-number>``, like for example:
 
