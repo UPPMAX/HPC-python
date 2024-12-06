@@ -1165,7 +1165,7 @@ Exercises
 .. keypoints::
 
   - At all clusters you will find PyTorch, TensorFlow, Scikit-learn under different modules, except Tetralith (NSC). 
-  - When in doubt, search your modules and its correct version using ``module spider``.
+  - When in doubt, search your modules and its correct version using ``module spider``.  If you still wished to have the correct versions for each cluster, check the `summary page <https://uppmax.github.io/HPC-python/summary2.html#summary-day2>`_.
   - If you plan to use mutiple libraries with complex dependencies, it is recommended to use a virtual environment and pip install your libraries.
   - Always run heavy ML/DL jobs on compute nodes and not on login nodes. For development purpose, you can use an interactive session on a compute node.
 
