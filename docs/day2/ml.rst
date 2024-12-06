@@ -6,10 +6,6 @@ Machine Learning and Deep Learning
    - Which machine learning and deep learning tools are installed at HPC2N, UPPMAX, and LUNARC?
    - How to start the tools at HPC2N, UPPMAX, and LUNARC?
    - How to deploy GPU:s with ML/DL at HPC2N, UPPMAX, and LUNARC?
-   - Examples:
-       - How to use PyTorch at the above HPC centres?
-       - How to use TensorFlow at the above HPC centres?
-       - How to work with sklearn at the above HPC centres? 
 
 .. objectives::
 
@@ -17,6 +13,9 @@ Machine Learning and Deep Learning
    - Get a general overview of installed ML/DL tools at HPC2N, UPPMAX, and LUNARC.
    - Get started with ML/DL in Python.
    - Code along and demos (Kebnekaise, Rackham/Snowy, Cosmos and Tetralith).
+   - We will not learn about:
+      - How to write and optimize ML/DL code.
+      - How to use multi-node setup for training models on CPU and GPU.  
 
 
 Introduction
@@ -76,12 +75,20 @@ In this course we will look at examples for these, and show how you run them at 
    - Scikit-Learn basics: https://scikit-learn.org/stable/getting_started.html
    - Machine Learning with Python: https://machinelearningmastery.com/start-here/#python
 
+   For more advanced users, you can visit the following resources:
+
+   - Pytorch data parallelism: https://pytorch.org/tutorials/beginner/blitz/data_parallel_tutorial.html
+   - TensorFlow distributed_training: https://www.tensorflow.org/guide/keras/distributed_training
+   - Scikit-Learn parallelism: https://scikit-learn.org/stable/computing/parallelism.html#parallelism
+   - Ray cluster for hyperparameter tuning: https://docs.ray.io/en/latest/ray-more-libs/joblib.html
+
+   
 List of installed ML/DL tools
 ############################# 
 
 There are minor differences depending on the version of python. 
 
-The list is not exhaustive, but lists the more popular ML/DL libraries. 
+The list is not exhaustive, but lists the more popular ML/DL libraries. I encourage you to `module spider` them to see the exact versions before loading them.
 
 .. list-table::
    :widths: 15 30 30 15 10
@@ -96,62 +103,62 @@ The list is not exhaustive, but lists the more popular ML/DL libraries.
      - python
      - SciPy-bundle
      - SciPy-bundle
-     - 
+     - N.A.
    * - SciPy
      - python
      - SciPy-bundle
      - SciPy-bundle
-     -
+     - N.A.
    * - Scikit-Learn (sklearn)
      - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu) 
      - scikit-learn (no newer than for GCC/12.3.0 and Python 3.11.3)  
      - scikit-learn 
-     -
+     - N.A.
    * - Theano
-     - 
+     - N.A.
      - Theano (only for some older Python versions)
-     -
-     -  
+     - N.A.
+     - N.A. 
    * - TensorFlow
      - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
      - TensorFlow (newest version is for Python 3.11.3)
      - TensorFlow (up to Python 3.10.4) 
-     -
+     - N.A.
    * - Keras
      - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
      - Keras (up to Python 3.8.6), TensorFlow (Python 3.11.3)
      - TensorFlow (up to Python 3.10.4)
-     -
+     - N.A.
    * - PyTorch (torch)
      - python_ML_packages (Python 3.11.5-gpu and Python 3.11.8-cpu)
      - PyTorch (up to Python 3.11.3) 
      - PyTorch (up to Python 3.10.4) 
-     -
+     - N.A.
    * - Pandas
      - python
      - SciPy-bundle
      - SciPy-bundle
-     -
+     - N.A.
    * - Matplotlib
      - python
      - matplotlib
      - matplotlib
-     -
+     - N.A.
    * - Beautiful Soup (beautifulsoup4)
      - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
      - BeautifulSoup
      - BeautifulSoup
-     -
+     - N.A.
    * - Seaborn
      - python
      - Seaborn
-     - Seaborn (up to Python 3.10.8) 
-     -
+     - Seaborn 
+     - N.A.
    * - Horovod 
-     -
+     - N.A.
      - Horovod (up to Python 3.11.3)
-     -
-     -     
+     - N.A.
+     - N.A.    
 
 Scikit-Learn
 -------------
@@ -354,7 +361,7 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
 
    Run it on a jupyter notebook on an interactive CPU node. An interative GPU node will also do. 
 
-   Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC can use prebuilt venv.
+   Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC can use prebuilt ``tf_env`` or ``torch_env`` venv.
 
    * Learning outcomes:
       - How to load a jupyter notebook on an interactive node.
@@ -710,8 +717,8 @@ We now learn by submitting a batch job which consists of loading python module, 
             # Load any modules you need, here Python 3.11.8.
             module load python/3.11.8
 
-            source torch_env/bin/activate
-            source tf_env/bin/activate #unncomment this for tf env and comment torch env
+            source ../torch_env/bin/activate
+            #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
 
             # Run your Python script
             python test_pytorch_nn.py
@@ -730,14 +737,36 @@ We now learn by submitting a batch job which consists of loading python module, 
             # Load any modules you need, here for Python/3.11.3
             module load GCC/12.3.0 Python/3.11.3
 
-            source torch_env/bin/activate
-            #source tf_env/bin/activate #unncomment this for tf env and comment torch env
+            source ../torch_env/bin/activate
+            #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
 
             # Run your Python script                                                        
             python fashion_mnist.py
 
 
       .. tab:: LUNARC
+
+            .. code-block:: bash
+               
+               #!/bin/bash
+               #SBATCH -A lu2024-2-88
+               #SBATCH -p gpua100
+               #SBATCH -n 1
+               #SBATCH --ntasks-per-node=1
+               #SBATCH -t 0:10:00
+               #SBATCH --gres=gpu:1
+
+
+               # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+               module load GCC/13.2.0 Python/3.11.5 
+
+               source ../torch_env/bin/activate
+               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+
+               # Run your Python script
+               python fashion_mnist.py
+
+
       .. tab:: NSC      
             
             .. code-block:: bash 
@@ -752,8 +781,8 @@ We now learn by submitting a batch job which consists of loading python module, 
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source torch_env/bin/activate
-               #source tf_env/bin/activate #unncomment this for tf env and comment torch env
+               source ../torch_env/bin/activate
+               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
 
                python fashion_mnist.py
 
@@ -769,203 +798,264 @@ We now learn by submitting a batch job which consists of loading python module, 
       - How to load the correct modules and activate the correct environment for running PyTorch or TensorFlow code.
 
 
+Miscellaneous examples
+-----------------------
 
-TensorFlow (and sklearn)
-------------------------
 
-The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials 
+.. admonition:: Running several jobs from within one job
+   :class: dropdown
 
-We are using Tensorflow 2.11.0-CUDA-11.7.0 (and Python 3.10.4) at HPC2N, since that is the newest GPU-enabled TensorFlow currently installed there. 
+      You almost always want to run several iterations of your machine learning code with changed parameters and/or added layers. If you are doing this in a batch job, it is easiest to either make a batch script that submits several variations of your Python script (changed parameters, changed layers), or make a script that loops over and submits jobs with the changes. 
 
-On UPPMAX we are using TensorFlow 2.15.0 (included in python_ML_packages/3.11.8-gpu) and Python 3.11.8. 
+      This example shows how you would run several programs or variations of programs sequentially within the same job: 
 
-.. hint::
+      .. tabs::
 
-   Type along!
+         .. tab:: HPC2N
 
-.. tabs::
-  
-   .. tab:: HPC2N
+            Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.11.3
 
-      Since we need scikit-learn, we are also loading the scikit-learn/1.1.2 which is compatible with the other modules we are using.  
+            .. code-block:: bash 
+            
+               #!/bin/bash 
+               # Remember to change this to your own project ID after the course! 
+               #SBATCH -A hpc2n2024-142
+               # We are asking for 5 minutes
+               #SBATCH --time=00:05:00
+               # Asking for one V100 
+               #SBATCH --gres=gpu:v100:1
+               # Remove any loaded modules and load the ones we need
+               module purge  > /dev/null 2>&1
+               module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3-1 
+               # Output to file - not needed if your job creates output in a file directly 
+               # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters). 
+               python <my_tf_program.py> <param1> <param2> > myoutput1 2>&1
+               cp myoutput1 mydatadir
+               python <my_tf_program.py> <param3> <param4> > myoutput2 2>&1
+               cp myoutput2 mydatadir
+               python <my_tf_program.py> <param5> <param6> > myoutput3 2>&1
+               cp myoutput3 mydatadir
 
-      Thus, load modules: ``GCC/11.3.0  OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2`` in your batch script.  
-      
-   .. tab:: UPPMAX
+         .. tab:: UPPMAX
+
+            Example batch script for Snowy, TensorFlow version 2.15 and Python version 3.11.8. 
+            
+            .. code-block:: bash 
+
+               #!/bin/bash -l
+               # Remember to change this to your own project ID after the course!
+               #SBATCH -A naiss2024-22-1442
+               # We are asking for at least 1 hour
+               #SBATCH --time=01:00:01
+               #SBATCH -M snowy
+               #SBATCH --gres=gpu:1
+               #SBATCH --mail-type=begin        # send email when job begins
+               #SBATCH --mail-type=end          # send email when job ends
+               # Remove any loaded modules and load the ones we need
+               module purge  > /dev/null 2>&1
+               module load uppmax
+               module load python_ML_packages/3.11.8-gpu
+               # Output to file - not needed if your job creates output in a file directly
+               # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
+               python tf_program.py 1 2 > myoutput1 2>&1
+               cp myoutput1 mydatadir
+               python tf_program.py 3 4 > myoutput2 2>&1
+               cp myoutput2 mydatadir
+               python tf_program.py 5 6 > myoutput3 2>&1
+               cp myoutput3 mydatadir
+
+
+         .. tab:: NSC
+
+            Example batch script for Tetralith, TensorFlow version 2.18 and Python version 3.11.5. 
+            
+            .. code-block:: bash 
    
-      UPPMAX has scikit-learn in the python_ML_packages, so we do not need to load anything extra there. 
+               #!/bin/bash
+               #SBATCH -A naiss2024-22-1493 # Change to your own
+               #SBATCH -n 1
+               #SBATCH -c 32
+               #SBATCH -t 00:10:00 # Asking for 10 minutes
+               #SBATCH --gpus-per-task=1
 
-        - Load modules: ``module load uppmax python/3.11.8 python_ML_packages/3.11.8-gpu``
-           - On Rackham we should use python_ML-packages/3.11.8-cpu, while on a GPU node the GPU version should be loaded (like we do in this example, which will work either in a batch script submitted to Snowy or in an interactive job running on Snowy). 
+               ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
+               ml load Python/3.11.5
 
-  
+               source ../tf_env/bin/activate
+               # Output to file - not needed if your job creates output in a file directly
+               # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
+               python tf_program.py 1 2 > myoutput1 2>&1
+               cp myoutput1 mydatadir
+               python tf_program.py 3 4 > myoutput2 2>&1
+               cp myoutput2 mydatadir
+               python tf_program.py 5 6 > myoutput3 2>&1
+               cp myoutput3 mydatadir
 
-.. admonition:: We will work with this example (example-tf.py) 
+         .. tab:: LUNARC
+
+            Example batch script for Cosmos, TensorFlow version 2.15 and Python version 3.11.8. 
+            
+            .. code-block:: bash 
+
+               #!/bin/bash
+               #SBATCH -A lu2024-2-88
+               #SBATCH -p gpua100
+               #SBATCH -n 1
+               #SBATCH --ntasks-per-node=1
+               #SBATCH -t 0:10:00
+               #SBATCH --gres=gpu:1
+
+
+               # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+               module load GCC/13.2.0 Python/3.11.5 
+
+               source ../torch_env/bin/activate
+               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               
+               # Output to file - not needed if your job creates output in a file directly
+               # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
+               python tf_program.py 1 2 > myoutput1 2>&1
+               cp myoutput1 mydatadir
+               python tf_program.py 3 4 > myoutput2 2>&1
+               cp myoutput2 mydatadir
+               python tf_program.py 5 6 > myoutput3 2>&1
+               cp myoutput3 mydatadir
+
+.. admonition:: Scikit-Learn + TensorFlow using modules 
     :class: dropdown
 
-        .. code-block:: python 
+      .. code-block:: python 
         
-            # mlp for binary classification
-            from pandas import read_csv
-            from sklearn.model_selection import train_test_split
-            from sklearn.preprocessing import LabelEncoder
-            from tensorflow.keras import Sequential
-            from tensorflow.keras.layers import Dense
-            # load the dataset
-            path = 'https://raw.githubusercontent.com/jbrownlee/Datasets/master/ionosphere.csv'
-            df = read_csv(path, header=None)
-            # split into input and output columns
-            X, y = df.values[:, :-1], df.values[:, -1]
-            # ensure all data are floating point values
-            X = X.astype('float32')
-            # encode strings to integer
-            y = LabelEncoder().fit_transform(y)
-            # split into train and test datasets
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
-            print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
-            # determine the number of input features
-            n_features = X_train.shape[1]
-            # define model
-            model = Sequential()
-            model.add(Dense(10, activation='relu', kernel_initializer='he_normal', input_shape=(n_features,)))
-            model.add(Dense(8, activation='relu', kernel_initializer='he_normal'))
-            model.add(Dense(1, activation='sigmoid'))
-            # compile the model
-            model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-            # fit the model
-            model.fit(X_train, y_train, epochs=150, batch_size=32, verbose=0)
-            # evaluate the model
-            loss, acc = model.evaluate(X_test, y_test, verbose=0)
-            print('Test Accuracy: %.3f' % acc)
-            # make a prediction
-            row = [1,0,0.99539,-0.05889,0.85243,0.02306,0.83398,-0.37708,1,0.03760,0.85243,-0.17755,0.59755,-0.44945,0.60536,-0.38223,0.84356,-0.38542,0.58212,-0.32192,0.56971,-0.29674,0.36946,-0.47357,0.56811,-0.51171,0.41078,-0.46168,0.21266,-0.34090,0.42267,-0.54487,0.18641,-0.45300]
-            yhat = model.predict([row])
-            print('Predicted: %.3f' % yhat)
+         # fit a final model and make predictions on new data for the ionosphere dataset
+         from pandas import read_csv
+         from sklearn.preprocessing import LabelEncoder
+         from sklearn.metrics import accuracy_score
+         from tensorflow.keras import Sequential
+         from tensorflow.keras.layers import Dense
+         from tensorflow.keras.layers import Dropout
+         # load the dataset
+         path = 'https://raw.githubusercontent.com/jbrownlee/Datasets/master/ionosphere.csv'
+         df = read_csv(path, header=None)
+         # split into input and output columns
+         X, y = df.values[:, :-1], df.values[:, -1]
+         # ensure all data are floating point values
+         X = X.astype('float32')
+         # encode strings to integer
+         le = LabelEncoder()
+         y = le.fit_transform(y)
+         # determine the number of input features
+         n_features = X.shape[1]
+         # define model
+         model = Sequential()
+         model.add(Dense(50, activation='relu', kernel_initializer='he_normal', input_shape=(n_features,)))
+         model.add(Dropout(0.4))
+         model.add(Dense(10, activation='relu', kernel_initializer='he_normal'))
+         model.add(Dropout(0.4))
+         model.add(Dense(1, activation='sigmoid'))
+         # compile the model
+         model.compile(optimizer='adam', loss='binary_crossentropy')
+         # fit the model
+         model.fit(X, y, epochs=100, batch_size=8, verbose=0)
+         # define a row of new data
+         row = [1,0,0.99539,-0.05889,0.85243,0.02306,0.83398,-0.37708,1,0.03760,0.85243,-0.17755,0.59755,-0.44945,0.60536,-0.38223,0.84356,-0.38542,0.58212,-0.32192,0.56971,-0.29674,0.36946,-0.47357,0.56811,-0.51171,0.41078,-0.46168,0.21266,-0.34090,0.42267,-0.54487,0.18641,-0.45300]
+         # make prediction
+         #for tf>2.6 uncomment the following line but comment the next line
+         #yhat = model.predict(x=np.array([row]))
+         yhat = model.predict_classes([row]) 
+         # invert transform to get label for class
+         yhat = le.inverse_transform(yhat)
+         # report prediction
+         print('Predicted: %s' % (yhat[0]))
 
 
-In order to run the above example, we will create a batch script and submit it. 
+      .. tabs::
 
-.. tabs::
-
-   .. tab:: HPC2N
-
-      Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.10.4, and scikit-learn 1.1.2 
-      
-      .. code-block:: bash 
-        
-            #!/bin/bash 
-            # Remember to change this to your own project ID after the course! 
-            #SBATCH -A hpc2n2024-052
-            # We are asking for 5 minutes
-            #SBATCH --time=00:05:00
-            # Asking for one V100
-            #SBATCH --gres=gpu:v100:1
+         .. tab:: HPC2N
+         
+            .. code-block:: bash 
             
-            # Remove any loaded modules and load the ones we need
-            module purge  > /dev/null 2>&1
-            module load GCC/11.3.0 Python/3.10.4 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2 
+                  #!/bin/bash 
+                  # Remember to change this to your own project ID after the course! 
+                  #SBATCH -A hpc2n2024-142
+                  # We are asking for 5 minutes
+                  #SBATCH --time=00:05:00
+                  # Asking for one V100
+                  #SBATCH --gres=gpu:v100:1
+                  
+                  # Remove any loaded modules and load the ones we need
+                  module purge  > /dev/null 2>&1
+                  #module load GCC/11.3.0 Python/3.10.4 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2 SciPy-bundle/2021.05
+
+                  # Run your Python script 
+                  python example-tf.py 
+                  
+         .. tab:: UPPMAX
+         
+            .. code-block:: bash 
             
-            # Run your Python script 
-            python example-tf.sh 
+                  #!/bin/bash -l  
+                  # Remember to change this to your own project ID after the course! 
+                  #SBATCH -A naiss2024-22-1442
+                  # We want to run on Snowy
+                  #SBATCH -M snowy
+                  # We are asking for 15 minutes
+                  #SBATCH --time=00:15:00
+                  #SBATCH --gres=gpu:1
+                  
+                  # Remove any loaded modules and load the ones we need
+                  module purge  > /dev/null 2>&1
+                  module load uppmax
+                  module load python_ML_packages/3.11.8-gpu 
+                  
+                  # Run your Python script 
+                  python example-tf.py 
+
+
+         .. tab:: NSC
+
+            .. code-block:: bash 
+
+               #!/bin/bash
+               #SBATCH -A naiss2024-22-1493 # Change to your own
+               #SBATCH -n 1
+               #SBATCH -c 32
+               #SBATCH -t 00:10:00 # Asking for 10 minutes
+               #SBATCH --gpus-per-task=1
+
+               ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
+               ml load Python/3.11.5
+
+               source ../tf_env/bin/activate
+               
+               # Run your Python script 
+               python example-tf.py 
+
+
+         .. tab:: LUNARC
+
+            Example batch script for Cosmos, TensorFlow version 2.15 and Python version 3.11.8. 
             
-   .. tab:: UPPMAX
+            .. code-block:: bash 
 
-      Example batch script for Snowy, Python version 3.11.8, and the python_ML_packages/3.11.8-gpu containing Tensorflow 
-      
-      .. code-block:: bash 
-        
-            #!/bin/bash -l  
-            # Remember to change this to your own project ID after the course! 
-            #SBATCH -A naiss2024-22-415
-            # We want to run on Snowy
-            #SBATCH -M snowy
-            # We are asking for 15 minutes
-            #SBATCH --time=00:15:00
-            #SBATCH --gres=gpu:1
-            
-            # Remove any loaded modules and load the ones we need
-            module purge  > /dev/null 2>&1
-            module load uppmax
-            module load python_ML_packages/3.11.8-gpu 
-            
-            # Run your Python script 
-            python example-tf.py 
-            
-            
-Submit with ``sbatch example-tf.sh``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
+               #!/bin/bash
+               #SBATCH -A lu2024-2-88
+               #SBATCH -p gpua100
+               #SBATCH -n 1
+               #SBATCH --ntasks-per-node=1
+               #SBATCH -t 0:10:00
+               #SBATCH --gres=gpu:1
 
-Note: if you are logged in to Rackham on UPPMAX and have submitted a GPU job to Snowy, then you need to use this to see the job queue: 
 
-``squeue -M snowy -u <username>``
+               # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
+               module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2
 
-General
--------
+               
+               # Run your Python script 
+               python example-tf.py 
 
-You almost always want to run several iterations of your machine learning code with changed parameters and/or added layers. If you are doing this in a batch job, it is easiest to either make a batch script that submits several variations of your Python script (changed parameters, changed layers), or make a script that loops over and submits jobs with the changes. 
 
-Running several jobs from within one job
-########################################
 
-.. hint:: 
 
-   Do NOT type along!
-
-This example shows how you would run several programs or variations of programs sequentially within the same job: 
-
-.. tabs::
-
-   .. tab:: HPC2N
-
-      Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.11.3
-
-      .. code-block:: bash 
-        
-         #!/bin/bash 
-         # Remember to change this to your own project ID after the course! 
-         #SBATCH -A hpc2n2024-052
-         # We are asking for 5 minutes
-         #SBATCH --time=00:05:00
-         # Asking for one V100 
-         #SBATCH --gres=gpu:v100:1
-         # Remove any loaded modules and load the ones we need
-         module purge  > /dev/null 2>&1
-         module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3-1 
-         # Output to file - not needed if your job creates output in a file directly 
-         # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters). 
-         python <my_tf_program.py> <param1> <param2> > myoutput1 2>&1
-         cp myoutput1 mydatadir
-         python <my_tf_program.py> <param3> <param4> > myoutput2 2>&1
-         cp myoutput2 mydatadir
-         python <my_tf_program.py> <param5> <param6> > myoutput3 2>&1
-         cp myoutput3 mydatadir
-
-   .. tab:: UPPMAX
-
-      Example batch script for Snowy, TensorFlow version 2.15 and Python version 3.11.8. 
-      
-      .. code-block:: bash 
-
-         #!/bin/bash -l
-         # Remember to change this to your own project ID after the course!
-         #SBATCH -A naiss2024-22-415
-         # We are asking for at least 1 hour
-         #SBATCH --time=01:00:01
-         #SBATCH -M snowy
-         #SBATCH --gres=gpu:1
-         #SBATCH --mail-type=begin        # send email when job begins
-         #SBATCH --mail-type=end          # send email when job ends
-          # Remove any loaded modules and load the ones we need
-         module purge  > /dev/null 2>&1
-         module load uppmax
-         module load python_ML_packages/3.11.8-gpu
-         # Output to file - not needed if your job creates output in a file directly
-         # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
-         python tf_program.py 1 2 > myoutput1 2>&1
-         cp myoutput1 mydatadir
-         python tf_program.py 3 4 > myoutput2 2>&1
-         cp myoutput2 mydatadir
-         python tf_program.py 5 6 > myoutput3 2>&1
-         cp myoutput3 mydatadir
 
 Exercises
 ---------
@@ -1069,7 +1159,9 @@ Exercises
             Result: y = 0.013841948471963406 + 0.855550229549408 x + -0.002387965563684702 x^2 + -0.09316103905439377 x^3
 
 
-
+   * Learning outcomes:
+      - How to load pytorch/tensorflow from module system instead of using virtual environment.
+      - Run the job on a GPU node either interactively or via batch script.
 
 
 .. keypoints::
