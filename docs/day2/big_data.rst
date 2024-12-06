@@ -18,7 +18,6 @@ To cover
    - RAM allocation 
    - chunking 
 
-
 Files formats
 -------------
 
@@ -28,8 +27,9 @@ Types of scientific data
 Bit and Byte
 ^^^^^^^^^^^^
 
-
-The smallest building block of storage in the computer is a bit, which stores either a 0 or 1. Normally a number of 8 bits are combined in a group to make a byte. One byte (8 bits) can represent/hold at most 2^8 distinct values. Organising bytes in different ways can represent different types of information, i.e. data.
+- The smallest building block of storage in the computer is a bit, which stores either a 0 or 1. 
+- Normally a number of 8 bits are combined in a group to make a byte. 
+- One byte (8 bits) can represent/hold at most 2^8 distinct values. Organising bytes in different ways can represent different types of information, i.e. data.
 
 .. admonition:: Numerical data
    :class: dropdown
@@ -118,7 +118,8 @@ In real scientific applications, data is complex and structured and usually cont
 
 .. admonition:: HDF5 (Hierarchical Data Format version 5)
 
-   - HDF5 is a high performance storage format for storing large amounts of data in multiple datasets in a single file. It is especially popular in fields where you need to store big multidimensional arrays such as physical sciences.
+   - HDF5 is a high performance storage format for storing large amounts of data in multiple datasets in a single file. 
+   - It is especially popular in fields where you need to store big multidimensional arrays such as physical sciences.
    - **Best use cases**: Working with big datasets in array data format.
 
    - Key features
@@ -141,40 +142,42 @@ In real scientific applications, data is complex and structured and usually cont
 
 .. admonition:: NETCDF4 (Network Common Data Form version 4)
 
-   - NetCDF4 is a data format that uses HDF5 as its file format, but it has standardized structure of datasets and metadata related to these datasets. This makes it possible to be read from various different programs.
-
-   - NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.
+   - NetCDF4 is a data format that uses HDF5 as its file format, but it has standardized structure of datasets and metadata related to these datasets. 
+   - This makes it possible to be read from various different programs.
 
      **Best use cases**: Working with big datasets in array data format. Especially useful if the dataset contains spatial or temporal dimensions. Archiving or sharing those datasets.
    
+   - Key features
 
-    - Key features
+       - Type: Binary format
+       - Packages needed: Pandas, netCDF4/h5netcdf, xarray
+       - Space efficiency: Good for numeric data.
+       - Good for sharing/archival: Yes.
 
-        - Type: Binary format
-        - Packages needed: Pandas, netCDF4/h5netcdf, xarray
-        - Space efficiency: Good for numeric data.
-        - Good for sharing/archival: Yes.
+   .. admonition:: more
+      :class: dropdown
 
-     .. admonition:: more
-        :class: dropdown
+      - Tidy data:
+          - Speed: Ok
+          - Ease of use: Good
 
-        - Tidy data:
-            - Speed: Ok
-            - Ease of use: Good
+      - Array data:
+          - Speed: Good
+          - Ease of use: Great
 
-        - Array data:
-            - Speed: Good
-            - Ease of use: Great
-
-        - The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.
+      - NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.
+      - The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.
 
 XARRAY
 ......
 - Xarray is a Python package that builds on NumPy but adds labels to multi-dimensional arrays. 
 - It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. 
-- NumPy, Pandas and Dask will be covered in later episodes.
 - Xarray is particularly tailored to working with NetCDF files. 
-- It reads and writes to NetCDF files using the open_dataset() / open_dataarray() functions and the to_netcdf() method. Explore these in the exercise below!
+- It reads and writes to NetCDF file using
+    - ``open_dataset()`` function
+    - ``open_dataarray()`` function
+    - ``to_netcdf()`` method. 
+- Explore these in the exercise below!
 
 .. seealso::
 
