@@ -258,6 +258,10 @@ Allocating RAM
 Dask
 ----
 
+.. important::
+
+   How to use more resources than available!!
+
 .. image:: ../img/when-to-use-pandas.png
    :width: 600 px
 
@@ -289,6 +293,7 @@ Dask Collections
     - ``dask_ml``: 
         - scales Scikit-Learn
     - ``dask.bag``: Parallel Python Lists 
+        - https://enccs.github.io/hpda-python/dask/#dask-bag
 
 Dask Arrays
 ^^^^^^^^^^^
@@ -316,6 +321,28 @@ Dask Arrays
       # It runs using multiple threads on your machine.
       # It could also be distributed to multiple machines
 
+.. seealso
+
+   - `Dask documentation <https://docs.dask.org/en/stable/>`_
+
+   Working with data
+
+   - https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/
+   
+   Tidy data
+
+   - https://coderefinery.github.io/data-visualization-python/tidy-data/
+   
+   ENCCS
+ 
+   - Dask for scalable analysis
+   - https://enccs.github.io/hpda-python/stack/
+   - https://enccs.github.io/hpda-python/dask/ 
+
+   - Too be included in the future?
+
+      - `Dask jobqueue <https://jobqueue.dask.org/en/latest/>`_
+      - `Dask-MPI <http://mpi.dask.org/en/latest/index.html>`_
 
 Exercises
 ---------
@@ -501,34 +528,6 @@ Exercises
       On the otherhand, you also want to avoid chunk sizes that are too small as we see in the exercise.
       Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs 
       with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.
-
-.. seealso
-
-   Working with data
-
-   - https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/
-   
-   Tidy data
-
-   - https://coderefinery.github.io/data-visualization-python/tidy-data/
-   
-   ENCCS
- 
-   - Dask for scalable analysis
-   - https://enccs.github.io/hpda-python/stack/
-   - https://enccs.github.io/hpda-python/dask/ 
-
-.. seealso:: 
-
-   - `Dask documentation <https://docs.dask.org/en/stable/>`_
-   - `Introduction to Dask by Aalto Scientific Computing and CodeRefinery <https://aaltoscicomp.github.io/python-for-scicomp/parallel/#dask-and-task-queues>`_
-   - `Intermediate level Dask by ENCCS <https://enccs.github.io/hpda-python/dask/>`_.
-   - Not tested yet at UPPMAX/HPC2N (?):
-
-      - `Dask jobqueue <https://jobqueue.dask.org/en/latest/>`_
-      - `Dask-MPI <http://mpi.dask.org/en/latest/index.html>`_
-
-
 
 .. keypoints
 
