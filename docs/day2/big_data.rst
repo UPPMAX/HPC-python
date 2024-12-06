@@ -290,8 +290,6 @@ Dask Collections
         - scales NumPy (see also xarray)
     - ``dask.dataframe``: Parallel Pandas DataFrames
         - scales Pandas workflows
-    - ``dask_ml``: 
-        - scales Scikit-Learn
     - ``dask.bag``: Parallel Python Lists 
         - https://enccs.github.io/hpda-python/dask/#dask-bag
 
@@ -320,29 +318,6 @@ Dask Arrays
       x + x.T - x.mean(axis=0)
       # It runs using multiple threads on your machine.
       # It could also be distributed to multiple machines
-
-.. seealso
-
-   - `Dask documentation <https://docs.dask.org/en/stable/>`_
-
-   Working with data
-
-   - https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/
-   
-   Tidy data
-
-   - https://coderefinery.github.io/data-visualization-python/tidy-data/
-   
-   ENCCS
- 
-   - Dask for scalable analysis
-   - https://enccs.github.io/hpda-python/stack/
-   - https://enccs.github.io/hpda-python/dask/ 
-
-   - Too be included in the future?
-
-      - `Dask jobqueue <https://jobqueue.dask.org/en/latest/>`_
-      - `Dask-MPI <http://mpi.dask.org/en/latest/index.html>`_
 
 Exercises
 ---------
@@ -535,8 +510,30 @@ Exercises
       Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs 
       with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.
 
-.. keypoints
+.. keypoints::
 
    - Dask uses lazy execution
    - Only use Dask for processing very large amount of data
 
+.. seealso::
+
+   - `Dask documentation <https://docs.dask.org/en/stable/>`_
+
+   Working with data
+
+   - https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/
+   
+   Tidy data
+
+   - https://coderefinery.github.io/data-visualization-python/tidy-data/
+   
+   ENCCS
+ 
+   - Dask for scalable analysis
+   - https://enccs.github.io/hpda-python/stack/
+   - https://enccs.github.io/hpda-python/dask/ 
+
+   - Too be included in the future?
+
+      - `Dask jobqueue <https://jobqueue.dask.org/en/latest/>`_
+      - `Dask-MPI <http://mpi.dask.org/en/latest/index.html>`_
