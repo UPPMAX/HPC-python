@@ -34,14 +34,14 @@ Parallel computing with Python
 
          $ source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
 
-      - For the ``numba`` example install the corresponding module::
+      - For the ``numba`` example install the corresponding module:
 
       .. code-block:: console
         
          $ pip install numba
 
 
-      - For the ``mpi4py`` example add the following modules::
+      - For the ``mpi4py`` example add the following modules:
 
       .. code-block:: console
     
@@ -49,13 +49,13 @@ Parallel computing with Python
 
          $ pip install mpi4py
 
-      - For the ``f2py`` example, this command should be available on the terminal when ``numpy`` is installed::
+      - For the ``f2py`` example, this command should be available on the terminal when ``numpy`` is installed:
 
       .. code-block:: console
 
          $ pip install numpy
 
-      - For the Julia example we will need PyJulia::
+      - For the Julia example we will need PyJulia:
         
       .. code-block:: console
 
