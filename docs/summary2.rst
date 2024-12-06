@@ -1,7 +1,7 @@
 Summary day2
 ==============
 
-`Summary of first day <./summary1.rst>`_
+`Summary of first day <docs/summary1.rst>`_
 
 .. keypoints::
 
