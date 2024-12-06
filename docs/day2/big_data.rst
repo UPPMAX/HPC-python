@@ -181,15 +181,34 @@ XARRAY
 
 .. seealso::
 
-   - ENCCS course HPDA-Python: `Scientific data <https://enccs.github.io/hpda-python/scientific-data/>`_
+   - ENCCS course "HPDA-Python": `Scientific data <https://enccs.github.io/hpda-python/scientific-data/>`_
+   - Aalto Scientific Computing course "Python for Scientific Computing": `Xarray <https://aaltoscicomp.github.io/python-for-scicomp/xarray/>`_
 
 Allocating RAM
 --------------
 
-- Allocate many cores or a full node
-    - within node only
-    - shared memory
-    - divide GB RAM  of the booked node with number of cores
+.. important::
+
+   - Allocate many cores or a full node!
+   - You do not have to explicitely run threads or other parallelism.
+
+- Note that shared memory among the cores works within node only
+
+.. admonition:: How much memory do I get per core?
+   :class: dropdown
+
+   - Divide GB RAM of the booked node with number of cores.
+
+   - Example: 128 GB node with 20 cores
+       - ~6.4 GB per core
+
+.. admonition:: How much memory do I get with 5 cores?
+   :class: dropdown
+
+   - Multiply the RAM per core with number of allocated cores..
+
+   - Example: 6.4 GB per core 
+       - ~32 GB 
 
 .. admonition:: Do you remember how to allocate several cores?
    :class: dropdown
@@ -238,6 +257,8 @@ Allocating RAM
 
 Exercise
 --------
+
+.. challenge:: Start an interactive session with 4 cores
 
 .. tabs::
 
@@ -378,18 +399,42 @@ Dask
 .. image:: ../img/when-to-use-pandas.png
    :width: 600 px
 
-
-- Dask is a array model extension and task scheduler. 
-- By using the new array classes, you can automatically distribute operations across multiple CPUs.
-- Dask is a library in Python for flexible parallel computing. 
-- Among the features are the ability to deal with arrays and data frames, and the possibility of performing asynchronous computations, where first a computation graph is generated and the actual computations are activated later on demand.
-
 Dask is very popular for data analysis and is used by a number of high-level
 Python libraries:
 
-   - Dask arrays scale NumPy (see also xarray)
-   - Dask dataframes scale Pandas workflows
-   - Dask-ML scales Scikit-Learn
+- Dask-ML scales Scikit-Learn
+
+- Dask is composed of two parts:
+
+    - Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.
+
+    - “Big Data” collections like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to larger-than-memory or distributed environments. These parallel collections run on top of dynamic task schedulers.
+
+.. admonition: Dask Clusters
+
+   - Not covered here
+   - https://enccs.github.io/hpda-python/dask/#dask-clusters
+
+Dask Collections
+................
+
+- Dask provides dynamic parallel task scheduling and three main high-level collections:
+  
+    - ``dask.array``: Parallel NumPy arrays
+        - scales NumPy (see also xarray)
+    - ``dask.dataframe``: Parallel Pandas DataFrames
+        - scales Pandas workflows
+    - ``dask_ml``: 
+        - scales Scikit-Learn
+    - ``dask.bag``: Parallel Python Lists 
+
+Dask Arrays
+^^^^^^^^^^^
+
+- A Dask array looks and feels a lot like a NumPy array. 
+- However, a Dask array uses the so-called "lazy" execution mode, which allows one to 
+    - build up complex, large calculations symbolically 
+    - before turning them over the scheduler for execution. 
 
 - Dask divides arrays into many small pieces (chunks), as small as necessary to 
   fit it into memory. 
@@ -397,7 +442,17 @@ Python libraries:
   is performed until you actually ask values to be computed (for instance print mean values). 
 - Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
 
+.. discussion:: Example from dask.org
 
+   .. code-block::
+
+      # Arrays implement the Numpy API
+      import dask.array as da
+      x = da.random.random(size=(10000, 10000),
+                           chunks=(1000, 1000))
+      x + x.T - x.mean(axis=0)
+      # It runs using multiple threads on your machine.
+      # It could also be distributed to multiple machines
 
 
 Exercises
@@ -472,14 +527,29 @@ Exercises
 
       .. tab:: NumPy
 
-         .. literalinclude:: example/chunk_np.py
-            :language: python
+         .. code-block:: python
+           
+            import numpy as np
+
+         .. code-block:: python
+           
+            %%time
+            x = np.random.random((20000, 20000))
+            y = x.mean(axis=0)
 
       .. tab:: Dask
 
-         .. literalinclude:: example/chunk_dask.py
-            :language: python
+         .. code-block:: python
+           
+            import dask
+            import dask.array as da
 
+         .. code-block:: python
+           
+            %%time
+            x = da.random.random((20000, 20000), chunks=(1000, 1000))
+            y = x.mean(axis=0)
+            y.compute() 
 
    But what happens if we use different chunk sizes?
    Try out with different chunk sizes:
