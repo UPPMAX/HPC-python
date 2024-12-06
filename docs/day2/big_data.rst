@@ -19,24 +19,52 @@ To cover
    - chunking 
 
 
-Load and Run
-------------
-
-
 Files formats
 -------------
 
-- Why
+Types of scientific data
+........................
 
-.. admonition:: Why?
+.. admonition:: Bit and Byte
    :class: dropdown
 
-   Text
+   The smallest building block of storage in the computer is a bit, which stores either a 0 or 1. Normally a number of 8 bits are combined in a group to make a byte. One byte (8 bits) can represent/hold at most 2^8 distinct values. Organising bytes in different ways can represent different types of information, i.e. data.
 
-- What 
-- How
-- When
+.. admonition:: Numerical data
+   :class: dropdown
 
+.. admonition:: Text data
+   :class: dropdown
+
+
+Data and storage format
+
+.. admonition:: Tabular data
+   :class: dropdown
+
+.. admonition:: Gridded data
+   :class: dropdown
+
+.. admonition:: Meta data
+   :class: dropdown
+
+.. admonition:: CSV (comma-separated values)
+   :class: dropdown
+
+.. admonition:: HDF5 (Hierarchical Data Format version 5)
+   :class: dropdown
+
+.. admonition:: (Network Common Data Form version 4)
+   :class: dropdown
+
+XARRAY
+......
+Xarray is a Python package that builds on NumPy but adds labels to multi-dimensional arrays. It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. NumPy, Pandas and Dask will be covered in later episodes.
+Xarray is particularly tailored to working with NetCDF files. It reads and writes to NetCDF files using the open_dataset() / open_dataarray() functions and the to_netcdf() method. Explore these in the exercise below!
+
+.. seealso::
+
+   - ENCCS course HPDA-Python: `Scientific data <https://enccs.github.io/hpda-python/scientific-data/>`_
 
 Allocating RAM
 --------------
