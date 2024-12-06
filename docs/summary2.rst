@@ -1,7 +1,7 @@
 Summary day2
 ==============
 
-`Summary of first day <docs/summary1.html>`_
+`Summary of first day <./summary1.html>`_
 
 .. keypoints::
 
