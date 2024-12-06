@@ -255,144 +255,6 @@ Allocating RAM
         - NVidia A100 
         - NVidia T4   
 
-Exercise
---------
-
-.. challenge:: Start an interactive session with 4 cores
-
-.. tabs::
-
-   .. tab:: HPC2N
-
-      .. important::
-
-         You should for this session load
-
-         .. code-block:: console
-        
-            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
-   
-         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
-
-         .. code-block:: console
-        
-            pip install xarray dask
-
-   .. tab:: LUNARC
-
-      .. important::
-
-         You should for this session load
-
-         .. code-block:: console
-        
-            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
-
-         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
-
-         .. code-block:: console
-        
-            pip install xarray dask
-
-   .. tab:: UPPMAX
-
-      .. important::
-
-         You should for this session load
-
-         .. code-block:: console
-        
-            module load python_ML_packages/3.11.8-cpu
-
-         - And install ``xarray`` to ``~/.local/`` if you don't already have it.
-
-         .. code-block:: console
-        
-            pip install xarray
-
-   .. tab:: NSC
-
-      .. important::
-
-         You should for this session load
-
-         .. code-block:: console
-        
-            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
-
-         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
-
-         .. code-block:: console
-        
-            pip install xarray dask
-
-.. challenge:: Start interactive session with Jupyter
- 
-   .. tabs::
-
-      .. tab:: HPC2N
-
-         Jupyter notebooks for other purposes than just reading it, must be
-         run in batch mode. First, create a batch script using the following one
-         as a template: 
-
-         .. code-block:: sh
-
-            #!/bin/bash
-            #SBATCH -A hpc2n20XX-XYZ
-            #SBATCH -t 00:05:00
-            #SBATCH -n 4
-            #SBATCH -o output_%j.out   # output file
-            #SBATCH -e error_%j.err    # error messages
-
-            ml purge > /dev/null 2>&1
-            ml GCC/12.3.0 OpenMPI/4.1.5 JupyterLab/4.0.5 dask/2023.9.2
-
-            # Start JupyterLab
-            jupyter lab --no-browser --ip $(hostname)
-
-         Then, copy and paste the notebook located here ``Exercises/examples/Dask-Ini.ipynb`` to your
-         current folder. Send the job to the queue (*sbatch job.sh*) and once the job starts copy the line 
-         containing the string **http://b-cnyyyy.hpc2n.umu.se:8888/lab?token=** and paste it 
-         in a local browser on Kebnekaise. Now you can select the notebook. 
-
-      .. tab:: UPPMAX
-
-         - To test this on UPPMAX it is easiest run in an **interactive session** started in a **ThinLinc session**
-         - Also since Dask is installed already in ``Python/3.11.4``, we choose that version instead and run **jupyter-lab**.
-         - The we can start a web browser from the login node on Thinlinc, either from the menu to the upper left or from a new terminal 
-
-         - So, in Thinlinc, in a new terminal:
-
-         .. code-block:: console
-
-            $ interactive -A naiss2024-22-1442 -p devcore -n 4 -t 1:0:0
-            $ deactivate # Be sure to deactivate you virtual environment
-            $ cd <git-folder-for-course>
-            $ ml python_ML_packages/3.11.8-cpu
-            $ jupyter-lab --ip 0.0.0.0 --no-browser &
-
-         - Copy the url in the output, containing the ``r<xxx>.uppmax.uu.se:8888/lab?token=<token-number>``, like for example:
-
-            - Example: ``http://r484.uppmax.uu.se:8888/lab?token=5b72a4bbad15a617c8e75acf0528c70d12bb879807752893``
-            - This address will certainly not work!
-
-         - In ThinLinc, either start **Firefox** from the menu to the upper left 
-
-            - or start a new terminal and type: ``firefox &``
-
-         - Paste the url into the address field and press enter.
-         - jupyter-lab starts
-         - Double-click ``Dask-Ini.ipynb`` 
-         - Restart kernel and run all cells!
-
-      .. tab:: LUNARC
-
-      .. tab:: NSC
-
-
-
-
 Dask
 ----
 
@@ -408,7 +270,7 @@ Python libraries:
 
     - Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.
 
-    - “Big Data” collections like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to larger-than-memory or distributed environments. These parallel collections run on top of dynamic task schedulers.
+    - “Big Data” collections like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to **larger-than-memory** or distributed environments. These parallel collections run on top of dynamic task schedulers.
 
 .. admonition: Dask Clusters
 
@@ -457,6 +319,73 @@ Dask Arrays
 
 Exercises
 ---------
+
+**Load and run**
+
+.. tabs::
+
+   .. tab:: HPC2N
+
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+
+            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+
+            pip install xarray dask
+
+   .. tab:: LUNARC
+
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+
+            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
+
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+
+            pip install xarray dask
+
+   .. tab:: UPPMAX
+
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+
+            module load python_ML_packages/3.11.8-cpu
+
+   .. tab:: NSC
+
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+
+            pip install xarray dask
+
+
+.. note::
+   
+   You can do thes in the Python **command line** or in Jupyter.
 
 .. exercise:: Use Xarray to work with NetCDF files
 
