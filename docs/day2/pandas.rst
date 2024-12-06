@@ -207,7 +207,7 @@ Pandas assigns the data in a Series and each column of a DataFrame a datatype ba
 
   - A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of ``object``.
 
-* Pandas has many functions devoted to time series, so there are several datatypes---``datetime``, ``timedelta``, and ``period``. The first two are based on NumPy data types of the same name <https://numpy.org/devdocs/reference/arrays.datetime.html>`_, and ``period`` is a time-interval type specified by a starting datetime and a recurrence rate. Unfortunately, we won't have time to cover these at depth.
+* Pandas has many functions devoted to time series, so there are several datatypes---``datetime``, ``timedelta``, and ``period``. The first two are based on `NumPy data types of the same name <https://numpy.org/devdocs/reference/arrays.datetime.html>`_ , and ``period`` is a time-interval type specified by a starting datetime and a recurrence rate. Unfortunately, we won't have time to cover these at depth.
 
 There are also specialized datatypes for, e.g. saving on memory or performing windowed operations, including
 
@@ -405,7 +405,7 @@ Some operations, including **all merging operations, require DataFrames to be so
 * Both sorting functions return copies unless ``inplace=True``
 * ``axis`` refers to direction along which values will be shifted, not the fixed axis
 * ``key`` kwarg lets you apply a vectorized function (more on this soon) to the index before sorting. This only alters what the sorting algorithm sees, not the indexes as they will be printed
-* ``.sort_index(axis=0, key=None)`` rearranges rows (axis=0) or columns (axis=1) so that their indexes or labels are in alphanumeric order.
+* ``.sort_index(axis=0, key=None)`` rearranges rows (``axis=0`` or ``axis='rows'``) or columns (``axis=1`` or ``axis='columns'``) so that their indexes or labels are in alphanumeric order.
 
   - All uppercase letters are sorted ahead of all lowercase letters, so a row named "Zebra" would be placed before a row named "aardvark". The ``key`` kwarg can be used to tell ``sort`` to ignore capitalization by passing in, e.g., the ``str.lower`` function.
 
@@ -507,7 +507,7 @@ Iteration over DataFrames, Series, and GroupBy objects is slow and should be avo
 
 **Statistics.** Nearly all NumPy statistical functions and a few ``scipy.mstats`` functions can be called as aggregate methods of DataFrames, Series, any subsets thereof, or GroupBy objects. All of them ignore NaNs by default. For DataFrames and GroupBy objects, you must set ``numeric_only=True`` to exclude non-numeric data, and specify whether to aggregate along rows (``axis=0``) or columns (``axis=1``) .
 
-* NumPy-like methods: ``.abs()``, ``.count()``, ``.max()``, ``.min()``, ``.mean()``, ``.median()``, ``.mode()``, ``.prod()``, ``.quantile()``, ``.sum()``, ``.std()``, ``.var()``, ``.cumsum()``, ``.cumprod()``, \*``.cummax()`` and \*``.cummin()`` (\* Pandas-only)
+* NumPy-like methods: ``.abs()``, ``.count()``, ``.max()``, ``.min()``, ``.mean()``, ``.median()``, ``.mode()``, ``.prod()``, ``.quantile()``, ``.sum()``, ``.std()``, ``.var()``, ``.cumsum()``, ``.cumprod()``, ``.cummax()``\* and ``.cummin()``\* (\* Pandas-only)
 * SciPy (m)stats-like methods: ``.sem()``, ``.skew()``, ``.kurt()``, and ``.corr()``
 
 Here's an example with a GroupBy object.
@@ -615,7 +615,7 @@ If the transformation you need to apply to your data cannot be simply constructe
       The ``.transform()`` broadcasts functions to every cell of the DataFrame, Series, or GroupBy object that calls it (aggregating functions not allowed). 
 
       - You can pass multiple functions via a list of function names, or a dict with row/column names as keys and the functions to apply to each as values. Lambda functions can be passed in a dict but not a list.
-      - Transforming a DataFrame of x columns by list of y functions yields a *hierarchical DataFrame* with x$\times$y columns where the first level is the original set of column names and each first-level column has a number of second-level columns equal to the number of functions applied (see example below). 
+      - Transforming a DataFrame of x columns by list of y functions yields a *hierarchical DataFrame* with x:math:`\times`y columns where the first level is the original set of column names and each first-level column has a number of second-level columns equal to the number of functions applied (see example below). 
       - Do not allow ``.transform()`` to modify your data structure in-place!
 
       .. jupyter-execute::
@@ -691,7 +691,7 @@ There are 4 methods for evaluating other methods and functions over moving/expan
 
 For demonstration, here is an example based loosely on the climate of your teacher's hometown.
 
-.. jupiter-execute
+.. jupiter-execute::
 
     import numpy as np
     import pandas as pd
@@ -707,7 +707,7 @@ For demonstration, here is an example based loosely on the climate of your teach
 
 .. important:: Speed-up with Numba
 
-   If you have Numba installed, setting ``engine=numba`` in functions like ``.transform()``, ``.apply()``, and NumPy-like statistics functions calculated over rolling windows, can boost performance if the function has to be run multiple times over several columns, particularly if you can set `engine_kwargs={"parallel": True}`. **Parellelization occurs column-wise, so performance will be boosted if and only if the function is repeated many times over many columns.**
+   If you have Numba installed, setting ``engine=numba`` in functions like ``.transform()``, ``.apply()``, and NumPy-like statistics functions calculated over rolling windows, can boost performance if the function has to be run multiple times over several columns, particularly if you can set ``engine_kwargs={"parallel": True}``. **Parellelization occurs column-wise, so performance will be boosted if and only if the function is repeated many times over many columns.**
 
    Here is a (somewhat scientifically nonsensical) example using the exoplanets DataFrame to show the speed-up for 5 columns.
 
@@ -760,7 +760,7 @@ Advanced Topics
 Getting Dummy Variables for Machine Learning
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ML programs like TensorFlow and PyTorch take Series/DataFrame inputs, but they generally require numeric input. If some of the variables that you want to predict are categorical (e.g. species, sex, or some other classification), they need to be converted to a numerical form that TensorFlow and PyTorch can use. Standard practice is turn a categorical variable with $N$ unique values into $N$ or $N-1$ boolean columns, where a row entry that was assigned a given category value has a 1 or True in the boolean column corresponding to that category and 0 or False in all the other boolean category columns.
+ML programs like TensorFlow and PyTorch take Series/DataFrame inputs, but they generally require numeric input. If some of the variables that you want to predict are categorical (e.g. species, sex, or some other classification), they need to be converted to a numerical form that TensorFlow and PyTorch can use. Standard practice is turn a categorical variable with *N* unique values into *N* or *N*-1 boolean columns, where a row entry that was assigned a given category value has a 1 or True in the boolean column corresponding to that category and 0 or False in all the other boolean category columns.
 
 The Pandas function that does this is ``pd.get_dummies(data, dtype=bool, drop_first=False, prefix=pref, columns=columns)``.
 
@@ -839,7 +839,7 @@ Efficient Data Types
 
 
 **Sparse Data.** I you have a DataFrame with lots of rows or columns that are mostly NaN, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory.
-Initialize Series or DataFrames as `SparseDtype` by setting the kwarg ``dtype=SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", np.nan))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>` also work on Sparse Arrays. Other methods and attributes include
+Initialize Series or DataFrames as `SparseDtype` by setting the kwarg ``dtype=SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", np.nan))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>`_ also work on Sparse Arrays. Other methods and attributes include
 
 - ``df.sparse.density``: prints fraction of data that are non-NaN
 - ``df.sparse.fill_value``: prints fill value for NaNs, if any (might just return NaN)
