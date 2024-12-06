@@ -139,15 +139,13 @@ In real scientific applications, data is complex and structured and usually cont
           - Speed: Great
           - Ease of use: Good
 
-.. admonition:: (Network Common Data Form version 4)
+.. admonition:: NETCDF4 (Network Common Data Form version 4)
 
    - NetCDF4 is a data format that uses HDF5 as its file format, but it has standardized structure of datasets and metadata related to these datasets. This makes it possible to be read from various different programs.
 
    - NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.
 
-   - The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.
-
-    **Best use cases**: Working with big datasets in array data format. Especially useful if the dataset contains spatial or temporal dimensions. Archiving or sharing those datasets.
+     **Best use cases**: Working with big datasets in array data format. Especially useful if the dataset contains spatial or temporal dimensions. Archiving or sharing those datasets.
    
 
     - Key features
@@ -168,6 +166,7 @@ In real scientific applications, data is complex and structured and usually cont
             - Speed: Good
             - Ease of use: Great
 
+        - The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.
 
 XARRAY
 ......
@@ -509,6 +508,7 @@ Exercises
    - https://coderefinery.github.io/data-visualization-python/tidy-data/
    
    ENCCS
+ 
    - Dask for scalable analysis
    - https://enccs.github.io/hpda-python/stack/
    - https://enccs.github.io/hpda-python/dask/ 
