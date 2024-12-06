@@ -393,6 +393,12 @@ Exercises
 
             module load python_ML_packages/3.11.8-cpu
 
+         - And install ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+
+            pip install --user xarray 
+
    .. tab:: NSC
 
       .. important::
