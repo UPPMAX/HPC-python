@@ -690,3 +690,6 @@ richel
 bilderbeek
 bjorn
 claremar
+
+README
+mv
