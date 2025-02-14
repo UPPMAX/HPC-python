@@ -516,7 +516,7 @@ Content of the course
    :maxdepth: 2
    :caption: Schedule:
 
-   schedule.rst
+   schedule.md
     
 .. toctree::
    :maxdepth: 2
