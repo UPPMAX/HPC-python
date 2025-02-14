@@ -693,3 +693,11 @@ claremar
 
 README
 mv
+
+jayant
+IDEs
+OnDemand
+Rebecca
+Spyder
+Anders
+DL
