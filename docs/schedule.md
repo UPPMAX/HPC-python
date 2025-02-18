@@ -46,7 +46,7 @@ Time        | Topic                          |Teacher
 Time       | Topic |Teacher
 -----------|-----------|-----------------------
 09:00-10:00 | Pandas | ?Rebecca ?Richel
-10:00-10:15 | Break
+10:00-10:15 | Break|.
 10:15-11:00 | Pandas (enough time?)| ?Rebecca  ?Richel
 11:00-11:15 | Break|.
 11:15-12:00 | Seaborn (enough time)?| ?Rebecca  ?Björn
