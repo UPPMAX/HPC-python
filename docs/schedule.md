@@ -1,27 +1,24 @@
 # Preliminary schedule
 
+Course dates:
+
+Week|Date                |Description
+----|--------------------|----------------------
+17  |Wednesday 2025-04-23|(optional) On-boarding
+17  |Thursday 2025-04-24 |Day 1: [NAISS 'Intro to Python'](https://uppmax.github.io/uppmax_intro_python/schedule/))
+17  |Friday 2025-04-25   |Day 2
+18  |Monday 2025-04-28   |Day 3
+18  |Tuesday 2025-04-29  |Day 4
 
 ## Day 1: Log in and use Basic Python in a cluster environment
 
-[NAISS 'Intro to Python'](https://uppmax.github.io/uppmax_intro_python/schedule/))
+See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/uppmax_intro_python/schedule/)).
 
-  
-Time        | Topic                                                         |Teacher
-------------|---------------------------------------------------------------|-------
-09:00-10:00 | Using the Python interpreter, includes login                  |Richel
-10:00-10:15 | Break                                                         |.
-10:15-11:00 | The way of the program, includes creating and running a script|Richel
-11:00-11:15 | Break                                                         |.
-11:15-12:00 | Working with Python scripts                                   |Richel
-12:00-13:00 | Break                                                         |.
-13:00-14:00 | Variables, expressions and statements: variables              |Richel
-14:00-14:15 | Break                                                         |.
-14:15-15:00 | Variables, expressions and statements: operators              |Richel
-15:00-15:15 | Break                                                         |.
-15:15-15:45 | Variables, expressions and statements: user input             |Richel
-15:45-16:00 | Evaluation                                                    |Richel
+!!! tip "Course starts at 9:00 sharp and ends at 16:00"
 
 ## Day 2: Use and install packages with pip and conda in virtual environments and doing basic analysis interactively
+
+!!! tip "Course starts at 9:00 sharp and ends at 16:00"
 
 Time        | Topic                          |Teacher
 ------------|--------------------------------|-----------------------
@@ -41,6 +38,8 @@ Time        | Topic                          |Teacher
 - [1] Spyder only works on LUNARC, for an old version. Using virtual environments may get this to work on other session. Björn will investigate this :+1:
 
 ## Day 3: Deeper analysis with pandas and seaborn, HPC usage with big data, parallelisms and Machine Learning with and without GPUs.
+
+!!! tip "Course starts at 9:00 sharp and ends at 16:00"
 
 Time       | Topic |Teacher
 -----------|-----------|-----------------------
