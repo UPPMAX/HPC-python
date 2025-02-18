@@ -35,7 +35,9 @@ Time        | Topic                          |Teacher
 15:15-15:45 | matplotlib 2/2|?Rebecca, else Björn
 15:45-16:00 | Evaluation|.
 
-- [1] Spyder only works on LUNARC, for an old version. Using virtual environments may get this to work on other session. Björn will investigate this :+1:
+- [1] Spyder only works on LUNARC, for an old version.
+  Using virtual environments may get this to work on other session.
+  Björn will investigate this :+1:
 
 ## Day 3: Deeper analysis with pandas and seaborn, HPC usage with big data, parallelisms and Machine Learning with and without GPUs.
 
