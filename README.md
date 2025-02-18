@@ -7,3 +7,7 @@ The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca), LUNARC (Cos
 # Rendered material
 
 - https://uppmax.github.io/HPC-python/index.html
+
+# Evaluations
+
+You can find evaluations from (some of) the previous installments under the directory "evaluations" 
