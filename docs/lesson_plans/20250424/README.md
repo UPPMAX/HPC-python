@@ -21,7 +21,7 @@ My sessions are:
 
 Time        | Topic                          |Teacher
 ------------|--------------------------------|-----------------------
-09:00-10:00 | Packages                       | Richel
+09:00-10:00 | Packages                       | Richel [Suggest: also co-teach here]
 10:00-10:15 | Break                          |.
 10:15-11:00 | Isolated environments conda/pip| Björn+Richel (co-teaching)
 
@@ -49,11 +49,62 @@ Study           |Number of co-teachers
 ----------------|---------------------
 `[Sharon, 2014]`|12
 
-- 'Achieving effective co-teaching relationships is a complex process' `[Sharon, 2014]`.
-- 'Obtaining external dimensions is not enough for effective co-teaching partnerships `[Sharon, 2014]`.
-- 'Teachers can use individual differences as strengths to overcome challenges `[Sharon, 2014]`.
-- 'Compatibility can be achieved through being similar or complementary `[Sharon, 2014]`.
-- 'In an effective co-teaching state, teachers are interdependent of each other `[Sharon, 2014]`.
+
+Approaches to Co-Teaching, from `[Cook & Friend, 1995]`:
+
+![Cook & Friend, 1995, figure 1](cook_and_friend_1995_fig.png)
+
+From `[Cook & Friend, 1995]`:
+
+> [...] A first step for most co-teachers is to examine carefully their
+> own readiness for the professional and personal demands of
+> co-teaching [...]:
+>
+> - 1. To what extent am I willing to let someone else carry out
+>   teaching tasks at which I am particularly skilled?
+> - 2. How willing am I to allow a colleague to see aspects of my
+>   teaching in which I am not particularly skilled?
+> - 3. To what degree do I believe that there is more than one right
+>   way to carry out almost any teaching/learning task? 
+> - 4. How willing am I to tell a colleague when I disagree about an
+>   issue or have a concern?
+
+
+From `[Cook & Friend, 1995]`, Table 1, 'Questions for Creating a Collaborative
+Working Relationship in Co-Teaching':
+
+Topic                |Questions
+---------------------|---------------------------------------------------------------------------------------------------------------
+Instructional beliefs|What are our overriding philosophies about the roles of teachers and teaching, and students and learning?
+.                    |How do our instructional beliefs affect our instructional practice?
+Planning             |When do we have at least 30 minutes of shared planning time?
+.                    |How do we divide our responsibilities for planning and teaching?
+.                    |How much joint planning time do we need?
+.                    |What records can we keep to facilitate our planning?
+Parity signals       |How will we convey to students and others (for example, teachers, parents) that we are equals in the classroom?
+.                    |How can we ensure a sense of parity during instruction?
+Confidentiality      |What information about our teaching do we want to share with others?
+.                    |Which information should not be shared?
+.                    |Which information about students can be shared with others?
+.                    |Which information should not be shared?
+Noise                |What noise level are we comfortable with in the classroom?
+Classroom routines   |What are the instructional routines for the classroom?
+.                    |What are the organizational routines for the classroom?
+Discipline           |What is acceptable and unacceptable student behavior?
+.                    |Who is to intervene at what point in students' behavior?
+.                    |What are the rewards and consequences used in the classroom?
+Feedback             |What is the best way to give each other feedback?
+.                    |How will you ensure that both positive and negative issues are raised?
+Pet Peeves           |What aspects of teaching and classroom life do each of us feel strongly about?
+.                    |How can we identify our pet peeves so as to avoid them? 
+
+From `[Sharon, 2014]`:
+
+> - Achieving effective co-teaching relationships is a complex process'
+> - Obtaining external dimensions is not enough for effective co-teaching partnerships
+> - Teachers can use individual differences as strengths to overcome challenges
+> - Compatibility can be achieved through being similar or complementary
+> - In an effective co-teaching state, teachers are interdependent of each other
 
 Ironic, the Magiera-Simmons quality indicator model of co-teaching
 is not in the academic literature and the website it was at, has moved.
@@ -182,5 +233,6 @@ From `[Hepner & Newman, 2010]`:
 ## References
 
 
+- `[Cook & Friend, 1995]`    Cook, Lynne, and Marilyn Friend. "Co-teaching: Guidelines for creating effective practices." Focus on exceptional children 28 (1995).
 - `[Sharon, 2014]` Pratt, Sharon. "Achieving symbiosis: Working through challenges found in co-teaching to achieve effective co-teaching relationships." Teaching and teacher education 41 (2014): 1-12.
 - `[Hepner & Newman, 2010]` Hepner, Stephanie, and Sarah Newman. "Teaching is teamwork: Preparing for, planning, and implementing effective co-teaching practice." International Schools Journal 29.2 (2010).
