@@ -69,7 +69,6 @@ From `[Cook & Friend, 1995]`:
 > - 4. How willing am I to tell a colleague when I disagree about an
 >   issue or have a concern?
 
-
 From `[Cook & Friend, 1995]`, Table 1, 'Questions for Creating a Collaborative
 Working Relationship in Co-Teaching':
 
@@ -229,10 +228,27 @@ From `[Hepner & Newman, 2010]`:
 >   reflection contributes to the co-teaching partnership?
 > - How can co-teachers reconcile differences in personal planning styles?
 
+From `[Brendle et al, 2017]`:
+
+> The co-teachers’ willingness to share the classroom and instructional responsibilities is
+> key to a positive relationship
+
+From `[Brendle et al, 2017]`:
+
+> The success of a co-teaching partnership is based on the co-teachers’ understanding
+> and expertise in implementing research-based co-teaching models .
+
+From `[Chapple, 2009]`:
+
+> If co-teachers were not of the
+> same philosophical beliefs -that is, that all children can learn and that inclusion is
+> essential for co-teaching to be successful- then the practice of co-teaching would not be
+> effective. 
 
 ## References
 
-
+- `[Brendle et al, 2017]` Brendle, Joanna, Robert Lock, and Kate Piazza. "A study of co-teaching identifying effective implementation strategies." International Journal of Special Education 32.3 (2017): 538-550.
+- `[Chapple, 2009]` Chapple, James William. Co-teaching: From obstacles to opportunities. Ashland University, 2009.
 - `[Cook & Friend, 1995]`    Cook, Lynne, and Marilyn Friend. "Co-teaching: Guidelines for creating effective practices." Focus on exceptional children 28 (1995).
 - `[Sharon, 2014]` Pratt, Sharon. "Achieving symbiosis: Working through challenges found in co-teaching to achieve effective co-teaching relationships." Teaching and teacher education 41 (2014): 1-12.
 - `[Hepner & Newman, 2010]` Hepner, Stephanie, and Sarah Newman. "Teaching is teamwork: Preparing for, planning, and implementing effective co-teaching practice." International Schools Journal 29.2 (2010).
