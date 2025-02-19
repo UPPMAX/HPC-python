@@ -28,10 +28,15 @@ Time        | Topic                          |Teacher
 Status 'Packages':
 
 - Current material can be found [here](https://uppmax.github.io/HPC-python/day1/load_run_packages.html)
+  and is made by Björn
+- [ ] Suggest co-teaching there too?
 
 Status 'Isolated environment':
 
-- Need to talk to Björn
+- Current material can be found [here](https://uppmax.github.io/HPC-python/extra/isolated_deeper.html)
+  and is made by Björn
+- Is this really it? It is part of the 'Extra' material, I guess it can/should
+  be moved
 
 ## What is effective co-teaching?
 
