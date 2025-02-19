@@ -38,6 +38,72 @@ Status 'Isolated environment':
 - Is this really it? It is part of the 'Extra' material, I guess it can/should
   be moved
 
+## Meeting Björn 2025-02-19 ~13:00
+
+Goals:
+
+- To find out how to do co-teaching
+
+Questions:
+
+- What are our personal goals of co-teaching?
+- How do we define good co-teaching?
+- How do we think good co-teaching looks like?
+- How do we prepare our lessons together?
+
+Discuss questions from `[Cook & Friend, 1995]`:
+
+> 1. To what extent am I willing to let someone else carry out
+> teaching tasks at which I am particularly skilled?
+
+- B:
+- R: I can when (1) we agree on the learning outcomes, and (2) there is some
+  from of evaluation (i.e. the other can learn from his/her potential
+  mistake)
+
+> 2. How willing am I to allow a colleague to see aspects of my
+> teaching in which I am not particularly skilled?
+
+- B:
+- R: perfectly fine
+
+> 3. To what degree do I believe that there is more than one right
+> way to carry out almost any teaching/learning task? 
+
+- B:
+- R: I believe that and am interested to find out other ways
+
+> 4. How willing am I to tell a colleague when I disagree about an
+> issue or have a concern?
+
+- B:
+- R: I am willing to do so
+
+
+And `[Hepner & Newman, 2010]`:
+
+> Are you flexible or able to compromise your beliefs? 
+> Which one(s) will you not compromise?
+
+- R: I can compromise on any beliefs based on evidence
+  from the academic literature
+
+> What skills can you contribute to the co-teaching team that will allow you to
+> be successful?
+
+- R: planning, openness, directness, aware of of the literature, preparedness
+
+> How often should co-teachers reflect on their practice? What are some ways
+> reflection contributes to the co-teaching partnership?
+
+- R: For these two hours, one/more questions on an evaluation form are
+  good enough. I'd enjoy to read a reflection from the other teacher
+
+> How can co-teachers reconcile differences in personal planning styles?
+
+- R: I can be flexible and prepare from way-ahead-of-time to last-minute:
+  I just need to know
+
 ## What is effective co-teaching?
 
 Study           |Relevance/quality
@@ -114,7 +180,6 @@ However, I can find these in `[Simmons & Magiera, 2007]`:
 - QI 14 Both Teachers Provide Substantial Instruction To All Students
 - QI 17 The Process of Learning Is Emphasized Along With The Content Being Learned
 
-
 From `[Peery, 2019]`, the four pillars of a good co-teaching relationship:
 
 - Respect
@@ -132,7 +197,7 @@ From  `[Conderman et al., 2008]`:
 > 4. We teach different groups of students at the same time
 > 5. We are aware of what our co-teacher(s) is doing even when we are not directly in his or her presence
 > 6. We share responsibility for deciding what to teach
-> 7 We agree on the curriculum standards that will be addressed in a lesson
+> 7. We agree on the curriculum standards that will be addressed in a lesson
 > 8. We share responsibility for deciding how to teach
 > 9. We share responsibility for deciding who teaches parts of the lesson
 > 10. We are flexible and make changes, as needed, during a lesson
