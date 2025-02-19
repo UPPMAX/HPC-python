@@ -107,6 +107,61 @@ From `[Sharon, 2014]`:
 
 Ironic, the Magiera-Simmons quality indicator model of co-teaching
 is not in the academic literature and the website it was at, has moved.
+However, I can find these in `[Simmons & Magiera, 2007]`:
+
+- QI 8 Both Teachers Are Clearly Responsible For Group Instruction
+- QI 11 Accommodations For Students With Disabilities Are Observed In The Classroom
+- QI 14 Both Teachers Provide Substantial Instruction To All Students
+- QI 17 The Process of Learning Is Emphasized Along With The Content Being Learned
+
+
+From `[Peery, 2019]`, the four pillars of a good co-teaching relationship:
+
+- Respect
+- Communication
+- Flexibility
+- Humor
+
+From  `[Conderman et al., 2008]`:
+
+> In our co-teaching partnership:
+>
+> 1. We decide which co-teaching model we are going to use based on the benefits to students and co-teachers
+> 2. We share ideas, information, and materials
+> 3. We identify the resources and talents of the co-teachers
+> 4. We teach different groups of students at the same time
+> 5. We are aware of what our co-teacher(s) is doing even when we are not directly in his or her presence
+> 6. We share responsibility for deciding what to teach
+> 7 We agree on the curriculum standards that will be addressed in a lesson
+> 8. We share responsibility for deciding how to teach
+> 9. We share responsibility for deciding who teaches parts of the lesson
+> 10. We are flexible and make changes, as needed, during a lesson
+> 11. We identify student strengths and needs
+> 12. We share responsibility for differentiating instruction
+> 13. We include others when their expertise or experience is needed
+> 14. We share responsibility for how student learning is assessed
+> 15. We can show that students are learning when we co-teach
+> 16. We agree on discipline procedures and implement them together
+> 17. We provide feedback to each other on what goes on in the classroom
+> 18. We improve our lessons based on what happens in the classroom
+> 19. We freely communicate our concerns
+> 20. We have a process for resolving disagreements which we use when faced with challenges and conflicts
+> 21. We celebrate the process, outcomes, and successes of co-teaching
+> 22. We have fun with each other and the students when we co-teach
+> 23. We have regularly scheduled times to meet and discuss our work
+> 24. We use our meeting time productively
+> 25. We effectively co-teach even without common planning time
+> 26. We explain co-teaching benefits to students and their families
+> 27. We model collaboration and teamwork for our students
+> 28. We are both viewed by our students as their teacher
+> 29. We include students in the co-teaching role
+> 30. We depend on one another to follow through on responsibilities
+> 31. We seek and enjoy additional training to improve our co-teaching. 
+> 32. We are mentors to others who want to co-teach.
+> 33. We use various co-teaching models.
+> 34. We communicate our needs to our administrators. 
+> 35. We respect and appreciate the contributions of our co-teacher
+
 
 From `[Hepner & Newman, 2010]`:
 
@@ -245,10 +300,32 @@ From `[Chapple, 2009]`:
 > essential for co-teaching to be successful- then the practice of co-teaching would not be
 > effective. 
 
+From `[Walther-Thomas et al., 1996]`, to discuss at a first meeting:
+
+> - `1`. What are your expectations for students regarding: Participation? Daily preparation? Written assignments and/or homework completion?
+> - `2`. What are your basic classroom rules? What are the consequences?
+> - `3`. Typically, how are students grouped for instruction in your classroom?
+> - `4`. What instructional methods do you like to use (e.g., lectures, class discussions)?
+> - `5`. What practice activities do you like to use (e.g., cooperative learning groups? labs?)
+> - `6`. How do you monitor and evaluate student progress?
+> - `7`. Describe your typical tests and quizzes.
+> - `8`. Describe other typical projects and assignments.
+> - `9`. Do you differentiate instruction for students with special needs? If so, how?
+> - `10`. Is any special assistance given to students with disabilities during class? On written assignments? On quizzes and tests?
+> - `11`. How and when do you communicate with families?
+> - `12`. What are your strengths as a teacher? What are your weaknesses? Pet peeves?
+> - `13`. What do you see are our potential roles and responsibilities as co-teachers?
+> - `14`. If we decide to co-teach together, what are your biggest hopes for our work as a team? What are your biggest concerns?
+
 ## References
 
 - `[Brendle et al, 2017]` Brendle, Joanna, Robert Lock, and Kate Piazza. "A study of co-teaching identifying effective implementation strategies." International Journal of Special Education 32.3 (2017): 538-550.
 - `[Chapple, 2009]` Chapple, James William. Co-teaching: From obstacles to opportunities. Ashland University, 2009.
+- `[Conderman et al., 2008]` Conderman, Greg, et al. Purposeful co-teaching: Real cases and effective strategies. Corwin Press, 2008.
 - `[Cook & Friend, 1995]`    Cook, Lynne, and Marilyn Friend. "Co-teaching: Guidelines for creating effective practices." Focus on exceptional children 28 (1995).
-- `[Sharon, 2014]` Pratt, Sharon. "Achieving symbiosis: Working through challenges found in co-teaching to achieve effective co-teaching relationships." Teaching and teacher education 41 (2014): 1-12.
 - `[Hepner & Newman, 2010]` Hepner, Stephanie, and Sarah Newman. "Teaching is teamwork: Preparing for, planning, and implementing effective co-teaching practice." International Schools Journal 29.2 (2010).
+- `[Sharon, 2014]` Pratt, Sharon. "Achieving symbiosis: Working through challenges found in co-teaching to achieve effective co-teaching relationships." Teaching and teacher education 41 (2014): 1-12.
+- `[Simmons & Magiera, 2007]` Simmons, Rhea J., and Kathleen Magiera. "Evaluation of Co-Teaching in Three High Schools within One School District: How Do You Know when You Are TRULY Co-Teaching?." Teaching Exceptional Children Plus 3.3 (2007): n3.
+- `[Walther-Thomas et al., 1996]` Walther-Thomas, Chriss, Mimi Bryant, and Sue Land. "Planning for effective co-teaching the key to successful inclusion: The key to successful inclusion." Remedial and special education 17.4 (1996): 255-264.
+
+- `[Peery, 2019]` Peery, Angela. The Co-Teacher′ s Playbook: What It Takes to Make Co-Teaching Work for Everyone. Corwin Press, 2019.
