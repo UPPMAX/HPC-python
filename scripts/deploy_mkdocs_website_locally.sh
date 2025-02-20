@@ -18,7 +18,4 @@ if [[ "$PWD" =~ scripts$ ]]; then
     exit 42
 fi
 
-python3 -m venv hpc_python_venv
-source hpc_python_venv/bin/activate
-pip install -r requirements.txt
 mkdocs serve
