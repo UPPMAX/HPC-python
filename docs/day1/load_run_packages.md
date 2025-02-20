@@ -2,8 +2,23 @@
 
 !!! info "Learning outcomes"
 
-    - import package
-    - determine whether a Python package is installed already on system
+    - Practice using the documentation of your HPC cluster
+    - Find a Python module
+    - Load a Python module
+    - Find Python installed Python packages
+    - Import a Python package
+
+!!! info "Learning outcomes"
+
+    From the first session of
+    [the NAISS 'Intro to Python' course](https://uppmax.github.io/uppmax_intro_python/sessions/using_the_python_interpreter/):
+
+    - Practice using the documentation of your HPC cluster
+    - Practice using the Python book
+      [How to Think Like a Computer Scientist: Learning with Python 3](https://openbookproject.net/thinkcs/python/english3e/index.html)
+    - To be able to login to your HPC cluster
+    - To be able to load Python
+    - To be able to run a minimal Python program
 
 <!-- below is still RST -->
 
