@@ -4,9 +4,9 @@ edit_uri: blob/main/docs/
 
 nav:
   - Day 1:
-    - Intro: day_1/intro.md
-    - Load and run packages: day_1/load_run_packages.md
-    - Install packages: day_1/install_packages.md
+    - Intro: day1/intro.md
+    - Load and run packages: day1/load_run_packages.md
+    - Install packages: day1/install_packages.md
   - Misc:
     - Deploy locally: deploy_locally.md
 

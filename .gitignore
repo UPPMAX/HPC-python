@@ -3,3 +3,4 @@ _build
 *.swp
 *.swo
 wordlist.dic
+hpc_python_venv/
