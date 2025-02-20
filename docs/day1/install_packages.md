@@ -67,7 +67,7 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
 
    **About Conda on HPC systems**
 
-   - Conda is good in many ways but can interact negatively when trying to use the pytrhon modules in the HPC systems.
+   - Conda is good in many ways but can interact negatively when trying to use the Python modules in the HPC systems.
    - LUNARC seems to have working solutions
    - At UPPMAX Conda is installed but we have many users that get into problems. 
 	- However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
@@ -224,7 +224,7 @@ Deactivate the venv.
     
 
 
-Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
+Every time you need the tools available in the virtual environment you activate it as above (after also loading the modules).
 
 .. prompt:: console
 
@@ -234,8 +234,8 @@ Everytime you need the tools available in the virtual environment you activate i
 .. note::
 
    - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
-   - Some packaegs may be inhereted from the moduels yopu have loaded
-   - You can do ``pip list --local`` to see what is instaleld by you in the environment.
+   - Some packages may be inherited from the modules you have loaded
+   - You can do ``pip list --local`` to see what is installed by you in the environment.
    - Some IDE:s like Spyder may only find those "local" packages
 
 Working with virtual environments defined from files
@@ -284,7 +284,7 @@ User
 ....
 
 - Create an environment based on dependencies given in an environment file
-- This can be done in new virtual environment or as a genera installtion locally (not activating any environment
+- This can be done in new virtual environment or as a genera installation locally (not activating any environment
   
 .. code-block:: console
 
@@ -586,7 +586,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
    - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
    - Make it for each project you have for reproducibility.
-   - There are different tools to create virtual environemnts.
+   - There are different tools to create virtual environments.
    
       - UPPMAX has ``conda`` and ``venv`` and ``virtualenv``
       - HPC2N has ``venv`` and ``virtualenv``
