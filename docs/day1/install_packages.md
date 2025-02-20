@@ -1,5 +1,14 @@
 # Install packages
 
+!!! info "Learning objectives"
+
+    - install with with pip
+    - work (create, activate, work, deactivate) with venv virtual environments
+    - work (create, activate, work, deactivate) with Conda environments
+    - export and import a virtual environment
+
+<!-- below is still RST -->
+
 .. objectives:: 
 
    Learners can 

@@ -1,5 +1,12 @@
 # Load and run python and use packages
 
+!!! info "Learning outcomes"
+
+    - import package
+    - determine whether a Python package is installed already on system
+
+<!-- below is still RST -->
+
 At UPPMAX, HPC2N, LUNARC, and NSC (and most other Swedish HPC centres) we call the applications available via the module system modules. 
     - http://docs.uppmax.uu.se/cluster_guides/modules/
     - https://docs.hpc2n.umu.se/documentation/modules/
