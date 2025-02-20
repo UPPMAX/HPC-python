@@ -51,7 +51,7 @@ Material for improving your programming skills
 
 .. admonition:: Second level
 
-   Other course/workhops given by NAISS HPC centres:
+   Other course/workshops given by NAISS HPC centres:
 
    - `Pandas by LUNARC <https://github.com/rlpitts/Intro-to-Pandas>`_
    - `Matplotlib for publication <https://github.com/rlpitts/Matplotlib4Publication>`_
