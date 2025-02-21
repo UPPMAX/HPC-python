@@ -22,7 +22,7 @@ See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/uppmax_intro_
 
 Time        | Topic                          |Teacher
 ------------|--------------------------------|-----------------------
-09:00-10:00 | Packages                       | Richel
+09:00-10:00 | Packages                       | Björn+Richel (co-teaching)
 10:00-10:15 | Break                          |.
 10:15-11:00 | Isolated environments conda/pip| Björn+Richel (co-teaching)
 11:00-11:15 | Break           |.
@@ -45,9 +45,9 @@ Time        | Topic                          |Teacher
 
 Time       | Topic |Teacher
 -----------|-----------|-----------------------
-09:00-10:00 | Pandas | ?Rebecca ?Richel
+09:00-10:00 | Pandas | ?Rebecca
 10:00-10:15 | Break|.
-10:15-11:00 | Pandas (enough time?)| ?Rebecca  ?Richel
+10:15-11:00 | Pandas (enough time?)| ?Rebecca
 11:00-11:15 | Break|.
 11:15-12:00 | Seaborn (enough time)?| ?Rebecca  ?Björn
 12:00-13:00 | Break|.
