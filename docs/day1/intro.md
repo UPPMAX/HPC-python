@@ -2,7 +2,7 @@
 
 !!! info "Learning outcomes"
 
-    - [none]
+    - Learners know how the course material is organized
 
 <!-- below is still RST -->
 
