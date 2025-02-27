@@ -33,12 +33,20 @@ jobs:
           key: cache-lychee-${{ github.sha }}
           restore-keys: cache-lychee-
 
-      - name: Link Checker
-        id: lychee
-        uses: lycheeverse/lychee-action@v1.10.0
+      #- name: Check RST files
+      #  id: lychee
+      #  uses: lycheeverse/lychee-action@v1.10.0
+      #  with:
+      #    # Check all reStructuredText files in repo 
+      #    args: --base docs/ --max-redirects 10 --user-agent "curl/8.4.0" --verbose --no-progress './**/*.rst'
+
+
+      - name: Check MD files
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          # Check all reStructuredText files in repo 
-          args: --base docs/ --max-redirects 10 --user-agent "curl/8.4.0" --verbose --no-progress './**/*.rst'
+          config-file: 'mlc_config.json'
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'no'
 
       - name: Create Issue From File
         if: env.lychee_exit_code != 0
