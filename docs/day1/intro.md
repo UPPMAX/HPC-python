@@ -3,6 +3,7 @@
 !!! info "Learning outcomes"
 
     - Learners know how the course material is organized
+    - Learners know how to download and unzip the tarball
 
 <!-- below is still RST -->
 
