@@ -1,0 +1,1258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Load and run python and use packages &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install packages" href="install_packages.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Schedule:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Preliminary schedule</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Load and run python and use packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#check-for-python-versions">Check for Python versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-a-python-module">Load a Python module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run">Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packages-python-modules">Packages/Python modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-current-available-packages">Check current available packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demo-type-along">Demo/Type-along</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises-c-10-min">Exercises  (C. 10 min)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs.html">Loading IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Matplotlib60min.html">Matplotlib in 60 Minutes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary1.html">Summary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/pandas.html">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/Seaborn-Intro.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra reading:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Load and run python and use packages</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day1/load_run_packages.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="load-and-run-python-and-use-packages">
+<h1>Load and run python and use packages<a class="headerlink" href="#load-and-run-python-and-use-packages" title="Link to this heading"></a></h1>
+<p>!!! info “Learning outcomes”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Practice using the documentation of your HPC cluster
+- Find a Python module
+- Load a Python module
+- Find Python installed Python packages
+- Import a Python package
+</pre></div>
+</div>
+<p>!!! info “Learning outcomes”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>From the first session of
+[the NAISS &#39;Intro to Python&#39; course](https://uppmax.github.io/uppmax_intro_python/sessions/using_the_python_interpreter/):
+
+- Practice using the documentation of your HPC cluster
+- Practice using the Python book
+  [How to Think Like a Computer Scientist: Learning with Python 3](https://openbookproject.net/thinkcs/python/english3e/index.html)
+- To be able to login to your HPC cluster
+- To be able to load Python
+- To be able to run a minimal Python program
+</pre></div>
+</div>
+<!-- below is still RST -->
+<p>At UPPMAX, HPC2N, LUNARC, and NSC (and most other Swedish HPC centres) we call the applications available via the module system modules.
+- http://docs.uppmax.uu.se/cluster_guides/modules/
+- https://docs.hpc2n.umu.se/documentation/modules/
+- https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/
+- https://www.nsc.liu.se/software/modules/</p>
+<p>… objectives::</p>
+<ul class="simple">
+<li><p>Show how to load Python</p></li>
+<li><p>Show how to run Python scripts and start the Python command line</p></li>
+</ul>
+<p>… admonition:: Short cheat sheet</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- See which modules exists: ``module spider`` or ``ml spider``
+- Find module versions for a particular software: ``module spider &lt;software&gt;``
+- Modules depending only on what is currently loaded: ``module avail`` or ``ml av``
+- See which modules are currently loaded: ``module list`` or ``ml``
+- Load a module: ``module load &lt;module&gt;/&lt;version&gt;`` or ``ml &lt;module&gt;/&lt;version&gt;``
+- Unload a module: ``module unload &lt;module&gt;/&lt;version&gt;`` or ``ml -&lt;module&gt;/&lt;version&gt;``
+- More information about a module: ``module show &lt;module&gt;/&lt;version&gt;`` or ``ml show &lt;module&gt;/&lt;version&gt;``
+- Unload all modules except the &#39;sticky&#39; modules: ``module purge`` or ``ml purge``
+</pre></div>
+</div>
+<p>… warning::</p>
+<ul class="simple">
+<li><p>Note that the module systems at UPPMAX, HPC2N, LUNARC, and NSC are slightly different.</p></li>
+<li><p>While all modules at</p>
+<ul>
+<li><p>UPPMAX not directly related to bio-informatics are shown by <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">avail</span></code></p></li>
+<li><p>NSC are show by <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">avail</span></code></p></li>
+<li><p>HPC2N and LUNARC are hidden until one has loaded a prerequisite like the compiler <code class="docutils literal notranslate"><span class="pre">GCC</span></code>.</p></li>
+</ul>
+</li>
+<li><p>For reproducibility reasons, you should always load a specific version of a module instead of just the default version</p></li>
+<li><p>Many modules have prerequisite modules which needs to be loaded first (at HPC2N/LUNARC/NSC this is also the case for the Python modules). When doing <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span> <span class="pre">&lt;module&gt;/&lt;version&gt;</span></code> you will get a list of which other modules needs to be loaded first</p></li>
+</ul>
+<section id="check-for-python-versions">
+<h2>Check for Python versions<a class="headerlink" href="#check-for-python-versions" title="Link to this heading"></a></h2>
+<p>… tip::</p>
+<p><strong>Type along!</strong></p>
+<p>… tabs::</p>
+<p>… tab:: UPPMAX</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Check all available Python versions with:
+
+  .. code-block:: console
+
+      $ module avail python
+
+  NOTE that python is written in lower case!
+</pre></div>
+</div>
+<p>… tab:: HPC2N</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Check all available version Python versions with:
+
+  .. code-block:: console
+
+     $ module spider Python
+  
+  To see how to load a specific version of Python, including the prerequisites, do 
+
+  .. code-block:: console
+
+     $ module spider Python/&lt;version&gt;
+
+  Example for Python 3.11.3 
+
+  .. code-block:: console
+
+     $ module spider Python/3.11.3
+</pre></div>
+</div>
+<p>… tab:: LUNARC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Check all available Python versions with: 
+
+  .. code-block:: console 
+
+     $ module spider Python 
+
+  To see how to load a specific version of Python, including the prerequisites, do 
+
+  .. code-block:: console 
+
+     $ module spider Python/&lt;version&gt;
+
+  Example for Python 3.11.5 
+
+  .. code-block:: console
+
+     $ module spider Python/3.11.5
+</pre></div>
+</div>
+<p>… tab:: NSC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Check all available Python versions with: 
+
+  .. code-block:: console
+
+     $ module spider Python
+
+  To see how to load a specific version of Python, including the prerequisites, do 
+
+  .. code-block:: console 
+
+     $ module spider Python/&lt;version&gt;
+
+  Example for Python 3.10.4
+
+  .. code-block:: console
+
+     $ module spider Python/3.10.4
+</pre></div>
+</div>
+<p>… admonition:: Output at UPPMAX as of May 14, 2024
+:class: dropdown</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   .. code-block::  console
+
+       ----------------------------------- /sw/mf/rackham/applications -----------------------------------
+          python_GIS_packages/3.10.8      python_ML_packages/3.9.5-gpu         wrf-python/1.3.1
+          python_ML_packages/3.9.5-cpu    python_ML_packages/3.11.8-cpu (D)
+       
+       ------------------------------------ /sw/mf/rackham/compilers -------------------------------------
+          python/2.7.6     python/3.4.3    python/3.9.5         python3/3.6.8     python3/3.11.8
+          python/2.7.9     python/3.5.0    python/3.10.8        python3/3.7.2     python3/3.12.1 (D)
+          python/2.7.11    python/3.6.0    python/3.11.4        python3/3.8.7
+          python/2.7.15    python/3.6.8    python/3.11.8        python3/3.9.5
+          python/3.3       python/3.7.2    python/3.12.1 (D)    python3/3.10.8
+          python/3.3.1     python/3.8.7    python3/3.6.0        python3/3.11.4
+
+      Where:
+       D:  Default Module
+
+       Use module spider&quot; to find all possible modules and extensions.
+       Use &quot;module keyword key1 key2 ...&quot; to search for all possible modules matching any of the &quot;keys&quot;.
+</pre></div>
+</div>
+<p>… admonition:: Output at HPC2N as of May 14, 2024
+:class: dropdown</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    .. code-block:: console
+
+       b-an01 [~]$ module spider Python
+       ----------------------------------------------------------------------------
+       Python:
+       ----------------------------------------------------------------------------
+       Description:
+           Python is a programming language that lets you work more quickly and
+           integrate your systems more effectively.
+
+        Versions:
+            Python/2.7.15   
+            Python/2.7.16  
+            Python/2.7.18-bare 
+            Python/2.7.18  
+            Python/3.7.2   
+            Python/3.7.4   
+            Python/3.8.2   
+            Python/3.8.6   
+            Python/3.9.5-bare  
+            Python/3.9.5   
+            Python/3.9.6-bare  
+            Python/3.9.6   
+            Python/3.10.4-bare
+            Python/3.10.4
+            Python/3.10.8-bare
+            Python/3.10.8
+            Python/3.11.3
+            Python/3.11.5
+        Other possible modules matches:
+            Biopython  Boost.Python  GitPython  IPython  flatbuffers-python  ...
+       ----------------------------------------------------------------------------
+       To find other possible module matches execute:
+           $ module -r spider &#39;.*Python.*&#39;
+       ----------------------------------------------------------------------------
+       For detailed information about a specific &quot;Python&quot; package (including how to load the modules) use the module&#39;s full name.
+           Note that names that have a trailing (E) are extensions provided by other modules.
+   
+       For example:
+        $ module spider Python/3.9.5
+       ----------------------------------------------------------------------------
+</pre></div>
+</div>
+<p>… admonition:: Output at LUNARC as of Nov 5, 2024
+:class: dropdown</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    .. code-block:: console
+
+       $ module spider Python
+
+       --------------------------------------------------------------------------------------------------------
+         Python:
+       --------------------------------------------------------------------------------------------------------
+           Description:
+             Python is a programming language that lets you work more quickly and integrate your systems more effectively.
+
+            Versions:
+               Python/2.7.18-bare
+               Python/2.7.18
+               Python/3.8.6
+               Python/3.9.5-bare
+               Python/3.9.5
+               Python/3.9.6-bare
+               Python/3.9.6
+               Python/3.10.4-bare 
+               Python/3.10.4
+               Python/3.10.8-bare
+               Python/3.10.8
+               Python/3.11.3
+               Python/3.11.5
+               Python/3.12.3
+            Other possible modules matches:
+               Biopython  GitPython  IPython  Python-bundle  Python-bundle-PyPI  bx-python  flatbuffers-python  ...
+
+       --------------------------------------------------------------------------------------------------------
+          To find other possible module matches execute:
+
+             $ module -r spider &#39;.*Python.*&#39;
+
+       --------------------------------------------------------------------------------------------------------
+         For detailed information about a specific &quot;Python&quot; package (including how to load the modules) use the module&#39;s full name.
+         Note that names that have a trailing (E) are extensions provided by other modules.
+         For example:
+
+            $ module spider Python/3.12.3
+       --------------------------------------------------------------------------------------------------------
+</pre></div>
+</div>
+<p>… admonition:: Output at NSC (Tetralith) as of Nov 20, 2024
+:class: dropdown</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    .. code-block:: console
+
+       $ module spider Python
+       ####################################################################################################################################
+       # NOTE: At NSC the output of &#39;module spider&#39; is generally not helpful as all relevant software modules are shown by &#39;module avail&#39; #
+       # Some HPC centers hide software until the necessary dependencies have been loaded. NSC does not do that.                          #
+       ####################################################################################################################################
+
+       ----------------------------------------------------------------------------
+         Python:
+       ----------------------------------------------------------------------------
+            Versions:
+               Python/recommendation
+               Python/2.7.18-bare-hpc1-gcc-2022a-eb
+               Python/2.7.18-bare
+               Python/3.10.4-bare-hpc1-gcc-2022a-eb
+               Python/3.10.4-bare
+               Python/3.10.4-env-hpc1-gcc-2022a-eb
+               Python/3.10.4-env-hpc2-gcc-2022a-eb
+               Python/3.10.4
+               Python/3.10.8-bare
+               Python/3.10.8
+               Python/3.11.3
+               Python/3.11.5
+            Other possible modules matches:
+               IPython  netcdf4-python
+
+       ----------------------------------------------------------------------------
+         To find other possible module matches execute:
+
+             $ module -r spider &#39;.*Python.*&#39;
+
+       ----------------------------------------------------------------------------
+         For detailed information about a specific &quot;Python&quot; package (including how to load the modules) use the module&#39;s full name.
+         Note that names that have a trailing (E) are extensions provided by other modules.
+          For example:
+
+            $ module spider Python/3.11.5
+       ----------------------------------------------------------------------------
+</pre></div>
+</div>
+<p>… note::</p>
+<p>Unless otherwise said, we recommend using Python 3.11.x in this course at HPC2N, UPPMAX, LUNARC, and NSC. We will us Python 3.10.4 at NSC for a small number of examples, since more packages are installed for that.</p>
+</section>
+<section id="load-a-python-module">
+<h2>Load a Python module<a class="headerlink" href="#load-a-python-module" title="Link to this heading"></a></h2>
+<p>For reproducibility, we recommend ALWAYS loading a specific module instead of using the default version!</p>
+<p>… tip::</p>
+<p><strong>Type along!</strong></p>
+<p>… tabs::</p>
+<p>… tab:: UPPMAX</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Go back and check which Python modules were available. To load version 3.11.8, do:
+
+  .. code-block:: console
+
+    $ module load python/3.11.8
+    
+  Note: Lowercase ``p``.
+  For short, you can also use: 
+
+  .. code-block:: console
+
+     $ ml python/3.11.8
+</pre></div>
+</div>
+<p>… tab:: HPC2N</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  To load Python version 3.11.3, do: 	    
+
+  .. code-block:: console
+
+     $ module load GCC/12.3.0 Python/3.11.3
+
+  Note: Uppercase ``P``.   
+  For short, you can also use: 
+
+  .. code-block:: console
+
+     $ ml GCC/12.3.0 Python/3.11.3
+</pre></div>
+</div>
+<p>… tab:: LUNARC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  To load Python version 3.11.5, do:
+
+  .. code-block:: console
+
+     $ module load GCC/13.2.0 Python/3.11.5
+
+  Note: Uppercase ``P``.
+  For short, you can also use:
+
+  .. code-block:: console
+
+     $ ml GCC/13.2.0 Python/3.11.5
+</pre></div>
+</div>
+<p>… tab:: NSC (Tetralith)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  To load Python version 3.11.5, do: 
+
+  .. code-block:: console
+
+     $ ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
+
+  To load Python version 3.10.4, do:
+
+  .. code-block:: console
+
+     $ module load buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0 Python/3.10.4
+
+  Note: Uppercase ``P``.
+  For short, you can also use (Python/3.10.4):
+
+  .. code-block:: console
+
+     $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0 Python/3.10.4 
+</pre></div>
+</div>
+<p>… warning::</p>
+<ul class="simple">
+<li><p>UPPMAX: Don’t use system-installed python (2.7.5)</p></li>
+<li><p>UPPMAX: Don’t use system installed python3 (3.6.8)</p></li>
+<li><p>HPC2N: Don’t use system-installed python (2.7.18)</p></li>
+<li><p>HPC2N: Don’t use system-installed python3  (3.8.10)</p></li>
+<li><p>LUNARC: Don’t use system-installed python/python3 (3.9.18)</p></li>
+<li><p>NSC: Don’t use system-installed python/python3 (3.9.18)</p></li>
+<li><p>ALWAYS use python module</p></li>
+</ul>
+<p>… admonition:: Why are there both Python/2.X.Y and Python/3.Z.W modules?</p>
+<ul class="simple">
+<li><p>Some existing software might use <code class="docutils literal notranslate"><span class="pre">Python2</span></code> and some will use <code class="docutils literal notranslate"><span class="pre">Python3</span></code>.</p></li>
+<li><p>Some of the Python packages have both <code class="docutils literal notranslate"><span class="pre">Python2</span></code> and <code class="docutils literal notranslate"><span class="pre">Python3</span></code> versions.</p></li>
+<li><p>Check what your software as well as the installed modules need when you pick!</p></li>
+</ul>
+<p>… admonition:: UPPMAX: Why are there both python/3.X.Y and python3/3.X.Y modules?</p>
+<ul class="simple">
+<li><p>Sometimes existing software might use <code class="docutils literal notranslate"><span class="pre">python2</span></code> and there’s nothing you can do about that.</p></li>
+<li><p>In pipelines and other toolchains the different tools may together require both <code class="docutils literal notranslate"><span class="pre">python2</span></code> and <code class="docutils literal notranslate"><span class="pre">python3</span></code>.</p></li>
+<li><p>Here’s how you handle that situation:</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+ You can run two python modules at the same time if ONE of the module is ``python/2.X.Y`` and the other module is ``python3/3.X.Y`` (not ``python/3.X.Y``).
+</pre></div>
+</div>
+<p>… admonition:: LUNARC: Are <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">python3</span></code> equivalent, or does the former load Python/2.X.Y?</p>
+<p>The answer depends on which module is loaded. If Python/3.X.Y is loaded, then <code class="docutils literal notranslate"><span class="pre">python</span></code> is just an alias for <code class="docutils literal notranslate"><span class="pre">python3</span></code> and it will start the same command line. However, if Python/2.7.X is loaded, then <code class="docutils literal notranslate"><span class="pre">python</span></code> will start the Python/2.7.X command line while <code class="docutils literal notranslate"><span class="pre">python3</span></code> will start the system version (3.9.18). If you load Python/2.7.X and then try to load Python/3.X.Y as well, or vice-versa, the most recently loaded Python version will replace anything loaded prior, and all dependencies will be upgraded or downgraded to match. Only the system’s Python/3.X.Y version can be run at the same time as a version of Python/2.7.X.</p>
+</section>
+<section id="run">
+<h2>Run<a class="headerlink" href="#run" title="Link to this heading"></a></h2>
+<p>Run Python script
+#################</p>
+<p>… hint::</p>
+<ul class="simple">
+<li><p>There are many ways to edit your scripts.</p></li>
+<li><p>If you are rather new.</p>
+<ul>
+<li><p>Graphical: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">gedit</span> <span class="pre">&lt;script&gt;</span> <span class="pre">&amp;</span></code></p>
+<ul>
+<li><p>(<code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is for letting you use the terminal while editor window is open)</p></li>
+<li><p>Requires ThinLinc or <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span></code></p></li>
+</ul>
+</li>
+<li><p>Terminal: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">nano</span> <span class="pre">&lt;script&gt;</span></code></p></li>
+</ul>
+</li>
+<li><p>Otherwise you would know what to do!</p></li>
+<li><p>|:warning:| The teachers may use their common editor, like <code class="docutils literal notranslate"><span class="pre">vi</span></code>/<code class="docutils literal notranslate"><span class="pre">vim</span></code></p>
+<ul>
+<li><p>If you get stuck in <code class="docutils literal notranslate"><span class="pre">vim</span></code>, press: <code class="docutils literal notranslate"><span class="pre">&lt;esc&gt;</span></code> and then <code class="docutils literal notranslate"><span class="pre">:q</span></code> !</p></li>
+</ul>
+</li>
+</ul>
+<p>… type-along::</p>
+<ul class="simple">
+<li><p>Let’s make a script with the name <code class="docutils literal notranslate"><span class="pre">example.py</span></code></p></li>
+</ul>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  $ nano example.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Insert the following text</p></li>
+</ul>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  # This program prints Hello, world!
+  print(&#39;Hello, world!&#39;)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Save and exit. In nano: <code class="docutils literal notranslate"><span class="pre">&lt;ctrl&gt;+O</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;ctrl&gt;+X</span></code></p></li>
+</ul>
+<p>You can run a python script in the shell like this:</p>
+<p>… code-block:: bash</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  $ python example.py
+  # or 
+  $ python3 example.py
+</pre></div>
+</div>
+<p>… warning::</p>
+<ul class="simple">
+<li><p><em>ONLY</em> run jobs that are short and/or do not use a lot of resources from the command line.</p></li>
+<li><p>Otherwise use the batch system (see the <code class="docutils literal notranslate"><span class="pre">batch</span> <span class="pre">session</span> <span class="pre">&lt;https://uppmax.github.io/HPC-python/day1/batch.html&gt;</span></code>_)</p></li>
+</ul>
+<p>Run an interactive Python shell
+###############################</p>
+<ul class="simple">
+<li><p>You can start a simple python terminal by:</p></li>
+</ul>
+<p>… code-block:: console</p>
+<p>$ python</p>
+<p><strong>Example</strong></p>
+<p>… code-block:: python</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>a=3
+b=7
+c=a+b
+c
+10</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li><p>Exit Python with <Ctrl-D>, <code class="docutils literal notranslate"><span class="pre">quit()</span></code> or <code class="docutils literal notranslate"><span class="pre">exit()</span></code> in the python prompt</p></li>
+</ul>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; &lt;Ctrl-D&gt;
+&gt;&gt;&gt; quit()
+&gt;&gt;&gt; exit()
+</pre></div>
+</div>
+<p>For more interactiveness you can run Ipython.</p>
+<p>… tip::</p>
+<p><strong>Type along!</strong></p>
+<p>… tabs::</p>
+<p>… tab:: UPPMAX</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  NOTE: remember to load a python module first. Then start IPython from the terminal
+  
+  .. code-block:: console
+
+     $ ipython 
+
+  or 
+
+  .. code-block:: console
+
+     $ ipython3 
+     
+  UPPMAX has also ``jupyter-notebook`` installed and available from the loaded Python module. Start with
+   
+  .. code-block:: console
+
+     $ jupyter-notebook 
+     
+  You can decide on your own favorite browser and add ``--no-browser`` and open the given URL from the output given.
+  From python/3.10.8 and forward, also jupyterlab is available.
+</pre></div>
+</div>
+<p>… tab:: HPC2N</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  NOTE: remember to load an IPython module first. You can see possible modules with 
+
+  .. code-block:: console
+
+     $ module spider IPython
+
+  And load one of them (here 8.14.0) with
+
+  .. code-block:: console
+ 
+    $ ml GCC/12.3.0 IPython/8.14.0 
+     
+  Then start Ipython with (lowercase):
+  
+  .. code-block:: console
+
+     $ ipython 
+
+  HPC2N also has ``JupyterLab`` installed. It is available as a module, but the process of using it is somewhat involved. We will cover it more under the session on &lt;a href=&quot;https://uppmax.github.io/HPC-python/day1/interactive.html&quot;&gt;Interactive work on the compute nodes&lt;/a&gt;. Otherwise, see this tutorial: 
+
+  - https://docs.hpc2n.umu.se/tutorials/jupyter/ 
+</pre></div>
+</div>
+<p>… tab:: LUNARC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  NOTE: remember to load an IPython module first. You can see possible modules with 
+
+  .. code-block:: console
+
+     $ module spider IPython
+
+  And load one of them (here 8.14.0) with
+
+  .. code-block:: console
+     
+    $ ml GCC/12.3.0 IPython/8.14.0 
+     
+  Then start Ipython with (lowercase):
+  
+  .. code-block:: console
+
+     $ ipython 
+
+  LUNARC also has ``JupyterLab``, ``JupyterNotebook``, and ``JupyterHub`` installed.  
+</pre></div>
+</div>
+<p>… tab:: NSC (Tetralith)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  NOTE: remember to load an IPython module first. You can see possible modules with 
+
+  .. code-block:: console
+
+     $ module spider IPython
+
+  And load one of them (here 8.5.0) with
+
+  .. code-block:: console
+     
+    $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0 IPython/8.5.0
+     
+  Then start Ipython with (lowercase):
+  
+  .. code-block:: console
+
+     $ ipython 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Exit IPython with <Ctrl-D>, <code class="docutils literal notranslate"><span class="pre">quit()</span></code> or <code class="docutils literal notranslate"><span class="pre">exit()</span></code> in the python prompt</p></li>
+</ul>
+<p>iPython</p>
+<p>… code-block:: ipython</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]: &lt;Ctrl-D&gt;
+In [12]: quit()
+In [17]: exit()
+</pre></div>
+</div>
+</section>
+<section id="packages-python-modules">
+<h2>Packages/Python modules<a class="headerlink" href="#packages-python-modules" title="Link to this heading"></a></h2>
+<p>… admonition:: Python modules AKA Python packages</p>
+<ul class="simple">
+<li><p>Python <strong>packages broaden the use of python</strong> to almost infinity!</p></li>
+<li><p>Instead of writing code yourself there may be others that have done the same!</p></li>
+<li><p>Many <strong>scientific tools</strong> are distributed as <strong>python packages</strong>, making it possible to run a script in the prompt and there define files to be analysed and arguments defining exactly what to do.</p></li>
+<li><p>A nice <strong>introduction to packages</strong> can be found here: <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">for</span> <span class="pre">scientific</span> <span class="pre">computing</span> <span class="pre">&lt;https://aaltoscicomp.github.io/python-for-scicomp/dependencies/&gt;</span></code>_</p></li>
+</ul>
+<p>… questions::</p>
+<ul class="simple">
+<li><p>How do I find which packages and versions are available?</p></li>
+<li><p>What to do if I need other packages?</p></li>
+<li><p>Are there differences between HPC2N, LUNARC, UPPMAX, and NSC?</p></li>
+</ul>
+<p>… objectives::</p>
+<ul class="simple">
+<li><p>Show how to check for Python packages</p></li>
+<li><p>show how to install own packages on the different clusters</p></li>
+</ul>
+</section>
+<section id="check-current-available-packages">
+<h2>Check current available packages<a class="headerlink" href="#check-current-available-packages" title="Link to this heading"></a></h2>
+<p>General for all four centers
+#############################</p>
+<p>Some python packages are working as stand-alone tools, for instance in bioinformatics. The tool may be already installed as a module. Check if it is there by:</p>
+<p>… code-block:: console</p>
+<p>$ module spider <tool-name or tool-name part></p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span></code> lets you search regardless of upper- or lowercase characters and regardless of already loaded modules (like <code class="docutils literal notranslate"><span class="pre">GCC</span></code> on HPC2N/LUNARC/NSC and <code class="docutils literal notranslate"><span class="pre">bioinfo-tools</span></code> on UPPMAX).</p>
+<p>… tabs::</p>
+<p>… tab:: UPPMAX</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Check the pre-installed packages of a specific python module:
+
+.. code-block:: console
+
+   $ module help python/&lt;version&gt; 
+</pre></div>
+</div>
+<p>… tab:: HPC2N</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>At HPC2N, a way to find Python packages that you are unsure how are names, would be to do
+
+.. code-block:: console
+
+   $ module -r spider ’.*Python.*’
+
+or
+
+.. code-block:: console
+
+   $ module -r spider ’.*python.*’
+
+Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
+</pre></div>
+</div>
+<p>… tab:: LUNARC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  At LUNARC, a way to find Python packages that you are unsure how are names, would be to do
+
+    .. code-block:: console
+
+       $ module -r spider ’.*Python.*’
+
+    or
+
+    .. code-block:: console
+
+       $ module -r spider ’.*python.*’
+
+    Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
+</pre></div>
+</div>
+<p>… tab:: NSC (Tetralith)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  At NSC, a way to find Python packages that you are unsure how are names, would be to do
+
+    .. code-block:: console
+
+       $ module -r spider ’.*Python.*’
+
+    or
+
+    .. code-block:: console
+
+       $ module -r spider ’.*python.*’
+
+    Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
+</pre></div>
+</div>
+<p>Check the pre-installed packages of a loaded python module, in shell:</p>
+<p>… code-block:: console</p>
+<p>$ pip list</p>
+<p>To see which Python packages you, yourself, has installed, you can use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span> <span class="pre">--user</span></code> while the environment you have installed the packages in are active.</p>
+<p>You can also test from within python to make sure that the package is not already installed:</p>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import &lt;package&gt;
+</pre></div>
+</div>
+<p>Does it work? Then it is there!</p>
+<p>Otherwise, you can either use <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<p>… admonition:: Check path to the package you are using,</p>
+<ul class="simple">
+<li><p>In a python session, type:</p></li>
+</ul>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  import [a_module]
+  print([a_module].__file__)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The print-out tells you the path to the <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> file, but should give you a hint where it belongs.</p></li>
+</ul>
+<p>… exercise:: Check packages (5 min)</p>
+<ul class="simple">
+<li><p>See if the following packages are installed. Use python version <code class="docutils literal notranslate"><span class="pre">3.11.8</span></code> on Rackham, <code class="docutils literal notranslate"><span class="pre">3.11.3</span></code> on Kebnekaise, <code class="docutils literal notranslate"><span class="pre">3.11.5</span></code> on Cosmos, and <code class="docutils literal notranslate"><span class="pre">3.10.4</span></code> on Tetralith (remember: the Python module on kebnekaise/cosmos/tetralith has prerequisite(s)).</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mpi4py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distributed</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>… solution::</p>
+<ul class="simple">
+<li><p>Rackham has for ordinary python/3.11.8 module already installed:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> |:white_check_mark:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> |:white_check_mark:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distributed</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> |:white_check_mark:|  (standard library)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code> |:white_check_mark:|  (standard library)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask</span></code> |:white_check_mark:|</p></li>
+</ul>
+</li>
+<li><p>Kebnekaise has for ordinary Python/3.11.3 module already installed:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distributed</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> |:white_check_mark:|  (standard library)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code> |:white_check_mark:|  (standard library)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask</span></code>  |:x:|</p></li>
+</ul>
+</li>
+<li><p>Cosmos has for ordinary Python/3.11.5 module already installed:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distributed</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> |:white_check_mark:|  (standard library)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code> |:white_check_mark:|  (standard library)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask</span></code>  |:x:|</p></li>
+</ul>
+</li>
+<li><p>Tetralith has for ordinary Python/3.10.4 module already installed:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distributed</span></code> |:x:|</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> |:white_check_mark:|  (standard library)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code> |:white_check_mark:|  (standard library)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask</span></code>  |:x:|</p></li>
+</ul>
+</li>
+<li><p>You could check for another Python version, say 3.11.5 on Tetralith!</p></li>
+<li><p>See next session how to find more pre-installed packages!</p></li>
+</ul>
+<p><strong>NOTE</strong>: at HPC2N, LUNARC, and NSC, the available Python packages needs to be loaded as modules/module-bundles before using! See a list of some of them below, under the HPC2N/LUNARC/NSC tab or find more as mentioned above, using <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span> <span class="pre">-r</span> <span class="pre">...</span></code></p>
+<p>A selection of the Python packages and libraries installed on UPPMAX, HPC2N, LUNARC, and NSC are given in extra reading: <code class="docutils literal notranslate"><span class="pre">UPPMAX</span> <span class="pre">clusters</span> <span class="pre">&lt;https://uppmax.github.io/HPC-python/uppmax.html&gt;</span></code>_ and <code class="docutils literal notranslate"><span class="pre">Kebnekaise</span> <span class="pre">cluster</span> <span class="pre">&lt;https://uppmax.github.io/HPC-python/kebnekaise.html&gt;</span></code>_ and eventually LUNARC cluster and NSC cluster</p>
+<p>… tabs::</p>
+<p>… tab:: UPPMAX</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  - The python application at UPPMAX comes with several preinstalled packages. 
+  - You can check them here: `UPPMAX packages &lt;https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages&gt;`_.
+  - In addition there are packages available from the module system as `python tools/packages &lt;https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages&gt;`_
+  - Note that bioinformatics-related tools can be reached only after loading ``bioinfo-tools``. 
+  - Two modules contains topic specific packages. These are:
+     
+     - Machine learning: ``python_ML_packages`` (cpu and gpu versions and based on python/3.9.5 and python/3.11.8)
+ - GIS: ``python_GIS_packages`` (cpu version based on python/3.10.8)
+</pre></div>
+</div>
+<p>… tab:: HPC2N</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  - The python application at HPC2N comes with several preinstalled packages - check first before installing yourself! 
+  - HPC2N has both Python 2.7.x and Python 3.x installed. 
+  - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.11.3.
+
+NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: `Anaconda &lt;https://docs.hpc2n.umu.se/tutorials/anaconda/&gt;`_.
+
+
+  - This is a selection of the packages and libraries installed at HPC2N. These are all installed as **modules** and need to be loaded before use. 
+
+  - ``ASE``
+  - ``Keras``
+  - ``PyTorch``
+  - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
+  - ``TensorFlow``
+  - ``Theano``
+  - ``matplotlib``
+  - ``scikit-learn``
+  - ``scikit-image``
+  - ``iPython``
+  - ``Cython``
+  - ``Flask``
+      - ``JupyterLab``  
+      - ``Python-bundle-PyPI`` (Bundle of Python packages from PyPi)
+</pre></div>
+</div>
+<p>… tab:: LUNARC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  - The python application at LUNARC comes with several preinstalled packages - check first before installing yourself! 
+  - LUNARC has both Python 2.7.x and Python 3.x installed. 
+  - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Cosmos is 3.11.5.
+
+  - This is a selection of the packages and libraries installed at LUNARC. These are all installed as **modules** and need to be loaded before use. 
+
+      - ``PyTorch``
+      - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
+      - ``TensorFlow``
+      - ``matplotlib``
+      - ``scikit-learn``
+      - ``scikit-image``
+      - ``iPython``
+      - ``Cython``
+      - ``Biopython``  
+      - ``JupyterLab`` 
+      - ``Python-bundle`` (NumPy, SciPy, Matplotlib, JupyterLab, MPI4PY, ...)  
+</pre></div>
+</div>
+<p>… tab:: NSC (Tetralith)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  - The python application at NSC (Tetralith) comes with few preinstalled packages, but many can be found in extra modules - check first before installing yourself! 
+  - NSC has both Python 2.7.x and Python 3.x installed. 
+  - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Tetralith is 3.11.5 in most cases, but 3.10.4 will be used for some examples. 
+
+  - This is a selection of the packages and libraries installed at NSC (Tetralith). These are all installed as **modules** and need to be loaded before use. 
+
+      - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
+      - ``matplotlib``
+      - ``iPython``  
+      - ``JupyterLab`` 
+</pre></div>
+</div>
+</section>
+<section id="demo-type-along">
+<h2>Demo/Type-along<a class="headerlink" href="#demo-type-along" title="Link to this heading"></a></h2>
+<p>This is an exercise that combines loading, running, and using site-installed packages. Later, during the batch session, we will look at running the same exercise, but as a batch job. There is also a follow-up exercise of an extended version of the script, if you want to try run that as well (see further down on the page).</p>
+<p>We will <strong>use</strong> the pandas and matplotlib packages in this very simple example, but not explain anything about them. That comes later in the course!</p>
+<p>… note::</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>You need the data-file ``scottish_hills.csv`` which can be found in the directory ``Exercises/examples/programs``. If you have cloned the git-repo for the course, or copied the tar-ball, you should have this directory. The easiest thing to do is just change to that directory and run the exercise there. 
+
+Since the exercise opens a plot, you need to login with ThinLinc (or otherwise have an x11 server running on your system and login with ``ssh -X ...``). 
+</pre></div>
+</div>
+<p>The exercise is modified from an example found on https://ourcodingclub.github.io/tutorials/pandas-python-intro/.</p>
+<p>… warning::</p>
+<p><strong>Not relevant if using UPPMAX. Only if you are using HPC2N, LUNARC, or NSC!</strong></p>
+<p>You need to also load Tkinter.</p>
+<p><strong>For HPC2N:</strong></p>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+</pre></div>
+</div>
+<p><strong>For LUNARC</strong></p>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
+</pre></div>
+</div>
+<p><strong>For NSC (Tetralith)</strong></p>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2 Tkinter/3.10.4
+</pre></div>
+</div>
+<p>In addition, you need to add the following two lines to the top of your python script/run them first in Python, for HPC2N, LUNARC, and NSC:</p>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  import matplotlib
+  matplotlib.use(&#39;TkAgg&#39;)
+</pre></div>
+</div>
+<p>… exercise:: Python example with packages pandas and matplotlib</p>
+<p><strong>NOTE</strong> if you have loaded a different Python version than what we use here, do <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">purge</span></code> first to get a clean work area.</p>
+<p>We are using Python version <code class="docutils literal notranslate"><span class="pre">3.11.x</span></code> except on Tetralith where we use Python/3.10.4. To access the packages <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, you may need to load other modules, depending on the site where you are working.</p>
+<p>… tabs::</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  .. tab:: UPPMAX
+
+     Here you only need to load the ``python`` module, as the relevant packages are included (as long as you are not using GPUs, but that is talked about later in the course). Thus, you just do: 
+
+    .. code-block:: console
+
+       $ ml python/3.11.8
+
+  .. tab:: HPC2N
+
+     On Kebnekaise you also need to load ``SciPy-bundle`` and ``matplotlib`` (and their prerequisites). These versions will work well together (and with the Tkinter/3.11.3): 
+
+     .. code-block:: console
+
+        $ ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+
+  .. tab:: LUNARC
+
+     On Cosmos you also need to load ``SciPy-bundle`` and ``matplotlib`` (and their prerequisites). These versions will work well together (and with the Tkinter/3.11.5): 
+
+     .. code-block:: console
+
+        $ ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5     
+
+  .. tab:: NSC (Tetralith) 
+
+     On Tetralith you also need to load ``SciPy-bundle`` and ``matplotlib`` (and their prerequisites). In this example we will use Python 3.10.4 as that is the one that has compatible versions and has a compatible TKinter 3.10.4): 
+
+     .. code-block:: console
+
+        $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4     
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>From inside Python/interactive (if you are on Kebnekaise/Cosmos/Tetralith, mind the warning above about loading a compatible Tkinter and adding the two lines importing matplotlib and setting TkAgg at the top):</p>
+<p><strong>Not on UPPMAX, but on HPC2N, LUNARC, NSC</strong>: Start Python and run these lines:</p>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import matplotlib
+matplotlib.use(&#39;TkAgg&#39;)
+</pre></div>
+</div>
+<p><strong>On all systems</strong>: Start python (if you have not already) and run these lines:</p>
+<p>… code-block:: python</p>
+<p>import pandas as pd</p>
+<p>… code-block:: python</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>… code-block:: python</p>
+<p>dataframe = pd.read_csv(“scottish_hills.csv”)</p>
+<p>… code-block:: python</p>
+<p>x = dataframe.Height</p>
+<p>… code-block:: python</p>
+<p>y = dataframe.Latitude</p>
+<p>… code-block:: python</p>
+<p>plt.scatter(x, y)</p>
+<p>… code-block:: python</p>
+<p>plt.show()</p>
+<p>If you change the last line to <code class="docutils literal notranslate"><span class="pre">plt.savefig(&quot;myplot.png&quot;)</span></code> then you will instead get a file <code class="docutils literal notranslate"><span class="pre">myplot.png</span></code> containing the plot. This is what you would do if you were running a python script in a batch job.</p>
+<ul class="simple">
+<li><p>On UPPMAX, LUNARC, and NSC you can view png files with the program <code class="docutils literal notranslate"><span class="pre">eog</span></code></p></li>
+<li><p>Test: <code class="docutils literal notranslate"><span class="pre">eog</span> <span class="pre">myplot.png</span> <span class="pre">&amp;</span></code></p></li>
+<li><p>On HPC2N you can view png files with the program <code class="docutils literal notranslate"><span class="pre">eom</span></code></p></li>
+<li><p>Test: <code class="docutils literal notranslate"><span class="pre">eom</span> <span class="pre">myplot.png</span> <span class="pre">&amp;</span></code></p></li>
+</ul>
+</li>
+<li><p>As a Python script (if you are on Kebnekaise/Cosmos/Tetralith, mind the warning above about Tkinter):</p>
+<p>Copy and save this script as a file (or just run the file <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-&lt;system&gt;.py</span></code> that is located in the <code class="docutils literal notranslate"><span class="pre">&lt;path-to&gt;/Exercises/examples/programs</span></code> directory you got from the repo or copied. Where <system> is either <code class="docutils literal notranslate"><span class="pre">rackham</span></code>, <code class="docutils literal notranslate"><span class="pre">kebnekaise</span></code>, <code class="docutils literal notranslate"><span class="pre">cosmos</span></code>, or <code class="docutils literal notranslate"><span class="pre">tetralith</span></code>.</p>
+<p>… tabs::</p>
+</li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> .. tab:: rackham
+
+    .. code-block:: python
+
+       import pandas as pd
+           import matplotlib.pyplot as plt
+
+           dataframe = pd.read_csv(&quot;scottish_hills.csv&quot;)
+           x = dataframe.Height
+           y = dataframe.Latitude
+           plt.scatter(x, y)
+           plt.show()
+
+ .. tab:: kebnekaise
+
+    .. code-block:: python
+
+       import pandas as pd
+       import matplotlib
+       import matplotlib.pyplot as plt
+      
+           matplotlib.use(&#39;TkAgg&#39;)
+
+       dataframe = pd.read_csv(&quot;scottish_hills.csv&quot;)
+           x = dataframe.Height
+           y = dataframe.Latitude
+           plt.scatter(x, y)
+           plt.show()
+      
+     .. tab:: Cosmos 
+
+        .. code-block:: python 
+
+           import pandas as pd
+           import matplotlib
+           import matplotlib.pyplot as plt
+          
+           matplotlib.use(&#39;TkAgg&#39;)
+
+           dataframe = pd.read_csv(&quot;scottish_hills.csv&quot;)
+           x = dataframe.Height
+           y = dataframe.Latitude
+           plt.scatter(x, y)
+           plt.show()
+  
+     .. tab:: Tetralith 
+
+        .. code-block:: python 
+
+           import pandas as pd
+           import matplotlib
+           import matplotlib.pyplot as plt
+          
+           matplotlib.use(&#39;TkAgg&#39;)
+
+           dataframe = pd.read_csv(&quot;scottish_hills.csv&quot;)
+           x = dataframe.Height
+           y = dataframe.Latitude
+           plt.scatter(x, y)
+           plt.show()
+</pre></div>
+</div>
+<p>If you have time, you can also try and run these extended versions, which also requires the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> packages (included with python at UPPMAX and with the same modules loaded as for <code class="docutils literal notranslate"><span class="pre">pandas</span></code> for HPC2N/LUNARC/NSC):</p>
+</section>
+<section id="exercises-c-10-min">
+<h2>Exercises  (C. 10 min)<a class="headerlink" href="#exercises-c-10-min" title="Link to this heading"></a></h2>
+<p>… exercise:: Python example that requires <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, and <code class="docutils literal notranslate"><span class="pre">scipy</span></code> packages.</p>
+<p>You can either save the scripts or run them line by line inside Python. The scripts are also available in the directory <code class="docutils literal notranslate"><span class="pre">&lt;path-to&gt;/Exercises/examples/programs</span></code>, as <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-linreg.py</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-linreg-pretty.py</span></code>.</p>
+<p><strong>NOTE</strong> that there are separate versions for rackham, kebnekaise, cosmos, and tetralith and that you for kebnekaise, cosmos, and tetralith need to again add the same lines regarding TkAgg as mentioned under the warning before the previous exercise. The example below shows how it looks for rackham.</p>
+<p>Remember that you also need the data file <code class="docutils literal notranslate"><span class="pre">scottish_hills.csv</span></code> located in the above directory.</p>
+<p>Examples are from https://ourcodingclub.github.io/tutorials/pandas-python-intro/</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-linreg.py</span></code></p>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  import pandas as pd
+  import matplotlib.pyplot as plt
+  from scipy.stats import linregress
+
+  dataframe = pd.read_csv(&quot;scottish_hills.csv&quot;)
+
+  x = dataframe.Height
+  y = dataframe.Latitude
+
+  stats = linregress(x, y)
+
+  m = stats.slope
+  b = stats.intercept
+
+  plt.scatter(x, y)
+  plt.plot(x, m * x + b, color=&quot;red&quot;)   # I&#39;ve added a color argument here
+
+  plt.show()
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pandas_matplotlib-linreg-pretty.py</span></code></p>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  import pandas as pd
+  import matplotlib.pyplot as plt
+  from scipy.stats import linregress
+
+  dataframe = pd.read_csv(&quot;scottish_hills.csv&quot;)
+
+  x = dataframe.Height
+  y = dataframe.Latitude
+
+  stats = linregress(x, y)
+
+  m = stats.slope
+  b = stats.intercept
+
+  # Change the default figure size
+  plt.figure(figsize=(10,10))
+
+  # Change the default marker for the scatter from circles to x&#39;s
+  plt.scatter(x, y, marker=&#39;x&#39;)
+
+  # Set the linewidth on the regression line to 3px
+  plt.plot(x, m * x + b, color=&quot;red&quot;, linewidth=3)
+
+  # Add x and y lables, and set their font size
+  plt.xlabel(&quot;Height (m)&quot;, fontsize=20)
+  plt.ylabel(&quot;Latitude&quot;, fontsize=20)
+
+  # Set the font size of the number lables on the axes
+  plt.xticks(fontsize=18)
+  plt.yticks(fontsize=18)
+
+  plt.show()
+</pre></div>
+</div>
+<p>… keypoints::</p>
+<ul class="simple">
+<li><p>Before you can run Python scripts or work in a Python shell, first load a python module and probable prerequisites</p></li>
+<li><p>Start a Python shell session either with <code class="docutils literal notranslate"><span class="pre">python</span></code> or <code class="docutils literal notranslate"><span class="pre">ipython</span></code></p></li>
+<li><p>Run scripts with <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">&lt;script.py&gt;</span></code></p></li>
+<li><p>You can check for packages</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- from the Python shell with the ``import`` command
+- from BASH shell with the 
+
+	- ``pip list`` command at all three centers
+	- ``ml help python/&lt;version&gt;`` at UPPMAX
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Installation of Python packages can be done either with <strong>PYPI</strong> or <strong>Conda</strong></p></li>
+<li><p>You install own packages with the <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> command (This is the recommended way on HPC2N)</p></li>
+<li><p>At UPPMAX, LUNARC, and NSC Conda is also available (See Conda section)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install_packages.html" class="btn btn-neutral float-right" title="Install packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, UPPMAX/HPC2N/LUNARC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
