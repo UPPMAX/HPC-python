@@ -30,9 +30,9 @@ Time        | Topic                          |Teacher
 12:00-13:00 | Break|.
 13:00-14:00 | IDEs: Jupyter/vscode/Spyder [1] |Jayant
 14:00-14:15 | Break|.
-14:15-15:00 | matplotlib 1/2|?Rebecca, else Björn
+14:15-15:00 | matplotlib 1/2|Rebecca
 15:00-15:15 | Break|.
-15:15-15:45 | matplotlib 2/2|?Rebecca, else Björn
+15:15-15:45 | matplotlib 2/2|Rebecca
 15:45-16:00 | Evaluation|.
 
 - [1] Spyder only works on LUNARC, for an old version.
@@ -45,11 +45,11 @@ Time        | Topic                          |Teacher
 
 Time       | Topic |Teacher
 -----------|-----------|-----------------------
-09:00-10:00 | Pandas | ?Rebecca
+09:00-10:00 | Pandas | Rebecca
 10:00-10:15 | Break|.
-10:15-11:00 | Pandas (enough time?)| ?Rebecca
+10:15-11:00 | Pandas | Rebecca
 11:00-11:15 | Break|.
-11:15-12:00 | Seaborn (enough time)?| ?Rebecca  ?Björn
+11:15-12:00 | Seaborn | Rebecca
 12:00-13:00 | Break|.
 13:00-14:00 | Slurm and batch jobs|Birgitte
 14:00-14:15 | Break|.
