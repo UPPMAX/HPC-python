@@ -6,9 +6,11 @@ Introduction
 
 .. admonition:: **Course learning outcomes**
    
+    <!-- TODO: B: Update -->
+
    - Load Python modules and site-installed Python packages
    - Create a virtual environment
-   - Install Python packages with pip (Kebnekaise, Rackham, Snowy, Cosmos)
+   - Install Python packages with pip (Kebnekaise, Rackham, Snowy, COSMOS)
    - Write a batch script for running Python
    - Use the compute nodes interactively
    - Use Python in parallel
@@ -23,18 +25,18 @@ Introduction
 
 .. admonition:: **For teachers: Lesson plan **
 
-    <!-- TODO: make a drop-down box -->
+    <!-- TODO: R: make a drop-down box -->
    
     Prior questions:
     - What is Pyton?
 
 
-<!-- TODO: should everyone do an intro on each day? Discuss in Matrix/meeting -->
+<!-- TODO: B: should everyone do an intro on each day? Discuss in Matrix/meeting -->
    
 What is python?
 ---------------
 
-<!-- TODO: put this in a dropdown box -->
+<!-- TODO: R: put this in a dropdown box -->
 
 As you probably already know…
     
@@ -55,7 +57,7 @@ libraries like NumPy, SciPy, scikit-learn and Pytorch.
 Material for improving your programming skills
 ::::::::::::::::::::::::::::::::::::::::::::::
 
-<!-- TODO: Move to 'Other courses' in the TOC, and add a link here -->
+<!-- TODO: R: Move to 'Other courses' in the TOC, and add a link here -->
 
 .. admonition:: First level
 
@@ -104,7 +106,7 @@ Material for improving your programming skills
 Documentations at other NAISS centres
 -------------------------------------
 
-<!-- TODO: Move to 'Python documentation overview' -->
+<!-- TODO: R: Move to 'Python documentation overview' -->
 
 .. seealso::
 
@@ -148,7 +150,7 @@ R: I predict that will take 30 minutes
 B: I predict that will take 5-20 minutes
 me and B think we'll get it to work
 
-TODO: In meeting, discuss if tarball is a prerequisite,
+TODO: B: In meeting, discuss if tarball is a prerequisite,
 do this in Matrix. If not sent out to learners this is a prereq,
 we'll do this as an exercise.
 
@@ -159,7 +161,7 @@ Login to the center you have an account at, go to the storage directory,
 and create a directory below it for you to work in.
 You can call this directory what you want, but your username is a good option. 
 
-<!-- TODO: decide if this is still needed -->
+<!-- TODO: R: merge with exercise -->
 
 .. important::
 
