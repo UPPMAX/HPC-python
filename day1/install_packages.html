@@ -1,0 +1,757 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install packages &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running Python in batch mode" href="batch.html" />
+    <link rel="prev" title="Load and run python and use packages" href="load_run_packages.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Schedule:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Preliminary schedule</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_run_packages.html">Load and run python and use packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-environment-venv-virtualenv">Virtual environment - venv &amp; virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-virtual-environments-defined-from-files">Working with virtual environments defined from files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs.html">Loading IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Matplotlib60min.html">Matplotlib in 60 Minutes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary1.html">Summary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/pandas.html">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/Seaborn-Intro.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra reading:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Install packages</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day1/install_packages.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="install-packages">
+<h1>Install packages<a class="headerlink" href="#install-packages" title="Link to this heading"></a></h1>
+<p>!!! info “Learning objectives”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Install a Python package with `pip`
+- Work (create, activate, work, deactivate) `venv` virtual environments
+- [RJCB: I suggest to remove this] work (create, activate, work, deactivate) with Conda environments
+- [RJCB: I suggest to remove this] export and import a virtual environment
+</pre></div>
+</div>
+<!-- below is still RST -->
+<p>… objectives::</p>
+<p>Learners can</p>
+<ul class="simple">
+<li><p>work (create, activate, work, deactivate) with virtual environments</p></li>
+<li><p>install a python package</p></li>
+<li><p>export and import a virtual environment</p></li>
+</ul>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>There are 2-3 ways to install missing python packages at a HPC cluster.</p>
+<ul class="simple">
+<li><p>Local installation, always available for the version of Python you had active when doing the installation</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">[package</span> <span class="pre">name]</span></code></p></li>
+</ul>
+</li>
+<li><p>Isolated environment. Use some packages just needed for a specific use case.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">venv</span></code>/<code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> in combination with <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<ul>
+<li><p>recommended/working in all HPC centers in Sweden</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span></code></p>
+<ul>
+<li><p>just recommended in some HPC centers in Sweden</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Local (general installation)
+…</p>
+<p>… note::</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">[package</span> <span class="pre">name]</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- The package end up in ``~/.local``
+- target directory can be changed by ``--prefix=[root_folder of installation]``
+</pre></div>
+</div>
+<p>Isolated environments
+…</p>
+<p>As an example, maybe you have been using TensorFlow 1.x.x for your project and now you need to install a package that requires TensorFlow 2.x.x but you will still be needing the old version of TensorFlow for another package, for instance. This is easily solved with isolated environments.</p>
+<p>… note::</p>
+<p>Isolated/virtual environments solve a couple of problems:</p>
+<ul class="simple">
+<li><p>You can install specific, also older, versions into them.</p></li>
+<li><p>You can create one for each project and no problem if the two projects require different versions.</p></li>
+<li><p>You can remove the environment and create a new one, if not needed or with errors.</p></li>
+<li><p>Isolated environments lets you create separate workspaces for different versions of Python and/or different versions of packages.</p></li>
+<li><p>You can activate and deactivate them one at a time, and work as if the other workspace does not exist.</p></li>
+</ul>
+<p><strong>The tools</strong></p>
+<ul class="simple">
+<li><p>venv            UPPMAX+HPC2N+LUNARC+NSC</p></li>
+<li><p>virtualenv      UPPMAX+HPC2N+LUNARC+NSC</p></li>
+<li><p>Conda           LUNARC + UPPMAX (recommended only for Bianca cluster)</p></li>
+</ul>
+<p>… warning::</p>
+<p><strong>About Conda on HPC systems</strong></p>
+<ul class="simple">
+<li><p>Conda is good in many ways but can interact negatively when trying to use the Python modules in the HPC systems.</p></li>
+<li><p>LUNARC seems to have working solutions</p></li>
+<li><p>At UPPMAX Conda is installed but we have many users that get into problems.
+- However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)</p></li>
+</ul>
+<p>… admonition:: Conda in HPC</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Anaconda</span> <span class="pre">at</span> <span class="pre">LUNARC</span> <span class="pre">&lt;https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions&gt;</span></code>_</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Conda</span> <span class="pre">at</span> <span class="pre">UPPMAX</span> <span class="pre">&lt;https://docs.uppmax.uu.se/software/conda/&gt;</span></code>_</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Conda</span> <span class="pre">on</span> <span class="pre">Bianca</span> <span class="pre">&lt;https://uppmax.github.io/bianca_workshop/intermediate/install/#install-packages-principles&gt;</span></code>_</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="virtual-environment-venv-virtualenv">
+<h2>Virtual environment - venv &amp; virtualenv<a class="headerlink" href="#virtual-environment-venv-virtualenv" title="Link to this heading"></a></h2>
+<p>… admonition:: Workflow</p>
+<ol class="arabic simple">
+<li><p>You load the Python module you will be using, as well as any site-installed package modules (requires the <code class="docutils literal notranslate"><span class="pre">--system-site-packages</span></code> option later)</p></li>
+<li><p>You create the isolated environment with something like venv, virtualenv (use the <code class="docutils literal notranslate"><span class="pre">--system-site-packages</span></code> to include all “non-base” packages)</p></li>
+<li><p>You activate the environment</p></li>
+<li><p>You install (or update) the environment with the packages you need</p></li>
+<li><p>You work in the isolated environment</p></li>
+<li><p>You deactivate the environment after use</p></li>
+</ol>
+<p>… admonition:: venv vs. virtualenv</p>
+<ul class="simple">
+<li><p>These are almost completely interchangeable</p></li>
+<li><p>The difference being that <strong>virtualenv supports older python versions</strong> and has a few more minor unique features, while <strong>venv is in the standard library</strong>.</p></li>
+<li><p>Step 1:</p>
+<ul>
+<li><p>Virtualenv: <code class="docutils literal notranslate"><span class="pre">virtualenv</span> <span class="pre">--system-site-packages</span> <span class="pre">Example</span></code></p></li>
+<li><p>venv: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">--system-site-packages</span> <span class="pre">Example2</span></code></p></li>
+</ul>
+</li>
+<li><p>Next steps are identical and involves “activating” and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">installs</span></code></p></li>
+<li><p>We recommend <code class="docutils literal notranslate"><span class="pre">venv</span></code> in the course. Then we are just needing the Python module itself!</p></li>
+</ul>
+<p>… keypoints::</p>
+<ul class="simple">
+<li><p>With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.</p></li>
+<li><p>Make it for each project you have for reproducibility.</p></li>
+<li><p>There are different tools to create virtual environments.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span></code>, only recommended for personal use and at some clusters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">virtualenv</span></code>, may require to load extra python bundle modules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venv</span></code>, most straight-forward and available at all HPC centers. <strong>Recommended</strong></p></li>
+</ul>
+</li>
+<li><p>More details to follow!</p></li>
+</ul>
+<p>Example
+…</p>
+<p>… tip::</p>
+<p><strong>Do not type along!</strong></p>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">venv</span></code>. First load the python version you want to base your virtual environment on:</p>
+<p>… tabs::</p>
+<p>… tab:: UPPMAX</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  .. code-block:: console
+
+     $ module load python/3.11.8 
+     $ python -m venv --system-site-packages Example2
+
+ &quot;Example2&quot; is the name of the virtual environment. The directory &quot;Example2&quot; is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
+</pre></div>
+</div>
+<p>… tab:: HPC2N</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  .. code-block:: console
+
+     $ module load GCC/12.3.0 Python/3.11.3
+     $ python -m venv --system-site-packages Example2
+
+  &quot;Example2&quot; is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
+</pre></div>
+</div>
+<p>… tab:: LUNARC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  .. code-block:: console
+
+     $ module load GCC/12.3.0 Python/3.11.3
+     $ python -m venv --system-site-packages Example2
+
+  &quot;Example2&quot; is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
+</pre></div>
+</div>
+<p>… tab:: NSC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  .. code-block:: console
+
+     $ ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
+     $ python -m venv --system-site-packages Example2
+
+  &quot;Example2&quot; is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
+</pre></div>
+</div>
+<p>… note::</p>
+<p>To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!
+<code class="docutils literal notranslate"><span class="pre">--system-site-packages</span></code> includes the packages already installed in the loaded python module.</p>
+<p>At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:</p>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>     $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 # for HPC2N and LUNAR
+     $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
+     $ python -m venv --system-site-packages Example3
+</pre></div>
+</div>
+<p><strong>NOTE</strong>: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we <strong>strongly</strong> recommend you place it in your project storage!</p>
+<p><strong>NOTE</strong>: if you need to for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what.</p>
+<p>… admonition:: If you want your virtual environment in a certain place…</p>
+<ul class="simple">
+<li><p>Example for course project location and <code class="docutils literal notranslate"><span class="pre">$USER</span></code> being you user name.</p>
+<ul>
+<li><p>If your directory in the project has another name, replace <code class="docutils literal notranslate"><span class="pre">$USER</span></code> with that one!</p></li>
+</ul>
+</li>
+<li><p>UPPMAX:</p>
+<ul>
+<li><p>Create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">/proj/hpc-python-fall/$USER/Example</span></code></p></li>
+<li><p>Activate: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/proj/hpc-python-fall/&lt;user-dir&gt;/Example/bin/activate</span></code></p></li>
+</ul>
+</li>
+<li><p>HPC2N:</p>
+<ul>
+<li><p>Create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">/proj/nobackup/hpc-python-fall-hpc2n/$USER/Example</span></code></p></li>
+<li><p>Activate: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/proj/nobackup/hpc-python-fall-hpc2n/&lt;user-dir&gt;/Example/bin/activate</span></code></p></li>
+</ul>
+</li>
+<li><p>LUNARC:</p>
+<ul>
+<li><p>Create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">/lunarc/nobackup/projects/lu2024-17-44/$USER/Example</span></code></p></li>
+<li><p>Activate: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/lunarc/nobackup/projects/lu2024-17-44/&lt;user-dir&gt;/Example/bin/activate</span></code></p></li>
+</ul>
+</li>
+<li><p>NSC:</p>
+<ul>
+<li><p>Create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">/proj/hpc-python-fall-nsc/$USER/Example</span></code></p></li>
+<li><p>Activate: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/proj/hpc-python-fall-nsc/&lt;user-dir&gt;/Example/bin/activate</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Note that your prompt is changing to start with (Example) to show that you are within an environment.</p>
+<p>… note::</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code> can most often be replaced by <code class="docutils literal notranslate"><span class="pre">.</span></code>, like in <code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">Example/bin/activate</span></code>. Note the important <space> after <code class="docutils literal notranslate"><span class="pre">.</span></code></p></li>
+<li><p>For clarity we use the <code class="docutils literal notranslate"><span class="pre">source</span></code> style here.</p></li>
+</ul>
+<p>Install packages to the virtual environment with pip
+…</p>
+<p>… tip::</p>
+<p><strong>Do not type along!</strong></p>
+<p>Install your packages with <code class="docutils literal notranslate"><span class="pre">pip</span></code>. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated:</p>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--no-cache-dir&quot;</span></code> option is required to avoid it from reusing earlier installations from the same user in a different environment. The <code class="docutils literal notranslate"><span class="pre">--no-build-isolation</span></code> is to make sure that it uses the loaded modules from the module system when building any Cython libraries.</p>
+<p>Deactivate the venv.</p>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(Example) $ deactivate
+</pre></div>
+</div>
+<p>Every time you need the tools available in the virtual environment you activate it as above (after also loading the modules).</p>
+<p>… prompt:: console</p>
+<p>source /proj/<your-project-id>/<your-dir>/Example/bin/activate</p>
+<p>… note::</p>
+<ul class="simple">
+<li><p>You can use “pip list” on the command line (after loading the python module) to see which packages are available and which versions.</p></li>
+<li><p>Some packages may be inherited from the modules you have loaded</p></li>
+<li><p>You can do <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span> <span class="pre">--local</span></code> to see what is installed by you in the environment.</p></li>
+<li><p>Some IDE:s like Spyder may only find those “local” packages</p></li>
+</ul>
+</section>
+<section id="working-with-virtual-environments-defined-from-files">
+<h2>Working with virtual environments defined from files<a class="headerlink" href="#working-with-virtual-environments-defined-from-files" title="Link to this heading"></a></h2>
+<p>Creator/developer
+…</p>
+<ul class="simple">
+<li><p>First <em>create</em> and <em>activate</em> an environment (see above)</p></li>
+<li><p>Install packages with pip</p></li>
+<li><p>Create file from present virtual environment:</p></li>
+</ul>
+<p>… code-block:: console</p>
+<p>$ pip freeze &gt; requirements.txt</p>
+<ul class="simple">
+<li><p>That includes also the <em>system site packages</em> if you included them with <code class="docutils literal notranslate"><span class="pre">--system-site-packages</span></code></p></li>
+<li><p>Test that everything works by running use cases scripts within the environment</p></li>
+<li><p>You can list packages specific for the virtualenv by <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span> <span class="pre">--local</span></code></p></li>
+<li><p>So, creating a file from just the local environment:</p></li>
+</ul>
+<p>… code-block:: console</p>
+<p>$ pip freeze –local &gt; requirements.txt</p>
+<p>… note::</p>
+<p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (used by the virtual environment) is a simple text file which looks similar to this::</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  numpy
+  matplotlib
+  pandas
+  scipy
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> with versions that could look like this::</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  numpy==1.20.2
+  matplotlib==3.2.2
+  pandas==1.1.2
+  scipy==1.6.2
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Deactivate</p></li>
+</ul>
+<p>User
+…</p>
+<ul class="simple">
+<li><p>Create an environment based on dependencies given in an environment file</p></li>
+<li><p>This can be done in new virtual environment or as a genera installation locally (not activating any environment</p></li>
+</ul>
+<p>… code-block:: console</p>
+<p>pip install -r requirements.txt</p>
+<ul class="simple">
+<li><p>Check</p></li>
+</ul>
+<p>… code-block:: console</p>
+<p>pip list</p>
+<p>… admonition:: More on dependencies</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Dependency</span> <span class="pre">management</span> <span class="pre">from</span> <span class="pre">course</span> <span class="pre">Python</span> <span class="pre">for</span> <span class="pre">Scientific</span> <span class="pre">computing</span> <span class="pre">&lt;https://aaltoscicomp.github.io/python-for-scicomp/dependencies/&gt;</span></code>_</p></li>
+</ul>
+<p>… admonition:: Python packages in HPC and ML
+:class: dropdown</p>
+<p>It is difficult to give an exhaustive list of useful packages for Python in HPC, but this list contains some of the more popular ones:</p>
+<p>… list-table:: Popular packages
+:widths: 8 10 10 20
+:header-rows: 1</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  * - Package
+    - Module to load, UPPMAX
+    - Module to load, HPC2N
+    - Brief description 
+  * - Dask
+    - ``python``
+    - ``dask``
+    - An open-source Python library for parallel computing.
+  * - Keras
+    - ``python_ML_packages``
+    - ``Keras``
+    - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for both the TensorFlow and the Theano libraries. 
+  * - Matplotlib
+    - ``python`` or ``matplotlib``
+    - ``matplotlib``
+    - A plotting library for the Python programming language and its numerical mathematics extension NumPy.
+  * - Mpi4Py
+    - Not installed
+    - ``SciPy-bundle``
+    - MPI for Python package. The library provides Python bindings for the Message Passing Interface (MPI) standard.
+  * - Numba 
+    - ``python``
+    - ``numba``
+    - An Open Source NumPy-aware JIT optimizing compiler for Python. It translates a subset of Python and NumPy into fast machine code using LLVM. It offers a range of options for parallelising Python code for CPUs and GPUs. 
+  * - NumPy
+    - ``python``
+    - ``SciPy-bundle``
+    - A library that adds support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays. 
+  * - Pandas
+    - ``python`` 
+    - ``SciPy-bundle``
+    - Built on top of NumPy. Responsible for preparing high-level data sets for machine learning and training. 
+  * - PyTorch/Torch
+    - ``PyTorch`` or ``python_ML_packages``
+    - ``PyTorch``
+    - PyTorch is an ML library based on the C programming language framework, Torch. Mainly used for natural language processing or computer vision.  
+  * - SciPy
+    - ``python``
+    - ``SciPy-bundle``
+    - Open-source library for data science. Extensively used for scientific and technical computations, because it extends NumPy (data manipulation, visualization, image processing, differential equations solver).  
+  * - Seaborn 
+    - ``python``
+    - Not installed
+    - Based on Matplotlib, but features Pandas’ data structures. Often used in ML because it can generate plots of learning data. 
+  * - Sklearn/SciKit-Learn
+    - ``scikit-learn``
+    - ``scikit-learn``
+    - Built on NumPy and SciPy. Supports most of the classic supervised and unsupervised learning algorithms, and it can also be used for data mining, modeling, and analysis. 
+  * - StarPU
+    - Not installed 
+    - ``StarPU``
+    - A task programming library for hybrid architectures. C/C++/Fortran/Python API, or OpenMP pragmas. 
+  * - TensorFlow
+    - ``TensorFlow``
+    - ``TensorFlow``
+    - Used in both DL and ML. Specializes in differentiable programming, meaning it can automatically compute a function’s derivatives within high-level language. 
+  * - Theano 
+    - Not installed 
+    - ``Theano``
+    - For numerical computation designed for DL and ML applications. It allows users to define, optimise, and gauge mathematical expressions, which includes multi-dimensional arrays.  
+</pre></div>
+</div>
+<p>Remember, in order to find out how to load one of the modules, which prerequisites needs to be loaded, as well as which versions are available, use <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span> <span class="pre">&lt;module&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span> <span class="pre">&lt;module&gt;/&lt;version&gt;</span></code>.</p>
+<p>Often, you also need to load a python module, except in the cases where it is included in <code class="docutils literal notranslate"><span class="pre">python</span></code> or <code class="docutils literal notranslate"><span class="pre">python_ML_packages</span></code> at UPPMAX or with <code class="docutils literal notranslate"><span class="pre">SciPy-bundle</span></code> at HPC2N.</p>
+<p>NOTE that not all versions of Python will have all the above packages installed!</p>
+<p>… admonition:: Summary of workflow</p>
+<p>In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this:</p>
+<ol class="arabic simple">
+<li><p>Load Python and prerequisites: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">&lt;pre-reqs&gt;</span> <span class="pre">Python/&lt;version&gt;</span></code></p></li>
+<li><p>Load site-installed Python packages (optional): <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">&lt;pre-reqs&gt;</span> <span class="pre">&lt;python-package&gt;/&lt;version&gt;</span></code></p></li>
+<li><p>Create the virtual environment: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">[PATH]/Example</span></code></p></li>
+<li><p>Activate your virtual environment: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">&lt;path-to-virt-env&gt;/Example/bin/activate</span></code></p></li>
+<li><p>Install any extra Python packages: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--no-cache-dir</span> <span class="pre">--no-build-isolation</span> <span class="pre">&lt;python-package&gt;</span></code></p></li>
+<li><p>Start Python or run python script: <code class="docutils literal notranslate"><span class="pre">python</span></code></p></li>
+<li><p>Do your work</p></li>
+<li><p>Deactivate</p></li>
+</ol>
+<ul class="simple">
+<li><p>Installed Python modules (modules and own-installed) can be accessed within Python with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;package&gt;</span></code> as usual.</p></li>
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code> given within Python will list the available modules to import.</p></li>
+<li><p>More about packages and virtual/isolated environment to follow in later sections of the course!</p></li>
+</ul>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<p>… challenge:: 1. Make a test environment</p>
+<ol class="arabic simple">
+<li><p>make a virtual environment with the name <code class="docutils literal notranslate"><span class="pre">venv1</span></code>. Do not include packages from the the loaded module(s)</p></li>
+<li><p>activate</p></li>
+<li><p>install <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+<li><p>make a requirements file of the content</p></li>
+<li><p>deactivate</p></li>
+<li><p>make another virtual environment with the name <code class="docutils literal notranslate"><span class="pre">venv2</span></code></p></li>
+<li><p>activate that</p></li>
+<li><p>install with the aid of the requirements file</p></li>
+<li><p>check the content</p></li>
+<li><p>open python shell from command line and try to import</p></li>
+<li><p>exit python</p></li>
+<li><p>deactivate</p></li>
+</ol>
+<p>… solution:: Solution
+:class: dropdown</p>
+<ul class="simple">
+<li><p>First load the required Python module(s) if not already done so in earlier lessons. Remember that this steps differ between the HPC centers</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>make the first environment</p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  $ python -m venv venv1
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Activate it.</p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  $ source venv1/bin/activate
+
+  - Note that your prompt is changing to start with ``(venv1)`` to show that you are within an environment.
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>install <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  pip install matplotlib
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>make a requirements file of the content</p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  pip freeze --local &gt; requirements.txt
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>deactivate</p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  deactivate
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>make another virtual environment with the name <code class="docutils literal notranslate"><span class="pre">venv2</span></code></p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  python -m venv venv2
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>activate that</p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  source venv2/bin/activate
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>install with the aid of the requirements file</p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  pip install -r requirements.txt
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>check the content</p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  pip list
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>open python shell from command line and try to import</p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  python
+</pre></div>
+</div>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  import matplotlib
+</pre></div>
+</div>
+<ol class="arabic simple" start="11">
+<li><p>exit python</p></li>
+</ol>
+<p>… code-block:: python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  exit()
+</pre></div>
+</div>
+<ol class="arabic simple" start="12">
+<li><p>deactivate</p></li>
+</ol>
+<p>… code-block:: console</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  deactivate
+</pre></div>
+</div>
+<p>Prepare fore the course environments
+…</p>
+<p>… note::</p>
+<ul class="simple">
+<li><p>All centers has had different approaches in what is included in the module system and not.</p></li>
+<li><p>Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.</p></li>
+<li><p>This is left as exercise for you</p></li>
+</ul>
+<p>We will need to install the LightGBM Python package for one of the examples in the ML section.</p>
+<p>… tip::</p>
+<p><strong>Follow the track where you are working right now</strong></p>
+<p>Create a virtual environment called <code class="docutils literal notranslate"><span class="pre">vpyenv</span></code>. First load the python version you want to base your virtual environment on, as well as the site-installed ML packages.</p>
+<p>… tabs::</p>
+<p>… tab:: NSC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  **If you do not have matplotlib already outside any virtual environment**
+
+  - Install matplotlib in your ``.local`` folder, not in a virtual environment.
+  - Do: 
+
+  .. code-block:: console
+
+     ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
+     pip install --user matplotlib
+
+  - Check that matplotlib is there by ``pip list``
+
+  **Check were to find environments needed for the lessons in the afternoon tomorrow**
+
+  - browse ``/proj/hpc-python-fall-nsc/`` to see the available environments. 
+  - their names are
+      - ``venvNSC-TF``
+      - ``venvNSC-torch``
+      - ``venvNSC-numba``
+      - ``venv-spyder-only``
+</pre></div>
+</div>
+<p>… tab:: LUNARC</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  - Everything will work by just loading modules, see each last section
+
+  - Extra exercise can be to reproduce the examples above.
+</pre></div>
+</div>
+<p>… tab:: UPPMAX</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  **Check were to find environments needed for the lessons in the afternoon tomorrow**
+
+  - browse ``/proj/hpc-python-fall/`` to see the available environments. 
+  - their names are, for instance
+      - ``venv-spyder``
+      - ``venv-TF``
+      - ``venv-torch``
+
+  - Extra exercise can be to reproduce the examples above.
+</pre></div>
+</div>
+<p>… tab:: HPC2N</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  **Check were to find possible environments needed for the lessons in the afternoon tomorrow**
+
+  - browse ``/proj/nobackup/hpc-python-fall-hpc2n/`` to see the available environments.
+  - It may be empty for now but may show up by tomorrow
+  - their names may be, for instance
+      - ``venv-TF``
+      - ``venv-torch``
+
+  - Extra exercise can be to reproduce the examples above.
+</pre></div>
+</div>
+<p>… note::</p>
+<ul class="simple">
+<li><p>To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course.</p></li>
+<li><p>To see which Python packages you, yourself, have installed, you can use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span> <span class="pre">--user</span></code> while the environment you have installed the packages in are active. To see all packages, use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code>.</p></li>
+</ul>
+<p>… seealso::</p>
+<ul class="simple">
+<li><p>UPPMAX’s documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages</p></li>
+<li><p>HPC2N’s documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python</p></li>
+</ul>
+<p>… keypoints::</p>
+<ul class="simple">
+<li><p>With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.</p></li>
+<li><p>Make it for each project you have for reproducibility.</p></li>
+<li><p>There are different tools to create virtual environments.</p>
+<ul>
+<li><p>UPPMAX has <code class="docutils literal notranslate"><span class="pre">conda</span></code> and <code class="docutils literal notranslate"><span class="pre">venv</span></code> and <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code></p></li>
+<li><p>HPC2N has <code class="docutils literal notranslate"><span class="pre">venv</span></code> and <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="load_run_packages.html" class="btn btn-neutral float-left" title="Load and run python and use packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="batch.html" class="btn btn-neutral float-right" title="Running Python in batch mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, UPPMAX/HPC2N/LUNARC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
