@@ -53,6 +53,7 @@ mermaid_params = [
     "forest",
     "--backgroundColor",
     "transparent",
+    '-p' 'docs/puppeteer-config.json'
 ]
 
 jupyter_execute_notebooks = "cache"
