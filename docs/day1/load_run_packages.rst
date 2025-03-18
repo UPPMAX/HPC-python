@@ -1,6 +1,28 @@
 Load and run python and use packages
 ====================================
 
+!!! info "Learning outcomes"
+
+    - Practice using the documentation of your HPC cluster
+    - Find a Python module
+    - Load a Python module
+    - Find Python installed Python packages
+    - Import a Python package
+
+!!! info "Learning outcomes"
+
+    From the first session of
+    [the NAISS 'Intro to Python' course](https://uppmax.github.io/uppmax_intro_python/sessions/using_the_python_interpreter/):
+
+    - Practice using the documentation of your HPC cluster
+    - Practice using the Python book
+      [How to Think Like a Computer Scientist: Learning with Python 3](https://openbookproject.net/thinkcs/python/english3e/index.html)
+    - To be able to login to your HPC cluster
+    - To be able to load Python
+    - To be able to run a minimal Python program
+
+<!-- below is still old -->
+
 At UPPMAX, HPC2N, LUNARC, and NSC (and most other Swedish HPC centres) we call the applications available via the module system modules. 
     - http://docs.uppmax.uu.se/cluster_guides/modules/
     - https://docs.hpc2n.umu.se/documentation/modules/
