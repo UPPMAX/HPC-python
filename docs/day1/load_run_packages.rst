@@ -4,26 +4,25 @@ Load and run Python and use packages
 !!! info "Learning outcomes"
 
     - Practice using the documentation of your HPC cluster
-    - Find a Python module
-    - Load a Python module
-    - [RJCB: added] Start the Python interpreter
-    - [RJCB: added] Run a Python script
-    - [RJCB: added] Find installed Python packages using `pip list`
-    - Find installed Python packages
-    - Import a Python package
-    - [RJCB: added] Load a software module with Python packages
+    - Download and extract the tarball with exercises
+    - Find installed Python packages using `pip list`
+    - Find a software module with Python packages
+    - Load a software module with Python packages
 
-!!! info "Learning outcomes"
+<!-- exercise 1:
 
-    From the first session of
-    [the NAISS 'Intro to Python' course](https://uppmax.github.io/naiss_intro_python/sessions/using_the_python_interpreter/):
+    - Download and extract the tarball
 
-    - Practice using the documentation of your HPC cluster
-    - Practice using the Python book
-      [How to Think Like a Computer Scientist: Learning with Python 3](https://openbookproject.net/thinkcs/python/english3e/index.html)
-    - To be able to login to your HPC cluster
-    - To be able to load Python
-    - To be able to run a minimal Python program
+-->
+
+<!-- exercise 2:
+
+    - See a package is absent
+    - Find it in the documentation and/or module spider
+    - Load the software module
+    - See the package is now present
+
+-->
 
 <!-- below is still old -->
 

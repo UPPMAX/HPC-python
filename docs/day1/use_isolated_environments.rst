@@ -3,11 +3,14 @@ Use isolated environments
 
 !!! info "Learning objectives"
 
-    - Work (create, activate, work, deactivate) with virtual environments in the way recommended by your HPC cluster
-    - [RJCB: I suggest to remove this] Work (create, activate, work, deactivate) `venv` virtual environments
-    - [RJCB: I suggest to remove this] work (create, activate, work, deactivate) with Conda environments
-    - [RJCB: I suggest to make this optional] export and import a virtual environment
-    - [RJCB: I suggest to not mention this: it is unrelated to Python development] pipx
+    - Practice using the documentation of your HPC cluster
+    - Find out which isolated environment tool to use on your HPC cluster
+    - Work (create, activate, work, deactivate) with isolated environments
+      in the way recommended by your HPC cluster
+    - (optional) work (create, activate, work, deactivate) with isolated environments
+      in the other way (if any) possible on your HPC cluster
+    - (optional) export and import a virtual
+      environment
 
 <!-- below is still old -->
 

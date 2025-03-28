@@ -3,7 +3,16 @@ Install packages
 
 !!! info "Learning objectives"
 
-    - Install a Python package with `pip`
+    - Install a (general-purpose) Python package with `pip`
+    - Understand limitations of this way, e.g. use cases/best practices
+
+<!-- exercise:
+
+    - Confirm a package is not there
+    - Install it
+    - Confirm the package is there
+
+-->
 
 <!-- below is still old -->
 
