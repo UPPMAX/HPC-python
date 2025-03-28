@@ -32,7 +32,7 @@ Welcome to "Using Python in an HPC environment" course material
 
     **Not covered**
     
-    - Improve python *coding* skills 
+    - Improve Python *coding* skills 
     - Specifics of other clusters
 
    - **We aim to give this course in spring and fall every year.**
@@ -42,7 +42,7 @@ Welcome to "Using Python in an HPC environment" course material
    **Target group**
  
    - The course is for present or presumptive users at UPPMAX, HPC2N, LUNARC, NSC or possibly other clusters in Sweden. 
-   - Therefore we apply python solutions on all four clusters, so a broad audience can benefit.
+   - Therefore we apply Python solutions on all four clusters, so a broad audience can benefit.
    - We also provide links to the Python/Jupyter documentation at other Swedish HPC centres with personnel affiliated to NAISS.
 
    **Cluster-specific approaches**
@@ -139,7 +139,7 @@ The four HPC centers UPPMAX, HPC2N, LUNARC, and NSC
       - <https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/>  
       - <https://www.nsc.liu.se/software/modules/>
 
-   - To distinguish these modules from the **python** *modules* that work as libraries we refer to the later ones as **packages**.
+   - To distinguish these modules from the **Python** *modules* that work as libraries we refer to the later ones as **packages**.
    
 Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, and NSC
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
