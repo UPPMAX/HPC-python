@@ -532,6 +532,8 @@ Content of the course
    day1/Matplotlib60min.rst
    day1/gpu.md
    summary1.rst
+   day1/other_courses.rst
+   day1/python_at_hpc_centers.rst
 
 .. toctree::
    :maxdepth: 2
