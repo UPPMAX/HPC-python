@@ -20,20 +20,20 @@ See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/uppmax_intro_
 
 !!! tip "Course starts at 9:00 sharp and ends at 16:00"
 
-Time        | Topic                          |Teacher
-------------|--------------------------------|-----------------------
-09:00-10:00 | Packages                       | Björn+Richel (co-teaching)
-10:00-10:15 | Break                          |.
-10:15-11:00 | Isolated environments conda/pip| Björn+Richel (co-teaching)
-11:00-11:15 | Break           |.
+Time        | Topic                           |Teacher
+------------|---------------------------------|-----------------------
+09:00-10:00 | Packages                        | Björn+Richel (co-teaching)
+10:00-10:15 | Break                           |.
+10:15-11:00 | Isolated environments conda/pip | Björn+Richel (co-teaching)
+11:00-11:15 | Break                           |.
 11:15-12:00 | Basic Slurm and interactive, ?OnDemand,?parallel session|Birgitte
-12:00-13:00 | Break|.
+12:00-13:00 | Break                           |.
 13:00-14:00 | IDEs: Jupyter/vscode/Spyder [1] |Jayant
-14:00-14:15 | Break|.
-14:15-15:00 | matplotlib 1/2|Rebecca
-15:00-15:15 | Break|.
-15:15-15:45 | matplotlib 2/2|Rebecca
-15:45-16:00 | Evaluation|.
+14:00-14:15 | Break                           |.
+14:15-15:00 | matplotlib 1/2                  |Rebecca
+15:00-15:15 | Break                           |.
+15:15-15:45 | matplotlib 2/2                  |Rebecca
+15:45-16:00 | Evaluation                      |.
 
 - [1] Spyder only works on LUNARC, for an old version.
   Using virtual environments may get this to work on other session.
@@ -43,18 +43,18 @@ Time        | Topic                          |Teacher
 
 !!! tip "Course starts at 9:00 sharp and ends at 16:00"
 
-Time        | Topic |Teacher
+Time        | Topic     |Teacher
 ------------|-----------|-----------------------
-09:00-10:00 | Pandas | Rebecca
-10:00-10:15 | Break|.
-10:15-11:00 | Pandas | Rebecca
-11:00-11:15 | Break|.
-11:15-12:00 | Seaborn | Rebecca
-12:00-13:00 | Break|.
+09:00-10:00 | Pandas    | Rebecca
+10:00-10:15 | Break     |.
+10:15-11:00 | Pandas    | Rebecca
+11:00-11:15 | Break     |.
+11:15-12:00 | Seaborn   | Rebecca
+12:00-13:00 | Break     |.
 13:00-14:00 | Slurm and batch jobs|Birgitte
-14:00-14:15 | Break|.
+14:00-14:15 | Break     |.
 14:15-15:00 | Formats and Big data |Björn (more time than earlier)
-15:00-15:15 | Break|.
+15:00-15:15 | Break     |.
 15:15-15:45 | Formats and Big Data |Björn
 15:45-16:00 | Evaluation|.
 
