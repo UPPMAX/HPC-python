@@ -4,10 +4,11 @@ Install packages
 !!! info "Learning objectives"
 
     - Install a Python package with `pip`
-    - Work (create, activate, work, deactivate) `venv` virtual environments
+    - Work (create, activate, work, deactivate) with virtual environments in the way recommended by your HPC cluster
+    - [RJCB: I suggest to remove this] Work (create, activate, work, deactivate) `venv` virtual environments
     - [RJCB: I suggest to remove this] work (create, activate, work, deactivate) with Conda environments
-    - [RJCB: I suggest to remove this] export and import a virtual environment
-    - [RJCB: I suggest to not mention this] pipx
+    - [RJCB: I suggest to make this optional] export and import a virtual environment
+    - [RJCB: I suggest to not mention this: it is unrelated to Python development] pipx
 
 <!-- below is still old -->
 

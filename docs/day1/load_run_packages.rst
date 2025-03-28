@@ -1,4 +1,4 @@
-Load and run python and use packages
+Load and run Python and use packages
 ====================================
 
 !!! info "Learning outcomes"
@@ -6,8 +6,12 @@ Load and run python and use packages
     - Practice using the documentation of your HPC cluster
     - Find a Python module
     - Load a Python module
-    - Find Python installed Python packages
+    - [RJCB: added] Start the Python interpreter
+    - [RJCB: added] Run a Python script
+    - [RJCB: added] Find installed Python packages using `pip list`
+    - Find installed Python packages
     - Import a Python package
+    - [RJCB: added] Load a software module with Python packages
 
 !!! info "Learning outcomes"
 
@@ -479,9 +483,9 @@ Run an interactive Python shell
 
 .. code-block:: python
 
-   >>> a=3
-   >>> b=7
-   >>> c=a+b
+   >>> a = 3
+   >>> b = 7
+   >>> c = a + b
    >>> c
    10
 
