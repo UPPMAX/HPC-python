@@ -525,6 +525,7 @@ Content of the course
    day1/intro.rst
    day1/load_run_packages.rst
    day1/install_packages.rst
+   day1/use_isolated_environments.rst
    day1/batch.md
    day1/interactive.md
    day1/IDEs.rst
