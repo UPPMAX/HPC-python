@@ -533,7 +533,6 @@ Content of the course
    day1/Matplotlib60min.rst
    day1/gpu.md
    summary1.rst
-   day1/other_courses.rst
    day1/python_at_hpc_centers.rst
 
 .. toctree::
@@ -549,8 +548,9 @@ Content of the course
 
 .. toctree::
    :maxdepth: 2
-   :caption: Extra reading:
+   :caption: Extra:
 
+   extra/other_courses.rst
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
    extra/interactive_deeper.rst

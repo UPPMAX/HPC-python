@@ -1,6 +1,9 @@
 Other courses
 =============
 
+Material for improving your Python skills
+-----------------------------------------
+
 .. admonition:: First level
 
    `The Carpentries <https://carpentries.org/>`_  teaches basic lab skills for research computing.
@@ -45,3 +48,29 @@ Other courses
 
    - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
     
+
+
+Material for improving your general programming skills
+------------------------------------------------------
+
+First level
+:::::::::::
+
+`The Carpentries <https://carpentries.org/>`_ teaches basic lab skills for research computing.
+
+- `Software carpentry courses/material <https://software-carpentry.org/lessons/>`_ 
+
+Second level
+::::::::::::
+
+`Code Refinery <https://coderefinery.org/>`_ develops and maintains training material on software best practices for researchers that already write code. 
+
+- Their material addresses all academic disciplines and tries to be as programming language-independent as possible. 
+- `Code refinery lessons <https://coderefinery.org/lessons/>`_     
+
+Third level
+:::::::::::
+
+`ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_ is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
+
+- `ENCCS training material <https://enccs.se/lessons/>`_ 
