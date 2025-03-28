@@ -1,3 +1,5 @@
+# Meeting notes autumn 2022 part 2
+
 ## Meeting 7 Sep
 - status
 - ideas
@@ -47,13 +49,18 @@
 - identify helpers
 
 ## Background
+
 98 registered
+
 ### Experience with LINUX 
+
 Orientation	94%
 Bash	    86%
 Batch	    75%
 Packages	87%
+
 ### Cluster (multiple)
+
 HPC2N 47/84	    55
 Rackham 47/84	56
 Bianca 18/84	21
@@ -238,5 +245,5 @@ The goal for the course is that you will be able to:
 
 Prerequisites: familiarity with the LINUX command line, basic Python, and batch jobs. 
 
-For more info and registration, please visit https://www.uppmax.uu.se/support/courses-and-workshops/HPC-python/ or https://www.hpc2n.umu.se/events/courses/2022/python-in-hpc
+For more info and registration, please visit https://docs.uppmax.uu.se/courses_workshops/hpc_python/ or https://www.hpc2n.umu.se/events/courses/2022/python-in-hpc
 

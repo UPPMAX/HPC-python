@@ -12,7 +12,7 @@ Load and run python and use packages
 !!! info "Learning outcomes"
 
     From the first session of
-    [the NAISS 'Intro to Python' course](https://uppmax.github.io/uppmax_intro_python/sessions/using_the_python_interpreter/):
+    [the NAISS 'Intro to Python' course](https://uppmax.github.io/naiss_intro_python/sessions/using_the_python_interpreter/):
 
     - Practice using the documentation of your HPC cluster
     - Practice using the Python book
