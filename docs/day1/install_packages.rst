@@ -7,6 +7,7 @@ Install packages
     - Work (create, activate, work, deactivate) `venv` virtual environments
     - [RJCB: I suggest to remove this] work (create, activate, work, deactivate) with Conda environments
     - [RJCB: I suggest to remove this] export and import a virtual environment
+    - [RJCB: I suggest to not mention this] pipx
 
 <!-- below is still old -->
 
