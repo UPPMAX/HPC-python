@@ -5,14 +5,14 @@ Course dates:
 Week|Day      |Date      |Time                 |Description
 ----|---------|----------|---------------------|-----------------
 17  |Wednesday|2025-04-23|TBA                  |(optional) On-boarding
-17  |Thursday |2025-04-24|9:00 (sharp) to 16:00|Day 1: [NAISS 'Intro to Python'](https://uppmax.github.io/uppmax_intro_python/schedule/)
+17  |Thursday |2025-04-24|9:00 (sharp) to 16:00|Day 1: [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_python/schedule/)
 17  |Friday   |2025-04-25|9:00 (sharp) to 16:00|Day 2
 18  |Monday   |2025-04-28|9:00 (sharp) to 16:00|Day 3
 18  |Tuesday  |2025-04-29|9:00 (sharp) to 16:00|Day 4
 
 ## Day 1: Log in and use Basic Python in a cluster environment
 
-See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/uppmax_intro_python/schedule/).
+See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_python/schedule/).
 
 !!! tip "Course starts at 9:00 sharp and ends at 16:00"
 
