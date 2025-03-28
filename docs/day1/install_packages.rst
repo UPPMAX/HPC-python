@@ -3,10 +3,27 @@ Install packages
 
 !!! info "Learning objectives"
 
+    - Practice using the documentation of your HPC cluster
     - Install a (general-purpose) Python package with `pip`
+    - Be able to navigate to the project folder
+        - [ ] `TODO`: RB: Contact RP to have a COSMOS project folder
+    - Be able to create a subfolder in the project folder
     - Understand limitations of this way, e.g. use cases/best practices
 
 <!-- exercise:
+
+HPC cluster| Who creates answer
+-----------|----------------------------------------------
+Alvis      | RB
+Bianca     | BC, because use conda to install packages
+COSMOS     | RB
+Dardel     | BC
+Kebnekaise | BC
+LUMI       | RB
+Rackham    | RB
+Tetralith  | BC
+
+
 
     - Confirm a package is not there
     - Install it

@@ -17,6 +17,8 @@ Load and run Python and use packages
 
 <!-- exercise 2:
 
+Refer to Day 1.
+
     - See a package is absent
     - Find it in the documentation and/or module spider
     - Load the software module

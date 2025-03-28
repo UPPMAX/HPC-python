@@ -12,6 +12,44 @@ Use isolated environments
     - (optional) export and import a virtual
       environment
 
+<!--
+
+HPC cluster| Who creates answer
+-----------|----------------------------------------------
+Alvis      | Find out which, BC takes Conda, RB takes venv
+Bianca     | conda, hence BC
+COSMOS     | Find out which, BC takes Conda, RB takes venv
+Dardel     | Find out which, BC takes Conda, RB takes venv
+Kebnekaise | venv, hence RB
+LUMI       | RB
+Rackham    | venv, hence RB
+Tetralith  | Find out which, BC takes Conda, RB takes venv
+
+-->
+
+<!-- Exercise 1: which system to pick -->
+
+<!-- Exercise 2:
+
+    - Confirm package is absent
+    - Create environment
+    - Activate environment
+    - Confirm package is absent
+    - Install package in isolated environment
+    - Confirm package is now present
+    - Deactivate environment
+    - Confirm package is now absent again
+
+-->
+
+<!-- (optional) Exercise 3: like 2, but for other tool -->
+
+<!-- (optional) Exercise 4: 
+
+?export and import a virtual environment
+
+-->
+
 <!-- below is still old -->
 
 .. objectives:: 
