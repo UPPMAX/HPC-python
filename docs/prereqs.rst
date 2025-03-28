@@ -19,9 +19,12 @@ See below for links to useful material if you need a refresher before the course
 **PANDAS** link
 
 - More important is how to work in Linux and especially Bash
+
   
 Linux
 #####
+
+<!-- RB: make dropdow box -->
 
 - some familiarity with the LINUX command line (recordings from HPC2N:s Linux intro and UPPMAX Intro course), 
 
