@@ -12,7 +12,7 @@ Week|Day      |Date      |Description
 
 ## Day 1: Log in and use Basic Python in a cluster environment
 
-See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/uppmax_intro_python/schedule/)).
+See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/uppmax_intro_python/schedule/).
 
 !!! tip "Course starts at 9:00 sharp and ends at 16:00"
 
