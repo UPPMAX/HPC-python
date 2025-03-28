@@ -4,7 +4,13 @@ Pre-requirements
 Coding
 ------
 
-- Basic knowledge of Python. 
+- Basic knowledge of Python. You can:
+
+    - Find a Python module <!-- TODO: RJCB: add links to Day 1 -->
+    - Load a Python module of a specific version
+    - Start the Python interpreter
+    - Run a Python script
+
 - We won't test your skills though.
 - Rather you will learn to understand the ecosystems and navigations for using Python on a HPC cluster.
 
