@@ -17,7 +17,7 @@ Course iteration|Day|Lesson plan
 4  (2023 autumn)|.  |.
 5  (2024 spring)|.  |.
 6  (2024 autumn)|.  |.
-7  (2025 spring)|1  |[20250423](20250423/README.md)
-.               |2  |[20250424](20250424/README.md)
+7  (2025 spring)|1  |[20250424](20250424/README.md)
+.               |2  |[20250425](20250425/README.md)
 
 
