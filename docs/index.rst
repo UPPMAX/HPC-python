@@ -511,12 +511,13 @@ Content of the course
 
    prereqs.rst
    preparations.rst
-    
+
 .. toctree::
    :maxdepth: 2
-   :caption: Schedule:
+   :caption: Common:
 
    schedule.md
+   common/understanding_clusters.rst
     
 .. toctree::
    :maxdepth: 2
