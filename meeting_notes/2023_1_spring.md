@@ -170,9 +170,6 @@ Q/A ||20
  
 Q/A page from the R/Julia/Python course: https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EbHWglWYU_VNpTpdD2CtSfYBlpsAF6DyD_4RMwWCie_B0g?e=UddlVs
 
-Q/A page from the Python in HPC course in Sept. 2022:  https://hackmd.io/@bclaremar/HPC-python
-
-
 ### Meeting Mo 24 Apr 10:30
 - NAISS
     - course project UPPMAX

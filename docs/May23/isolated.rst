@@ -383,7 +383,6 @@ text file which looks like this::
 
    - This approach is more advanced and consoleould be, in our opinion, used only if the above are not enough for the purpose. 
    - ``pyenv`` allows you to install your **own python version**, like 3.10.2, and much more… 
-   - `Pyenv at UPPMAX <https://www.uppmax.uu.se/support/user-guides/python-user-guide/#tocjump_7997229232093896_12>`_
    - Probably Conda will work well for you anyway...
 
 

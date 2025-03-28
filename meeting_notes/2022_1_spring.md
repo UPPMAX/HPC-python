@@ -149,9 +149,10 @@ If you think this is doable, maybe we could run it in the summer/autumn? "
 
 
 ## Content
+
 - core from “Python at Uppmax” and made general
       - https://python-at-uppmax.readthedocs.io/en/main/
-      - https://uppmax.uu.se/support/user-guides/python-user-guide
+
   HPC
 
 :::warning
@@ -207,7 +208,6 @@ same at HPC2N? (except Bianca)
     - modular code devel
 
 - PDC Summer School 2022: Introduction to High Performance Computing, **15-26 August 2022**
-    - https://www.pdc.kth.se/summer-school/2022
     - **No python??**
     - parallel algorithms 
     - parallel programming 
