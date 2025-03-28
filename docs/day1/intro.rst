@@ -4,20 +4,39 @@ Introduction
 `Welcome page and syllabus <https://uppmax.github.io/HPC-python/index.html>`_
    - Also link at House symbol |:house:| at top of page 
 
-.. admonition:: **Learning outcomes**
+.. admonition:: **Course learning outcomes**
    
+    <!-- TODO: B: Update -->
+
    - Load Python modules and site-installed Python packages
    - Create a virtual environment
-   - Install Python packages with pip (Kebnekaise, Rackham, Snowy, Cosmos)
+   - Install Python packages with pip (Kebnekaise, Rackham, Snowy, COSMOS)
    - Write a batch script for running Python
    - Use the compute nodes interactively
    - Use Python in parallel
    - Use Python for ML
    - Use GPUs with Python
-   
 
+.. admonition:: **Learning outcomes**
+   
+   - Learners understand how this day is organized
+   - Learners can find their NAISS project
+   - Learners can find how to download and extract the exercises
+
+.. admonition:: **For teachers: Lesson plan **
+
+    <!-- TODO: R: make a drop-down box -->
+   
+    Prior questions:
+    - What is Pyton?
+
+
+<!-- TODO: B: should everyone do an intro on each day? Discuss in Matrix/meeting -->
+   
 What is python?
 ---------------
+
+<!-- TODO: R: put this in a dropdown box -->
 
 As you probably already know…
     
@@ -37,6 +56,8 @@ libraries like NumPy, SciPy, scikit-learn and Pytorch.
     
 Material for improving your programming skills
 ::::::::::::::::::::::::::::::::::::::::::::::
+
+<!-- TODO: R: Move to 'Other courses' in the TOC, and add a link here -->
 
 .. admonition:: First level
 
@@ -85,6 +106,8 @@ Material for improving your programming skills
 Documentations at other NAISS centres
 -------------------------------------
 
+<!-- TODO: R: Move to 'Python documentation overview' -->
+
 .. seealso::
 
    - LUNARC
@@ -96,6 +119,7 @@ Documentations at other NAISS centres
       - `Python <https://www.nsc.liu.se/software/python/>`_
    - PDC
       - `Python <https://support.pdc.kth.se/doc/software-docs/python/>`_
+
 
 .. important::
 
@@ -114,7 +138,30 @@ Documentations at other NAISS centres
        - Project ID: naiss2024-22-1493
        - Storage directory: /proj/hpc-python-fall-nsc  
 
-   Login to the center you have an account at, go to the storage directory, and create a directory below it for you to work in. You can call this directory what you want, but your username is a good option. 
+
+<!-- 
+
+TODO: R will make this into an exercise (i.e. an exercise and not
+a prerequisite, unless we agree in a meeting that
+this _is_ a prerequisite), tie in with downloading
+and extracting the tarball
+
+R: I predict that will take 30 minutes
+B: I predict that will take 5-20 minutes
+me and B think we'll get it to work
+
+TODO: B: In meeting, discuss if tarball is a prerequisite,
+do this in Matrix. If not sent out to learners this is a prereq,
+we'll do this as an exercise.
+
+-->
+
+
+Login to the center you have an account at, go to the storage directory,
+and create a directory below it for you to work in.
+You can call this directory what you want, but your username is a good option. 
+
+<!-- TODO: R: merge with exercise -->
 
 .. important::
 
@@ -127,16 +174,3 @@ Documentations at other NAISS centres
            - ``unzip main.zip``
 
    - You should do either of the above from your space under the course directory on the HPC center of your choice. 
-
-.. objectives:: 
-
-    We will:
-    
-    - teach you how to navigate the module system at HPC2N, UPPMAX, LUNARC, and NSC
-    - show you how to find out which versions of Python and packages are installed
-    - look at the package handler **pip**
-    - explain how to create and use virtual environments
-    - show you how to run batch jobs 
-    - show some examples with parallel computing and using GPUs
-    - guide you in how to start Python tools for Machine Learning
- 

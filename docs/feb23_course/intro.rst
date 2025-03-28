@@ -1,7 +1,7 @@
 Introduction Python
 ===================
 
-`Welcome page and syllabus <https://uppmax.github.io/R-python-julia-HPC/index.html>`_
+`Welcome page and syllabus
    - Also link at House symbol |:house:| at top of page 
 
 .. admonition:: **Learning outcomes**

@@ -10,7 +10,7 @@
     - jupyter
     - extend parallelism and ML
     - in application: ask knowledge of parallel, slurm, gpu, ML
-    - more course links: https://enccs.github.io/gpu-programming/6-language-support/
+    - more course links: [https://enccs.github.io/gpu-programming/](https://enccs.github.io/gpu-programming/)
     - rewrite course goal:
         - Deploy hpc-resources for different problems
             - not learning the solutions of the problems!

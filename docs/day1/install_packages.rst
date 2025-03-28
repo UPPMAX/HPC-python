@@ -1,6 +1,15 @@
 Install packages
 ================
 
+!!! info "Learning objectives"
+
+    - Install a Python package with `pip`
+    - Work (create, activate, work, deactivate) `venv` virtual environments
+    - [RJCB: I suggest to remove this] work (create, activate, work, deactivate) with Conda environments
+    - [RJCB: I suggest to remove this] export and import a virtual environment
+
+<!-- below is still old -->
+
 .. objectives:: 
 
    Learners can 
