@@ -126,7 +126,7 @@ Parallel computing with Python
 
          $ ml GCC/11.3.0 OpenMPI/4.1.4
 
-         $ python -m /path-to-your-project/venv  vpyenv-python-course
+         $ python -m venv /path-to-your-project/vpyenv-python-course
 
          $ source /path-to-your-project/vpyenv-python-course/bin/activate
 
@@ -156,6 +156,52 @@ Parallel computing with Python
       .. code-block:: julia
        
          pkg> add PythonCall
+
+   .. tab:: LUNARC
+      
+      - These guidelines are working for Cosmos:
+      
+      .. code-block:: console
+
+         $ ml GCC/12.3.0 Python/3.11.3
+
+         $ ml OpenMPI/4.1.5
+
+         $ python -m venv /path-to-your-project/vpyenv-python-course
+
+         $ source /path-to-your-project/vpyenv-python-course/bin/activate
+
+      - For the ``mpi4py`` example add the following modules:
+
+      .. code-block:: console
+
+         $ pip install mpi4py
+
+
+      - For the ``numba`` example install the corresponding module:
+
+      .. code-block:: console
+
+         $ pip install numba 
+
+      - For the Julia example we will need PyJulia:
+        
+      .. code-block:: console
+       
+         $ ml Julia/1.10.4-linux-x86_64
+
+         $ pip install JuliaCall
+
+      Start Julia on the command line and add the following package:
+
+      .. code-block:: julia
+       
+         # go to package mode 
+         pkg> add PythonCall
+         # return to Julian mode
+         julia>using PythonCall
+         julia>exit()
+
 
 
 In Python there are different schemes that can be used to parallelize your code. 
@@ -454,7 +500,7 @@ A caller script for Julia would be,
                   print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
                   print("Time spent: %.2f sec" % (endtime-starttime))
 
-         .. tab:: Julia v. 1.9.4
+         .. tab:: Julia v. 1.9.4/1.10.4
 
             .. code-block:: python
 
@@ -924,6 +970,24 @@ example,
 
          mpirun -np 4 python integration2d_mpi.py
 
+   .. tab:: LUNARC 
+
+      .. code-block:: sh 
+
+         #!/bin/bash
+         #SBATCH -A lu202u-vw-xy
+         #SBATCH -t 00:05:00
+         #SBATCH -n 4
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+
+         ml GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5
+         #ml Julia/1.10.4-linux-x86_64 # if Julia is needed
+
+         source /path-to-your-project/vpyenv-python-course/bin/activate
+
+         mpirun -np 4 python integration2d_mpi.py
+
 Monitoring resources' usage
 ---------------------------
 
@@ -1123,13 +1187,6 @@ Exercises
    Python script) and request 5 cores in the batch script. Monitor the usage of resources
    with tools available at your center, for instance ``top`` (UPPMAX) or
    ``job-usage`` (HPC2N).
-
-
-
-
-
-
-
 
 
 
