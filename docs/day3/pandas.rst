@@ -267,7 +267,7 @@ In the example below, a CSV file called "exoplanets_5250_EarthUnits.csv" in the 
 
    import pandas as pd
    df = pd.read_csv('exoplanets_5250_EarthUnits.csv',index_col=0)
-   df.to_csv('./docs/day2/exoplanets_5250_EarthUnits.txt', sep='|',decimal=',', index=True)
+   df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='|',decimal=',', index=True)
 
 In most reader functions, including ``index_col=0`` sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
 
@@ -318,7 +318,7 @@ The main data inspection functions for DataFrames (and Series) are as follows.
 
     import numpy as np
     import pandas as pd
-    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
     print(df.info())
     print('\n',df.memory_usage())
     print('\n Compare: \n',df.memory_usage(deep=True))
@@ -356,7 +356,7 @@ columns by name and rows by index     You can mix ``.loc[]`` and ``.iloc[]`` for
 
     import numpy as np
     import pandas as pd
-    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
     print(df.loc[(df.index.str.contains('PSR')) & (df['discovery_yr'] < 2000), 'planet_type'])
 
 
@@ -388,7 +388,7 @@ There are a couple of types of bad data that Pandas handles less well: infinitie
 
     import numpy as np
     import pandas as pd
-    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
     df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
     df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
     df['eccentricity'].mask(df['eccentricity']==0.0, inplace=True)
@@ -484,7 +484,7 @@ Let's return to our recurring example, the exoplanet dataset, and group it by th
 
     import numpy as np
     import pandas as pd
-    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
     grouped1=df.groupby(['planet_type'])
     print(grouped1.nth(0)) #first element of each group
 
@@ -516,7 +516,7 @@ Here's an example with a GroupBy object.
 
     import numpy as np
     import pandas as pd
-    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
     ### Have to redo the cleaning every time because this isn't a notebook
     df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
     df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
@@ -602,7 +602,7 @@ If the transformation you need to apply to your data cannot be simply constructe
       
           import numpy as np
           import pandas as pd
-          df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+          df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
           ### Have to redo the cleaning every time because this isn't a notebook
           df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
           df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
@@ -648,7 +648,7 @@ If the transformation you need to apply to your data cannot be simply constructe
       
           import numpy as np
           import pandas as pd
-          df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+          df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
           ### Have to redo the cleaning every time
           df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
           df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
@@ -715,7 +715,7 @@ For demonstration, here is an example based loosely on the climate of your teach
       
         import numpy as np
         import pandas as pd
-        df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+        df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
         ### Have to redo the cleaning every time
         df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
         df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
@@ -746,7 +746,7 @@ For demonstration, here is an example based loosely on the climate of your teach
     
        import pandas as pd
        import numpy as np
-       df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+       df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
        df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
        df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
        df.mask(df['mass_ME']>80*318, inplace=True) #80 Jupiter masses = minimum stellar mass
@@ -808,7 +808,7 @@ Efficient Data Types
 
     import pandas as pd
     import numpy as np
-    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
     df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
     df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
     
@@ -825,7 +825,7 @@ Efficient Data Types
 
     import pandas as pd
     import numpy as np
-    df = pd.read_csv('./docs/day2/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
     df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
     df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
     # look at the radius distribution before binning, (and get rid of nonsense)
