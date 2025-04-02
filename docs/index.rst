@@ -521,31 +521,36 @@ Content of the course
     
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons day 1:
+   :caption: Lessons day 2:
 
-   day1/intro.rst
-   day1/load_run_packages.rst
-   day1/install_packages.rst
-   day1/use_isolated_environments.rst
-   day1/batch.md
-   day1/interactive.md
-   day1/IDEs.rst
-   day1/ondemand-desktop.rst
-   day1/Matplotlib60min.rst
-   day1/gpu.md
+   day2/intro.rst
+   day2/load_run_packages.rst
+   day2/install_packages.rst
+   day2/use_isolated_environments.rst
+   day2/batch.md
+   day2/interactive.md
+   day2/IDEs.rst
+   day2/ondemand-desktop.rst
+   day2/Matplotlib60min.rst
+   day2/gpu.md
    summary1.rst
-   day1/python_at_hpc_centers.rst
+   day2/python_at_hpc_centers.rst
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons day 2:
+   :caption: Lessons day 3:
 
-   day2/pandas.rst
-   day2/Seaborn-Intro.rst
-   day2/parallel.rst
-   day2/big_data.md
-   day2/ml.md
+   day3/pandas.rst
+   day3/Seaborn-Intro.rst
+   day3/parallel.rst
+   day3/big_data.md
    summary2.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Lessons day43:
+
+   day4/ml.md
 
 .. toctree::
    :maxdepth: 2
@@ -556,7 +561,7 @@ Content of the course
    extra/isolated_deeper.rst
    extra/interactive_deeper.rst
    extra/jupyterHPC2N.rst
-   day2/ML_deeper.rst
+   day3/ML_deeper.rst
    
    uppmax.rst
    kebnekaise.md
