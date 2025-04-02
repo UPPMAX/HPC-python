@@ -30,19 +30,19 @@ Tetralith  | Find out which, BC takes Conda, RB takes venv
 +------------+---------------------------------+
 | HPC cluster| Conda vs venv                   | 
 +============+=================================+
-| Alvis      | Anaconda3/2024.02-1             |
+| Alvis      | venv, conda in container        |
 +------------+---------------------------------+
-| Bianca     | conda/latest                    |
+| Bianca     | conda/latest, venv via wharf    |
 +------------+---------------------------------+
 | COSMOS     | Anaconda3/2024.02-1             |
 +------------+---------------------------------+
 | Dardel     | miniconda3/24.7.1-0-cpeGNU-23.12|
 +------------+---------------------------------+
-| Kebnekaise | Anaconda3/2024.02-1             |
+| Kebnekaise | venv                            |
 +------------+---------------------------------+
-| LUMI       | Anaconda3/2024.02-1             |
+| LUMI       | ?                               |
 +------------+---------------------------------+
-| Rackham    | Anaconda3/2024.02-1             |
+| Rackham    | venv, conda/latest              |
 +------------+---------------------------------+
 | Tetralith  | Anaconda3/2024.02-1             |
 +------------+---------------------------------+
