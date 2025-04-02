@@ -462,7 +462,7 @@ Apart from ``.scatter()``, most of these plots are more suited for models rather
    import matplotlib.pyplot as plt
    %matplotlib inline 
    import pandas as pd
-   wwii_spending = pd.read_csv('docs/day1/wwii-military-spending-pct-gdp.txt',delimiter='\t',
+   wwii_spending = pd.read_csv('docs/day2/wwii-military-spending-pct-gdp.txt',delimiter='\t',
                               index_col=0)
    print(wwii_spending)
    year = wwii_spending.index.to_numpy()
@@ -782,7 +782,7 @@ Below is a sample of how ``scatter(x,y,z)`` handles depth, and how you can achie
    import numpy as np
    import matplotlib.pyplot as plt
    %matplotlib inline 
-   x,y,z,c = np.genfromtxt('docs/day1/solar_neighborhood.txt', encoding='ascii', 
+   x,y,z,c = np.genfromtxt('docs/day2/solar_neighborhood.txt', encoding='ascii', 
                         dtype=[('x','<f8'),('y','<f8'),('z','<f8'), ('c','<U12')],
                         converters={3:lambda s: 'tab:'+str(s)}, unpack=True)
    zsun = abs(min(z))
