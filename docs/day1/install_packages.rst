@@ -6,7 +6,7 @@ Install packages
     - Practice using the documentation of your HPC cluster
     - Install a (general-purpose) Python package with `pip`
     - Be able to navigate to the project folder
-        - [ ] `TODO`: RB: Contact RP to have a COSMOS project folder
+      (except for the COSMOS HPC cluster)
     - Be able to create a subfolder in the project folder
     - Understand limitations of this way, e.g. use cases/best practices
 
