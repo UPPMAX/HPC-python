@@ -473,7 +473,7 @@ Content of the course
 
    day3/pandas.rst
    day3/Seaborn-Intro.rst
-   day2/batch.md
+   day3/batch.md
    day3/big_data.md
    summary2.rst
 
@@ -481,8 +481,8 @@ Content of the course
    :maxdepth: 2
    :caption: Lessons day 4 (parallel and ML):
 
-   day3/parallel.rst
-   day2/gpu.md
+   day4/parallel.rst
+   day4/gpu.md
    day4/ml.md
 
 .. toctree::
