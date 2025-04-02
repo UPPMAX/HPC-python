@@ -250,74 +250,7 @@ Preliminary schedule
      - Bring your own problems
      - All
 
-.. list-table:: Preliminary schedule Friday 6 December
-   :widths: 20 25 40 15
-   :header-rows: 1
 
-   * - Time
-     - Topic
-     - Content
-     - Teacher
-   * - 9:00
-     - Analysis with Python part I (50)
-     - Pandas
-     - Rebecca
-   * - 9:50
-     - **Coffee**
-     - 
-     - 
-   * - 10:05
-     - Analysis with Python part II (50)
-     - Pandas & Seaborn
-     - Rebecca
-   * - 10.55
-     - **Short leg stretch**
-     - 
-     - 
-   * - 11:10
-     - Parallelism part I: MPI, Processes, Dask
-     - Processes, MPI
-     - Pedro
-   * - 12:00
-     - **LUNCH**
-     - 
-     - 
-   * - 13:00
-     - Big Data with Python (35)
-     - File formats and packages, Chunking
-     - Björn
-   * - 13:50
-     - **Short leg stretch**
-     - 
-     - 
-   * - 14:05
-     - Machine and Deep Learning part I (50)
-     - Pytorch, Tensorflow, ScikitLearn
-     - Jayant
-   * - 14.55
-     - **Coffee**
-     - 
-     - 
-   * - 15:10
-     - Machine and Deep Learning part II (40)
-     - Pytorch, Tensorflow, ScikitLearn
-     - Jayant
-   * - 15.50
-     - **Short leg stretch**
-     - 
-     - 
-   * - 16.00
-     - Summar and  Q&A and avaluation
-     - 
-     - 
-   * - 16.20
-     - Use cases and Q&A
-     - Bring your own problems
-     - All
-   * - 16.45
-     - 
-     - 
-     - 
 
 Prepare your environment now!
 -----------------------------
@@ -521,35 +454,35 @@ Content of the course
     
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons day 2:
+   :caption: Lessons day 2 (basig analysis and packages):
 
    day2/intro.rst
    day2/load_run_packages.rst
    day2/install_packages.rst
    day2/use_isolated_environments.rst
-   day2/batch.md
    day2/interactive.md
-   day2/IDEs.rst
    day2/ondemand-desktop.rst
+   day2/IDEs.rst
    day2/Matplotlib60min.rst
-   day2/gpu.md
    summary1.rst
    day2/python_at_hpc_centers.rst
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons day 3:
+   :caption: Lessons day 3 (advanced analysis):
 
    day3/pandas.rst
    day3/Seaborn-Intro.rst
-   day3/parallel.rst
+   day2/batch.md
    day3/big_data.md
    summary2.rst
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons day 4:
+   :caption: Lessons day 4 (parallel and ML):
 
+   day3/parallel.rst
+   day2/gpu.md
    day4/ml.md
 
 .. toctree::
