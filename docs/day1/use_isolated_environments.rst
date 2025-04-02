@@ -27,6 +27,14 @@ Tetralith  | Find out which, BC takes Conda, RB takes venv
 
 -->
 
++------------+--------------------------+
+| HPC cluster| Conda vs venv            | 
++============+==========================+
+| COSMOS     | Anaconda3/2024.02-1      |
++------------+--------------------------+
+
+
+
 <!-- Exercise 1: which system to pick -->
 
 <!-- Exercise 2:
