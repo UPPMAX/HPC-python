@@ -548,7 +548,7 @@ Content of the course
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons day43:
+   :caption: Lessons day 4:
 
    day4/ml.md
 
