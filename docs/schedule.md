@@ -6,9 +6,9 @@ Week|Day      |Date      |Time                 |Description
 ----|---------|----------|---------------------|-----------------
 17  |Wednesday|2025-04-23|TBA                  |(optional) On-boarding
 17  |Thursday |2025-04-24|9:00 (sharp) to 16:00|Day 1: [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_python/schedule/)
-17  |Friday   |2025-04-25|9:00 (sharp) to 16:00|Day 2: :ref:`Day2`
-18  |Monday   |2025-04-28|9:00 (sharp) to 16:00|Day 3: :ref:`Day3`
-18  |Tuesday  |2025-04-29|9:00 (sharp) to 16:00|Day 4: :ref:`Day4`
+17  |Friday   |2025-04-25|9:00 (sharp) to 16:00|[Day 2](#day2)
+18  |Monday   |2025-04-28|9:00 (sharp) to 16:00|Day 3
+18  |Tuesday  |2025-04-29|9:00 (sharp) to 16:00|Day 4
 
 ## Day 1: Log in and use Basic Python in a cluster environment
 
@@ -18,7 +18,7 @@ See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_p
 Course starts at 9:00 sharp and ends at 16:00
 :::
 
-.. _Day2:
+<a id="day2"></a>
 
 ## Day 2: Use and install packages with pip and conda in isolated environments and doing basic analysis interactively
 
