@@ -30,7 +30,7 @@ Parallel computing with Python
 
          $ ml GCCcore/11.2.0 Python/3.9.6
 
-         $ virtualenv /proj/nobackup/<your-project-storage>/vpyenv-python-course
+         $ python -m venv vpyenv-python-course
 
          $ source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
 
@@ -49,12 +49,6 @@ Parallel computing with Python
 
          $ pip install mpi4py
 
-      - For the ``f2py`` example, this command should be available on the terminal when ``numpy`` is installed:
-
-      .. code-block:: console
-
-         $ pip install numpy
-
       - For the Julia example we will need PyJulia:
         
       .. code-block:: console
@@ -70,6 +64,8 @@ Parallel computing with Python
          >>> import julia
          >>> julia.install()
 
+      This will install the ``PyCall`` connector between Python and Julia.
+       
       - Quit Python, you should be ready to go!
 
    .. tab:: UPPMAX
