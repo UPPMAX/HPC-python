@@ -14,8 +14,11 @@ Week|Day      |Date      |Time                 |Description
 
 See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_python/schedule/).
 
-```{admonition} "Course starts at 9:00 sharp and ends at 16:00"
-```
+:::{tip} 
+
+"Course starts at 9:00 sharp and ends at 16:00"
+
+:::
 
 ## Day 2: Use and install packages with pip and conda in virtual environments and doing basic analysis interactively
 
