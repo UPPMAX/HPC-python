@@ -69,6 +69,7 @@ myst_enable_extensions = [
     "smartquotes",
     "substitution",
     "tasklist",
+    "colon_fence",
 ]
 copybutton_exclude = '.linenos, .gp, .go'
 # List of patterns, relative to source directory, that match files and
