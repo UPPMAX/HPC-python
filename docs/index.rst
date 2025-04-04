@@ -450,6 +450,8 @@ Content of the course
    :caption: Common:
 
    schedule.md
+   common/login.rst
+   common/use_tarball.rst
    common/understanding_clusters.rst
     
 .. toctree::
