@@ -456,7 +456,13 @@ Content of the course
     
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons day 2 (basig analysis and packages):
+   :caption: Lessons day 1 (Intro to Python):
+
+   common/day1.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Lessons day 2 (basic analysis and packages):
 
    day2/intro.rst
    day2/load_run_packages.rst
