@@ -150,6 +150,7 @@ Content of the course
    schedule.md
    common/login.rst
    common/use_tarball.rst
+   common/use_text_editor.rst
    common/understanding_clusters.rst
    common/naiss_projects_overview.rst
     
