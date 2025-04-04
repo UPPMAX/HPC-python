@@ -32,13 +32,15 @@ Schedule Spring 2025
    * - Monday 24 April
      - Intro to Python 
    * - Tuesday 25 April
-     - Packages and basic analalysis
-   * - Wednesday 26 April
+     - Packages and basic analysis
+   * - Monday 28 April
      - Advanced analysis and batch jobs
-   * - Wednesday 26 April
+   * - Tuesday 29 April
      - PArallelism, GPUs and Machine Learning
 
-.. warning:: Not covered**
+.. warning:: 
+
+   **Not covered**
     
     - Improve Python *coding* skills 
     - Specifics of other clusters
@@ -63,19 +65,11 @@ Schedule Spring 2025
    - The general information given in the course will be true for all/most HPC centres in Sweden. 
 
       - The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres. 
-      - When present, links to the Julia/R/Matlab documentation at other NAISS centres are given in the corresponding session.
-
-
-
-
-   - See further below a short introduction to the centre-specific cluster architectures of UPPMAX, HPC2N, LUNARC, NSC.
-
+      - When present, links to the Python documentation at other NAISS centres are given in the corresponding session.
 
 .. admonition:: Cluster documentation of Python
    
-   Here you will find the content of the workshop Using Python in an HPC environment.
-   
-   - Documentation at the HPC centres UPPMAX, HPC2N, LUNARC and NSC
+   - Documentation at the HPC centres
       - `UPPMAX <https://docs.uppmax.uu.se/software/python/>`_
       - `HPC2N <https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages>`_
       - `LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
