@@ -5,7 +5,7 @@ Link to the `Intro to Python Course <https://uppmax.github.io/naiss_intro_python
 
 
 .. button-link:: https://uppmax.github.io/naiss_intro_python
-   :color: primary
-   :shadow:
+    :color: primary
+    :shadow:
 
-   Intro to Python Course
+    Intro to Python Course
