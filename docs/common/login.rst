@@ -1,7 +1,7 @@
 .. _common-login:
 
-Log in session 
-==============
+Log and other preparations 
+==========================
 
 .. admonition:: Goal
 
@@ -12,6 +12,7 @@ Log in session
         - `Preparations of environment <https://uppmax.github.io/HPC-python/preparations.html>`_ to follow this course:
 
             - you can log in
+            - you have have a folder to work in 
             - you can start a text editor
 
     - We will also download exercise snippets and solutions that you can work with. `Use the tarball with exercises <https://uppmax.github.io/R-matlab-julia-HPC/common/use_tarball.html>`_
@@ -104,7 +105,7 @@ For beginners: use the **bold** login method.
   
    - Please log in to the cluster that you are using.
 
-   - **FIX directory names**
+   - **Directory names OK?**
 
    .. admonition:: Use Thinlinc or terminal?
 
@@ -131,7 +132,7 @@ For beginners: use the **bold** login method.
      
             .. code-block:: console
          
-               $ mkdir /proj/r-matlab-julia-uppmax/mrspock/
+               $ mkdir /proj/hpc-python-uppmax/mrspock/
 
       .. tab:: HPC2N
 
@@ -144,7 +145,7 @@ For beginners: use the **bold** login method.
      
            .. code-block:: console
          
-              $ mkdir /proj/nobackup/r-matlab-julia/bbrydsoe/
+              $ mkdir /proj/nobackup/hpc-python-spring/bbrydsoe/
 
       .. tab:: LUNARC
 
@@ -157,7 +158,7 @@ For beginners: use the **bold** login method.
 
            .. code-block:: console
          
-              $ mkdir $HOME/r-matlab-julia
+              $ mkdir $HOME/hpc-python
 
       .. tab:: NSC
 
@@ -169,7 +170,7 @@ For beginners: use the **bold** login method.
      
            .. code-block:: console
          
-              $ mkdir /proj/r-matlab-julia-naiss/jlpicard
+              $ mkdir /proj/hpc-python-spring-naiss/users/jlpicard
 
       .. tab:: PDC
 
@@ -184,7 +185,7 @@ For beginners: use the **bold** login method.
      
            .. code-block:: console
          
-              $ mkdir /cfs/klemming/projects/supr/r-matlab-julia-naiss/sevenof9/
+              $ mkdir /cfs/klemming/projects/supr/hpc-python-spring-naiss/sevenof9/
 
 
 Test an editor
