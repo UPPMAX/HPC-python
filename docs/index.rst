@@ -6,17 +6,6 @@
 Welcome to "Using Python in an HPC environment" course material
 ===============================================================
 
-.. admonition:: This material
-   
-   Here you will find the content of the workshop Using Python in an HPC environment.
-   
-   - Documentation at the HPC centres UPPMAX, HPC2N, LUNARC and NSC
-      - `UPPMAX <https://docs.uppmax.uu.se/software/python/>`_
-      - `HPC2N <https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages>`_
-      - `LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
-      - `NSC <https://www.nsc.liu.se/support/>`_
-
-
 .. admonition:: Content
 
    - This course aims to give a brief, but comprehensive introduction to using Python in an HPC environment.
@@ -29,40 +18,73 @@ Welcome to "Using Python in an HPC environment" course material
       - use Python in parallel
       - use Python for ML and on GPUs. 
    - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
+   - **We aim to give this course in spring and fall every year.**
 
-    **Not covered**
+Schedule Spring 2025
+--------------------
+
+.. list-table:: 
+   :widths: 25 25
+   :header-rows: 1
+
+   * - Day
+     - Language
+   * - Monday 24 April
+     - Intro to Python 
+   * - Tuesday 25 April
+     - Packages and basic analalysis
+   * - Wednesday 26 April
+     - Advanced analysis and batch jobs
+   * - Wednesday 26 April
+     - PArallelism, GPUs and Machine Learning
+
+.. warning:: Not covered**
     
     - Improve Python *coding* skills 
     - Specifics of other clusters
 
-   - **We aim to give this course in spring and fall every year.**
-
-.. warning::
+.. admonition:: Course approach to deal with multiple HPC centers
 
    **Target group**
- 
-   - The course is for present or presumptive users at UPPMAX, HPC2N, LUNARC, NSC or possibly other clusters in Sweden. 
-   - Therefore we apply Python solutions on all four clusters, so a broad audience can benefit.
-   - We also provide links to the Python/Jupyter documentation at other Swedish HPC centres with personnel affiliated to NAISS.
 
-   **Cluster-specific approaches**
-  
-   - The course is a cooperation between
-      - UPPMAX (Rackham, Snowy, Bianca), 
-      - HPC2N (Kebnekaise), 
-      - and LUNARC (Cosmos). 
+   - The course is for present or presumptive users at The NAISS resources at PDC and NSC as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden. 
+   - The course is a NAISS cooperation with teachers from **UPPMAX** (Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
+   - Although there are differences we will only have **few seperate sessions**.
+   - Most participants will use The NAISS resources **Tetralith** system at NSC or **Dardel** system at PDC for the course.
+
+       - Alvis at **C3SE (Chalmers)** may be added in the future.
+
+   - Users with the "local" affiliation below, can work at the following clusters:
+
+      - Kebnekaise: UmU, IRF, MIUN, SLU, LTU. 
+      - Cosmos: LU. 
+      - Rackham/Snowy: UU. 
+
+   - The general information given in the course will be true for all/most HPC centres in Sweden. 
+
+      - The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres. 
+      - When present, links to the Julia/R/Matlab documentation at other NAISS centres are given in the corresponding session.
+
+
+
 
    - See further below a short introduction to the centre-specific cluster architectures of UPPMAX, HPC2N, LUNARC, NSC.
 
-.. admonition:: How is the workshop run?
-  
-   - General sessions with small differences shown for UPPMAX, HPC2N, LUNARC, and NSC in tabs
-   - Main focus on the NAISS resources at UPPMAX and NSC, but Kebnekaise/Cosmos specifics will be covered
-   - Users who already have accounts/projects at HPC2N (Kebnekaise) or LUNARC (Cosmos) are welcome to thoses systems for the exercises. UPPMAX/Rackham and NSC/Tetralith will be used for everyone else. 
+
+.. admonition:: Cluster documentation of Python
+   
+   Here you will find the content of the workshop Using Python in an HPC environment.
+   
+   - Documentation at the HPC centres UPPMAX, HPC2N, LUNARC and NSC
+      - `UPPMAX <https://docs.uppmax.uu.se/software/python/>`_
+      - `HPC2N <https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages>`_
+      - `LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
+      - `NSC <https://www.nsc.liu.se/support/>`_
+      - `PDC <https://support.pdc.kth.se/doc/applications/python/>`_ 
 
 .. admonition:: Some practicals
 
-   - `Code of Conduct <https://github.com/UPPMAX/HPC-python/blob/main/CODE_OF_CONDUCT.md>`_
+   - `Code of Conduct <https://github.com/UPPMAX/R-matlab-julia-HPC/blob/main/CODE_OF_CONDUCT.md>`_
       - Be nice to each other!
  
    - Zoom
@@ -70,28 +92,37 @@ Welcome to "Using Python in an HPC environment" course material
       
        - Zoom policy:
 
-          - Zoom chat (maintained by co-teachers):
+           - Zoom chat (maintained by co-teachers):
 
-            - technical issues of zoom
-            - technical issues of your settings
-            - direct communication 
-            - each teacher may have somewhat different approach
+                - technical issues of zoom
+                - technical issues of your settings
+                - direct communication 
+                - each teacher may have somewhat different approach
 
-          -  collaboration document (see below):
+            - collaboration document (see below):
 
-             - "explain again"         
-             - elaborating the course content
-             - solutions for your own work
+                - "explain again"         
+                - elaborating the course content
+                - solutions for your own work
 
        - Recording policy:
-          - The lectures and demos will be recorded.
-          - The questions asked per microphone during these sessions will be recorded
-          - If you don't want your voice to appear use: 
+           - **All lectures and demos** will be available on HPC2Ns **Youtube** channel after the course.
 
-             - use the collaboration document (see below)
+           - Due to different teaching styles, the teacher of a session decides if a lesson will be:
+               - recorded without learners
+               - recorded live with learners
+
+           - The teachers will be clear if it is recorded or not and it will be visible in the ZOOM.
+           - For the live-recordings
+
+               - The questions asked per microphone during these sessions will be recorded
+               - If you don't want your voice to appear: 
+
+                   - use the collaboration document (see below)
 
        - The Zoom main room is used for most lectures
        - Some sessions use breakout rooms for exercises, some of which use a silent room
+            
 
 
 .. admonition:: Q/A collabration document
@@ -104,200 +135,11 @@ Welcome to "Using Python in an HPC environment" course material
 
 .. warning::
 
-   - Please, be sure that you have gone through the **`pre-requirements <https://uppmax.github.io/HPC-python/prereqs.html>`_** and **`preparations <https://uppmax.github.io/HPC-python/preparations.html>`_**
-   - It mentions the familiarity with the LINUX command line.
-   - The applications to connect to the clusters
-       - terminals
-       - remote graphical desktop ThinLinc
+   - **Please be sure that you have gone through the** `pre-requirements <https://uppmax.github.io/R-matlab-julia-HPC/prereqs.html>`_
+      - It mentions the familiarity with the LINUX command line.
+      - The applications to connect to the clusters: terminals and ThinLinc (remote graphical desktop)
+   - This course does not aim to improve your coding skills. Rather you will learn to understand the ecosystems and navigations for the the different languages on a HPC cluster.
 
-The four HPC centers UPPMAX, HPC2N, LUNARC, and NSC
-----------------------------------------------------
-   
-- UPPMAX has three different clusters 
-
-    - Rackham for general purpose computing on CPUs only
-    - Snowy available for local projects and suits long jobs (< 1 month) and has CPUs and GPUs
-    - Bianca for sensitive data and has GPUs
-
-- HPC2N has Kebnekaise with CPUs and GPUs  
-
-- LUNARC has two systems 
-     
-    - Cosmos (CPUs and GPUs)
-    - Cosmos-SENS (sensitive data) 
-
-- NSC has one NAISS system (and several others) 
-     
-    - Tetralith (CPUs and GPUs)
-    
-.. warning:: 
-
-   - At HPC2N, UPPMAX, LUNARC, and NSC we call the applications available via the *module system* **modules**. 
-
-      - <http://docs.uppmax.uu.se/cluster_guides/modules/> 
-      - <https://docs.hpc2n.umu.se/documentation/modules/>
-      - <https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/>  
-      - <https://www.nsc.liu.se/software/modules/>
-
-   - To distinguish these modules from the **Python** *modules* that work as libraries we refer to the later ones as **packages**.
-   
-Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, and NSC
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-**What is a cluster?**
-
-- Login nodes and calculations/computation nodes
-
-- A network of computers, each computer working as a **node**.
-     
-- Each node contains several processor cores and RAM and a local disk called scratch.
-
-.. figure:: img/node.png
-   :align: center
-
-- The user logs in to **login nodes**  via Internet through ssh or Thinlinc.
-
-  - Here the file management and lighter data analysis can be performed.
-
-.. figure:: img/cluster.png
-   :align: center
-
-- The **calculation/compute nodes** have to be used for intense computing. 
-
- 
-Overview of the UPPMAX systems
-##############################
-
-.. mermaid:: mermaid/uppmax2.mmd
-
-Overview of HPC2N's system 
-##########################
-
-.. mermaid:: mermaid/kebnekaise.mmd
-
-Overview of LUNARC's systems
-############################
-
-.. figure:: img/cosmos-resources.png
-   :align: center
-
-Overview of NSC's system
-############################
-
-.. mermaid:: mermaid/tetralith.mmd
-
-Preliminary schedule
-====================
-
-.. list-table:: Preliminary schedule Thursday 5 December
-   :widths: 20 25 40 15
-   :header-rows: 1
-
-   * - Time
-     - Topic
-     - Content
-     - Teacher(s)
-   * - 9:00
-     - Introduction to the course, log in, load/run Python, find packages
-     - Getting started with practical things
-     - All
-   * - 9:55
-     - **Coffee**
-     - 
-     - 
-   * - 10:10
-     - Install packages and isolated environments 
-     - Install, create and handle
-     - Björn
-   * - 11.00
-     - **Short leg stretch** 10m
-     - 
-     - 
-   * - 10:40
-     - Reaching compute nodes with Slurm   (70)
-     - Batch jobs vs interactive work in IDEs
-     - Birgitte
-   * - ~~11:50~~
-     - Catch-up time and Q/A (no recording)
-     - 
-     - 
-   * - 12:00
-     - **LUNCH**
-     - 
-     - 
-   * - 13:00-14:45
-     - Analysis with Python (90m)
-     - Matplotlib, IDEs and plots from scripts
-     - Rebecca
-   * - 13.55
-     - **Short leg stretch** 15m
-     - 
-     - 
-   * - 14.45
-     - **Coffee** 15 min
-     - 
-     - 
-   * - 15.00
-     - Using GPUs for Python (30m)
-     - Birgitte
-     - 
-   * - 15:30
-     - Summary + Q/A Evaluation
-     - 
-     - 
-   * - ~15.50
-     - Use cases and Q/A
-     - Bring your own problems
-     - All
-
-
-
-Prepare your environment now!
------------------------------
-
-.. challenge:: Log in and create a user folder (if not done already)
-
-   - Please log in to Rackham, Kebnekaise, Cosmos or other cluster that you are using.
-
-   .. admonition:: Use Thinlinc or terminal?
-
-      - It is up to you!
-      - Graphics come easier with Thinlinc
-      - For this course, when having many windows open, it may sometimes be better to run in terminal, for screen space issues.
-
-
-.. admonition:: Prepare your environment now!
-
-   :class: dropdown
-  
-   - Please log in to Rackham, Kebnekaise, Cosmos, Tetralith, or other cluster that you are using.
-   - For graphics, ThinLinc may be the best option.
-      - The `ThinLinc app <https://www.cendio.com/thinlinc/download/>`_.
-   - Rackham has access for regular SSH, through a regular ThinLinc client and a through a web browser interface with ThinLinc: 
-       - SSH: rackham.uppmax.uu.se  
-       - ThinLinc client: rackham-gui.uppmax.uu.se 
-       - Web browser interface: https://rackham-gui.uppmax.uu.se
-       - `ThinLinc user guide at UPPMAX <http://docs.uppmax.uu.se/cluster_guides/thinlinc/>`_
-           - 2FA may be needed, which can be handled by logging in with regular SSH, doing 2FA, logging out again, then there is a grace period of some minutes for you to login to ThinLinc. `More here: <https://www.uu.se/en/centre/uppmax/get-started/2-factor>`_
-   - Kebnekaise has access for regular SSH, ThinLinc clients, and through a web browser interface with ThinLinc: 
-       - SSH: kebnekaise.hpc2n.umu.se 
-       - ThinLinc client: kebnekaise-tl.hpc2n.umu.se 
-       - From webbrowser: https://kebnekaise-tl.hpc2n.umu.se:300/ 
-   - Cosmos: 
-       - SSH: cosmos.lunarc.lu.se 
-       - ThinLinc: cosmos-dt.lunarc.lu.se 
-           - 2FA required! For more info, `go here: <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/>`_ 
-   - Tetralith: 
-       - SSH: tetralith.nsc.liu.se  
-       - ThinLinc: tetralith.nsc.liu.se  
-       - 2FA is needed. Info here about setup: <https://www.nsc.liu.se/support/2fa/>  
-
-.. admonition:: Project
-
-    - The course project on UPPMAX (Rackham) is: ``naiss2024-22-1442``
-    - The course project on HPC2N (Kebnekaise) is: ``hpc2n2024-142``
-    - The course project on LUNARC (Cosmos) is: ``lu2024-2-88``
-    - The course project on NSC (Tetralith) is: ``naiss2024-22-1493``  
 
 Make working directories 
     
