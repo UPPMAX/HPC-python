@@ -29,9 +29,9 @@ Schedule Spring 2025
 
    * - Day
      - Language
-   * - Monday 24 April
+   * - Thursday 24 April
      - Intro to Python 
-   * - Tuesday 25 April
+   * - Friday 25 April
      - Packages and basic analysis
    * - Monday 28 April
      - Advanced analysis and batch jobs
