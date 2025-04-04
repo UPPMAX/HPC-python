@@ -15,7 +15,6 @@ These are discussed in detail below
 .. note::
 
    - There will be an opportunity to get help with log in every morning of the workshop at 9:00.
-   - You are also welcome to join the On-boarding at 13:00 the day before the ordinary program starts.
 
 Log in to one of the HPC systems covered in this course
 -------------------------------------------------------
