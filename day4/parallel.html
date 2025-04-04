@@ -1,0 +1,1418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallel computing with Python &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using GPUs with Python" href="gpu.html" />
+    <link rel="prev" title="Summary day2" href="../summary2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/load_run_packages.html">Load and run Python and use packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Loading IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/Matplotlib60min.html">Matplotlib in 60 Minutes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary1.html">Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/Seaborn-Intro.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parallel computing with Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#serial-optimizations">Serial optimizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#threads">Threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implicit-threaded">Implicit Threaded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distributed">Distributed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mpi">MPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring-resources-usage">Monitoring resources’ usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hpc2n">HPC2N</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml.html">Machine Learning and Deep Learning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Parallel computing with Python</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day4/parallel.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="parallel-computing-with-python">
+<h1>Parallel computing with Python<a class="headerlink" href="#parallel-computing-with-python" title="Link to this heading"></a></h1>
+<div class="admonition-questions questions admonition" id="questions-0">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>What is parallel computing?</p></li>
+<li><p>What are the different parallelization mechanisms for Python?</p></li>
+<li><p>How to implement parallel algorithms in Python code?</p></li>
+<li><p>How to deploy threads and workers at our HPC centers?</p></li>
+</ul>
+</div>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Learn general concepts for parallel computing</p></li>
+<li><p>Gain knowledge on the tools for parallel programming in different languages</p></li>
+<li><p>Familiarize with the tools to monitor the usage of resources</p></li>
+</ul>
+</div>
+<p><strong>Prerequisites</strong></p>
+<ul class="simple">
+<li><p>Demo</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">HPC2N</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">UPPMAX</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">NSC</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">LUNARC</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>If not already done so:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ml<span class="w"> </span>GCCcore/11.2.0<span class="w"> </span>Python/3.9.6
+
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>vpyenv-python-course
+
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/proj/nobackup/&lt;your-project-storage&gt;/vpyenv-python-course/bin/activate
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">numba</span></code> example install the corresponding module:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>numba
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> example add the following modules:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ml<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1
+
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>mpi4py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the Julia example we will need PyJulia:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ml<span class="w"> </span>Julia/1.9.3-linux-x86_64
+
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>julia
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Start Python on the command line and type:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">julia</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">julia</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will install the <code class="docutils literal notranslate"><span class="pre">PyCall</span></code> connector between Python and Julia.</p>
+<ul class="simple">
+<li><p>Quit Python, you should be ready to go!</p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>If not already done so:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>python/3.9.5
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span>/proj/naiss202X-XY-XYZ/nobackup/&lt;user&gt;/venv-python-course
+</pre></div>
+</div>
+<p>Activate it if needed (is the name shown in the prompt)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/proj/naiss202X-XY-XYZ/nobackup/&lt;user&gt;/venv-python-course/bin/activate
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">numba</span></code> example install the corresponding module:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>numba
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> example add the following modules:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ml<span class="w"> </span>gcc/9.3.0<span class="w"> </span>openmpi/3.1.5
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mpi4py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the Julia example we will need PyJulia:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ml<span class="w"> </span>julia/1.7.2
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>julia
+</pre></div>
+</div>
+<p>Start Python on the command line and type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">julia</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">julia</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Quit Python, you should be ready to go!</p>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>These guidelines are working for Tetralith:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ml<span class="w"> </span>buildtool-easybuild/4.8.0-hpce082752a2<span class="w">  </span>GCCcore/11.3.0<span class="w"> </span>Python/3.10.4
+
+<span class="gp">$ </span>ml<span class="w"> </span>GCC/11.3.0<span class="w"> </span>OpenMPI/4.1.4
+
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/path-to-your-project/vpyenv-python-course
+
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/path-to-your-project/vpyenv-python-course/bin/activate
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> example add the following modules:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>mpi4py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">numba</span></code> example install the corresponding module:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>numba
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the Julia example we will need PyJulia:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ml<span class="w"> </span>julia/1.9.4-bdist
+
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>JuliaCall
+</pre></div>
+</div>
+<p>Start Julia on the command line and add the following package:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">pkg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">PythonCall</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>These guidelines are working for Cosmos:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ml<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3
+
+<span class="gp">$ </span>ml<span class="w"> </span>OpenMPI/4.1.5
+
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/path-to-your-project/vpyenv-python-course
+
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/path-to-your-project/vpyenv-python-course/bin/activate
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> example add the following modules:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>mpi4py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">numba</span></code> example install the corresponding module:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>numba
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For the Julia example we will need PyJulia:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ml<span class="w"> </span>Julia/1.10.4-linux-x86_64
+
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>JuliaCall
+</pre></div>
+</div>
+<p>Start Julia on the command line and add the following package:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># go to package mode</span>
+<span class="n">pkg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">PythonCall</span>
+<span class="c"># return to Julian mode</span>
+<span class="n">julia</span><span class="o">&gt;</span><span class="k">using</span><span class="w"> </span><span class="n">PythonCall</span>
+<span class="n">julia</span><span class="o">&gt;</span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></div>
+<p>In Python there are different schemes that can be used to parallelize your code.
+We will only take a look at some of these schemes that illustrate the general concepts of
+parallel computing. The aim of this lecture is to learn how to run parallel codes
+in Python rather than learning to write those codes.</p>
+<p>The workhorse for this section will be a 2D integration example:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0\]</div>
+</div></blockquote>
+<p>One way to perform the integration is by creating a grid in the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> directions.
+More specifically, one divides the integration range in both directions into <code class="docutils literal notranslate"><span class="pre">n</span></code> bins. A
+serial code (without optimization) can be seen in the following code block.</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">integration2d_serial.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">integration2d_serial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">integral</span><span class="p">;</span>
+    <span class="c1"># interval size (same for X and Y)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1"># cummulative variable</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># regular integration in the X axis</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="c1"># regular integration in the Y axis</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mysum</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">integration2d_serial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>We can run this code on the terminal as follows (similarly at both HPC2N and UPPMAX):</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although this works on the terminal, having many users doing computations at the same time
+for this course, could create delays for other users</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>integration2d_serial.py
+<span class="go">Integral value is -7.117752e-17, Error is 7.117752e-17</span>
+<span class="go">Time spent: 20.39 sec</span>
+</pre></div>
+</div>
+<p>Because of that, we can use for <strong>short-time</strong> jobs the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>srun<span class="w"> </span>-A<span class="w"> </span>&lt;your-projec-id&gt;<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:10:00<span class="w"> </span>python<span class="w"> </span>integration2d_serial.py
+<span class="go">Integral value is -7.117752e-17, Error is 7.117752e-17</span>
+<span class="go">Time spent: 20.39 sec</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">srun</span></code> has the flags that are used in a standard batch file.</p>
+</div>
+<p>Note that outputs can be different, when timing a code a more realistic approach
+would be to run it several times to get statistics.</p>
+<p>One of the crucial steps upon parallelizing a code is identifying its bottlenecks. In
+the present case, we notice that the most expensive part in this code is the double <cite>for loop</cite>.</p>
+<section id="serial-optimizations">
+<h2>Serial optimizations<a class="headerlink" href="#serial-optimizations" title="Link to this heading"></a></h2>
+<p>Just before we jump into a parallelization project, Python offers some options to make
+serial code faster. For instance, the <code class="docutils literal notranslate"><span class="pre">Numba</span></code> module can assist you to obtain a
+compiled-quality function with minimal efforts. This can be achieved with the <code class="docutils literal notranslate"><span class="pre">njit()</span></code>
+decorator:</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">integration2d_serial_numba.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">njit</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">integration2d_serial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># interval size (same for X and Y)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1"># cummulative variable</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># regular integration in the X axis</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="c1"># regular integration in the Y axis</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mysum</span>
+    <span class="k">return</span> <span class="n">integral</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">njit</span><span class="p">(</span><span class="n">integration2d_serial</span><span class="p">)(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>The execution time is now:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>integration2d_serial_numba.py
+<span class="go">Integral value is -7.117752e-17, Error is 7.117752e-17</span>
+<span class="go">Time spent: 1.90 sec</span>
+</pre></div>
+</div>
+<p>Another option for making serial codes faster, and specially in the case of arithmetic
+intensive codes, is to write the most expensive parts of them in a compiled language such
+as Fortran or C/C++. In the next paragraphs we will show you how Fortran code for the
+2D integration case can be called in Python.</p>
+<p>We start by writing the expensive part of our Python code in a Fortran function in a file
+called <code class="docutils literal notranslate"><span class="pre">fortran_function.f90</span></code>:</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">fortran_function.f90</span></code></p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="n">integration2d_fortran</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">integral</span><span class="p">)</span>
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dp</span><span class="o">=</span><span class="nb">selected_real_kind</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">pi</span><span class="o">=</span><span class="mf">3.14159265358979323_dp</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">integral</span>
+
+<span class="w">    </span><span class="kt">integer</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span>
+<span class="c">!   interval size</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">h</span>
+<span class="c">!   x and y variables</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">y</span>
+<span class="c">!   cummulative variable</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">mysum</span>
+
+<span class="w">    </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0_dp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="n">mysum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_dp</span>
+<span class="c">!   regular integration in the X axis</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">       </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5_dp</span><span class="p">)</span>
+<span class="c">!      regular integration in the Y axis</span>
+<span class="w">       </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">           </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5_dp</span><span class="p">)</span>
+<span class="w">           </span><span class="n">mysum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mysum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">       </span><span class="k">enddo</span>
+<span class="k">    enddo</span>
+
+<span class="k">    </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">mysum</span>
+
+<span class="k">end function </span><span class="n">integration2d_fortran</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>Then, we need to compile this code and generate the Python module
+(<code class="docutils literal notranslate"><span class="pre">myfunction</span></code>):</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For UPPMAX you may have to change <code class="docutils literal notranslate"><span class="pre">gcc</span></code> version like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ml<span class="w"> </span>gcc/10.3.0
+</pre></div>
+</div>
+<p>Then continue…</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>f2py<span class="w"> </span>-c<span class="w"> </span>-m<span class="w"> </span>myfunction<span class="w"> </span>fortran_function.f90
+<span class="go">running build</span>
+<span class="go">running config_cc</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>this will produce the Python/C API <code class="docutils literal notranslate"><span class="pre">myfunction.cpython-39-x86_64-linux-gnu.so</span></code>, which
+can be called in Python as a module:</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">call_fortran_code.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">myfunction</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">myfunction</span><span class="o">.</span><span class="n">integration2d_fortran</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>The execution time is considerably reduced:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>call_fortran_code.py
+<span class="go">Integral value is -7.117752e-17, Error is 7.117752e-17</span>
+<span class="go">Time spent: 1.30 sec</span>
+</pre></div>
+</div>
+<p>Compilation of code can be tedious specially if you are in a developing phase of your code. As
+an alternative to improve the performance of expensive parts of your code (without using a
+compiled language) you can write these parts in Julia (which doesn’t require compilation) and
+then calling Julia code in Python. For the workhorse integration case that we are using,
+the Julia code can look like this:</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">julia_function.jl</span></code></p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">integration2d_julia</span><span class="p">(</span><span class="n">n</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
+<span class="c"># interval size</span>
+<span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">π</span><span class="o">/</span><span class="n">n</span>
+<span class="c"># cummulative variable</span>
+<span class="n">mysum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="c"># regular integration in the X axis</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">   </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c">#   regular integration in the Y axis</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">      </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
+<span class="w">      </span><span class="n">mysum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mysum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="w">   </span><span class="k">end</span>
+<span class="k">end</span>
+<span class="k">return</span><span class="w"> </span><span class="n">mysum</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">h</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>A caller script for Julia would be,</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">call_julia_code.py</span></code></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Julia v. 1.9.3</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Julia v. 1.9.4/1.10.4</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">julia</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">julia</span><span class="w"> </span><span class="kn">import</span> <span class="n">Main</span>
+
+<span class="n">Main</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;julia_function.jl&#39;</span><span class="p">)</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+   <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+   <span class="n">integral</span> <span class="o">=</span> <span class="n">Main</span><span class="o">.</span><span class="n">integration2d_julia</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+   <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">juliacall</span><span class="w"> </span><span class="kn">import</span> <span class="n">Main</span> <span class="k">as</span> <span class="n">julia</span>
+
+<span class="c1"># Include the Julia script</span>
+<span class="n">julia</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s2">&quot;julia_function.jl&quot;</span><span class="p">)</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+
+   <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+   <span class="c1"># Call the function defined in the julia script</span>
+   <span class="n">integral</span> <span class="o">=</span> <span class="n">julia</span><span class="o">.</span><span class="n">integration2d_julia</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># function takes arguments</span>
+   <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></div>
+</div>
+</div></blockquote>
+<p>Timing in this case is similar to the Fortran serial case,</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>call_julia_code.py
+<span class="go">Integral value is -7.117752e-17, Error is 7.117752e-17</span>
+<span class="go">Time spent: 1.29 sec</span>
+</pre></div>
+</div>
+<p>If even with the previous (and possibly others from your own) serial optimizations your code
+doesn’t achieve the expected performance, you may start looking for some parallelization
+scheme. Here, we describe the most common schemes.</p>
+</section>
+<section id="threads">
+<h2>Threads<a class="headerlink" href="#threads" title="Link to this heading"></a></h2>
+<p>In a threaded parallelization scheme, the workers (threads) share a global memory address space.
+The <a class="reference external" href="https://docs.python.org/3/library/threading.html">threading</a>
+module is built into Python so you don’t have to installed it. By using this
+module, one can create several threads to do some work in parallel (in principle).
+For jobs dealing with files I/O one can observe some speedup by using the <cite>threading</cite> module.
+However, for CPU intensive jobs one would see a decrease in performance w.r.t. the serial code.
+This is because Python uses the Global Interpreter Lock
+(<a class="reference external" href="https://docs.python.org/3/c-api/init.html">GIL</a>) which serializes the code when
+several threads are used.</p>
+<p>In the following code we used the <cite>threading</cite> module to parallelize the 2D integration example.
+Threads are created with the construct <code class="docutils literal notranslate"><span class="pre">threading.Thread(target=function,</span> <span class="pre">args=())</span></code>, where
+<cite>target</cite> is the function that will be executed by each thread and <cite>args</cite> is a tuple containing the
+arguments of that function. Threads are started with the <code class="docutils literal notranslate"><span class="pre">start()</span></code> method and when they finish
+their job they are joined with the <code class="docutils literal notranslate"><span class="pre">join()</span></code> method,</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">integration2d_threading.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="c1"># number of threads</span>
+<span class="n">numthreads</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="c1"># partial sum for each thread</span>
+<span class="n">partial_integrals</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">numthreads</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">integration2d_threading</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">numthreads</span><span class="p">,</span><span class="n">threadindex</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">partial_integrals</span><span class="p">;</span>
+    <span class="c1"># interval size (same for X and Y)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1"># cummulative variable</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># workload for each thread</span>
+    <span class="n">workload</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">numthreads</span>
+    <span class="c1"># lower and upper integration limits for each thread</span>
+    <span class="n">begin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">workload</span><span class="o">*</span><span class="n">threadindex</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">workload</span><span class="o">*</span><span class="p">(</span><span class="n">threadindex</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># regular integration in the X axis</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span><span class="n">end</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="c1"># regular integration in the Y axis</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">partial_integrals</span><span class="p">[</span><span class="n">threadindex</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mysum</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="c1"># start the threads</span>
+    <span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numthreads</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">integration2d_threading</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">numthreads</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+        <span class="n">threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="c1"># waiting for the threads</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="n">integral</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">partial_integrals</span><span class="p">)</span>
+    <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>Notice the output of running this code on the terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>integration2d_threading.py
+<span class="go">Integral value is 4.492851e-12, Error is 4.492851e-12</span>
+<span class="go">Time spent: 21.29 sec</span>
+</pre></div>
+</div>
+<p>Although we are distributing the work on 4 threads, the execution time is longer than in the
+serial code. This is due to the GIL mentioned above.</p>
+</section>
+<section id="implicit-threaded">
+<h2>Implicit Threaded<a class="headerlink" href="#implicit-threaded" title="Link to this heading"></a></h2>
+<p>Some libraries like OpenBLAS, LAPACK, and MKL provide an implicit threading mechanism. They
+are used, for instance, by <code class="docutils literal notranslate"><span class="pre">numpy</span></code> module for computing linear algebra operations. You can obtain information
+about the libraries that are available in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> with <code class="docutils literal notranslate"><span class="pre">numpy.show_config()</span></code>.
+This can be useful at the moment of setting the number of threads as these libraries could
+use different mechanisms for it, for the following example we will use the OpenMP
+environment variables.</p>
+<p>Consider the following code that computes the dot product of a matrix with itself:</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">dot.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span><span class="mi">3000</span><span class="p">)</span>
+<span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+<span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>the timing for running this code with 1 thread is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+<span class="gp">$ </span>python<span class="w"> </span>dot.py
+<span class="go">Time spent: 1.14 sec</span>
+</pre></div>
+</div>
+<p>while running with 2 threads is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">2</span>
+<span class="gp">$ </span>python<span class="w"> </span>dot.py
+<span class="go">Time spent: 0.60 sec</span>
+</pre></div>
+</div>
+<p>It is also possible to use efficient threads if you have blocks of code written
+in a compiled language. Here, we will see the case of the Fortran code written above
+where OpenMP threads are used. The parallelized code looks as follows:</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">fortran_function_openmp.f90</span></code></p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="n">integration2d_fortran_openmp</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">integral</span><span class="p">)</span>
+<span class="w">    </span><span class="c">!$ use omp_lib</span>
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dp</span><span class="o">=</span><span class="nb">selected_real_kind</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">pi</span><span class="o">=</span><span class="mf">3.14159265358979323</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">integral</span>
+
+<span class="w">    </span><span class="kt">integer</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span>
+<span class="c">!   interval size</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">h</span>
+<span class="c">!   x and y variables</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">y</span>
+<span class="c">!   cummulative variable</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">mysum</span>
+
+<span class="w">    </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0_dp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="n">mysum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_dp</span>
+<span class="c">!   regular integration in the X axis</span>
+<span class="c">!$omp parallel do reduction(+:mysum) private(x,y,j)</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">       </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5_dp</span><span class="p">)</span>
+<span class="c">!      regular integration in the Y axis</span>
+<span class="w">       </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">           </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5_dp</span><span class="p">)</span>
+<span class="w">           </span><span class="n">mysum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mysum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">       </span><span class="k">enddo</span>
+<span class="k">    enddo</span>
+<span class="c">!$omp end parallel do</span>
+
+<span class="w">    </span><span class="n">integral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">mysum</span>
+
+<span class="k">end function </span><span class="n">integration2d_fortran_openmp</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>The way to compile this code differs to the one we saw before, now we will need the flags
+for OpenMP:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>f2py<span class="w"> </span>-c<span class="w"> </span>--f90flags<span class="o">=</span><span class="s1">&#39;-fopenmp&#39;</span><span class="w"> </span>-lgomp<span class="w"> </span>-m<span class="w"> </span>myfunction_openmp<span class="w"> </span>fortran_function_openmp.f90
+</pre></div>
+</div>
+<p>the generated module can be then loaded,</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">call_fortran_code_openmp.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">myfunction_openmp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">myfunction_openmp</span><span class="o">.</span><span class="n">integration2d_fortran_openmp</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>the execution time by using 4 threads is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span>
+<span class="gp">$ </span>python<span class="w"> </span>call_fortran_code_openmp.py
+<span class="go">Integral value is 4.492945e-12, Error is 4.492945e-12</span>
+<span class="go">Time spent: 0.37 sec</span>
+</pre></div>
+</div>
+<p>More information about how OpenMP works can be found in the material of a previous
+<a class="reference external" href="https://github.com/hpc2n/OpenMP-Collaboration">OpenMP course</a> offered by some of us.</p>
+</section>
+<section id="distributed">
+<h2>Distributed<a class="headerlink" href="#distributed" title="Link to this heading"></a></h2>
+<p>In the distributed parallelization scheme the workers (processes) can share some common
+memory but they can also exchange information by sending and receiving messages for
+instance.</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">integration2d_multiprocessing.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Array</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="c1"># number of processes</span>
+<span class="n">numprocesses</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="c1"># partial sum for each thread</span>
+<span class="n">partial_integrals</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">numprocesses</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">integration2d_multiprocessing</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">numprocesses</span><span class="p">,</span><span class="n">processindex</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">partial_integrals</span><span class="p">;</span>
+    <span class="c1"># interval size (same for X and Y)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1"># cummulative variable</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># workload for each process</span>
+    <span class="n">workload</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">numprocesses</span>
+
+    <span class="n">begin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">workload</span><span class="o">*</span><span class="n">processindex</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">workload</span><span class="o">*</span><span class="p">(</span><span class="n">processindex</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># regular integration in the X axis</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span><span class="n">end</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="c1"># regular integration in the Y axis</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">partial_integrals</span><span class="p">[</span><span class="n">processindex</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mysum</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+    <span class="n">processes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numprocesses</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">integration2d_multiprocessing</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">numprocesses</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+        <span class="n">processes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="c1"># waiting for the processes</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">processes</span><span class="p">:</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="n">integral</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">partial_integrals</span><span class="p">)</span>
+    <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>In this case, the execution time is reduced:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>integration2d_multiprocessing.py
+<span class="go">Integral value is 4.492851e-12, Error is 4.492851e-12</span>
+<span class="go">Time spent: 6.06 sec</span>
+</pre></div>
+</div>
+</section>
+<section id="mpi">
+<h2>MPI<a class="headerlink" href="#mpi" title="Link to this heading"></a></h2>
+<p>More details for the MPI parallelization scheme in Python can be found in a previous
+<a class="reference external" href="https://github.com/MPI-course-collaboration/MPI-course">MPI course</a> offered by some of us.</p>
+<blockquote>
+<div><div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">integration2d_mpi.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mpi4py</span><span class="w"> </span><span class="kn">import</span> <span class="n">MPI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># MPI communicator</span>
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+<span class="c1"># MPI size of communicator</span>
+<span class="n">numprocs</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">Get_size</span><span class="p">()</span>
+<span class="c1"># MPI rank of each process</span>
+<span class="n">myrank</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">()</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">integration2d_mpi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">numprocs</span><span class="p">,</span><span class="n">myrank</span><span class="p">):</span>
+    <span class="c1"># interval size (same for X and Y)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1"># cummulative variable</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># workload for each process</span>
+    <span class="n">workload</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">numprocs</span>
+
+    <span class="n">begin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">workload</span><span class="o">*</span><span class="n">myrank</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">workload</span><span class="o">*</span><span class="p">(</span><span class="n">myrank</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># regular integration in the X axis</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span><span class="n">end</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="c1"># regular integration in the Y axis</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">partial_integrals</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mysum</span>
+    <span class="k">return</span> <span class="n">partial_integrals</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">integration2d_mpi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">numprocs</span><span class="p">,</span><span class="n">myrank</span><span class="p">)</span>
+
+    <span class="c1"># MPI reduction</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="n">MPI</span><span class="o">.</span><span class="n">SUM</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">myrank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>Execution of this code gives the following output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>python<span class="w"> </span>integration2d_mpi.py
+<span class="go">Integral value is 4.492851e-12, Error is 4.492851e-12</span>
+<span class="go">Time spent: 5.76 sec</span>
+</pre></div>
+</div>
+<p>For long jobs, one will need to run in batch mode. Here is an example of a batch script for this MPI
+example,</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">HPC2N</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">UPPMAX</button><button aria-controls="panel-2-2-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-2" name="2-2" role="tab" tabindex="-1">NSC</button><button aria-controls="panel-2-2-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-3" name="2-3" role="tab" tabindex="-1">LUNARC</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2n20XX-XYZ</span>
+<span class="c1">#SBATCH -t 00:05:00        # wall time</span>
+<span class="c1">#SBATCH -n 4</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+
+ml<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+ml<span class="w"> </span>GCCcore/11.2.0<span class="w"> </span>Python/3.9.6
+ml<span class="w"> </span>GCC/11.2.0<span class="w"> </span>OpenMPI/4.1.1
+<span class="c1">#ml Julia/1.7.1-linux-x86_64  # if Julia is needed</span>
+
+<span class="nb">source</span><span class="w"> </span>/proj/nobackup/&lt;your-project-storage&gt;/vpyenv-python-course/bin/activate
+
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>python<span class="w"> </span>integration2d_mpi.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -A naiss202X-XY-XYZ</span>
+<span class="c1">#SBATCH -t 00:05:00</span>
+<span class="c1">#SBATCH -n 4</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+
+ml<span class="w"> </span>python/3.9.5
+ml<span class="w"> </span>gcc/9.3.0<span class="w"> </span>openmpi/3.1.5
+<span class="c1">#ml julia/1.7.2  # if Julia is needed</span>
+
+<span class="nb">source</span><span class="w"> </span>/proj/naiss202X-XY-XYZ/nobackup/&lt;user&gt;/venv-python-course/bin/activate
+
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>python<span class="w"> </span>integration2d_mpi.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-2" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-2" name="2-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -A naiss202X-XY-XYZ</span>
+<span class="c1">#SBATCH -t 00:05:00</span>
+<span class="c1">#SBATCH -n 4</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+
+ml<span class="w"> </span>buildtool-easybuild/4.8.0-hpce082752a2<span class="w">  </span>GCCcore/11.3.0<span class="w"> </span>Python/3.10.4
+ml<span class="w"> </span>GCC/11.3.0<span class="w"> </span>OpenMPI/4.1.4
+<span class="c1">#ml julia/1.9.4-bdist  # if Julia is needed</span>
+
+<span class="nb">source</span><span class="w"> </span>/path-to-your-project/vpyenv-python-course/bin/activate
+
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>python<span class="w"> </span>integration2d_mpi.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-3" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-3" name="2-3" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A lu202u-vw-xy</span>
+<span class="c1">#SBATCH -t 00:05:00</span>
+<span class="c1">#SBATCH -n 4</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+
+ml<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3<span class="w"> </span>OpenMPI/4.1.5
+<span class="c1">#ml Julia/1.10.4-linux-x86_64 # if Julia is needed</span>
+
+<span class="nb">source</span><span class="w"> </span>/path-to-your-project/vpyenv-python-course/bin/activate
+
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>python<span class="w"> </span>integration2d_mpi.py
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="monitoring-resources-usage">
+<h2>Monitoring resources’ usage<a class="headerlink" href="#monitoring-resources-usage" title="Link to this heading"></a></h2>
+<p>Monitoring the resources that a certain job uses is important specially when this
+job is expected to run on many CPUs and/or GPUs. It could happen, for instance, that
+an incorrect module is loaded or the command for running on many CPUs is not
+the proper one and our job runs in serial mode while we allocated possibly many
+CPUs/GPUs. For this reason, there are several tools available in our centers to
+monitor the performance of running jobs.</p>
+<section id="hpc2n">
+<h3>HPC2N<a class="headerlink" href="#hpc2n" title="Link to this heading"></a></h3>
+<p>On a Kebnekaise terminal, you can type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>job-usage<span class="w"> </span>job_ID
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">job_ID</span></code> is the number obtained when you submit your job with the <code class="docutils literal notranslate"><span class="pre">sbatch</span></code>
+command. This will give you a URL that you can copy and then paste in your local
+browser. The results can be seen in a graphical manner a couple of minutes after the
+job starts running, here there is one example of how this looks like:</p>
+<figure class="align-center" id="id1">
+<img alt="../_images/monitoring-jobs.png" src="../_images/monitoring-jobs.png" />
+<figcaption>
+<p><span class="caption-text">The resources used by a job can be monitored in your local browser.
+For this job, we can notice that 100% of the requested CPU
+and 60% of the GPU resources are being used.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<div class="dropdown exercise important admonition" id="exercise-0">
+<p class="admonition-title">Running a parallel code efficiently</p>
+<p>In this exercise we will run a parallelized code that performs a 2D integration:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0\]</div>
+</div></blockquote>
+<p>One way to perform the integration is by creating a grid in the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> directions.
+More specifically, one divides the integration range in both directions into <code class="docutils literal notranslate"><span class="pre">n</span></code> bins.</p>
+<p>Here is a parallel code using the <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> module in Python (call it
+<code class="docutils literal notranslate"><span class="pre">integration2d_multiprocessing.py</span></code>):</p>
+<div class="dropdown admonition">
+<p class="admonition-title">integration2d_multiprocessing.py</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Array</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="c1"># number of processes</span>
+<span class="n">numprocesses</span> <span class="o">=</span> <span class="o">*</span><span class="n">FIXME</span><span class="o">*</span>
+<span class="c1"># partial sum for each thread</span>
+<span class="n">partial_integrals</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">numprocesses</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Implementation of the 2D integration function (non-optimal implementation)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">integration2d_multiprocessing</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">numprocesses</span><span class="p">,</span><span class="n">processindex</span><span class="p">):</span>
+   <span class="k">global</span> <span class="n">partial_integrals</span><span class="p">;</span>
+   <span class="c1"># interval size (same for X and Y)</span>
+   <span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+   <span class="c1"># cummulative variable</span>
+   <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+   <span class="c1"># workload for each process</span>
+   <span class="n">workload</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">numprocesses</span>
+
+   <span class="n">begin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">workload</span><span class="o">*</span><span class="n">processindex</span><span class="p">)</span>
+   <span class="n">end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">workload</span><span class="o">*</span><span class="p">(</span><span class="n">processindex</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+   <span class="c1"># regular integration in the X axis</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span><span class="n">end</span><span class="p">):</span>
+      <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+      <span class="c1"># regular integration in the Y axis</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+   <span class="n">partial_integrals</span><span class="p">[</span><span class="n">processindex</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mysum</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+   <span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+   <span class="n">processes</span> <span class="o">=</span> <span class="p">[]</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numprocesses</span><span class="p">):</span>
+      <span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">integration2d_multiprocessing</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">numprocesses</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+      <span class="n">processes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+      <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+   <span class="c1"># waiting for the processes</span>
+   <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">processes</span><span class="p">:</span>
+      <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+   <span class="n">integral</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">partial_integrals</span><span class="p">)</span>
+   <span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Run the code with the following batch script.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">job.sh</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-3-3-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-2" name="3-2" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-3-3-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-3" name="3-3" role="tab" tabindex="-1">NSC</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -A naiss202X-XY-XYZ     # your project_ID</span>
+<span class="c1">#SBATCH -J job-serial           # name of the job</span>
+<span class="c1">#SBATCH -n *FIXME*              # nr. tasks/coresw</span>
+<span class="c1">#SBATCH --time=00:20:00         # requested time</span>
+<span class="c1">#SBATCH --error=job.%J.err      # error file</span>
+<span class="c1">#SBATCH --output=job.%J.out     # output file</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle</span>
+module<span class="w"> </span>load<span class="w"> </span>python/3.11.8
+python<span class="w"> </span>integration2d_multiprocessing.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2n202X-XYZ     # your project_ID</span>
+<span class="c1">#SBATCH -J job-serial        # name of the job</span>
+<span class="c1">#SBATCH -n *FIXME*           # nr. tasks</span>
+<span class="c1">#SBATCH --time=00:20:00      # requested time</span>
+<span class="c1">#SBATCH --error=job.%J.err   # error file</span>
+<span class="c1">#SBATCH --output=job.%J.out  # output file</span>
+
+<span class="c1"># Do a purge and load any modules you need, here for Python</span>
+ml<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+ml<span class="w"> </span>GCCcore/11.2.0<span class="w"> </span>Python/3.9.6
+python<span class="w"> </span>integration2d_multiprocessing.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-3-2" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-2" name="3-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A lu202X-XX-XX      # your project_ID</span>
+<span class="c1">#SBATCH -J job-serial        # name of the job</span>
+<span class="c1">#SBATCH -n *FIXME*           # nr. tasks</span>
+<span class="c1">#SBATCH --time=00:20:00      # requested time</span>
+<span class="c1">#SBATCH --error=job.%J.err   # error file</span>
+<span class="c1">#SBATCH --output=job.%J.out  # output file</span>
+<span class="c1"># reservation (optional)</span>
+<span class="c1">#SBATCH --reservation=RPJM-course*FIXME*</span>
+
+<span class="c1"># Do a purge and load any modules you need, here for Python</span>
+ml<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+ml<span class="w"> </span>GCCcore/12.3.0<span class="w"> </span>Python/3.11.3
+python<span class="w"> </span>integration2d_multiprocessing.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-3-3" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-3" name="3-3" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -A naiss202X-XY-XYZ     # your project_ID</span>
+<span class="c1">#SBATCH -J job-serial           # name of the job</span>
+<span class="c1">#SBATCH -n *FIXME*              # nr. tasks/coresw</span>
+<span class="c1">#SBATCH --time=00:20:00         # requested time</span>
+<span class="c1">#SBATCH --error=job.%J.err      # error file</span>
+<span class="c1">#SBATCH --output=job.%J.out     # output file</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle</span>
+ml<span class="w"> </span>buildtool-easybuild/4.8.0-hpce082752a2<span class="w">  </span>GCCcore/11.3.0<span class="w"> </span>Python/3.10.4
+python<span class="w"> </span>integration2d_multiprocessing.py
+</pre></div>
+</div>
+</div></div>
+</div>
+<p>Try different number of cores for this batch script (<em>FIXME</em> string) using the sequence:
+1,2,4,8,12, and 14. Note: this number should match the number of processes
+(also a <em>FIXME</em> string) in the Python script. Collect the timings that are
+printed out in the <strong>job.*.out</strong>. According to these execution times what would be
+the number of cores that gives the optimal (fastest) simulation?</p>
+<p>Challenge: Increase the grid size (<code class="docutils literal notranslate"><span class="pre">n</span></code>) to 15000 and submit the batch job with 4 workers (in the
+Python script) and request 5 cores in the batch script. Monitor the usage of resources
+with tools available at your center, for instance <code class="docutils literal notranslate"><span class="pre">top</span></code> (UPPMAX) or
+<code class="docutils literal notranslate"><span class="pre">job-usage</span></code> (HPC2N).</p>
+</div>
+<div class="dropdown exercise important admonition" id="exercise-1">
+<p class="admonition-title">Parallelizing a <em>for loop</em> workflow (Advanced)</p>
+<p>Create a Data Frame containing two features, one called <strong>ID</strong> which has integer values
+from 1 to 10000, and the other called <strong>Value</strong> that contains 10000 integers starting from 3
+and goes in steps of 2 (3, 5, 7, …). The following codes contain parallelized workflows
+whose goal is to compute the average of the whole feature <strong>Value</strong> using some number of
+workers. Substitute the <strong>FIXME</strong> strings in the following codes to perform the tasks given
+in the comments.</p>
+<p><em>The main idea for all languages is to divide the workload across all workers</em>.
+You can run the codes as suggested for each language.</p>
+<p>Pandas is available in the following combo <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">GCC/12.3.0</span> <span class="pre">SciPy-bundle/2023.07</span></code> (HPC2N) and
+<code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">python/3.11.8</span></code> (UPPMAX). Call the script <code class="docutils literal notranslate"><span class="pre">script-df.py</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
+
+<span class="c1"># Create a DataFrame with two sets of values ID and Value</span>
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+   <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10001</span><span class="p">),</span>
+   <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20002</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Generate 10000 odd numbers starting from 3</span>
+<span class="p">})</span>
+
+<span class="c1"># Define a function to calculate the sum of a vector</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_sum</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+   <span class="n">total_sum</span> <span class="o">=</span> <span class="o">*</span><span class="n">FIXME</span><span class="o">*</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+   <span class="k">return</span> <span class="o">*</span><span class="n">FIXME</span><span class="o">*</span>
+
+<span class="c1"># Split the &#39;Value&#39; column into chunks of size 1000</span>
+<span class="n">chunk_size</span> <span class="o">=</span> <span class="o">*</span><span class="n">FIXME</span><span class="o">*</span>
+<span class="n">value_chunks</span> <span class="o">=</span> <span class="p">[</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">][</span><span class="o">*</span><span class="n">FIXME</span><span class="o">*</span><span class="p">:</span><span class="o">*</span><span class="n">FIXME</span><span class="o">*</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;*FIXME*&#39;</span><span class="p">]),</span> <span class="o">*</span><span class="n">FIXME</span><span class="o">*</span><span class="p">)]</span>
+
+<span class="c1"># Create a Pool of 4 worker processes, this is required by multiprocessing</span>
+<span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=*</span><span class="n">FIXME</span><span class="o">*</span><span class="p">)</span>
+
+<span class="c1"># Map the calculate_sum function to each chunk of data in parallel</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">*</span><span class="n">FIXME</span><span class="p">:</span> <span class="n">function</span><span class="o">*</span><span class="p">,</span> <span class="o">*</span><span class="n">FIXME</span><span class="p">:</span> <span class="n">chunk</span> <span class="n">size</span><span class="o">*</span><span class="p">)</span>
+
+<span class="c1"># Close the pool to free up resources, if the pool won&#39;t be used further</span>
+<span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Combine the partial results to get the total sum</span>
+<span class="n">total_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+<span class="c1"># Compute the mean by dividing the total sum by the total length of the column &#39;Value&#39;</span>
+<span class="n">mean_value</span> <span class="o">=</span> <span class="o">*</span><span class="n">FIXME</span><span class="o">*</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;*FIXME*&#39;</span><span class="p">])</span>
+
+<span class="c1"># Print the mean value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run the code with the batch script:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-4-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-4-4-0" name="4-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-4-4-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-1" name="4-1" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-4-4-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-2" name="4-2" role="tab" tabindex="-1">LUNARC</button></div><div aria-labelledby="tab-4-4-0" class="sphinx-tabs-panel" id="panel-4-4-0" name="4-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -A naiss2024-22-107  # your project_ID</span>
+<span class="c1">#SBATCH -J job-parallel      # name of the job</span>
+<span class="c1">#SBATCH -n 4                 # nr. tasks/coresw</span>
+<span class="c1">#SBATCH --time=00:20:00      # requested time</span>
+<span class="c1">#SBATCH --error=job.%J.err   # error file</span>
+<span class="c1">#SBATCH --output=job.%J.out  # output file</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle</span>
+module<span class="w"> </span>load<span class="w"> </span>python/3.11.8
+python<span class="w"> </span>script-df.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-1" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-1" name="4-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2n202x-XXX     # your project_ID</span>
+<span class="c1">#SBATCH -J job-parallel      # name of the job</span>
+<span class="c1">#SBATCH -n 4                 # nr. tasks</span>
+<span class="c1">#SBATCH --time=00:20:00      # requested time</span>
+<span class="c1">#SBATCH --error=job.%J.err   # error file</span>
+<span class="c1">#SBATCH --output=job.%J.out  # output file</span>
+
+<span class="c1"># Load any modules you need, here for Python 3.11.3 and compatible SciPy-bundle</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3<span class="w"> </span>SciPy-bundle/2023.07
+python<span class="w"> </span>script-df.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-2" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-2" name="4-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A lu202X-XX-XX      # your project_ID</span>
+<span class="c1">#SBATCH -J job-parallel      # name of the job</span>
+<span class="c1">#SBATCH -n 4                  # nr. tasks</span>
+<span class="c1">#SBATCH --time=00:20:00      # requested time</span>
+<span class="c1">#SBATCH --error=job.%J.err   # error file</span>
+<span class="c1">#SBATCH --output=job.%J.out  # output file</span>
+<span class="c1">#SBATCH --reservation=RPJM-course*FIXME* # reservation (optional)</span>
+
+<span class="c1"># Purge and load any modules you need, here for Python &amp; SciPy-bundle</span>
+ml<span class="w"> </span>purge
+ml<span class="w"> </span>GCCcore/12.3.0<span class="w">  </span>Python/3.11.3<span class="w">  </span>SciPy-bundle/2023.07
+python<span class="w"> </span>script-df.py
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
+
+<span class="c1"># Create a DataFrame with two sets of values ID and Value</span>
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+   <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10001</span><span class="p">),</span>
+   <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20002</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Generate 10000 odd numbers starting from 3</span>
+<span class="p">})</span>
+
+<span class="c1"># Define a function to calculate the sum of a vector</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_sum</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+   <span class="n">total_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+   <span class="k">return</span> <span class="n">total_sum</span>
+
+<span class="c1"># Split the &#39;Value&#39; column into chunks</span>
+<span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">value_chunks</span> <span class="o">=</span> <span class="p">[</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">chunk_size</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]),</span> <span class="n">chunk_size</span><span class="p">)]</span>
+
+<span class="c1"># Create a Pool of 4 worker processes, this is required by multiprocessing</span>
+<span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Map the calculate_sum function to each chunk of data in parallel</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">calculate_sum</span><span class="p">,</span> <span class="n">value_chunks</span><span class="p">)</span>
+
+<span class="c1"># Close the pool to free up resources, if the pool won&#39;t be used further</span>
+<span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Combine the partial results to get the total sum</span>
+<span class="n">total_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+<span class="c1"># Compute the mean by dividing the total sum by the total length of the column &#39;Value&#39;</span>
+<span class="n">mean_value</span> <span class="o">=</span> <span class="n">total_sum</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">])</span>
+
+<span class="c1"># Print the mean value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://link.springer.com/article/10.1007/s10639-017-9607-0">On parallel software engineering education using python</a></p></li>
+<li><p><a class="reference external" href="https://wiki.python.org/moin/ParallelProcessing">List of parallel libraries for Python</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Parallel_computing">Wikipedias’ article on Parallel Computing</a></p></li>
+<li><p>The book <a class="reference external" href="https://www.oreilly.com/library/view/high-performance-python/9781492055013/">High Performance Python</a> is a good resource for ways of speeding up Python code.</p></li>
+</ul>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>You deploy cores and nodes via SLURM, either in interactive mode or batch</p></li>
+<li><p>In Python, threads, distributed and MPI parallelization can be used.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../summary2.html" class="btn btn-neutral float-left" title="Summary day2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gpu.html" class="btn btn-neutral float-right" title="Using GPUs with Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

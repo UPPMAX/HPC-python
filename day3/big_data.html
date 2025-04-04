@@ -1,0 +1,835 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big data with Python &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Summary day2" href="../summary2.html" />
+    <link rel="prev" title="Running Python in batch mode" href="batch.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/load_run_packages.html">Load and run Python and use packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Loading IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/Matplotlib60min.html">Matplotlib in 60 Minutes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary1.html">Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Seaborn-Intro.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Big data with Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#to-cover">To cover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#files-formats">Files formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#types-of-scientific-data">Types of scientific data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bit-and-byte">Bit and Byte</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-and-storage-format">Data and storage format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xarray">XARRAY</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#allocating-ram">Allocating RAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dask">Dask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dask-collections">Dask Collections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dask-arrays">Dask Arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Big data with Python</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/big_data.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="big-data-with-python">
+<h1>Big data with Python<a class="headerlink" href="#big-data-with-python" title="Link to this heading"></a></h1>
+<div class="admonition-learning-outcomes admonition">
+<p class="admonition-title">“Learning outcomes”</p>
+<p>Learners can</p>
+<ul class="simple">
+<li><p>allocate resources sufficient to data size</p></li>
+<li><p>decide on useful file formats</p></li>
+<li><p>use data-chunking as technique</p></li>
+</ul>
+</div>
+<section id="to-cover">
+<h2>To cover<a class="headerlink" href="#to-cover" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>File format</p></li>
+<li><dl class="simple">
+<dt>Methods</dt><dd><ul>
+<li><p>RAM allocation</p></li>
+<li><p>chunking</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="files-formats">
+<h2>Files formats<a class="headerlink" href="#files-formats" title="Link to this heading"></a></h2>
+<section id="types-of-scientific-data">
+<h3>Types of scientific data<a class="headerlink" href="#types-of-scientific-data" title="Link to this heading"></a></h3>
+<section id="bit-and-byte">
+<h4>Bit and Byte<a class="headerlink" href="#bit-and-byte" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>The smallest building block of storage in the computer is a bit, which stores either a 0 or 1.</p></li>
+<li><p>Normally a number of 8 bits are combined in a group to make a byte.</p></li>
+<li><p>One byte (8 bits) can represent/hold at most 2^8 distinct values. Organising bytes in different ways can represent different types of information, i.e. data.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Numerical data</p>
+<p>Different numerical data types (e.g. integer and floating-point numbers) can be represented by bytes. The more bytes we use for each value, the larger is the range or precision we get, but more bytes require more memory.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>DataTypes</dt><dd><ul>
+<li><p>16-bit: short (integer</p></li>
+<li><p>32-bit: Int (integer)</p></li>
+<li><p>32-bit: Single (floating point</p></li>
+<li><p>64-bit: Double (floating point</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition-text-data admonition">
+<p class="admonition-title">Text data</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>DataTypes</dt><dd><ul>
+<li><p>8-bit: char</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><p>When it comes to text data, the simplest character encoding is ASCII (American Standard Code for Information Interchange) and was the most common character encodings until 2008 when UTF-8 took over.</p></li>
+<li><p>The original ASCII uses only 7 bits for representing each character and therefore encodes only 128 specified characters. Later it became common to use an 8-bit byte to store each character in memory, providing an extended ASCII.</p></li>
+<li><p>As computers became more powerful and the need for including more characters from other languages like Chinese, Greek and Arabic became more pressing, UTF-8 became the most common encoding. UTF-8 uses a minimum of one byte and up to four bytes per character.</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="data-and-storage-format">
+<h3>Data and storage format<a class="headerlink" href="#data-and-storage-format" title="Link to this heading"></a></h3>
+<p>In real scientific applications, data is complex and structured and usually contains both numerical and text data. Here we list a few of the data and file storage formats commonly used.</p>
+<div class="admonition-tabular-data admonition">
+<p class="admonition-title">Tabular data</p>
+<ul class="simple">
+<li><p>A very common type of data is “tabular data”.</p></li>
+<li><p>Tabular data is structured into rows and columns.</p></li>
+<li><p>Each column usually has a name and a specific data type while each row is a distinct sample which provides data according to each column (including missing values).</p></li>
+<li><p>The simplest and most common way to save tabular data is via the so-called CSV (comma-separated values) file.</p></li>
+</ul>
+</div>
+<div class="admonition-gridded-data admonition">
+<p class="admonition-title">Gridded data</p>
+<ul class="simple">
+<li><p>Gridded data is another very common data type in which numerical data is normally saved in a multi-dimensional rectangular grid. Most probably it is saved in one of the following formats:</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><p>Hierarchical Data Format (HDF5) - Container for many arrays</p></li>
+<li><p>Network Common Data Form (NetCDF) - Container for many arrays which conform to the NetCDF data model</p></li>
+<li><p>Zarr - New cloud-optimized format for array storage</p></li>
+</ul>
+</div>
+</div>
+<div class="admonition-meta-data admonition">
+<p class="admonition-title">Meta data</p>
+<p>Metadata consists of various information about the data. Different types of data may have different metadata conventions.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><p>In Earth and Environmental science, there are widespread robust practices around metadata. For NetCDF files, metadata can be embedded directly into the data files. The most common metadata convention is Climate and Forecast (CF) Conventions, commonly used with NetCDF data.</p></li>
+<li><p>When it comes to data storage, there are many types of storage formats used in scientific computing and data analysis. There isn’t one data storage format that works in all cases, so choose a file format that best suits your data.</p></li>
+</ul>
+</div>
+</div>
+<div class="admonition-csv-comma-separated-values admonition">
+<p class="admonition-title">CSV (comma-separated values)</p>
+<p><strong>Best use cases</strong>: Sharing data. Small data. Data that needs to be human-readable.</p>
+<ul>
+<li><p>Key features</p>
+<blockquote>
+<div><p>Type: Text format
+Packages needed: NumPy, Pandas
+Space efficiency: Bad
+Good for sharing/archival: Yes</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Tidy data:</dt><dd><p>Speed: Bad
+Ease of use: Great</p>
+</dd>
+<dt>Array data:</dt><dd><p>Speed: Bad
+Ease of use: Ok for one or two dimensional data. Bad for anything higher.</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="admonition-hdf5-hierarchical-data-format-version-5 admonition">
+<p class="admonition-title">HDF5 (Hierarchical Data Format version 5)</p>
+<ul>
+<li><p>HDF5 is a high performance storage format for storing large amounts of data in multiple datasets in a single file.</p></li>
+<li><p>It is especially popular in fields where you need to store big multidimensional arrays such as physical sciences.</p></li>
+<li><p><strong>Best use cases</strong>: Working with big datasets in array data format.</p></li>
+<li><p>Key features</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type: Binary format</p></li>
+<li><p>Packages needed: Pandas, PyTables, h5py</p></li>
+<li><p>Space efficiency: Good for numeric data.</p></li>
+<li><p>Good for sharing/archival: Yes, if datasets are named well.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Tidy data:</dt><dd><ul>
+<li><p>Speed: Ok</p></li>
+<li><p>Ease of use: Good</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Array data:</dt><dd><ul>
+<li><p>Speed: Great</p></li>
+<li><p>Ease of use: Good</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition-netcdf4-network-common-data-form-version-4 admonition">
+<p class="admonition-title">NETCDF4 (Network Common Data Form version 4)</p>
+<ul>
+<li><p>NetCDF4 is a data format that uses HDF5 as its file format, but it has standardized structure of datasets and metadata related to these datasets.</p></li>
+<li><p>This makes it possible to be read from various different programs.</p>
+<p><strong>Best use cases</strong>: Working with big datasets in array data format. Especially useful if the dataset contains spatial or temporal dimensions. Archiving or sharing those datasets.</p>
+</li>
+<li><p>Key features</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type: Binary format</p></li>
+<li><p>Packages needed: Pandas, netCDF4/h5netcdf, xarray</p></li>
+<li><p>Space efficiency: Good for numeric data.</p></li>
+<li><p>Good for sharing/archival: Yes.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Tidy data:</dt><dd><ul>
+<li><p>Speed: Ok</p></li>
+<li><p>Ease of use: Good</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Array data:</dt><dd><ul>
+<li><p>Speed: Good</p></li>
+<li><p>Ease of use: Great</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.</p></li>
+<li><p>The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="xarray">
+<h3>XARRAY<a class="headerlink" href="#xarray" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Xarray is a Python package that builds on NumPy but adds labels to multi-dimensional arrays.</p></li>
+<li><p>It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing.</p></li>
+<li><p>Xarray is particularly tailored to working with NetCDF files.</p></li>
+<li><dl class="simple">
+<dt>It reads and writes to NetCDF file using</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">open_dataset()</span></code> function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open_dataarray()</span></code> function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to_netcdf()</span></code> method.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Explore these in the exercise below!</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p>ENCCS course “HPDA-Python”: <a class="reference external" href="https://enccs.github.io/hpda-python/scientific-data/">Scientific data</a></p></li>
+<li><p>Aalto Scientific Computing course “Python for Scientific Computing”: <a class="reference external" href="https://aaltoscicomp.github.io/python-for-scicomp/xarray/">Xarray</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="allocating-ram">
+<h2>Allocating RAM<a class="headerlink" href="#allocating-ram" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>Allocate many cores or a full node!</p></li>
+<li><p>You do not have to explicitely run threads or other parallelism.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>Note that shared memory among the cores works within node only</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">How much memory do I get per core?</p>
+<ul class="simple">
+<li><p>Divide GB RAM of the booked node with number of cores.</p></li>
+<li><dl class="simple">
+<dt>Example: 128 GB node with 20 cores</dt><dd><ul>
+<li><p>~6.4 GB per core</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">How much memory do I get with 5 cores?</p>
+<ul class="simple">
+<li><p>Multiply the RAM per core with number of allocated cores..</p></li>
+<li><dl class="simple">
+<dt>Example: 6.4 GB per core</dt><dd><ul>
+<li><p>~32 GB</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Do you remember how to allocate several cores?</p>
+<ul class="simple">
+<li><p>Slurm flag <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">&lt;number</span> <span class="pre">of</span> <span class="pre">cores&gt;</span></code></p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Choose, if necessary a node with more RAM</dt><dd><ul>
+<li><p>See local HPC center documentation in how to do so!</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Table of hardware</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Hardware</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Technology</p></th>
+<th class="head"><p>Kebnekaise</p></th>
+<th class="head"><p>Rackham</p></th>
+<th class="head"><p>Snowy</p></th>
+<th class="head"><p>Bianca</p></th>
+<th class="head"><p>Cosmos</p></th>
+<th class="head"><p>Tetralith</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cores/compute node</p></td>
+<td><p>28 (72 for largemem, 128/256 for AMD Zen3/Zen4)</p></td>
+<td><p>20</p></td>
+<td><p>16</p></td>
+<td><p>16</p></td>
+<td><p>48</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory/compute node</p></td>
+<td><p>128-3072 GB</p></td>
+<td><p>128-1024 GB</p></td>
+<td><p>128-4096 GB</p></td>
+<td><p>128-512 GB</p></td>
+<td><p>256-512 GB</p></td>
+<td><p>96-384 GB</p></td>
+</tr>
+<tr class="row-even"><td><p>GPU</p></td>
+<td><p>NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100</p></td>
+<td><p>None</p></td>
+<td><p>NVidia T4</p></td>
+<td><p>NVidia A100</p></td>
+<td><p>NVidia A100</p></td>
+<td><p>NVidia T4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dask">
+<h2>Dask<a class="headerlink" href="#dask" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>How to use more resources than available!!</p>
+</div>
+<a class="reference internal image-reference" href="../_images/when-to-use-pandas.png"><img alt="../_images/when-to-use-pandas.png" src="../_images/when-to-use-pandas.png" style="width: 600px;" />
+</a>
+<p>Dask is very popular for data analysis and is used by a number of high-level
+Python libraries:</p>
+<ul>
+<li><p>Dask-ML scales Scikit-Learn</p></li>
+<li><p>Dask is composed of two parts:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.</p></li>
+<li><p>“Big Data” collections like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to <strong>larger-than-memory</strong> or distributed environments. These parallel collections run on top of dynamic task schedulers.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<section id="dask-collections">
+<h3>Dask Collections<a class="headerlink" href="#dask-collections" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Dask provides dynamic parallel task scheduling and three main high-level collections:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">dask.array</span></code>: Parallel NumPy arrays</dt><dd><ul>
+<li><p>scales NumPy (see also xarray)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">dask.dataframe</span></code>: Parallel Pandas DataFrames</dt><dd><ul>
+<li><p>scales Pandas workflows</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">dask.bag</span></code>: Parallel Python Lists</dt><dd><ul>
+<li><p><a class="reference external" href="https://enccs.github.io/hpda-python/dask/#dask-bag">https://enccs.github.io/hpda-python/dask/#dask-bag</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<section id="dask-arrays">
+<h4>Dask Arrays<a class="headerlink" href="#dask-arrays" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>A Dask array looks and feels a lot like a NumPy array.</p></li>
+<li><dl class="simple">
+<dt>However, a Dask array uses the so-called “lazy” execution mode, which allows one to</dt><dd><ul>
+<li><p>build up complex, large calculations symbolically</p></li>
+<li><p>before turning them over the scheduler for execution.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Dask divides arrays into many small pieces (chunks), as small as necessary to
+fit it into memory.</p></li>
+<li><p>Operations are delayed (lazy computing) e.g. tasks are queue and no computation
+is performed until you actually ask values to be computed (for instance print mean values).</p></li>
+<li><p>Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.</p></li>
+</ul>
+<div class="admonition-example-from-dask-org discussion important admonition" id="discussion-0">
+<p class="admonition-title">Example from dask.org</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Arrays implement the Numpy API</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.array</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">da</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">),</span>
+                     <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># It runs using multiple threads on your machine.</span>
+<span class="c1"># It could also be distributed to multiple machines</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<p><strong>Load and run</strong></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">HPC2N</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">UPPMAX</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">NSC</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should for this session load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>And install <code class="docutils literal notranslate"><span class="pre">dask</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">xarray</span></code> to <code class="docutils literal notranslate"><span class="pre">~/.local/</span></code> if you don’t already have it</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install xarray dask</span>
+</pre></div>
+</div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should for this session load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>And install <code class="docutils literal notranslate"><span class="pre">dask</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">xarray</span></code> to <code class="docutils literal notranslate"><span class="pre">~/.local/</span></code> if you don’t already have it</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install xarray dask</span>
+</pre></div>
+</div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should for this session load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load python_ML_packages/3.11.8-cpu</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>And install <code class="docutils literal notranslate"><span class="pre">xarray</span></code> to <code class="docutils literal notranslate"><span class="pre">~/.local/</span></code> if you don’t already have it</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install --user xarray</span>
+</pre></div>
+</div>
+</div>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should for this session load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>And install <code class="docutils literal notranslate"><span class="pre">dask</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">xarray</span></code> to <code class="docutils literal notranslate"><span class="pre">~/.local/</span></code> if you don’t already have it</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install xarray dask</span>
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can do thes in the Python <strong>command line</strong> or in Jupyter.</p>
+</div>
+<div class="admonition-use-xarray-to-work-with-netcdf-files exercise important admonition" id="exercise-0">
+<p class="admonition-title">Use Xarray to work with NetCDF files</p>
+<p>This exercise is derived from <a class="reference external" href="https://tutorial.xarray.dev/intro.html">Xarray Tutorials</a>,
+which is distributed under an Apache-2.0 License.</p>
+<p>First create an Xarray dataset:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+
+<span class="n">ds1</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
+    <span class="n">data_vars</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">((</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">((</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+    <span class="p">},</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+<span class="n">ds2</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
+    <span class="n">data_vars</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">((</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">((</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)),</span>
+    <span class="p">},</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span>
+        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+        <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Then write the datasets to disk using <code class="xref py py-meth docutils literal notranslate"><span class="pre">to_netcdf()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds1</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="s2">&quot;ds1.nc&quot;</span><span class="p">)</span>
+<span class="n">ds2</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="s2">&quot;ds2.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can read an individual file from disk by using <code class="xref py py-meth docutils literal notranslate"><span class="pre">open_dataset()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds3</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;ds1.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or using the <code class="xref py py-meth docutils literal notranslate"><span class="pre">load_dataset()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds4</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;ds1.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tasks:</p>
+<ul class="simple">
+<li><p>Explore the hierarchical structure of the <code class="docutils literal notranslate"><span class="pre">ds1</span></code> and <code class="docutils literal notranslate"><span class="pre">ds2</span></code> datasets in a Jupyter notebook by typing the
+variable names in a code cell and execute. Click the disk-looking objects on the right to expand the fields.</p></li>
+<li><p>Explore <code class="docutils literal notranslate"><span class="pre">ds3</span></code> and <code class="docutils literal notranslate"><span class="pre">ds4</span></code> datasets, and compare them with <code class="docutils literal notranslate"><span class="pre">ds1</span></code>. What are the differences?</p></li>
+</ul>
+</div>
+<div class="admonition-chunk-size exercise important admonition" id="exercise-1">
+<p class="admonition-title">Chunk size</p>
+<p>The following example calculate the mean value of a random generated array.
+Run the example and see the performance improvement by using dask.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">NumPy</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Dask</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">dask</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.array</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">da</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">),</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></div>
+<p>But what happens if we use different chunk sizes?
+Try out with different chunk sizes:</p>
+<ul class="simple">
+<li><p>What happens if the dask chunks=(20000,20000)</p></li>
+<li><p>What happens if the dask chunks=(250,250)</p></li>
+</ul>
+<div class="admonition-choice-of-chunk-size solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Choice of chunk size</p>
+<p>The choice is problem dependent, but here are a few things to consider:</p>
+<p>Each chunk of data should be small enough so that it fits comforably in each worker’s available memory.
+Chunk sizes between 10MB-1GB are common, depending on the availability of RAM. Dask will likely
+manipulate as many chunks in parallel on one machine as you have cores on that machine.
+So if you have a machine with 10 cores and you choose chunks in the 1GB range, Dask is likely to use at least
+10 GB of memory. Additionally, there should be enough chunks available so that each worker always has something to work on.</p>
+<p>On the otherhand, you also want to avoid chunk sizes that are too small as we see in the exercise.
+Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs
+with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.</p>
+</div>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Dask uses lazy execution</p></li>
+<li><p>Only use Dask for processing very large amount of data</p></li>
+</ul>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.dask.org/en/stable/">Dask documentation</a></p></li>
+</ul>
+<p>Working with data</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/">https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/</a></p></li>
+</ul>
+<p>Tidy data</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://coderefinery.github.io/data-visualization-python/tidy-data/">https://coderefinery.github.io/data-visualization-python/tidy-data/</a></p></li>
+</ul>
+<p>ENCCS</p>
+<ul>
+<li><p>Dask for scalable analysis</p></li>
+<li><p><a class="reference external" href="https://enccs.github.io/hpda-python/stack/">https://enccs.github.io/hpda-python/stack/</a></p></li>
+<li><p><a class="reference external" href="https://enccs.github.io/hpda-python/dask/">https://enccs.github.io/hpda-python/dask/</a></p></li>
+<li><p>Too be included in the future?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://jobqueue.dask.org/en/latest/">Dask jobqueue</a></p></li>
+<li><p><a class="reference external" href="http://mpi.dask.org/en/latest/index.html">Dask-MPI</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="batch.html" class="btn btn-neutral float-left" title="Running Python in batch mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../summary2.html" class="btn btn-neutral float-right" title="Summary day2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
