@@ -289,6 +289,7 @@ Content of the course
    common/login.rst
    common/use_tarball.rst
    common/understanding_clusters.rst
+   common/naiss_projects_overview.rst
     
 .. toctree::
    :maxdepth: 2
