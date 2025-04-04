@@ -44,7 +44,7 @@ extensions = ["sphinx_lesson",
     'sphinxcontrib.mermaid',
     'sphinx_copybutton',
     'jupyter_sphinx',
-    'button'
+    'sphinx_design'
 
 ]
 
