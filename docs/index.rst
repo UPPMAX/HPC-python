@@ -299,7 +299,7 @@ Content of the course
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lessons day 2 (basic analysis and packages):
+   :caption: Lessons day 2 (packages and analysis):
 
    day2/intro.rst
    day2/load_run_packages.rst
