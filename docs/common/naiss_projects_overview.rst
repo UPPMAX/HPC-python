@@ -26,9 +26,9 @@ Storage spaces for this workshop
 +------------+------------------------------------------------------------+
 | Dardel     | :code:`/cfs/klemming/projects/snic/hpc-python-spring-naiss`|
 +------------+------------------------------------------------------------+
-| Kebnekaise | :code:`hpc-python-spring`                                  |
+| Kebnekaise | :code:`/proj/nobackup/hpc-python-spring`                   |
 +------------+------------------------------------------------------------+
-| Rackham    | :code:`hpc-python-uppmax`                                  |
+| Rackham    | :code:`/proj/hpc-python-uppmax`                            |
 +------------+------------------------------------------------------------+
 | Tetralith  | :code:`/proj/hpc-python-spring-naiss/users/`               |
 +------------+------------------------------------------------------------+
