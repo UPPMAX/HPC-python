@@ -68,7 +68,7 @@ Parallel computing with Python
          >>> julia.install()
 
       This will install the ``PyCall`` connector between Python and Julia.
-       
+
       - Quit Python, you should be ready to go!
 
    .. tab:: UPPMAX
@@ -154,7 +154,7 @@ Parallel computing with Python
 
       .. code-block:: julia
        
-         pkg> add PythonCall
+         pkg> add PythonCall
 
    .. tab:: LUNARC
       
@@ -196,7 +196,7 @@ Parallel computing with Python
       .. code-block:: julia
        
          # go to package mode 
-         pkg> add PythonCall
+         pkg> add PythonCall
          # return to Julian mode
          julia>using PythonCall
          julia>exit()
@@ -215,7 +215,7 @@ The workhorse for this section will be a 2D integration example:
 
 One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
 More specifically, one divides the integration range in both directions into ``n`` bins. A
-serial code (without optimization) can be seen in the following code block.
+serial code (without any optimization) can be seen in the following code block.
 
    .. admonition:: ``integration2d_serial.py``
       :class: dropdown
@@ -1338,9 +1338,6 @@ Exercises
 
       # Print the mean value
       print(mean_value)               
-
-
-
 
 
 .. seealso:: 
