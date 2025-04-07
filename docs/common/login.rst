@@ -17,6 +17,10 @@ Log in and other preparations
 
     - We will also download exercise snippets and solutions that you can work with. `Use the tarball with exercises <https://uppmax.github.io/HPC-python/common/use_tarball.html>`_
 
+.. admonition:: **Learning outcomes**
+   
+   - Be able to login, where you are
+
 .. admonition:: Cluster-specific approaches
 
    - The course is a cooperation between **UPPMAX** (Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on the compute systems at all these centres, as well as select resources at NSC (Tetralith) and PDC (Dardel).
@@ -32,10 +36,6 @@ Log in and other preparations
    - You were invited to be part of the course project.
    - If you already have research projects in any of the clusters you can use them. The CPU-hours required during the course will be low!
 
-.. admonition:: **Learning outcomes**
-   
-   - Be able to login, where you are
-
 .. tip:: 
 
    - If you have user account and *research* project on Kebnekaise, follow the **HPC2N** track below.
@@ -49,6 +49,36 @@ Log in and other preparations
    - It is up to you!
    - Graphics come easier with Thinlinc
    - For this course, when having many windows open, it may sometimes be better to run in terminal, for screen space issues.
+
+.. admonition:: To be done before
+
+   - Follow the steps in the emailed instructions.
+   - First time you need to use a terminal to set password
+   - When password is set you can begin to use ThinLinc as well.
+
+.. warning::
+
+   - When logging in to UPPMAX the first time in ThinLinc, choose XFCE desktop. 
+   - On HPC2N, you will use the MATE desktop as default. 
+   - Whe logging in to LUNARC the first time in ThinLinc, choose GNOME Classis Desktop.  
+   - On NSC you will use XFCE desktop as default. 
+
+.. warning::
+
+   - When you login to Cosmos, whether through ThinLinc or regular SSH client, you need 2FA 
+     
+      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/
+      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/authenticator_howto/
+
+.. warning::
+
+   - When you login to Tetralith, whether through ThinLinc or regular SSH client, you need 2FA 
+
+      - https://www.nsc.liu.se/support/2fa/ 
+
+
+
+
 
 Step 1: Log in!
 ---------------
@@ -107,6 +137,8 @@ For beginners: use the **bold** login method.
    - Graphics come easier with ThinLinc
    - For this course, when having many windows open, it may be better to run in terminal, for screen space issues.
 
+
+
 .. tabs::
 
    .. tab:: UPPMAX
@@ -143,6 +175,20 @@ For beginners: use the **bold** login method.
 
 
 .. _work-directory:
+
+.. keypoints::
+
+   - When you log in from your local computer you will always arrive at a login node with limited resources. 
+       - You reach the calculations nodes from within the login node (See  Submitting jobs section)
+   - You reach UPPMAX/HPC2N/LUNARC/NSC clusters either using a terminal client or Thinlinc
+   - Graphics are included in Thinlinc and from terminal if you have enabled X11.
+   - Which client to use?
+       - Graphics and easy to use
+       - ThinLinc
+   - Best integrated systems
+       - Visual Studio Code has several extensions (remote, SCP, programming IDE:s)
+       - Windows: MobaXterm is somewhat easier to use.
+
 
 Step 2: Make a work directory
 -----------------------------
@@ -214,3 +260,4 @@ Download and extract the tarball with exercises
 
 Learn how to download and extract the tarball with exercises
 at :ref:`common-use-tarball`.
+
