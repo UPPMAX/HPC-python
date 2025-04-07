@@ -14,8 +14,13 @@ Intro to Pandas
 
 **Limitations.** Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like ``dask`` and ``polars`` that can help. In partcular, ``dask`` will be covered in a later lecture in this workshop. There is also the ``xarray`` package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.
 
+.. admonition:: Get today's tarball!
+
+   :ref:`common-use-tarball`
+
 Load and Run
 ------------
+
 
 .. tabs::
 
