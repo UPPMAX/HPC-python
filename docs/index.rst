@@ -36,7 +36,7 @@ Schedule Spring 2025
    * - Monday 28 April
      - Advanced analysis and batch jobs
    * - Tuesday 29 April
-     - PArallelism, GPUs and Machine Learning
+     - Parallelism, GPUs and Machine Learning
 
 .. warning:: 
 
