@@ -23,7 +23,7 @@ The steps to make
 
 - :ref:`login`
 
-- :ref:`work-dir`
+- :ref:`work-directory`
 
 - :ref:`common-use-text-editor`.
 
