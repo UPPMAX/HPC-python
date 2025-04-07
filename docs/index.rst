@@ -49,8 +49,8 @@ Schedule Spring 2025
 
    **Target group**
 
-   - The course is for present or presumptive users at The NAISS resources at PDC and NSC as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden. 
-   - The course is a NAISS cooperation with teachers from **UPPMAX** (Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
+   - The course is for present or presumptive users at the **NAISS** resources at PDC and NSC as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden. 
+   - The course is a NAISS cooperation with **teachers** from **UPPMAX** (Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
    - Although there are differences we will only have **few seperate sessions**.
    - Most participants will use The NAISS resources **Tetralith** system at NSC or **Dardel** system at PDC for the course.
 
