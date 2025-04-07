@@ -144,9 +144,10 @@ For beginners: use the **bold** login method.
          - **Warning!** Only 30 Dardel users at a time can use ThinLinc. Do not count on it being available.
 
 
-.. _working-directory:
+.. _work-directory:
 
 Step 2: Make a work directory
+-----------------------------
 
 - **Directory names OK?**
 
