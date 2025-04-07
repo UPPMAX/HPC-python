@@ -44,41 +44,13 @@ Log in and other preparations
    - If you have user account and course/research project on Tetralith, follow the **NSC** track below.
    - If you have user account and course/research project on Dardel, follow the **PDC** track below.
 
-.. admonition:: Use Thinlinc or terminal?
-
-   - It is up to you!
-   - Graphics come easier with Thinlinc
-   - For this course, when having many windows open, it may sometimes be better to run in terminal, for screen space issues.
-
 .. admonition:: To be done before
 
    - Follow the steps in the emailed instructions.
    - First time you need to use a terminal to set password
    - When password is set you can begin to use ThinLinc as well.
 
-.. warning::
-
-   - When logging in to UPPMAX the first time in ThinLinc, choose XFCE desktop. 
-   - On HPC2N, you will use the MATE desktop as default. 
-   - Whe logging in to LUNARC the first time in ThinLinc, choose GNOME Classis Desktop.  
-   - On NSC you will use XFCE desktop as default. 
-
-.. warning::
-
-   - When you login to Cosmos, whether through ThinLinc or regular SSH client, you need 2FA 
-     
-      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/
-      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/authenticator_howto/
-
-.. warning::
-
-   - When you login to Tetralith, whether through ThinLinc or regular SSH client, you need 2FA 
-
-      - https://www.nsc.liu.se/support/2fa/ 
-
-
-
-
+.. _login
 
 Step 1: Log in!
 ---------------
@@ -129,14 +101,34 @@ For beginners: use the **bold** login method.
     | Console environment using an SSH client     | A console environment, powerful, need to install an SSH client                                    | .. figure:: ../img/login_rackham_via_terminal_terminal_409_x_290.png |
     +---------------------------------------------+---------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
 
-- Please log in to the cluster that you are using.
 
 .. admonition:: Use Thinlinc or terminal?
 
-   - It is up to you! (Except on Dardel---then just use terminal)
-   - Graphics come easier with ThinLinc
-   - For this course, when having many windows open, it may be better to run in terminal, for screen space issues.
+   - It is up to you!
+   - Graphics come easier with Thinlinc
+   - For this course, when having many windows open, it may sometimes be better to run in terminal, for screen space issues.
 
+.. warning::
+
+   - When logging in to UPPMAX the first time in ThinLinc, choose XFCE desktop. 
+   - On HPC2N, you will use the MATE desktop as default. 
+   - Whe logging in to LUNARC the first time in ThinLinc, choose GNOME Classis Desktop.  
+   - On NSC you will use XFCE desktop as default. 
+
+.. warning::
+
+   - When you login to Cosmos, whether through ThinLinc or regular SSH client, you need 2FA 
+     
+      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/
+      - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/authenticator_howto/
+
+.. warning::
+
+   - When you login to Tetralith, whether through ThinLinc or regular SSH client, you need 2FA 
+
+      - https://www.nsc.liu.se/support/2fa/ 
+
+- Please log in to the cluster that you are using.
 
 
 .. tabs::
@@ -173,9 +165,6 @@ For beginners: use the **bold** login method.
 
          - **Warning!** Only 30 Dardel users at a time can use ThinLinc. Do not count on it being available.
 
-
-.. _work-directory:
-
 .. keypoints::
 
    - When you log in from your local computer you will always arrive at a login node with limited resources. 
@@ -189,6 +178,7 @@ For beginners: use the **bold** login method.
        - Visual Studio Code has several extensions (remote, SCP, programming IDE:s)
        - Windows: MobaXterm is somewhat easier to use.
 
+.. _work-directory:
 
 Step 2: Make a work directory
 -----------------------------
