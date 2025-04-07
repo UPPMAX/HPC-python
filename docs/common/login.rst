@@ -50,7 +50,7 @@ Log in and other preparations
    - First time you need to use a terminal to set password
    - When password is set you can begin to use ThinLinc as well.
 
-.. _login
+.. _login:
 
 Step 1: Log in!
 ---------------
