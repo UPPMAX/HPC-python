@@ -1,7 +1,7 @@
 .. _common-login:
 
-Log and other preparations 
-==========================
+Log in and other preparations 
+=============================
 
 .. admonition:: Goal
 
