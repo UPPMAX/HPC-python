@@ -81,22 +81,21 @@ In a terminal, use the following command to uncompress the file:
 
       .. code-block::  console
 
-         tar -xvzf exercisesR.tar.gz 
+         tar -xvzf exercisesDay2.tar.gz 
 
    .. tab:: day 3 (wait until that day)
 
       .. code-block::  console
 
-         tar -xvzf exercisesMatlab.tar.gz 
+         tar -xvzf exercisesDay3.tar.gz 
 
    .. tab:: day 4 (wait until that day)
 
       .. code-block::  console
 
-         tar -xvzf exercisesJulia.tar.gz 
+         tar -xvzf exercisesDay4.tar.gz 
             
-
-After decompressing, there is a folder called  **FIX** ``r``, or ``matlab`` or ``julia``
+After decompressing, there is a folder called  ``day2``, or ``day3`` or ``day4``
 that contains the exercises.
 
 .. warning:: Do you want the whole repo?
