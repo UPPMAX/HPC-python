@@ -22,6 +22,9 @@ Procedure
 
 The procedure has these steps:
 
+- Don't you have a work directory yet?
+    - :ref:`work-directory`
+
 - Get the tarball
 - Uncompress the tarball
 
