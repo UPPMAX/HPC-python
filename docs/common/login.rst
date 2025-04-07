@@ -15,9 +15,7 @@ Log in and other preparations
             - you have have a folder to work in 
             - you can start a text editor
 
-    - We will also download exercise snippets and solutions that you can work with. `Use the tarball with exercises <https://uppmax.github.io/R-matlab-julia-HPC/common/use_tarball.html>`_
-
-    - If/when you have done all this, see you at 10:00 sharp! Else, see you in this session.
+    - We will also download exercise snippets and solutions that you can work with. `Use the tarball with exercises <https://uppmax.github.io/HPC-python/common/use_tarball.html>`_
 
 .. admonition:: Cluster-specific approaches
 
