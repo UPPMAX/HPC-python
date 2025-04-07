@@ -15,6 +15,9 @@ Parallel computing with Python
    - Gain knowledge on the tools for parallel programming in different languages
    - Familiarize with the tools to monitor the usage of resources 
 
+.. admonition:: Get today's tarball!
+
+   :ref:`common-use-tarball`
 
 **Prerequisites**
 
