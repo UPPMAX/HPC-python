@@ -101,91 +101,108 @@ For beginners: use the **bold** login method.
     | Console environment using an SSH client     | A console environment, powerful, need to install an SSH client                                    | .. figure:: ../img/login_rackham_via_terminal_terminal_409_x_290.png |
     +---------------------------------------------+---------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
 
-.. type-along::
+- Please log in to the cluster that you are using.
+
+.. admonition:: Use Thinlinc or terminal?
+
+   - It is up to you! (Except on Dardel---then just use terminal)
+   - Graphics come easier with ThinLinc
+   - For this course, when having many windows open, it may be better to run in terminal, for screen space issues.
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      1. Log in to Rackham!
+
+        - Terminal: ``ssh -X <user>@rackham.uppmax.uu.se`` 
+   
+        - ThinLinc app: ``<user>@rackham-gui.uppmax.uu.se``
+        - ThinLinc in web browser: ``https://rackham-gui.uppmax.uu.se``
+   
+   .. tab:: HPC2N
+
+      - Kebnekaise through terminal: ``<user>@kebnekaise.hpc2n.umu.se``     
+      - Kebnekaise through ThinLinc, use: ``<user>@kebnekaise-tl.hpc2n.umu.se``
+
+
+   .. tab:: LUNARC
+
+      - Cosmos through terminal: ``<user>@cosmos.lunarc.lu.se``     
+      - Cosmos through ThinLinc, use: ``<user>@cosmos-dt.lunarc.lu.se``
+
+   .. tab:: NSC
+
+      - Tetralith through terminal or Thinlinc: ``<user>@tetralith.nsc.liu.se``
+
+
+   .. tab:: PDC
+
+      - Dardel through terminal: ``<user>@dardel.pdc.kth.se``     
+      - Dardel through ThinLinc: ``<user>@dardel-vnc.pdc.kth.se``
+
+         - **Warning!** Only 30 Dardel users at a time can use ThinLinc. Do not count on it being available.
+
+
+.. _working-directory:
+
+Step 2: Make a work directory
+
+- **Directory names OK?**
+
+.. tabs::
+
+   .. tab:: UPPMAX
+ 
+      1. If not already: **create a working directory** where you can code along.
+
+        - We recommend creating it under the course project storage directory
+
+      3. Example. If your username is "mrspock" and you are at UPPMAX, then we recommend you create this folder: 
   
-   - Please log in to the cluster that you are using.
-
-   - **Directory names OK?**
-
-   .. admonition:: Use Thinlinc or terminal?
-
-      - It is up to you! (Except on Dardel---then just use terminal)
-      - Graphics come easier with ThinLinc
-      - For this course, when having many windows open, it may be better to run in terminal, for screen space issues.
-
-   .. tabs::
-
-      .. tab:: UPPMAX
-
-         1. Log in to Rackham!
-
-           - Terminal: ``ssh -X <user>@rackham.uppmax.uu.se`` 
+         .. code-block:: console
       
-           - ThinLinc app: ``<user>@rackham-gui.uppmax.uu.se``
-           - ThinLinc in web browser: ``https://rackham-gui.uppmax.uu.se``
-      
-         2. If not already: **create a working directory** where you can code along.
+            $ mkdir /proj/hpc-python-uppmax/mrspock/
 
-           - We recommend creating it under the course project storage directory
+   .. tab:: HPC2N
+
+      - Create a working directory where you can code along.    
    
-         3. Example. If your username is "mrspock" and you are at UPPMAX, then we recommend you create this folder: 
-     
-            .. code-block:: console
-         
-               $ mkdir /proj/hpc-python-uppmax/mrspock/
+        - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
+  
+        .. code-block:: console
+      
+           $ mkdir /proj/nobackup/hpc-python-spring/bbrydsoe/
 
-      .. tab:: HPC2N
+   .. tab:: LUNARC
 
-         - Kebnekaise through terminal: ``<user>@kebnekaise.hpc2n.umu.se``     
-         - Kebnekaise through ThinLinc, use: ``<user>@kebnekaise-tl.hpc2n.umu.se``
+      - Create a working directory in your home space where you can code along.    
    
-         - Create a working directory where you can code along.    
+        - Example. Create this folder: 
+
+        .. code-block:: console
       
-           - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
-     
-           .. code-block:: console
-         
-              $ mkdir /proj/nobackup/hpc-python-spring/bbrydsoe/
+           $ mkdir $HOME/hpc-python
 
-      .. tab:: LUNARC
+   .. tab:: NSC
 
-         - Cosmos through terminal: ``<user>@cosmos.lunarc.lu.se``     
-         - Cosmos through ThinLinc, use: ``<user>@cosmos-dt.lunarc.lu.se``
-
-         - Create a working directory in your home space where you can code along.    
-      
-           - Example. Create this folder: 
-
-           .. code-block:: console
-         
-              $ mkdir $HOME/hpc-python
-
-      .. tab:: NSC
-
-         - Tetralith through terminal or Thinlinc: ``<user>@tetralith.nsc.liu.se``
-
-         - Create a working directory where you can code along.    
-      
-           - Example. If your username is jlpicard and you are at NSC, then we recommend you create this folder: 
-     
-           .. code-block:: console
-         
-              $ mkdir /proj/hpc-python-spring-naiss/users/jlpicard
-
-      .. tab:: PDC
-
-         - Dardel through terminal: ``<user>@dardel.pdc.kth.se``     
-         - Dardel through ThinLinc: ``<user>@dardel-vnc.pdc.kth.se``
-
-            - **Warning!** Only 30 Dardel users at a time can use ThinLinc. Do not count on it being available.
+      - Create a working directory where you can code along.    
    
-         - Create a working directory where you can code along.
+        - Example. If your username is jlpicard and you are at NSC, then we recommend you create this folder: 
+  
+        .. code-block:: console
       
-           - Example. If your username is sevenof9 and you are at PDC, then we recommend you create this folder: 
-     
-           .. code-block:: console
-         
-              $ mkdir /cfs/klemming/projects/supr/hpc-python-spring-naiss/sevenof9/
+           $ mkdir /proj/hpc-python-spring-naiss/users/jlpicard
+
+   .. tab:: PDC
+
+      - Create a working directory where you can code along.
+   
+        - Example. If your username is sevenof9 and you are at PDC, then we recommend you create this folder: 
+  
+        .. code-block:: console
+      
+           $ mkdir /cfs/klemming/projects/supr/hpc-python-spring-naiss/sevenof9/
 
 
 Test an editor
