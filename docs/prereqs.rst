@@ -20,7 +20,7 @@ Coding
 ------
 
 - Basic knowledge of Python. 
-- See the material from [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_python/schedule/) to see what we require.
+- See the material from `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_python/schedule/>`_ to see what we require.
 - We assume that You can:
 
     - Find a Python module 
