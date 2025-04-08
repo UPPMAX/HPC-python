@@ -33,8 +33,3 @@ Coding
 
 - Some background in Pandas may be positive as well
 
-Pandas
-......
-
-**FIX PANDAS** link
-
