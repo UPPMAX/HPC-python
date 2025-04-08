@@ -31,5 +31,3 @@ Coding
 - We won't test your skills though.
 - Rather you will learn to understand the ecosystems and navigations for using Python on a HPC cluster.
 
-- Some background in Pandas may be positive as well
-
