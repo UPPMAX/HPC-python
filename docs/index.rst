@@ -30,7 +30,7 @@ Schedule Spring 2025
    * - Day
      - Language
    * - Thursday 24 April
-     - Intro to Python 
+     - `Intro to Python <https://uppmax.github.io/naiss_intro_python/>`_ 
    * - Friday 25 April
      - Packages and basic analysis
    * - Monday 28 April
