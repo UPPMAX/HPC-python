@@ -8,7 +8,6 @@ Parallel computing with Python
    - How to implement parallel algorithms in Python code?
    - How to deploy threads and workers at our HPC centers?
   
-
 .. objectives::
 
    - Learn general concepts for parallel computing
@@ -468,7 +467,6 @@ the Julia code can look like this:
          end
 
 
-
 A caller script for Julia would be,
 
 
@@ -525,7 +523,7 @@ A caller script for Julia would be,
 
 
 
-Timing in this case is similar to the Fortran serial case,
+Timing in this case is similar to the Fortran serial case:
 
 .. code-block:: console 
 
