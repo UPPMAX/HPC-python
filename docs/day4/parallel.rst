@@ -201,6 +201,102 @@ Parallel computing with Python
          julia>exit()
 
 
+What is parallel programming?
+-----------------------------
+
+Parallel programming is the science and art of writing code that execute tasks on different
+computing units (cores) simultaneously. In the past computers were shiped with a
+single core per Central Processing Unit (CPU) and therefore only
+a single computation at the time (serial program) could be executed.
+
+Nowadays computer architectures are more complex than the single core CPU mentioned
+already. For instance, common architectures include those where several cores in a
+CPU share a common memory space and also those where CPUs are connected through some
+network interconnect.
+
+.. figure:: ../img/shared-distributed-mem.svg
+   :width: 550
+   :align: center
+
+   Shared Memory and Distributed Memory architectures.
+ 
+A more realistic picture of a computer architecture can be seen in the following 
+picture where we have 14 cores that shared a common memory of 64 GB. These cores
+form the socket and the two sockets shown in this picture constitute a node.
+
+.. figure:: ../img/cpus.png
+   :width: 550
+   :align: center
+
+   1 standard node on Kebnekaise @HPC2N 
+
+It is interesting to notice that there are different types of memory
+available for the cores, ranging from the L1 cache to the node's memory for a single
+node. In the former, the bandwidth can be TB/s while in the latter GB/s.
+
+Now you can see that on a single node you already have several computing units
+(cores) and also a hierarchy of memory resources which is denoted as Non Uniform
+Memory Access (NUMA).
+
+Besides the standard CPUs, nowadays one finds Graphic Processing Units (GPUs) 
+architectures in HPC clusters.
+
+
+
+Why is parallel programming needed?
+-----------------------------------
+
+There is no "free lunch" when trying to use features (computing/memory resources) in
+modern architectures. If you want your code to be aware of those features, you will
+need to either add them explicitly (by coding them yourself) or implicitly (by using
+libraries that were coded by others).
+
+In your local machine, you may have some number of cores available and some memory 
+attached to them which can be exploited by using a parallel program. There can be
+some limited resources for running your data-production simulations as you may use
+your local machine for other purposes such as writing a manuscript, making a presentation,
+etc. One alternative to your local machine can be a High Performance Computing (HPC)
+cluster another could be a cloud service. A common layout for the resources in an
+HPC cluster is a shown in the figure below.
+
+.. figure:: ../img/workflow-hpc.png
+   :width: 550
+   :align: center
+
+   High Performance Computing (HPC) cluster.
+
+Although a serial application can run in such a cluster, it would not gain much of the
+HPC resources. If fact, one can underuse the cluster if one allocates more resources than
+what the simulation requires. 
+
+.. figure:: ../img/laundry-machines.svg
+   :width: 200
+   :align: center
+
+   Under-using a cluster.
+
+.. warning::
+   
+   - Check if the resources that you allocated are being used properly.  
+   - Monitor the usage of hardware resources with tools offered at your HPC center, for instance
+     `job-usage at HPC2N <https://hpc2n.github.io/intro-course/software/#best__practices>`_.   
+   - Here there are some examples (of many) of what you will need to pay attention when porting 
+     a parallel code from your laptop (or another HPC center) to our clusters:
+
+   .. tabs::
+
+      .. tab:: HPC2N
+
+         We have a tool to monitor the usage of resources called: 
+         `job-usage at HPC2N <https://hpc2n.github.io/intro-course/software/#best__practices>`_.
+
+      .. tab:: UPPMAX 
+
+         If you are in a interactive node session the ``top`` command will give you information
+         of the resources usage. 
+
+Parallelizing code in Python
+----------------------------
 
 In Python there are different schemes that can be used to parallelize your code. 
 We will only take a look at some of these schemes that illustrate the general concepts of
