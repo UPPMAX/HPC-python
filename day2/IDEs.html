@@ -1,0 +1,738 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading IDEs &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Matplotlib in 60 Minutes" href="Matplotlib60min.html" />
+    <link rel="prev" title="Desktop On Demand" href="ondemand-desktop.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_run_packages.html">Load and run Python and use packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Loading IDEs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter">Jupyter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uppmax">UPPMAX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#login-to-a-remote-desktop">1. login to a remote desktop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#start-an-interactive-session">2. start an interactive session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#start-jupyter-in-the-interactive-session">3. start Jupyter in the interactive session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-to-the-running-notebook">4. connect to the running notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hpc2n">HPC2N</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-steps">General steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-the-course">For the course</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lunarc">LUNARC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nsc">NSC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#through-thinlinc">Through ThinLinc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-your-own-computer-through-ssh-tunneling">On your own computer through SSH tunneling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#more-information">More information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vs-code">VS Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">On your own computer through SSH tunneling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-and-manage-extensions-on-remote-vscode-server">Install and manage Extensions on remote VSCode server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manage-extensions">Manage Extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-extensions">Install Extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-kernels">Selecting Kernels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spyder">Spyder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-spyder">Configuring Spyder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Matplotlib60min.html">Matplotlib in 60 Minutes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary1.html">Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/Seaborn-Intro.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Loading IDEs</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day2/IDEs.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="loading-ides">
+<h1>Loading IDEs<a class="headerlink" href="#loading-ides" title="Link to this heading"></a></h1>
+<p>There are several popular IDEs that are commonly used for interactive work with Python. Here we will show how to load <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code>, <code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code>, and <code class="docutils literal notranslate"><span class="pre">Spyder</span></code>.</p>
+<section id="jupyter">
+<h2>Jupyter<a class="headerlink" href="#jupyter" title="Link to this heading"></a></h2>
+<p>Jupyter is web application that (among other things) allows literature programming for Python. That is, Jupyter allows to create documents where Python code is shown and run and its results shown, surrounded by written text (e.g. English).</p>
+<p>Additionally, Jupyter allows to share files and hence includes a file manager.</p>
+<p>Jupyter is:</p>
+<ul class="simple">
+<li><p>started and run on a server, for example, an interactive node</p></li>
+<li><p>displayed in a web browser, such as firefox.</p></li>
+</ul>
+<p>Jupyter can be slow when using a remote desktop website (e.g. <code class="docutils literal notranslate"><span class="pre">rackham-gui.uppmax.uu.se</span></code> or <code class="docutils literal notranslate"><span class="pre">kebnekaise-tl.hpc2n.umu.se</span></code>).</p>
+<ul class="simple">
+<li><p>For HPC2N, as JupyterLab it is only accessible from within HPC2N’s domain, and there is no way to improve any slowness</p></li>
+<li><p>For UPPMAX, one can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX <a class="reference external" href="https://docs.uppmax.uu.se/software/thinlinc/">documentation on ThinLinc on how to install the ThinLinc client locally</a></p></li>
+<li><p>For LUNARC, you can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. There is information about <a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab">Jupyter at LUNARC in their documentation</a>.</p></li>
+<li><p>For NSC, you can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster.</p></li>
+</ul>
+<section id="uppmax">
+<h3>UPPMAX<a class="headerlink" href="#uppmax" title="Link to this heading"></a></h3>
+<p>Depending on your requirement of GPU or CPU, you can use Jupyter on either Rackham or Snowy compute node.</p>
+<section id="login-to-a-remote-desktop">
+<h4>1. login to a remote desktop<a class="headerlink" href="#login-to-a-remote-desktop" title="Link to this heading"></a></h4>
+<p>Login to a remote desktop:</p>
+<ul class="simple">
+<li><p>Login to the remote desktop website at <code class="docutils literal notranslate"><span class="pre">rackham-gui.uppmax.uu.se</span></code></p></li>
+<li><p>Login to your local ThinLinc client</p></li>
+</ul>
+</section>
+<section id="start-an-interactive-session">
+<h4>2. start an interactive session<a class="headerlink" href="#start-an-interactive-session" title="Link to this heading"></a></h4>
+<p>Start a terminal. Within that terminal,
+start an interactive session from the login node
+(change to the correct NAISS project ID)</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Rackham</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Snowy</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>interactive<span class="w"> </span>-A<span class="w"> </span>&lt;naiss-project-id&gt;<span class="w">  </span>-t<span class="w"> </span><span class="m">4</span>:00:00
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>interactive<span class="w"> </span>-M<span class="w"> </span>snowy<span class="w"> </span>-A<span class="w"> </span>&lt;naiss-project-id&gt;<span class="w">  </span>-t<span class="w"> </span><span class="m">4</span>:00:00
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="start-jupyter-in-the-interactive-session">
+<h4>3. start Jupyter in the interactive session<a class="headerlink" href="#start-jupyter-in-the-interactive-session" title="Link to this heading"></a></h4>
+<p>Within your terminal with the interactive session,
+load a modern Python module:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>python/3.11.8
+</pre></div>
+</div>
+<p>Then, start <code class="docutils literal notranslate"><span class="pre">jupyter-notebook</span></code> (or <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code>):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter-notebook<span class="w"> </span>--ip<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--no-browser
+</pre></div>
+</div>
+<p>This will start a jupyter server session so leave this terminal open.
+The terminal will also display multiple URLs.</p>
+</section>
+<section id="connect-to-the-running-notebook">
+<h4>4. connect to the running notebook<a class="headerlink" href="#connect-to-the-running-notebook" title="Link to this heading"></a></h4>
+<section id="on-thinlinc">
+<h5>On ThinLinc<a class="headerlink" href="#on-thinlinc" title="Link to this heading"></a></h5>
+<p>If you use the ThinLinc, depending on which Jupyter server (Rackham or Snowy) you want to launch on web browser</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Rackham</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Snowy</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>start <code class="docutils literal notranslate"><span class="pre">firefox</span></code> on the ThinLinc.</p></li>
+<li><p>browse to the URLs, which will be similar to <code class="docutils literal notranslate"><span class="pre">http://r[xxx]:8888/?token=5c3aeee9fbfc7a11c4a64b2b549622231388241c2</span></code></p></li>
+<li><p>Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Rackham.</p></li>
+</ul>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>start <code class="docutils literal notranslate"><span class="pre">firefox</span></code> on the ThinLinc.</p></li>
+<li><p>browse to the URLs, which will be similar to <code class="docutils literal notranslate"><span class="pre">http://s[xxx].uppmax.uu.se:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4</span></code></p></li>
+<li><p>Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Snowy.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="on-own-computer">
+<h5>On own computer<a class="headerlink" href="#on-own-computer" title="Link to this heading"></a></h5>
+<p>If you want to connect to the Jupyter server running on Rackham/Snowy from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">Rackham</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">Snowy</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default <code class="docutils literal notranslate"><span class="pre">8888</span></code>.</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8888</span>:r486:8888<span class="w"> </span>username@rackham.uppmax.uu.se
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.</p></li>
+<li><p>If you use PuTTY - you need to change the settings in “Tunnels” accordingly (could be done for the current connection as well).</p></li>
+</ul>
+<p><a class="reference external" href="https://uplogix.com/docs/local-manager-user-guide/advanced-features/ssh-port-forwarding">SSH port forwarding</a></p>
+<ul class="simple">
+<li><p>On your computer open the URL you got from step 3. on your webbrowser but replace r486 with localhost i.e. you get something like this</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2</span></code>
+or
+<code class="docutils literal notranslate"><span class="pre">http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2</span></code></p>
+<ul class="simple">
+<li><p>This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.</p></li>
+</ul>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Similar steps as for Rackham but with the correct port number and hostname pointing to Snowy compute node instead.</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8889</span>:s123:8889<span class="w"> </span>username@rackham.uppmax.uu.se
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>On your computer open the URL you got from step 3. on your webbrowser but replace s123 with localhost i.e. you get something like this</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">http://localhost:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4</span></code>
+or
+<code class="docutils literal notranslate"><span class="pre">http://127.0.0.0:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4</span></code></p>
+<ul class="simple">
+<li><p>Paste the url and it will start the Jupyter interface on your computer and all calculations and files will be on Snowy.</p></li>
+</ul>
+</div></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Running Jupyter in a virtual environment</strong></p>
+<p>You could also use <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> (<code class="docutils literal notranslate"><span class="pre">-lab</span></code> or <code class="docutils literal notranslate"><span class="pre">-notebook</span></code>) in a virtual environment.</p>
+<p>If you decide to use the –system-site-packages configuration you will get <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> from the python modules you created your virtual environment with.
+However, you <strong>won’t find your locally installed packages</strong> from that jupyter session. To solve this reinstall jupyter within the virtual environment by force:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-I<span class="w"> </span>jupyter
+</pre></div>
+</div>
+<p>and run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>jupyter-notebook
+</pre></div>
+</div>
+<p>Be sure to start the <strong>kernel with the virtual environment name</strong>, like “Example”, and not “Python 3 (ipykernel)”.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="hpc2n">
+<h3>HPC2N<a class="headerlink" href="#hpc2n" title="Link to this heading"></a></h3>
+<p>Since the JupyterLab will only be accessible from within HPC2N’s domain, it is by far easiest to do this from inside ThinLinc, so <strong>this is highly recommended</strong>. You can find information about using ThinLinc at <a class="reference external" href="https://docs.hpc2n.umu.se/tutorials/jupyter/">HPC2N’s documentation</a></p>
+<section id="general-steps">
+<h4>General steps<a class="headerlink" href="#general-steps" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>At HPC2N, you currently need to start JupyterLab on a specific compute node. To do that you need a submit file and inside that you load the JupyterLab module and its prerequisites (and possibly other Python modules if you need them - more about that later).</p></li>
+</ol>
+<p>To see the currently available versions, do</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span> <span class="pre">JupyterLab</span></code></p>
+<p>You then do</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span> <span class="pre">JupyterLab/&lt;version&gt;</span></code></p>
+<p>for a specific &lt;version&gt; to see which prerequisites should be loaded first.</p>
+<p><strong>Example, loading ``JupyterLab/4.0.5``</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">GCC/12.3.0</span> <span class="pre">JupyterLab/4.0.5</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p>Making the submit file</p></li>
+</ol>
+<p>Something like the file below will work. Remember to change the project id after the course, how many cores you need, and how long you want the JupyterLab to be available:</p>
+<div class="highlight-slurm notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="kp">#SBATCH -A hpc2n2025-076</span>
+<span class="c1"># This example asks for 1 core</span>
+<span class="kp">#SBATCH -n 1</span>
+<span class="c1"># Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.</span>
+<span class="kp">#SBATCH --time=05:00:00</span>
+
+<span class="c1"># Clear the environment from any previously loaded modules</span>
+module<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+<span class="c1"># Load the module environment suitable for the job</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>JupyterLab/4.0.5
+
+<span class="c1"># Start JupyterLab</span>
+jupyter<span class="w"> </span>lab<span class="w"> </span>--no-browser<span class="w"> </span>--ip<span class="w"> </span><span class="k">$(</span>hostname<span class="k">)</span>
+</pre></div>
+</div>
+<p>Where the flags used to the Jupyter command has the following meaning (you can use <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">--help</span></code> and <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">lab</span> <span class="pre">--help</span></code>&gt; to see extra options):</p>
+<ul class="simple">
+<li><p><strong>lab</strong>: This launches JupyterLab computational environment for Jupyter.</p></li>
+<li><p><strong>–no-browser</strong>: Prevent the opening of the default url in the browser.</p></li>
+<li><p><strong>–ip=&lt;IP address&gt;</strong>: The IP address the JupyterLab server will listen on. Default is ‘localhost’. In the above example script I use <code class="docutils literal notranslate"><span class="pre">$(hostname)</span></code> to get the content of the environment variable for the hostname for the node I am allocated by the job.</p></li>
+</ul>
+<p><strong>Note</strong> again that the JupyterLab is <em>only</em> accessible from within the HPC2N domain, so it is easiest to work on the ThinLinc.</p>
+<ol class="arabic simple" start="3">
+<li><p>Submit the above submit file. Here I am calling it <code class="docutils literal notranslate"><span class="pre">MyJupyterLab.sh</span></code></p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">MyJupyterLab.sh</span></code></p>
+<ol class="arabic simple" start="4">
+<li><p>Get the URL from the SLURM output file.</p></li>
+</ol>
+<p>Wait until the job gets resources allocated. Check the SLURM output file; when the job has resources allocated it will have a number of URLs inside at the bottom.</p>
+<p>The SLURM output file is as default named <code class="docutils literal notranslate"><span class="pre">slurm-&lt;job-id&gt;.out</span></code> where you get the <code class="docutils literal notranslate"><span class="pre">&lt;job-id&gt;</span></code> when you submit the SLURM submit file (as in item 3. here).</p>
+<p><strong>NOTE</strong>: Grab the URL with the <em>hostname</em> since the localhost one requires you to login to the compute node and so will not work!</p>
+<p>The file will look <strong>similar</strong> to this:</p>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">b-an03 [~]$ cat slurm-24661064.out</span>
+<span class="go">[I 2024-03-09 15:35:30.595 ServerApp] Package jupyterlab took 0.0000s to import</span>
+<span class="go">[I 2024-03-09 15:35:30.617 ServerApp] Package jupyter_lsp took 0.0217s to import</span>
+<span class="go">[W 2024-03-09 15:35:30.617 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.</span>
+<span class="go">[I 2024-03-09 15:35:30.626 ServerApp] Package jupyter_server_terminals took 0.0087s to import</span>
+<span class="go">[I 2024-03-09 15:35:30.627 ServerApp] Package notebook_shim took 0.0000s to import</span>
+<span class="go">[W 2024-03-09 15:35:30.627 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.</span>
+<span class="go">[I 2024-03-09 15:35:30.627 ServerApp] jupyter_lsp | extension was successfully linked.</span>
+<span class="go">[I 2024-03-09 15:35:30.632 ServerApp] jupyter_server_terminals | extension was successfully linked.</span>
+<span class="go">[I 2024-03-09 15:35:30.637 ServerApp] jupyterlab | extension was successfully linked.</span>
+<span class="go">[I 2024-03-09 15:35:30.995 ServerApp] notebook_shim | extension was successfully linked.</span>
+<span class="go">[I 2024-03-09 15:35:31.020 ServerApp] notebook_shim | extension was successfully loaded.</span>
+<span class="go">[I 2024-03-09 15:35:31.022 ServerApp] jupyter_lsp | extension was successfully loaded.</span>
+<span class="go">[I 2024-03-09 15:35:31.023 ServerApp] jupyter_server_terminals | extension was successfully loaded.</span>
+<span class="go">[I 2024-03-09 15:35:31.027 LabApp] JupyterLab extension loaded from /hpc2n/eb/software/JupyterLab/4.0.5-GCCcore-12.3.0/lib/python3.11/site-packages/jupyterlab</span>
+<span class="go">[I 2024-03-09 15:35:31.027 LabApp] JupyterLab application directory is /cvmfs/ebsw.hpc2n.umu.se/amd64_ubuntu2004_skx/software/JupyterLab/4.0.5-GCCcore-12.3.0/share/jupyter/lab</span>
+<span class="go">[I 2024-03-09 15:35:31.028 LabApp] Extension Manager is &#39;pypi&#39;.</span>
+<span class="go">[I 2024-03-09 15:35:31.029 ServerApp] jupyterlab | extension was successfully loaded.</span>
+<span class="go">[I 2024-03-09 15:35:31.030 ServerApp] Serving notebooks from local directory: /pfs/stor10/users/home/b/bbrydsoe</span>
+<span class="go">[I 2024-03-09 15:35:31.030 ServerApp] Jupyter Server 2.7.2 is running at:</span>
+<span class="go">[I 2024-03-09 15:35:31.030 ServerApp] http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1</span>
+<span class="go">[I 2024-03-09 15:35:31.030 ServerApp]     http://127.0.0.1:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1</span>
+<span class="go">[I 2024-03-09 15:35:31.030 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).</span>
+<span class="go">[C 2024-03-09 15:35:31.039 ServerApp]</span>
+
+<span class="go"> To access the server, open this file in a browser:</span>
+<span class="go">     file:///pfs/stor10/users/home/b/bbrydsoe/.local/share/jupyter/runtime/jpserver-121683-open.html</span>
+<span class="go"> Or copy and paste one of these URLs:</span>
+<span class="go">     http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1</span>
+<span class="go">     http://127.0.0.1:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1</span>
+<span class="go">[I 2024-03-09 15:35:31.078 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server</span>
+</pre></div>
+</div>
+</div>
+<p>To access the server, go to</p>
+<p><code class="docutils literal notranslate"><span class="pre">file:///.local/share/jupyter/runtime/jpserver-&lt;newest&gt;-open.html</span></code></p>
+<p>from a browser within the ThinLinc session. &lt;newest&gt; is a number that you find by looking in the directory <code class="docutils literal notranslate"><span class="pre">.local/share/jupyter/runtime/</span></code> under your home directory.</p>
+<p>Or, to access the server you can copy and paste the URL from the file that is SIMILAR to this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>http://b-cn1520.hpc2n.umu.se:8888/lab?token<span class="o">=</span>c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+</pre></div>
+</div>
+<p><strong>NOTE</strong> of course, do not copy the above, but the similar looking one from the file you get from running the batch script!!!</p>
+<ol class="arabic simple" start="5">
+<li><p>Start a webbrowser within HPC2N (ThinLinc interface). Open the html or put in the URL you grabbed, including the token:</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-default">
+<img alt="../_images/jupyterlab-start.png" src="../_images/jupyterlab-start.png" />
+</figure>
+</div></blockquote>
+<p>After a few moments JupyterLab starts up:</p>
+<blockquote>
+<div><figure class="align-default">
+<img alt="../_images/jupyterlab_started.png" src="../_images/jupyterlab_started.png" />
+</figure>
+</div></blockquote>
+<p>You shut it down from the menu with “File” &gt; “Shut Down”</p>
+</section>
+<section id="for-the-course">
+<h4>For the course<a class="headerlink" href="#for-the-course" title="Link to this heading"></a></h4>
+<p>If you want to start a Jupyter with access to matplotlib and seaborn, for use with this course for the session on matplotlib, then do the following:</p>
+<ol class="arabic">
+<li><p>Start ThinLinc and login to HPC2N as described under <a class="reference external" href="https://uppmax.github.io/HPC-python/preparations.html">preparations</a></p></li>
+<li><p>Load these modules</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">GCC/12.3.0</span> <span class="pre">Python/3.11.3</span> <span class="pre">OpenMPI/4.1.5</span> <span class="pre">SciPy-bundle/2023.07</span> <span class="pre">matplotlib/3.7.2</span> <span class="pre">Seaborn/0.13.2</span> <span class="pre">JupyterLab/4.0.5</span></code></p>
+</li>
+<li><p>Make a submit file with this content</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+#SBATCH -A hpc2n2025-076
+# This example asks for 1 core
+#SBATCH -n 1
+# Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
+#SBATCH --time=05:00:00
+
+# Clear the environment from any previously loaded modules
+module purge &gt; /dev/null 2&gt;&amp;1
+
+# Load the module environment suitable for the job
+module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5
+
+# Start JupyterLab
+jupyter lab --no-browser --ip $(hostname)
+</pre></div>
+</div>
+</li>
+<li><p>Get the URL from the SLURM output file (slurm-&lt;job-id&gt;.out).</p>
+<p>It will be <strong>SIMILAR</strong> to this</p>
+<p><code class="docutils literal notranslate"><span class="pre">http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1</span></code></p>
+</li>
+<li><p>Open a browser inside ThinLinc and put in the URL similar to above.</p></li>
+</ol>
+</section>
+</section>
+<section id="lunarc">
+<h3>LUNARC<a class="headerlink" href="#lunarc" title="Link to this heading"></a></h3>
+<p>See the <a class="reference external" href="https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html">Desktop on Demand</a> section for this.</p>
+</section>
+<section id="nsc">
+<h3>NSC<a class="headerlink" href="#nsc" title="Link to this heading"></a></h3>
+<section id="through-thinlinc">
+<h4>Through ThinLinc<a class="headerlink" href="#through-thinlinc" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Login with ThinLinc (<a class="reference external" href="https://www.nsc.liu.se/support/graphics/">https://www.nsc.liu.se/support/graphics/</a>)</p>
+<ul class="simple">
+<li><p>Download the client matching your local computer’s OS and install it.</p></li>
+<li><p>Start the ThinLinc client.</p></li>
+<li><p>Change the “Server” setting to “tetralith.nsc.liu.se”.</p></li>
+<li><p>Change the “Name” setting to your Tetralith username (e.g x_abcde).</p></li>
+<li><p>Enter your cluster Tetralith password in the “Password” box.</p></li>
+<li><p>Press the “Connect” button.</p></li>
+<li><p>If you connect for the first time, you will see the “The server’s host key is not cached …” dialog.</p></li>
+</ul>
+</li>
+<li><p>Load a JupyterLab module</p>
+<ul class="simple">
+<li><p>Open a terminal</p></li>
+<li><p>This is an example for JupyterLab 4.2.0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">buildtool-easybuild/4.8.0-hpce082752a2</span> <span class="pre">GCC/13.2.0</span> <span class="pre">Python/3.11.5</span> <span class="pre">SciPy-bundle/2023.11</span> <span class="pre">JupyterLab/4.2.0</span></code></p></li>
+</ul>
+</li>
+<li><p>Start JupyterLab</p>
+<ul class="simple">
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> in the terminal</p></li>
+<li><p>It will show some text, including telling you to open a url in a browser (inside ThinLinc/on Tetralith). If you just wait, it will open a browser with Jupyter.</p></li>
+<li><p>It will look similar to this:</p></li>
+</ul>
+<figure class="align-default">
+<img alt="../_images/jupyter-thinlinc-nsc.png" src="../_images/jupyter-thinlinc-nsc.png" />
+</figure>
+</li>
+</ol>
+</section>
+<section id="on-your-own-computer-through-ssh-tunneling">
+<h4>On your own computer through SSH tunneling<a class="headerlink" href="#on-your-own-computer-through-ssh-tunneling" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Either do a regular SSH or use ThinLinc to connect to tetralith (change to your own username):</p>
+<p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">x_abcde&#64;tetralith.nsc.liu.se</span></code></p>
+</li>
+<li><p>Change to your working directory</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">&lt;my-workdir&gt;</span></code></p>
+</li>
+<li><p>Load a module with JupyterLab in (here JupyterLab 4.2.0)</p>
+<ul class="simple">
+<li><p>module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0</p></li>
+</ul>
+</li>
+<li><p>Start jupyter with the no-browser flag</p>
+<ul class="simple">
+<li><p>jupyter-lab –no-browser</p></li>
+<li><p>You get something that looks like this:</p></li>
+</ul>
+<figure class="align-default">
+<img alt="../_images/jupyter-no-browser-nsc.png" src="../_images/jupyter-no-browser-nsc.png" />
+</figure>
+</li>
+</ol>
+<p>Where I have marked a line with relevant info. Note that the port will change.</p>
+<ol class="arabic" start="5">
+<li><p>Open a second terminal, on your home computer. Input this:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-N</span> <span class="pre">-L</span> <span class="pre">localhost:88XX:localhost:88XX</span> <span class="pre">x_abcde&#64;tetralith1.nsc.liu.se</span></code></p></li>
+</ul>
+<p>where you change 88XX to the actual port you got, and the name to your username. In my example it would be:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-N</span> <span class="pre">-L</span> <span class="pre">localhost:8867:localhost:8867</span> <span class="pre">x_birbr&#64;tetralith1.nsc.liu.se</span></code></p></li>
+</ul>
+<figure class="align-default">
+<img alt="../_images/local-ssh-to-nsc.png" src="../_images/local-ssh-to-nsc.png" />
+</figure>
+</li>
+<li><p>Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5.</p>
+<ul class="simple">
+<li><p>Input that line (url with token) in a browser on your local machine. You wil get something similar to this:</p></li>
+</ul>
+<figure class="align-default">
+<img alt="../_images/local-jupyter-lab.png" src="../_images/local-jupyter-lab.png" />
+</figure>
+</li>
+</ol>
+</section>
+</section>
+<section id="more-information">
+<h3>More information<a class="headerlink" href="#more-information" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>You can also check the lesson about <a class="reference external" href="https://uppmax.github.io/R-python-julia-matlab-HPC/python/jupyter.html">Jupyter on compute nodes</a> in our <strong>Introduction to running R, Python and Julia in HPC workshop</strong>)</p></li>
+<li><p>Documentation about <a class="reference external" href="https://docs.hpc2n.umu.se/tutorials/jupyter/">Jupyter on HPC2N</a></p></li>
+<li><p>Documentation about <a class="reference external" href="http://docs.uppmax.uu.se/software/jupyter/">Jupyter on UPPMAX</a></p></li>
+</ul>
+</section>
+</section>
+<section id="vs-code">
+<h2>VS Code<a class="headerlink" href="#vs-code" title="Link to this heading"></a></h2>
+<p>VS Code is a powerful and flexible IDE that is popular among developers for its ease of use and flexibility. It is designed to be a lightweight and fast editor that can be customized to suit the user’s needs. It has a built-in terminal, debugger, and Git integration, and can be extended with a wide range of plugins.</p>
+<p>VS Code can be downloaded and installed on your local machine from the <a class="reference external" href="https://code.visualstudio.com/">VS Code website</a>. It is also available on the HPC center resources, but the installation process is different for each center.</p>
+<p>VS Code is available on ThinLinc on UPPMAX and LUNARC only. On HPC2N and NSC, you will have to install it on your own laptop.
+At UPPMAX(Rackham) load it using <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">VSCodium</span></code>, this is an open source version of VS Code. At LUNARC(Cosmos) you can find it under Applications-&gt;Programming-&gt;Visual Studio Code.</p>
+<p>However, VS Code is best used on your local machine, as it is a resource-intensive application that can slow down the ThinLinc interface. The VS Code Server can be installed on all the HPCs that give your the ability to run your code on the HPCs but edit it on your local machine.
+Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.</p>
+<section id="id1">
+<h3>On your own computer through SSH tunneling<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Install VS Code on your local machine and follow the steps below to connect to the HPC center resources.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Steps to connect VS Code via SSH</p>
+<figure class="align-default">
+<img alt="../_images/vscode_remote_tunnels_before_install.png" src="../_images/vscode_remote_tunnels_before_install.png" />
+</figure>
+<figure class="align-default">
+<img alt="../_images/vscode_add_new_remote.png" src="../_images/vscode_add_new_remote.png" />
+</figure>
+<p>Type ssh [username]&#64;rackham.uppmax.uu.se where [username] is your UPPMAX username, for example, ssh <a class="reference external" href="mailto:sven&#37;&#52;&#48;rackham&#46;uppmax&#46;uu&#46;se">sven<span>&#64;</span>rackham<span>&#46;</span>uppmax<span>&#46;</span>uu<span>&#46;</span>se</a>.
+This will change as per the HPC center you are using:</p>
+<figure class="align-default">
+<img alt="../_images/vscode_ssh_to_rackham.png" src="../_images/vscode_ssh_to_rackham.png" />
+</figure>
+<p>Use the ~/.ssh/config file:</p>
+<figure class="align-default">
+<img alt="../_images/vscode_remote_tunnels_use_ssh_config_in_home.png" src="../_images/vscode_remote_tunnels_use_ssh_config_in_home.png" />
+</figure>
+<p>Click on ‘Connect’:</p>
+<figure class="align-default">
+<img alt="../_images/vscode_connect_to_rackham.png" src="../_images/vscode_connect_to_rackham.png" />
+</figure>
+<figure class="align-default">
+<img alt="../_images/vscode_connected_to_rackham.png" src="../_images/vscode_connected_to_rackham.png" />
+</figure>
+</div>
+<p>When you first establish the ssh connection to Rackham, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
+This also where VS Code will install all your extentions that can quickly fill up your home directory.</p>
+</section>
+<section id="install-and-manage-extensions-on-remote-vscode-server">
+<h3>Install and manage Extensions on remote VSCode server<a class="headerlink" href="#install-and-manage-extensions-on-remote-vscode-server" title="Link to this heading"></a></h3>
+<section id="manage-extensions">
+<h4>Manage Extensions<a class="headerlink" href="#manage-extensions" title="Link to this heading"></a></h4>
+<p>Go to Command Palette Ctrl+Shift+P or F1. Search for Remote-SSH: Settings and then go to Remote.SSH: Server Install Path. Add Item as remote host rackham.uppmax.uu.se and Value as project folder in which you want to install all your data and extensions <code class="docutils literal notranslate"><span class="pre">/proj/uppmax202x-x-xx/nobackup</span></code> (without a trailing slash /).</p>
+<p>If you already had your vscode-server running and storing extensions in home directory. Make sure to kill the server by selecting Remote-SSH: KIll VS Code Server on Host on Command Palette and deleting the .vscode-server directory in your home folder.</p>
+</section>
+<section id="install-extensions">
+<h4>Install Extensions<a class="headerlink" href="#install-extensions" title="Link to this heading"></a></h4>
+<p>You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for Remote: Install Local Extensions in ‘SSH: rackham.uppmax.uu.se’ in Command Palette. You can alternatively, go to Extensions tab and select each individually.</p>
+</section>
+<section id="selecting-kernels">
+<h4>Selecting Kernels<a class="headerlink" href="#selecting-kernels" title="Link to this heading"></a></h4>
+<p>Request allocation in either HPC compute node depending on your need, for that use interactive (or salloc) slurm command. Load the correct module on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Rackham/Snowy, do module load python_ML_packages. Check the file path for python interpreter by checking <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code> and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for “interpreter” for python, then paste the path of your interpreter/kernel.</p>
+<p>venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server.</p>
+<p>For jupyter, you need to start the server on the HPC resource first, check <a class="reference internal" href="#jupyter">Jupyter</a> section on how to do that. Copy the jupyter server URL which goes something like <code class="docutils literal notranslate"><span class="pre">http://s193.uppmax.uu.se:8888/tree?token=xxx</span></code> (in case of Snowy), click on <strong>Select Kernel</strong> on VSCode and select <strong>Existing Jupyter Server</strong>. Past the URL here and confirm your choice.
+The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal-&gt;Ports tab to see the correct url to open in your browser.
+NOTE: Selecting kernels/interpreter does not work currently on HPC2N.</p>
+</section>
+</section>
+</section>
+<section id="spyder">
+<h2>Spyder<a class="headerlink" href="#spyder" title="Link to this heading"></a></h2>
+<p>Spyder is a powerful and flexible IDE originally developed to be the main scripting environment for scientific Anaconda users. It is designed to enable quick and easily repeatable experimentation, with automatic syntax checking, auto-complete suggestions, a runtime variable browser, and a graphics window that makes plots easy to manipulate after creation without additional code.</p>
+<p>Spyder is available independent of Anaconda, but conda is still the recommended installer. Packages from the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> source repo are still open-source, so conda is still usable on some facilities despite the recent changes in licensing. It is also possible to <a class="reference external" href="https://docs.spyder-ide.org/current/installation.html#using-pip">build a pip environment with Spyder</a>, although this is only recommended for experienced Python users running on Linux operating systems.</p>
+<p>To use Spyder on one of the HPC center resources, you must have a Thinlinc window open and logged into your choice of HPC resource. For personal use, it is relatively easy to <a class="reference external" href="https://docs.spyder-ide.org/current/installation.html">install as a standalone package on Windows or Mac</a>, and there is also the option of <a class="reference external" href="https://mybinder.org/v2/gh/spyder-ide/binder-environments/spyder-stable?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fspyder-ide%252FSpyder-Workshop%26urlpath%3Ddesktop%252F%26branch%3Dmaster">using Spyder online via Binder</a>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">LUNARC (Cosmos)</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">HPC2N (Kebnekaise)</button><button aria-controls="panel-3-3-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-2" name="3-2" role="tab" tabindex="-1">UPPMAX (Rackham)</button><button aria-controls="panel-3-3-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-3" name="3-3" role="tab" tabindex="-1">NSC (Tetralith)</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><p>On LUNARC, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under <code class="docutils literal notranslate"><span class="pre">Applications</span> <span class="pre">-</span> <span class="pre">Python</span></code>. All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes. Refer to <a class="reference external" href="https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html">the Desktop On Demand documentation</a> to help you fill in GfxLauncher prompt.</p>
+<p>Avoid launching Spyder from the command line on the login node.</p>
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><p>The only available version of Spyder on Kebnekaise is Spyder/4.1.5 for Python-3.8.2 (the latest release of Spyder available for users to install in their own environments is 6.0.2). Python 3.8.2 is associated with compatible versions of Matplotlib and Pandas, but not Seaborn or any of the ML packages to be covered later. To run the available version of Spyder, run the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/9.3.0  OpenMPI/4.0.3  Python  Spyder</span>
+<span class="go">spyder3</span>
+</pre></div>
+</div>
+<p>If you want a newer version with more and newer compatible Python packages, you will have to create a virtual environment.</p>
+</div><div aria-labelledby="tab-3-3-2" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-2" name="3-2" role="tabpanel" tabindex="0"><p>Spyder is not available centrally on Rackham. It will have to be installed in your (conda) virtual environment.</p>
+<ul class="simple">
+<li><p>We have prepared a virtual environment.</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">. /proj/hpc-python-uppmax/venv-spyder/bin/activate</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>you can install packages with pip install from inside Spyder</p></li>
+</ul>
+</div><div aria-labelledby="tab-3-3-3" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-3" name="3-3" role="tabpanel" tabindex="0"><p>Spyder is not available on Tetralith. It will have to be installed in your (conda) virtual environment.</p>
+<ul class="simple">
+<li><p>We have prepared a virtual environment</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">. /proj/hpc-python-spring-naiss/venv-spyder-only/bin/activate</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>you can install packages with pip install from inside Spyder</p></li>
+</ul>
+</div></div>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h3>
+<p>When you open Spyder, you should see something like the figure below. There should be a large pane on the left for code, and two smaller panes on the right. Each of the 3 panes have their own button with 3 horizontal lines (the menu button or “burger icon”) in the top right, each with additional configuration options for those panes.</p>
+<a class="reference internal image-reference" href="../_images/cosmos-on-demand-spyder.png"><img alt="../_images/cosmos-on-demand-spyder.png" src="../_images/cosmos-on-demand-spyder.png" style="width: 800px;" />
+</a>
+<p>The top right pane has several useful tabs.</p>
+<ul class="simple">
+<li><p><strong>Help</strong> displays information about commands and starts up with a message instructing you on how to use it.</p></li>
+<li><p><strong>Variable explorer</strong> shows a table of currently defined variables, their datatypes, and their current values at runtime. It updates every time you either run a script file or run a command in the IPython console.</p></li>
+<li><p><strong>Files</strong> shows the file tree for your current working directory</p></li>
+<li><p>Depending on the version , there may also be a <strong>Plots</strong> tab for displaying and adjusting graphics produced with, e.g. Matplotlib.</p></li>
+</ul>
+<p>You can move any of these tabs into separate windows by clicking the menu (burger) button and selecting “Undock”. This is especially helpful for the plotting tab.</p>
+<p>The bottom right pane shows the IPython console and a history tab. The IPython console is your Python command line, and runs in your current working directory unless changed with <code class="docutils literal notranslate"><span class="pre">os.chdir()</span></code>. The default path is whatever directory you were in when you launched Spyder, but that can be changed in Preferences. If you run a script file that you’ve saved to a different directory using the green arrow icon on the menu ribbon, the IPython console will switch your working directory to the one containing that script. The history tab stores the last 500 lines of code excuted in the IPython console.</p>
+<p>Most of the icons along the top menu bar under the verbal menu are running and debugging commands. You can hover over any of them to see what they do.</p>
+</section>
+<section id="configuring-spyder">
+<h3>Configuring Spyder<a class="headerlink" href="#configuring-spyder" title="Link to this heading"></a></h3>
+<p><strong>Font and icon sizes.</strong> If you are on Thinlinc and/or on a Linux machine, Spyder may be uncomfortably small the first time you open it. To fix this,</p>
+<ol class="arabic simple">
+<li><p>Click the icon shaped like a wrench (Preferences) or click “Tools” and then “Preferences”. A popup should open with a menu down the left side, and the “General” menu option should already be selected (if not, select it now).</p></li>
+<li><p>You should see a tab titled “Interface” that has options that mention “high-DPI scaling”. Select “Set custom high-DPI scaling” and enter the factor by which you’d like the text and icons to be magnified (recommend a number from 1.5 to 2).</p></li>
+<li><p>Click “Apply”. If the popup in the next step doesn’t appear immediately, then click “OK”.</p></li>
+<li><p>A pop-up will appear that says you need to restart to view the changes and asks if you want to restart now. Click “Yes” and wait. The terminal may flash some messages like <code class="docutils literal notranslate"><span class="pre">QProcess:</span> <span class="pre">Destroyed</span> <span class="pre">while</span> <span class="pre">process</span> <span class="pre">(&quot;/hpc2n/eb/software/Python/3.8.2-GCCcore-9.3.0/bin/python&quot;)</span> <span class="pre">is</span> <span class="pre">still</span> <span class="pre">running.&quot;</span></code>, but it should restart within a minute or so. Don’t interrupt it or you’ll have to start over.</p></li>
+</ol>
+<p>The text and icons should be rescaled when it reopens, and should stay rescaled even if you close and reopen Spyder, as long as you’re working in the same session.</p>
+<p><strong>(Optional but recommended) Configure plots to open in separate windows.</strong> In some versions of Spyder, there is a separate Plotting Pane that you can click and drag out of its dock so you can resize figures as needed, but if you don’t see that, you will probably want to change your graphics backend. The default is usually “Inline”, which is usually too small and not interactive. To change that,</p>
+<ol class="arabic simple">
+<li><p>Click the icon shaped like a wrench (Preferences) or click “Tools” and then “Preferences” to open the Preferences popup.</p></li>
+<li><p>In the menu sidebar to the left, click “IPython console”. The box to the right should then have 4 tabs, of which the second from the left is “Graphics” (see figure below).</p></li>
+<li><p>Click “Graphics” and find the “Graphics backend” box below. In that box, next to “Backend” there will be a dropdown menu that probably says “Inline”. Click the dropdown and select “Automatic”.</p></li>
+<li><p>Click “Apply” and then “OK” to exit.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/cosmos-on-demand-spyder-preferences.png"><img alt="../_images/cosmos-on-demand-spyder-preferences.png" src="../_images/cosmos-on-demand-spyder-preferences.png" style="width: 800px;" />
+</a>
+<p>Now, graphics should appear in their own popup that has menu options to edit and save the content.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ondemand-desktop.html" class="btn btn-neutral float-left" title="Desktop On Demand" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Matplotlib60min.html" class="btn btn-neutral float-right" title="Matplotlib in 60 Minutes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
