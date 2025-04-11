@@ -718,7 +718,7 @@ We now learn by submitting a batch job which consists of loading python module, 
          .. code-block:: bash 
 
             #!/bin/bash -l
-            #SBATCH -A naiss2024-22-1442 # Change to your own after the course
+            #SBATCH -A uppmax2025-2-296 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -p node
             #SBATCH -n 1 # Asking for 1 node
@@ -739,7 +739,7 @@ We now learn by submitting a batch job which consists of loading python module, 
          .. code-block:: bash 
 
             #!/bin/bash                                                                     
-            #SBATCH -A hpc2n2024-142 # Change to your own                                   
+            #SBATCH -A hpc2n2025-076 # Change to your own                                   
             #SBATCH --time=00:10:00 # Asking for 10 minutes                                 
             #SBATCH -n 1 # Asking for 1 core                                                
             #SBATCH --gpus=1                                                                
@@ -760,7 +760,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             .. code-block:: bash
                
                #!/bin/bash
-               #SBATCH -A lu2024-2-88
+               #SBATCH -A lu2025-7-34
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -783,7 +783,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             .. code-block:: bash 
    
                #!/bin/bash
-               #SBATCH -A naiss2024-22-1493 # Change to your own
+               #SBATCH -A naiss2025-22-403 # Change to your own
                #SBATCH -n 1
                #SBATCH -c 32
                #SBATCH -t 00:10:00 # Asking for 10 minutes
@@ -830,7 +830,7 @@ Miscellaneous examples
             
                #!/bin/bash 
                # Remember to change this to your own project ID after the course! 
-               #SBATCH -A hpc2n2024-142
+               #SBATCH -A hpc2n2025-076
                # We are asking for 5 minutes
                #SBATCH --time=00:05:00
                # Asking for one V100 
@@ -855,7 +855,7 @@ Miscellaneous examples
 
                #!/bin/bash -l
                # Remember to change this to your own project ID after the course!
-               #SBATCH -A naiss2024-22-1442
+               #SBATCH -A uppmax2025-2-296
                # We are asking for at least 1 hour
                #SBATCH --time=01:00:01
                #SBATCH -M snowy
@@ -883,7 +883,7 @@ Miscellaneous examples
             .. code-block:: bash 
    
                #!/bin/bash
-               #SBATCH -A naiss2024-22-1493 # Change to your own
+               #SBATCH -A naiss2025-22-403 # Change to your own
                #SBATCH -n 1
                #SBATCH -c 32
                #SBATCH -t 00:10:00 # Asking for 10 minutes
@@ -909,7 +909,7 @@ Miscellaneous examples
             .. code-block:: bash 
 
                #!/bin/bash
-               #SBATCH -A lu2024-2-88
+               #SBATCH -A lu2025-7-34
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -987,7 +987,7 @@ Miscellaneous examples
             
                   #!/bin/bash 
                   # Remember to change this to your own project ID after the course! 
-                  #SBATCH -A hpc2n2024-142
+                  #SBATCH -A hpc2n2025-076
                   # We are asking for 5 minutes
                   #SBATCH --time=00:05:00
                   # Asking for one V100
@@ -1006,7 +1006,7 @@ Miscellaneous examples
             
                   #!/bin/bash -l  
                   # Remember to change this to your own project ID after the course! 
-                  #SBATCH -A naiss2024-22-1442
+                  #SBATCH -A uppmax2025-2-296
                   # We want to run on Snowy
                   #SBATCH -M snowy
                   # We are asking for 15 minutes
@@ -1027,7 +1027,7 @@ Miscellaneous examples
             .. code-block:: bash 
 
                #!/bin/bash
-               #SBATCH -A naiss2024-22-1493 # Change to your own
+               #SBATCH -A naiss2025-22-403 # Change to your own
                #SBATCH -n 1
                #SBATCH -c 32
                #SBATCH -t 00:10:00 # Asking for 10 minutes
@@ -1047,7 +1047,7 @@ Miscellaneous examples
             .. code-block:: bash 
 
                #!/bin/bash
-               #SBATCH -A lu2024-2-88
+               #SBATCH -A lu2025-7-34
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1

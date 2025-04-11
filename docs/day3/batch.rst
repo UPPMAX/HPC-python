@@ -16,27 +16,27 @@ Running Python in batch mode
 
 .. admonition:: Compute allocations in this workshop 
 
-   - Rackham: ``naiss2024-22-1442``
-   - Kebnekaise: ``hpc2n2024-142``
-   - Cosmos: ``lu2024-2-88``
-   - Tetralith: ``naiss2024-22-1493``  
+   - Rackham: ``uppmax2025-2-296``
+   - Kebnekaise: ``hpc2n2025-076``
+   - Cosmos: ``lu2025-7-34``
+   - Tetralith: ``naiss2025-22-403``  
 
 .. admonition:: Storage space for this workshop 
 
-   - Rackham: ``/proj/hpc-python-fall``
-   - Kebnekaise: ``/proj/nobackup/hpc-python-fall-hpc2n``
+   - Rackham: ``/proj/hpc-python-uppmax``
+   - Kebnekaise: ``/proj/nobackup/hpc-python-spring``
    - Cosmos: ``/lunarc/nobackup/projects/lu2024-17-44``
-   - Tetralith: ``/proj/hpc-python-fall-nsc``
+   - Tetralith: ``/proj/hpc-python-spring-naiss``
 
 .. admonition:: Reservation
 
    Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name. 
 
    - UPPMAX 
-       - naiss2024-22-1442_1 for cpu on Thursday
-       - naiss2024-22-1442_2 for gpu on Thursday
-       - naiss2024-22-1442_3 for cpu on Friday
-       - naiss2024-22-1442_4 for gpu on Friday 
+       - uppmax2025-2-296_1 for cpu on Thursday
+       - uppmax2025-2-296_2 for gpu on Thursday
+       - uppmax2025-2-296_3 for cpu on Friday
+       - uppmax2025-2-296_4 for gpu on Friday 
    - HPC2N
        - hpc-python-cpu-th for cpu on Thursday
        - hpc-python-gpu-th for gpu on Thursday
@@ -184,7 +184,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash -l 
-            #SBATCH -A naiss2024-22-1442 # Change to your own after the course
+            #SBATCH -A uppmax2025-2-296 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -202,7 +202,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2024-142 # Change to your own
+            #SBATCH -A hpc2n2025-076 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -219,7 +219,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2024-2-88 # Change to your own
+            #SBATCH -A lu2025-7-34 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -236,7 +236,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2024-22-1493 # Change to your own
+            #SBATCH -A naiss2025-22-403 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -296,7 +296,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
         
             #!/bin/bash -l 
-            #SBATCH -A naiss2024-22-1442 # Change to your own after the course
+            #SBATCH -A uppmax2025-2-296 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -304,7 +304,7 @@ Serial code + self-installed package in virt. env.
             module load python/3.11.8
             
             # Activate your virtual environment. 
-            source /proj/hpc-python-fall/<user-dir>/<path-to-virtenv>/<virtenv>/bin/activate  
+            source /proj/hpc-python-uppmax/<user-dir>/<path-to-virtenv>/<virtenv>/bin/activate  
             
             # Run your Python script (remember to add the path to it 
             # or change to the directory with it first)
@@ -318,7 +318,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2024-142 # Change to your own 
+            #SBATCH -A hpc2n2025-076 # Change to your own 
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -326,7 +326,7 @@ Serial code + self-installed package in virt. env.
             module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
             
             # Activate your virtual environment. 
-            source /proj/nobackup/hpc-python-fall-hpc2n/<user-dir>/<path-to-virt-env>/bin/activate
+            source /proj/nobackup/hpc-python-spring/<user-dir>/<path-to-virt-env>/bin/activate
             
             # Run your Python script  (remember to add the path to it 
             # or change to the directory with it first)
@@ -339,7 +339,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2024-2-88 # Change to your own 
+            #SBATCH -A lu2025-7-34 # Change to your own 
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -360,7 +360,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2024-22-1493 # Change to your own 
+            #SBATCH -A naiss2025-22-403 # Change to your own 
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -368,7 +368,7 @@ Serial code + self-installed package in virt. env.
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
             
             # Activate your virtual environment. matplotlib is not available for this Python version on Tetralith, so that would for instance need to be installed in a virtual environment
-            source /proj/hpc-python-fall-nsc/<user-dir>/<path-to-virt-env>/bin/activate
+            source /proj/hpc-python-spring-naiss/<user-dir>/<path-to-virt-env>/bin/activate
             
             # Run your Python script  (remember to add the path to it 
             # or change to the directory with it first)
@@ -403,7 +403,7 @@ This is a very simple example of how to run a Python script with a job array.
 
          #!/bin/bash -l
          # This is a very simple example of how to run a Python script with a job array
-         #SBATCH -A naiss2024-22-1442 # Change to your own after the course
+         #SBATCH -A uppmax2025-2-296 # Change to your own after the course
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH --array=1-10   # how many tasks in the array 
          #SBATCH -c 1 # Asking for 1 core    # one core per task 
@@ -411,7 +411,7 @@ This is a very simple example of how to run a Python script with a job array.
 
          # Set a path where the example programs are installed. 
          # Change the below to your own path to where you placed the example programs
-         MYPATH=/proj/hpc-python-fall/<userdir>/HPC-python/Exercises/examples/programs/
+         MYPATH=/proj/hpc-python-uppmax/<userdir>/HPC-python/Exercises/examples/programs/
 
          # Load any modules you need, here for Python 3.11.8
          ml uppmax
@@ -427,7 +427,7 @@ This is a very simple example of how to run a Python script with a job array.
 
          #!/bin/bash
          # This is a very simple example of how to run a Python script with a job array
-         #SBATCH -A hpc2n2024-142 # Change to your own!
+         #SBATCH -A hpc2n2025-076 # Change to your own!
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH --array=1-10   # how many tasks in the array 
          #SBATCH -c 1 # Asking for 1 core    # one core per task 
@@ -435,7 +435,7 @@ This is a very simple example of how to run a Python script with a job array.
 
          # Set a path where the example programs are installed. 
          # Change the below to your own path to where you placed the example programs
-         MYPATH=/proj/nobackup/hpc-python-fall-hpc2n/<your-dir>/HPC-python/Exercises/examples/programs/
+         MYPATH=/proj/nobackup/hpc-python-spring/<your-dir>/HPC-python/Exercises/examples/programs/
 
          # Load any modules you need, here for Python 3.11.3 
          ml GCC/12.3.0 Python/3.11.3
@@ -449,7 +449,7 @@ This is a very simple example of how to run a Python script with a job array.
 
          #!/bin/bash
          # This is a very simple example of how to run a Python script with a job array
-         #SBATCH -A lu2024-2-88 # Change to your own!
+         #SBATCH -A lu2025-7-34 # Change to your own!
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH --array=1-10   # how many tasks in the array 
          #SBATCH -c 1 # Asking for 1 core    # one core per task 
@@ -471,7 +471,7 @@ This is a very simple example of how to run a Python script with a job array.
 
          #!/bin/bash
          # This is a very simple example of how to run a Python script with a job array
-         #SBATCH -A naiss2024-22-1493 # Change to your own!
+         #SBATCH -A naiss2025-22-403 # Change to your own!
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH --array=1-10   # how many tasks in the array
          #SBATCH -c 1 # Asking for 1 core    # one core per task
@@ -479,7 +479,7 @@ This is a very simple example of how to run a Python script with a job array.
 
          # Set a path where the example programs are installed.
          # Change the below to your own path to where you placed the example programs
-         MYPATH=/proj/nobackup/hpc-python-fall-nsc/<your-dir>/HPC-python/Exercises/examples/programs/
+         MYPATH=/proj/nobackup/hpc-python-spring-naiss/<your-dir>/HPC-python/Exercises/examples/programs/
 
          # Load any modules you need, here for Python 3.11.5
          ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
@@ -542,7 +542,7 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python".
         .. code-block:: bash
 
             #!/bin/bash -l
-            #SBATCH -A naiss2024-22-1442
+            #SBATCH -A uppmax2025-2-296
             #SBATCH -t 00:10:00
             #SBATCH --exclusive
             #SBATCH -n 1
@@ -565,7 +565,7 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python".
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2024-142 # Change to your own
+            #SBATCH -A hpc2n2025-076 # Change to your own
             #SBATCH --time=00:10:00  # Asking for 10 minutes
             # Asking for one V100 card
             #SBATCH --gpus=1
@@ -585,7 +585,7 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python".
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2024-2-88 # Change to your own
+            #SBATCH -A lu2025-7-34 # Change to your own
             #SBATCH --time=00:10:00  # Asking for 10 minutes
             # Asking for one GPU
             #SBATCH -p gpua100 
@@ -605,7 +605,7 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python".
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2024-22-1493 # Change to your own
+            #SBATCH -A naiss2025-22-403 # Change to your own
             #SBATCH --time=00:10:00  # Asking for 10 minutes
             #SBATCH -n 1
             #SBATCH -c 32
@@ -689,7 +689,7 @@ Exercises
           .. code-block:: bash
  
             #!/bin/bash
-            #SBATCH -A hpc2n2024-142 # Change to your own
+            #SBATCH -A hpc2n2025-076 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -707,7 +707,7 @@ Exercises
           .. code-block:: bash
  
             #!/bin/bash -l
-            #SBATCH -A naiss2024-22-1442 # Change to your own after the course
+            #SBATCH -A uppmax2025-2-296 # Change to your own after the course
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -725,7 +725,7 @@ Exercises
           .. code-block:: bash
  
             #!/bin/bash
-            #SBATCH -A lu2024-2-88 # Change to your own
+            #SBATCH -A lu2025-7-34 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -743,7 +743,7 @@ Exercises
           .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2024-22-1493 # Change to your own
+            #SBATCH -A naiss2025-22-403 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -832,7 +832,7 @@ Exercises
       .. code-block:: bash
 
          #!/bin/bash -l
-         #SBATCH -A naiss2024-22-1442
+         #SBATCH -A uppmax2025-2-296
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH -n 1 # Asking for 1 core
 
@@ -848,7 +848,7 @@ Exercises
       .. code-block:: bash
 
          #!/bin/bash
-         #SBATCH -A hpc2n2024-142
+         #SBATCH -A hpc2n2025-076
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH -n 1 # Asking for 1 core
 
@@ -864,7 +864,7 @@ Exercises
       .. code-block:: bash
 
          #!/bin/bash
-         #SBATCH -A lu2024-2-88
+         #SBATCH -A lu2025-7-34
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH -n 1 # Asking for 1 core
 
@@ -880,7 +880,7 @@ Exercises
       .. code-block:: bash
 
          #!/bin/bash
-         #SBATCH -A naiss2024-22-1493
+         #SBATCH -A naiss2025-22-403
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH -n 1 # Asking for 1 core
 

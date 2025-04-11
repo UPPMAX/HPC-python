@@ -222,17 +222,17 @@ Create a ``venv``. First load the python version you want to base your virtual e
        - If your directory in the project has another name, replace ``$USER`` with that one!
    
    - UPPMAX: 
-       - Create: ``python -m venv /proj/hpc-python-fall/$USER/Example``
-       - Activate: ``source /proj/hpc-python-fall/<user-dir>/Example/bin/activate``
+       - Create: ``python -m venv /proj/hpc-python-uppmax/$USER/Example``
+       - Activate: ``source /proj/hpc-python-uppmax/<user-dir>/Example/bin/activate``
    - HPC2N: 
-       - Create: ``python -m venv /proj/nobackup/hpc-python-fall-hpc2n/$USER/Example``
-       - Activate: ``source /proj/nobackup/hpc-python-fall-hpc2n/<user-dir>/Example/bin/activate``
+       - Create: ``python -m venv /proj/nobackup/hpc-python-spring/$USER/Example``
+       - Activate: ``source /proj/nobackup/hpc-python-spring/<user-dir>/Example/bin/activate``
    - LUNARC: 
        - Create: ``python -m venv /lunarc/nobackup/projects/lu2024-17-44/$USER/Example``
        - Activate: ``source /lunarc/nobackup/projects/lu2024-17-44/<user-dir>/Example/bin/activate``
    - NSC: 
-       - Create: ``python -m venv /proj/hpc-python-fall-nsc/$USER/Example``
-       - Activate: ``source /proj/hpc-python-fall-nsc/<user-dir>/Example/bin/activate``
+       - Create: ``python -m venv /proj/hpc-python-spring-naiss/$USER/Example``
+       - Activate: ``source /proj/hpc-python-spring-naiss/<user-dir>/Example/bin/activate``
         
    Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
@@ -575,7 +575,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       **Check were to find environments needed for the lessons in the afternoon tomorrow**
 
-      - browse ``/proj/hpc-python-fall-nsc/`` to see the available environments. 
+      - browse ``/proj/hpc-python-spring-naiss/`` to see the available environments. 
       - their names are
           - ``venvNSC-TF``
           - ``venvNSC-torch``
@@ -592,7 +592,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
       
       **Check were to find environments needed for the lessons in the afternoon tomorrow**
 
-      - browse ``/proj/hpc-python-fall/`` to see the available environments. 
+      - browse ``/proj/hpc-python-uppmax/`` to see the available environments. 
       - their names are, for instance
           - ``venv-spyder``
           - ``venv-TF``
@@ -604,7 +604,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       **Check were to find possible environments needed for the lessons in the afternoon tomorrow**
 
-      - browse ``/proj/nobackup/hpc-python-fall-hpc2n/`` to see the available environments.
+      - browse ``/proj/nobackup/hpc-python-spring/`` to see the available environments.
       - It may be empty for now but may show up by tomorrow
       - their names may be, for instance
           - ``venv-TF``

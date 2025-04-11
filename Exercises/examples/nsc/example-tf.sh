@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A naiss2024-22-1493 # Change to your own 
+#SBATCH -A naiss2025-22-403 # Change to your own 
 #SBATCH --time=00:10:00  # Asking for 10 minutes
 #SBATCH -n 1
 #SBATCH -c 32
@@ -7,7 +7,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/hpc-python-fall-nsc/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1

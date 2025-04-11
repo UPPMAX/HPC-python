@@ -209,7 +209,7 @@ Something like the file below will work. Remember to change the project id after
 .. code-block:: slurm
 
    #!/bin/bash
-   #SBATCH -A hpc2n2024-142
+   #SBATCH -A hpc2n2025-076
    # This example asks for 1 core
    #SBATCH -n 1
    # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
@@ -324,7 +324,7 @@ If you want to start a Jupyter with access to matplotlib and seaborn, for use wi
    .. code-block:: 
 
       #!/bin/bash
-      #SBATCH -A hpc2n2024-142
+      #SBATCH -A hpc2n2025-076
       # This example asks for 1 core
       #SBATCH -n 1
       # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
@@ -539,7 +539,7 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
       .. code-block:: console
 
-         . /proj/hpc-python-fall/venv-spyder/bin/activate
+         . /proj/hpc-python-uppmax/venv-spyder/bin/activate
 
       - you can install packages with pip install from inside Spyder
 
@@ -551,7 +551,7 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
       .. code-block:: console
 
-         . /proj/hpc-python-fall-nsc/venv-spyder-only/bin/activate
+         . /proj/hpc-python-spring-naiss/venv-spyder-only/bin/activate
 
       - you can install packages with pip install from inside Spyder
 

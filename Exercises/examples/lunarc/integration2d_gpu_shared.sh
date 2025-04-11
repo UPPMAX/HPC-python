@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A lu2024-2-88
+#SBATCH -A lu2025-7-34
 #SBATCH -t 00:15:00
 #SBATCH -n 24
 #SBATCH -o output_%j.out   # output file

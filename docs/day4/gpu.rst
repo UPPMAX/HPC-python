@@ -225,7 +225,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       .. code-block:: console
       
-         $ interactive -A naiss2024-22-1442 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --gres=gpu:1  -t 1:00:01 
+         $ interactive -A uppmax2025-2-296 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --gres=gpu:1  -t 1:00:01 
          You receive the high interactive priority.
 
          Please, use no more than 8 GB of RAM.
@@ -258,7 +258,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       .. code-block:: console
 
-         $ salloc -A hpc2n2024-142 --time=00:30:00 -n 1 --gpus=1 -C l40s 
+         $ salloc -A hpc2n2025-076 --time=00:30:00 -n 1 --gpus=1 -C l40s 
          salloc: Pending job allocation 32126787
          salloc: job 32126787 queued and waiting for resources
          salloc: job 32126787 has been allocated resources
@@ -280,7 +280,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
           #!/bin/bash
           # Remember to change this to your own project ID after the course!
-          #SBATCH -A hpc2n2024-142     # HPC2N ID - change to your own
+          #SBATCH -A hpc2n2025-076     # HPC2N ID - change to your own
           # We are asking for 5 minutes
           #SBATCH --time=00:05:00
           # Asking for one L40s GPU
@@ -302,7 +302,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          #!/bin/bash
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A lu2024-2-88 
+         #SBATCH -A lu2025-7-34 
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
          #SBATCH --ntasks-per-node=1
@@ -325,7 +325,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          #!/bin/bash
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A naiss2024-22-1493
+         #SBATCH -A naiss2025-22-403
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
          #SBATCH -n 1 
@@ -338,7 +338,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          module load buildenv-gcccuda/12.2.2-gcc11-hpc1 Python/3.10.4-env-hpc2-gcc-2022a-eb
 
          # Activate the virtual environment we created earlier today 
-         source /proj/hpc-python-fall-nsc/venvNSC-numba/bin/activate
+         source /proj/hpc-python-spring-naiss/venvNSC-numba/bin/activate
 
          # Run your Python script 
          python add-list.py 
@@ -493,7 +493,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A hpc2n2024-142
+            #SBATCH -A hpc2n2025-076
             #SBATCH -t 00:08:00
             #SBATCH -N 1
             #SBATCH -n 24
@@ -505,7 +505,7 @@ Exercises
     
             # Set a path where the example programs are installed.
             # Change the below to your own path to where you placed the example programs
-            MYPATH=/proj/hpc-python-fall-hpc2n/<mydir-name>/HPC-python/Exercises/examples/programs/
+            MYPATH=/proj/hpc-python-spring/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 
             ml purge > /dev/null 2>&1
@@ -529,7 +529,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A naiss2024-22-1442
+            #SBATCH -A uppmax2025-2-296
             # We want to run on Snowy
             #SBATCH -M snowy
             # We are asking for 10 minutes
@@ -541,7 +541,7 @@ Exercises
 
             # Set a path where the example programs are installed.
             # Change the below to your own path to where you placed the example programs
-            MYPATH=/proj/hpc-python-fall/<mydir-name>/HPC-python/Exercises/examples/programs/
+            MYPATH=/proj/hpc-python-uppmax/<mydir-name>/HPC-python/Exercises/examples/programs/
 
             # Remove any loaded modules and load the ones we need
             # CHANGE if you used 3.9.5 and a virtual environment instead!

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Change to your own project ID!
-#SBATCH -A hpc2n2024-142
+#SBATCH -A hpc2n2025-076
 #SBATCH -t 00:05:00
 #SBATCH -N X               # nr. nodes - CHANGE TO ACTUAL NUMBER!
 #SBATCH -n Y               # nr. MPI ranks - CHANGE TO ACTUAL NUMBER!

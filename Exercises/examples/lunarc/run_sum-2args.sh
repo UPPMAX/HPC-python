@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A lu2024-2-88 # Change to your own
+#SBATCH -A lu2025-7-34 # Change to your own
 #SBATCH --time=00:05:00 # Asking for 5 minutes
 #SBATCH -n 1 # Asking for 1 core
 

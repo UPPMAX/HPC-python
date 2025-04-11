@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A naiss2024-22-1493
+#SBATCH -A naiss2025-22-403
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
 #SBATCH -n 1

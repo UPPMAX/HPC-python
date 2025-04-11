@@ -56,17 +56,17 @@ Introduction
    Project ID and storage directory 
 
    - UPPMAX: 
-       - Project ID: naiss2024-22-1442
-       - Storage directory: /proj/hpc-python-fall  
+       - Project ID: uppmax2025-2-296
+       - Storage directory: /proj/hpc-python-uppmax  
    - HPC2N: 
-       - Project ID: hpc2n2024-142
-       - Storage directory: /proj/nobackup/hpc-python-fall-hpc2n
+       - Project ID: hpc2n2025-076
+       - Storage directory: /proj/nobackup/hpc-python-spring
    - LUNARC: 
-       - Project ID: lu2024-2-88
+       - Project ID: lu2025-7-34
        - Storage directory: /lunarc/nobackup/projects/lu2024-17-44  
    - NSC: 
-       - Project ID: naiss2024-22-1493
-       - Storage directory: /proj/hpc-python-fall-nsc  
+       - Project ID: naiss2025-22-403
+       - Storage directory: /proj/hpc-python-spring-naiss  
 
 
 <!-- 

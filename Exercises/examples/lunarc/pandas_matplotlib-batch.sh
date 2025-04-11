@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A lu2024-2-88 
+#SBATCH -A lu2025-7-34 
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
 # Asking for one core

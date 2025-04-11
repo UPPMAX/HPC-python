@@ -24,17 +24,17 @@ Interactive work on the compute nodes
 
 .. admonition:: Compute allocations in this workshop 
 
-   - Rackham: ``naiss2024-22-1442``
-   - Kebnekaise: ``hpc2n2024-142``
-   - Cosmos: ``lu2024-2-88``
-   - Tetralith: ``naiss2024-22-1493``  
+   - Rackham: ``uppmax2025-2-296``
+   - Kebnekaise: ``hpc2n2025-076``
+   - Cosmos: ``lu2025-7-34``
+   - Tetralith: ``naiss2025-22-403``  
 
 .. admonition:: Storage space for this workshop 
 
-   - Rackham: ``/proj/hpc-python-fall``
-   - Kebnekaise: ``/proj/nobackup/hpc-python-fall-hpc2n``
+   - Rackham: ``/proj/hpc-python-uppmax``
+   - Kebnekaise: ``/proj/nobackup/hpc-python-spring``
    - Cosmos: ``/lunarc/nobackup/projects/lu2024-17-44``
-   - Tetralith: ``/proj/hpc-python-fall-nsc``
+   - Tetralith: ``/proj/hpc-python-spring-naiss``
 
 .. admonition:: Reservation
 
@@ -43,10 +43,10 @@ Interactive work on the compute nodes
    **NOTE** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for. 
 
    - UPPMAX 
-       - naiss2024-22-1442_1 for cpu on Thursday
-       - naiss2024-22-1442_2 for gpu on Thursday
-       - naiss2024-22-1442_3 for cpu on Friday
-       - naiss2024-22-1442_4 for gpu on Friday 
+       - uppmax2025-2-296_1 for cpu on Thursday
+       - uppmax2025-2-296_2 for gpu on Thursday
+       - uppmax2025-2-296_3 for cpu on Friday
+       - uppmax2025-2-296_4 for gpu on Friday 
    - HPC2N
        - hpc-python-cpu-th for cpu on Thursday
        - hpc-python-gpu-th for gpu on Thursday
@@ -146,13 +146,13 @@ To start an interactive session in the simplest way, is shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the UPPMAX project name,
-      for example ``interactive -A naiss2024-22-1442``.
+      for example ``interactive -A uppmax2025-2-296``.
 
       The output will look similar to this:
 
       .. code-block:: console
 
-          [richel@rackham4 ~]$ interactive -A naiss2024-22-1442
+          [richel@rackham4 ~]$ interactive -A uppmax2025-2-296
           You receive the high interactive priority.
           You may run for at most one hour.
           Your job has been put into the devcore partition and is expected to start at once.
@@ -190,13 +190,13 @@ To start an interactive session in the simplest way, is shown here:
          salloc -A [project_name]
 
       Where ``[project_name]`` is the HPC2N project name,
-      for example ``salloc -A hpc2n2024-142``.
+      for example ``salloc -A hpc2n2025-076``.
 
       This will look similar to this (including asking for resources - time is required):
 
       .. code-block:: console
 
-          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2024-142
+          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2025-076
           salloc: Pending job allocation 20174806
           salloc: job 20174806 queued and waiting for resources
           salloc: job 20174806 has been allocated resources
@@ -213,13 +213,13 @@ To start an interactive session in the simplest way, is shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the LUNARC project name,
-      for example ``interactive -A lu2024-2-88``.  
+      for example ``interactive -A lu2025-7-34``.  
 
       This will look similar to this (including asking for resources - time is required): 
 
       .. code-block:: console
 
-         [bbrydsoe@cosmos3 ~]$ interactive -A lu2024-2-88 -n 4 -t 00:10:00
+         [bbrydsoe@cosmos3 ~]$ interactive -A lu2025-7-34 -n 4 -t 00:10:00
          Cluster name: COSMOS
          Waiting for JOBID 988025 to start
 
@@ -237,13 +237,13 @@ To start an interactive session in the simplest way, is shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the NSC project name,
-      for example ``interactive -A naiss2024-22-1493``.  
+      for example ``interactive -A naiss2025-22-403``.  
 
       This will look similar to this: 
 
       .. code-block:: console
 
-         [x_birbr@tetralith1 ~]$ interactive -A naiss2024-22-1493 
+         [x_birbr@tetralith1 ~]$ interactive -A naiss2025-22-403 
          salloc: Pending job allocation 40137281
          salloc: job 40137281 queued and waiting for resources
          salloc: job 40137281 has been allocated resources
@@ -440,25 +440,25 @@ In this example we will start a session with 2 cores
 
       .. code-block:: console
 
-         interactive -A naiss2024-22-1442 -p core -n 2
+         interactive -A uppmax2025-2-296 -p core -n 2
       
    .. tab:: HPC2N
 
       .. code-block:: console
           
-         salloc -A hpc2n2024-142 -n 2 -t 00:30:00
+         salloc -A hpc2n2025-076 -n 2 -t 00:30:00
 
    .. tab:: LUNARC
 
       .. code-block:: console
 
-         interactive -A lu2024-2-88 -t 00:30:00 -n 2
+         interactive -A lu2025-7-34 -t 00:30:00 -n 2
 
    .. tab:: NSC
 
       .. code-block:: console
 
-         interactive -A naiss2024-22-1493 -n 2
+         interactive -A naiss2025-22-403 -n 2
 
 Exercise 2: check to be in an interactive session
 #################################################

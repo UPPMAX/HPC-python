@@ -1,6 +1,6 @@
 #!/bin/bash
 # Change to your own project ID after the course!
-#SBATCH -A lu2024-2-88
+#SBATCH -A lu2025-7-34
 # We are asking for 10 minutes
 #SBATCH --time=00:10:00
 #SBATCH -n 1
