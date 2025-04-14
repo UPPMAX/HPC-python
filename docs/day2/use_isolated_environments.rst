@@ -1,7 +1,7 @@
 Use isolated environments
 =========================
 
-!!! info "Learning objectives"
+.. info:: Learning objectives
 
     - Practice using the documentation of your HPC cluster
     - Find out which isolated environment tool to use on your HPC cluster
@@ -27,6 +27,44 @@ Tetralith  | Find out which, BC takes Conda, RB takes venv
 
 -->
 
+
+Isolated environments
+.....................
+
+As an example, maybe you have been using TensorFlow 1.x.x for your project and now you need to install a package that requires TensorFlow 2.x.x but you will still be needing the old version of TensorFlow for another package, for instance. This is easily solved with isolated environments.
+
+.. note::
+  
+   Isolated/virtual environments solve a couple of problems:
+   
+   - You can install specific, also older, versions into them.
+   - You can create one for each project and no problem if the two projects require different versions.
+   - You can remove the environment and create a new one, if not needed or with errors.
+
+- Isolated environments lets you create separate workspaces for different versions of Python and/or different versions of packages. 
+- You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
+
+**The tools**
+
+   - venv            
+   - virtualenv      
+   - conda           
+
+.. warning::
+
+   **About Conda on HPC systems**
+
+   - Conda is good in many ways but can interact negatively when trying to use the pytrhon modules in the HPC systems.
+   - LUNARC seems to have working solutions
+   - At UPPMAX Conda is installed but many users that get into problems. 
+	- However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
+
+.. tip::
+
+   - Try with ``venv`` first
+   - If very troublesome, try with ``conda``
+
+
 +------------+---------------------------------+
 | HPC cluster| Conda vs venv                   | 
 +============+=================================+
@@ -48,6 +86,8 @@ Tetralith  | Find out which, BC takes Conda, RB takes venv
 +------------+---------------------------------+
 
 
+Exercises
+---------
 
 <!-- Exercise 1: which system to pick -->
 
@@ -81,43 +121,6 @@ Tetralith  | Find out which, BC takes Conda, RB takes venv
    - work (create, activate, work, deactivate) with virtual environments
    - install a python package
    - export and import a virtual environment
-
-Isolated environments
-.....................
-
-As an example, maybe you have been using TensorFlow 1.x.x for your project and now you need to install a package that requires TensorFlow 2.x.x but you will still be needing the old version of TensorFlow for another package, for instance. This is easily solved with isolated environments.
-
-.. note::
-  
-   Isolated/virtual environments solve a couple of problems:
-   
-   - You can install specific, also older, versions into them.
-   - You can create one for each project and no problem if the two projects require different versions.
-   - You can remove the environment and create a new one, if not needed or with errors.
-
-- Isolated environments lets you create separate workspaces for different versions of Python and/or different versions of packages. 
-- You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
-
-**The tools**
-
-   - venv            UPPMAX+HPC2N+LUNARC+NSC
-   - virtualenv      UPPMAX+HPC2N+LUNARC+NSC
-   - Conda           LUNARC + UPPMAX (recommended only for Bianca cluster)
-
-.. warning::
-
-   **About Conda on HPC systems**
-
-   - Conda is good in many ways but can interact negatively when trying to use the pytrhon modules in the HPC systems.
-   - LUNARC seems to have working solutions
-   - At UPPMAX Conda is installed but we have many users that get into problems. 
-	- However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
-
-.. admonition:: Conda in HPC
-
-   - `Anaconda at LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>`_
-   - `Conda at UPPMAX <https://docs.uppmax.uu.se/software/conda/>`_ 
-      - `Conda on Bianca <https://uppmax.github.io/bianca_workshop/intermediate/install/#install-packages-principles>`_
 
 Virtual environment - venv & virtualenv
 ---------------------------------------
@@ -631,3 +634,14 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
    
       - UPPMAX has ``conda`` and ``venv`` and ``virtualenv``
       - HPC2N has ``venv`` and ``virtualenv``
+
+<!-- extra conda
+
+.. admonition:: Conda in HPC
+
+   - `Anaconda at LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>`_
+   - `Conda at UPPMAX <https://docs.uppmax.uu.se/software/conda/>`_ 
+      - `Conda on Bianca <https://uppmax.github.io/bianca_workshop/intermediate/install/#install-packages-principles>`_
+
+-->
+
