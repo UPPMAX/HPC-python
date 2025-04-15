@@ -27,7 +27,7 @@ Time        | Topic                          |Teacher
 
 Status 'Packages':
 
-- Current material can be found [here](https://uppmax.github.io/HPC-python/day1/load_run_packages.html)
+- Current material can be found [here](https://uppmax.github.io/HPC-python/day2/load_run_packages.html)
   and is made by Björn
 - [ ] Suggest co-teaching there too?
 
