@@ -1,3 +1,5 @@
+.. _use-isolated-environments:
+
 Use isolated environments
 =========================
 

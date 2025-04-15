@@ -34,8 +34,6 @@ See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_p
 
     Course starts at 9:00 sharp and ends at 16:00
 
-<a id="day2"></a>
-
 .. _schedule-day-2:
 Day 2: Packages and basic analysis
 ----------------------------------
@@ -51,7 +49,7 @@ Day 2: Packages and basic analysis
 +------------+---------------------------------+--------------------------------+
 |10:00-10:15 | Break                           |.                               |
 +------------+---------------------------------+--------------------------------+
-|10:15-11:00 | Isolated environments conda/pip | Björn+Richel (co-teaching)     |
+|10:15-11:00 | :ref:`use-isolated-environments`| Björn+Richel (co-teaching)     |
 +------------+---------------------------------+--------------------------------+
 |11:00-11:15 | Break                           |.                               |
 +------------+---------------------------------+--------------------------------+
@@ -76,8 +74,6 @@ Day 2: Packages and basic analysis
   Using virtual environments may get this to work on other session.
   Björn will investigate this :+1:
 - [2] ?OnDemand,?parallel session
-
-<a id="day3"></a>
 
 .. _schedule-day-3:
 Day 3: Advanced analysis and batch jobs
@@ -114,8 +110,6 @@ Day 3: Advanced analysis and batch jobs
 +------------+----------------------+------------------------------+
 |15:45-16:00 | Evaluation           |.                             |
 +------------+----------------------+------------------------------+
-
-<a id="day4"></a>
 
 .. _schedule-day-4:
 Day 4: Parallelism, GPUs and machine learning
