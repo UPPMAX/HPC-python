@@ -147,7 +147,7 @@ Content of the course
    :maxdepth: 2
    :caption: Common:
 
-   schedule.md
+   schedule.rst
    common/login.rst
    common/use_tarball.rst
    common/use_text_editor.rst
