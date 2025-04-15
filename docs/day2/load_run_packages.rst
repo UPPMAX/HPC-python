@@ -1,4 +1,4 @@
-.. _day2-use-python-packages:
+.. _use-packages:
 
 Load and run Python and use packages
 ====================================

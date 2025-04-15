@@ -1,3 +1,4 @@
+.. _install-packages:
 Install packages
 ================
 
