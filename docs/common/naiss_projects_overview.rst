@@ -1,3 +1,4 @@
+.. _common-naiss-projects-overview:
 NAISS projects overview
 =======================
 

@@ -2,9 +2,6 @@
 Introduction
 ============
 
-`Welcome page and syllabus <https://uppmax.github.io/HPC-python/index.html>`_
-   - Also link at House symbol |:house:| at top of page 
-
 .. admonition:: **Course learning outcomes**
    
     <!-- TODO: B: Update -->
@@ -22,6 +19,7 @@ Introduction
    
    - Learners understand how this day is organized
    - Learners can find their NAISS project
+   - Learners have read what they will learn
    - Learners can find how to download and extract the exercises
 
 .. admonition:: **For teachers: Lesson plan **
@@ -54,21 +52,35 @@ Introduction
         
 .. important::
 
-   Project ID and storage directory 
+    See :ref:`common-naiss-projects-overview`_
 
-   - UPPMAX: 
-       - Project ID: uppmax2025-2-296
-       - Storage directory: /proj/hpc-python-uppmax  
-   - HPC2N: 
-       - Project ID: hpc2n2025-076
-       - Storage directory: /proj/nobackup/hpc-python-spring
-   - LUNARC: 
-       - Project ID: lu2025-7-34
-       - Storage directory: /lunarc/nobackup/projects/lu2024-17-44  
-   - NSC: 
-       - Project ID: naiss2025-22-403
-       - Storage directory: /proj/hpc-python-spring-naiss  
 
+Why is this course important?
+-----------------------------
+
+Python, according to `the TIOBE index <https://www.tiobe.com/tiobe-index/>`,
+is one of the most used programming languages used today.
+
+Running Python on an HPC cluster allows scientists to
+run their code that needs either (1) massive computation,
+(2) massive storage space, and/or (3) storage of sensitive data.
+
+Exercises
+---------
+
+Exercise 1: the learning outcomes of today
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The goal of this exercise is to find out
+ what you will learn today.
+
+- Go to ``[TODO]`` and fill in the form
+
+Exercise 2: downloading and extracting the exercises
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The goal of this exercise is to download a file
+on your favorite HPC cluster and extract the exercises.
 
 <!-- 
 
