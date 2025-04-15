@@ -35,7 +35,7 @@ Course starts at 9:00 sharp and ends at 16:00
 :::
 
 |------------|---------------------------------|--------------------------------|
-|Time        | Topic                           |Teacher
+|Time        | Topic                           |Teacher                         |
 |------------|---------------------------------|--------------------------------|
 |09:00-10:00 | :ref:`day2-use-python-packages` | Björn+Richel (co-teaching)     |
 |------------|---------------------------------|--------------------------------|
@@ -45,7 +45,7 @@ Course starts at 9:00 sharp and ends at 16:00
 |------------|---------------------------------|--------------------------------|
 |11:00-11:15 | Break                           |.                               |
 |------------|---------------------------------|--------------------------------|
-|11:15-12:00 | Basic Slurm and interactive, ?OnDemand,?parallel session|Birgitte|
+|11:15-12:00 | Basic Slurm and interactive [2] |                        Birgitte|
 |------------|---------------------------------|--------------------------------|
 |12:00-13:00 | Break                           |.                               |
 |------------|---------------------------------|--------------------------------|
@@ -65,6 +65,7 @@ Course starts at 9:00 sharp and ends at 16:00
 - [1] Spyder only works on LUNARC, for an old version.
   Using virtual environments may get this to work on other session.
   Björn will investigate this :+1:
+- [2] ?OnDemand,?parallel session
 
 <a id="day3"></a>
 
