@@ -28,11 +28,11 @@ Next iteration
 Day 1: Log in and use Basic Python in a cluster environment
 -----------------------------------------------------------
 
-See schedule at [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_python/schedule/).
-
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
 
     Course starts at 9:00 sharp and ends at 16:00
+
+See schedule at `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_python/schedule/>`_.
 
 .. _schedule-day-2:
 Day 2: Packages and basic analysis
