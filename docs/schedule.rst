@@ -11,11 +11,11 @@ Course dates
 +====+=========+==========+=====================+=======================================================================================+
 |17  |Thursday |2025-04-24|9:00 (sharp) to 16:00|:ref:`schedule-day-1`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
-|17  |Friday   |2025-04-25|9:00 (sharp) to 16:00|[Day 2](#day2): Packages and basic analysis                                            |
+|17  |Friday   |2025-04-25|9:00 (sharp) to 16:00|:ref:`schedule-day-2`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
-|18  |Monday   |2025-04-28|9:00 (sharp) to 16:00|[Day 3](#day3): Advanced analysis and batch jobs                                       |
+|18  |Monday   |2025-04-28|9:00 (sharp) to 16:00|:ref:`schedule-day-3`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
-|18  |Tuesday  |2025-04-29|9:00 (sharp) to 16:00|[Day 4](#day4): Parallelism, GPUs and Machine Learning                                 |
+|18  |Tuesday  |2025-04-29|9:00 (sharp) to 16:00|:ref:`schedule-day-4`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
 
 Next iteration
@@ -80,8 +80,8 @@ Day 2: Packages and basic analysis
 <a id="day3"></a>
 
 .. _schedule-day-3:
-Day 3: Deeper analysis with pandas and seaborn, HPC usage with big data
------------------------------------------------------------------------
+Day 3: Advanced analysis and batch jobs
+---------------------------------------
 
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
 
@@ -118,8 +118,8 @@ Day 3: Deeper analysis with pandas and seaborn, HPC usage with big data
 <a id="day4"></a>
 
 .. _schedule-day-4:
-Day 4: HPC usage with parallelisms and Machine Learning with and without GPUs
------------------------------------------------------------------------------
+Day 4: Parallelism, GPUs and machine learning
+---------------------------------------------
 
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
 
