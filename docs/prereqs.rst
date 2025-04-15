@@ -16,7 +16,7 @@ Pre-requirements for Day 2
 --------------------------
 
 - On your HPC cluster, you can:
-    - Use a text editor
+    - Use a text editor, for example, ``nano``
     - Find a Python module 
     - Load a Python module of a specific version
     - Start the Python interpreter

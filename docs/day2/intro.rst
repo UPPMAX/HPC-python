@@ -1,3 +1,4 @@
+.. _day2-intro:
 Introduction
 ============
 
