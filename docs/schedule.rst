@@ -31,7 +31,7 @@ Course starts at 9:00 sharp and ends at 16:00
 
 Time        | Topic                           |Teacher
 ------------|---------------------------------|-----------------------
-09:00-10:00 | Packages                        | Björn+Richel (co-teaching)
+09:00-10:00 | :ref:`day2-use-python-packages` | Björn+Richel (co-teaching)
 10:00-10:15 | Break                           |.
 10:15-11:00 | Isolated environments conda/pip | Björn+Richel (co-teaching)
 11:00-11:15 | Break                           |.
