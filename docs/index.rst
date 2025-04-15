@@ -23,20 +23,9 @@ Welcome to "Using Python in an HPC environment" course material
 Schedule Spring 2025
 --------------------
 
-.. list-table:: 
-   :widths: 25 25
-   :header-rows: 1
+.. admonition:: :ref:`schedule`
 
-   * - Day
-     - Language
-   * - Thursday 24 April
-     - `Intro to Python <https://uppmax.github.io/naiss_intro_python/>`_ 
-   * - Friday 25 April
-     - Packages and basic analysis
-   * - Monday 28 April
-     - Advanced analysis and batch jobs
-   * - Tuesday 29 April
-     - Parallelism, GPUs and Machine Learning
+    See :ref:`schedule`
 
 .. warning:: 
 
