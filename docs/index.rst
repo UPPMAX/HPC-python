@@ -116,7 +116,7 @@ Schedule Spring 2025
 
 .. warning::
 
-   - Please be sure that you have gone through the `**pre-requirements** <https://uppmax.github.io/hpc_python/prereqs.html>`_
+   - Please be sure that you have gone through the :ref:`prereqs`
       - It mentions the familiarity with the LINUX command line.
       - The applications to connect to the clusters: terminals and ThinLinc (remote graphical desktop)
    - This course does not aim to improve your coding skills. Rather you will learn to understand the ecosystems and navigations for the the different languages on a HPC cluster.

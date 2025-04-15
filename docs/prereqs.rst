@@ -1,3 +1,4 @@
+.. _prereqs:
 Pre-requirements
 ================
 

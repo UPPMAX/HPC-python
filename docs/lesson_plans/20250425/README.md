@@ -382,6 +382,23 @@ From `[Walther-Thomas et al., 1996]`, to discuss at a first meeting:
 > - `13`. What do you see are our potential roles and responsibilities as co-teachers?
 > - `14`. If we decide to co-teach together, what are your biggest hopes for our work as a team? What are your biggest concerns?
 
+## 2025-04-15
+
+The time is getting to close to do proper co-teaching. I have a meeting
+with BC today. This will be my meeting schedule:
+
+- Agree that there is not enough time. Suggest to continue co-teaching next iteration
+- Double-check schedule together: I think it is good now
+- Split up Day 2 (RB is fine with either):
+  - BC both hours
+  - RB both hours
+  - BC first hour, RB second
+  - RB first hour, BC second
+- Suggest to collaborate with issues, because in the material
+  we've put todo's to someone's name
+
+
+
 ## References
 
 - `[Brendle et al, 2017]` Brendle, Joanna, Robert Lock, and Kate Piazza. "A study of co-teaching identifying effective implementation strategies." International Journal of Special Education 32.3 (2017): 538-550.
