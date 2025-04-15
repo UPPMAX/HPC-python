@@ -544,6 +544,13 @@ Ticks and locators for color bars are inferred from the plot by default, but can
    import numpy as np
    import matplotlib.pyplot as plt
    %matplotlib inline 
+   #mock up some data
+   x = np.arange(-3.0, 3.0, 0.025)
+   y = np.arange(-2.0, 2.0, 0.025)
+   X, Y = np.meshgrid(x, y)
+   Z1 = np.exp(-X**2 - Y**2)
+   Z2 = np.exp(-(X - 1)**2 - (Y - 1)**2)
+   Z = (Z1 - Z2) * 2
    fig, (ax1, ax2) = plt.subplots(nrows=2,
                                   figsize=[3,6],
                                   dpi=120)
