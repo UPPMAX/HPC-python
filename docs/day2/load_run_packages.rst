@@ -1,7 +1,10 @@
-.. _use-packages:
+.. meta::
+   :description: Using packages
+   :keywords: packages, modules, day 2
 
-Using Python packages
-=====================
+.. _use-packages:
+Using packages
+==============
 
 !!! info "Learning outcomes"
 

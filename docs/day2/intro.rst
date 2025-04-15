@@ -1,3 +1,6 @@
+.. meta::
+   :keywords: introduction, day 2
+
 .. _day2-intro:
 Introduction
 ============
