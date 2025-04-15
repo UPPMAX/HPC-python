@@ -23,7 +23,7 @@ Welcome to "Using Python in an HPC environment" course material
 Schedule Spring 2025
 --------------------
 
-.. admonition:: :ref:`schedule`
+.. admonition:: Schedule
 
     See :ref:`schedule`
 
