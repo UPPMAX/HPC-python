@@ -7,27 +7,28 @@ Pre-requirements
 
     These are the things you need to follow the course:
 
-    - You have a basic understanding of what an HPC cluster is.
+Pre-requirements for Day 1
+--------------------------
 
-        - To get familiar with HPC clusters  see :ref:`common-hpc-clusters`
+See `the Day 1 prerequisites <https://uppmax.github.io/naiss_intro_python/prereqs/>`.
 
-    - You are not a complete beginner of the Linux environment.
+Pre-requirements for Day 2
+--------------------------
 
-        - To get familiar with the Linux/Bash command line, we recommend the courses and material at :ref:`common-other-courses`.
-
-
-Coding
-------
-
-- Basic knowledge of Python. 
-- See the material from `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_python/schedule/>`_ to see what we require.
-- We assume that You can:
-
+- On your HPC cluster, you can:
+    - Use a text editor
     - Find a Python module 
     - Load a Python module of a specific version
     - Start the Python interpreter
     - Run a Python script
-
-- We won't test your skills though.
-- Rather you will learn to understand the ecosystems and navigations for using Python on a HPC cluster.
-
+- In Python, you can:
+    - Use the Python interpreter
+    - Create and use variables
+    - Load a package
+  See the material from `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_python/schedule/>`_
+  to see what we require.
+- You have a basic understanding of what an HPC cluster is.
+  To get familiar with HPC clusters  see :ref:`common-hpc-clusters`
+- You are not a complete beginner of the Linux environment.
+  To get familiar with the Linux/Bash command line, we recommend the courses
+  and material at :ref:`common-other-courses`.
