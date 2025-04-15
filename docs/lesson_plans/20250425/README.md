@@ -389,16 +389,17 @@ with BC today. This will be my meeting schedule:
 
 - Agree that there is not enough time.
   Suggest to continue co-teaching next iteration
+    - [AGREED]
 - Double-check schedule together: I think it is good now
+    - [AGREED] on new schedule
 - Split up Day 2 (RB is fine with either):
   - BC both hours
   - RB both hours
   - BC first hour, RB second
-  - RB first hour, BC second
+  - [AGREED] RB first hour, BC second
 - Suggest to collaborate with issues, because in the material
   we've put todo's to someone's name
-
-
+  - [AGREED] We'll use issues, until we feel the reply takes too long
 
 ## References
 
