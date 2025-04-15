@@ -155,8 +155,8 @@ Content of the course
 
    day2/intro.rst
    day2/load_run_packages.rst
-   day2/use_isolated_environments.rst
    day2/install_packages.rst
+   day2/use_isolated_environments.rst
    day2/interactive.md
    day2/ondemand-desktop.rst
    day2/IDEs.rst
