@@ -10,7 +10,7 @@ Pre-requirements
 Pre-requirements for Day 1
 --------------------------
 
-See `the Day 1 prerequisites <https://uppmax.github.io/naiss_intro_python/prereqs/>`.
+See `the Day 1 prerequisites <https://uppmax.github.io/naiss_intro_python/prereqs/>`__.
 
 Pre-requirements for Day 2
 --------------------------
