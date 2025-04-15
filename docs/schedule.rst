@@ -1,6 +1,7 @@
+.. _schedule:
+
 Schedule
 ========
-
 
 Course dates
 ------------
@@ -8,7 +9,7 @@ Course dates
 |----|---------|----------|---------------------|---------------------------------------------------------------------------------------|
 |Week|Day      |Date      |Time                 |Description                                                                            |
 |----|---------|----------|---------------------|---------------------------------------------------------------------------------------|
-|17  |Thursday |2025-04-24|9:00 (sharp) to 16:00|Day 1: [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_python/schedule/)|
+|17  |Thursday |2025-04-24|9:00 (sharp) to 16:00|:ref:`schedule-day-1`                                                                  |
 |----|---------|----------|---------------------|---------------------------------------------------------------------------------------|
 |17  |Friday   |2025-04-25|9:00 (sharp) to 16:00|[Day 2](#day2): Packages and basic analysis                                            |
 |----|---------|----------|---------------------|---------------------------------------------------------------------------------------|
@@ -22,6 +23,8 @@ Next iteration
 
 - November/December 2025
 
+.. _schedule-day-1:
+
 Day 1: Log in and use Basic Python in a cluster environment
 -----------------------------------------------------------
 
@@ -33,8 +36,9 @@ Course starts at 9:00 sharp and ends at 16:00
 
 <a id="day2"></a>
 
-Day 2: Use and install packages with pip and conda in isolated environments and doing basic analysis interactively
-------------------------------------------------------------------------------------------------------------------
+.. _schedule-day-2:
+Day 2: Packages and basic analysis
+----------------------------------
 
 :::{tip} 
 Course starts at 9:00 sharp and ends at 16:00
@@ -75,6 +79,8 @@ Course starts at 9:00 sharp and ends at 16:00
 
 <a id="day3"></a>
 
+.. _schedule-day-3:
+
 Day 3: Deeper analysis with pandas and seaborn, HPC usage with big data
 -----------------------------------------------------------------------
 
@@ -111,6 +117,8 @@ Course starts at 9:00 sharp and ends at 16:00
 |------------|----------------------|------------------------------|
 
 <a id="day4"></a>
+
+.. _schedule-day-4:
 
 Day 4: HPC usage with parallelisms and Machine Learning with and without GPUs
 -----------------------------------------------------------------------------
