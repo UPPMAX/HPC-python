@@ -109,7 +109,7 @@ Schedule Spring 2025
 .. admonition:: Q/A collabration document
 
    - Use the Q/A page for the workshop with your questions.
-       - **FIX**
+       - `https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EZdjaHPgG-NMl9luOFWbQacBsYpY8zs2YmgosHrMcOQnuQ?e=yEGirA <https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EZdjaHPgG-NMl9luOFWbQacBsYpY8zs2YmgosHrMcOQnuQ?e=yEGirA>`_
    - Use this page for the workshop with your questions
    - It helps us identify content that is missing in the course material
    - We answer those questions as soon as possible
