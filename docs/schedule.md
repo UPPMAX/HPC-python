@@ -5,9 +5,9 @@
 Week|Day      |Date      |Time                 |Description
 ----|---------|----------|---------------------|-----------------
 17  |Thursday |2025-04-24|9:00 (sharp) to 16:00|Day 1: [NAISS 'Intro to Python'](https://uppmax.github.io/naiss_intro_python/schedule/)
-17  |Friday   |2025-04-25|9:00 (sharp) to 16:00|[Day 2](#day2)
-18  |Monday   |2025-04-28|9:00 (sharp) to 16:00|[Day 3](#day3)
-18  |Tuesday  |2025-04-29|9:00 (sharp) to 16:00|[Day 4](#day4)
+17  |Friday   |2025-04-25|9:00 (sharp) to 16:00|[Day 2](#day2): Packages and basic analysis
+18  |Monday   |2025-04-28|9:00 (sharp) to 16:00|[Day 3](#day3): Advanced analysis and batch jobs
+18  |Tuesday  |2025-04-29|9:00 (sharp) to 16:00|[Day 4](#day4): Parallelism, GPUs and Machine Learning
 
 ### Next iteration
 
