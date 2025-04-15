@@ -101,19 +101,32 @@ For beginners: use the **bold** login method.
     | Console environment using an SSH client     | A console environment, powerful, need to install an SSH client                                    | .. figure:: ../img/login_rackham_via_terminal_terminal_409_x_290.png |
     +---------------------------------------------+---------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
 
+    We recommend using ThinLinc.
 
-.. admonition:: Use Thinlinc or terminal?
+.. admonition:: Which remote desktop should I choose?
+    :class: dropdown
 
-   - It is up to you!
-   - Graphics come easier with Thinlinc
-   - For this course, when having many windows open, it may sometimes be better to run in terminal, for screen space issues.
+    Some HPC clusters have multiple remote desktops. We recommend:
 
-.. warning::
-
-   - When logging in to UPPMAX the first time in ThinLinc, choose XFCE desktop. 
-   - On HPC2N, you will use the MATE desktop as default. 
-   - Whe logging in to LUNARC the first time in ThinLinc, choose GNOME Classis Desktop.  
-   - On NSC you will use XFCE desktop as default. 
+    +-----------+-------------------------------+
+    |HPC cluster|Recommended desktop environment|
+    +-----------+-------------------------------+
+    |Alvis      |The only one                   |
+    +-----------+-------------------------------+
+    |Bianca     |XFCE                           |
+    +-----------+-------------------------------+
+    |COSMOS     |GNOME                          |
+    +-----------+-------------------------------+
+    |Dardel     |XFCE                           |
+    +-----------+-------------------------------+
+    |Kebnekaise |MATE                           |
+    +-----------+-------------------------------+
+    |LUMI       |The only one                   |
+    +-----------+-------------------------------+
+    |Rackham    |XFCE                           |
+    +-----------+-------------------------------+
+    |Tetralith  |The only one                   |
+    +-----------+-------------------------------+
 
 .. warning::
 
