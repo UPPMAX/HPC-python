@@ -37,6 +37,8 @@ explanations of function arguments.
 Load and Run
 ------------
 
+In most cases, you will need to load a compatible version of SciPy-bundle to use NumPy, which you will need to create or prepare data for plotting.
+
 .. tabs::
 
   .. tab:: HPC2N
@@ -115,6 +117,7 @@ Load and Run
          
          ----------------------------------------------------------------------------
 
+     There is a bug in matplotlib/3.9.2, so for now that version should be avoided.
 
   .. tab:: UPPMAX
 
@@ -164,8 +167,48 @@ Load and Run
                  matplotlib/3.3.3-fosscuda-2020b
                  matplotlib/3.4.3-foss-2021b
 
-     The native backend should work if you are logged in via Thinlinc, but if there is a proble, try setting ``matplotlib.use('Qt5Agg')`` in your script. You'll need X-forwarding to view any graphics via SSH, and that may be prohibitively slow.
+     The native backend should work if you are logged in via Thinlinc, but if there is a problem, try setting ``matplotlib.use('Qt5Agg')`` in your script. You'll need X-forwarding to view any graphics via SSH, and that may be prohibitively slow.
 
+  .. tab:: NSC (Tetralith)
+
+     Matplotlib on Tetralith depends not just on ``GCC``, but on ``buildtool-easybuild/4.X.X-hpcXXXXXXXXX`` where the X's are alphanumeric. Loading it also does **not** load Python or any of its other packages automatically, so you will need to either pick a Matplotlib version and check ``ml avail Python`` for which Python and SciPy-bundle versions to load with it, or, choose your preferred Python and/or SciPy-bundle version(s) and see which if any Matplotlib modules are made available.
+
+     As of 15-04-2025, ``ml spider matplotlib`` outputs the following:
+
+     .. code-block:: console
+         
+         ----------------------------------------------------------------------------
+           matplotlib:
+         ----------------------------------------------------------------------------
+             Description:
+               matplotlib is a python 2D plotting library which produces publication
+               quality figures in a variety of hardcopy formats and interactive
+               environments across platforms. matplotlib can be used in python
+               scripts, the python and ipython shell, web application servers, and
+               six graphical user interface toolkits.
+         
+              Versions:
+                 matplotlib/3.5.2
+                 matplotlib/3.8.2
+         
+         ----------------------------------------------------------------------------
+           For detailed information about a specific "matplotlib" package (including how to load the modules) use the module's full name.
+           Note that names that have a trailing (E) are extensions provided by other modules.
+           For example:
+         
+              $ module spider matplotlib/3.8.2
+         ----------------------------------------------------------------------------
+
+      The module ``Tkinter`` loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots, and call `plot.show()` explicitly to make the display window appear.
+
+      We will be using Python/3.11.5, which works with matplotlib/3.8.2. 
+
+
+  .. tab:: PDC (Dardel)
+
+     Due to the limited number of Thinlinc licenses, it is assumed that you will be using SSH with X-forwarding.
+
+     (Could not be tested due to Klemming outage)
 
 Controlling the Display
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -344,7 +387,7 @@ The Matplotlib GUI has a typical save menu option (indicated by the usual floppy
 -  ``plt.savefig(fname, *, transparent=None, dpi='figure', format=None)`` is the general-purpose save function. There are other kwargs not shown here, but these are the most important. The file type can be given ``format`` or inferred from an extension given in ``fname``. The default ``dpi`` is inherited from ``plt.figure()`` or ``plt.subplots()``. If ``transparent=True``, the white background of a typical figure is removed so the figure can be displayed on top of other content.
 -  ``plt.imsave(fname, arr, **kwargs)`` is specifically for saving arrays to images. It accepts a 2D (single-channel) array with a specified colormap and normalization, or an RGB(A) array (a stack of images in 3 color channels, or 3 color channels and an opacity array). Generally you also have to set ``origin='lower'`` for the image to be rendered right-side up.
 
-A few common formats that Matplotlib supports include PDF, PS, EPS, PNG, and JPG/JPEG. Other desirable formats like TIFF and SVG are not supported natively in interactive display backends, but can be used with the installation of the ``Pillow`` module or saved as static figures without interaction. `Matplotlib has a tutorial here <https://matplotlib.org/stable/tutorials/images.html>`_  on importing images into arrays for use with ``pyplot.imshow()`.
+A few common formats that Matplotlib supports include PDF, PS, EPS, PNG, and JPG/JPEG. Other desirable formats like TIFF and SVG are not supported natively in interactive display backends, but can be used with static backends (used for saving figures without displaying them) or with the installation of the ``Pillow`` module. At most facilities, Pillow is loaded with Matplotlib, so you will see SVG as a save option in the GUI. `Matplotlib has a tutorial here <https://matplotlib.org/stable/tutorials/images.html>`_  on importing images into arrays for use with ``pyplot.imshow()``.
 
 
 Standard Available Plot Types
@@ -355,10 +398,12 @@ These are the categories of plots that come standard with any Matplotlib distrib
 #. Pairwise plots (which accept 1D arrays of x and y data to plot against each other),
 #. Statistical plots (which can be pairwise or other array-like data),
 #. Gridded data plots (for image-like data, vector fields, and contours),
-#. Irregularly gridded data plots (which usually rely on some kind of triangulation), and
+#. Irregularly gridded data plots (which rely on some kind of triangulation)\*, and
 #. Volumetric data plots.
 
-``Almost all available plot types are visually indexed and easy to find in the Matplotlib official documentation.<https://matplotlib.org/stable/plot_types/index>``_
+`Almost all available plot types are visually indexed and easy to find in the Matplotlib official documentation.<https://matplotlib.org/stable/plot_types/index>`_
+
+\* **Quick note on contouring functions on irregular grids:** these functions contour by the values Z at triangulation vertices (X,Y), **not** by spatial point density, and so should not be used if Z values are not spatially correlated. If you want to contour by data point density in parameter-space, you still have to interpolate your data to a regular (X,Y) grid. 
 
 Volumetric, polar, and other data that rely on 3D or non-cartesian grids typically require you to specify a projection before you can choose the right plot type. For example, for a polar plot, you could
 
@@ -372,9 +417,7 @@ For volumetric data, the options are similar:
 -  ``ax = plt.subplot(nrows, ncols, index, projection='3d')`` for one 3D subplot among several with varying projections or coordinate systems, or
 -  ``ax = plt.figure().add_subplot(projection='3d')`` for a singular plot.
 
-For all of the following subsections on plot type categories, commands are provided with short descrptions of their behaviors and explanations of non-obvious args and kwargs. If not all positional args are required, optional ones are shown in square brackets (``[]``). Kwargs are shown similarly to how they are in the official documentation, set equal to either their default values or themselves. *Kwargs shown as equal to themselves are technically* ``None`` *by default, but are shown this way to indicate that they are part of a set of which* **one or more kwargs are required**\ *.* Only frequently used and/or tricky kwargs are shown; refer to the official documentation on each command for the complete list.
-
-**Colors and colormnaps.** Every plotting method accepts either a single color (the kwarg for which may be ``c`` or ``color``) or a colormap (which is usually ``cmap`` in kwargs). Matplotlib has an excellent series of pages on `how to specify colors and transparency <https://matplotlib.org/stable/users/explain/colors/colors.html>`__, `how to adjust colormap normalizations <https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#sphx-glr-users-explain-colors-colormapnorms-py>`__, and `which colormaps to choose based on the types of data and your audience <https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py>`__.
+**Colors and colormaps.** Every plotting method accepts either a single color (the kwarg for which may be ``c`` or ``color``) or a colormap (which is usually ``cmap`` in kwargs). Matplotlib has an excellent series of pages on `how to specify colors and transparency <https://matplotlib.org/stable/users/explain/colors/colors.html>`__, `how to adjust colormap normalizations <https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#sphx-glr-users-explain-colors-colormapnorms-py>`__, and `which colormaps to choose based on the types of data and your audience <https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py>`__.
 
 
 Formatting and Placing Plot Elements
