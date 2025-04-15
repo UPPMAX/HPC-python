@@ -25,7 +25,7 @@ Introduction
    - Learners have read what they will learn
    - Learners can find how to download and extract the exercises
 
-.. admonition:: **For teachers: Lesson plan **
+.. admonition:: **For teachers: Lesson plan**
     :class: dropdown
 
     Prior questions:
@@ -73,3 +73,13 @@ Exercise 2: downloading and extracting the exercises
 
 The goal of this exercise is to download a file
 on your favorite HPC cluster and extract the exercises.
+
+- Go to :ref:`common-use-tarball` and do the procedure
+
+.. admonition:: **Done?**
+   
+    When done, go to the next session and read up on it.
+
+    You can easily navigate there by pressing the 'Next' arrow
+    at the bottom of this page, at the right-hand side
+
