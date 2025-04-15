@@ -206,9 +206,27 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
 
   .. tab:: PDC (Dardel)
 
-     Due to the limited number of Thinlinc licenses, it is assumed that you will be using SSH with X-forwarding.
+     Due to the limited number of Thinlinc licenses, it is assumed that you will be using SSH with X-forwarding. Note that at PDC, almost all modules require you to load a module starting with PDC (e.g. PDC/23.12, PDCOLD/XX.XX, PDCTEST/XX.XX) before loading anything else. Also, unlike at other centers, if you load the wrong module you should either only use the ``ml unload <module>`` command, or save a module collection to restore after using ``ml purge``, because 13 modules are loaded when you first log in and only one of them is sticky (i.e. not removed by an ordinary purge command).
 
-     (Could not be tested due to Klemming outage)
+     Dardel documentation generally assumes that you will need to build your own environment with conda or pip because the options available natively are fairly limited.
+
+     As of 15-04-2025, ``ml spider matplotlib`` outputs the following:
+
+     .. code-block:: console
+         
+         ----------------------------------------------------------------------------
+           matplotlib:
+         ----------------------------------------------------------------------------
+              Versions:
+                 matplotlib/3.8.2-cpeGNU-23.12
+                 matplotlib/3.8.2 (E)
+              Other possible modules matches:
+                 py-matplotlib
+         
+         Names marked by a trailing (E) are extensions provided by another module.
+
+      The output is misleading in that matplotlib/3.8.2-cpeGNU-23.12 is the module that provides matplotlib/3.8.2 as an extension, so there is really only that one option. This version requires Python 3.11.x, which means it does not work with the default PDC module and its associated default Python version. You will need to pre-load cpe/2x.xx, PDCOLD/2x.xx, python/3.11.x, and if possible, miniconda3 to provide Numpy and Scipy.
+
 
 Controlling the Display
 ~~~~~~~~~~~~~~~~~~~~~~~
