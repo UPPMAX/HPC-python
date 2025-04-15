@@ -387,7 +387,8 @@ From `[Walther-Thomas et al., 1996]`, to discuss at a first meeting:
 The time is getting to close to do proper co-teaching. I have a meeting
 with BC today. This will be my meeting schedule:
 
-- Agree that there is not enough time. Suggest to continue co-teaching next iteration
+- Agree that there is not enough time.
+  Suggest to continue co-teaching next iteration
 - Double-check schedule together: I think it is good now
 - Split up Day 2 (RB is fine with either):
   - BC both hours
@@ -406,8 +407,7 @@ with BC today. This will be my meeting schedule:
 - `[Conderman et al., 2008]` Conderman, Greg, et al. Purposeful co-teaching: Real cases and effective strategies. Corwin Press, 2008.
 - `[Cook & Friend, 1995]`    Cook, Lynne, and Marilyn Friend. "Co-teaching: Guidelines for creating effective practices." Focus on exceptional children 28 (1995).
 - `[Hepner & Newman, 2010]` Hepner, Stephanie, and Sarah Newman. "Teaching is teamwork: Preparing for, planning, and implementing effective co-teaching practice." International Schools Journal 29.2 (2010).
+- `[Peery, 2019]` Peery, Angela. The Co-Teacher′ s Playbook: What It Takes to Make Co-Teaching Work for Everyone. Corwin Press, 2019.
 - `[Sharon, 2014]` Pratt, Sharon. "Achieving symbiosis: Working through challenges found in co-teaching to achieve effective co-teaching relationships." Teaching and teacher education 41 (2014): 1-12.
 - `[Simmons & Magiera, 2007]` Simmons, Rhea J., and Kathleen Magiera. "Evaluation of Co-Teaching in Three High Schools within One School District: How Do You Know when You Are TRULY Co-Teaching?." Teaching Exceptional Children Plus 3.3 (2007): n3.
 - `[Walther-Thomas et al., 1996]` Walther-Thomas, Chriss, Mimi Bryant, and Sue Land. "Planning for effective co-teaching the key to successful inclusion: The key to successful inclusion." Remedial and special education 17.4 (1996): 255-264.
-
-- `[Peery, 2019]` Peery, Angela. The Co-Teacher′ s Playbook: What It Takes to Make Co-Teaching Work for Everyone. Corwin Press, 2019.
