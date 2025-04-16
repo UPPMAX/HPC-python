@@ -1409,7 +1409,7 @@ Exercises
             .. code-block:: sh
                
                #!/bin/bash -l
-               #SBATCH -A naiss2024-22-107  # your project_ID
+               #SBATCH -A naiss202u-w-xyz  # your project_ID
                #SBATCH -J job-parallel      # name of the job
                #SBATCH -n 4                 # nr. tasks/coresw
                #SBATCH --time=00:20:00      # requested time
@@ -1425,7 +1425,7 @@ Exercises
             .. code-block:: sh
                
                #!/bin/bash            
-               #SBATCH -A hpc2n202x-XXX     # your project_ID       
+               #SBATCH -A hpc2n202w-xyz     # your project_ID       
                #SBATCH -J job-parallel      # name of the job         
                #SBATCH -n 4                 # nr. tasks  
                #SBATCH --time=00:20:00      # requested time
@@ -1441,9 +1441,9 @@ Exercises
             .. code-block:: sh
                   
                #!/bin/bash            
-               #SBATCH -A lu202X-XX-XX      # your project_ID
+               #SBATCH -A lu202u-vw-xyz     # your project_ID
                #SBATCH -J job-parallel      # name of the job         
-               #SBATCH -n 4	             # nr. tasks  
+               #SBATCH -n 4	            # nr. tasks  
                #SBATCH --time=00:20:00      # requested time
                #SBATCH --error=job.%J.err   # error file
                #SBATCH --output=job.%J.out  # output file 
@@ -1454,6 +1454,23 @@ Exercises
                ml GCCcore/12.3.0  Python/3.11.3  SciPy-bundle/2023.07
                python script-df.py
 
+      .. tab:: PDC
+
+            .. code-block:: sh
+               
+               #!/bin/bash -l
+               #SBATCH -A naiss202u-vw-xyz  # your project_ID
+               #SBATCH -J job-parallel      # name of the job
+               #SBATCH  -p shared           # name of the queue
+               #SBATCH --ntasks=4           # nr. of tasks
+               #SBATCH --cpus-per-task=1    # nr. of cores per-task
+               #SBATCH --time=00:20:00      # requested time
+               #SBATCH --error=job.%J.err   # error file
+               #SBATCH --output=job.%J.out  # output file
+
+               # Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle
+               module load cray-python
+               python script-df.py
 
       
 .. solution:: Solution
