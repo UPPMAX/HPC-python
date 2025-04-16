@@ -7,23 +7,24 @@ Introduction
 
 .. admonition:: **Course learning outcomes**
    
-    <!-- TODO: B: Update -->
+    <!-- TODO: BC: Update -->
 
-   - Load Python modules and site-installed Python packages
-   - Create a virtual environment
-   - Install Python packages with pip (Kebnekaise, Rackham, Snowy, COSMOS)
-   - Write a batch script for running Python
-   - Use the compute nodes interactively
-   - Use Python in parallel
-   - Use Python for ML
-   - Use GPUs with Python
+    - <!-- RB: this is my lesson: please keep this :-) --> Can find and load a Python package module
+    - <!-- RB: this is my lesson: please keep this :-) --> Can determine if a Python package is installed
+    - Create a virtual environment
+    - Install Python packages with pip (Kebnekaise, Rackham, Snowy, COSMOS)
+    - Write a batch script for running Python
+    - Use the compute nodes interactively
+    - Use Python in parallel
+    - Use Python for ML
+    - Use GPUs with Python
 
 .. admonition:: **Learning outcomes**
    
-   - Learners understand how this day is organized
-   - Learners can find their NAISS project
-   - Learners have read what they will learn
-   - Learners can find how to download and extract the exercises
+    - Learners understand how this day is organized
+    - Learners can find their NAISS project
+    - Learners have read what they will learn
+    - Learners can find how to download and extract the exercises
 
 .. admonition:: **For teachers: Lesson plan**
     :class: dropdown

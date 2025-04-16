@@ -9,9 +9,8 @@ Using packages
 !!! info "Learning outcomes"
 
     - Practice using the documentation of your HPC cluster
-    - Find installed Python packages using `pip list`
-    - Find a software module with Python packages
-    - Load a software module with Python packages
+    - Can find and load a Python package module
+    - Can determine if a Python package is installed
 
 Why Python packages are important
 ---------------------------------
