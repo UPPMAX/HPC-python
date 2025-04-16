@@ -1,6 +1,8 @@
 Conda
 =====
 
+**FIX: make general**
+
 .. questions::
 
    - What does Conda do?
