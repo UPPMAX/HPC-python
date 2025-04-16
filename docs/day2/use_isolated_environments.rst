@@ -72,6 +72,13 @@ Virtual environment - venv & virtualenv
    - Next steps are identical and involves "activating" and ``pip installs``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
 
+.. seealso::
+
+   - UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
+   - HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
+
+
+
 .. keypoints::
 
    - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
@@ -136,23 +143,269 @@ UPPMAX
 
 - https://docs.uppmax.uu.se/software/conda/
 
+
+.. admonition:: Conda in HPC
+
+   - `Anaconda at LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>`_
+   - `Conda at UPPMAX <https://docs.uppmax.uu.se/software/conda/>`_ 
+      - `Conda on Bianca <https://uppmax.github.io/bianca_workshop/intermediate/install/#install-packages-principles>`_
+
+
+
 .. admonition:: Other tools
 
    - pixi: package management tool for developers https://pixi.sh/latest/
 
    - uv: An extremely fast Python package and project manager, written in Rust. https://docs.astral.sh/uv/
 
-Workflow
---------
+Install from file/Set up course environment
+-------------------------------------------
+
+**FIX intro**
+
+
+.. note::
+
+   - All centers has had different approaches in what is included in the module system and not.
+   - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
+   - This is left as exercise for you
+
+
+We will need to install the LightGBM Python package for one of the examples in the ML section. 
+
+.. tip::
+    
+   **Follow the track where you are working right now**
+
+
+.. tabs::
+
+   .. tab:: venv
+
+      .. tabs::
+
+         .. tab:: NSC
+
+            **If you do not have matplotlib already outside any virtual environment**
+
+            - Install matplotlib in your ``.local`` folder, not in a virtual environment.
+            - Do: 
+
+            .. code-block:: console
+
+               ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
+               pip install --user matplotlib
+
+            - Check that matplotlib is there by ``pip list``
+
+            **Check were to find environments needed for the lessons in the afternoon tomorrow**
+
+            - browse ``/proj/hpc-python-spring-naiss/`` to see the available environments. 
+            - their names are
+                - ``venvNSC-TF``
+                - ``venvNSC-torch``
+                - ``venvNSC-numba``
+                - ``venv-spyder-only``
+
+         .. tab:: PDC 
+
+            - **FIX**
+ 
+         .. tab:: LUNARC 
+
+            - Everything will work by just loading modules, see each last section
+
+            - Extra exercise can be to reproduce the examples above.
+
+         .. tab:: UPPMAX
+
+            **Check were to find environments needed for the lessons in the afternoon tomorrow**
+
+            - browse ``/proj/hpc-python-uppmax/`` to see the available environments. 
+            - their names are, for instance
+                - ``venv-spyder``
+                - ``venv-TF``
+                - ``venv-torch``
+
+            - Extra exercise can be to reproduce the examples above.
+
+         .. tab:: HPC2N
+
+            **Check were to find possible environments needed for the lessons in the afternoon tomorrow**
+
+            - browse ``/proj/nobackup/hpc-python-spring/`` to see the available environments.
+            - It may be empty for now but may show up by tomorrow
+            - their names may be, for instance
+                - ``venv-TF``
+                - ``venv-torch``
+
+
+   .. tab:: Conda
+
+      .. tabs::
+
+         .. tab:: NSC
+
+            - content
+
+         .. tab:: PDC
+
+            - content
+
+         .. tab:: LUNARC
+
+            - content
+
+         .. tab:: UPPMAX: Rackham
+
+            - content
+
+         .. tab:: UPPMAX: Bianca
+
+            - content
+
+Own design isolated environments
+--------------------------------
 
 .. tabs::
 
    .. tab: venv
 
+      Create a ``venv``. First load the python version you want to base your virtual environment on:
 
+      .. tabs::
+
+         .. tab:: UPPMAX
+
+            .. code-block:: console
+
+               $ module load python/3.11.8 
+               $ python -m venv --system-site-packages Example2
+
+           "Example2" is the name of the virtual environment. The directory "Example2" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
+
+         .. tab:: HPC2N
+
+            .. code-block:: console
+
+               $ module load GCC/12.3.0 Python/3.11.3
+               $ python -m venv --system-site-packages Example2
+
+            "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
+
+         .. tab:: LUNARC 
+
+            .. code-block:: console
+
+               $ module load GCC/12.3.0 Python/3.11.3
+               $ python -m venv --system-site-packages Example2
+
+            "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
+
+         .. tab:: NSC 
+
+            .. code-block:: console
+
+               $ ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
+               $ python -m venv --system-site-packages Example2
+
+            "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
+
+      .. note::
+
+         To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
+         ``--system-site-packages`` includes the packages already installed in the loaded python module.
+
+         At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
+
+         .. code-block:: console
+
+               $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 # for HPC2N and LUNAR
+               $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
+               $ python -m venv --system-site-packages Example3
+
+
+      **NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
+
+      **NOTE**: if you need to for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
+
+      .. admonition:: If you want your virtual environment in a certain place...
+
+         - Example for course project location and ``$USER`` being you user name. 
+             - If your directory in the project has another name, replace ``$USER`` with that one!
+
+         - UPPMAX: 
+             - Create: ``python -m venv /proj/hpc-python-uppmax/$USER/Example``
+             - Activate: ``source /proj/hpc-python-uppmax/<user-dir>/Example/bin/activate``
+         - HPC2N: 
+             - Create: ``python -m venv /proj/nobackup/hpc-python-spring/$USER/Example``
+             - Activate: ``source /proj/nobackup/hpc-python-spring/<user-dir>/Example/bin/activate``
+         - LUNARC: 
+             - Create: ``python -m venv /lunarc/nobackup/projects/lu2024-17-44/$USER/Example``
+             - Activate: ``source /lunarc/nobackup/projects/lu2024-17-44/<user-dir>/Example/bin/activate``
+         - NSC: 
+             - Create: ``python -m venv /proj/hpc-python-spring-naiss/$USER/Example``
+             - Activate: ``source /proj/hpc-python-spring-naiss/<user-dir>/Example/bin/activate``
+
+         Note that your prompt is changing to start with (Example) to show that you are within an environment.
+
+      .. note::
+
+         - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
+         - For clarity we use the ``source`` style here.
+
+      Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
+
+      .. code-block:: console
+
+          (Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
+
+      The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
+
+      Deactivate the venv.
+
+      .. code-block:: console
+
+          (Example) $ deactivate
+
+
+
+      Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
+
+      .. prompt:: console
+
+         source /proj/<your-project-id>/<your-dir>/Example/bin/activate
+
+
+      .. note::
+
+         - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
+         - Some packaegs may be inhereted from the moduels yopu have loaded
+         - You can do ``pip list --local`` to see what is instaleld by you in the environment.
+         - Some IDE:s like Spyder may only find those "local" packages
 
 
    .. tab: conda 
+
+
+
+
+
+.. keypoints::
+
+   - It is worth it to organize your code for publishing, even if only you are using it.
+
+   - PyPI is a place for Python packages
+
+   - conda is similar but is not limited to Python
+
+.. note::
+
+   - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
+
+   - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
+
+
 
 
 
@@ -178,198 +431,8 @@ Exercises
 
 .. challenge:: (optional) Exercise 4: 
 
-?export and import a virtual environment
-
-Example
-.......
-
-.. tip::
-    
-   **Do not type along!**
-
-Create a ``venv``. First load the python version you want to base your virtual environment on:
-
-.. tabs::
-
-   .. tab:: UPPMAX
-
-      .. code-block:: console
-
-         $ module load python/3.11.8 
-         $ python -m venv --system-site-packages Example2
-    
-     "Example2" is the name of the virtual environment. The directory "Example2" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
-
-   .. tab:: HPC2N
-
-      .. code-block:: console
-
-         $ module load GCC/12.3.0 Python/3.11.3
-         $ python -m venv --system-site-packages Example2
-
-      "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
-
-   .. tab:: LUNARC 
-
-      .. code-block:: console
-
-         $ module load GCC/12.3.0 Python/3.11.3
-         $ python -m venv --system-site-packages Example2
-
-      "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
-
-   .. tab:: NSC 
-
-      .. code-block:: console
-
-         $ ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
-         $ python -m venv --system-site-packages Example2
-
-      "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
-      
-.. note::
-
-   To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
-   ``--system-site-packages`` includes the packages already installed in the loaded python module.
-
-   At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
-   
-   .. code-block:: console
-
-         $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 # for HPC2N and LUNAR
-         $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
-         $ python -m venv --system-site-packages Example3
-
-
-**NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
-
-**NOTE**: if you need to for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
-      
-.. admonition:: If you want your virtual environment in a certain place...
-
-   - Example for course project location and ``$USER`` being you user name. 
-       - If your directory in the project has another name, replace ``$USER`` with that one!
-   
-   - UPPMAX: 
-       - Create: ``python -m venv /proj/hpc-python-uppmax/$USER/Example``
-       - Activate: ``source /proj/hpc-python-uppmax/<user-dir>/Example/bin/activate``
-   - HPC2N: 
-       - Create: ``python -m venv /proj/nobackup/hpc-python-spring/$USER/Example``
-       - Activate: ``source /proj/nobackup/hpc-python-spring/<user-dir>/Example/bin/activate``
-   - LUNARC: 
-       - Create: ``python -m venv /lunarc/nobackup/projects/lu2024-17-44/$USER/Example``
-       - Activate: ``source /lunarc/nobackup/projects/lu2024-17-44/<user-dir>/Example/bin/activate``
-   - NSC: 
-       - Create: ``python -m venv /proj/hpc-python-spring-naiss/$USER/Example``
-       - Activate: ``source /proj/hpc-python-spring-naiss/<user-dir>/Example/bin/activate``
-        
-   Note that your prompt is changing to start with (Example) to show that you are within an environment.
-
-.. note::
-
-   - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
-   - For clarity we use the ``source`` style here.
-
-
-Install packages to the virtual environment with pip
-....................................................
-
-.. tip::
-
-   **Do not type along!**
-   
-Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
-
-.. code-block:: console
-      
-    (Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
-
-The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
-
-Deactivate the venv.
-
-.. code-block:: console
-      
-    (Example) $ deactivate
-    
-
-
-Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
-
-.. prompt:: console
-
-   source /proj/<your-project-id>/<your-dir>/Example/bin/activate
-   
-   
-.. note::
-
-   - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
-   - Some packaegs may be inhereted from the moduels yopu have loaded
-   - You can do ``pip list --local`` to see what is instaleld by you in the environment.
-   - Some IDE:s like Spyder may only find those "local" packages
-
-Working with virtual environments defined from files
-----------------------------------------------------
-
-Creator/developer
-.................
-
-- First _create_ and _activate_ an environment (see above)
-- Install packages with pip
-- Create file from present virtual environment:
-
-.. code-block:: console
-
-   $ pip freeze > requirements.txt
-
-- That includes also the *system site packages* if you included them with ``--system-site-packages``
-- Test that everything works by running use cases scripts within the environment
-- You can list packages specific for the virtualenv by ``pip list --local`` 
-
-- So, creating a file from just the local environment:
-
-.. code-block:: console
-
-   $ pip freeze --local > requirements.txt
-
-.. note:: 
-
-   ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
-
-      numpy
-      matplotlib
-      pandas
-      scipy
-
-   ``requirements.txt`` with versions that could look like this::
-
-      numpy==1.20.2
-      matplotlib==3.2.2
-      pandas==1.1.2
-      scipy==1.6.2
-
-- Deactivate
-
-User
-....
-
-- Create an environment based on dependencies given in an environment file
-- This can be done in new virtual environment or as a genera installtion locally (not activating any environment
-  
-.. code-block:: console
-
-   pip install -r requirements.txt
-
-- Check
-
-.. code-block:: console
-
-   pip list
-   
-.. admonition:: More on dependencies
-
-   - `Dependency management from course Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
-
+What's installed
+----------------
 
 .. admonition:: Python packages in HPC and ML
    :class: dropdown
@@ -568,106 +631,8 @@ Exercises
       deactivate
 
       
-Prepare fore the course environments
-....................................
-
-.. note::
-
-   - All centers has had different approaches in what is included in the module system and not.
-   - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
-   - This is left as exercise for you
-
-
-We will need to install the LightGBM Python package for one of the examples in the ML section. 
-
-.. tip::
-    
-   **Follow the track where you are working right now**
-
-Create a virtual environment called ``vpyenv``. First load the python version you want to base your virtual environment on, as well as the site-installed ML packages. 
-
-.. tabs::
-
-   .. tab:: NSC
-
-      **If you do not have matplotlib already outside any virtual environment**
-
-      - Install matplotlib in your ``.local`` folder, not in a virtual environment.
-      - Do: 
-
-      .. code-block:: console
-
-         ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
-         pip install --user matplotlib
- 
-      - Check that matplotlib is there by ``pip list``
-
-      **Check were to find environments needed for the lessons in the afternoon tomorrow**
-
-      - browse ``/proj/hpc-python-spring-naiss/`` to see the available environments. 
-      - their names are
-          - ``venvNSC-TF``
-          - ``venvNSC-torch``
-          - ``venvNSC-numba``
-          - ``venv-spyder-only``
-
-   .. tab:: LUNARC 
-
-      - Everything will work by just loading modules, see each last section
-
-      - Extra exercise can be to reproduce the examples above.
-
-   .. tab:: UPPMAX
-      
-      **Check were to find environments needed for the lessons in the afternoon tomorrow**
-
-      - browse ``/proj/hpc-python-uppmax/`` to see the available environments. 
-      - their names are, for instance
-          - ``venv-spyder``
-          - ``venv-TF``
-          - ``venv-torch``
-
-      - Extra exercise can be to reproduce the examples above.
-
-   .. tab:: HPC2N
-
-      **Check were to find possible environments needed for the lessons in the afternoon tomorrow**
-
-      - browse ``/proj/nobackup/hpc-python-spring/`` to see the available environments.
-      - It may be empty for now but may show up by tomorrow
-      - their names may be, for instance
-          - ``venv-TF``
-          - ``venv-torch``
-
-      - Extra exercise can be to reproduce the examples above.
-
-.. note::
-
-   - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
-
-  - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
 
 .. seealso::
 
-   - UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
-   - HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
-
-.. keypoints::
-
-   - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
-   - Make it for each project you have for reproducibility.
-   - There are different tools to create virtual environemnts.
-   
-      - UPPMAX has ``conda`` and ``venv`` and ``virtualenv``
-      - HPC2N has ``venv`` and ``virtualenv``
-
-<!-- extra conda
-
-.. admonition:: Conda in HPC
-
-   - `Anaconda at LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>`_
-   - `Conda at UPPMAX <https://docs.uppmax.uu.se/software/conda/>`_ 
-      - `Conda on Bianca <https://uppmax.github.io/bianca_workshop/intermediate/install/#install-packages-principles>`_
-
--->
+   - want to share your work? :ref:`devel_iso`
 

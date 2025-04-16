@@ -1,3 +1,5 @@
+.. _devel_iso:
+
 Developing in isolated environments
 ===================================
 
@@ -21,3 +23,64 @@ You may have a look on these pages
    - PyPI is a place for Python packages
 
    - conda is similar but is not limited to Python
+
+Creator/developer
+.................
+
+- First _create_ and _activate_ an environment (see above)
+- Install packages with pip
+- Create file from present virtual environment:
+
+.. code-block:: console
+
+   $ pip freeze > requirements.txt
+
+- That includes also the *system site packages* if you included them with ``--system-site-packages``
+- Test that everything works by running use cases scripts within the environment
+- You can list packages specific for the virtualenv by ``pip list --local`` 
+
+- So, creating a file from just the local environment:
+
+.. code-block:: console
+
+   $ pip freeze --local > requirements.txt
+
+.. note:: 
+
+   ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
+
+      numpy
+      matplotlib
+      pandas
+      scipy
+
+   ``requirements.txt`` with versions that could look like this::
+
+      numpy==1.20.2
+      matplotlib==3.2.2
+      pandas==1.1.2
+      scipy==1.6.2
+
+- Deactivate
+
+User
+....
+
+- Create an environment based on dependencies given in an environment file
+- This can be done in new virtual environment or as a genera installtion locally (not activating any environment
+  
+.. code-block:: console
+
+   pip install -r requirements.txt
+
+- Check
+
+.. code-block:: console
+
+   pip list
+   
+.. admonition:: More on dependencies
+
+   - `Dependency management from course Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
+
+
