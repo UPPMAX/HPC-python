@@ -43,7 +43,7 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
    - Conda is good in many ways but can interact negatively when trying to use the pytrhon modules in the HPC systems.
    - LUNARC seems to have working solutions
    - At UPPMAX Conda is installed but many users that get into problems. 
-	- However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
+       - However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
 
 
 https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip
