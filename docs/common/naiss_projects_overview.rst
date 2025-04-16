@@ -18,7 +18,7 @@ These are the NAISS course projects:
 | Tetralith  | :code:`naiss-2025-22-403`|
 +------------+--------------------------+
 
-Storage spaces for this workshop
+Storage spaces for this workshop:
 
 +------------+------------------------------------------------------------+
 | HPC cluster| Course project                                             |
