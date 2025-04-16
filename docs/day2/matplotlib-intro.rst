@@ -30,7 +30,7 @@ explanations of function arguments.
    It will also help you to remember what classes, methods, and attributes are:
    
    -  ``classes`` are templates to make Python objects. They have a built-in ``__init__()`` function to set initial properties that must be defined when an object of this class is created, and they methods and attributes to compute values or functions with. Once a class is defined, you typically define an instance of it like ``obj = MyClass(...)``.
-   -  ``methods`` associate *functions* with the class and allow quick evaluation for each class instance. For an object ``obj`` of class ``MyClass`` that has methods, the method syntax looks like this: ``obj.MyMethod()`` or ``obj.MyMethod(*args, **kwargs)``.
+   -  ``methods`` associate *functions* with the class and allow quick evaluation for each class instance. For an object ``obj`` of class ``MyClass`` that has methods, the method syntax looks like this: ``obj.MyMethod()`` or ``obj.MyMethod(\*args, \*\*kwargs)``.
    -  ``attributes`` let you automatically compute and store *values* that can be derived for any instance of the class. For an object ``obj`` with an attribute ``MyAttribute``, the syntax is``obj.MyAttribute``; i.e. the main difference between attributes and methods is that attributes do not take arguments.
 
 
@@ -235,11 +235,11 @@ Controlling the Display
 
 At the regular terminal, Matplotlib figures will typically not display unless you a set *backend* that allows displays and is compatible with your version of python (The exception to this is Rackham, which should run without you having to set a backend). *Backends* are engines for either displaying figures or writing them to image files (see `the matplotlib docs page on backends for more detail <https://matplotlib.org/stable/users/explain/figure/backends.html>`_ for more info).
 
-**Command Line.** For Python 3.11.x, ``Tkinter`` is the backend that generates figure popups when you create a plot and then type ``plt.show()`` at the command line. You can set this by importing the top-level ``matplotlib`` package and then running ``matplotlib.use('Tkinter')`` before doing any plotting (if you forget, you can set it at any time). If for some reason that doesn't work, or if you're on Rackham and the default backend doesn't work for you, you can try ``matplotlib.use('Qt5Agg')``.
+**Command Line.** For Python 3.11.x, ``Tkinter`` is the backend that generates figure popups when you create a plot and then type ``plt.show()`` at the command line. You can set this by importing the top-level ``matplotlib`` package and then running ``matplotlib.use('TkAgg')`` before doing any plotting (if you forget, you can set it at any time). If for some reason that doesn't work, or if you're on Rackham and the default backend doesn't work for you, you can try ``matplotlib.use('Qt5Agg')``.
 
 **Jupyter.** In Jupyter, after importing matplotlib or any of its sub-modules, you typically need to add ``% matplotlib inline`` before you make any plots. You should not need to set ``matplotlib.use()``.
 
-**Spyder.** In Spyder, the default setting is for figures to be displayed in-line at the IPython console, which is too small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup, go to "Preferences", then "IPython console", click the "Graphics" tab, and switch the Backend from "Inline" to "Automatic" the provided drop-down menu. These settings will be retained from session to session, so you only have to do it the first time you run Spyder.
+**Spyder.** In Spyder, the default setting is for figures to be displayed in-line at the IPython console, which is too small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup, go to "Preferences", then "IPython console", click the "Graphics" tab, and switch the Backend from "Inline" to "Automatic" the provided drop-down menu. These settings will be retained from session to session, so you only have to do it the first time you run Spyder. The interactive popup for Spyder offers extensive editing and saving options.
 
 Matplotlib uses a default resolution of 100 dpi and a default figure size of 6.4" x 4.8" (16.26 x 12.19 cm) in GUIs and with the default backend. The inline backend in Jupyter (what the ``% matplotlib inline`` command sets) uses an even lower-res default of 80 dpi.
 
@@ -421,7 +421,7 @@ These are the categories of plots that come standard with any Matplotlib distrib
 #. Irregularly gridded data plots (which rely on some kind of triangulation)\*, and
 #. Volumetric data plots.
 
-`Almost all available plot types are visually indexed and easy to find in the Matplotlib official documentation.<https://matplotlib.org/stable/plot_types/index>`_
+`Almost all available plot types are visually indexed and easy to find in the Matplotlib official documentation. <https://matplotlib.org/stable/plot_types/index>`_
 
 \* **Quick note on contouring functions on irregular grids:** these functions contour by the values Z at triangulation vertices (X,Y), **not** by spatial point density, and so should not be used if Z values are not spatially correlated. If you want to contour by data point density in parameter-space, you still have to interpolate your data to a regular (X,Y) grid. 
 
