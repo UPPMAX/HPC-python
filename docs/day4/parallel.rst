@@ -200,6 +200,32 @@ Parallel computing with Python
          julia>using PythonCall
          julia>exit()
 
+   .. tab:: PDC
+      
+      - If not already done so:
+      
+      .. code-block:: console
+
+         $ ml cray-python
+
+         $ python -m venv vpyenv-python-course
+
+         $ source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
+
+      - For the ``numba`` example install the corresponding module:
+
+      .. code-block:: console
+        
+         $ pip install numba
+
+
+      - For the ``mpi4py`` example add the following modules:
+
+      .. code-block:: console
+
+         $ pip install mpi4py
+
+      - Quit Python, you should be ready to go!
 
 What is parallel programming?
 -----------------------------
@@ -290,7 +316,7 @@ what the simulation requires.
          We have a tool to monitor the usage of resources called: 
          `job-usage at HPC2N <https://hpc2n.github.io/intro-course/software/#best__practices>`_.
 
-      .. tab:: UPPMAX 
+      .. tab:: UPPMAX/LUNARC/PDC/NSC
 
          If you are in a interactive node session the ``top`` command will give you information
          of the resources usage. 
@@ -1081,6 +1107,24 @@ example,
 
          mpirun -np 4 python integration2d_mpi.py
 
+   .. tab:: PDC 
+
+      .. code-block:: sh 
+
+         #!/bin/bash
+         #SBATCH -A naiss202t-uv-wxyz
+         #SBATCH -t 00:05:00
+         #SBATCH  -p shared         # name of the queue
+         #SBATCH --ntasks=4         # nr. of tasks
+         #SBATCH --cpus-per-task=1  # nr. of cores per-task
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+
+         ml cray-python
+         source /path-to-your-project/vpyenv-python-course/bin/activate
+
+         srun python integration2d_mpi.py
+
 Monitoring resources' usage
 ---------------------------
 
@@ -1268,6 +1312,25 @@ Exercises
 
                   # Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle
                   ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/11.3.0 Python/3.10.4
+                  python integration2d_multiprocessing.py
+
+         .. tab:: PDC
+
+               .. code-block:: sh
+                  
+                  #!/bin/bash -l
+                  #SBATCH -A naiss202X-XY-XYZ     # your project_ID
+                  #SBATCH -J job-serial           # name of the job
+                  #SBATCH  -p shared              # name of the queue
+                  #SBATCH --ntasks=*FIXME*        # nr. of tasks
+                  #SBATCH --cpus-per-task=1       # nr. of cores per-task
+                  #SBATCH --time=00:20:00         # requested time
+                  #SBATCH --error=job.%J.err      # error file
+                  #SBATCH --output=job.%J.out     # output file
+                  
+                  # Load Python
+                  ml cray-python
+
                   python integration2d_multiprocessing.py
 
    Try different number of cores for this batch script (*FIXME* string) using the sequence:
