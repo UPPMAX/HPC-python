@@ -2,6 +2,7 @@
    :keywords: introduction, day 2
 
 .. _day2-intro:
+
 Introduction
 ============
 
@@ -75,7 +76,7 @@ Exercise 2: downloading and extracting the exercises
 The goal of this exercise is to download a file
 on your favorite HPC cluster and extract the exercises.
 
-- Go to :ref:`common-use-tarball` and do the procedure
+- Go to :ref:`common-use-tarball` and do the procedure.
 
 .. admonition:: **Done?**
    
