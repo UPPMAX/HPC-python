@@ -72,6 +72,13 @@ Virtual environment - venv & virtualenv
    - Next steps are identical and involves "activating" and ``pip installs``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
 
+.. seealso::
+
+   - UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
+   - HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
+
+
+
 .. keypoints::
 
    - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
@@ -136,6 +143,15 @@ UPPMAX
 
 - https://docs.uppmax.uu.se/software/conda/
 
+
+.. admonition:: Conda in HPC
+
+   - `Anaconda at LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>`_
+   - `Conda at UPPMAX <https://docs.uppmax.uu.se/software/conda/>`_ 
+      - `Conda on Bianca <https://uppmax.github.io/bianca_workshop/intermediate/install/#install-packages-principles>`_
+
+
+
 .. admonition:: Other tools
 
    - pixi: package management tool for developers https://pixi.sh/latest/
@@ -153,6 +169,20 @@ Workflow
 
 
    .. tab: conda 
+
+.. keypoints::
+
+   - It is worth it to organize your code for publishing, even if only you are using it.
+
+   - PyPI is a place for Python packages
+
+   - conda is similar but is not limited to Python
+
+.. note::
+
+   - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
+
+   - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
 
 
 
@@ -310,66 +340,6 @@ Everytime you need the tools available in the virtual environment you activate i
 
 Working with virtual environments defined from files
 ----------------------------------------------------
-
-Creator/developer
-.................
-
-- First _create_ and _activate_ an environment (see above)
-- Install packages with pip
-- Create file from present virtual environment:
-
-.. code-block:: console
-
-   $ pip freeze > requirements.txt
-
-- That includes also the *system site packages* if you included them with ``--system-site-packages``
-- Test that everything works by running use cases scripts within the environment
-- You can list packages specific for the virtualenv by ``pip list --local`` 
-
-- So, creating a file from just the local environment:
-
-.. code-block:: console
-
-   $ pip freeze --local > requirements.txt
-
-.. note:: 
-
-   ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
-
-      numpy
-      matplotlib
-      pandas
-      scipy
-
-   ``requirements.txt`` with versions that could look like this::
-
-      numpy==1.20.2
-      matplotlib==3.2.2
-      pandas==1.1.2
-      scipy==1.6.2
-
-- Deactivate
-
-User
-....
-
-- Create an environment based on dependencies given in an environment file
-- This can be done in new virtual environment or as a genera installtion locally (not activating any environment
-  
-.. code-block:: console
-
-   pip install -r requirements.txt
-
-- Check
-
-.. code-block:: console
-
-   pip list
-   
-.. admonition:: More on dependencies
-
-   - `Dependency management from course Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_
-
 
 .. admonition:: Python packages in HPC and ML
    :class: dropdown
@@ -641,33 +611,4 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 
       - Extra exercise can be to reproduce the examples above.
 
-.. note::
-
-   - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
-
-  - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
-
-.. seealso::
-
-   - UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
-   - HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
-
-.. keypoints::
-
-   - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
-   - Make it for each project you have for reproducibility.
-   - There are different tools to create virtual environemnts.
-   
-      - UPPMAX has ``conda`` and ``venv`` and ``virtualenv``
-      - HPC2N has ``venv`` and ``virtualenv``
-
-<!-- extra conda
-
-.. admonition:: Conda in HPC
-
-   - `Anaconda at LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>`_
-   - `Conda at UPPMAX <https://docs.uppmax.uu.se/software/conda/>`_ 
-      - `Conda on Bianca <https://uppmax.github.io/bianca_workshop/intermediate/install/#install-packages-principles>`_
-
--->
 
