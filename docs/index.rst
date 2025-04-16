@@ -206,7 +206,6 @@ Content of the course
    extra/other_courses.rst
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
-   extra/interactive_deeper.rst
    extra/jupyterHPC2N.rst
    day3/ML_deeper.rst
    

@@ -3,7 +3,7 @@
 Use isolated environments
 =========================
 
-.. info:: Learning objectives
+.. admonition:: Learning objectives
 
     - Practice using the documentation of your HPC cluster
     - Find out which isolated environment tool to use on your HPC cluster
@@ -13,22 +13,6 @@ Use isolated environments
       in the other way (if any) possible on your HPC cluster
     - (optional) export and import a virtual
       environment
-
-<!--
-
-HPC cluster| Who creates answer
------------|----------------------------------------------
-Alvis      | Find out which, BC takes Conda, RB takes venv
-Bianca     | conda, hence BC
-COSMOS     | Find out which, BC takes Conda, RB takes venv
-Dardel     | Find out which, BC takes Conda, RB takes venv
-Kebnekaise | venv, hence RB
-LUMI       | RB
-Rackham    | venv, hence RB
-Tetralith  | Find out which, BC takes Conda, RB takes venv
-
--->
-
 
 Isolated environments
 .....................
@@ -48,9 +32,9 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
 
 **The tools**
 
-   - venv            
-   - virtualenv      
-   - conda           
+   - venv: uses pip       
+   - virtualenv: uses pip   
+   - conda/forge: uses conda/mamba     
 
 .. warning::
 
@@ -61,71 +45,10 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
    - At UPPMAX Conda is installed but many users that get into problems. 
 	- However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
 
-.. tip::
-
-   - Try with ``venv`` first
-   - If very troublesome, try with ``conda``
-
-
-+------------+---------------------------------+
-| HPC cluster| Conda vs venv                   | 
-+============+=================================+
-| Alvis      | venv, conda in container        |
-+------------+---------------------------------+
-| Bianca     | conda/latest, venv via wharf    |
-+------------+---------------------------------+
-| COSMOS     | Anaconda3/2024.02-1             |
-+------------+---------------------------------+
-| Dardel     | miniconda3/24.7.1-0-cpeGNU-23.12|
-+------------+---------------------------------+
-| Kebnekaise | venv                            |
-+------------+---------------------------------+
-| LUMI       | ?                               |
-+------------+---------------------------------+
-| Rackham    | venv, conda/latest              |
-+------------+---------------------------------+
-| Tetralith  | Anaconda3/2024.02-1             |
-+------------+---------------------------------+
-
-
-Exercises
----------
-
-<!-- Exercise 1: which system to pick -->
-
-<!-- Exercise 2:
-
-    - Confirm package is absent
-    - Create environment
-    - Activate environment
-    - Confirm package is absent
-    - Install package in isolated environment
-    - Confirm package is now present
-    - Deactivate environment
-    - Confirm package is now absent again
-
--->
-
-<!-- (optional) Exercise 3: like 2, but for other tool -->
-
-<!-- (optional) Exercise 4: 
-
-?export and import a virtual environment
-
--->
-
-<!-- below is still old -->
-
-.. objectives:: 
-
-   Learners can 
-
-   - work (create, activate, work, deactivate) with virtual environments
-   - install a python package
-   - export and import a virtual environment
-
 Virtual environment - venv & virtualenv
 ---------------------------------------
+
+**FIX: shorten**
 
 .. admonition:: Workflow
 
@@ -155,6 +78,88 @@ Virtual environment - venv & virtualenv
        - ``virtualenv``, may require to load extra python bundle modules.
        - ``venv``, most straight-forward and available at all HPC centers. **Recommended**
    - More details to follow!
+
+.. tip::
+
+   - Try with ``venv`` first
+   - If very troublesome, try with ``conda``
+
+Conda
+-----
+
+**FIX: some intro text**
+
+.. keypoints::
+
+   - Conda is an installer of packages but also bigger toolkits
+   - Conda creates isolated environments not clashing with other installations of python and other versions of packages
+   - Conda environment requires that you install all packges needed by yourself. That is,  you cannot load the python module and use the packages therein inside you Conda environment.
+
++------------+---------------------------------+
+| HPC cluster| Conda vs venv                   | 
++============+=================================+
+| Alvis      | venv, conda in container        |
++------------+---------------------------------+
+| Bianca     | conda/latest, venv via wharf    |
++------------+---------------------------------+
+| COSMOS     | Anaconda3/2024.02-1             |
++------------+---------------------------------+
+| Dardel     | miniconda3/24.7.1-0-cpeGNU-23.12|
++------------+---------------------------------+
+| Kebnekaise | venv only                       |
++------------+---------------------------------+
+| LUMI       | ?                               |
++------------+---------------------------------+
+| Rackham    | venv, conda/latest              |
++------------+---------------------------------+
+| Tetralith  | Anaconda3/2024.02-1             |
++------------+---------------------------------+
+
+
+
+.. admonition:: Other tools
+
+   - pixi
+
+   - uv
+
+Workflow
+--------
+
+.. tabs::
+
+   .. tab: venv
+
+
+
+
+   .. tab: conda 
+
+
+
+Exercises
+---------
+
+.. challenge:: Exercise 1: which system to pick
+
+.. challenge:: Exercise 2: Isnatall package
+
+    - Confirm package is absent
+    - Create environment
+    - Activate environment
+    - Confirm package is absent
+    - Install package in isolated environment
+    - Confirm package is now present
+    - Deactivate environment
+    - Confirm package is now absent again
+
+
+
+.. challenge:: (optional) Exercise 3: like 2, but for other tool
+
+.. challenge:: (optional) Exercise 4: 
+
+?export and import a virtual environment
 
 Example
 .......
