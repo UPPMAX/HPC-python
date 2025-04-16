@@ -269,7 +269,7 @@ Own design isolated environments
 
 .. tabs::
 
-   .. tab: venv
+   .. tab:: venv
 
       Create a ``venv``. First load the python version you want to base your virtual environment on:
 
@@ -385,7 +385,7 @@ Own design isolated environments
          - Some IDE:s like Spyder may only find those "local" packages
 
 
-   .. tab: conda 
+   .. tab:: conda 
 
 
 
