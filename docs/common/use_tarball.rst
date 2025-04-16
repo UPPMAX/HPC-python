@@ -20,7 +20,19 @@ Procedure
 .. admonition:: Prefer a video?
     :class: dropdown
 
-    See `this YouTube video <https://youtu.be/N-TRzv9LdF4?si=6uIqHI4J8h_2ry7P&t=396>`__.
+    +------------+------------------------------------------------------------+
+    | HPC cluster| Link to YouTube video                                      |
+    +============+============================================================+
+    | COSMOS     | ``TODO``                                                   |
+    +------------+------------------------------------------------------------+
+    | Dardel     | ``TODO``                                                   |
+    +------------+------------------------------------------------------------+
+    | Kebnekaise | ``TODO``                                                   |
+    +------------+------------------------------------------------------------+
+    | Rackham    | ``TODO``                                                   |
+    +------------+------------------------------------------------------------+
+    | Tetralith  | ``TODO``                                                   |
+    +------------+------------------------------------------------------------+
 
 Below are the steps to download and extract the files needed
 for exercises in the course.
@@ -52,7 +64,7 @@ of this course. See :ref:`work-directory` for where these are.
     +------------+------------------------------------------------------------+
     | Bianca     | Use ``cd /proj/[your_project_code]``                       |
     +------------+------------------------------------------------------------+
-    | COSMOS     | None. Use your home folder instead: ``cd ~``               |
+    | COSMOS     | Use home folder (instead of a project folder): ``cd ~``    |
     +------------+------------------------------------------------------------+
     | Dardel     | ``cd /cfs/klemming/projects/snic/hpc-python-spring-naiss`` |
     +------------+------------------------------------------------------------+
