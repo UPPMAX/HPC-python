@@ -1,6 +1,6 @@
 .. meta::
    :description: Using packages
-   :keywords: packages, modules, day 2
+   :keywords: packages, modules, package modules
 
 .. _use-packages:
 
