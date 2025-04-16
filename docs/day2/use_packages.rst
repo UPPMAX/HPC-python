@@ -3,6 +3,7 @@
    :keywords: packages, modules, day 2
 
 .. _use-packages:
+
 Using packages
 ==============
 
@@ -37,14 +38,14 @@ Exercise 1: using Python packages
     :class: dropdown
 
     Answer can be found at
-    `day 1 <https://uppmax.github.io/naiss_intro_python/sessions/using_the_python_interpreter/#exercise-1-login-to-your-hpc-cluster>`_
+    `day 1 <https://uppmax.github.io/naiss_intro_python/sessions/using_the_python_interpreter/#exercise-1-login-to-your-hpc-cluster>`__
 
 - load the Python module of the version below
 
 +------------+----------------+
 | HPC cluster| Python version |
 +============+================+
-| Alvis      | ``3.12.3``     |module load Python/3.12.3-GCCcore-13.3.0
+| Alvis      | ``3.12.3``     |
 +------------+----------------+
 | Bianca     | ``3.11.4``     |
 +------------+----------------+
@@ -65,7 +66,7 @@ Exercise 1: using Python packages
     :class: dropdown
 
     Answer can be found at
-    `day 1 <https://uppmax.github.io/naiss_intro_python/sessions/using_the_python_interpreter/#exercise-2-load-the-python-module>`_
+    `day 1 <https://uppmax.github.io/naiss_intro_python/sessions/using_the_python_interpreter/#exercise-2-load-the-python-module>`__
 
     .. note to self
 
