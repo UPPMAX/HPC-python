@@ -20,6 +20,22 @@ Welcome to "Using Python in an HPC environment" course material
    - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
    - **We aim to give this course in spring and fall every year.**
 
+.. admonition:: **Course learning outcomes**
+   
+    <!-- TODO: BC: Update -->
+
+    - Find and load a Python package module
+    - Determine if a Python package is installed
+    - Use a virtual environment
+    - Install Python packages
+    - Write and submit batch job scripts
+    - Use a Python IDE
+    - Use ``matplotlib``
+    - Use the compute nodes interactively
+    - Use Python in parallel
+    - Use Python for ML
+    - Use GPUs with Python
+
 Schedule Spring 2025
 --------------------
 

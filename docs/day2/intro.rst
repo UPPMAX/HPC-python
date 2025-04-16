@@ -6,21 +6,19 @@
 Introduction
 ============
 
-.. admonition:: **Course learning outcomes**
+.. RB: Move 'Course learning outcomes' to index.rst
+
+.. admonition:: **Learning outcomes for this day**
    
-    <!-- TODO: BC: Update -->
+    - Find and load a Python package module
+    - Determine if a Python package is installed
+    - Use a virtual environment
+    - Install Python packages
+    - Write and submit batch job scripts
+    - Use a Python IDE
+    - Use ``matplotlib``
 
-    - <!-- RB: this is my lesson: please keep this :-) --> Can find and load a Python package module
-    - <!-- RB: this is my lesson: please keep this :-) --> Can determine if a Python package is installed
-    - Create a virtual environment
-    - Install Python packages with pip (Kebnekaise, Rackham, Snowy, COSMOS)
-    - Write a batch script for running Python
-    - Use the compute nodes interactively
-    - Use Python in parallel
-    - Use Python for ML
-    - Use GPUs with Python
-
-.. admonition:: **Learning outcomes**
+.. admonition:: **Learning outcomes of this session**
    
     - Learners understand how this day is organized
     - Learners can find their NAISS project
