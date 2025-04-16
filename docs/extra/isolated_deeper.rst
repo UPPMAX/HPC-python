@@ -1,3 +1,5 @@
+.. _devel_iso:
+
 Developing in isolated environments
 ===================================
 
