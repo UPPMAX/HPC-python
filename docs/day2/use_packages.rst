@@ -42,43 +42,44 @@ Exercise 1: using Python packages
 
 - load the Python module of the version below
 
-+------------+----------------+
-| HPC cluster| Python version |
-+============+================+
-| Alvis      | ``3.12.3``     |
-+------------+----------------+
-| Bianca     | ``3.11.4``     |
-+------------+----------------+
-| COSMOS     | ``3.11.5``     |
-+------------+----------------+
-| Dardel     | ``3.11.4``     |
-+------------+----------------+
-| Kebnekaise | ``3.11.3``     |
-+------------+----------------+
-| Rackham    | ``3.12.7``     |
-+------------+----------------+
-| Tetralith  | ``3.10.4``     |
-+------------+----------------+
++------------+-----------------+
+| HPC cluster|Python version   |
++============+=================+
+| Alvis      |``3.12.3``       |
++------------+-----------------+
+| Bianca     |``3.12.7``       |
++------------+-----------------+
+| COSMOS     |``3.11.5``       |
++------------+-----------------+
+| Dardel     |``3.11.4``       |
++------------+-----------------+
+| Kebnekaise |``3.11.3``       |
++------------+-----------------+
+| Rackham    |``3.12.7``       |
++------------+-----------------+
+| Tetralith  |``3.11.5`` (bare)|
++------------+-----------------+
 
 .. admonition:: Forgot how to do this?
     :class: dropdown
 
-    Answer can be found at
-    `day 1 <https://uppmax.github.io/naiss_intro_python/sessions/using_the_python_interpreter/#exercise-2-load-the-python-module>`__
-
-    .. note to self
-
-        HPC Cluster|Link to documentation                                                                              |Solution
-        -----------|---------------------------------------------------------------------------------------------------|------------------------------------------------------
-        Alvis      |[short](https://www.c3se.chalmers.se/documentation/module_system/python_example/) or [long](https://www.c3se.chalmers.se/documentation/module_system/modules/) |`module load Python/3.12.3-GCCcore-13.3.0`
-        Bianca     |[here](https://docs.uppmax.uu.se/software/python/#loading-python)                                  |`module load python/3.11.4`
-        COSMOS     |[here](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/)          |`module load GCCcore/13.2.0 Python/3.11.5`
-        Dardel     |:warning: [here](https://support.pdc.kth.se/doc/software/module/) and [here](https://support.pdc.kth.se/doc/applications/python/)    |`module load bioinfo-tools python/3.11.4`
-        Kebnekaise |[here](https://docs.hpc2n.umu.se/software/userinstalls/#python__packages)                          |`module load GCC/12.3.0 Python/3.11.3`
-        LUMI       |:warning: [here](https://docs.lumi-supercomputer.eu/software/installing/python/)                   |Unknown
-        Rackham    |[here](http://docs.uppmax.uu.se/software/python/)                                                  |`module load python/3.12.7`
-        Tetralith  |[here](https://www.nsc.liu.se/software/python/)                                                    |`module load Python/3.10.4-env-hpc2-gcc-2022a-eb`
-
+    +------------+----------------------------------------------------+
+    | HPC cluster|Python version                                      |
+    +============+====================================================+
+    | Alvis      |``module load Python/3.12.3-GCCcore-13.3.0``        |
+    +------------+----------------------------------------------------+
+    | Bianca     |``module load python/3.12.7``                       |
+    +------------+----------------------------------------------------+
+    | COSMOS     |``module load GCCcore/13.2.0 Python/3.11.5``        |
+    +------------+----------------------------------------------------+
+    | Dardel     |``module load bioinfo-tools python/3.11.4``         |
+    +------------+----------------------------------------------------+
+    | Kebnekaise |``module load GCC/12.3.0 Python/3.11.3``            |
+    +------------+----------------------------------------------------+
+    | Rackham    |``module load python/3.12.7``                       |
+    +------------+----------------------------------------------------+
+    | Tetralith  |``module load Python/3.11.5-bare-hpc1-gcc-2023b-eb``|
+    +------------+----------------------------------------------------+
 
 
 - Confirm that the Python package, indicated in the table below, is absent.
@@ -97,7 +98,7 @@ Exercise 1: using Python packages
 +------------+----------------+
 | Rackham    | ``tensorflow`` |
 +------------+----------------+
-| Tetralith  | ?              |
+| Tetralith  | ``scipy``      |
 +------------+----------------+
 
 .. admonition:: Answer
@@ -115,21 +116,21 @@ Exercise 1: using Python packages
 .. admonition:: Answer: where is this documented?
     :class: dropdown
 
-    +------------+---------------------------------------------------------------------------------------------+
-    | HPC cluster| URL to documentation                                                                        |
-    +============+=============================================================================================+
-    | Alvis      | `Here <https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy>`__ |
-    +------------+---------------------------------------------------------------------------------------------+
-    | COSMOS     | `Here <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`__|
-    +------------+---------------------------------------------------------------------------------------------+
-    | Dardel     | `Here <https://support.pdc.kth.se/doc/applications/tensorflow/>`__, but it is irrelevant    |
-    +------------+---------------------------------------------------------------------------------------------+
-    | Kebnekaise | `here <https://docs.hpc2n.umu.se/software/apps/#scipy>`__                                   |
-    +------------+---------------------------------------------------------------------------------------------+
-    | Rackham    | `here <https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu>`__|
-    +------------+---------------------------------------------------------------------------------------------+
-    | Tetralith  | ?                                                                                           |
-    +------------+---------------------------------------------------------------------------------------------+
+    +------------+------------------------------------------------------------------------------------------------+
+    | HPC cluster|URL to documentation                                                                            |
+    +============+================================================================================================+
+    | Alvis      |`Here <https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy>`__     |
+    +------------+------------------------------------------------------------------------------------------------+
+    | COSMOS     |`Here <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`__    |
+    +------------+------------------------------------------------------------------------------------------------+
+    | Dardel     |`Here <https://support.pdc.kth.se/doc/applications/tensorflow/>`__, but it is irrelevant        |
+    +------------+------------------------------------------------------------------------------------------------+
+    | Kebnekaise |`Here <https://docs.hpc2n.umu.se/software/apps/#scipy>`__                                       |
+    +------------+------------------------------------------------------------------------------------------------+
+    | Rackham    |`Here <https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu>`__|
+    +------------+------------------------------------------------------------------------------------------------+
+    | Tetralith  |`Here <https://www.nsc.liu.se/software/python/>`__                                              |
+    +------------+------------------------------------------------------------------------------------------------+
 
 .. admonition:: Answer: how to use the module system?
     :class: dropdown
@@ -151,7 +152,7 @@ Exercise 1: using Python packages
     +------------+--------------------------+
     | Rackham    |``module spider packages``|
     +------------+--------------------------+
-    | Tetralith  |``module spider ?``       |
+    | Tetralith  |``module spider Python``  |
     +------------+--------------------------+
 
 
@@ -175,7 +176,7 @@ Exercise 1: using Python packages
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | Rackham    | ``module load python_ML_packages/3.11.8-cpu``. You will be asked to do a ``module unload python`` first. Do so :-) |
     +------------+--------------------------------------------------------------------------------------------------------------------+
-    | Tetralith  | ``module load ?``                                                                                                  |
+    | Tetralith  | ``module load Python/3.11.5``                                                                                      |
     +------------+--------------------------------------------------------------------------------------------------------------------+
 
 - See the package is now present
