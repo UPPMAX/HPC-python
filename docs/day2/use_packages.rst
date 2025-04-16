@@ -95,7 +95,7 @@ Exercise 1: using Python packages
 +------------+----------------+
 | Dardel     | `tensorflow`   |
 +------------+----------------+
-| Kebnekaise | ?              |
+| Kebnekaise | ``scipy``      |
 +------------+----------------+
 | LUMI       | ?              |
 +------------+----------------+
@@ -128,7 +128,7 @@ Exercise 1: using Python packages
     +------------+---------------------------------------------------------------------------------------------+
     | Dardel     | `Here <https://support.pdc.kth.se/doc/applications/tensorflow/>`__, but it is irrelevant    |
     +------------+---------------------------------------------------------------------------------------------+
-    | Kebnekaise | ?                                                                                           |
+    | Kebnekaise | `here <https://docs.hpc2n.umu.se/software/apps/#scipy>`                                     |
     +------------+---------------------------------------------------------------------------------------------+
     | LUMI       | ?                                                                                           |
     +------------+---------------------------------------------------------------------------------------------+
@@ -140,7 +140,9 @@ Exercise 1: using Python packages
 .. admonition:: Answer: how to use the module system?
     :class: dropdown
 
-    In the terminal, type the following command:
+    In the terminal, type the command as shown below to get a decent hint.
+    There are many possible terms to use with ``module spider``: whatever
+    works for you is good too :-)
 
     +------------+--------------------------+
     | HPC cluster| Command                  |
@@ -151,7 +153,7 @@ Exercise 1: using Python packages
     +------------+--------------------------+
     | Dardel     | ``module spider package``|
     +------------+--------------------------+
-    | Kebnekaise | ``module spider ?``      |
+    | Kebnekaise | ``module spider SciPy``  |
     +------------+--------------------------+
     | LUMI       | ``?``                    |
     +------------+--------------------------+
@@ -159,6 +161,7 @@ Exercise 1: using Python packages
     +------------+--------------------------+
     | Tetralith  | ``module spider ?``      |
     +------------+--------------------------+
+
 
 - Load the software module
 
@@ -176,7 +179,7 @@ Exercise 1: using Python packages
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | Dardel     | ``module load python_ML_packages/3.11.8-cpu``. You will be asked to do a ``module unload python`` first. Do so :-) |
     +------------+--------------------------------------------------------------------------------------------------------------------+
-    | Kebnekaise | ``module load ?``                                                                                                  |
+    | Kebnekaise | ``module load GCC/13.3.0 SciPy-bundle/2024.05``                                                                    |
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | LUMI       | ``?``                                                                                                              |
     +------------+--------------------------------------------------------------------------------------------------------------------+
