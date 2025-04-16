@@ -1454,6 +1454,23 @@ Exercises
                ml GCCcore/12.3.0  Python/3.11.3  SciPy-bundle/2023.07
                python script-df.py
 
+      .. tab:: NSC
+
+            .. code-block:: sh
+               
+               #!/bin/bash -l
+               #SBATCH -A naiss202X-XY-XYZ     # your project_ID
+               #SBATCH -J job-serial           # name of the job
+               #SBATCH -n 4                    # nr. tasks/coresw
+               #SBATCH --time=00:20:00         # requested time
+               #SBATCH --error=job.%J.err      # error file
+               #SBATCH --output=job.%J.out     # output file
+
+               # Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle
+               ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/11.3.0 Python/3.10.4
+               python script-df.py
+
+
       .. tab:: PDC
 
             .. code-block:: sh
