@@ -16,8 +16,8 @@ The HPC centers UPPMAX, HPC2N, LUNARC, NSC and Dardel
      
    - ... and small differences:
    
-     - commands to load R, Matlab and Julia and packages/libraries
-     - sometimes different versions of R, Matlab and Julia, etc.   
+     - commands to load R, MATLAB and Julia and packages/libraries
+     - sometimes different versions of R, MATLAB and Julia, etc.   
      - slightly different flags to Slurm
      
    - ... and some bigger differences:
