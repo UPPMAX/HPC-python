@@ -43,7 +43,7 @@ Step 1: if there is a project folder, navigate to your project folder
 This step only applies if your HPC cluster uses a project folder.
 Skip this step if your HPC cluster does not use project folders.
 
-.. admonition:: Forgot of your HPC cluster uses a project folder?
+.. admonition:: Forgot if your HPC cluster uses a project folder?
     :class: dropdown
 
     In that case, do the rest of this step. You'll find out 
