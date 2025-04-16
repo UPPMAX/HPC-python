@@ -401,6 +401,10 @@ with BC today. This will be my meeting schedule:
   we've put todo's to someone's name
   - [AGREED] We'll use issues, until we feel the reply takes too long
 
+## 2025-04-16
+
+All my course material is in, only need to test these by making videos.
+
 ## References
 
 - `[Brendle et al, 2017]` Brendle, Joanna, Robert Lock, and Kate Piazza. "A study of co-teaching identifying effective implementation strategies." International Journal of Special Education 32.3 (2017): 538-550.
