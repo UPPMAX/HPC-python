@@ -33,3 +33,18 @@ Pre-requirements for Day 2
 - You are not a complete beginner of the Linux environment.
   To get familiar with the Linux/Bash command line, we recommend the courses
   and material at :ref:`common-other-courses`.
+
+Pre-requirements for Day 3
+--------------------------
+
+- All prerequirements of Day 2.
+- You have done the exercise at :ref:`common-use-tarball`.
+- On your HPC cluster, you can:
+    - Load a software module for Python packages
+    - Submit a batch script to the job scheduler
+
+Pre-requirements for Day 4
+--------------------------
+
+- All prerequirements of Day 3.
+- You have done the exercise at :ref:`common-use-tarball`.
