@@ -45,6 +45,9 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
    - At UPPMAX Conda is installed but many users that get into problems. 
 	- However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
 
+
+https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip
+
 Virtual environment - venv & virtualenv
 ---------------------------------------
 
@@ -115,13 +118,29 @@ Conda
 | Tetralith  | Anaconda3/2024.02-1             |
 +------------+---------------------------------+
 
+NSC:
 
+- https://www.nsc.liu.se/software/python/
+- https://www.nsc.liu.se/software/anaconda/
+
+PDC:
+
+- https://www.kth.se/blogs/pdc/2020/11/working-with-python-virtual-environments/
+- https://hackmd.io/@pmitev/conda_on_Rackham
+
+LUNARC
+
+- https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
+
+UPPMAX
+
+- https://docs.uppmax.uu.se/software/conda/
 
 .. admonition:: Other tools
 
-   - pixi
+   - pixi: package management tool for developers https://pixi.sh/latest/
 
-   - uv
+   - uv: An extremely fast Python package and project manager, written in Rust. https://docs.astral.sh/uv/
 
 Workflow
 --------
