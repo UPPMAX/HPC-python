@@ -2,7 +2,7 @@
    sphinx-quickstart on Fri Jan 21 18:24:04 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-   
+
 Welcome to "Using Python in an HPC environment" course material
 ===============================================================
 
@@ -13,15 +13,15 @@ Welcome to "Using Python in an HPC environment" course material
       - use modules to load Python
       - find site installed Python packages
       - install packages yourself
-      - use virtual environments, 
+      - use virtual environments,
       - write a batch script for running Python
       - use Python in parallel
-      - use Python for ML and on GPUs. 
-   - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.    
+      - use Python for ML and on GPUs.
+   - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.
    - **We aim to give this course in spring and fall every year.**
 
 .. admonition:: **Course learning outcomes**
-   
+
     <!-- TODO: BC: Update -->
 
     - Find and load a Python package module
@@ -43,18 +43,18 @@ Schedule Spring 2025
 
     See :ref:`schedule`
 
-.. warning:: 
+.. warning::
 
    **Not covered**
-    
-    - Improve Python *coding* skills 
+
+    - Improve Python *coding* skills
     - Specifics of other clusters
 
 .. admonition:: Course approach to deal with multiple HPC centers
 
    **Target group**
 
-   - The course is for present or presumptive users at the **NAISS** resources at PDC and NSC as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden. 
+   - The course is for present or presumptive users at the **NAISS** resources at PDC and NSC as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden.
    - The course is a NAISS cooperation with **teachers** from **UPPMAX** (Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
    - Although there are differences we will only have **few seperate sessions**.
    - Most participants will use The NAISS resources **Tetralith** system at NSC or **Dardel** system at PDC for the course.
@@ -63,44 +63,44 @@ Schedule Spring 2025
 
    - Users with the "local" affiliation below, can work at the following clusters:
 
-      - Kebnekaise: UmU, IRF, MIUN, SLU, LTU. 
-      - Cosmos: LU. 
-      - Rackham/Snowy: UU. 
+      - Kebnekaise: UmU, IRF, MIUN, SLU, LTU.
+      - Cosmos: LU.
+      - Rackham/Snowy: UU.
 
-   - The general information given in the course will be true for all/most HPC centres in Sweden. 
+   - The general information given in the course will be true for all/most HPC centres in Sweden.
 
-      - The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres. 
+      - The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres.
       - When present, links to the Python documentation at other NAISS centres are given in the corresponding session.
 
 .. admonition:: Cluster documentation of Python
-   
+
    - Documentation at the HPC centres
       - `UPPMAX <https://docs.uppmax.uu.se/software/python/>`_
       - `HPC2N <https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages>`_
       - `LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
       - `NSC <https://www.nsc.liu.se/support/>`_
-      - `PDC <https://support.pdc.kth.se/doc/applications/python/>`_ 
+      - `PDC <https://support.pdc.kth.se/doc/applications/python/>`_
 
 .. admonition:: Some practicals
 
    - `Code of Conduct <https://github.com/UPPMAX/R-matlab-julia-HPC/blob/main/CODE_OF_CONDUCT.md>`_
       - Be nice to each other!
- 
+
    - Zoom
        - You should have gotten an email with the links
-      
+
        - Zoom policy:
 
            - Zoom chat (maintained by co-teachers):
 
                 - technical issues of zoom
                 - technical issues of your settings
-                - direct communication 
+                - direct communication
                 - each teacher may have somewhat different approach
 
             - collaboration document (see below):
 
-                - "explain again"         
+                - "explain again"
                 - elaborating the course content
                 - solutions for your own work
 
@@ -115,13 +115,13 @@ Schedule Spring 2025
            - For the live-recordings
 
                - The questions asked per microphone during these sessions will be recorded
-               - If you don't want your voice to appear: 
+               - If you don't want your voice to appear:
 
                    - use the collaboration document (see below)
 
        - The Zoom main room is used for most lectures
        - Some sessions use breakout rooms for exercises, some of which use a silent room
-            
+
 .. admonition:: Q/A collabration document
 
    - Use the Q/A page for the workshop with your questions.
@@ -137,7 +137,7 @@ Schedule Spring 2025
       - The applications to connect to the clusters: terminals and ThinLinc (remote graphical desktop)
    - This course does not aim to improve your coding skills. Rather you will learn to understand the ecosystems and navigations for the the different languages on a HPC cluster.
 
-   
+
 Content of the course
 ---------------------
 
@@ -159,7 +159,7 @@ Content of the course
    common/understanding_clusters.rst
    common/naiss_projects_overview.rst
    common/ondemand-desktop.rst
-    
+
 .. toctree::
    :maxdepth: 2
    :caption: Lessons day 1 (Intro to Python):
@@ -208,11 +208,11 @@ Content of the course
    extra/isolated_deeper.rst
    extra/jupyterHPC2N.rst
    day3/ML_deeper.rst
-   
+
    uppmax.rst
    kebnekaise.md
    bianca.rst
-   
+
 .. Indices and tables
 .. ==================
 

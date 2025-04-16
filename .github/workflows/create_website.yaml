@@ -46,8 +46,8 @@ jobs:
           force_orphan: true
 
       - name: Install linter
-        run: pip install restructuredtext-lint
+        run: pip install sphinx-lint
 
       - name: Run linter, no error
-        run: restructuredtext-lint docs || true
-    
+        run: sphinx-lint docs || true
+
