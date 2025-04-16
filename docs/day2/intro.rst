@@ -35,7 +35,7 @@ Introduction
 Why is this course important?
 -----------------------------
 
-Python, according to `the TIOBE index <https://www.tiobe.com/tiobe-index/>`,
+Python, according to `the TIOBE index <https://www.tiobe.com/tiobe-index/>`__,
 is one of the most used programming languages used today.
 
 .. admonition:: What is Python again?
