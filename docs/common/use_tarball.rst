@@ -5,7 +5,9 @@ Use the tarball with exercises
 
 .. admonition:: Goal
 
-    You can run the example files needed for the exercises 
+    - You can run the example files needed for the exercises 
+    - If any, you are able to navigate to the project folder
+    - If needed, you are able to create a subfolder in the project folder
 
 A tarball is a file that contains multiple files,
 similar to a zip file.
