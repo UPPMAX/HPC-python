@@ -154,7 +154,7 @@ Content of the course
    :caption: Lessons day 2 (packages and analysis):
 
    day2/intro.rst
-   day2/load_run_packages.rst
+   day2/use_packages.rst
    day2/install_packages.rst
    day2/use_isolated_environments.rst
    day2/interactive.md
