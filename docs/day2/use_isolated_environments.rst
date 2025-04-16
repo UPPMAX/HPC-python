@@ -158,8 +158,89 @@ UPPMAX
 
    - uv: An extremely fast Python package and project manager, written in Rust. https://docs.astral.sh/uv/
 
-Workflow
---------
+Install from file/Set up course environment
+-------------------------------------------
+
+**FIX intro**
+
+
+.. note::
+
+   - All centers has had different approaches in what is included in the module system and not.
+   - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
+   - This is left as exercise for you
+
+
+We will need to install the LightGBM Python package for one of the examples in the ML section. 
+
+.. tip::
+    
+   **Follow the track where you are working right now**
+
+
+.. tabs::
+
+   .. tab:: venv
+
+      .. tabs::
+
+         .. tab:: NSC
+
+            **If you do not have matplotlib already outside any virtual environment**
+
+            - Install matplotlib in your ``.local`` folder, not in a virtual environment.
+            - Do: 
+
+            .. code-block:: console
+
+               ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
+               pip install --user matplotlib
+
+            - Check that matplotlib is there by ``pip list``
+
+            **Check were to find environments needed for the lessons in the afternoon tomorrow**
+
+            - browse ``/proj/hpc-python-spring-naiss/`` to see the available environments. 
+            - their names are
+                - ``venvNSC-TF``
+                - ``venvNSC-torch``
+                - ``venvNSC-numba``
+                - ``venv-spyder-only``
+
+         .. tab:: LUNARC 
+
+            - Everything will work by just loading modules, see each last section
+
+            - Extra exercise can be to reproduce the examples above.
+
+         .. tab:: UPPMAX
+
+            **Check were to find environments needed for the lessons in the afternoon tomorrow**
+
+            - browse ``/proj/hpc-python-uppmax/`` to see the available environments. 
+            - their names are, for instance
+                - ``venv-spyder``
+                - ``venv-TF``
+                - ``venv-torch``
+
+            - Extra exercise can be to reproduce the examples above.
+
+         .. tab:: HPC2N
+
+            **Check were to find possible environments needed for the lessons in the afternoon tomorrow**
+
+            - browse ``/proj/nobackup/hpc-python-spring/`` to see the available environments.
+            - It may be empty for now but may show up by tomorrow
+            - their names may be, for instance
+                - ``venv-TF``
+                - ``venv-torch``
+
+
+   .. tab:: Conda
+
+
+Own design isolated environments
+--------------------------------
 
 .. tabs::
 
@@ -169,6 +250,10 @@ Workflow
 
 
    .. tab: conda 
+
+
+
+
 
 .. keypoints::
 
@@ -183,6 +268,8 @@ Workflow
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
 
    - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
+
+
 
 
 
@@ -538,77 +625,8 @@ Exercises
       deactivate
 
       
-Prepare fore the course environments
-....................................
 
-.. note::
+.. seealso::
 
-   - All centers has had different approaches in what is included in the module system and not.
-   - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
-   - This is left as exercise for you
-
-
-We will need to install the LightGBM Python package for one of the examples in the ML section. 
-
-.. tip::
-    
-   **Follow the track where you are working right now**
-
-Create a virtual environment called ``vpyenv``. First load the python version you want to base your virtual environment on, as well as the site-installed ML packages. 
-
-.. tabs::
-
-   .. tab:: NSC
-
-      **If you do not have matplotlib already outside any virtual environment**
-
-      - Install matplotlib in your ``.local`` folder, not in a virtual environment.
-      - Do: 
-
-      .. code-block:: console
-
-         ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
-         pip install --user matplotlib
- 
-      - Check that matplotlib is there by ``pip list``
-
-      **Check were to find environments needed for the lessons in the afternoon tomorrow**
-
-      - browse ``/proj/hpc-python-spring-naiss/`` to see the available environments. 
-      - their names are
-          - ``venvNSC-TF``
-          - ``venvNSC-torch``
-          - ``venvNSC-numba``
-          - ``venv-spyder-only``
-
-   .. tab:: LUNARC 
-
-      - Everything will work by just loading modules, see each last section
-
-      - Extra exercise can be to reproduce the examples above.
-
-   .. tab:: UPPMAX
-      
-      **Check were to find environments needed for the lessons in the afternoon tomorrow**
-
-      - browse ``/proj/hpc-python-uppmax/`` to see the available environments. 
-      - their names are, for instance
-          - ``venv-spyder``
-          - ``venv-TF``
-          - ``venv-torch``
-
-      - Extra exercise can be to reproduce the examples above.
-
-   .. tab:: HPC2N
-
-      **Check were to find possible environments needed for the lessons in the afternoon tomorrow**
-
-      - browse ``/proj/nobackup/hpc-python-spring/`` to see the available environments.
-      - It may be empty for now but may show up by tomorrow
-      - their names may be, for instance
-          - ``venv-TF``
-          - ``venv-torch``
-
-      - Extra exercise can be to reproduce the examples above.
-
+   - want to share your work? :ref:`devel_iso`
 
