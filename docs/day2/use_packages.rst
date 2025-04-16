@@ -76,7 +76,7 @@ Exercise 1: using Python packages
         Dardel     |:warning: [here](https://support.pdc.kth.se/doc/software/module/) and [here](https://support.pdc.kth.se/doc/applications/python/)    |`module load bioinfo-tools python/3.11.4`
         Kebnekaise |[here](https://docs.hpc2n.umu.se/software/userinstalls/#python__packages)                          |`module load GCC/12.3.0 Python/3.11.3`
         LUMI       |:warning: [here](https://docs.lumi-supercomputer.eu/software/installing/python/)                   |Unknown
-        Rackham    |[here](http://docs.uppmax.uu.se/software/python/)                                                  |`module load python`
+        Rackham    |[here](http://docs.uppmax.uu.se/software/python/)                                                  |`module load python/3.12.7`
         Tetralith  |[here](https://www.nsc.liu.se/software/python/)                                                    |`module load Python/3.10.4-env-hpc2-gcc-2022a-eb`
 
 
@@ -95,7 +95,7 @@ Exercise 1: using Python packages
 +------------+----------------+
 | Kebnekaise | ``scipy``      |
 +------------+----------------+
-| Rackham    | ?              |
+| Rackham    | ``tensorflow`` |
 +------------+----------------+
 | Tetralith  | ?              |
 +------------+----------------+
@@ -126,7 +126,7 @@ Exercise 1: using Python packages
     +------------+---------------------------------------------------------------------------------------------+
     | Kebnekaise | `here <https://docs.hpc2n.umu.se/software/apps/#scipy>`__                                   |
     +------------+---------------------------------------------------------------------------------------------+
-    | Rackham    | ?                                                                                           |
+    | Rackham    | `here <https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu>`__|
     +------------+---------------------------------------------------------------------------------------------+
     | Tetralith  | ?                                                                                           |
     +------------+---------------------------------------------------------------------------------------------+
@@ -141,17 +141,17 @@ Exercise 1: using Python packages
     +------------+--------------------------+
     | HPC cluster| Command                  |
     +============+==========================+
-    | Alvis      | ``module spider SciPy``  |
+    | Alvis      |``module spider SciPy``   |
     +------------+--------------------------+
-    | COSMOS     | ``module spider SciPy``  |
+    | COSMOS     |``module spider SciPy``   |
     +------------+--------------------------+
-    | Dardel     | ``module spider package``|
+    | Dardel     |``module spider package`` |
     +------------+--------------------------+
-    | Kebnekaise | ``module spider SciPy``  |
+    | Kebnekaise |``module spider SciPy``   |
     +------------+--------------------------+
-    | Rackham    | ``module spider ?``      |
+    | Rackham    |``module spider packages``|
     +------------+--------------------------+
-    | Tetralith  | ``module spider ?``      |
+    | Tetralith  |``module spider ?``       |
     +------------+--------------------------+
 
 
@@ -173,7 +173,7 @@ Exercise 1: using Python packages
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | Kebnekaise | ``module load GCC/13.3.0 SciPy-bundle/2024.05``                                                                    |
     +------------+--------------------------------------------------------------------------------------------------------------------+
-    | Rackham    | ``module load ?``                                                                                                  |
+    | Rackham    | ``module load python_ML_packages/3.11.8-cpu``. You will be asked to do a ``module unload python`` first. Do so :-) |
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | Tetralith  | ``module load ?``                                                                                                  |
     +------------+--------------------------------------------------------------------------------------------------------------------+
