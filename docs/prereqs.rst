@@ -1,4 +1,5 @@
 .. _prereqs:
+
 Pre-requirements
 ================
 
@@ -26,7 +27,8 @@ Pre-requirements for Day 2
     - Use the Python interpreter
     - Create and use variables
     - Load a package
-  See the material from `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_python/schedule/>`_
+
+  See the material from `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_python/schedule/>`__
   to see what we require.
 - You have a basic understanding of what an HPC cluster is.
   To get familiar with HPC clusters  see :ref:`common-hpc-clusters`
