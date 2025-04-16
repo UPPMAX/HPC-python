@@ -160,7 +160,7 @@ Content of the course
    day2/interactive.md
    day2/ondemand-desktop.rst
    day2/IDEs.rst
-   day2/Matplotlib60min.rst
+   day2/matplotlib-intro.rst
    summary1.rst
    day2/python_at_hpc_centers.rst
 

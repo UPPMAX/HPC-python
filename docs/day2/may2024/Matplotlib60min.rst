@@ -456,37 +456,6 @@ Apart from ``.scatter()``, most of these plots are more suited for models rather
    axes[1].set_xlabel("Jane's scores")
 
 
-.. jupyter-execute::
-
-   import numpy as np
-   import matplotlib.pyplot as plt
-   %matplotlib inline 
-   import pandas as pd
-   wwii_spending = pd.read_csv('docs/day2/wwii-military-spending-pct-gdp.txt',delimiter='\t',
-                              index_col=0)
-   print(wwii_spending)
-   year = wwii_spending.index.to_numpy()
-
-   fig,axes = plt.subplots(ncols=2,figsize=(9,4), width_ratios=[5,4])
-   axes[0].stackplot(year, wwii_spending.to_numpy().T,
-                labels=wwii_spending.columns, baseline='wiggle')
-   axes[0].set_xlabel("Year")
-   axes[0].set_ylabel("Military Spending (% of Total Income)")
-   axes[0].set_ylim(top=250)
-   axes[0].legend(loc='upper center', ncols=3)
-   
-   axes[1].step(year, wwii_spending['USSR'], where='pre', ls='--',
-                 color='tab:orange', label='pre')
-   axes[1].step(year, wwii_spending['USSR'], where='post', ls='-.',
-                 color='tab:purple', label='post')
-   axes[1].step(year, wwii_spending['USSR'], where='mid',
-                 color='tab:red', label='mid')
-   axes[1].set_xlabel("Year")
-   axes[1].set_ylabel("USSR Military Spending (% of Total Income)")
-   axes[1].legend()
-   plt.show()
-
-
 Statistical Plots
 ~~~~~~~~~~~~~~~~~
 
