@@ -20,7 +20,7 @@ Procedure
 .. admonition:: Prefer a video?
     :class: dropdown
 
-    ``[TODO]``
+    See `this YouTube video <https://youtu.be/N-TRzv9LdF4?si=6uIqHI4J8h_2ry7P&t=396>`__.
 
 Below are the steps to download and extract the files needed
 for exercises in the course.
