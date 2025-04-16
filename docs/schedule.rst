@@ -1,4 +1,5 @@
 .. _schedule:
+
 Schedule
 ========
 
@@ -34,6 +35,7 @@ Day 1: Log in and use Basic Python in a cluster environment
 See schedule at `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_python/schedule/>`_.
 
 .. _schedule-day-2:
+
 Day 2: Packages and basic analysis
 ----------------------------------
 
@@ -79,6 +81,7 @@ Day 2: Packages and basic analysis
 - [2] ?OnDemand,?parallel session
 
 .. _schedule-day-3:
+
 Day 3: Advanced analysis and batch jobs
 ---------------------------------------
 
@@ -115,6 +118,7 @@ Day 3: Advanced analysis and batch jobs
 +------------+----------------------+------------------------------+
 
 .. _schedule-day-4:
+
 Day 4: Parallelism, GPUs and machine learning
 ---------------------------------------------
 
