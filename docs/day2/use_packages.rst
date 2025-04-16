@@ -91,7 +91,7 @@ Exercise 1: using Python packages
 +------------+----------------+
 | COSMOS     | ``scipy``      |
 +------------+----------------+
-| Dardel     | `tensorflow`   |
+| Dardel     | ``tensorflow`` |
 +------------+----------------+
 | Kebnekaise | ``scipy``      |
 +------------+----------------+
