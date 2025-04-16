@@ -55,6 +55,8 @@ Exercise 1: using Python packages
 +------------+-----------------+
 | Kebnekaise |``3.11.3``       |
 +------------+-----------------+
+| LUMI       |``3.11.7``       |
++------------+-----------------+
 | Rackham    |``3.12.7``       |
 +------------+-----------------+
 | Tetralith  |``3.11.5`` (bare)|
@@ -76,6 +78,8 @@ Exercise 1: using Python packages
     +------------+----------------------------------------------------+
     | Kebnekaise |``module load GCC/12.3.0 Python/3.11.3``            |
     +------------+----------------------------------------------------+
+    | LUMI       |``module load cray-python/3.11.7``                  |
+    +------------+----------------------------------------------------+
     | Rackham    |``module load python/3.12.7``                       |
     +------------+----------------------------------------------------+
     | Tetralith  |``module load Python/3.11.5-bare-hpc1-gcc-2023b-eb``|
@@ -96,6 +100,8 @@ Exercise 1: using Python packages
 +------------+----------------+
 | Kebnekaise | ``scipy``      |
 +------------+----------------+
+| LUMI       | ``matplotlib`` |
++------------+----------------+
 | Rackham    | ``tensorflow`` |
 +------------+----------------+
 | Tetralith  | ``scipy``      |
@@ -104,8 +110,26 @@ Exercise 1: using Python packages
 .. admonition:: Answer
     :class: dropdown
 
-    On the terminal, type ``pip list`` to see all the
-    packages that are installed.
+    From the terminal, use the command below
+    to confirm that the package is not available yet:
+
+    +------------+-------------------------+
+    | HPC cluster| Command                 | 
+    +============+=========================+
+    | Alvis      |``pip list``             |
+    +------------+-------------------------+
+    | COSMOS     |``pip list``             |
+    +------------+-------------------------+
+    | Dardel     |``pip list``             |
+    +------------+-------------------------+
+    | Kebnekaise |``pip list``             |
+    +------------+-------------------------+
+    | LUMI       |``pip list``             |
+    +------------+-------------------------+
+    | Rackham    |``pip list``             |
+    +------------+-------------------------+
+    | Tetralith  |``pip list``             |
+    +------------+-------------------------+
 
     In all cases, the package is not yet installed,
     as that is what we'll be doing next :-)
@@ -116,21 +140,25 @@ Exercise 1: using Python packages
 .. admonition:: Answer: where is this documented?
     :class: dropdown
 
-    +------------+------------------------------------------------------------------------------------------------+
-    | HPC cluster|URL to documentation                                                                            |
-    +============+================================================================================================+
-    | Alvis      |`Here <https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy>`__     |
-    +------------+------------------------------------------------------------------------------------------------+
-    | COSMOS     |`Here <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`__    |
-    +------------+------------------------------------------------------------------------------------------------+
-    | Dardel     |`Here <https://support.pdc.kth.se/doc/applications/tensorflow/>`__, but it is irrelevant        |
-    +------------+------------------------------------------------------------------------------------------------+
-    | Kebnekaise |`Here <https://docs.hpc2n.umu.se/software/apps/#scipy>`__                                       |
-    +------------+------------------------------------------------------------------------------------------------+
-    | Rackham    |`Here <https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu>`__|
-    +------------+------------------------------------------------------------------------------------------------+
-    | Tetralith  |`Here <https://www.nsc.liu.se/software/python/>`__                                              |
-    +------------+------------------------------------------------------------------------------------------------+
+    +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+    | HPC cluster|URL to documentation                                                                                                                          |
+    +============+==============================================================================================================================================+
+    | Alvis      |`Here <https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy>`__                                                   |
+    +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+    | COSMOS     |`Here <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`__                                                  |
+    +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+    | Dardel     |`Here <https://support.pdc.kth.se/doc/applications/tensorflow/>`__, but it is irrelevant                                                      |
+    +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+    | Kebnekaise |`Here <https://docs.hpc2n.umu.se/software/apps/#scipy>`__                                                                                     |
+    +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+    | LUMI       |`Has no software modules <https://docs.lumi-supercomputer.eu/software/installing/python/#use-an-existing-container>__                         |
+    +            +----------------------------------------------------------------------------------------------------------------------------------------------+
+    |            |`Use the thanard/matplotlib container <https://hub.docker.com/r/thanard/matplotlib>__                                                         |
+    +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+    | Rackham    |`Here <https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu>`__                                              |
+    +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+    | Tetralith  |`Here <https://www.nsc.liu.se/software/python/>`__                                                                                            |
+    +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. admonition:: Answer: how to use the module system?
     :class: dropdown
@@ -139,21 +167,25 @@ Exercise 1: using Python packages
     There are many possible terms to use with ``module spider``: whatever
     works for you is good too :-)
 
-    +------------+--------------------------+
-    | HPC cluster| Command                  |
-    +============+==========================+
-    | Alvis      |``module spider SciPy``   |
-    +------------+--------------------------+
-    | COSMOS     |``module spider SciPy``   |
-    +------------+--------------------------+
-    | Dardel     |``module spider package`` |
-    +------------+--------------------------+
-    | Kebnekaise |``module spider SciPy``   |
-    +------------+--------------------------+
-    | Rackham    |``module spider packages``|
-    +------------+--------------------------+
-    | Tetralith  |``module spider Python``  |
-    +------------+--------------------------+
+    +------------+---------------------------------------------------+
+    | HPC cluster| Command                                           |
+    +============+===================================================+
+    | Alvis      |``module spider SciPy``                            |
+    +------------+---------------------------------------------------+
+    | COSMOS     |``module spider SciPy``                            |
+    +------------+---------------------------------------------------+
+    | Dardel     |``module spider package``                          |
+    +------------+---------------------------------------------------+
+    | Kebnekaise |``module spider SciPy``                            |
+    +------------+---------------------------------------------------+
+    | LUMI       |Has no module system, use a container instead.     |
+    +            +---------------------------------------------------+
+    |            |``singularity pull docker://thanard/matplotlib``   |
+    +------------+---------------------------------------------------+
+    | Rackham    |``module spider packages``                         |
+    +------------+---------------------------------------------------+
+    | Tetralith  |``module spider Python``                           |
+    +------------+---------------------------------------------------+
 
 
 - Load the software module
@@ -174,6 +206,8 @@ Exercise 1: using Python packages
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | Kebnekaise | ``module load GCC/13.3.0 SciPy-bundle/2024.05``                                                                    |
     +------------+--------------------------------------------------------------------------------------------------------------------+
+    | LUMI       | Not applicable: we are using a container                                                                           |
+    +------------+--------------------------------------------------------------------------------------------------------------------+
     | Rackham    | ``module load python_ML_packages/3.11.8-cpu``. You will be asked to do a ``module unload python`` first. Do so :-) |
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | Tetralith  | ``module load Python/3.11.5``                                                                                      |
@@ -184,8 +218,26 @@ Exercise 1: using Python packages
 .. admonition:: Answer
     :class: dropdown
 
-    From the terminal, type ``pip list`` to see all the
-    packages that are installed.
+    From the terminal, use the command below
+    to confirm that the package is now available:
 
-    In all cases, the package is now installed.
-    Well done!
+    +------------+-------------------------+
+    | HPC cluster| Command                 | 
+    +============+=========================+
+    | Alvis      |``pip list``             |
+    +------------+-------------------------+
+    | COSMOS     |``pip list``             |
+    +------------+-------------------------+
+    | Dardel     |``pip list``             |
+    +------------+-------------------------+
+    | Kebnekaise |``pip list``             |
+    +------------+-------------------------+
+    | LUMI       |``./matplotlib pip list``|
+    +------------+-------------------------+
+    | Rackham    |``pip list``             |
+    +------------+-------------------------+
+    | Tetralith  |``pip list``             |
+    +------------+-------------------------+
+
+In all cases, the package is now installed.
+Well done!
