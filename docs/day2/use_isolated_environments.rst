@@ -407,14 +407,25 @@ Own design isolated environments
 
 
 
-
-
 Exercises
 ---------
 
-.. challenge:: Exercise 1: which system to pick
+.. challenge:: Exercise 0: Make a decision between venv or conda.
 
-.. challenge:: Exercise 2: Isnatall package
+
+Breakout room according to grouping
+
+
+.. challenge:: Exercise 2: Prepare the course environment
+
+   - venv or conda
+   - solution in drop-down
+
+.. challenge:: Exercise 3a: Install package (venv)
+
+   - Coose a package of the ones below:
+
+   **Prepare** list
 
     - Confirm package is absent
     - Create environment
@@ -425,14 +436,115 @@ Exercises
     - Deactivate environment
     - Confirm package is now absent again
 
+.. challenge:: (optional) 4a. Make a test environment (venv)
+
+   1. make a virtual environment with the name ``venv1``. Do not include packages from the the loaded module(s)
+   2. activate
+   3. install ``matplotlib``
+   4. make a requirements file of the content
+   5. deactivate
+   6. make another virtual environment with the name ``venv2``
+   7. activate that
+   8. install with the aid of the requirements file
+   9. check the content
+   10. open python shell from command line and try to import
+   11. exit python
+   12. deactivate
+   
+.. solution:: Solution 
+   :class: dropdown
+    
+   - First load the required Python module(s) if not already done so in earlier lessons. Remember that this steps differ between the HPC centers
+
+   1. make the first environment
+
+   .. code-block:: console
+
+      $ python -m venv venv1
+    
+   2. Activate it.
+
+   .. code-block:: console
+
+      $ source venv1/bin/activate
+
+      - Note that your prompt is changing to start with ``(venv1)`` to show that you are within an environment.
+   
+   3. install ``matplotlib``
+
+   .. code-block:: console
+
+      pip install matplotlib
+
+   4. make a requirements file of the content
+
+   .. code-block:: console
+
+      pip freeze --local > requirements.txt
+
+   5. deactivate
+
+   .. code-block:: console
+
+      deactivate
+
+   6. make another virtual environment with the name ``venv2``
+
+   .. code-block:: console
+
+      python -m venv venv2
+
+   7. activate that
+
+   .. code-block:: console
+
+      source venv2/bin/activate
+
+   8. install with the aid of the requirements file
+
+   .. code-block:: console
+
+      pip install -r requirements.txt
+
+   9. check the content
+
+   .. code-block:: console
+
+      pip list
+
+   10. open python shell from command line and try to import
+
+   .. code-block:: console
+
+      python
+
+   .. code-block:: python
+
+      import matplotlib
+
+   11. exit python
+
+   .. code-block:: python
+
+      exit()
+      
+   12. deactivate
+
+   .. code-block:: console
+
+      deactivate
+
+.. challenge:: 3b. Make a test environment (conda)
+
+.. challenge:: (optional) Exercise 4: like 3, but for other tool
+
+Dicsussion
+----------
 
 
-.. challenge:: (optional) Exercise 3: like 2, but for other tool
 
-.. challenge:: (optional) Exercise 4: 
-
-What's installed
-----------------
+What's installed already
+------------------------
 
 .. admonition:: Python packages in HPC and ML
    :class: dropdown
@@ -532,107 +644,12 @@ What's installed
 Exercises
 ---------
 
-.. challenge:: 1. Make a test environment
-
-   1. make a virtual environment with the name ``venv1``. Do not include packages from the the loaded module(s)
-   2. activate
-   3. install ``matplotlib``
-   4. make a requirements file of the content
-   5. deactivate
-   6. make another virtual environment with the name ``venv2``
-   7. activate that
-   8. install with the aid of the requirements file
-   9. check the content
-   10. open python shell from command line and try to import
-   11. exit python
-   12. deactivate
-   
-.. solution:: Solution 
-   :class: dropdown
-    
-   - First load the required Python module(s) if not already done so in earlier lessons. Remember that this steps differ between the HPC centers
-
-   1. make the first environment
-
-   .. code-block:: console
-
-      $ python -m venv venv1
-    
-   2. Activate it.
-
-   .. code-block:: console
-
-      $ source venv1/bin/activate
-
-      - Note that your prompt is changing to start with ``(venv1)`` to show that you are within an environment.
-   
-   3. install ``matplotlib``
-
-   .. code-block:: console
-
-      pip install matplotlib
-
-   4. make a requirements file of the content
-
-   .. code-block:: console
-
-      pip freeze --local > requirements.txt
-
-   5. deactivate
-
-   .. code-block:: console
-
-      deactivate
-
-   6. make another virtual environment with the name ``venv2``
-
-   .. code-block:: console
-
-      python -m venv venv2
-
-   7. activate that
-
-   .. code-block:: console
-
-      source venv2/bin/activate
-
-   8. install with the aid of the requirements file
-
-   .. code-block:: console
-
-      pip install -r requirements.txt
-
-   9. check the content
-
-   .. code-block:: console
-
-      pip list
-
-   10. open python shell from command line and try to import
-
-   .. code-block:: console
-
-      python
-
-   .. code-block:: python
-
-      import matplotlib
-
-   11. exit python
-
-   .. code-block:: python
-
-      exit()
-      
-   12. deactivate
-
-   .. code-block:: console
-
-      deactivate
 
       
 
 .. seealso::
 
    - want to share your work? :ref:`devel_iso`
+   - uploading files
+      - `NAISS transfer course <https://uppmax.github.io/naiss_file_transfer_course/sessions/intro/>`_
 
