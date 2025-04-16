@@ -5,7 +5,7 @@ Use the tarball with exercises
 
 .. admonition:: Goal
 
-    - You can run the example files needed for the exercises 
+    - You can run the example files needed for the exercises
     - If any, you are able to navigate to the project folder
     - If needed, you are able to create a subfolder in the project folder
 
@@ -46,7 +46,7 @@ Skip this step if your HPC cluster does not use project folders.
 .. admonition:: Forgot if your HPC cluster uses a project folder?
     :class: dropdown
 
-    In that case, do the rest of this step. You'll find out 
+    In that case, do the rest of this step. You'll find out
     how to navigate to the right folder in the answers.
 
 On your favorite HPC cluster, navigate to the project folder
@@ -108,7 +108,7 @@ Step 3: if there is a project folder, navigate inside that folder
 This step only applies if your HPC cluster uses a project folder.
 Skip this step if your HPC cluster does not use project folders.
 
-From the project folder of this course, 
+From the project folder of this course,
 navigate inside your personal folder
 
 .. admonition:: Answer
@@ -134,7 +134,7 @@ In the terminal, in your personal folder, type the following command:
 
 Step 6: Navigate in the folder of that day
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            
+
 After decompressing, there is a folder called  ``day2``, or ``day3`` or ``day4``
 that contains the exercises. Navigate into that folder.
 

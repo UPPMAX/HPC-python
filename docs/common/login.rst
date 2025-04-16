@@ -1,24 +1,24 @@
 .. _common-login:
 
-Log in and other preparations 
+Log in and other preparations
 =============================
 
 .. admonition:: Goal
 
-    - The goal of this optional sessions is to make sure that you have fulledfilled the 
+    - The goal of this optional sessions is to make sure that you have fulledfilled the
 
         - `Prerequisites <https://uppmax.github.io/HPC-python/prereqs.html>`_
 
         - `Preparations of environment <https://uppmax.github.io/HPC-python/preparations.html>`_ to follow this course:
 
             - you can log in
-            - you have have a folder to work in 
+            - you have have a folder to work in
             - you can start a text editor
 
     - We will also download exercise snippets and solutions that you can work with. `Use the tarball with exercises <https://uppmax.github.io/HPC-python/common/use_tarball.html>`_
 
 .. admonition:: **Learning outcomes**
-   
+
    - Be able to login, where you are
 
 .. admonition:: Cluster-specific approaches
@@ -26,9 +26,9 @@ Log in and other preparations
    - The course is a cooperation between **UPPMAX** (Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on the compute systems at all these centres, as well as select resources at NSC (Tetralith) and PDC (Dardel).
    - Although there are differences we will only have **few separate sessions**.
    - Most participants will use NSC's or Dardel's systems for the course, as Rackham, Kebnekaise and Cosmos are only for local (UU, UmU, IRF, MIUN, SLU, LTU, LU) users.
-   - The general information given in the course will be true for all/most HPC centres in Sweden. 
+   - The general information given in the course will be true for all/most HPC centres in Sweden.
 
-      - The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres. 
+      - The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres.
       - When present, links to the Julia/R/Matlab documentation at other NAISS centres are given in the corresponding session.
 
 .. note::
@@ -36,7 +36,7 @@ Log in and other preparations
    - You were invited to be part of the course project.
    - If you already have research projects in any of the clusters you can use them. The CPU-hours required during the course will be low!
 
-.. tip:: 
+.. tip::
 
    - If you have user account and *research* project on Kebnekaise, follow the **HPC2N** track below.
    - If you have user account and *research* project on Cosmos, follow the **LUNARC** track below.
@@ -130,16 +130,16 @@ For beginners: use the **bold** login method.
 
 .. warning::
 
-   - When you login to Cosmos, whether through ThinLinc or regular SSH client, you need 2FA 
-     
+   - When you login to Cosmos, whether through ThinLinc or regular SSH client, you need 2FA
+
       - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/
       - https://lunarc-documentation.readthedocs.io/en/latest/getting_started/authenticator_howto/
 
 .. warning::
 
-   - When you login to Tetralith, whether through ThinLinc or regular SSH client, you need 2FA 
+   - When you login to Tetralith, whether through ThinLinc or regular SSH client, you need 2FA
 
-      - https://www.nsc.liu.se/support/2fa/ 
+      - https://www.nsc.liu.se/support/2fa/
 
 - Please log in to the cluster that you are using.
 
@@ -150,20 +150,20 @@ For beginners: use the **bold** login method.
 
       1. Log in to Rackham!
 
-        - Terminal: ``ssh -X <user>@rackham.uppmax.uu.se`` 
-   
+        - Terminal: ``ssh -X <user>@rackham.uppmax.uu.se``
+
         - ThinLinc app: ``<user>@rackham-gui.uppmax.uu.se``
         - ThinLinc in web browser: ``https://rackham-gui.uppmax.uu.se``
-   
+
    .. tab:: HPC2N
 
-      - Kebnekaise through terminal: ``<user>@kebnekaise.hpc2n.umu.se``     
+      - Kebnekaise through terminal: ``<user>@kebnekaise.hpc2n.umu.se``
       - Kebnekaise through ThinLinc, use: ``<user>@kebnekaise-tl.hpc2n.umu.se``
 
 
    .. tab:: LUNARC
 
-      - Cosmos through terminal: ``<user>@cosmos.lunarc.lu.se``     
+      - Cosmos through terminal: ``<user>@cosmos.lunarc.lu.se``
       - Cosmos through ThinLinc, use: ``<user>@cosmos-dt.lunarc.lu.se``
 
    .. tab:: NSC
@@ -173,14 +173,14 @@ For beginners: use the **bold** login method.
 
    .. tab:: PDC
 
-      - Dardel through terminal: ``<user>@dardel.pdc.kth.se``     
+      - Dardel through terminal: ``<user>@dardel.pdc.kth.se``
       - Dardel through ThinLinc: ``<user>@dardel-vnc.pdc.kth.se``
 
          - **Warning!** Only 30 Dardel users at a time can use ThinLinc. Do not count on it being available.
 
 .. keypoints::
 
-   - When you log in from your local computer you will always arrive at a login node with limited resources. 
+   - When you log in from your local computer you will always arrive at a login node with limited resources.
        - You reach the calculations nodes from within the login node (See  Submitting jobs section)
    - You reach UPPMAX/HPC2N/LUNARC/NSC clusters either using a terminal client or Thinlinc
    - Graphics are included in Thinlinc and from terminal if you have enabled X11.
@@ -201,55 +201,55 @@ Step 2: Make a work directory
 .. tabs::
 
    .. tab:: UPPMAX
- 
+
       1. If not already: **create a working directory** where you can code along.
 
         - We recommend creating it under the course project storage directory
 
-      3. Example. If your username is "mrspock" and you are at UPPMAX, then we recommend you create this folder: 
-  
+      3. Example. If your username is "mrspock" and you are at UPPMAX, then we recommend you create this folder:
+
          .. code-block:: console
-      
+
             $ mkdir /proj/hpc-python-uppmax/mrspock/
 
    .. tab:: HPC2N
 
-      - Create a working directory where you can code along.    
-   
-        - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder: 
-  
+      - Create a working directory where you can code along.
+
+        - Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder:
+
         .. code-block:: console
-      
+
            $ mkdir /proj/nobackup/hpc-python-spring/bbrydsoe/
 
    .. tab:: LUNARC
 
-      - Create a working directory in your home space where you can code along.    
-   
-        - Example. Create this folder: 
+      - Create a working directory in your home space where you can code along.
+
+        - Example. Create this folder:
 
         .. code-block:: console
-      
+
            $ mkdir $HOME/hpc-python
 
    .. tab:: NSC
 
-      - Create a working directory where you can code along.    
-   
-        - Example. If your username is jlpicard and you are at NSC, then we recommend you create this folder: 
-  
+      - Create a working directory where you can code along.
+
+        - Example. If your username is jlpicard and you are at NSC, then we recommend you create this folder:
+
         .. code-block:: console
-      
+
            $ mkdir /proj/hpc-python-spring-naiss/users/jlpicard
 
    .. tab:: PDC
 
       - Create a working directory where you can code along.
-   
-        - Example. If your username is sevenof9 and you are at PDC, then we recommend you create this folder: 
-  
+
+        - Example. If your username is sevenof9 and you are at PDC, then we recommend you create this folder:
+
         .. code-block:: console
-      
+
            $ mkdir /cfs/klemming/projects/supr/hpc-python-spring-naiss/sevenof9/
 
 
@@ -258,7 +258,7 @@ Test an editor
 
 Learn how to use an text editor at :ref:`common-use-text-editor`.
 
-Download and extract the tarball with exercises 
+Download and extract the tarball with exercises
 -----------------------------------------------
 
 Learn how to download and extract the tarball with exercises

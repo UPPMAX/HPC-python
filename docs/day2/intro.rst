@@ -9,7 +9,7 @@ Introduction
 .. RB: Move 'Course learning outcomes' to index.rst
 
 .. admonition:: **Learning outcomes for this day**
-   
+
     - Find and load a Python package module
     - Determine if a Python package is installed
     - Use a virtual environment
@@ -19,7 +19,7 @@ Introduction
     - Use ``matplotlib``
 
 .. admonition:: **Learning outcomes of this session**
-   
+
     - Learners understand how this day is organized
     - Learners can find their NAISS project
     - Learners have read what they will learn
@@ -50,7 +50,7 @@ is one of the most used programming languages used today.
     - supports multiple programming paradigms
     - has a comprehensive standard library
     - has thousands of packages (pieces of re-usable code)
-    - has `official documentation <https://www.python.org/doc/>`__ 
+    - has `official documentation <https://www.python.org/doc/>`__
     - has `a forum <https://python-forum.io/>`__
 
 Running Python on an HPC cluster allows scientists to
@@ -77,7 +77,7 @@ on your favorite HPC cluster and extract the exercises.
 - Go to :ref:`common-use-tarball` and do the procedure.
 
 .. admonition:: **Done?**
-   
+
     When done, go to the next session and read up on it.
 
     You can easily navigate there by pressing the 'Next' arrow
