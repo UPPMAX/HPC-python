@@ -140,7 +140,7 @@ Load and Run
      
       On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
 
-   .. tab:: Tetralith
+   .. tab:: Tetralith (NSC)
      
       .. important::
 
@@ -149,13 +149,20 @@ Load and Run
          .. code-block:: console
         
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+         
+         Pandas, like NumPy, has typically been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
 
+   .. tab:: Dardel (PDC)
 
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            ml cray-python/3.11.7
      
-     Pandas, like NumPy, has been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
-
-
-
+      On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using ``ml PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12``, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.
 
 
 To know if Pandas is the right tool for your job, you can consult the flowchart below.
