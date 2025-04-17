@@ -314,7 +314,7 @@ The *explicit* API looks more like the following example. A figure and a set of 
 
 The outputs look the same above because the example was chosen to work with both APIs, but there is a lot that can be done with the explicit API but not the implicit API. A prime example is using the subplots function for its main purpose, which is to support and format 2 or more separate sets of axes on the same figure.
 
-.. challenge:: Let x be an array of 50 values from -5 to 5. Plot y = 1/(1-exp(-x)).
+.. challenge:: Let x be an array of 50 values from -5 to 5. Plot y = 1/(1+exp(-x)).
 
 .. solution:: Solution
     :class: dropdown
@@ -328,7 +328,7 @@ The outputs look the same above because the example was chosen to work with both
                %matplotlib inline 
                x = np.linspace(-5,5, 50)
                fig, ax = plt.subplots()
-               ax.plot(x, 1/(1-np.exp(-x)))
+               ax.plot(x, 1/(1+np.exp(-x)))
                plt.show()
 
 
