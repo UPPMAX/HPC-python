@@ -328,7 +328,7 @@ The outputs look the same above because the example was chosen to work with both
                %matplotlib inline 
                x = np.linspace(-5,5, 50)
                fig, ax = plt.subplots()
-               ax.plot(x, 1/(1-np.exp(-x))
+               ax.plot(x, 1/(1-np.exp(-x)))
                plt.show()
 
 
@@ -664,5 +664,5 @@ Key Points
 
 .. challenge::
 
-   Exercises and their solutions are provided separately in Jupyter notebooks. You may have to modify the search paths for the associated datafile(s). The data file for the Matplotlib exercises is ``exoplanets_5250_EarthUnits.csv``.
+   Exercises and their solutions are provided separately in Jupyter notebooks. You may have to modify the search paths for the associated datafile(s). The data file for the Matplotlib exercises is ``exoplanets_5250_EarthUnits_fixed.csv``, and it should be obvious from the file names which exercises are for Matplotlib.
 
