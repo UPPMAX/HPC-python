@@ -26,6 +26,10 @@ Both Spyder and Jupyter are available through Desktop On Demand. Other applicati
 
 Desktop On Demand requires the use of the Thinlinc interface. It is not accessible via ssh. 
 
+.. warning:: 
+
+   Dardel also has On-Demand applications located in the equivalent place on its remote desktop, but only 30 ThinLinc licenses are available for the whole facility. Talks are ongoing about whether and by how much to increase the number of licenses, but until the changes are implemented, we advise using SSH with -X forwarding instead. In our experience, ThinLinc access to Dardel is not reliably available, and even when connection succeeds, queue times for On-Demand applications can be very long.
+
 
 When should I use it?
 ---------------------
