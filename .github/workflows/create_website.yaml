@@ -48,6 +48,6 @@ jobs:
       - name: Install linter
         run: pip install sphinx-lint
 
-      - name: Run linter, no error
+      - name: Run linter, will never give an error
         run: sphinx-lint docs || true
 
