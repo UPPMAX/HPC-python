@@ -1443,7 +1443,7 @@ Exercises
                #!/bin/bash            
                #SBATCH -A lu202u-vw-xyz     # your project_ID
                #SBATCH -J job-parallel      # name of the job         
-               #SBATCH -n 4	            # nr. tasks  
+               #SBATCH -n 4                 # nr. tasks
                #SBATCH --time=00:20:00      # requested time
                #SBATCH --error=job.%J.err   # error file
                #SBATCH --output=job.%J.out  # output file 
