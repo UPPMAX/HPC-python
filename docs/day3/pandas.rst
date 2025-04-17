@@ -28,7 +28,7 @@ Load and Run
      
       .. important::
 
-         You should for this session load
+         For this session, you should load
 
          .. code-block:: console
         
@@ -81,7 +81,7 @@ Load and Run
 
       .. important::
 
-         You should for this session load
+         For this session, you should load
 
          .. code-block:: console
         
@@ -89,7 +89,7 @@ Load and Run
      
       On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
 
-      If you choose to work at the command line and opt not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use ``ml spider SciPy-bundle`` to see which versions are available, which Python versions they depend on, and how to load them.
+      If you work at the command line and choose not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use ``ml spider SciPy-bundle`` to see which versions are available, which Python versions they depend on, and how to load them.
 
       .. important::
     
@@ -132,7 +132,7 @@ Load and Run
 
       .. important::
 
-         You should for this session load
+         For this session, you should load
 
          .. code-block:: console
         
@@ -140,11 +140,12 @@ Load and Run
      
       On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
 
+
    .. tab:: Tetralith (NSC)
      
       .. important::
 
-         You should for this session load
+         For this session, you should load
 
          .. code-block:: console
         
@@ -152,11 +153,14 @@ Load and Run
          
          Pandas, like NumPy, has typically been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
 
+
    .. tab:: Dardel (PDC)
+
+      Jupyter Lab is only available on Dardel via ThinLinc. As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the `exercises <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb>`_ and `solutions <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb>`_ in the GitHub repository (they should render correctly).
 
       .. important::
 
-         You should for this session load
+         For this session, you should load
 
          .. code-block:: console
         
@@ -252,28 +256,33 @@ Input/Output and Making DataFrames from Scratch
 
 Most of the time, Series and DataFrames will be loaded from files, not made from scratch. The following table lists I/O functions for the most common data formats. Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise). 
 
-======  ========================================  ===================================================  =================================
-Typ1e    Data Description                          Reader                                               Writer
-======  ========================================  ===================================================  =================================
-text    CSV / ASCII text with standard delimiter  ``read_csv(path_or_url, sep=',', **kwargs)``         ``to_csv()``
-text    Fixed-Width Text File                     ``read_fwf()``                                       N/A
-text    JSON                                      ``read_json()``                                      ``to_json()``
-text    HTML                                      ``read_html()``                                      ``to_html()``
-text    LaTeX                                     N/A                                                  ``Styler.to_latex()``
-text    XML                                       ``read_xml()``                                       ``to_xml()``
-text    Local clipboard                           ``read_clipboard()``                                 ``to_clipboard()``
-SQL     SQLite table or query                     ``read_sql()``                                       ``to_sql()``
-SQL     Google BigQuery                           ``read_gbq()``                                       ``to_gbq()``
-binary  Python Pickle Format                      ``read_pickle()``                                    ``to_pickle()``
-binary  MS Excel                                  ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, sheet_name=...)``
-binary  OpenDocument                              ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, engine="odf")``
-binary  HDF5 Format                               ``read_hdf()``                                       ``to_hdf()``
-binary  Apache Parquet                            ``read_parquet()``                                   ``to_parquet()``
-======  ========================================  ===================================================  =================================
+======  ============================================  ===================================================  =================================
+Typ1e    Data Description                              Reader                                               Writer
+======  ============================================  ===================================================  =================================
+text    **CSV / ASCII text with standard delimiter**  ``read_csv(path_or_url, sep=',', **kwargs)``         ``to_csv()``
+text    Fixed-Width Text File                         ``read_fwf()``                                       N/A
+text    JSON                                          ``read_json()``                                      ``to_json()``
+text    HTML                                          ``read_html()``                                      ``to_html()``
+text    LaTeX                                         N/A                                                  ``Styler.to_latex()``
+text    XML                                           ``read_xml()``                                       ``to_xml()``
+text    Local clipboard                               ``read_clipboard()``                                 ``to_clipboard()``
+SQL     SQLite table or query                         ``read_sql()``                                       ``to_sql()``
+SQL     Google BigQuery                               ``read_gbq()``                                       ``to_gbq()``
+binary  Python Pickle Format                          ``read_pickle()``                                    ``to_pickle()``
+binary  **MS Excel**                                  ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, sheet_name=...)``
+binary  **OpenDocument**                              ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, engine="odf")``
+binary  HDF5 Format                                   ``read_hdf()``                                       ``to_hdf()``
+binary  Apache Parquet                                ``read_parquet()``                                   ``to_parquet()``
+======  ============================================  ===================================================  =================================
 
 This is not a complete list, and most of these functions have several dozen possible kwargs. It is left to the reader to determine what kwargs are needed. As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
 
 In the example below, a CSV file called "exoplanets_5250_EarthUnits.csv" in the current working directory is read into the DataFrame ``df`` and then written out to a plain text file where decimals are rendered with commas, the delimiter is the pipe character, and the indexes are preserved as the first column.
+
+
+.. hint:: 
+
+   Try it yourself!
 
 .. code-block:: python
 
@@ -290,6 +299,10 @@ Building a DataFrame or Series from scratch is also easy. Lists and arrays can b
 * Dictionaries and record arrays can be converted to DataFrames with ``pd.DataFrame.from_dict(myDict)`` and ``pd.DataFrame.from_records(myRecArray)``, respectively, and the keys will automatically be converted to column labels.
 
 **Example**
+
+.. hint:: 
+
+   Try it yourself!
 
 .. jupyter-execute::
 
@@ -396,6 +409,10 @@ There are a couple of types of bad data that Pandas handles less well: infinitie
 * Pandas assumes whitespaces are intentional, so ``.isna()`` will not detect them. If a numerical data column contains spaces where there are missing data, the whole column will be misclassified as ``object`` type. The fix for this is ``df['col'] = df['col'].replace(' ', np.nan).astype('float64')``.
 * ``.isna()`` does not detect infinities, nor does ``.notna()`` exclude them. To index infinities for removal or other functions, use ``np.isinf(copy.to_numpy())`` where ``copy`` is a copy of the DataFrame or Series, or any subset thereof.
 
+.. hint:: 
+
+   Try it yourself!
+
 .. jupyter-execute::
 
     import numpy as np
@@ -407,6 +424,8 @@ There are a couple of types of bad data that Pandas handles less well: infinitie
     #Eccentricity is never exactly 0; 0s are dummy values
     print(df.sample(n=3))
     print('\n',df.info())
+    # This will make things easier for everyone later
+    df.to_csv('exoplanets_5250_EarthUnits_fixed.csv', index=True)
 
 
 Sorting and Merging
@@ -492,11 +511,15 @@ or
 
 Let's return to our recurring example, the exoplanet dataset, and group it by the column ``'planet_type'``.
 
+.. hint:: 
+
+   Try it yourself!
+
 .. jupyter-execute::
 
     import numpy as np
     import pandas as pd
-    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
     grouped1=df.groupby(['planet_type'])
     print(grouped1.nth(0)) #first element of each group
 
@@ -524,14 +547,15 @@ Iteration over DataFrames, Series, and GroupBy objects is slow and should be avo
 
 Here's an example with a GroupBy object.
 
+.. hint:: 
+
+   Try it yourself!
+
 .. jupyter-execute::
 
     import numpy as np
     import pandas as pd
-    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
-    ### Have to redo the cleaning every time because this isn't a notebook
-    df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
-    df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
     grouped1=df.groupby(['planet_type'])
     print(grouped1['mass_ME'].median()) #planet types are proxies for mass ranges
 
@@ -614,10 +638,7 @@ If the transformation you need to apply to your data cannot be simply constructe
       
           import numpy as np
           import pandas as pd
-          df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
-          ### Have to redo the cleaning every time because this isn't a notebook
-          df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
-          df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
+          df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
           grouped2 = df.groupby(['detection_method','planet_type'])
           print(grouped2[['mass_ME']].agg(lambda x: 'avg: {:.2f}, pct err: {:.0%}'.format(np.nanmean(x),
                                           np.nanstd(x)/np.nanmean(x))))
@@ -660,10 +681,7 @@ If the transformation you need to apply to your data cannot be simply constructe
       
           import numpy as np
           import pandas as pd
-          df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
-          ### Have to redo the cleaning every time
-          df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
-          df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
+          df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
           pmass = {'Jupiter': 317.8, 'Neptune':17.15, 'Earth':1.0}
           def scale_mass(group):
               if group['planet_type'].iloc[0] == 'Gas Giant':
@@ -727,10 +745,7 @@ For demonstration, here is an example based loosely on the climate of your teach
       
         import numpy as np
         import pandas as pd
-        df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
-        ### Have to redo the cleaning every time
-        df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
-        df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
+        df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
         import numba
         numba.set_num_threads(4)
         stuff =  df.iloc[:,4:9].sample(n=250000, replace=True, ignore_index=True)
@@ -758,10 +773,7 @@ For demonstration, here is an example based loosely on the climate of your teach
     
        import pandas as pd
        import numpy as np
-       df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
-       df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
-       df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-       df.mask(df['mass_ME']>80*318, inplace=True) #80 Jupiter masses = minimum stellar mass
+       df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
        # look at the radius distribution
        df['radius_RE'].plot(kind='hist', bins=20, xlabel='Planet radius (Earth radii)')
 
@@ -820,10 +832,7 @@ Efficient Data Types
 
     import pandas as pd
     import numpy as np
-    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
-    df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
-    df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
-    
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)    
     print("Before:\n", df['planet_type'].memory_usage(deep=True))
     # Convert planet_type to categorical
     ptypes=df['planet_type'].astype('category')
@@ -837,9 +846,7 @@ Efficient Data Types
 
     import pandas as pd
     import numpy as np
-    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
-    df['mass_ME'] = df['mass_ME'].replace(' ', np.nan).astype('float64')
-    df['radius_RE'] = df['radius_RE'].replace(' ', np.nan).astype('float64')
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
     # look at the radius distribution before binning, (and get rid of nonsense)
     df['radius_RE'].loc[df['radius_RE']<30].plot(kind='kde', xlim=(0,30), title='Radius distribution (Earth radii)')
     #xlabel normally works but not for 'kde' for some reason
@@ -928,6 +935,6 @@ Key Points
 - ``Categorical`` and ``SparseDtype`` datatypes can help you reduce the memory footprint of your data.
 - Pandas supports datetime- and timedelta-like data and has methods to resample such data to different time steps.
 
-.. note::
+.. challenge::
 
-   Exercises and their solutions are provided separately in Jupyter notebooks. You may have to modify the search paths for the associated datafiles. The data files for the Pandas exercises are ``covid19_italy_region.csv`` and ``ita_pop_by_reg.txt``.
+   Exercises and their solutions are provided separately in Jupyter notebooks. You may have to modify the search paths for the associated data files. The data files for the Pandas exercises are ``covid19_italy_region.csv`` and ``ita_pop_by_reg.txt``.
