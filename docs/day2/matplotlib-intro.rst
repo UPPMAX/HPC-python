@@ -22,22 +22,22 @@ explanations of function arguments.
    -  Pandas
    -  LaTeX math typesetting (reference links are provided)
    
-   Before we get started, let's the meanings of the terms ``args`` and ``kwargs``, since they will appear frequently:
+   You should be familiar with the meanings of the terms ``args`` and ``kwargs``, since they will appear frequently:
    
    -  ``args`` refer to *positional arguments*, which are usually mandatory, but not always. These always come before the ``kwargs``.
    -  ``kwargs`` are short for *keyword arguments*. These are usually optional, but it's fairly common for some python functions to require a variable subset of all available kwargs dependent on previous inputs. These always come after ``args``.
    
-   It will also help you to remember what classes, methods, and attributes are:
-   
-   -  ``classes`` are templates to make Python objects. They have a built-in ``__init__()`` function to set initial properties that must be defined when an object of this class is created, and they methods and attributes to compute values or functions with. Once a class is defined, you typically define an instance of it like ``obj = MyClass(...)``.
-   -  ``methods`` associate *functions* with the class and allow quick evaluation for each class instance. For an object ``obj`` of class ``MyClass`` that has methods, the method syntax looks like this: ``obj.MyMethod()`` or ``obj.MyMethod(\*args, \*\*kwargs)``.
-   -  ``attributes`` let you automatically compute and store *values* that can be derived for any instance of the class. For an object ``obj`` with an attribute ``MyAttribute``, the syntax is``obj.MyAttribute``; i.e. the main difference between attributes and methods is that attributes do not take arguments.
-
 
 Load and Run
 ------------
 
 In most cases, you will need to load a compatible version of SciPy-bundle to use NumPy, which you will need to create or prepare data for plotting.
+
+
+.. admonition:: ``from matplotlib import pyplot as plt``
+
+   In all cases, once you have reached the stage where you are at a Python command prompt or in a script file, the first thing you will have to do to use any plotting commands is import ``matplotlib.pyplot``. Usually the command is written as it is in the title of this info box, but you can also just write ``import matplotlib.pyplot as plt`` for short. If you work in a development environment like Spyder, that will often be the only package that you need out of Matplotlib.
+
 
 .. tabs::
 
@@ -227,24 +227,27 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
 
       The output is misleading in that matplotlib/3.8.2-cpeGNU-23.12 is the module that provides matplotlib/3.8.2 as an extension, so there is really only that one option. This version requires Python 3.11.x, which on Dardel is best provided by ``cray-python/3.11.5`` and ``cray-python/3.11.7`` (both of which include NumPy, SciPy, and mpi4py). This matplotlib version also requires preloading PDC/23.12.
 
-      After importing matplotlib, you need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots, and call ``plot.show()`` explicitly to make the display window appear.
-
+      After importing matplotlib, you will need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots, and call ``plot.show()`` explicitly to make the display window appear.
+    
 
 Controlling the Display
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 At the regular terminal, Matplotlib figures will typically not display unless you a set *backend* that allows displays and is compatible with your version of python (The exception to this is Rackham, which should run without you having to set a backend). *Backends* are engines for either displaying figures or writing them to image files (see `the matplotlib docs page on backends for more detail <https://matplotlib.org/stable/users/explain/figure/backends.html>`_ for more info).
 
-**Command Line.** For Python 3.11.x, ``Tkinter`` is the backend that generates figure popups when you create a plot and then type ``plt.show()`` at the command line. You can set this by importing the top-level ``matplotlib`` package and then running ``matplotlib.use('TkAgg')`` before doing any plotting (if you forget, you can set it at any time). If for some reason that doesn't work, or if you're on Rackham and the default backend doesn't work for you, you can try ``matplotlib.use('Qt5Agg')``.
+**Command Line.** For Python 3.11.x, a Tkinter-based backend is required to generate figure popups when you type ``plt.show()`` at the command line. You can set the appropriate backend by importing the top-level ``matplotlib`` package and then running ``matplotlib.use('TkAgg')`` before doing any plotting (if you forget, you can set it at any time). If for some reason that doesn't work, or if you're on Rackham and the default backend doesn't work for you, you can try ``matplotlib.use('Qt5Agg')``.
 
 **Jupyter.** In Jupyter, after importing matplotlib or any of its sub-modules, you typically need to add ``% matplotlib inline`` before you make any plots. You should not need to set ``matplotlib.use()``.
 
-**Spyder.** In Spyder, the default setting is for figures to be displayed in-line at the IPython console, which is too small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup, go to "Preferences", then "IPython console", click the "Graphics" tab, and switch the Backend from "Inline" to "Automatic" the provided drop-down menu. These settings will be retained from session to session, so you only have to do it the first time you run Spyder. The interactive popup for Spyder offers extensive editing and saving options.
+**Spyder.** In Spyder, the default setting is for figures to be displayed in-line at the IPython console or in a "Graphics" tab in the upper right. In either case, the graphic will be too small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup, go to "Preferences", then "IPython console", click the "Graphics" tab, and switch the Backend from "Inline" to "Automatic" the provided drop-down menu. These settings should be retained from session to session, so you only have to do it the first time you run Spyder. The interactive popup for Spyder offers extensive editing and saving options.
 
 Matplotlib uses a default resolution of 100 dpi and a default figure size of 6.4" x 4.8" (16.26 x 12.19 cm) in GUIs and with the default backend. The inline backend in Jupyter (what the ``% matplotlib inline`` command sets) uses an even lower-res default of 80 dpi.
 
 -  The ``dpi`` kwarg in ``plt.figure()`` or ``plt.subplots()`` (not a valid kwarg in ``plt.subplot()`` singular) lets you change the figure resolution at runtime. For on-screen display, 100-150 dpi is fine as long as you don't set ``figsize`` too big, but publications often request 300 DPI.
 -  The ``figsize = (i,j)`` kwarg in ``plt.figure()`` and ``plt.subplots()`` also lets you adjust the figure size and aspect ratio. The default unit is inches.
+
+
+.. challenge:: Follow the preceding sections to get to the stage of importing ``matplotlib.pyplot`` and ``numpy`` in your choice of interface, on your local computing resource.
 
 
 Basic Terms and Application Programming Interface (API)
@@ -278,6 +281,7 @@ Most people's first attempt to plot something in matplotlib looks like the follo
 
    import numpy as np
    import matplotlib.pyplot as plt
+   # this code block uses Jupyter to execute
    %matplotlib inline 
    x = np.linspace(0,2*np.pi, 50)   # fake some data
    # Minimum working example with 2 functions
@@ -295,13 +299,13 @@ The *explicit* API looks more like the following example. A figure and a set of 
 
    import numpy as np
    import matplotlib.pyplot as plt
+   # this code block uses Jupyter to execute
    %matplotlib inline 
    x = np.linspace(0,2*np.pi, 50)
    # Better way for later formatting
    fig, ax = plt.subplots()
-   ax.plot(x,3+3*np.sin(x),'b-')#, label=r'3+3$\times$sin(x)')
-   ax.plot(x, 2+2*np.cos(x), 'r-.')#, label=r'2+2$\times$cos(x)')
-   #ax.legend()
+   ax.plot(x,3+3*np.sin(x),'b-')
+   ax.plot(x, 2+2*np.cos(x), 'r-.')
    ax.set_xlabel('x [rads]')
    ax.set_ylabel('y')
    ax.set_title('Demo Plot - Explicit API')
@@ -309,6 +313,23 @@ The *explicit* API looks more like the following example. A figure and a set of 
 
 
 The outputs look the same above because the example was chosen to work with both APIs, but there is a lot that can be done with the explicit API but not the implicit API. A prime example is using the subplots function for its main purpose, which is to support and format 2 or more separate sets of axes on the same figure.
+
+.. challenge:: Let x be an array of 50 values from -5 to 5. Plot y = 1/(1-exp(-x)).
+
+.. solution:: Solution
+    :class: dropdown
+
+         The code block below uses Jupyter to render the output, which requires ``%matplotlib inline``. If you're at the command line, you would have had to import matplotlib and set ``matplotlib.use('TkAgg')`` or the recommended backend from the section on controlling the display. You did not have to choose a format string.
+
+          .. jupyter-execute::
+
+               import numpy as np
+               import matplotlib.pyplot as plt
+               %matplotlib inline 
+               x = np.linspace(-5,5, 50)
+               fig, ax = plt.subplots()
+               ax.plot(x, 1/(1-np.exp(-x))
+               plt.show()
 
 
 Subplots and Subplot Mosaics
@@ -408,6 +429,8 @@ The Matplotlib GUI has a typical save menu option (indicated by the usual floppy
 -  ``plt.imsave(fname, arr, **kwargs)`` is specifically for saving arrays to images. It accepts a 2D (single-channel) array with a specified colormap and normalization, or an RGB(A) array (a stack of images in 3 color channels, or 3 color channels and an opacity array). Generally you also have to set ``origin='lower'`` for the image to be rendered right-side up.
 
 A few common formats that Matplotlib supports include PDF, PS, EPS, PNG, and JPG/JPEG. Other desirable formats like TIFF and SVG are not supported natively in interactive display backends, but can be used with static backends (used for saving figures without displaying them) or with the installation of the ``Pillow`` module. At most facilities, Pillow is loaded with Matplotlib, so you will see SVG as a save option in the GUI. `Matplotlib has a tutorial here <https://matplotlib.org/stable/tutorials/images.html>`_  on importing images into arrays for use with ``pyplot.imshow()``.
+
+.. challenge:: Rerun your earlier example and save it as an SVG file if the option is available, PDF otherwise.
 
 
 Standard Available Plot Types
@@ -639,7 +662,7 @@ Key Points
 -  Most of the plotting and formatting commands you will use are methods of ``Axes`` objects, but a few, like ``colorbar`` are methods of the ``Figure``, and some commands are methods both.
 
 
-.. note::
+.. challenge::
 
    Exercises and their solutions are provided separately in Jupyter notebooks. You may have to modify the search paths for the associated datafile(s). The data file for the Matplotlib exercises is ``exoplanets_5250_EarthUnits.csv``.
 
