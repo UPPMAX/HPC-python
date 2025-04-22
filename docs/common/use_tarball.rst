@@ -50,7 +50,7 @@ Skip this step if your HPC cluster does not use project folders.
     how to navigate to the right folder in the answers.
 
 On your favorite HPC cluster, navigate to the project folder
-of this course. See :ref:`work-directory` for where these are.
+of this course. See :ref:`common-naiss-projects-overview` for where these are.
 
 .. admonition:: Answer
     :class: dropdown
