@@ -158,7 +158,7 @@ Content of the course
    common/use_text_editor.rst
    common/understanding_clusters.rst
    common/naiss_projects_overview.rst
-   day2/ondemand-desktop.rst
+   common/interactive_ondemand.md
 
 .. toctree::
    :maxdepth: 2
