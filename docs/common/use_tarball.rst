@@ -70,7 +70,7 @@ of this course. See :ref:`common-naiss-projects-overview` for where these are.
     +------------+------------------------------------------------------------+
     | Kebnekaise | ``cd /proj/nobackup/hpc-python-spring``                    |
     +------------+------------------------------------------------------------+
-    | LUMI       | None. Use ``cd /proj/[your_project_code]``                 |
+    | LUMI       | None. Use ``cd /project/[your_project_code]``              |
     +------------+------------------------------------------------------------+
     | Rackham    | ``cd /proj/hpc-python-uppmax``                             |
     +------------+------------------------------------------------------------+
