@@ -80,7 +80,7 @@ Common features
     :format: html
 
 .. list-table:: Hardware
-   :widths: 25 25 25 25 25 25 25
+   :widths: 25 25 25 25 25 25 25 25
    :header-rows: 1
 
    * - Technology
@@ -90,13 +90,15 @@ Common features
      - Bianca
      - Cosmos
      - Tetralith  
+     - Dardel   
    * - Cores per calculation node
-     - 28 (72 for largemem part + 8 nodes with 128)
+     - 28 (Intel Skylake), 72 (largemem), 128/256 (AMD Zen3/Zen4)
      - 20
      - 16
      - 16
      - 48 (AMD) and 32 (Intel) 
      - 32   
+     - 128 
    * - Memory per calculation node
      - 128-3072 GB 
      - 128-1024 GB
@@ -104,17 +106,19 @@ Common features
      - 128-512 GB
      - 256-512 GB 
      - 96-384 GB  
+     - 256-2048 GB 
    * - GPU
-     - NVidia V100 + NVidia A100, :raw-html:`<br/>` AMD MI100, NVidia H100, :raw-html:`<br />` Nvidia A600, and 10 NVidia L40S
+     - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100
      - None
      - Nvidia T4 
      - 2 NVIDIA A100
      - NVidia A100
      - NVidia T4 
+     - 4 AMD Instinct™ MI250X á 2 GCDs 
 
 
-Running your programs and scripts on UPPMAX, HPC2N, LUNARC, and NSC
---------------------------------------------------------------------
+Running your programs and scripts on UPPMAX, HPC2N, LUNARC, NSC, and PDC 
+------------------------------------------------------------------------
 
 Any longer, resource-intensive, or parallel jobs must be run through a **batch script**.
 

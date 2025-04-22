@@ -13,7 +13,7 @@ The command to request an interactive node differs per HPC cluster:
 +---------+-----------------+-------------+-------------+
 | Cluster | ``interactive`` | ``salloc``  | GfxLauncher |
 +=========+=================+=============+=============+
-| HPC2N   | Works           | Recommended | N/A         |
+| HPC2N   | Works           | Recommended | Possible    |
 +---------+-----------------+-------------+-------------+
 | UPPMAX  | Recommended     | Works       | N/A         |
 +---------+-----------------+-------------+-------------+
@@ -29,7 +29,7 @@ Start an interactive session from OnDemand
 
 For most programs, the start-up process is roughly the same:
 
-#. Log into COSMOS/(Dardel) via Thinlinc to start a  HPC Desktop session.
+#. Log into COSMOS/(Dardel) via Thinlinc to start a HPC Desktop session.
 #. Click ``Applications`` in the top left corner and hover over the items prefixed with ``Applications -`` until you find your desired application.
 #. Upon clicking your chosen application, a pop-up, the Gfx Launcher interface, will appear and let you set the following options:
       #. **Wall time** - how long your interactive session will remain open. When it ends, the whole window closes immediately and any unsaved work is lost. You can select the time from a drop-down menu, or type in the time manually. CPU-only applications can run for up to 168 hours (7 days), but the rest are limited to 48 hours. Default is 30 minutes.

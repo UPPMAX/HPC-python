@@ -116,10 +116,86 @@ Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, NSC, and
 
 - Beginner's guide to clusters: https://www.hpc2n.umu.se/documentation/guides/beginner-guide
 
+Common features
+###############
+
+- Intel CPUs
+- Linux kernel
+- Bash shell
+
+.. role:: raw-html(raw)
+    :format: html
+
+.. list-table:: Hardware
+   :widths: 25 25 25 25 25 25 25 25
+   :header-rows: 1
+
+   * - Technology
+     - Kebnekaise
+     - Rackham
+     - Snowy
+     - Bianca
+     - Cosmos
+     - Tetralith  
+     - Dardel 
+   * - Cores per calculation node
+     - 28 (Intel Skylake), 72 (largemem), 128/256 (AMD Zen3/Zen4)
+     - 20
+     - 16
+     - 16
+     - 48 (AMD) and 32 (Intel) 
+     - 32   
+     - 128  
+   * - Memory per calculation node
+     - 128-3072 GB 
+     - 128-1024 GB
+     - 128-4096 GB
+     - 128-512 GB
+     - 256-512 GB 
+     - 96-384 GB  
+     - 256-2048 GB
+   * - GPU
+     - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100
+     - None
+     - Nvidia T4 
+     - 2 NVIDIA A100
+     - NVidia A100
+     - NVidia T4 
+     - 4 AMD Instinct™ MI250X á 2 GCDs
+
+Running your programs and scripts on UPPMAX, HPC2N, LUNARC, NSC, and PDC 
+------------------------------------------------------------------------
+
+Any longer, resource-intensive, or parallel jobs must be run through a **batch script**.
+
+   - Demanding work (CPU or Memory intensive) should be done on the compute nodes.
+   - If you need live interaction you should start an "interactive session"
+   - On Cosmos (LUNARC) and Dardel (PDC) (and soon at HPC2N) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher``.
+   - Otherwise the terminal approach will work in all centers.
+
+
+The batch system used at UPPMAX, HPC2N, LUNARC, NSC, and PDC is called SLURM.
+
+SLURM is an Open Source job scheduler, which provides three key functions
+
+- Keeps track of available system resources
+- Enforces local system resource usage and job scheduling policies
+- Manages a job queue, distributing work across resources according to policies
+
+In order to run a batch job, you need to create and submit a SLURM submit file (also called a batch submit file, a batch script, or a job script) *or* give the commands for an interactive job.
+
+Guides and documentation at:
+
+- HPC2N: http://www.hpc2n.umu.se/support
+- UPPMAX: http://docs.uppmax.uu.se/cluster_guides/slurm/
+- LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_intro/
+- NSC: https://www.nsc.liu.se/support/batch-jobs/
+- PDC: https://support.pdc.kth.se/doc/run_jobs/job_scheduling/ 
+
 The different way HPC2N, UPPMAX, LUNARC, NSC, and PDC provide for an interactive session
 -----------------------------------------------------------------------------------
 
-Example, HPC2N vs. UPPMAX vs. LUNARC (NSC is similar to LUNARC): 
+Example, HPC2N vs. UPPMAX vs. LUNARC (NSC is similar to LUNARC, PDC is similar to UPPMAX *or* can be similar to HPC2N): 
 
 .. mermaid:: ../mermaid/interactive_node_transitions.mmd 
 
@@ -130,7 +206,7 @@ Example, HPC2N vs. UPPMAX vs. LUNARC (NSC is similar to LUNARC):
 Here we define an interactive session as a session with direct access to a compute node.
 Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
 
-This differs between HPC2N and UPPMAX :
+This differs between the centers :
 
 - HPC2N: the user remains on a login node. 
   All commands can be sent directly to the compute node using ``srun``
@@ -138,6 +214,7 @@ This differs between HPC2N and UPPMAX :
   Whatever command is done, it is run on the compute node
 - LUNARC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node
 - NSC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node  
+- PDC: the user remains on a login node and can submit jobs to the compute node with ``srun`` *or* (recommended) the user login to the compute node with ssh after the job is allocated. Any commands are then run directly on the compute node. 
 
 Start an interactive session
 ----------------------------
@@ -150,7 +227,7 @@ The command to request an interactive node differs per HPC cluster:
 +---------+-----------------+-------------+-------------+
 | Cluster | ``interactive`` | ``salloc``  | GfxLauncher |
 +=========+=================+=============+=============+
-| HPC2N   | Works           | Recommended | N/A         |
+| HPC2N   | Works           | Recommended | Possible    |
 +---------+-----------------+-------------+-------------+
 | UPPMAX  | Recommended     | Works       | N/A         |
 +---------+-----------------+-------------+-------------+
@@ -158,12 +235,13 @@ The command to request an interactive node differs per HPC cluster:
 +---------+-----------------+-------------+-------------+
 | NSC     | Recommended     | N/A         | N/A         | 
 +---------+-----------------+-------------+-------------+ 
-
+| PDC     | N/A             | Recommended | Possible    |
++---------+-----------------+-------------+-------------+
 
 Start an interactive session in the simplest way
 ################################################
 
-To start an interactive session in the simplest way, is shown here:
+To start an interactive session in the simplest way, as shown here:
 
 .. tabs::
 
@@ -283,6 +361,12 @@ To start an interactive session in the simplest way, is shown here:
          [x_birbr@n302 ~]$ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
          [x_birbr@n302 ~]$
 
+   .. tab:: PDC 
+
+      .. code-block:: console 
+
+         
+         
 Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC.
 
 However, this simplest way may have some defaults settings that do not fit you. 
