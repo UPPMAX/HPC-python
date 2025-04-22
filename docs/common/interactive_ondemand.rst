@@ -183,7 +183,32 @@ To start an interactive session in the simplest way, is shown here:
          [x_birbr@n302 ~]$ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
          [x_birbr@n302 ~]$
 
-Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC.
+  .. tab:: PDC (salloc)
+
+      .. code-block:: console 
+
+         salloc -A [project_name]
+
+      Where ``[project_name]`` is the PDC project name,
+      for example ``interactive -A naiss2025-22-403``.  
+
+      This will look similar to this: 
+
+      .. code-block:: console
+
+         claremar@login1:~> salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-403
+         salloc: Pending job allocation 9102757
+         salloc: job 9102757 queued and waiting for resources
+         salloc: job 9102757 has been allocated resources
+         salloc: Granted job allocation 9102757
+         salloc: Waiting for resource configuration
+         salloc: Nodes nid001057 are ready for job
+
+      We need to ssh to the specific node
+
+      .. code-block:: console
+
+         ssh nid001057
 
 However, this simplest way may have some defaults settings that do not fit you. 
 
@@ -191,8 +216,6 @@ However, this simplest way may have some defaults settings that do not fit you.
 - the session has too few cores available
 
 You can add more resources the same way as for batch jobs.
-
-There is some information here: <https://uppmax.github.io/R-python-julia-matlab-HPC/python/interactivePython.html#start-an-interactive-session-in-a-more-elaborate-way>.
 
 End an interactive session
 --------------------------
@@ -203,7 +226,7 @@ You leave interactive mode with ``exit``.
 Check to be in an interactive session
 -------------------------------------
 
-.. admonition:: For UPPMAX, LUNARC, and NSC 
+.. admonition:: For UPPMAX, LUNARC, PDC and NSC 
 
    You check if you are in an interactive session with: 
 
@@ -242,13 +265,34 @@ Check to be in an interactive session
 Check that the number of cores booked is correct
 ------------------------------------------------
 
-You can do this on all clusters, except for Cosmos, with 
+You can do this on all clusters, except for Dardel and Cosmos, with 
 
 .. code-block:: 
 
    $ srun hostname
 
 And then you will get one line of output per core booked. 
+
+On Dardel instead test
+
+.. code-block:: console
+                  
+   claremar@nid001027:~> srun -n 4 hostname
+   nid001027
+   nid001027
+   nid001027
+   nid001027
+   claremar@nid001027:~> srun -n 8 hostname
+   nid001027
+   nid001027
+   nid001027
+   nid001027
+   nid001027
+   nid001027
+   nid001027
+   nid001027
+   claremar@nid001027:~> srun -n 9 hostname
+   srun: error: Unable to create step for job 9702490: More processors requested than permitte
 
 On Cosmos instead do:
 
