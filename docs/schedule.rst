@@ -75,9 +75,8 @@ Day 2: Packages and basic analysis
 |15:45-16:00 | Evaluation                      |Richel                          |
 +------------+---------------------------------+--------------------------------+
 
-- [1] Spyder only works on LUNARC, for an old version.
-  Using virtual environments may get this to work on other session.
-  Björn will investigate this :+1:
+- [1] Spyder only works on LUNARC, for a 2024 version of Anaconda3.
+  Using virtual environments may get this to work on other sessions.
 - [2] ?OnDemand,?parallel session
 
 .. _schedule-day-3:
