@@ -29,7 +29,7 @@ Log in and other preparations
    - The general information given in the course will be true for all/most HPC centres in Sweden.
 
       - The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres.
-      - When present, links to the Julia/R/MATLAB documentation at other NAISS centres are given in the corresponding session.
+      - When present, links to the Python documentation at other NAISS centres are given in the corresponding session.
 
 .. note::
 
