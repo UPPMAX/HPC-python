@@ -22,7 +22,7 @@ At LUNARC (and coming to other HPC centers in the not-too-distant future), the D
 
 Later you will hear us talking more about the GfxLauncher than Desktop On Demand because while the latter is the underlying service provider, the former is what you will see every time you start an interactive application.
 
-Both Spyder and Jupyter are available through Desktop On Demand. Other applications can be launched from an Interactive Terminal or Accelerated Terminal session. VSCode currently only runs on the login nodes, but its command line can be configured to connect and submit jobs to the compute nodes *(Will Jayant cover this?)*.
+Both Spyder and Jupyter are available through Desktop On Demand. Other applications can be launched from an Interactive Terminal or Accelerated Terminal session. VSCode currently only runs on the login nodes, but its command line can be configured to connect and submit jobs to the compute nodes.
 
 Desktop On Demand requires the use of the Thinlinc interface. It is not accessible via ssh. 
 
