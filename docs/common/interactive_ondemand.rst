@@ -282,6 +282,11 @@ On Dardel instead test
    nid001027
    nid001027
    nid001027
+
+Now, it seems that Dardel allows for "hyperthreading", that is 2 threads per core.
+
+.. code-block:: console
+
    claremar@nid001027:~> srun -n 8 hostname
    nid001027
    nid001027
