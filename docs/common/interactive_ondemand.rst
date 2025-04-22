@@ -8,6 +8,22 @@ Interactive sessions and Desktop On-Demand
    - On Cosmos (LUNARC) and Dardel (PDC) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher``.
    - Otherwise the terminal approach will work in all centers.
 
+The command to request an interactive node differs per HPC cluster:
+
++---------+-----------------+-------------+-------------+
+| Cluster | ``interactive`` | ``salloc``  | GfxLauncher |
++=========+=================+=============+=============+
+| HPC2N   | Works           | Recommended | N/A         |
++---------+-----------------+-------------+-------------+
+| UPPMAX  | Recommended     | Works       | N/A         |
++---------+-----------------+-------------+-------------+
+| LUNARC  | Works           | N/A         | Recommended | 
++---------+-----------------+-------------+-------------+
+| NSC     | Recommended     | N/A         | N/A         | 
++---------+-----------------+-------------+-------------+ 
+| PDC     | N/A             | Recommended | Possible    | 
++---------+-----------------+-------------+-------------+ 
+
 Start an interactive session from OnDemand 
 ==========================================
 
@@ -46,23 +62,6 @@ For a few applications (e.g. Jupyter Lab), GfxLauncher will also offer an additi
 
 Start an interactive session from the terminal
 ==============================================
-
-The command to request an interactive node differs per HPC cluster:
-
-+---------+-----------------+-------------+-------------+
-| Cluster | ``interactive`` | ``salloc``  | GfxLauncher |
-+=========+=================+=============+=============+
-| HPC2N   | Works           | Recommended | N/A         |
-+---------+-----------------+-------------+-------------+
-| UPPMAX  | Recommended     | Works       | N/A         |
-+---------+-----------------+-------------+-------------+
-| LUNARC  | Works           | N/A         | Recommended | 
-+---------+-----------------+-------------+-------------+
-| NSC     | Recommended     | N/A         | N/A         | 
-+---------+-----------------+-------------+-------------+ 
-
-Start an interactive session in the simplest way
-------------------------------------------------
 
 To start an interactive session in the simplest way, is shown here:
 
