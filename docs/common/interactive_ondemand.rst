@@ -1,4 +1,5 @@
-# Interactive sessions and Desktop On-Demand
+Interactive sessions and Desktop On-Demand
+##########################################
 
 .. info::
 
@@ -7,7 +8,8 @@
    - On Cosmos (LUNARC) and Dardel (PDC) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher``.
    - Otherwise the terminal approach will work in all centers.
 
-## Start an interactive session from OnDemand 
+Start an interactive session from OnDemand 
+==========================================
 
 For most programs, the start-up process is roughly the same:
 
@@ -42,7 +44,8 @@ For a few applications (e.g. Jupyter Lab), GfxLauncher will also offer an additi
 
       The Job Properties menu (right) pops up when the box titled ``Job settings...`` in the main GfxLauncher window (left) is clicked. Only use it if you know what you're doing!
 
-## Start an interactive session from the terminal
+Start an interactive session from the terminal
+==============================================
 
 The command to request an interactive node differs per HPC cluster:
 
