@@ -3,6 +3,7 @@ Interactive work on the compute nodes
 
 .. admonition:: Learning objectives
 
+   - Understand what the batch system is 
    - Understand what an interactive session is
    - Understand why one may need an interactive session
    - How to work with an interactive session (single + multiple cores)
@@ -16,6 +17,7 @@ Interactive work on the compute nodes
 
 .. questions:: 
    
+   - What is the batch system? 
    - Imagine you are developing a Python script in a line-by-line fashion. How to do so best?
        - Why not do so on the login node?
        - Why not do so by using ``sbatch``?
@@ -28,6 +30,7 @@ Interactive work on the compute nodes
    - Kebnekaise: ``hpc2n2025-076``
    - Cosmos: ``lu2025-7-34``
    - Tetralith: ``naiss2025-22-403``  
+   - Daradel: ``naiss2025-22-403``
 
 .. admonition:: Storage space for this workshop 
 
@@ -35,6 +38,7 @@ Interactive work on the compute nodes
    - Kebnekaise: ``/proj/nobackup/hpc-python-spring``
    - Cosmos: ``/lunarc/nobackup/projects/lu2024-17-44``
    - Tetralith: ``/proj/hpc-python-spring-naiss``
+   - Dardel: ``/cfs/klemming/projects/snic/hpc-python-spring-naiss``
 
 .. admonition:: Reservation
 
@@ -48,10 +52,9 @@ Interactive work on the compute nodes
        - uppmax2025-2-296_3 for cpu on Friday
        - uppmax2025-2-296_4 for gpu on Friday 
    - HPC2N
-       - hpc-python-cpu-th for cpu on Thursday
-       - hpc-python-gpu-th for gpu on Thursday
-       - hpc-python-cpu-fr for cpu on Friday
-       - hpc-python-gpu-fr for gpu on Friday
+       - hpc-python-fri for cpu on Friday
+       - hpc-python-mon for cpu on Monday
+       - hpc-python-tue for gpu on Tuesday
 
 Introduction
 ------------
@@ -59,7 +62,7 @@ Introduction
 Some users develop Python code in a line-by-line fashion. 
 
 - These users typically want to run a (calculation-heavy) script frequently, to test if the code works.
-- However, scheduling each new line is too slow, as it can take minutes (or sometimes hours) before the new code is run.
+- However, scheduling each new line is too slow, as it can take minutes (or sometimes hours) before the new code is run through the batch system.
 - Instead, there is a way to directly work with such code: use an interactive session.
 
 Some other users want to run programs that (1) use a lot of CPU and memory, and (2) need to be persistent/available.
@@ -78,6 +81,8 @@ One good example is Jupyter.
 
 .. admonition:: In this session we will talk about 
 
+   - the batch system in general
+   - handy options to the batch system 
    - interactive/salloc
    - Jupyter
    - VScode
@@ -86,7 +91,32 @@ One good example is Jupyter.
 
 An interactive session is a session with direct access to a compute node. Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
 
-The different way HPC2N, UPPMAX, LUNARC, and NSC provide for an interactive session
+Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, NSC, and PDC
+------------------------------------------------------------------------------------
+
+**What is a cluster?**
+
+- Login nodes and calculations/compute nodes
+
+- A network of computers, each computer working as a **node**.
+
+- Each node contains several processor cores and RAM and a local disk called scratch.
+
+.. figure:: ../img/node.png
+   :align: center
+
+- The user logs in to **login nodes**  via Internet through ssh or Thinlinc.
+
+  - Here the file management and lighter data analysis can be performed.
+
+.. figure:: ../img/nodes.png
+   :align: center
+
+- The **calculation nodes** have to be used for intense computing.
+
+- Beginner's guide to clusters: https://www.hpc2n.umu.se/documentation/guides/beginner-guide
+
+The different way HPC2N, UPPMAX, LUNARC, NSC, and PDC provide for an interactive session
 -----------------------------------------------------------------------------------
 
 Example, HPC2N vs. UPPMAX vs. LUNARC (NSC is similar to LUNARC): 

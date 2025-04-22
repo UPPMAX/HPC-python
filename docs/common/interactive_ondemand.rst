@@ -260,7 +260,7 @@ Check to be in an interactive session
 
       hostname
 
-   for HPC2n as it will always show that you are on a login node
+   for HPC2N as it will always show that you are on a login node
 
 Check that the number of cores booked is correct
 ------------------------------------------------
