@@ -1,7 +1,7 @@
 Interactive sessions and Desktop On-Demand
 ##########################################
 
-.. info::
+.. note::
 
    - Demanding work (CPU or Memory intensive) should be done on the compute nodes.
    - If you need live interaction you should satrt an "interactive session"
@@ -297,7 +297,7 @@ Now, it seems that Dardel allows for "hyperthreading", that is 2 threads per cor
    nid001027
    nid001027
    claremar@nid001027:~> srun -n 9 hostname
-   srun: error: Unable to create step for job 9702490: More processors requested than permitte
+   srun: error: Unable to create step for job 9702490: More processors requested than permitted
 
 On Cosmos instead do:
 
