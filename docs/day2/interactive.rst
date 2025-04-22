@@ -365,7 +365,17 @@ To start an interactive session in the simplest way, as shown here:
 
       .. code-block:: console 
 
-         
+         salloc -n <ntasks> --time=HHH:MM:SS -A naiss2025-22-262 -p <partition>
+
+      Where <partition> is main or gpu
+
+      Then, when you get the allocation, do one of:
+
+      - srun -n <ntasks> ./program
+      - ssh to the node and then work there
+
+   where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project
+ 
          
 Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC.
 
