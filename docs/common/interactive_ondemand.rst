@@ -62,7 +62,7 @@ The command to request an interactive node differs per HPC cluster:
 +---------+-----------------+-------------+-------------+ 
 
 Start an interactive session in the simplest way
-################################################
+------------------------------------------------
 
 To start an interactive session in the simplest way, is shown here:
 
