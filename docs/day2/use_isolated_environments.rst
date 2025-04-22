@@ -105,6 +105,9 @@ Conda
    - Conda creates isolated environments not clashing with other installations of python and other versions of packages
    - Conda environment requires that you install all packges needed by yourself. That is,  you cannot load the python module and use the packages therein inside you Conda environment.
 
+
+.. table:: 
+
 +------------+---------------------------------+
 | HPC cluster| Conda vs venv                   | 
 +============+=================================+
@@ -124,6 +127,9 @@ Conda
 +------------+---------------------------------+
 | Tetralith  | Anaconda3/2024.02-1             |
 +------------+---------------------------------+
+| LUMI       | conda-containerize              |
++------------+---------------------------------+
+
 
 NSC:
 
@@ -143,14 +149,14 @@ UPPMAX
 
 - https://docs.uppmax.uu.se/software/conda/
 
+LUMI
+
+- https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+
 
 .. admonition:: Conda in HPC
 
-   - `Anaconda at LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>`_
-   - `Conda at UPPMAX <https://docs.uppmax.uu.se/software/conda/>`_ 
-      - `Conda on Bianca <https://uppmax.github.io/bianca_workshop/intermediate/install/#install-packages-principles>`_
-
-
+   some text
 
 .. admonition:: Other tools
 
@@ -209,9 +215,14 @@ We will need to install the LightGBM Python package for one of the examples in t
 
          .. tab:: PDC 
 
-            - **FIX**
- 
-         .. tab:: LUNARC 
+            .. code-block:: console
+
+               $ module load PDC/21.11
+               $ module load Anaconda3/2021.05
+               $ cd /cfs/klemming/home/u/username
+               $ python3 -m venv my-venv-dardel
+
+          .. tab:: LUNARC 
 
             - Everything will work by just loading modules, see each last section
 
@@ -311,6 +322,15 @@ Own design isolated environments
 
             "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
 
+         .. tab:: PDC 
+
+            .. code-block:: console
+
+               $ ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
+               $ python -m venv --system-site-packages Example2
+
+            "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
+
       .. note::
 
          To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
@@ -346,6 +366,9 @@ Own design isolated environments
          - NSC: 
              - Create: ``python -m venv /proj/hpc-python-spring-naiss/$USER/Example``
              - Activate: ``source /proj/hpc-python-spring-naiss/<user-dir>/Example/bin/activate``
+         - PDC: 
+             - Create: ``python -m venv /cfs/klemming/projects/snic/hpc-python-spring-naiss/$USER/Example``
+             - Activate: ``source /cfs/klemming/projects/snic/hpc-python-spring-naiss/$USER/Example/bin/activate``
 
          Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
@@ -415,6 +438,33 @@ Exercises
 
 Breakout room according to grouping
 
+.. challenge:: Exercise 1: Cover the documentation
+
+   First try to find it by navigating.
+
+   .. solution::
+
+      NSC:
+
+      - https://www.nsc.liu.se/software/python/
+      - https://www.nsc.liu.se/software/anaconda/
+
+      PDC:
+
+      - https://www.kth.se/blogs/pdc/2020/11/working-with-python-virtual-environments/
+      - https://hackmd.io/@pmitev/conda_on_Rackham
+
+      LUNARC
+
+      - https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
+
+      UPPMAX
+
+      - https://docs.uppmax.uu.se/software/conda/
+
+      LUMI
+
+      - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
 
 .. challenge:: Exercise 2: Prepare the course environment
 
@@ -538,9 +588,8 @@ Breakout room according to grouping
 
 .. challenge:: (optional) Exercise 4: like 3, but for other tool
 
-Dicsussion
+Discussion
 ----------
-
 
 
 What's installed already
