@@ -74,6 +74,8 @@ For beginners: use the **bold** login method.
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | Kebnekaise |**Remote desktop website**| `here <https://docs.hpc2n.umu.se/documentation/access/>`__                                             | `here <https://youtu.be/_O4dQn8zPaw?si=z32av8XY81WmfMAW>`__|
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| LUMI       | SSH client               | `here <https://docs.lumi-supercomputer.eu/firststeps/loggingin/`__                                     | `here <https://youtu.be/bPdvn2gajgU>`__                    |
++------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | Rackham    | SSH client               | `here <https://docs.uppmax.uu.se/getting_started/login_rackham_remote_desktop_local_thinlinc_client>`__| `here <https://youtu.be/TSVGSKyt2bQ>`__                    |
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | Rackham    | Local ThinLinc client    | `here <https://docs.uppmax.uu.se/getting_started/login_rackham_console_password/>`__                   | `here <https://youtu.be/PqEpsn74l0g>`__                    |
