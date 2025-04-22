@@ -243,13 +243,20 @@ Check to be in an interactive session
 Check that the number of cores booked is correct
 ------------------------------------------------
 
-You can do this with 
+You can do this on all clusters, except for Cosmos, with 
 
 .. code-block:: 
 
    $ srun hostname
 
 And then you will get one line of output per core booked. 
+
+On Cosmos instead do:
+
+.. code-block:: console
+      
+   [bjornc@cn050 ~]$ echo $SLURM_CPUS_ON_NODE
+   4
 
 
 
