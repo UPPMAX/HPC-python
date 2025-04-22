@@ -166,7 +166,7 @@ Common features
 Running your programs and scripts on UPPMAX, HPC2N, LUNARC, NSC, and PDC 
 ------------------------------------------------------------------------
 
-Any longer, resource-intensive, or parallel jobs must be run through a **batch script**.
+Any longer, resource-intensive, or parallel jobs must be run through a **batch script** or an **interactive session**. 
 
    - Demanding work (CPU or Memory intensive) should be done on the compute nodes.
    - If you need live interaction you should start an "interactive session"
@@ -365,26 +365,30 @@ To start an interactive session in the simplest way, as shown here:
 
       .. code-block:: console 
 
-         salloc -n <ntasks> --time=HHH:MM:SS -A naiss2025-22-262 -p <partition>
+         salloc --time=HHH:MM:SS -A [project_id] -p [partition] 
 
-      Where <partition> is main or gpu
+      Where ``[project_id]`` is the PDC project id, for example ``naiss2025-22-403``, and ``[partition]`` is main or gpu. 
+
+      This will look similar to this: 
+
+      .. code-block:: console 
+
+         bbrydsoe@login1:~> salloc --time=HHH:MM:SS -A naiss2025-22-403 -p main 
 
       Then, when you get the allocation, do one of:
 
-      - srun -n <ntasks> ./program
-      - ssh to the node and then work there
+      - Stay on the login node and do ``srun ./program``
+      - ``ssh`` to the compute node you got allocated and then work there
 
-   where <tasks> is the number of tasks (or cores, for default 1 task per core), time is given in hours, minutes, and seconds (maximum T168 hours), and then you give the id for your project
- 
-         
-Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC.
+Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC/PDC.
 
 However, this simplest way may have some defaults settings that do not fit you. 
 
 - session duration is too short
-- the session has too few cores available
+- the session has too few cores available (default is usually 1) 
+- or if you need GPUs 
 
-You can add more resources the same way as for batch jobs.
+You can add more resources the same way as for batch jobs - more about that tomorrow.
 
 There is some information here: <https://uppmax.github.io/R-python-julia-matlab-HPC/python/interactivePython.html#start-an-interactive-session-in-a-more-elaborate-way>.
 
@@ -397,7 +401,7 @@ You leave interactive mode with ``exit``.
 Check to be in an interactive session
 -------------------------------------
 
-.. admonition:: For UPPMAX, LUNARC, and NSC 
+.. admonition:: For UPPMAX, LUNARC, and NSC (and in some cases PDC) 
 
    You check if you are in an interactive session with: 
 
@@ -405,7 +409,7 @@ Check to be in an interactive session
 
       hostname
 
-   If the output contains the words ``rackham``, ``cosmos``, or ``tetralith`` you are on the login node. 
+   If the output contains the words ``rackham``, ``cosmos``, ``tetralith``, or ``login`` you are on the login node. 
 
    If the output contains: 
 
@@ -413,7 +417,7 @@ Check to be in an interactive session
    - ``cn[number]``, where ``[number]`` is a number, you are on a compute node at LUNARC (cosmos). 
    - ``n[number]``, where ``[number]`` is a number, you are on a compute node at NSC (tetralith). 
 
-.. admonition:: For HPC2N 
+.. admonition:: For HPC2N (and sometimes PDC) 
 
    You check if you are in an interactive session with: 
 
@@ -421,9 +425,9 @@ Check to be in an interactive session
 
       srun hostname
 
-   - If the output is ``b-cn[number].hpc2n.umu.se``, where ``[number]`` is a number, you are more-or-less on a compute node.
+   - If the output is ``b-cn[number].hpc2n.umu.se``, where ``[number]`` is a number, you are more-or-less on a compute node at Kebnekaise.
 
-   - If the output is ``b-an[number]``, where ``[number]`` is a number, you are still on a login node.
+   - If the output is ``b-an[number]``, where ``[number]`` is a number, you are still on a login node on Kebnekaise.
 
    Do NOT do 
 
@@ -450,7 +454,7 @@ Running a Python script in an interactive session
 
 .. tabs::
 
-   .. tab:: UPPMAX/LUNARC/NSC
+   .. tab:: UPPMAX/LUNARC/NSC/PDC (when SSH'ed to a compute node) 
 
       To run a Python script in an interactive session, first load the Python modules:
 
@@ -584,12 +588,19 @@ In this example we will start a session with 2 cores
 
          interactive -A naiss2025-22-403 -n 2
 
+   .. tab:: PDC 
+
+      .. code-block:: console 
+
+         salloc -n 2 --time=00:30:00 -A naiss2025-22-403 -p main 
+
+
 Exercise 2: check to be in an interactive session
 #################################################
 
 .. tabs::
 
-   .. tab:: UPPMAX/LUNARC/NSC
+   .. tab:: UPPMAX/LUNARC/NSC/PDC 
 
       Use:
 
@@ -597,7 +608,7 @@ Exercise 2: check to be in an interactive session
 
          hostname
 
-   .. tab:: HPC2N
+   .. tab:: HPC2N (and PDC when not SSH'ed to the compute node) 
 
       Use:
 
@@ -614,6 +625,7 @@ Exercise 2: check to be in an interactive session
       This will always show that you are on a login node
 
 
+
 Exercise 3: check to have booked the expected amount of cores
 #############################################################
 
@@ -623,7 +635,7 @@ Exercise 3: check to have booked the expected amount of cores
 
       Confirm to have booked two cores. 
 
-   .. tab:: UPPMAX/LUNARC/NSC
+   .. tab:: UPPMAX/LUNARC/NSC/PDC
 
       Use:
 
@@ -644,7 +656,7 @@ Exercise 4.1. Running the first Python script in an interactive session on all c
 
 Running `sum-2args.py` in an interactive session
 
-.. exercise:: HPC2N, UPPMAX, LUNARC, and NSC
+.. exercise:: HPC2N, UPPMAX, LUNARC, NSC, and PDC 
 
    Run the script using ``srun``:
          
@@ -663,7 +675,7 @@ Exercise 4.2. Running a second Python script in an interactive session on all co
 
 Running `add2.py` in an interactive session
 
-.. exercise:: HPC2N, UPPMAX, LUNARC, NSC
+.. exercise:: HPC2N, UPPMAX, LUNARC, NSC, PDC 
 
    Run the script using ``srun``:
 
@@ -684,7 +696,7 @@ Exit the interactive mode
 
 .. tabs::
 
-   .. tab:: UPPMAX, LUNARC, NSC
+   .. tab:: UPPMAX, LUNARC, NSC, PDC
 
       Use:
 
@@ -694,7 +706,7 @@ Exit the interactive mode
 
       The prompt should change to contain the name of the login node (contain rackham, cosmos, or tetralith), which indicates you are back on a login node.
       
-   .. tab:: HPC2N
+   .. tab:: HPC2N (and PDC without SSH to compute node) 
 
       Use:
 
@@ -711,8 +723,10 @@ Conclusion
 
    You have:
 
+   - learned a little about login nodes and compute nodes
+   - been introduced to the SLURM job scheduler 
    - seen how to use a compute node interactively,
-     which differs between HPC2N, UPPMAX, LUNARC, and NSC (particularly between HPC2N and the others) 
+     which differs between HPC2N, UPPMAX, LUNARC, NSC, and PDC (particularly between HPC2N (and PDC) and the others) 
    - checked if we are in an interactive session
    - checked if we have booked the right number of cores
    - run Python scripts in an interactive session,
