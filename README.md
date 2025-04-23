@@ -11,6 +11,22 @@ This course aims to give a brief, but comprehensive introduction to using Python
 
 The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca), LUNARC (Cosmos), and HPC2N (Kebnekaise) and will focus on the compute systems at all 3 centres. For the site-specific part of the course you will be divided into groups depending on which center you will be running your code, as the approach is somewhat different. 
 
+# Build locally  
+
+Navigate to the root directory of your Sphinx project (where the conf.py file is located, ie. in `docs`) and run:
+
+```cmd
+make html
+```
+
+You can preview the generated HTML files locally by opening the _build/html/index.html file in your browser:
+
+```cmd
+xdg-open _build/html/index.html  # On Linux
+open _build/html/index.html      # On macOS
+```
+
+
 # Rendered material
 
 - https://uppmax.github.io/HPC-python/index.html
