@@ -666,10 +666,10 @@ Running `sum-2args.py` in an interactive session
          
    .. code-block:: console
       
-   b-an01 [~]$ srun python sum-2args.py 3 4
-   The sum of the two numbers is: 7
-   The sum of the two numbers is: 7
-   b-an01 [~]$             
+      b-an01 [~]$ srun python sum-2args.py 3 4
+      The sum of the two numbers is: 7
+      The sum of the two numbers is: 7
+      b-an01 [~]$             
 
    Similar to ``srun hostname``, this script is run once per node and works as expected.
                         
