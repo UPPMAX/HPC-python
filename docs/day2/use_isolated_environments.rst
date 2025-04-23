@@ -74,10 +74,12 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
 
 .. admonition:: Other tools perhaps covered in the future
 
-   - pixi: package management tool for developers https://pixi.sh/latest/
+   - `pixi <https://pixi.sh/latest/>`_: package management tool for developers 
+       - It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.
+       - could replace conda/mamba
 
-   - uv: An extremely fast Python package and project manager, written in Rust. https://docs.astral.sh/uv/
-
+   - `uv <https://docs.astral.sh/uv/>`_: An extremely fast Python package and project manager, written in Rust. 
+       - A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more
 
 Virtual environment - venv & virtualenv
 ---------------------------------------
@@ -151,11 +153,8 @@ The first 2 steps are cluster dependent and will therefore be slightly different
  
       Run ``source conda_init.sh`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
       
-  
-   - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
-
 3. Create the conda environment
-4. Activate the conda environment by:
+4. Activate the conda environment by: source activate <conda-env-name>
 5. Now do your work!
 6. Deactivate
 
@@ -167,10 +166,7 @@ The first 2 steps are cluster dependent and will therefore be slightly different
 
 .. admonition:: Conda base env
 
-   - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
-
-
-
+   - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. It includes a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
 
 .. admonition:: Conda cheat sheet    
    
@@ -189,13 +185,11 @@ The first 2 steps are cluster dependent and will therefore be slightly different
 
    - `what-is-the-difference-with-conda-mamba-poetry-pip <https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip>`_
 
-
-
 .. warning::
 
    - If you experience unexpected problems with the conda provided by the module system on Rackham or anaconda3 on Dardel, you can easily install your own and maintain it yourself.
    - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
-
+   - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
 
 Install from file/Set up course environment
 -------------------------------------------
