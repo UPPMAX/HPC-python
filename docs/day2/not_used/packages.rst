@@ -3,7 +3,7 @@ Packages
 
 .. admonition:: Python modules AKA Python packages
 
-   - Python **packages broaden the use of python** to almost infinity! 
+   - Python **packages broaden the use of python** to almost infinity!
 
    - Instead of writing code yourself there may be others that have done the same!
 
@@ -16,8 +16,8 @@ Packages
    - How do I find which packages and versions are available?
    - What to do if I need other packages?
    - Are there differences between HPC2N and UPPMAX?
-   
-.. objectives:: 
+
+.. objectives::
 
    Learners
 
@@ -30,7 +30,7 @@ Packages
     - **PyPI** (``pip``) is traditionally for Python-only packages but it is no problem to also distribute packages written in other languages as long as they provide a Python interface.
 
     - **Conda** (``conda``) is more general and while it contains many Python packages and packages with a Python interface, it is often used to also distribute packages which do not contain any Python (e.g. C or C++ packages).
-    
+
     	- Creates its own environment that does not interact with other python installations
 	- At HPC2N, Conda is not recommended, and we do not support it there
 
@@ -47,8 +47,8 @@ Some python packages are working as stand-alone tools, for instance in bioinform
 
 .. code-block:: console
 
-   $ module spider <tool-name or tool-name part> 
-    
+   $ module spider <tool-name or tool-name part>
+
 Using ``module spider`` lets you search regardless of upper- or lowercase characters and regardless of already loaded modules (like ``GCC`` on HPC2N and ``bioinfo-tools`` on UPPMAX).
 
 .. tabs::
@@ -59,26 +59,26 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
 
 	.. code-block:: console
 
-	   $ module help python/<version> 
-  
-	
-	
+	   $ module help python/<version>
+
+
+
    .. tab:: HPC2N and LUNARC
-   
+
 	At HPC2N, a way to find Python packages that you are unsure how are names, would be to do
 
 	.. code-block:: console
 
 	   $ module -r spider ’.*Python.*’
-   
+
 	or
 
 	.. code-block:: console
 
 	   $ module -r spider ’.*python.*’
-   
-	Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.   
-   
+
+	Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.
+
 Check the pre-installed packages of a loaded python module, in shell:
 
 .. code-block:: console
@@ -89,10 +89,10 @@ To see which Python packages you, yourself, has installed, you can use ``pip lis
 
 You can also test from within python to make sure that the package is not already installed:
 
-.. code-block:: python 
+.. code-block:: python
 
     >>> import <package>
-    
+
 Does it work? Then it is there!
 Otherwise, you can either use ``pip`` or ``conda``.
 
@@ -105,26 +105,26 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 
    .. tab:: UPPMAX
 
-      - The python application at UPPMAX comes with several preinstalled packages. 
+      - The python application at UPPMAX comes with several preinstalled packages.
       - You can check them here: `UPPMAX packages <https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages>`_.
       - In addition there are packages available from the module system as `python tools/packages <https://uppmax.github.io/HPC-python/uppmax.html#uppmax-packages>`_
-      - Note that bioinformatics-related tools can be reached only after loading ``bioinfo-tools``. 
+      - Note that bioinformatics-related tools can be reached only after loading ``bioinfo-tools``.
       - Two modules contains topic specific packages. These are:
-         
+
          - Machine learning: ``python_ML_packages`` (cpu and gpu versions and based on python/3.9.5)
 	 - GIS: ``python_GIS_packages`` (cpu vrson based on python/3.10.8)
 
    .. tab:: HPC2N
 
-      - The python application at HPC2N comes with several preinstalled packages - check first before installing yourself!. 
-      - HPC2N has both Python 2.7.x and Python 3.x installed. 
+      - The python application at HPC2N comes with several preinstalled packages - check first before installing yourself!.
+      - HPC2N has both Python 2.7.x and Python 3.x installed.
       - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.9.5
 
 	NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: `Anaconda <https://www.hpc2n.umu.se/documentation/guides/anaconda>`_.
 
 
-      - This is a selection of the packages and libraries installed at HPC2N. These are all installed as **modules** and need to be loaded before use. 
-	
+      - This is a selection of the packages and libraries installed at HPC2N. These are all installed as **modules** and need to be loaded before use.
+
 	  - ``ASE``
 	  - ``Keras``
 	  - ``PyTorch``
@@ -144,45 +144,45 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
 Install with pip
 ----------------
 
-You use ``pip`` this way, in a Linux shell OR a python shell: 
+You use ``pip`` this way, in a Linux shell OR a python shell:
 
 .. code-block:: console
 
     $ pip install --user <package>
-    
+
 Use ``pip3`` if you loaded python3.
 
 Then the package ends up in ``~/.local/lib/python<version>/site-packages/`` .
 
 Note that python<version> is omitting the last number (bug fix), like 3.8 for python-3.8.7.
-We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course in `isolated environements <https://uppmax.github.io/HPC-python/isolated.html>`_. 
+We HIGHLY recommend using a virtual environment during installation, since this makes it easier to install for different versions of Python.  More information will follow later in this course in `isolated environements <https://uppmax.github.io/HPC-python/isolated.html>`_.
 
 
 
 .. note::
-   
+
    - We recommend that you always install with ``pip`` in an *isolated environment* unless you think that the package will be useful for all you projects
    - You will test this in the session about isolated environments in a while.
 
 .. discussion:: FAQ:s
 
    **When to use pip install and when to use module load command?**
-   
-     1) check if package is available in the Python module or a site-installed module. 
+
+     1) check if package is available in the Python module or a site-installed module.
      2) If not, use pip
-     
+
    **Comment:** We recommend that you use ``pip install`` in an isolated environment, using ``virtualenv`` or ``venv``, see next session.
 
 .. keypoints::
 
-   - You can check for packages 
-   
+   - You can check for packages
+
    	- from the Python shell with the ``import`` command
-	- from BASH shell with the 
-	
+	- from BASH shell with the
+
 		- ``pip list`` command at both centers
 		- ``ml help python/3.9.5`` at UPPMAX
-		
+
    - Installation of Python packages can be done either with **PYPI** or **Conda**
    - You install own packages with the ``pip install`` command (This is the recommended way on HPC2N)
    - At UPPMAX Conda is also available (See Conda section)
@@ -194,21 +194,21 @@ Conda
 
    - What does Conda do?
    - How to create a Conda environment
-   
+
 .. objectives::
 
    - Learn pros and cons with Conda
    - Learn how to install packages and work with the Conda (isolated) environment
-   
+
 .. hint::
 
    - On Bianca (with no internet), Conda is the first choice when installing packages, because there is a local mirror of most of the Conda repositories.        - Check the `On Bianca Cluster extra reading <https://uppmax.github.io/HPC-python/bianca.html>`_ for more info.
 
 Using Conda
 '''''''''''
-      
-.. admonition:: Conda cheat sheet    
-   
+
+.. admonition:: Conda cheat sheet
+
    - List packages in present environment:	``conda list``
    - List all environments:			``conda info -e`` or ``conda env list``
    - Install a package: ``conda install somepackage``
@@ -220,7 +220,7 @@ Using Conda
    - Activate a specific environment: ``conda activate myenvironment``
    - Deactivate current environment: ``conda deactivate``
 
-     
+
 Install with conda (UPPMAX)
 '''''''''''''''''''''''''''
 
@@ -228,7 +228,7 @@ Install with conda (UPPMAX)
 
     We have mirrored all major conda repositories directly on UPPMAX, on both Rackham and Bianca. These are updated every third day.
     We have the following channels available:
-    
+
     - bioconda
     - biocore
     - conda-forge
@@ -240,32 +240,32 @@ Install with conda (UPPMAX)
     - r
     - r2018.11
     - scilifelab-lts
-    
+
     You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX. Otherwise you do with ``conda -c <channel> ...``
-    
+
 First steps
 '''''''''''
 
 .. tip::
-    
-   There will be an exercise in the end! 
+
+   There will be an exercise in the end!
 
 1. First load our conda module (there is no need to install you own miniconda, for instance)
 
   .. code-block:: console
 
      $ module load conda
-    
+
   - This grants you access to the latest version of Conda and all major repositories on all UPPMAX systems.
 
   - Check the text output as conda is loaded, especially the first time, see below
-  
+
    .. admonition:: Conda load output
           :class: dropdown
 
        - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
 
-       - Otherwise, the default is ~/.conda/envs. 
+       - Otherwise, the default is ~/.conda/envs.
 
        - You may run ``source conda_init.sh`` to initialise your shell to be able to run ``conda activate`` etc.
 
@@ -275,38 +275,38 @@ First steps
 
 
 2. First time
-        
+
   - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
-  - Otherwise, the default is ~/.conda/envs. 
+  - Otherwise, the default is ~/.conda/envs.
   - Example:
-  
+
       .. prompt:: console
- 
+
          $ export CONDA_ENVS_PATH=/proj/<your-project-id>/nobackup/<username>
-  
+
    .. admonition:: By choice
       :class: dropdown
- 
+
       Run ``source conda_init.sh`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
-      
-  
+
+
    - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
 
 
 3. Create the conda environment
 
   - Example:
-  
+
     .. prompt:: console
 
        $ conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
-	
-    .. admonition:: The ``mamba`` alternative 
+
+    .. admonition:: The ``mamba`` alternative
         :class: dropdown
-    
+
 	- ``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
-	- Example:  
-	
+	- Example:
+
           .. prompt:: console
 
 	     $ mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
@@ -319,33 +319,33 @@ First steps
 
     - You will see that your prompt is changing to start with ``(python-36-env)`` to show that you are within an environment.
     - If you set up your shell with ``source conda_init.sh`` you can use ``conda activate python-36-env`` instead.
-    
+
 5. Now do your work!
 
 6. Deactivate
 
    .. code-block:: console
-  
+
       (python-36-env) $ conda deactivate
-      
-   Notre that ``source deactivate`` will not work but ``conda deactivate``.   
+
+   Notre that ``source deactivate`` will not work but ``conda deactivate``.
 
 .. warning::
- 
-    - Conda is known to create **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically ``300000`` in $home). 
+
+    - Conda is known to create **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically ``300000`` in $home).
     - Check your disk usage and quota limit with ``uquota``
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
-    
-    
+
+
 - [More info about Conda on UPPMAX](https://uppmax.uu.se/support/user-guides/conda-user-guide/)
 
 .. discussion:: FAQ:s
 
-   1. I get “Your shell has not been properly configured to use ``conda activate``.” When I try to conda activate python36-env (which I can see in condo env list) 
-      - Try with ``source activate ... `` 
-      - You may make ``conda activate`` functioning by the ``source conda_init.sh`` and choosing your shell. 
+   1. I get “Your shell has not been properly configured to use ``conda activate``.” When I try to conda activate python36-env (which I can see in condo env list)
+      - Try with ``source activate ... ``
+      - You may make ``conda activate`` functioning by the ``source conda_init.sh`` and choosing your shell.
       - But some of you may not want to fill your ``.bashrc`` with too much "junk". This could be like always starting the the ``base`` conda environment at startup, which may not be what you want. Therefore ``source`` activate may be preferable for you!
-   
+
    2. What is the difference between ``conda activate`` and ``source activate``
       - They will do the same! Se above for details.
 
@@ -358,24 +358,24 @@ First steps
 Working with Conda environments defined by files
 ''''''''''''''''''''''''''''''''''''''''''''''''
 
-- Create an environment based on dependencies given in an environment file:: 
+- Create an environment based on dependencies given in an environment file::
 
 .. code-block:: console
 
    $ conda env create --file environment.yml
-   
+
 - Create file from present conda environment::
 
 .. code-block:: console
 
    $ conda env export --from-history > environment.yml
-  
+
 - Create file from an unactivated conda environment::
 
 .. code-block:: console
 
    $ conda env export --from-history --name <env-name> > environment.yml
-  
+
 ``environments.yml`` (for conda) is a yaml-file which looks like this:
 
 .. code-block:: yaml
@@ -411,26 +411,26 @@ Exercises
 ---------
 
 .. challenge:: UPPMAX: Create a conda environment and install some packages
-    
+
    - First check the current installed packages while having ``python/3.9.5`` loaded
    - Open a new terminal and have the old one available for later comparison
    - Use the conda module on Rackham and create an environment with name ``HPC-python23`` with ``python 3.7``  and ``numpy 1.15``
-   
+
    	- Use your a path for ``CONDA_ENVS_PATH`` of your own choice or ``/proj/naiss2023-22-1126/<user>``
         - (It may take a minute or so)
-	
+
    - Activate!
-   - Check with ``pip list`` what is there. Compare with the environment given from the python module in the first terminal window. 
-   
+   - Check with ``pip list`` what is there. Compare with the environment given from the python module in the first terminal window.
+
    	- Which version of Python did you get?
-	
+
    - Don't forget to deactivate the Conda environment before doing other exercises!
 
 .. solution:: Solution for UPPMAX
     :class: dropdown
-    
+
           Write this in the terminal
-          
+
           .. code-block:: console
 
              $ module load conda
@@ -441,14 +441,14 @@ Exercises
              $ python -V
              $ conda deactivate
 
-      
+
 
 .. keypoints::
 
    - Conda is an installer of packages but also bigger toolkits
    - Conda creates isolated environments (see next section) not clashing with other installations of python and other versions of packages
-   - Conda environment requires that you install all packages needed by yourself. 
-   
+   - Conda environment requires that you install all packages needed by yourself.
+
       - That is, you cannot load the python module and use the packages therein inside you Conda environment.
    - Also, do not rely on the python module at UPPMAX at the same time as you have Conda in the back- or foreground.
-    
+
