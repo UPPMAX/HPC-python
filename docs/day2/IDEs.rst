@@ -52,14 +52,14 @@ start an interactive session from the login node
    
       .. code-block:: sh
 
-         $ interactive -A <naiss-project-id>  -t 4:00:00
+         $ interactive -A uppmax2025-2-296 -t 4:00:00
 
 
    .. tab:: Snowy
 
       .. code-block:: sh
 
-         $ interactive -M snowy -A <naiss-project-id>  -t 4:00:00
+         $ interactive -M snowy -A uppmax2025-2-296 -t 4:00:00 --gres=gpu:1
 
 
 
@@ -125,7 +125,6 @@ If you want to connect to the Jupyter server running on Rackham/Snowy from your 
       - If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
       - If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
 
-      `SSH port forwarding <https://uplogix.com/docs/local-manager-user-guide/advanced-features/ssh-port-forwarding>`_
 
       - On your computer open the URL you got from step 3. on your webbrowser but replace r486 with localhost i.e. you get something like this
 
@@ -368,7 +367,7 @@ Through ThinLinc
 
    - Download the client matching your local computer's OS and install it.
    - Start the ThinLinc client.
-   - Change the “Server” setting to “tetralith.nsc.liu.se”.
+   - Change the “Server” setting to ``tetralith.nsc.liu.se``.
    - Change the “Name” setting to your Tetralith username (e.g x_abcde).
    - Enter your cluster Tetralith password in the “Password” box.
    - Press the “Connect” button.
@@ -378,16 +377,22 @@ Through ThinLinc
 
    - Open a terminal    
    - This is an example for JupyterLab 4.2.0
-   - ``module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0``   
+   
+   .. code-block:: console
+
+      $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
 3. Start JupyterLab
 
    - Type ``jupyter-lab`` in the terminal 
    - It will show some text, including telling you to open a url in a browser (inside ThinLinc/on Tetralith). If you just wait, it will open a browser with Jupyter.   
 
-   - It will look similar to this: 
+   - It will look similar to this:
 
-   .. figure:: ../img/jupyter-thinlinc-nsc.png
+   .. admonition:: Webbrowser view
+         :class: dropdown
+
+         .. figure:: ../img/jupyter-thinlinc-nsc.png
 
 On your own computer through SSH tunneling 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -402,7 +407,9 @@ On your own computer through SSH tunneling
 
 3. Load a module with JupyterLab in (here JupyterLab 4.2.0) 
 
-   - module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+   .. code-block:: console
+
+      $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
 4. Start jupyter with the no-browser flag
 
@@ -410,7 +417,10 @@ On your own computer through SSH tunneling
 
    - You get something that looks like this: 
 
-   .. figure:: ../img/jupyter-no-browser-nsc.png
+   .. admonition:: Terminal view
+      :class: dropdown
+
+      .. figure:: ../img/jupyter-no-browser-nsc.png
 
 Where I have marked a line with relevant info. Note that the port will change. 
 
@@ -422,13 +432,19 @@ Where I have marked a line with relevant info. Note that the port will change.
 
    - ``ssh -N -L localhost:8867:localhost:8867 x_birbr@tetralith1.nsc.liu.se``
 
-   .. figure:: ../img/local-ssh-to-nsc.png
+   .. admonition:: Terminal view
+         :class: dropdown
+
+         .. figure:: ../img/local-ssh-to-nsc.png
    
 6. Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5. 
 
    - Input that line (url with token) in a browser on your local machine. You wil get something similar to this: 
 
-   .. figure:: ../img/local-jupyter-lab.png
+   .. admonition:: Webbrowser view
+         :class: dropdown
+
+         .. figure:: ../img/local-jupyter-lab.png
 
 
 More information
