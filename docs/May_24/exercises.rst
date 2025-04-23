@@ -4,10 +4,10 @@ Exercises and demos
 Examples
 --------
 
-Load and run 
-############ 
+Load and run
+############
 
-You need the data-file [scottish_hills.csv](https://raw.githubusercontent.com/UPPMAX/HPC-python/main/Exercises/examples/programs/scottish_hills.csv). Download here or find in the ``Exercises/examples/programs`` directory in the files you got from cloning the repo. 
+You need the data-file [scottish_hills.csv](https://raw.githubusercontent.com/UPPMAX/HPC-python/main/Exercises/examples/programs/scottish_hills.csv). Download here or find in the ``Exercises/examples/programs`` directory in the files you got from cloning the repo.
 
     Since the exercise opens a plot, you need to login with ThinLinc (or otherwise have an x11 server running on your system and login with ``ssh -X ...``).
 
@@ -51,10 +51,10 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
          .. code-block:: console
 
             ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
-   
+
    1. From inside Python/interactive (if you are on Kebnekaise, mind the warning above):
 
-      Start python and run these lines: 
+      Start python and run these lines:
 
       .. code-block:: python
 
@@ -76,7 +76,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
          y = dataframe.Latitude
 
-      .. code-block:: python 
+      .. code-block:: python
 
          plt.scatter(x, y)
 
@@ -84,18 +84,18 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 
          plt.show()
 
-      If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png`` containing the plot. This is what you would do if you were running a python script in a batch job. 
+      If you change the last line to ``plt.savefig("myplot.png")`` then you will instead get a file ``myplot.png`` containing the plot. This is what you would do if you were running a python script in a batch job.
 
    2. As a Python script (if you are on Kebnekaise, mind the warning above):
 
-      Copy and save this script as a file (or just run the file ``pandas_matplotlib-<system>.py`` that is located in the ``<path-to>/Exercises/examples/programs`` directory you got from the repo or copied. Where <system> is either ``rackham`` or ``kebnekaise``. 
+      Copy and save this script as a file (or just run the file ``pandas_matplotlib-<system>.py`` that is located in the ``<path-to>/Exercises/examples/programs`` directory you got from the repo or copied. Where <system> is either ``rackham`` or ``kebnekaise``.
 
       .. tabs::
 
          .. tab:: rackham
 
             .. code-block:: python
- 
+
                import pandas as pd
                import matplotlib.pyplot as plt
 
@@ -112,7 +112,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
                import pandas as pd
                import matplotlib
                import matplotlib.pyplot as plt
-              
+
                matplotlib.use('TkAgg')
 
                dataframe = pd.read_csv("scottish_hills.csv")
@@ -124,7 +124,7 @@ The exercise is modified from an example found on https://ourcodingclub.github.i
 Install packages
 ################
 
-This is for the course environment and needed for one of the exercisesin the ML section. 
+This is for the course environment and needed for one of the exercisesin the ML section.
 
 Create a virtual environment called ``vpyenv``. First load the python version you want to base your virtual environment on, as well as the site-installed ML packages.
 
@@ -204,9 +204,9 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
 Interactive
 ###########
 
-.. admonition:: Example, Kebnekaise, Requesting 4 cores for 30 minutes, then running Python 
+.. admonition:: Example, Kebnekaise, Requesting 4 cores for 30 minutes, then running Python
     :class: dropdown
-   
+
         .. code-block:: sh
 
             b-an01 [~]$ salloc -n 4 --time=00:30:00 -A hpc2n2024-052
@@ -217,44 +217,44 @@ Interactive
             salloc: Waiting for resource configuration
             salloc: Nodes b-cn0241 are ready for job
             b-an01 [~]$ module load GCC/12.3.0 Python/3.11.3
-            b-an01 [~]$ 
+            b-an01 [~]$
 
 .. admonition:: Adding two numbers from user input (add2.py)
     :class: dropdown
-   
+
         .. code-block:: python
 
             # This program will add two numbers that are provided by the user
-            
+
             # Get the numbers
-            a = int(input("Enter the first number: ")) 
+            a = int(input("Enter the first number: "))
             b = int(input("Enter the second number: "))
-            
+
             # Add the two numbers together
             sum = a + b
-            
+
             # Output the sum
             print("The sum of {0} and {1} is {2}".format(a, b, sum))
 
 .. admonition:: Adding two numbers given as arguments (sum-2args.py)
     :class: dropdown
-   
+
         .. code-block:: python
 
             import sys
-            
+
             x = int(sys.argv[1])
             y = int(sys.argv[2])
-            
+
             sum = x + y
-            
+
             print("The sum of the two numbers is: {0}".format(sum))
 
-Now for the examples: 
+Now for the examples:
 
 .. admonition:: Example, Kebnekaise, Running a Python script in the allocation we made further up. Notice that since we asked for 4 cores, the script is run 4 times, since it is a serial script
     :class: dropdown
-   
+
         .. code-block:: sh
 
             b-an01 [~]$ srun python sum-2args.py 3 4
@@ -262,14 +262,14 @@ Now for the examples:
             The sum of the two numbers is: 7
             The sum of the two numbers is: 7
             The sum of the two numbers is: 7
-            b-an01 [~]$             
-            
+            b-an01 [~]$
+
 .. admonition:: Example, Running a Python script in the above allocation, but this time a script that expects input from you.
     :class: dropdown
-   
-        .. code-block:: sh            
-            
-            b-an01 [~]$ srun python add2.py 
+
+        .. code-block:: sh
+
+            b-an01 [~]$ srun python add2.py
             2
             3
             Enter the first number: Enter the second number: The sum of 2 and 3 is 5
@@ -292,56 +292,56 @@ This first example shows how to run a short, serial script. The batch script (na
 
    .. tab:: UPPMAX
 
-        Short serial example script for Rackham. Loading Python 3.11.8. Numpy is preinstalled and does not need to be loaded. 
+        Short serial example script for Rackham. Loading Python 3.11.8. Numpy is preinstalled and does not need to be loaded.
 
         .. code-block:: sh
 
-            #!/bin/bash -l 
+            #!/bin/bash -l
             #SBATCH -A naiss2024-22-415 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
-            
-            # Load any modules you need, here Python 3.11.8. 
-            module load python/3.11.8 
-            
-            # Run your Python script 
-            python mmmult.py   
-            
+
+            # Load any modules you need, here Python 3.11.8.
+            module load python/3.11.8
+
+            # Run your Python script
+            python mmmult.py
+
 
    .. tab:: HPC2N
 
-        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2023.07 and Python/3.11.3  
-       
+        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2023.07 and Python/3.11.3
+
         .. code-block:: sh
 
             #!/bin/bash
             #SBATCH -A hpc2n2024-052 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
-            
+
             # Load any modules you need, here for Python/3.11.3 and compatible SciPy-bundle
             module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07
-            
-            # Run your Python script 
-            python mmmult.py    
-            
-            
-   .. tab:: mmmult.py 
-   
+
+            # Run your Python script
+            python mmmult.py
+
+
+   .. tab:: mmmult.py
+
         Python example code
-   
+
         .. code-block:: python
-        
+
             import timeit
             import numpy as np
-            
+
             starttime = timeit.default_timer()
-            
+
             np.random.seed(1701)
-            
+
             A = np.random.randint(-1000, 1000, size=(8,4))
             B = np.random.randint(-1000, 1000, size =(4,4))
-            
+
             print("This is matrix A:\n", A)
             print("The shape of matrix A is ", A.shape)
             print()
@@ -350,9 +350,9 @@ This first example shows how to run a short, serial script. The batch script (na
             print()
             print("Doing matrix-matrix multiplication...")
             print()
-            
+
             C = np.matmul(A, B)
-            
+
             print("The product of matrices A and B is:\n", C)
             print("The shape of the resulting matrix is ", C.shape)
             print()
@@ -441,56 +441,56 @@ This first example shows how to run a short, serial script. The batch script (na
 
 
 .. challenge:: Run the first serial example script from further up on the page for this short Python code (sum-2args.py)
-    
+
     .. code-block:: python
-    
+
         import sys
-            
+
         x = int(sys.argv[1])
         y = int(sys.argv[2])
-            
+
         sum = x + y
-            
+
         print("The sum of the two numbers is: {0}".format(sum))
-        
+
     Remember to give the two arguments to the program in the batch script.
 
 .. solution:: Solution for HPC2N
     :class: dropdown
-    
-          This batch script is for Kebnekaise. Adding the numbers 2 and 3. 
-          
+
+          This batch script is for Kebnekaise. Adding the numbers 2 and 3.
+
           .. code-block:: sh
- 
+
             #!/bin/bash
             #SBATCH -A hpc2n2024-052 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
-            
+
             # Load any modules you need, here for Python 3.11.3
             module load GCC/12.3.0  Python/3.11.3
-            
-            # Run your Python script 
-            python sum-2args.py 2 3 
+
+            # Run your Python script
+            python sum-2args.py 2 3
 
 .. solution:: Solution for UPPMAX
     :class: dropdown
-    
-          This batch script is for UPPMAX. Adding the numbers 2 and 3. 
-          
+
+          This batch script is for UPPMAX. Adding the numbers 2 and 3.
+
           .. code-block:: sh
- 
+
             #!/bin/bash -l
             #SBATCH -A naiss2024-22-415 # Change to your own after the course
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
-            
+
             # Load any modules you need, here for python 3.11.8
             module load python/3.11.8
-            
-            # Run your Python script 
-            python sum-2args.py 2 3 
-               
+
+            # Run your Python script
+            python sum-2args.py 2 3
+
 
 Machine Learning
 ################
@@ -519,16 +519,16 @@ This is the same example that was shown in the section about loading and running
          plt.scatter(x, y)
          plt.show()
 
-   .. tab:: From a Batch-job 
+   .. tab:: From a Batch-job
 
-      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory. 
+      Remove the # if running on Kebnekaise. The script below can be found as ``pandas_matplotlib-batch.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` in the ``Exercises/examples/programs`` directory.
 
-      .. code-block:: 
+      .. code-block::
 
          import pandas as pd
          #import matplotlib
          import matplotlib.pyplot as plt
-         
+
          #matplotlib.use('TkAgg')
 
          dataframe = pd.read_csv("scottish_hills.csv")
@@ -539,9 +539,9 @@ This is the same example that was shown in the section about loading and running
 
 Batch scripts for running on Rackham and Kebnekaise.
 
-.. tabs:: 
+.. tabs::
 
-   .. tab:: Rackham 
+   .. tab:: Rackham
 
       .. code-block::
 
@@ -554,9 +554,9 @@ Batch scripts for running on Rackham and Kebnekaise.
          ml python/3.11.8
 
          # Run your Python script
-         python pandas_matplotlib-batch.py 
+         python pandas_matplotlib-batch.py
 
-   .. tab:: Kebnekaise 
+   .. tab:: Kebnekaise
 
       .. code-block::
 
@@ -578,53 +578,53 @@ The batch scripts can be found in the directories for hpc2n and uppmax, under ``
 
 **PyTorch**
 
-.. admonition:: We use PyTorch Tensors to fit a third order polynomial to a sine function. The forward and backward passes through the network are manually implemented. 
+.. admonition:: We use PyTorch Tensors to fit a third order polynomial to a sine function. The forward and backward passes through the network are manually implemented.
     :class: dropdown
 
         .. code-block:: python
-        
+
             # -*- coding: utf-8 -*-
-            
+
             import torch
             import math
-            
+
             dtype = torch.float
             device = torch.device("cpu")
             device = torch.device("cuda:0") # Comment this out to not run on GPU
-            
+
             # Create random input and output data
             x = torch.linspace(-math.pi, math.pi, 2000, device=device, dtype=dtype)
             y = torch.sin(x)
-            
+
             # Randomly initialize weights
             a = torch.randn((), device=device, dtype=dtype)
             b = torch.randn((), device=device, dtype=dtype)
             c = torch.randn((), device=device, dtype=dtype)
             d = torch.randn((), device=device, dtype=dtype)
-            
+
             learning_rate = 1e-6
             for t in range(2000):
                 # Forward pass: compute predicted y
                 y_pred = a + b * x + c * x ** 2 + d * x ** 3
-                
+
                 # Compute and print loss
                 loss = (y_pred - y).pow(2).sum().item()
                 if t % 100 == 99:
                     print(t, loss)
-                
+
                 # Backprop to compute gradients of a, b, c, d with respect to loss
                 grad_y_pred = 2.0 * (y_pred - y)
                 grad_a = grad_y_pred.sum()
                 grad_b = (grad_y_pred * x).sum()
                 grad_c = (grad_y_pred * x ** 2).sum()
                 grad_d = (grad_y_pred * x ** 3).sum()
-                
+
                 # Update weights using gradient descent
                 a -= learning_rate * grad_a
                 b -= learning_rate * grad_b
                 c -= learning_rate * grad_c
                 d -= learning_rate * grad_d
-                
+
             print(f'Result: y = {a.item()} + {b.item()} x + {c.item()} x^2 + {d.item()} x^3')
 
 
@@ -632,35 +632,35 @@ In order to run this at HPC2N/UPPMAX you should either do a batch job or run int
 
 This is an example of a batch script for running the above example, using PyTorch 2.1.x and Python 3.11.x, and running on GPUs.
 
-.. admonition:: Example batch script, running on Kebnekaise 
+.. admonition:: Example batch script, running on Kebnekaise
     :class: dropdown
 
-        .. code-block:: sh 
-        
-            #!/bin/bash 
-            # Remember to change this to your own project ID after the course! 
+        .. code-block:: sh
+
+            #!/bin/bash
+            # Remember to change this to your own project ID after the course!
             #SBATCH -A hpc2n2024-052
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
-            # The following two lines splits the output in a file for any errors and a file for other output. 
+            # The following two lines splits the output in a file for any errors and a file for other output.
             #SBATCH --error=job.%J.err
             #SBATCH --output=job.%J.out
             # Asking for one V100
             #SBATCH --gres=gpu:V100:1
-            
+
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
-            module load GCC/12.3.0 OpenMPI/4.1.5 PyTorch/2.1.2-CUDA-12.1.1 
-            
+            module load GCC/12.3.0 OpenMPI/4.1.5 PyTorch/2.1.2-CUDA-12.1.1
+
             srun python pytorch_fitting_gpu.py
-            
+
 
 .. admonition:: UPPMAX as run in an interactive Snowy session
     :class: dropdown
 
         .. code-block:: sh
 
-            $ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+            $ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01
             You receive the high interactive priority.
 
             Please, use no more than 8 GB of RAM.
@@ -700,7 +700,7 @@ This is an example of a batch script for running the above example, using PyTorc
 TensorFlow
 ----------
 
-The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials 
+The example comes from https://machinelearningmastery.com/tensorflow-tutorial-deep-learning-with-tf-keras/ but there are also good examples at https://www.tensorflow.org/tutorials
 
 We are using Tensorflow 2.11.0-CUDA-11.7.0 (and Python 3.10.4) at HPC2N, since that is the newest GPU-enabled TensorFlow currently installed there.
 
@@ -721,11 +721,11 @@ On UPPMAX we are using TensorFlow 2.15.0 (included in python_ML_packages/3.11.8-
         - Load modules: ``module load uppmax python/3.11.8 python_ML_packages/3.11.8-gpu``
            - On Rackham we should use python_ML-packages/3.11.8-cpu, while on a GPU node the GPU version should be loaded (like we do in this example, which will work either in a batch script submitted to Snowy or in an interactive job running on Snowy).
 
-.. admonition:: We will work with this example  
+.. admonition:: We will work with this example
     :class: dropdown
 
-        .. code-block:: sh 
-        
+        .. code-block:: sh
+
             # mlp for binary classification
             from pandas import read_csv
             from sklearn.model_selection import train_test_split
@@ -764,72 +764,72 @@ On UPPMAX we are using TensorFlow 2.15.0 (included in python_ML_packages/3.11.8-
             print('Predicted: %.3f' % yhat)
 
 
-In order to run the above example, we will create a batch script and submit it.             
+In order to run the above example, we will create a batch script and submit it.
 
 .. admonition:: Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.10.4, and scikit-learn 1.1.2
     :class: dropdown
 
-        .. code-block:: sh 
-        
-            #!/bin/bash 
-            # Remember to change this to your own project ID after the course! 
+        .. code-block:: sh
+
+            #!/bin/bash
+            # Remember to change this to your own project ID after the course!
             #SBATCH -A hpc2n2024-052
             # We are asking for 5 minutes
             #SBATCH --time=00:05:00
-            # Asking for one V100 GPU 
+            # Asking for one V100 GPU
             #SBATCH --gres=gpu:v100:1
-            
+
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load GCC/11.3.0 Python/3.10.4 OpenMPI/4.1.4 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2
-            
-            # Run your Python script 
-            python example-tf.py 
+
+            # Run your Python script
+            python example-tf.py
 
 
 .. admonition:: Example batch script for Snowy, Python version 3.11.8, and the python_ML_packages/3.11.8-gpu containing Tensorflow
     :class: dropdown
 
-      .. code-block:: sh 
-        
-            #!/bin/bash -l  
-            # Remember to change this to your own project ID after the course! 
+      .. code-block:: sh
+
+            #!/bin/bash -l
+            # Remember to change this to your own project ID after the course!
             #SBATCH -A naiss2024-22-415
             # We want to run on Snowy
             #SBATCH -M snowy
             # We are asking for 15 minutes
             #SBATCH --time=00:15:00
             #SBATCH --gres=gpu:1
-            
+
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load uppmax
-            module load python_ML_packages/3.11.8-gpu 
-            
-            # Run your Python script 
-            python example-tf.py 
+            module load python_ML_packages/3.11.8-gpu
+
+            # Run your Python script
+            python example-tf.py
 
 
 
-            
-Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``. 
+
+Submit with ``sbatch <myjobscript.sh>``. After submitting you will (as usual) be given the job-id for your job. You can check on the progress of your job with ``squeue -u <username>`` or ``scontrol show <job-id>``.
 
 Note: if you are logged in to Rackham on UPPMAX and have submitted a GPU job to Snowy, then you need to use this to see the job queue:
 
 ``squeue -M snowy -u <username>``
 
-The output and errors will in this case be written to ``slurm-<job-id>.out``. 
+The output and errors will in this case be written to ``slurm-<job-id>.out``.
 
 
 General
 #######
 
-You almost always want to run several iterations of your machine learning code with changed parameters and/or added layers. If you are doing this in a batch job, it is easiest to either make a batch script that submits several variations of your Python script (changed parameters, changed layers), or make a script that loops over and submits jobs with the changes. 
+You almost always want to run several iterations of your machine learning code with changed parameters and/or added layers. If you are doing this in a batch job, it is easiest to either make a batch script that submits several variations of your Python script (changed parameters, changed layers), or make a script that loops over and submits jobs with the changes.
 
 Running several jobs from within one job
 ''''''''''''''''''''''''''''''''''''''''
 
-This example shows how you would run several programs or variations of programs sequentially within the same job: 
+This example shows how you would run several programs or variations of programs sequentially within the same job:
 
 .. tabs::
 
@@ -886,7 +886,7 @@ This example shows how you would run several programs or variations of programs 
          cp myoutput3 mydatadir
 
 
-The challenge here is to adapt the above batch scripts to suitable python scripts and directories.          
+The challenge here is to adapt the above batch scripts to suitable python scripts and directories.
 
 .. challenge::
 
@@ -1018,16 +1018,16 @@ The challenge here is to adapt the above batch scripts to suitable python script
 GPU
 ###
 
-Numba is installed as a module at HPC2N, but not in a version compatible with the Python we are using in this course (3.10.4), so we will have to install it ourselves. The process is the same as in the examples given for the isolated/virtual environment, and we will be using the virtual environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before: 
+Numba is installed as a module at HPC2N, but not in a version compatible with the Python we are using in this course (3.10.4), so we will have to install it ourselves. The process is the same as in the examples given for the isolated/virtual environment, and we will be using the virtual environment created earlier here. We also need numpy, so we are loading SciPy-bundle as we have done before:
 
-.. admonition:: Load Python 3.10.4 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba 
+.. admonition:: Load Python 3.10.4 and its prerequisites + SciPy-bundle + CUDA, then activate the virtual environment before installing numba
     :class: dropdown
-   
+
         .. code-block:: sh
-      
+
              $ module load GCC/11.2.0 OpenMPI/4.1.1 Python/3.9.6 SciPy-bundle/2021.10 CUDA/11.7.0
              $ python -m venv --system-site-packages vpyenv
-             $ source /proj/nobackup/python-hpc/bbrydsoe/vpyenv/bin/activate 
+             $ source /proj/nobackup/python-hpc/bbrydsoe/vpyenv/bin/activate
              (vpyenv) $ pip install --no-cache-dir --no-build-isolation numba
              Collecting numba
                Downloading numba-0.56.0-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.5 MB)
@@ -1039,66 +1039,66 @@ Numba is installed as a module at HPC2N, but not in a version compatible with th
                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.6/34.6 MB 230.0 MB/s eta 0:00:00
              Installing collected packages: llvmlite, numba
              Successfully installed llvmlite-0.39.0 numba-0.56.0
-           
+
              [notice] A new release of pip available: 22.1.2 -> 22.2.2
              [notice] To update, run: pip install --upgrade pip
 
-             
-        Let us try using it. We are going to use the following program for testing (it was taken from https://linuxhint.com/gpu-programming-python/ but there are also many great examples at https://numba.readthedocs.io/en/stable/cuda/examples.html): 
 
-.. admonition:: Python example using Numba 
+        Let us try using it. We are going to use the following program for testing (it was taken from https://linuxhint.com/gpu-programming-python/ but there are also many great examples at https://numba.readthedocs.io/en/stable/cuda/examples.html):
+
+.. admonition:: Python example using Numba
     :class: dropdown
-   
+
         .. code-block:: python
-        
+
              import numpy as np
              from timeit import default_timer as timer
              from numba import vectorize
-             
+
              # This should be a substantially high value.
              NUM_ELEMENTS = 100000000
-             
+
              # This is the CPU version.
              def vector_add_cpu(a, b):
                c = np.zeros(NUM_ELEMENTS, dtype=np.float32)
                for i in range(NUM_ELEMENTS):
                    c[i] = a[i] + b[i]
                return c
-               
+
              # This is the GPU version. Note the @vectorize decorator. This tells
              # numba to turn this into a GPU vectorized function.
              @vectorize(["float32(float32, float32)"], target='cuda')
              def vector_add_gpu(a, b):
                return a + b;
- 
+
              def main():
                a_source = np.ones(NUM_ELEMENTS, dtype=np.float32)
                b_source = np.ones(NUM_ELEMENTS, dtype=np.float32)
-               
+
                # Time the CPU function
                start = timer()
                vector_add_cpu(a_source, b_source)
                vector_add_cpu_time = timer() - start
- 
+
                # Time the GPU function
                start = timer()
                vector_add_gpu(a_source, b_source)
                vector_add_gpu_time = timer() - start
- 
+
                 # Report times
                 print("CPU function took %f seconds." % vector_add_cpu_time)
                 print("GPU function took %f seconds." % vector_add_gpu_time)
-              
+
                 return 0
- 
+
              if __name__ == "__main__":
                main()
-                 
-As before, we need a batch script to run the code. There are no GPUs on the login node. 
 
-.. admonition:: Batch script to run the numba code (add-list.py) at Kebnekaise 
+As before, we need a batch script to run the code. There are no GPUs on the login node.
+
+.. admonition:: Batch script to run the numba code (add-list.py) at Kebnekaise
     :class: dropdown
-   
+
         .. code-block:: sh
 
             #!/bin/bash
@@ -1120,7 +1120,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
             python add-list.py
 
 
-As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
+As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style).
 
 Numba example 2
 ---------------
@@ -1138,22 +1138,22 @@ as follows:
          import numpy
          import math
          from time import perf_counter
-         
+
          # grid size
          n = 100*1024
          threadsPerBlock = 16
          blocksPerGrid = int((n+threadsPerBlock-1)/threadsPerBlock)
-         
+
          # interval size (same for X and Y)
          h = math.pi / float(n)
-         
+
          @cuda.jit
          def dotprod(C):
-             tid = cuda.threadIdx.x + cuda.blockIdx.x * cuda.blockDim.x 
-         
+             tid = cuda.threadIdx.x + cuda.blockIdx.x * cuda.blockDim.x
+
              if tid >= n:
                  return
-         
+
              #cummulative variable
              mysum = 0.0
              # fine-grain integration in the X axis
@@ -1162,29 +1162,29 @@ as follows:
              for j in range(n):
                  y = h * (j + 0.5)
                  mysum += math.sin(x + y)
-         
+
              C[tid] = mysum
-         
-         
+
+
          # array for collecting partial sums on the device
          C_global_mem = cuda.device_array((n),dtype=numpy.float32)
-         
+
          starttime = perf_counter()
          dotprod[blocksPerGrid,threadsPerBlock](C_global_mem)
          res = C_global_mem.copy_to_host()
          integral = h**2 * sum(res)
          endtime = perf_counter()
-         
+
          print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
          print("Time spent: %.2f sec" % (endtime-starttime))
 
 The time for executing the kernel and doing some postprocessing to the outputs (copying
 the C array and doing a reduction)  was 4.35 sec. which is a much smaller value than the
-time for the serial numba code of 152 sec. 
+time for the serial numba code of 152 sec.
 
 Notice the larger size of the grid in the present case (100*1024) compared to the
 serial case's size we used previously (10000). Large computations are necessary on the GPUs
-to get the benefits of this architecture. 
+to get the benefits of this architecture.
 
 One can take advantage of the shared memory in a thread block to write faster code. Here,
 we wrote the 2D integration example from the previous section where threads in a block
@@ -1202,26 +1202,26 @@ collected in the array ``C``. The entire code is here:
          import numpy
          import math
          from time import perf_counter
-         
+
          # grid size
          n = 100*1024
          threadsPerBlock = 16
          blocksPerGrid = int((n+threadsPerBlock-1)/threadsPerBlock)
-         
+
          # interval size (same for X and Y)
          h = math.pi / float(n)
-         
+
          @cuda.jit
          def dotprod(C):
              # using the shared memory in the thread block
-             shared = cuda.shared.array(shape=(threadsPerBlock), dtype=float32) 
-         
-             tid = cuda.threadIdx.x + cuda.blockIdx.x * cuda.blockDim.x 
+             shared = cuda.shared.array(shape=(threadsPerBlock), dtype=float32)
+
+             tid = cuda.threadIdx.x + cuda.blockIdx.x * cuda.blockDim.x
              shrIndx = cuda.threadIdx.x
-         
+
              if tid >= n:
                  return
-         
+
              #cummulative variable
              mysum = 0.0
              # fine-grain integration in the X axis
@@ -1230,11 +1230,11 @@ collected in the array ``C``. The entire code is here:
              for j in range(n):
                  y = h * (j + 0.5)
                  mysum += math.sin(x + y)
-         
+
              shared[shrIndx] = mysum
-         
+
              cuda.syncthreads()
-         
+
              # reduction for the whole thread block
              s = 1
              while s < cuda.blockDim.x:
@@ -1245,23 +1245,23 @@ collected in the array ``C``. The entire code is here:
              # collecting the reduced value in the C array
              if shrIndx == 0:
                  C[cuda.blockIdx.x] = shared[0]
-         
+
          # array for collecting partial sums on the device
          C_global_mem = cuda.device_array((blocksPerGrid),dtype=numpy.float32)
-         
+
          starttime = perf_counter()
          dotprod[blocksPerGrid,threadsPerBlock](C_global_mem)
          res = C_global_mem.copy_to_host()
          integral = h**2 * sum(res)
          endtime = perf_counter()
-         
+
          print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
          print("Time spent: %.2f sec" % (endtime-starttime))
 
 We need a batch script to run this Python code, an example script is here:
 
 
-.. code-block:: sh 
+.. code-block:: sh
 
     #!/bin/bash
     #SBATCH -A project_ID
@@ -1272,53 +1272,53 @@ We need a batch script to run this Python code, an example script is here:
     #SBATCH -e error_%j.err    # error messages
     #SBATCH --gres=gpu:k80:2
     #SBATCH --exclusive
-     
+
     ml purge > /dev/null 2>&1
     ml GCCcore/11.2.0 Python/3.9.6
     ml GCC/11.2.0 OpenMPI/4.1.1
     ml CUDA/11.7.0
-    
+
     virtualenv --system-site-packages /proj/nobackup/<your-project-storage>/vpyenv-python-course
     source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
-       
+
     python integration2d_gpu.py
 
 The simulation time for this problem's size
-was 1.87 sec. 
+was 1.87 sec.
 
 
 Exercises
 ---------
 
 .. challenge:: Run the first serial example from further up on the page for this short Python code (sum-2args.py)
-    
+
     .. code-block:: python
-    
+
         import sys
-            
+
         x = int(sys.argv[1])
         y = int(sys.argv[2])
-            
+
         sum = x + y
-            
+
         print("The sum of the two numbers is: {0}".format(sum))
-        
+
     Remember to give the two arguments to the program in the batch script.
 
 .. solution::
     :class: dropdown
-    
-          This is for Kebnekaise. Adding the numbers 2 and 3. 
-          
+
+          This is for Kebnekaise. Adding the numbers 2 and 3.
+
           .. code-block:: sh
- 
+
             #!/bin/bash
             #SBATCH -A hpc2nXXXX-YYY # Change to your own after the course
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
-            
+
             # Load any modules you need, here for Python 3.9.6
             module load GCC/11.2.0  OpenMPI/4.1.1 Python/3.9.6
-            
-            # Run your Python script 
-            python sum-2args.py 2 3 
+
+            # Run your Python script
+            python sum-2args.py 2 3
