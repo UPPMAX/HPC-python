@@ -10,13 +10,14 @@ Introduction
 
 .. admonition:: **Learning outcomes for this day**
 
-    - Find and load a Python package module
-    - Determine if a Python package is installed
-    - Use a virtual environment
-    - Install Python packages
-    - Write and submit batch job scripts
-    - Use a Python IDE
-    - Use ``matplotlib``
+    - You can find and load a Python package module
+    - You can determine if a Python package is installed
+    - You can use an isolated environment
+    - You can install Python packages
+    - You can write and submit batch job scripts
+    - You can use the compute nodes interactively
+    - You can use a Python IDE
+    - You can create plots in ``matplotlib``
 
 .. admonition:: **Learning outcomes of this session**
 
@@ -94,7 +95,7 @@ The goal of this exercise is to find out
     - I can write and submit batch job scripts
     - I can use the compute nodes interactively
     - I can use a Python IDE
-    - I can create plots in matplotlib
+    - I can create plots in ``matplotlib``
 
 Exercise 2: downloading and extracting the exercises
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -9,7 +9,7 @@ Welcome to "Using Python in an HPC environment" course material
 .. admonition:: Content
 
    - This course aims to give a brief, but comprehensive introduction to using Python in an HPC environment.
-   - You will learn how to
+   - You will learn how to    
       - use modules to load Python
       - find site installed Python packages
       - install packages yourself
@@ -24,14 +24,14 @@ Welcome to "Using Python in an HPC environment" course material
 
     <!-- TODO: BC: Update -->
 
-    - Find and load a Python package module
-    - Determine if a Python package is installed
-    - Use a virtual environment
-    - Install Python packages
-    - Write and submit batch job scripts
-    - Use a Python IDE
-    - Use ``matplotlib``
-    - Use the compute nodes interactively
+    - You can find and load a Python package module
+    - You can determine if a Python package is installed
+    - You can use an isolated environment
+    - You can install Python packages
+    - You can write and submit batch job scripts
+    - You can use the compute nodes interactively
+    - You can use a Python IDE
+    - You can create plots in ``matplotlib``
     - Use Python in parallel
     - Use Python for ML
     - Use GPUs with Python
