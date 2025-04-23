@@ -9,7 +9,7 @@ Introduction
 .. admonition:: Want to see this session as a video?
     :class: dropdown
 
-    To see this session as a video, view `this YouTube video <https://youtu.be/874BDWNCYWg>`.
+    To see this session as a video, view `this YouTube video <https://youtu.be/874BDWNCYWg>`__.
 
 .. admonition:: **For teachers: Learning outcomes for this day**
     :class: dropdown

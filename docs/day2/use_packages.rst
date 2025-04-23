@@ -29,6 +29,31 @@ This helps to assure reproducible research.
 Exercises
 ---------
 
+.. admonition:: Want to see the answers as a video?
+    :class: dropdown
+
+    Some HPC clusters have multiple remote desktops. We recommend:
+
+    +-----------+---------------------------------------+
+    |HPC cluster|YouTube video                          |
+    +===========+=======================================+
+    |Alvis      |`Here <https://youtu.be/874BDWNCYWg>`__|
+    +-----------+---------------------------------------+
+    |Bianca     |``TODO``                               |
+    +-----------+---------------------------------------+
+    |COSMOS     |``TODO``                               |
+    +-----------+---------------------------------------+
+    |Dardel     |``TODO``                               |
+    +-----------+---------------------------------------+
+    |Kebnekaise |``TODO``                               |
+    +-----------+---------------------------------------+
+    |LUMI       |``TODO``                               |
+    +-----------+---------------------------------------+
+    |Rackham    |``TODO``                               |
+    +-----------+---------------------------------------+
+    |Tetralith  |``TODO``                               |
+    +-----------+---------------------------------------+
+
 Exercise 1: using Python packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

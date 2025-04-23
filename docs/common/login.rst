@@ -112,7 +112,7 @@ For beginners: use the **bold** login method.
 
     +-----------+-------------------------------+
     |HPC cluster|Recommended desktop environment|
-    +-----------+-------------------------------+
+    +===========+===============================+
     |Alvis      |The only one                   |
     +-----------+-------------------------------+
     |Bianca     |XFCE                           |
