@@ -12,23 +12,23 @@ explanations of function arguments.
 .. admonition:: **Prerequisites**
 
    In order to follow this course, you will need to be familiar with:
-   
+
    -  The Python 3.X language, data structures (e.g. dictionaries), and built-in functions (e.g. string manipulation functions)
    -  NumPy: array I/O and manipulation
 
    It will also help to have experience with:
-   
+
    -  SciPy
    -  Pandas
    -  LaTeX math typesetting (reference links are provided)
-   
+
    Before we get started, let's the meanings of the terms ``args`` and ``kwargs``, since they will appear frequently:
-   
+
    -  ``args`` refer to *positional arguments*, which are usually mandatory, but not always. These always come before the ``kwargs``.
    -  ``kwargs`` are short for *keyword arguments*. These are usually optional, but it's fairly common for some python functions to require a variable subset of all available kwargs dependent on previous inputs. These always come after ``args``.
-   
+
    It will also help you to remember what classes, methods, and attributes are:
-   
+
    -  ``classes`` are templates to make Python objects. They have a built-in ``__init__()`` function to set initial properties that must be defined when an object of this class is created, and they methods and attributes to compute values or functions with. Once a class is defined, you typically define an instance of it like ``obj = MyClass(...)``.
    -  ``methods`` associate *functions* with the class and allow quick evaluation for each class instance. For an object ``obj`` of class ``MyClass`` that has methods, the method syntax looks like this: ``obj.MyMethod()`` or ``obj.MyMethod(*args, **kwargs)``.
    -  ``attributes`` let you automatically compute and store *values* that can be derived for any instance of the class. For an object ``obj`` with an attribute ``MyAttribute``, the syntax is``obj.MyAttribute``; i.e. the main difference between attributes and methods is that attributes do not take arguments.
@@ -78,14 +78,14 @@ Load and Run
                  matplotlib/3.7.2 (E)
                  matplotlib/3.8.2
                  matplotlib/3.8.2 (E)
-         
+
          Names marked by a trailing (E) are extensions provided by another module.
-        
+
 
   .. tab:: LUNARC
 
      On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter applications to use Matplotlib. Some Matplotlib scripts will be demonstrated on Cosmos with Spyder.
-      
+
      If you must work on the command line, then you will need to load matplotlib separately, along with all the prerequisite modules (don't forget the SciPy-bundle if you plan to use NumPy, SciPy, or Pandas!). The module ``Tkinter`` loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots.
 
      As of 27-11-2024, ``ml spider matplotlib`` outputs the following versions:
@@ -101,7 +101,7 @@ Load and Run
                environments across platforms. matplotlib can be used in python
                scripts, the python and ipython shell, web application servers, and
                six graphical user interface toolkits.
-         
+
               Versions:
                  matplotlib/2.2.5-Python-2.7.18
                  matplotlib/3.3.3
@@ -112,7 +112,7 @@ Load and Run
                  matplotlib/3.7.2
                  matplotlib/3.8.2
                  matplotlib/3.9.2
-         
+
          ----------------------------------------------------------------------------
 
 
@@ -129,14 +129,14 @@ Load and Run
                  python_ML_packages/3.9.5-cpu
                  python_ML_packages/3.9.5-gpu
                  python_ML_packages/3.11.8-cpu
-         
+
          ----------------------------------------------------------------------------
            For detailed information about a specific "python_ML_packages" package (includ
          ing how to load the modules) use the module's full name.
            Note that names that have a trailing (E) are extensions provided by other modu
          les.
            For example:
-         
+
               $ module spider python_ML_packages/3.11.8-cpu
          ----------------------------------------------------------------------------
 
@@ -155,7 +155,7 @@ Load and Run
                environments across platforms. matplotlib can be used in python
                scripts, the python and ipython shell, web application servers, and
                six graphical user interface toolkits.
-         
+
               Versions:
                  matplotlib/2.2.3-fosscuda-2018b-Python-2.7.15
                  matplotlib/3.0.0-intel-2018b-Python-3.6.6
@@ -215,7 +215,7 @@ Most people's first attempt to plot something in matplotlib looks like the follo
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    x = np.linspace(0,2*np.pi, 50)   # fake some data
    # Minimum working example with 2 functions
    plt.plot(x,3+3*np.sin(x),'b-',
@@ -232,7 +232,7 @@ The *explicit* API looks more like the following example. A figure and a set of 
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    x = np.linspace(0,2*np.pi, 50)
    # Better way for later formatting
    fig, ax = plt.subplots()
@@ -251,24 +251,24 @@ The outputs look the same above because the example was chosen to work with both
 Subplots and Subplot Mosaics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For the standard ``plt.subplots(nrows=nrows, ncols=ncols)`` command, the shape of ``axes`` will be 
+For the standard ``plt.subplots(nrows=nrows, ncols=ncols)`` command, the shape of ``axes`` will be
 
-* 2D if both ``nrows`` and ``ncols`` are given, 
-* 1D if either ``nrows`` or ``ncols`` are provided but not both, or 
+* 2D if both ``nrows`` and ``ncols`` are given,
+* 1D if either ``nrows`` or ``ncols`` are provided but not both, or
 * 0D (not iterable) if neither are given.
 
 .. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    x = np.linspace(0,2*np.pi, 50)
    fig, axes = plt.subplots(nrows=2,  sharex=True)
    fig.subplots_adjust(hspace=0.05) #reduces space between 2 plots
    axes[0].plot(x,3+3*np.sin(x),'b-', label=r'3+3$\times$sin(x)')
    axes[1].plot(x, 2+2*np.cos(x), 'r-.', label=r'2+2$\times$cos(x)')
    axes[1].set_xlabel('x [rads]')
-   for ax in axes: 
+   for ax in axes:
        ax.legend()
        ax.set_ylabel('y')
    axes[0].set_title('Demo Plot - Explicit API')
@@ -280,7 +280,7 @@ There are also the ``plt.subplot()`` and ``fig.add_subplot()`` methods, but they
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    x = np.linspace(0,2*np.pi, 50)
    # for variable projections
    fig = plt.figure(figsize=(8,4))
@@ -301,18 +301,18 @@ There are also the ``plt.subplot()`` and ``fig.add_subplot()`` methods, but they
 
 The 3-digit number in parentheses gives the position of that set of axes on the subplot grid: the first digit is the total number of panels in a row, the second digit gives the number of plots in a column, and the last digit is the 1-based index of that plot as it would appear in a flattened ordered list. E.g. if a subplot grid had 2 rows and 3 columns, the top row would be indexed [1,2,3], and the bottom row would be indexed [4,5,6].
 
-The final alternative is ``plt.subplot_mosaic()``, which allows one to easily set subplots to span multiple rows or columns. 
+The final alternative is ``plt.subplot_mosaic()``, which allows one to easily set subplots to span multiple rows or columns.
 
 * Each plot is identified by a single ASCII character (any alphanumeric character) in a string. Multiple occurrences of the same character are used to indicate where that plot spans multiple rows or columns.
 * The character ``.`` is used to denote gaps.
-* The character sequence can be intuitive like in the example below, where each row on the grid is on a separate line, but you can also separate rows with ``;`` for more compact code (no spaces!). 
+* The character sequence can be intuitive like in the example below, where each row on the grid is on a separate line, but you can also separate rows with ``;`` for more compact code (no spaces!).
 * There is a ``per_subplot_kw``, which accepts a nested dictionary where the single-character plot labels are keys, and the values are themselves dictionaries with axes methods or kwargs of ``plt.subplot()`` as keys and their inputs as values. These are useful if you need to, for example, specify a different axis projection for each plot.
 
 .. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    x = np.linspace(0,2*np.pi, 50)
    fig, axd = plt.subplot_mosaic(
        """
@@ -323,7 +323,7 @@ The final alternative is ``plt.subplot_mosaic()``, which allows one to easily se
        per_subplot_kw={"C": {"projection": "polar"},
                       ('B','D'): {'xscale':'log'}})
    for k, ax in axd.items():
-       ax.text(0.5, 0.5, k, transform=ax.transAxes, 
+       ax.text(0.5, 0.5, k, transform=ax.transAxes,
                ha="center", va="center",  color="b",
                fontsize=25)
    axd['B'].plot(x, 1+np.sin(x), 'r-.',
@@ -404,7 +404,7 @@ Apart from ``.scatter()``, most of these plots are more suited for models rather
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    import matplotlib as mpl
 
    fig, axes=plt.subplots(nrows=2,ncols=2, sharex=True)
@@ -417,11 +417,11 @@ Apart from ``.scatter()``, most of these plots are more suited for models rather
 
    #2. scatter (line plot data with added noise, colored by amplitude)
    y1 = (2+2*np.cos(x))*np.random.random_sample(len(x))
-   y2 = (1+np.sin(x))*np.random.random_sample(len(x)) 
+   y2 = (1+np.sin(x))*np.random.random_sample(len(x))
    axes[0,1].scatter( x, y1, s=y1*20, c=y1, cmap=mpl.colormaps['plasma'], edgecolors='b')
    axes[0,1].scatter( x, y2, c='k', marker='+')
 
-   #3. stem (more noisy line plot data) 
+   #3. stem (more noisy line plot data)
    markers,stems,baseline = axes[1,0].stem( x, y1, linefmt='k-', bottom=1.0)
    stems.set_linewidth(0.75)
    markers.set_markerfacecolor('teal')
@@ -430,7 +430,7 @@ Apart from ``.scatter()``, most of these plots are more suited for models rather
 
    #4. fill-between with the where kwarg
    # single command without where fills both sides the same color
-   axes[1,1].fill_between( x, 1, y1, color='b', alpha=0.5, where = y1 >= 1) 
+   axes[1,1].fill_between( x, 1, y1, color='b', alpha=0.5, where = y1 >= 1)
    axes[1,1].fill_between( x, y1, 1, color='r', alpha=0.5, where = y1 < 1)
    axes[1,1].set_xlabel('x [rads]')
    plt.show()
@@ -440,7 +440,7 @@ Apart from ``.scatter()``, most of these plots are more suited for models rather
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
 
    rng = np.random.default_rng()
    grades = rng.integers(low=55, high=100, size=[4,4])
@@ -493,7 +493,7 @@ It's hard to load a good data set to demonstrate statistical plots without Panda
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    import pandas as pd
    import seaborn as sb
    penguins = sb.load_dataset('penguins') #this loads into a Pandas DataFrame
@@ -520,7 +520,7 @@ To combine the ``hist()`` and ``hist2d()`` examples, let's make a plot of joint 
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    import pandas as pd
    import seaborn as sb
    penguins = sb.load_dataset('penguins') #this loads into a Pandas DataFrame
@@ -534,7 +534,7 @@ To combine the ``hist()`` and ``hist2d()`` examples, let's make a plot of joint 
        # the central 2D histogram:
        n,xb,yb,img = ax2d.hist2d(xdata, ydata, bins = [nbins,nbins])
        #use x- & y-bins from 2D histogram to align them
-       ax_histx.hist(xdata, bins=xb) 
+       ax_histx.hist(xdata, bins=xb)
        ax_histy.hist(ydata, bins=yb, orientation='horizontal')
        ax_histx.sharex(ax2d)
        ax_histy.sharey(ax2d)
@@ -558,13 +558,13 @@ To combine the ``hist()`` and ``hist2d()`` examples, let's make a plot of joint 
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    import pandas as pd
    import seaborn as sb
    penguins = sb.load_dataset('penguins') #this loads into a Pandas DataFrame
 
    specs = penguins.dropna().groupby(['species'])
-   spbills = {k:specs.get_group((k,))['bill_length_mm'].to_numpy() 
+   spbills = {k:specs.get_group((k,))['bill_length_mm'].to_numpy()
               for k in penguins['species'].unique()}
 
    #Box and Violin plots
@@ -609,7 +609,7 @@ For ``barbs()``, ``quiver()``, and ``streamplot()``, ``X,Y`` are coordinates (op
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    #mock up some data
    x = np.arange(-3.0, 3.0, 0.025)
    y = np.arange(-2.0, 2.0, 0.025)
@@ -629,7 +629,7 @@ For ``barbs()``, ``quiver()``, and ``streamplot()``, ``X,Y`` are coordinates (op
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    # 11x7 grid
    Xs, Ys = np.meshgrid(np.arange(-0.5, 10, 1),
                         np.arange(4.5, 11, 1))
@@ -644,7 +644,7 @@ For ``barbs()``, ``quiver()``, and ``streamplot()``, ``X,Y`` are coordinates (op
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    X, Y = np.meshgrid(np.arange(0, 2 * np.pi, .2), np.arange(0, 2 * np.pi, .2))
    U = np.cos(X)
    V = np.sin(Y)
@@ -701,7 +701,7 @@ where adjacent z-values are spatially correlated.
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    import matplotlib.tri as tri
    #Mock up data of something that looks like vaguely like an epidemic or something similar
    np.random.seed(19990101)
@@ -750,8 +750,8 @@ Below is a sample of how ``scatter(x,y,z)`` handles depth, and how you can achie
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
-   x,y,z,c = np.genfromtxt('docs/day2/solar_neighborhood.txt', encoding='ascii', 
+   %matplotlib inline
+   x,y,z,c = np.genfromtxt('docs/day2/solar_neighborhood.txt', encoding='ascii',
                         dtype=[('x','<f8'),('y','<f8'),('z','<f8'), ('c','<U12')],
                         converters={3:lambda s: 'tab:'+str(s)}, unpack=True)
    zsun = abs(min(z))
@@ -773,7 +773,7 @@ Below is a sample of how ``scatter(x,y,z)`` handles depth, and how you can achie
    for ax in axes:
        ax.stem([0],[0],[zsun], linefmt='k--',markerfmt='k*',
                bottom=0.0, basefmt=" ", label='Sun')
-       ax.legend()    
+       ax.legend()
    plt.title('Nearest 20 Stars (Scale in LY)')
    plt.show()
 
@@ -782,7 +782,7 @@ Below is a sample of how ``scatter(x,y,z)`` handles depth, and how you can achie
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    from matplotlib import cm
 
    fig, axes = plt.subplots(ncols=2,
@@ -851,7 +851,7 @@ You *can* use string insertion inside of formatting operators like the super- an
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    v_init=15.1
    error_arr=[-0.4,0.3]
    fig,ax=plt.subplots(dpi=120,figsize=(5,5))
@@ -889,7 +889,7 @@ Axes objects (the ``ax`` in ``fig,ax=plt.subplots()``) have dozens of methods an
 Any axes methods that have ``set`` in the name have a ``get`` counterpart that returns the current value(s) of whatever the ``set`` method would set or overwrite.
 
 .. note::
-   
+
    Scales that are neither linear nor logarithmic are not suitable for histograms, contours, or image-like data.
 Contours don’t tend to work well with log axes either: you'll need to work in log units and use tick label formatters to override the labels (next section).
 
@@ -916,7 +916,7 @@ The following example demonstrates both ``LogLocator()`` (in which documentation
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    #blackbody curve for the temperature of the sun
    # as a function of wavelength
    c = 2.998*10**8.
@@ -975,7 +975,7 @@ Ticks and locators for color bars are inferred from the plot by default, but can
 
    import numpy as np
    import matplotlib.pyplot as plt
-   %matplotlib inline 
+   %matplotlib inline
    fig, (ax1, ax2) = plt.subplots(nrows=2,
                                   figsize=[3,6],
                                   dpi=120)
