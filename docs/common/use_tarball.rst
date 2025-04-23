@@ -131,6 +131,11 @@ In the terminal, in your personal folder, type the following command:
 
 ``wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz``
 
+.. code-block:: bash
+
+    wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz
+
+
 Step 5: Uncompress the tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
