@@ -47,14 +47,18 @@ Interactive work on the compute nodes
    **NOTE** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for. 
 
    - UPPMAX 
-       - uppmax2025-2-296_1 for cpu on Thursday
-       - uppmax2025-2-296_2 for gpu on Thursday
-       - uppmax2025-2-296_3 for cpu on Friday
-       - uppmax2025-2-296_4 for gpu on Friday 
+       - the reservation is "magnetic" and so will be used automatically 
    - HPC2N
        - hpc-python-fri for cpu on Friday
        - hpc-python-mon for cpu on Monday
        - hpc-python-tue for gpu on Tuesday
+
+   - LUNARC 
+       - py4hpc_day1 for cpu on Thursday
+       - py4hpc_day2 for cpu on Friday
+       - py4hpc_day3 for cpu on Monday
+       - py4hpc_day4 for cpu on Tuesday 
+       - py4hpc_gpu for gpu on Tuesday 
 
 Introduction
 ------------
