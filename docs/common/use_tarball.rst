@@ -43,8 +43,8 @@ Procedure
 Below are the steps to download and extract the files needed
 for exercises in the course.
 
-Step 1: if there is a project folder, navigate to your project folder
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 1/6: if there is a project folder, navigate to your project folder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This step only applies if your HPC cluster uses a project folder.
 Skip this step if your HPC cluster does not use project folders.
@@ -92,8 +92,8 @@ of this course. See :ref:`common-naiss-projects-overview` for where these are.
     `the UPPMAX documentation <https://docs.uppmax.uu.se/getting_started/project/#view-your-uppmax-projects>`__.
 
 
-Step 2: if there is a project folder, create a folder for yourself
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 2/6: if there is a project folder, create a folder for yourself
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This step only applies if your HPC cluster uses a project folder.
 Skip this step if your HPC cluster does not use project folders.
@@ -110,8 +110,8 @@ For example, if your name is Sven, create a folder called ``sven``
 
         mkdir sven
 
-Step 3: if there is a project folder, navigate inside that folder
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 3/6: if there is a project folder, navigate inside that folder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This step only applies if your HPC cluster uses a project folder.
 Skip this step if your HPC cluster does not use project folders.
@@ -128,8 +128,8 @@ navigate inside your personal folder
 
         cd sven
 
-Step 4: get the tarball
-^^^^^^^^^^^^^^^^^^^^^^^
+Step 4/6: get the tarball
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the terminal, in your personal folder, type the following command:
 
@@ -138,8 +138,8 @@ In the terminal, in your personal folder, type the following command:
     wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz
 
 
-Step 5: Uncompress the tarball
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 5/6: Uncompress the tarball
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the terminal, in your personal folder, type the following command:
 
@@ -147,8 +147,8 @@ In the terminal, in your personal folder, type the following command:
 
     tar -xvzf exercises.tar.gz
 
-Step 6: Navigate in the folder of that day
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 6/6: Navigate in the folder of that day
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After decompressing, there is a folder called  ``day2``, or ``day3`` or ``day4``
 that contains the exercises. Navigate into that folder.
