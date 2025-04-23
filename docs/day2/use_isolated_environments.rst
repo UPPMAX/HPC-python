@@ -105,25 +105,32 @@ Typical workflow
    - Next steps are identical and involves "activating" and ``pip installs``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
 
+.. admonition:: Draw-backs
 
+   - Only works for python environments
+   - Only works with python versions already installed
 
 
 Conda
 -----
 
-- Conda is an installer of packages but also bigger toolkits
-- Conda creates isolated environments not clashing with other installations of python and other versions of packages
+- Conda is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
+- Conda creates isolated environments not clashing with other installations of python and other versions of packages.
 - Conda environment requires that you install all packges needed by yourself. That is,  you cannot load the python module and use the packages therein inside you Conda environment.
 
 .. warning::
  
     - Conda is known to create **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically ``300000`` in $home). 
-    - Check your disk usage and quota limit with ``uquota``
+    - Check your disk usage and quota limit with ``uquota`` or **FIX**, depending on system
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
+
+    
 
 
 Typical workflow
 ................
+
+The first 2 steps are cluster dependent and will therefore be slightly different.
 
 1. Make conda available from a software module, like ``ml load conda`` or similar, or use own installation of miniconda or miniforge.
 2. First time
@@ -131,7 +138,7 @@ Typical workflow
    .. admonition:: First time
       :class: dropdown   
 
-      - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
+      - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder, if you have one, instead of the HOME folder.
       - Otherwise, the default is ~/.conda/envs. 
       - Example:
   
@@ -158,10 +165,12 @@ Typical workflow
     
     conda deactivate
 
+.. admonition:: Conda base env
+
+   - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
 
 
 
-https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip
 
 .. admonition:: Conda cheat sheet    
    
@@ -176,29 +185,16 @@ https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-
    - Activate a specific environment: ``conda activate myenvironment``
    - Deactivate current environment: ``conda deactivate``
 
+.. admonition:: Conda vs mamba etc...
 
-NSC:
+   - `what-is-the-difference-with-conda-mamba-poetry-pip <https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip>`_
 
-- https://www.nsc.liu.se/software/python/
-- https://www.nsc.liu.se/software/anaconda/
 
-PDC:
 
-- https://support.pdc.kth.se/doc/applications/python/
+.. warning::
 
-LUNARC
-
-- https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
-
-UPPMAX
-
-- https://docs.uppmax.uu.se/software/conda/
-- https://hackmd.io/@pmitev/conda_on_Rackham
-
-LUMI
-
-- https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
-
+   - If you experience unexpected problems with the conda provided by the module system on Rackham or anaconda3 on Dardel, you can easily install your own and maintain it yourself.
+   - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
 
 
 Install from file/Set up course environment
@@ -478,7 +474,17 @@ Breakout room according to grouping
 
    First try to find it by navigating.
 
+   - NSC: https://www.nsc.liu.se
+   - PDC: https://support.pdc.kth.se/doc/
+   - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/
+   - UPPMAX: https://docs.uppmax.uu.se/
+   - HPC2N: https://docs.hpc2n.umu.se/
+   - LUMI: https://docs.lumi-supercomputer.eu/software
+
    .. solution::
+
+      **FIX add links to venvs**
+      **FIX conda tab and venv tab?? Or make 1a and 1b**
 
       NSC:
 
@@ -488,7 +494,6 @@ Breakout room according to grouping
       PDC:
 
       - https://www.kth.se/blogs/pdc/2020/11/working-with-python-virtual-environments/
-      - https://hackmd.io/@pmitev/conda_on_Rackham
 
       LUNARC
 
@@ -732,7 +737,29 @@ Summary
    - Installed Python modules (modules and own-installed) can be accessed within Python with ``import <package>`` as usual. 
    - The command ``pip list`` given within Python will list the available modules to import. 
    - More about packages and virtual/isolated environment to follow in later sections of the course! 
-     
+
+NSC:
+
+- https://www.nsc.liu.se/software/python/
+- https://www.nsc.liu.se/software/anaconda/
+
+PDC:
+
+- https://support.pdc.kth.se/doc/applications/python/
+
+LUNARC
+
+- https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
+
+UPPMAX
+
+- https://docs.uppmax.uu.se/software/conda/
+- https://hackmd.io/@pmitev/conda_on_Rackham
+
+LUMI
+
+- https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+
 
 .. seealso::
 
