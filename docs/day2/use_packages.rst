@@ -245,7 +245,9 @@ Exercise 1: using Python packages
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | Rackham    | ``module load python_ML_packages/3.11.8-cpu``. You will be asked to do a ``module unload python`` first. Do so :-) |
     +------------+--------------------------------------------------------------------------------------------------------------------+
-    | Tetralith  | ``module load Python/3.11.5``                                                                                      |
+    | Tetralith  | ``module load buildtool-easybuild/4.9.4-hpc71cbb0050 GCC/13.2.0 SciPy-bundle/2023.11``                             |
+    +            +--------------------------------------------------------------------------------------------------------------------+
+    |            | Alternatively: ``module load Python/3.11.5`` (which happens to be a Python version with ``scipy`` installed)       |
     +------------+--------------------------------------------------------------------------------------------------------------------+
 
 - See the package is now present
