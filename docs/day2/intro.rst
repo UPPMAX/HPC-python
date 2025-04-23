@@ -6,9 +6,8 @@
 Introduction
 ============
 
-.. RB: Move 'Course learning outcomes' to index.rst
-
-.. admonition:: **Learning outcomes for this day**
+.. admonition:: **For teachers: Learning outcomes for this day**
+    :class: dropdown
 
     - You can find and load a Python package module
     - You can determine if a Python package is installed
