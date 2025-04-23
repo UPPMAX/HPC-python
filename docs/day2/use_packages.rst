@@ -114,25 +114,25 @@ Exercise 1: using Python packages
 - Confirm that the Python package, indicated in the table below, is absent.
   You can use any way to do so.
 
-+------------+----------------+
-| HPC cluster| Python package |
-+============+================+
-| Alvis      | ``scipy``      |
-+------------+----------------+
-| Bianca     | ``tensorflow`` |
-+------------+----------------+
-| COSMOS     | ``scipy``      |
-+------------+----------------+
-| Dardel     | ``tensorflow`` |
-+------------+----------------+
-| Kebnekaise | ``scipy``      |
-+------------+----------------+
-| LUMI       | ``matplotlib`` |
-+------------+----------------+
-| Rackham    | ``tensorflow`` |
-+------------+----------------+
-| Tetralith  | ``scipy``      |
-+------------+----------------+
++------------+------------------------------+
+| HPC cluster| Python package               |
++============+==============================+
+| Alvis      | ``scipy``                    |
++------------+------------------------------+
+| Bianca     | ``tensorflow`` (CPU version) |
++------------+------------------------------+
+| COSMOS     | ``scipy``                    |
++------------+------------------------------+
+| Dardel     | ``tensorflow``               |
++------------+------------------------------+
+| Kebnekaise | ``scipy``                    |
++------------+------------------------------+
+| LUMI       | ``matplotlib``               |
++------------+------------------------------+
+| Rackham    | ``tensorflow`` (CPU version) |
++------------+------------------------------+
+| Tetralith  | ``scipy``                    |
++------------+------------------------------+
 
 .. admonition:: Answer
     :class: dropdown
