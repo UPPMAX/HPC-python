@@ -30,7 +30,7 @@ Storage spaces for this workshop:
 +------------+------------------------------------------------------------+
 | COSMOS     | Use HOME directory (``~``)                                 |
 +------------+------------------------------------------------------------+
-| Dardel     | :code:`/cfs/klemming/projects/snic/hpc-python-spring-naiss`|
+| Dardel     | :code:`/cfs/klemming/projects/supr/hpc-python-spring-naiss`|
 +------------+------------------------------------------------------------+
 | Kebnekaise | :code:`/proj/nobackup/hpc-python-spring`                   |
 +------------+------------------------------------------------------------+
