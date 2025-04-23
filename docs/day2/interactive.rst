@@ -3,7 +3,9 @@ Interactive work on the compute nodes
 
 .. admonition:: Learning objectives
 
+   - What are the UPPMAX, HPC2N, LUNARC, NSC, and PDC clusters?
    - Understand what the batch system is 
+   - Short introduction to SLURM scheduler 
    - Understand what an interactive session is
    - Understand why one may need an interactive session
    - How to work with an interactive session (single + multiple cores)
@@ -30,7 +32,7 @@ Interactive work on the compute nodes
    - Kebnekaise: ``hpc2n2025-076``
    - Cosmos: ``lu2025-7-34``
    - Tetralith: ``naiss2025-22-403``  
-   - Daradel: ``naiss2025-22-403``
+   - Dardel: ``naiss2025-22-403``
 
 .. admonition:: Storage space for this workshop 
 
@@ -118,7 +120,7 @@ Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, NSC, and
 
 - The **calculation nodes** have to be used for intense computing.
 
-- Beginner's guide to clusters: https://www.hpc2n.umu.se/documentation/guides/beginner-guide
+- Beginner's guide to clusters: https://docs.hpc2n.umu.se/tutorials/clusterguide/ 
 
 Common features
 ###############

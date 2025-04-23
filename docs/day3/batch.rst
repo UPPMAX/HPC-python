@@ -3,14 +3,13 @@ Running Python in batch mode
 
 .. questions::
 
-   - What are the UPPMAX, HPC2N, LUNARC, and NSC clusters?
    - What is a batch job?
+   - What are some important commands regarding batch jobs? 
    - How to make a batch job?
  
 .. objectives:: 
 
-   - Short overview of the HPC systems
-   - Short introduction to SLURM scheduler
+   - Short introduction to SLURM scheduler commands 
    - Show structure of a batch script
    - Try example
 
@@ -20,6 +19,7 @@ Running Python in batch mode
    - Kebnekaise: ``hpc2n2025-076``
    - Cosmos: ``lu2025-7-34``
    - Tetralith: ``naiss2025-22-403``  
+   - Dardel: ``naiss2025-22-403``
 
 .. admonition:: Storage space for this workshop 
 
@@ -27,108 +27,34 @@ Running Python in batch mode
    - Kebnekaise: ``/proj/nobackup/hpc-python-spring``
    - Cosmos: ``/lunarc/nobackup/projects/lu2024-17-44``
    - Tetralith: ``/proj/hpc-python-spring-naiss``
+   - Dardel: ``/cfs/klemming/projects/snic/hpc-python-spring-naiss``
 
 .. admonition:: Reservation
 
    Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name. 
 
+   **NOTE** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for. 
+
    - UPPMAX 
-       - uppmax2025-2-296_1 for cpu on Thursday
-       - uppmax2025-2-296_2 for gpu on Thursday
-       - uppmax2025-2-296_3 for cpu on Friday
-       - uppmax2025-2-296_4 for gpu on Friday 
+       - the reservation is "magnetic" and so will be used automatically  
    - HPC2N
-       - hpc-python-cpu-th for cpu on Thursday
-       - hpc-python-gpu-th for gpu on Thursday
-       - hpc-python-cpu-fr for cpu on Friday
-       - hpc-python-gpu-fr for gpu on Friday
+       - hpc-python-fri for cpu on Friday
+       - hpc-python-mon for cpu on Monday
+       - hpc-python-tue for gpu on Tuesday
 
-
-Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, and NSC
--------------------------------------------------------------------------------
-
-**What is a cluster?**
-
-- Login nodes and calculations/compute nodes
-
-- A network of computers, each computer working as a **node**.
-     
-- Each node contains several processor cores and RAM and a local disk called scratch.
-
-.. figure:: ../img/node.png
-   :align: center
-
-- The user logs in to **login nodes**  via Internet through ssh or Thinlinc.
-
-  - Here the file management and lighter data analysis can be performed.
-
-.. figure:: ../img/nodes.png
-   :align: center
-
-- The **calculation nodes** have to be used for intense computing. 
-
-- Beginner's guide to clusters: https://www.hpc2n.umu.se/documentation/guides/beginner-guide
-
-Common features
-###############
-
-- Intel CPUs
-- Linux kernel
-- Bash shell
-
-.. role:: raw-html(raw)
-    :format: html
-
-.. list-table:: Hardware
-   :widths: 25 25 25 25 25 25 25 25
-   :header-rows: 1
-
-   * - Technology
-     - Kebnekaise
-     - Rackham
-     - Snowy
-     - Bianca
-     - Cosmos
-     - Tetralith  
-     - Dardel   
-   * - Cores per calculation node
-     - 28 (Intel Skylake), 72 (largemem), 128/256 (AMD Zen3/Zen4)
-     - 20
-     - 16
-     - 16
-     - 48 (AMD) and 32 (Intel) 
-     - 32   
-     - 128 
-   * - Memory per calculation node
-     - 128-3072 GB 
-     - 128-1024 GB
-     - 128-4096 GB
-     - 128-512 GB
-     - 256-512 GB 
-     - 96-384 GB  
-     - 256-2048 GB 
-   * - GPU
-     - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100
-     - None
-     - Nvidia T4 
-     - 2 NVIDIA A100
-     - NVidia A100
-     - NVidia T4 
-     - 4 AMD Instinct™ MI250X á 2 GCDs 
-
+   - LUNARC 
+       - py4hpc_day1 for cpu on Thursday
+       - py4hpc_day2 for cpu on Friday
+       - py4hpc_day3 for cpu on Monday
+       - py4hpc_day4 for cpu on Tuesday 
+       - py4hpc_gpu for gpu on Tuesday 
 
 Running your programs and scripts on UPPMAX, HPC2N, LUNARC, NSC, and PDC 
 ------------------------------------------------------------------------
 
-Any longer, resource-intensive, or parallel jobs must be run through a **batch script**.
+As mentioned under interactive jobs, any longer, resource-intensive, or parallel jobs must be run through a **batch script** or in an interactive session on allocated compute nodes.
 
-The batch system used at UPPMAX, HPC2N, LUNARC, and NSC is called SLURM. 
-
-SLURM is an Open Source job scheduler, which provides three key functions
-
-- Keeps track of available system resources
-- Enforces local system resource usage and job scheduling policies
-- Manages a job queue, distributing work across resources according to policies
+A batch job is **not** interactive, so you cannot make changes to the job while it is running. 
 
 In order to run a batch job, you need to create and submit a SLURM submit file (also called a batch submit file, a batch script, or a job script).
 
@@ -138,6 +64,7 @@ Guides and documentation at:
 - UPPMAX: http://docs.uppmax.uu.se/cluster_guides/slurm/
 - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_intro/
 - NSC: https://www.nsc.liu.se/support/batch-jobs/   
+- PDC: https://support.pdc.kth.se/doc/run_jobs/job_scheduling/
 
 Workflow
 ########
@@ -173,7 +100,13 @@ Serial code
 
    Type along!
 
-This first example shows how to run a short, serial script. The batch script (named ``run_mmmult.sh``) can be found in the directory /HPC-Python/Exercises/examples/<center>, where <center> is hpc2n, uppmax, lunarc, or nsc. The Python script is in /HPC-Python/Exercises/examples/programs and is named ``mmmult.py``. 
+This first example shows how to run a short, serial script. The batch script (named ``run_mmmult.sh``) can be found in the directory: 
+- If you did ``git clone https://github.com/UPPMAX/HPC-python.git``
+    - HPC-Python/Exercises/examples/<center>, where <center> is hpc2n, uppmax, lunarc, nsc, or pdc. 
+    - The Python script is in HPC-Python/Exercises/examples/programs and is named ``mmmult.py``. 
+- If you did ``wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz`` and then ``tar -xvzf exercises.tar.gz`` 
+    - exercises/examples/<center>, where <center> is hpc2n, uppmax, lunarc, nsc, or pdc.
+    - The Python script is in exercises/examples/programs and is named ``mmmult.py``.  
 
 1. The batch script is run with ``sbatch run_mmmult.sh``. 
 2. Try type ``squeue -u <username>`` to see if it is pending or running. 
@@ -249,7 +182,24 @@ This first example shows how to run a short, serial script. The batch script (na
             
             # Run your Python script 
             python mmmult.py                
+
+   .. tab:: PDC
+
+        Short serial example for running on Dardel. Loading  
+       
+        .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A naiss2025-22-403 # Change to your own
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
             
+            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
+            
+            # Run your Python script 
+            python mmmult.py                
+
    .. tab:: mmmult.py 
    
         Python example code
