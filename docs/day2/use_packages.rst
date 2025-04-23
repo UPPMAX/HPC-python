@@ -114,7 +114,7 @@ Exercise 1: using Python packages
     to confirm that the package is not available yet:
 
     +------------+-------------------------+
-    | HPC cluster| Command                 | 
+    | HPC cluster| Command                 |
     +============+=========================+
     | Alvis      |``pip list``             |
     +------------+-------------------------+
@@ -222,7 +222,7 @@ Exercise 1: using Python packages
     to confirm that the package is now available:
 
     +------------+-------------------------+
-    | HPC cluster| Command                 | 
+    | HPC cluster| Command                 |
     +============+=========================+
     | Alvis      |``pip list``             |
     +------------+-------------------------+
