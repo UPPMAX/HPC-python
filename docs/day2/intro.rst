@@ -69,7 +69,7 @@ Exercise 1: the learning outcomes of today
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The goal of this exercise is to find out
- what you will learn today.
+what you will learn today.
 
 - Go to `this form <https://docs.google.com/forms/d/e/1FAIpQLSeWUw99NWVgMzUwNOOitUCRx308fdqrM3bb2yMT6vvaa0s-1Q/viewform?usp=header>`__
   and fill it in
