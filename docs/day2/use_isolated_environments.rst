@@ -15,7 +15,7 @@ Use isolated environments
       environment
 
 Isolated environments
-.....................
+---------------------
 
 As an example, maybe you have been using TensorFlow 1.x.x for your project and now you need to install a package that requires TensorFlow 2.x.x but you will still be needing the old version of TensorFlow for another package, for instance. This is easily solved with isolated environments.
 
@@ -40,73 +40,10 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
 
    **About Conda on HPC systems**
 
-   - Conda is good in many ways but can interact negatively when trying to use the pytrhon modules in the HPC systems.
+   - Conda is good in many ways but can interact negatively when trying to use the python modules (module load).
    - LUNARC seems to have working solutions
    - At UPPMAX Conda is installed but many users that get into problems. 
        - However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
-
-
-https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip
-
-Virtual environment - venv & virtualenv
----------------------------------------
-
-**FIX: shorten**
-
-.. admonition:: Workflow
-
-   1. You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option later)
-   2. You create the isolated environment with something like venv, virtualenv (use the ``--system-site-packages`` to include all "non-base" packages)
-   3. You activate the environment
-   4. You install (or update) the environment with the packages you need
-   5. You work in the isolated environment
-   6. You deactivate the environment after use 
-
-.. admonition:: venv vs. virtualenv
-
-   - These are almost completely interchangeable
-   - The difference being that **virtualenv supports older python versions** and has a few more minor unique features, while **venv is in the standard library**.
-   - Step 1:
-       - Virtualenv: ``virtualenv --system-site-packages Example``
-       - venv: ``python -m venv --system-site-packages Example2``
-   - Next steps are identical and involves "activating" and ``pip installs``
-   - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
-
-.. seealso::
-
-   - UPPMAX's documentation pages about installing Python packages and virtual environments: http://docs.uppmax.uu.se/software/python/#installing-python-packages
-   - HPC2N's documentation pages about installing Python packages and virtual environments: https://www.hpc2n.umu.se/resources/software/user_installed/python
-
-
-
-.. keypoints::
-
-   - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
-   - Make it for each project you have for reproducibility.
-   - There are different tools to create virtual environments.
-       - ``conda``, only recommended for personal use and at some clusters
-       - ``virtualenv``, may require to load extra python bundle modules.
-       - ``venv``, most straight-forward and available at all HPC centers. **Recommended**
-   - More details to follow!
-
-.. tip::
-
-   - Try with ``venv`` first
-   - If very troublesome, try with ``conda``
-
-Conda
------
-
-**FIX: some intro text**
-
-.. keypoints::
-
-   - Conda is an installer of packages but also bigger toolkits
-   - Conda creates isolated environments not clashing with other installations of python and other versions of packages
-   - Conda environment requires that you install all packges needed by yourself. That is,  you cannot load the python module and use the packages therein inside you Conda environment.
-
-
-.. table:: 
 
 +------------+---------------------------------+
 | HPC cluster| Conda vs venv                   | 
@@ -130,6 +67,115 @@ Conda
 | LUMI       | conda-containerize              |
 +------------+---------------------------------+
 
+.. tip::
+
+   - Try with ``venv`` first
+   - If very troublesome, try with ``conda``
+
+.. admonition:: Other tools perhaps covered in the future
+
+   - pixi: package management tool for developers https://pixi.sh/latest/
+
+   - uv: An extremely fast Python package and project manager, written in Rust. https://docs.astral.sh/uv/
+
+
+Virtual environment - venv & virtualenv
+---------------------------------------
+
+With this tool you can download and install with ``pip`` from the `PyPI repository <https://pypi.org/>`_
+
+Typical workflow
+................
+
+   1. You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option later)
+   2. You create the isolated environment with something like ``venv``, ``virtualenv`` (use the ``--system-site-packages`` to include all "non-base" packages)
+   3. You activate the environment with ``source <path to virtual environment>/bin activate``
+   4. You install (or update) the environment with the packages you need with the ``pip`` command
+   5. You work in the isolated environment
+   6. You deactivate the environment after use with ``deactivate``
+
+.. admonition:: venv vs. virtualenv
+   :class: dropdown   
+
+   - These are almost completely interchangeable
+   - The difference being that **virtualenv supports older python versions** and has a few more minor unique features, while **venv is in the standard library**.
+   - Step 1:
+       - Virtualenv: ``virtualenv --system-site-packages Example``
+       - venv: ``python -m venv --system-site-packages Example2``
+   - Next steps are identical and involves "activating" and ``pip installs``
+   - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
+
+
+
+
+Conda
+-----
+
+- Conda is an installer of packages but also bigger toolkits
+- Conda creates isolated environments not clashing with other installations of python and other versions of packages
+- Conda environment requires that you install all packges needed by yourself. That is,  you cannot load the python module and use the packages therein inside you Conda environment.
+
+.. warning::
+ 
+    - Conda is known to create **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically ``300000`` in $home). 
+    - Check your disk usage and quota limit with ``uquota``
+    - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
+
+
+Typical workflow
+................
+
+1. Make conda available from a software module, like ``ml load conda`` or similar, or use own installation of miniconda or miniforge.
+2. First time
+
+   .. admonition:: First time
+      :class: dropdown   
+
+      - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder if you have one.
+      - Otherwise, the default is ~/.conda/envs. 
+      - Example:
+  
+      .. code-block:: console
+ 
+         $ export CONDA_ENVS_PATH=/proj/<your-project-id>/nobackup/<username>
+  
+      .. admonition:: By choice
+         :class: dropdown
+ 
+      Run ``source conda_init.sh`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
+      
+  
+   - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. include a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
+
+3. Create the conda environment
+4. Activate the conda environment by:
+5. Now do your work!
+6. Deactivate
+
+ .. prompt:: 
+    :language: bash
+    :prompts: (python-36-env) $
+    
+    conda deactivate
+
+
+
+
+https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip
+
+.. admonition:: Conda cheat sheet    
+   
+   - List packages in present environment:	``conda list``
+   - List all environments:			``conda info -e`` or ``conda env list``
+   - Install a package: ``conda install somepackage``
+   - Install from certain channel (conda-forge): ``conda install -c conda-forge somepackage``
+   - Install a specific version: ``conda install somepackage=1.2.3``
+   - Create a new environment: ``conda create --name myenvironment``
+   - Create a new environment from requirements.txt: ``conda create --name myenvironment --file requirements.txt``
+   - On e.g. HPC systems where you don’t have write access to central installation directory: conda create --prefix /some/path/to/env``
+   - Activate a specific environment: ``conda activate myenvironment``
+   - Deactivate current environment: ``conda deactivate``
+
 
 NSC:
 
@@ -138,8 +184,7 @@ NSC:
 
 PDC:
 
-- https://www.kth.se/blogs/pdc/2020/11/working-with-python-virtual-environments/
-- https://hackmd.io/@pmitev/conda_on_Rackham
+- https://support.pdc.kth.se/doc/applications/python/
 
 LUNARC
 
@@ -148,21 +193,13 @@ LUNARC
 UPPMAX
 
 - https://docs.uppmax.uu.se/software/conda/
+- https://hackmd.io/@pmitev/conda_on_Rackham
 
 LUMI
 
 - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
 
 
-.. admonition:: Conda in HPC
-
-   some text
-
-.. admonition:: Other tools
-
-   - pixi: package management tool for developers https://pixi.sh/latest/
-
-   - uv: An extremely fast Python package and project manager, written in Rust. https://docs.astral.sh/uv/
 
 Install from file/Set up course environment
 -------------------------------------------
@@ -249,7 +286,6 @@ We will need to install the LightGBM Python package for one of the examples in t
             - their names may be, for instance
                 - ``venv-TF``
                 - ``venv-torch``
-
 
    .. tab:: Conda
 
@@ -588,14 +624,8 @@ Breakout room according to grouping
 
 .. challenge:: (optional) Exercise 4: like 3, but for other tool
 
-Discussion
-----------
 
-
-What's installed already
-------------------------
-
-.. admonition:: Python packages in HPC and ML
+.. admonition:: Already installed Python packages in HPC and ML
    :class: dropdown
 
    It is difficult to give an exhaustive list of useful packages for Python in HPC, but this list contains some of the more popular ones: 
@@ -671,7 +701,21 @@ What's installed already
 
    NOTE that not all versions of Python will have all the above packages installed! 
 
-.. admonition:: Summary of workflow
+
+
+Summary
+.......
+
+.. keypoints::
+
+   - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
+   - Make it for each project you have for reproducibility.
+   - There are different tools to create virtual environments.
+       - ``conda``, only recommended for personal use and at some clusters
+       - ``virtualenv``, may require to load extra python bundle modules.
+       - ``venv``, most straight-forward and available at all HPC centers. **Recommended**
+
+.. admonition:: Summary of Venv workflow
 
    In addition to loading Python, you will also often need to load site-installed modules for Python packages, or use own-installed Python packages. The work-flow would be something like this: 
    
@@ -688,13 +732,7 @@ What's installed already
    - Installed Python modules (modules and own-installed) can be accessed within Python with ``import <package>`` as usual. 
    - The command ``pip list`` given within Python will list the available modules to import. 
    - More about packages and virtual/isolated environment to follow in later sections of the course! 
-
-
-Exercises
----------
-
-
-      
+     
 
 .. seealso::
 
