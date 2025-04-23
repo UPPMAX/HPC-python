@@ -20,7 +20,7 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
 
 - For HPC2N, as JupyterLab it is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
 
-- For UPPMAX, one can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX `documentation on ThinLinc on how to install the ThinLinc client locally <https://docs.uppmax.uu.se/software/thinlinc/>`_ 
+- For UPPMAX, one can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX `documentation on ThinLinc <https://docs.uppmax.uu.se/software/thinlinc/>`_ on how to install the ThinLinc client locally
 
 - For LUNARC, you can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_. 
 
@@ -83,7 +83,7 @@ Then, start ``jupyter-notebook`` (or ``jupyter-lab``):
 This will start a jupyter server session so leave this terminal open.
 The terminal will also display multiple URLs.
 
-4. connect to the running notebook
+4. Connect to the running Jupyter server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -181,29 +181,37 @@ If you want to connect to the Jupyter server running on Rackham/Snowy from your 
 HPC2N
 #####
 
-Since the JupyterLab will only be accessible from within HPC2N's domain, it is by far easiest to do this from inside ThinLinc, so **this is highly recommended**. You can find information about using ThinLinc at `HPC2N's documentation <https://docs.hpc2n.umu.se/tutorials/jupyter/>`_ 
+Since the JupyterLab will only be accessible from within HPC2N's domain, it is by far easiest to do this from inside ThinLinc, so **this is highly recommended**. You can find information about using ThinLinc at `HPC2N's documentation <https://docs.hpc2n.umu.se/software/jupyter/>`_ 
 
-General steps
-^^^^^^^^^^^^^ 
 
-1. At HPC2N, you currently need to start JupyterLab on a specific compute node. To do that you need a submit file and inside that you load the JupyterLab module and its prerequisites (and possibly other Python modules if you need them - more about that later).
+1. Check JupyterLab version
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To see the currently available versions, do
+At HPC2N, you currently need to start JupyterLab on a specific compute node. To do that you need a submit file and inside that you load the JupyterLab module and its prerequisites (and possibly other Python modules if you need them - more about that later).
 
-``module spider JupyterLab``
+To see the currently available versions, do:
 
-You then do
+.. code-block:: console
 
-``module spider JupyterLab/<version>``
+   $ module spider JupyterLab
+
+You then do:
+
+.. code-block:: console
+
+   $ module spider JupyterLab/<version>
 
 for a specific <version> to see which prerequisites should be loaded first.
 
-**Example, loading ``JupyterLab/4.0.5``**
+**Example, loading JupyterLab/4.0.5**
 
-``module load GCC/12.3.0 JupyterLab/4.0.5``
+.. code-block:: console
 
-2. Making the submit file
+   $ module load GCC/12.3.0 JupyterLab/4.0.5
 
+2. Start Jupyter on the compute node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Make a submit file with the following content. You can use any text editor you like, e.g. ``nano`` or ``vim``.
 Something like the file below will work. Remember to change the project id after the course, how many cores you need, and how long you want the JupyterLab to be available:
 
 .. code-block:: slurm
@@ -227,26 +235,28 @@ Something like the file below will work. Remember to change the project id after
 Where the flags used to the Jupyter command has the following meaning (you can use ``Jupyter --help`` and ``Jupyter lab --help``> to see extra options):
 
 - **lab**: This launches JupyterLab computational environment for Jupyter.
-- **--no-browser**: Prevent the opening of the default url in the browser.
-- **--ip=<IP address>**: The IP address the JupyterLab server will listen on. Default is 'localhost'. In the above example script I use ``$(hostname)`` to get the content of the environment variable for the hostname for the node I am allocated by the job.
+- **- -no-browser**: Prevent the opening of the default url in the browser.
+- **- -ip=<IP address>**: The IP address the JupyterLab server will listen on. Default is 'localhost'. In the above example script I use ``$(hostname)`` to get the content of the environment variable for the hostname for the node I am allocated by the job.
 
 **Note** again that the JupyterLab is *only* accessible from within the HPC2N domain, so it is easiest to work on the ThinLinc.
 
-3. Submit the above submit file. Here I am calling it ``MyJupyterLab.sh``
+Submit the above submit file. Here I am calling it ``MyJupyterLab.sh``
 
-``sbatch MyJupyterLab.sh``
+.. code-block:: console
 
-4. Get the URL from the SLURM output file.
+   $ sbatch MyJupyterLab.sh
 
+3. Connect to the running Jupyter server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Wait until the job gets resources allocated. Check the SLURM output file; when the job has resources allocated it will have a number of URLs inside at the bottom.
 
-The SLURM output file is as default named ``slurm-<job-id>.out`` where you get the ``<job-id>`` when you submit the SLURM submit file (as in item 3. here).
+The SLURM output file is as default named ``slurm-<job-id>.out`` where you get the ``<job-id>`` when you submit the SLURM submit file (from previous step).
 
 **NOTE**: Grab the URL with the *hostname* since the localhost one requires you to login to the compute node and so will not work!
 
 The file will look **similar** to this:
 
-.. note:: 
+.. admonition:: slurm-<job-id>.out
    :class: dropdown
 
    .. code-block:: console
@@ -284,29 +294,24 @@ The file will look **similar** to this:
       [I 2024-03-09 15:35:31.078 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
 
  
-To access the server, go to
+To access the server, go to ``file:///.local/share/jupyter/runtime/jpserver-<newest>-open.html`` from a browser within the ThinLinc session. <newest> is a number that you find by looking in the directory ``.local/share/jupyter/runtime/`` under your home directory.
 
-``file:///.local/share/jupyter/runtime/jpserver-<newest>-open.html``
-
-from a browser within the ThinLinc session. <newest> is a number that you find by looking in the directory ``.local/share/jupyter/runtime/`` under your home directory.
-
-Or, to access the server you can copy and paste the URL from the file that is SIMILAR to this:
-
-.. code-block:: sh
-
-   http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+Or, to access the server you can copy and paste the URL from the file that is SIMILAR to this: ``http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1``
 
 **NOTE** of course, do not copy the above, but the similar looking one from the file you get from running the batch script!!!
 
-5. Start a webbrowser within HPC2N (ThinLinc interface). Open the html or put in the URL you grabbed, including the token:
+.. admonition:: Webbrowser view
+   :class: dropdown
 
-  .. figure:: ../img/jupyterlab-start.png
+   Start a webbrowser within HPC2N (ThinLinc interface). Open the html or put in the URL you grabbed, including the token:
 
-After a few moments JupyterLab starts up:
+   .. figure:: ../img/jupyterlab-start.png
 
-  .. figure:: ../img/jupyterlab_started.png
+   After a few moments JupyterLab starts up:
 
-You shut it down from the menu with "File" > "Shut Down"
+   .. figure:: ../img/jupyterlab_started.png
+
+   You shut it down from the menu with "File" > "Shut Down"
 
 For the course
 ^^^^^^^^^^^^^^
@@ -317,7 +322,9 @@ If you want to start a Jupyter with access to matplotlib and seaborn, for use wi
 
 2. Load these modules
 
-   ``module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5``
+   .. code-block:: console
+
+      module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5
 
 3. Make a submit file with this content 
 
@@ -339,11 +346,9 @@ If you want to start a Jupyter with access to matplotlib and seaborn, for use wi
       # Start JupyterLab
       jupyter lab --no-browser --ip $(hostname)
 
-4. Get the URL from the SLURM output file (slurm-<job-id>.out).
+4. Get the URL from the SLURM output file ``slurm-<job-id>.out``.
 
-   It will be **SIMILAR** to this 
-
-   ``http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1``
+   It will be **SIMILAR** to this : ``http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1``
 
 5. Open a browser inside ThinLinc and put in the URL similar to above. 
 
@@ -401,7 +406,7 @@ On your own computer through SSH tunneling
 
 4. Start jupyter with the no-browser flag
 
-   - jupyter-lab --no-browser
+   - ``jupyter-lab --no-browser``
 
    - You get something that looks like this: 
 
