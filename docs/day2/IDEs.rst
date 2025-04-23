@@ -351,7 +351,7 @@ If you want to start a Jupyter with access to matplotlib and seaborn, for use wi
 LUNARC
 ######
 
-See the `Desktop on Demand <https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html>`_ section for this. 
+See the `Desktop on Demand <https://uppmax.github.io/HPC-python/day2/ondemand-desktop.html>`_ section for this. 
 
 NSC
 ### 
