@@ -106,7 +106,9 @@ For example, if your name is Sven, create a folder called ``sven``
 
     In the terminal, type the following command:
 
-    ``mkdir sven``
+    .. code-block:: console
+
+        mkdir sven
 
 Step 3: if there is a project folder, navigate inside that folder
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -122,14 +124,14 @@ navigate inside your personal folder
 
     In the terminal, type the following command:
 
-    ``cd sven``
+    .. code-block:: console
+
+        cd sven
 
 Step 4: get the tarball
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 In the terminal, in your personal folder, type the following command:
-
-``wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz``
 
 .. code-block:: console
 
@@ -140,8 +142,6 @@ Step 5: Uncompress the tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the terminal, in your personal folder, type the following command:
-
-``tar -xvzf exercises.tar.gz``
 
 .. code-block:: console
 
@@ -158,4 +158,6 @@ that contains the exercises. Navigate into that folder.
 
     In the terminal, type the following command for day 2:
 
-    ``cd day2``
+    .. code-block:: console
+
+        cd day2
