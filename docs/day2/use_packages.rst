@@ -182,9 +182,9 @@ Exercise 1: using Python packages
     +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
     | Kebnekaise |`Here <https://docs.hpc2n.umu.se/software/apps/#scipy>`__                                                                                     |
     +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-    | LUMI       |`Has no software modules <https://docs.lumi-supercomputer.eu/software/installing/python/#use-an-existing-container>__                         |
+    | LUMI       |`Has no software modules <https://docs.lumi-supercomputer.eu/software/installing/python/#use-an-existing-container>`__                        |
     +            +----------------------------------------------------------------------------------------------------------------------------------------------+
-    |            |`Use the thanard/matplotlib container <https://hub.docker.com/r/thanard/matplotlib>__                                                         |
+    |            |`Use the thanard/matplotlib container <https://hub.docker.com/r/thanard/matplotlib>`__                                                        |
     +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
     | Rackham    |`Here <https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu>`__                                              |
     +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
