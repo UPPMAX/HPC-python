@@ -17,7 +17,7 @@ UPPMAX clusters
 
 UPPMAX packages
 ---------------
-    
+
 Some of the packages included in the python/3.9.5 and python/3.11.8 modules
 ###########################################################################
 
@@ -38,7 +38,7 @@ Some of the packages included in the python/3.9.5 and python/3.11.8 modules
 Packages that can be loaded with 'module load'
 ##############################################
 
-- module load bioinfo-tools 
+- module load bioinfo-tools
 
    - biopython
 
@@ -51,7 +51,7 @@ Packages that can be loaded with 'module load'
 -  module load pysam- module load python_ML_packages
 
    - sklearn/scikit-learn
-   - TensorFlow 
+   - TensorFlow
    - torch
 
 - module load python_GIS_packages

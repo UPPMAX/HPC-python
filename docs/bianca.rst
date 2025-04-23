@@ -5,8 +5,8 @@ On Bianca cluster
 
    - What is Bianca?
    - How to install packages on Bianca?
-   
-.. objectives:: 
+
+.. objectives::
 
    - Overview of pros with CONDA on Bianca
    - Show how to pip install if package is not available from conda
@@ -14,7 +14,7 @@ On Bianca cluster
 .. Note::
 
     Bianca has no Internet! ``pip`` will not work!
-    
+
     Since we have mirrored conda repositories locally `conda` will work also on Bianca!
 
 
@@ -35,4 +35,4 @@ On Bianca cluster
 
    - First try: Conda
    - Second try: pip install or isolated environment moved from Rackham to Bianca via secure transfer
-   
+
