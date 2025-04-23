@@ -131,7 +131,7 @@ In the terminal, in your personal folder, type the following command:
 
 ``wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz``
 
-.. code-block:: bash
+.. code-block:: console
 
     wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz
 
@@ -142,6 +142,10 @@ Step 5: Uncompress the tarball
 In the terminal, in your personal folder, type the following command:
 
 ``tar -xvzf exercises.tar.gz``
+
+.. code-block:: console
+
+    tar -xvzf exercises.tar.gz
 
 Step 6: Navigate in the folder of that day
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
