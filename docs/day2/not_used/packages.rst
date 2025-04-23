@@ -31,8 +31,8 @@ Packages
 
     - **Conda** (``conda``) is more general and while it contains many Python packages and packages with a Python interface, it is often used to also distribute packages which do not contain any Python (e.g. C or C++ packages).
 
-    	- Creates its own environment that does not interact with other python installations
-	- At HPC2N, Conda is not recommended, and we do not support it there
+        - Creates its own environment that does not interact with other python installations
+    - At HPC2N, Conda is not recommended, and we do not support it there
 
     - Many libraries and tools are distributed in both ecosystems.
 
@@ -55,29 +55,29 @@ Using ``module spider`` lets you search regardless of upper- or lowercase charac
 
    .. tab:: UPPMAX
 
-	Check the pre-installed packages of a specific python module:
+    Check the pre-installed packages of a specific python module:
 
-	.. code-block:: console
+    .. code-block:: console
 
-	   $ module help python/<version>
+       $ module help python/<version>
 
 
 
    .. tab:: HPC2N and LUNARC
 
-	At HPC2N, a way to find Python packages that you are unsure how are names, would be to do
+    At HPC2N, a way to find Python packages that you are unsure how are names, would be to do
 
-	.. code-block:: console
+    .. code-block:: console
 
-	   $ module -r spider ’.*Python.*’
+       $ module -r spider ’.*Python.*’
 
-	or
+    or
 
-	.. code-block:: console
+    .. code-block:: console
 
-	   $ module -r spider ’.*python.*’
+       $ module -r spider ’.*python.*’
 
-	Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.
+    Do be aware that the output of this will not just be Python packages, some will just be programs that are compiled with Python, so you need to check the list carefully.
 
 Check the pre-installed packages of a loaded python module, in shell:
 
@@ -112,7 +112,7 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
       - Two modules contains topic specific packages. These are:
 
          - Machine learning: ``python_ML_packages`` (cpu and gpu versions and based on python/3.9.5)
-	 - GIS: ``python_GIS_packages`` (cpu vrson based on python/3.10.8)
+     - GIS: ``python_GIS_packages`` (cpu vrson based on python/3.10.8)
 
    .. tab:: HPC2N
 
@@ -120,24 +120,24 @@ A selection of the Python packages and libraries installed on UPPMAX and HPC2N a
       - HPC2N has both Python 2.7.x and Python 3.x installed.
       - We will be using Python 3.x in this course.  For this course, the recommended version of Python to use on Kebnekaise is 3.9.5
 
-	NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: `Anaconda <https://www.hpc2n.umu.se/documentation/guides/anaconda>`_.
+    NOTE:  HPC2N do NOT recommend (and do not support) using Anaconda/Conda on our systems. You can read more about this here: `Anaconda <https://www.hpc2n.umu.se/documentation/guides/anaconda>`_.
 
 
       - This is a selection of the packages and libraries installed at HPC2N. These are all installed as **modules** and need to be loaded before use.
 
-	  - ``ASE``
-	  - ``Keras``
-	  - ``PyTorch``
-	  - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
-	  - ``TensorFlow``
-	  - ``Theano``
-	  - ``matplotlib``
-	  - ``scikit-learn``
-	  - ``scikit-image``
-	  - ``pip``
-	  - ``iPython``
-	  - ``Cython``
-	  - ``Flask``
+      - ``ASE``
+      - ``Keras``
+      - ``PyTorch``
+      - ``SciPy-bundle`` (Bottleneck, deap, mpi4py, mpmath, numexpr, numpy, pandas, scipy - some of the versions have more)
+      - ``TensorFlow``
+      - ``Theano``
+      - ``matplotlib``
+      - ``scikit-learn``
+      - ``scikit-image``
+      - ``pip``
+      - ``iPython``
+      - ``Cython``
+      - ``Flask``
 
 
 
@@ -177,11 +177,11 @@ We HIGHLY recommend using a virtual environment during installation, since this 
 
    - You can check for packages
 
-   	- from the Python shell with the ``import`` command
-	- from BASH shell with the
+       - from the Python shell with the ``import`` command
+    - from BASH shell with the
 
-		- ``pip list`` command at both centers
-		- ``ml help python/3.9.5`` at UPPMAX
+        - ``pip list`` command at both centers
+        - ``ml help python/3.9.5`` at UPPMAX
 
    - Installation of Python packages can be done either with **PYPI** or **Conda**
    - You install own packages with the ``pip install`` command (This is the recommended way on HPC2N)
@@ -209,8 +209,8 @@ Using Conda
 
 .. admonition:: Conda cheat sheet
 
-   - List packages in present environment:	``conda list``
-   - List all environments:			``conda info -e`` or ``conda env list``
+   - List packages in present environment:    ``conda list``
+   - List all environments:            ``conda info -e`` or ``conda env list``
    - Install a package: ``conda install somepackage``
    - Install from certain channel (conda-forge): ``conda install -c conda-forge somepackage``
    - Install a specific version: ``conda install somepackage=1.2.3``
@@ -304,18 +304,18 @@ First steps
     .. admonition:: The ``mamba`` alternative
         :class: dropdown
 
-	- ``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
-	- Example:
+    - ``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
+    - Example:
 
           .. prompt:: console
 
-	     $ mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
+         $ mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
 
 4. Activate the conda environment by:
 
     .. prompt:: console
 
-	source activate python36-env
+    source activate python36-env
 
     - You will see that your prompt is changing to start with ``(python-36-env)`` to show that you are within an environment.
     - If you set up your shell with ``source conda_init.sh`` you can use ``conda activate python-36-env`` instead.
@@ -416,13 +416,13 @@ Exercises
    - Open a new terminal and have the old one available for later comparison
    - Use the conda module on Rackham and create an environment with name ``HPC-python23`` with ``python 3.7``  and ``numpy 1.15``
 
-   	- Use your a path for ``CONDA_ENVS_PATH`` of your own choice or ``/proj/naiss2023-22-1126/<user>``
+       - Use your a path for ``CONDA_ENVS_PATH`` of your own choice or ``/proj/naiss2023-22-1126/<user>``
         - (It may take a minute or so)
 
    - Activate!
    - Check with ``pip list`` what is there. Compare with the environment given from the python module in the first terminal window.
 
-   	- Which version of Python did you get?
+       - Which version of Python did you get?
 
    - Don't forget to deactivate the Conda environment before doing other exercises!
 
