@@ -51,7 +51,7 @@ Exercises
     +-----------+---------------------------------------+
     |Rackham    |`Here <https://youtu.be/NzjjNxsek54>`__|
     +-----------+---------------------------------------+
-    |Tetralith  |``TODO``                               |
+    |Tetralith  |`Here <https://youtu.be/TRnt07p1J94>`__|
     +-----------+---------------------------------------+
 
 Exercise 1: using Python packages
