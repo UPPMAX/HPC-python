@@ -20,10 +20,10 @@ Introduction
 
 .. admonition:: **Learning outcomes of this session**
 
-    - Learners understand how this day is organized
-    - Learners can find their NAISS project
     - Learners have read what they will learn
     - Learners can find how to download and extract the exercises
+    - Learners understand how this day is organized
+    - Learners can find their NAISS project
 
 .. admonition:: **For teachers: Lesson plan**
     :class: dropdown
@@ -66,7 +66,8 @@ Exercise 1: the learning outcomes of today
 The goal of this exercise is to find out
  what you will learn today.
 
-- Go to ``[TODO]`` and fill in the form
+- Go to `this form <https://docs.google.com/forms/d/e/1FAIpQLSeWUw99NWVgMzUwNOOitUCRx308fdqrM3bb2yMT6vvaa0s-1Q/viewform?usp=header>`__
+  and fill it in
 
 .. admonition:: **For teachers: What is in that form**
     :class: dropdown
