@@ -350,30 +350,26 @@ Breakout room according to grouping
 
             NSC:
 
-            - https://www.nsc.liu.se/software/python/
+            - `Python <https://www.nsc.liu.se/software/python/>`_
 
             PDC:
 
-            - `Virtual environment with venv <https://pdc-support.github.io/pdc-intro/#165`>
+            - `Virtual environment with venv <https://pdc-support.github.io/pdc-intro/#165>`_
 
             LUNARC
 
-            - https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/
+            - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
             
             UPPMAX
 
-            - https://docs.uppmax.uu.se/software/python_venv/
+            - `Python venv <https://docs.uppmax.uu.se/software/python_venv/>`_
             - `Video By Richel <https://www.youtube.com/watch?v=lj_Q-5l0BqU>`_
             
             HPC2N
 
-            - https://docs.hpc2n.umu.se/software/userinstalls/#venv
-            - Video: https://www.youtube.com/watch?v=_ev3g5Zvn9g
+            - `Venv <https://docs.hpc2n.umu.se/software/userinstalls/#venv>`_
+            - `Video by Richel <https://www.youtube.com/watch?v=_ev3g5Zvn9g>`_
              
-            LUMI
-
-            - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
-
          .. tab: conda
 
             NSC:
