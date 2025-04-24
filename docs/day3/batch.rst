@@ -672,7 +672,7 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python". 
 
             # Prepare a virtual environment with numba - do this before 
             # running the batch script 
-            # python -m venv mynumba
+            # python -m venv --system-site-packages mynumba
             # source mynumba/bin/activate
             # pip install numba
 
@@ -835,10 +835,14 @@ Exercises
        - LUNARC: ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
        - NSC: ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4  
        - PDC: 
+           - ml cray-python/3.11.7  
+           - python -m venv --system-site-packages mymatplotlib
+           - source mymatplotlib/bin/activate
+           - pip install matplotlib
    2. Start Python (``python``) in the ``<path-to>/Exercises/examples/programs`` directory
    3. Run these lines: 
 
-       - At UPPMAX 
+       - At UPPMAX and PDC  
 
        .. code-block:: python
 
@@ -850,7 +854,7 @@ Exercises
           plt.scatter(x, y)
           plt.show()
 
-       - At HPC2N, LUNARC, NSC,  
+       - At HPC2N, LUNARC, and NSC 
 
        .. code-block:: python 
          
