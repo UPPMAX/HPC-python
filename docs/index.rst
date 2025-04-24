@@ -179,6 +179,7 @@ Content of the course
    day2/IDEs.rst
    day2/matplotlib-intro.rst
    summary1.rst
+   day2/evaluation.rst
    day2/python_at_hpc_centers.rst
 
 .. toctree::
@@ -190,6 +191,7 @@ Content of the course
    day3/batch.md
    day3/big_data.md
    summary2.rst
+   day3/evaluation.rst
 
 .. toctree::
    :maxdepth: 2
@@ -198,6 +200,7 @@ Content of the course
    day4/parallel.rst
    day4/gpu.md
    day4/ml.md
+   day4/evaluation.rst
 
 .. toctree::
    :maxdepth: 2
