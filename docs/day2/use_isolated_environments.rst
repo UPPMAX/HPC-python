@@ -35,8 +35,8 @@ Another example is when a reviewer want you to remake a figure. You haev already
 
 **The tools**
 
-- ``venv``: uses pip       
-- ``virtualenv``: uses pip   
+- Python's built-in ``venv`` module: uses pip       
+- ``virtualenv`` (can be installed): uses pip   
 - ``conda``/``forge``: uses ``conda``/``mamba``     
 
 What happens at activation?
@@ -91,6 +91,13 @@ What happens at activation?
    - Try with ``venv`` first
    - If very troublesome, try with ``conda``
 
+.. note::
+
+   - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
+
+   - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
+
+
 .. admonition:: Other tools perhaps covered in the future
 
    - `pixi <https://pixi.sh/latest/>`_: package management tool for developers 
@@ -115,7 +122,6 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
        - venv: ``python -m venv --system-site-packages Example2``
    - Next steps are identical and involves "activating" and ``pip installs``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
-
 
 
 Typical workflow
@@ -152,7 +158,6 @@ The next points will be the same for all clusters
        $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 # for HPC2N and LUNARC
        $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
        $ python -m venv --system-site-packages Example3
-
 
 
 Example 
@@ -262,21 +267,6 @@ We will need to install the LightGBM Python package for one of the examples in t
     
    **Follow the track where you are working right now**
 
-
-
-.. keypoints::
-
-   - It is worth it to organize your code for publishing, even if only you are using it.
-
-   - PyPI is a place for Python packages
-
-   - conda is similar but is not limited to Python
-
-.. note::
-
-   - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
-
-   - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
 
 
 
