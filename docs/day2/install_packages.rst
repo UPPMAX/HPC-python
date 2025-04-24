@@ -4,42 +4,8 @@ Install packages
 
 !!! info "Learning objectives"
 
-    - Practice using the documentation of your HPC cluster
-    - Install a (general-purpose) Python package with `pip`
-    - <!-- RB: this is in the tarball exercise too --> Be able to navigate to the project folder (except for the COSMOS HPC cluster)
-    - <!-- RB: this is in the tarball exercise too --> Be able to create a subfolder in the project folder
+    - Learn how to install a (general-purpose) Python package with `pip`
     - Understand limitations of this way, e.g. use cases/best practices
-
-<!-- exercise:
-
-HPC cluster| Who creates answer
------------|----------------------------------------------
-Alvis      | RB
-Bianca     | BC, because use conda to install packages
-COSMOS     | RB
-Dardel     | BC
-Kebnekaise | BC
-LUMI       | RB
-Rackham    | RB
-Tetralith  | BC
-
-
-
-    - Confirm a package is not there
-    - Install it
-    - Confirm the package is there
-
--->
-
-<!-- below is still old -->
-
-.. objectives:: 
-
-   Learners can 
-
-   - work (create, activate, work, deactivate) with virtual environments
-   - install a python package
-   - export and import a virtual environment
 
 Introduction
 ------------
@@ -48,19 +14,37 @@ There are 2-3 ways to install missing python packages at a HPC cluster.
 
 - Local installation, always available for the version of Python you had active when doing the installation
     - ``pip install --user [package name]``
-- Isolated environment. Use some packages just needed for a specific use case.
-    - ``venv``/``virtualenv`` in combination with ``pip`` 
-        - recommended/working in all HPC centers in Sweden
-    - ``conda``
-        - just recommended in some HPC centers in Sweden
+- Isolated environment. See next session
+
+.. note::
+
+   - The package most often end up in ``~/.local/lib/python3.X``
+   - Note that if you install for 3.11.X the package will not be seen by another minor version, like 3.12.X (or may not even be compatible with)
+   - Note that installing with python 3.11.7 will end up in same folder as 3.11.5 and can be used by both bugfix versions.
+   - Naming convention: python/major.minor.bugfix
 
 
-Local (general installation)
-............................
+Normally you want reproducibility and the safe way to go is with isolated environments specific to your different projects.
+
+
+.. admonition: Use cases of local general packages
+
+   - General packages, missing in the environent of the loaded Python module
+       - If you believe a package is useful for all your work
+       - Ex. ``numpy`` is not natively installed, then make your own!
+   - Your installed package will only be availbale for the version 
+
+
+Typical workflow
+................
 
 .. note::
 
    ``pip install --user [package name]`` 
 
-    - The package end up in ``~/.local``
+    - The package most often end up in ``~/.local``
     - target directory can be changed by ``--prefix=[root_folder of installation]``
+
+Exercise
+
+We do not provide any here For some clusters you may prepare your course environment in this way.
