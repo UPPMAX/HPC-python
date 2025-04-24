@@ -23,7 +23,7 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
   
    Isolated/virtual environments solve a couple of problems:
    
-   - You can install specific, also older, versions into them.
+   - You can install specific, also older, package versions into them.
    - You can create one for each project and no problem if the two projects require different versions.
    - You can remove the environment and create a new one, if not needed or with errors.
 
@@ -32,18 +32,34 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
 
 **The tools**
 
-   - venv: uses pip       
-   - virtualenv: uses pip   
-   - conda/forge: uses conda/mamba     
+- ``venv``: uses pip       
+- ``virtualenv``: uses pip   
+- ``conda``/``forge``: uses ``conda``/``mamba``     
+
+What happens at activation?
+...........................
+
+- Python version is defined by the environment.
+    - Check with ``which python``, should show at path to the environment.
+    - In conda you can define python version as well
+    - Since ``venv`` is part of Python you will get the python version used when running the ``venv`` command.
+- Packages are defined by the environent.
+    - Check with ``pip list``
+    - Conda can only see what you installed for it.
+    - venv and virtualenv also see other packages if you allowed for that when creating the environment (``--system-site-packages``). 
+- You can work in a Python shell. Jupyter and Spyder etc may need some specifiic settings
+- You can run scripts 
 
 .. warning::
 
    **About Conda on HPC systems**
 
-   - Conda is good in many ways but can interact negatively when trying to use the python modules (module load).
-   - LUNARC seems to have working solutions
-   - At UPPMAX Conda is installed but many users that get into problems. 
-       - However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
+   - Conda is good in many ways but can interact negatively when 
+      - using the python modules (module load) at the same time
+      - having base environment always active
+   - Not recommended at HPC2N
+   - At the other clusters, handle with care!
+   - However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
 
 +------------+---------------------------------+
 | HPC cluster| Conda vs venv                   | 
@@ -58,7 +74,7 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
 +------------+---------------------------------+
 | Kebnekaise | venv only                       |
 +------------+---------------------------------+
-| LUMI       | ?                               |
+| LUMI       | venv, conda in container        |
 +------------+---------------------------------+
 | Rackham    | venv, conda/latest              |
 +------------+---------------------------------+
@@ -89,12 +105,12 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 Typical workflow
 ................
 
-   1. You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option later)
-   2. You create the isolated environment with something like ``venv``, ``virtualenv`` (use the ``--system-site-packages`` to include all "non-base" packages)
-   3. You activate the environment with ``source <path to virtual environment>/bin activate``
-   4. You install (or update) the environment with the packages you need with the ``pip`` command
-   5. You work in the isolated environment
-   6. You deactivate the environment after use with ``deactivate``
+1. You load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option later)
+2. You create the isolated environment with something like ``venv``, ``virtualenv`` (use the ``--system-site-packages`` to include all "non-base" packages)
+3. You activate the environment with ``source <path to virtual environment>/bin activate``
+4. You install (or update) the environment with the packages you need with the ``pip`` command
+5. You work in the isolated environment
+6. You deactivate the environment after use with ``deactivate``
 
 .. admonition:: venv vs. virtualenv
    :class: dropdown   
@@ -109,16 +125,16 @@ Typical workflow
 
 .. admonition:: Draw-backs
 
-   - Only works for python environments
-   - Only works with python versions already installed
-
+   - Only works for Python environments
+   - Only works with Python versions already installed
 
 Conda
 -----
 
 - Conda is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
 - Conda creates isolated environments not clashing with other installations of python and other versions of packages.
-- Conda environment requires that you install all packges needed by yourself. That is,  you cannot load the python module and use the packages therein inside you Conda environment.
+- Conda environment requires that you install all packages needed by yourself. 
+    - That is,  you cannot load the python module and use the packages therein inside you Conda environment.
 
 .. warning::
  
@@ -126,8 +142,18 @@ Conda
     - Check your disk usage and quota limit with ``uquota`` or **FIX**, depending on system
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
 
-    
+.. tip::
 
+   - The conda environemnts inclusing many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
+   - Move your ``.conda`` directory to your project folder and make a soft link to it from $HOME
+   - Do the following (``mkdir -p`` ignores error output and will not recfreate anothe folder if it already exists):
+        - (replace what is inside ``<>`` with relevant path)
+
+   .. code-block:: bash
+
+      $ mkdir -p ~/.conda
+      $ mv ~/.conda /<path-to-project-folder>/<username>/
+      $ ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
 
 Typical workflow
 ................
