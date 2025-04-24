@@ -155,13 +155,12 @@ The next points will be the same for all clusters
    To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
          ``--system-site-packages`` includes the packages already installed in the loaded python module.
 
-   At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
+   At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you on Tetralith (NSC) could create a venv (Example) with a SciPy-bundle included which is compatible with Python/3.11.5:
 
    .. code-block:: console
 
-       $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 
        $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
-       $ python -m venv --system-site-packages Example3
+       $ python -m venv --system-site-packages Example
 
 .. admonition:: Draw-backs
 
@@ -181,6 +180,13 @@ The next points will be the same for all clusters
       pip install matplotlib
       python
       >>> import matplotlib
+
+.. note::
+
+   - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
+   - Some packaegs may be inhereted from the moduels yopu have loaded
+   - You can do ``pip list --local`` to see what is installed by you in the environment.
+   - Some IDE:s like Spyder may only find those "local" packages
 
 
 Conda
@@ -226,6 +232,7 @@ Conda
 Typical workflow
 ................
 
+
 The first 2 steps are cluster dependent and will therefore be slightly different.
 
 1. Make conda available from a software module, like ``ml load conda`` or similar, or use own installation of miniconda or miniforge.
@@ -239,25 +246,21 @@ The first 2 steps are cluster dependent and will therefore be slightly different
       - Example:
   
       .. code-block:: console
- 
-         $ export CONDA_ENVS_PATH=/proj/<your-project-id>/nobackup/<username>
+
          $ export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
          $ export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
 
-  
-      .. admonition:: By choice
-         :class: dropdown
- 
-      Run ``source conda_init.sh`` to initialise your shell (bash) to be able to run ``conda activate`` and ``conda deactivate`` etcetera instead of ``source activate``. It will modify (append) your ``.bashrc`` file.
-
 Next steps are the same for all clusters
 
-3. Create the conda environment
-4. Activate the conda environment by: source activate <conda-env-name>
-5. Now do your work!
+3. Create the conda environment ``conda create -n <name-of-env>``
+4. Activate the conda environment by: ``source activate <conda-env-name>``
+    - You can define the packages to be installed here already.
+    - If you want another Python version, you have to define it here, like: 
+5. Install the packages with ``conda install ...`` or ``pip install``
+6. Now do your work!
    - When activated you can always continue to add packages!
 
-6. Deactivate
+7. Deactivate
 
  .. prompt:: 
     :language: bash
@@ -479,11 +482,9 @@ Breakout room according to grouping
              - ``venv-TF``
              - ``venv-torch``
 
-.. challenge:: (Optional) Exercise 3a: Install package
+.. challenge:: (Optional) Exercise 3: Install package
 
-   - Choose a package of the ones below
-
-       - mhcnuggets
+   - Choose a a track below 
 
    - Confirm package is absent
    - Create environment
@@ -593,17 +594,13 @@ Breakout room according to grouping
             source /proj/<your-project-id>/<your-dir>/Example/bin/activate
 
 
-         .. note::
-
-            - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
-            - Some packaegs may be inhereted from the moduels yopu have loaded
-            - You can do ``pip list --local`` to see what is instaleld by you in the environment.
-            - Some IDE:s like Spyder may only find those "local" packages
 
       .. tab:: conda 
 
 
 .. challenge:: (optional) 4a. Make a test environment and spread (venv)
+
+   Read `here <https://uppmax.github.io/HPC-python/extra/isolated_deeper.html#creator-developer>`_ 
 
    1. make a virtual environment with the name ``venv1``. Do not include packages from the the loaded module(s)
    2. activate
@@ -703,12 +700,11 @@ Breakout room according to grouping
 
 .. challenge:: 3b. Make a test environment (conda)
 
-.. challenge:: (optional) Exercise 4: like 3, but for other tool
+.. challenge:: (optional) Exercise 4: like 3, but for other tool (venv/conda)
 
 
 Summary
 .......
-
 
 
 .. keypoints::
