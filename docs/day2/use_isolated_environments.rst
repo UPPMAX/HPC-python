@@ -141,10 +141,11 @@ The next points will be the same for all clusters
 3. Create the isolated environment with something like ``python -m venv <name-of-environment>`` 
     - use the ``--system-site-packages`` to include all "non-base" packages
     - include the full path in the name if you want the environment to be stored other than in the "present working directory".
+
 4. Activate the environment with ``source <path to virtual environment>/bin activate``
+
 5. Install (or update) the environment with the packages you need with the ``pip install`` command
-    - note that ``--user`` must be omitted: else the package
-        will be installed in the global user folder.
+    - note that ``--user`` must be omitted: else the package will be installed in the global user folder.
 
 6. Work in the isolated environment
    - When activated you can always continue to add packages!
@@ -254,11 +255,14 @@ Next steps are the same for all clusters
 
 3. Create the conda environment ``conda create -n <name-of-env>``
 4. Activate the conda environment by: ``source activate <conda-env-name>``
+
     - You can define the packages to be installed here already.
     - If you want another Python version, you have to define it here, like: 
-5. Install the packages with ``conda install ...`` or ``pip install``
+
+5. Install the packages with ``conda install ...`` or ``pip install ...``
 6. Now do your work!
-   - When activated you can always continue to add packages!
+
+    - When activated you can always continue to add packages!
 
 7. Deactivate
 
@@ -302,8 +306,17 @@ Install from file/Set up course environment
 
 - All centers has had different approaches in what is included in the module system and not.
 - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
-- This is left as exercise for you, see Exercise 3
+- This is left as exercise for you, see Exercise 3.
 
+venv
+....
+
+``pip install -r requirements.txt``
+
+conda
+.....
+
+``conda env create -f environment.yaml``
 
 Exercises
 ---------
@@ -317,7 +330,7 @@ Exercises
 
 Breakout room according to grouping
 
-.. challenge:: Exercise 1: Cover the documentation
+.. challenge:: Exercise 1: Cover the documentation for venvs or conda
 
    First try to find it by navigating.
 
@@ -361,7 +374,7 @@ Breakout room according to grouping
 
             - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
 
-          .. tab: conda
+         .. tab: conda
 
             NSC:
 
