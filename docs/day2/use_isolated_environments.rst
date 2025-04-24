@@ -386,104 +386,100 @@ Breakout room according to grouping
 
 .. challenge:: Exercise 2: Prepare the course environment
 
-   - venv or conda
-   - Follow the tracks below 
+   There will be a mix of conda and venv att all clusters except for HPC2N where all is ``venv``
 
    .. tabs::
 
-      .. tab:: venv
+      .. tab:: NSC
 
-         .. tabs::
+         1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
+         
+         .. code-block:: 
+         
+            module load Miniforge/24.7.1-2-hpc1
+            mamba create -n spyder-env spyder
+            mamba activate spyder-env
 
-            .. tab:: NSC
+         **If you do not have matplotlib already outside any virtual environment**
 
-               **If you do not have matplotlib already outside any virtual environment**
+         - Install matplotlib in your ``.local`` folder, not in a virtual environment.
+         - Do: 
 
-               - Install matplotlib in your ``.local`` folder, not in a virtual environment.
-               - Do: 
+         .. code-block:: console
 
-               .. code-block:: console
+            ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
+            pip install --user matplotlib
 
-                  ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
-                  pip install --user matplotlib
+         - Check that matplotlib is there by ``pip list``
 
-               - Check that matplotlib is there by ``pip list``
+         **Check were to find environments needed for the lessons in the afternoon tomorrow**
 
-               **Check were to find environments needed for the lessons in the afternoon tomorrow**
-
-               - browse ``/proj/hpc-python-spring-naiss/`` to see the available environments. 
-               - their names are
-                   - ``venvNSC-TF``
-                   - ``venvNSC-torch``
-                   - ``venvNSC-numba``
-                   - ``venv-spyder-only``
-
-            .. tab:: PDC 
-
-               .. code-block:: console
-
-                  $ module load PDC/21.11
-                  $ module load Anaconda3/2021.05
-                  $ cd /cfs/klemming/home/u/username
-                  $ python3 -m venv my-venv-dardel
-
-             .. tab:: LUNARC 
-
-               - Everything will work by just loading modules, see each last section
-
-               - Extra exercise can be to reproduce the examples above.
-
-            .. tab:: UPPMAX
-
-               **Check were to find environments needed for the lessons in the afternoon tomorrow**
-
-               - browse ``/proj/hpc-python-uppmax/`` to see the available environments. 
-               - their names are, for instance
-                   - ``venv-spyder``
-                   - ``venv-TF``
-                   - ``venv-torch``
-
-               - Extra exercise can be to reproduce the examples above.
-
-            .. tab:: HPC2N
-
-               **Check were to find possible environments needed for the lessons in the afternoon tomorrow**
-
-               - browse ``/proj/nobackup/hpc-python-spring/`` to see the available environments.
-               - It may be empty for now but may show up by tomorrow
-               - their names may be, for instance
-                   - ``venv-TF``
-                   - ``venv-torch``
-
-      .. tab:: Conda
-
-         Install Spyder in an conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
-
-         .. tabs::
-
-            .. tab:: NSC
-
-               module load Miniforge/24.7.1-2-hpc1
+         - browse ``/proj/hpc-python-spring-naiss/`` to see the available environments. 
+         - their names are
+             - ``venvNSC-TF``
+             - ``venvNSC-torch``
+             - ``venvNSC-numba``
 
 
-            .. tab:: PDC
+      .. tab:: PDC 
 
-               - content
+         1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
 
-            .. tab:: LUNARC
+         
+         .. code-block:: 
+         
+            ml PDC/23.12
+            ml miniconda3/24.7.1-0-cpeGNU-23.12
+            conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/spyder-env
+            mamba activate spyder-env
+            conda install spyder
 
-               - content
+         **fix** 
 
-            .. tab:: UPPMAX: Rackham
+         .. code-block:: console
 
-               - content
+            $ module load PDC/21.11
+            $ module load Anaconda3/2021.05
+            $ cd /cfs/klemming/home/u/username
+            $ python3 -m venv my-venv-dardel
 
-            .. tab:: UPPMAX: Bianca
+       .. tab:: LUNARC 
 
-               - content
+         - Everything will work by just loading modules.
+         - Go down to optional
 
+      .. tab:: UPPMAX
 
-.. challenge:: Exercise 3a: Install package (venv)
+         1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
+         
+         .. code-block:: 
+         
+            ml conda
+            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/bjornc
+            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/bjornc
+            conda create -n spyder-env spyder -c conda-forge
+            source activate spyder-env
+
+         **Check were to find environments needed for the lessons in the afternoon tomorrow**
+
+         - browse ``/proj/hpc-python-uppmax/`` to see the available environments. 
+         - their names are, for instance
+             - ``venv-TF``
+             - ``venv-torch``
+
+         - Extra exercise can be to reproduce the examples above.
+
+      .. tab:: HPC2N
+
+         **Check where to find possible environments needed for the lessons in the afternoon tomorrow**
+
+         - browse ``/proj/nobackup/hpc-python-spring/`` to see the available environments.
+         - It may be empty for now but may show up by tomorrow
+         - their names may be, for instance
+             - ``venv-TF``
+             - ``venv-torch``
+
+.. challenge:: (Optional) Exercise 3a: Install package
 
    - Choose a package of the ones below
 
@@ -604,14 +600,10 @@ Breakout room according to grouping
             - You can do ``pip list --local`` to see what is instaleld by you in the environment.
             - Some IDE:s like Spyder may only find those "local" packages
 
-
       .. tab:: conda 
 
 
-
-
-
-.. challenge:: (optional) 4a. Make a test environment (venv)
+.. challenge:: (optional) 4a. Make a test environment and spread (venv)
 
    1. make a virtual environment with the name ``venv1``. Do not include packages from the the loaded module(s)
    2. activate
@@ -622,7 +614,7 @@ Breakout room according to grouping
    7. activate that
    8. install with the aid of the requirements file
    9. check the content
-   10. open python shell from command line and try to import
+   10. open python shell from command line and try to import `matplotlib`
    11. exit python
    12. deactivate
    
