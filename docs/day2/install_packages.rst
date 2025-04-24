@@ -2,7 +2,7 @@
 Install packages
 ================
 
-!!! info "Learning objectives"
+.. objectives::
 
     - Learn how to install a (general-purpose) Python package with `pip`
     - Understand limitations of this way, e.g. use cases/best practices
