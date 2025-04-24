@@ -185,7 +185,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
    .. tab:: PDC
 
-        Short serial example for running on Dardel. Loading  
+        Short serial example for running on Dardel. Loading cray-python/3.11.7
        
         .. code-block:: bash
 
@@ -194,8 +194,8 @@ This first example shows how to run a short, serial script. The batch script (na
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
-            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
+            # Load any modules you need, here for cray-python/3.11.7.
+            module load cray-python/3.11.7
             
             # Run your Python script 
             python mmmult.py                
@@ -239,7 +239,7 @@ Serial code + self-installed package in virt. env.
 
 .. hint::
 
-   Don't type along! We will go through an example like this with your self-installed virtual environment later. 
+   Don't type along! There are other examples like this with your self-installed virtual environment. 
 
 .. tabs::
 

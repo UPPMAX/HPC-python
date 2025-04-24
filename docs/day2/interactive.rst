@@ -468,6 +468,13 @@ Running a Python script in an interactive session
 
          module load [python/version + any prerequisites]
 
+      Recommended versions (and prerequisites): 
+
+      - UPPMAX/rackham: python/3.11.8
+      - LUNARC/cosmos: GCC/13.2.0 Python/3.11.5
+      - NSC/tetralith: buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
+      - PDC/dardel: cray-python/3.11.7 
+
       To run a Python script on 1 core, do:
 
       .. code-block:: console
