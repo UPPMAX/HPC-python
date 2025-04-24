@@ -17,9 +17,15 @@ Use isolated environments
 Isolated environments
 ---------------------
 
-As an example, maybe you have been using TensorFlow 1.x.x for your project and now you need to install a package that requires TensorFlow 2.x.x but you will still be needing the old version of TensorFlow for another package, for instance. This is easily solved with isolated environments.
+- As an example, maybe you have been using TensorFlow 1.x.x for your project and 
+    - now you need to install a package that requires TensorFlow 2.x.x 
+    - but you will still be needing the old version of TensorFlow for another package, for instance. 
+- This is easily solved with isolated environments.
 
-Another example is when a reviewer want you to remake a figure. You haev already started to use a newer Python version or newer packages and realise that your ealier script does not work anymore. Having freezed the environment would have solved you from this issue!
+- Another example is when a reviewer want you to remake a figure. 
+    - You have already started to use a newer Python version or newer packages and 
+    - realise that your earlier script does not work anymore. 
+- Having freezed the environment would have solved you from this issue!
 
 .. note::
   
@@ -30,7 +36,7 @@ Another example is when a reviewer want you to remake a figure. You haev already
    - You can remove the environment and create a new one, if not needed or with errors.
    - Good for reproducibility!
 
-- Isolated environments lets you create separate workspaces for different versions of Python and/or different versions of packages. 
+- Isolated environments let you create separate workspaces for different versions of Python and/or different versions of packages. 
 - You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
 
 **The tools**
@@ -50,8 +56,8 @@ What happens at activation?
     - Check with ``pip list``
     - Conda can only see what you installed for it.
     - venv and virtualenv also see other packages if you allowed for that when creating the environment (``--system-site-packages``). 
-- You can work in a Python shell. Jupyter and Spyder etc may need some specific settings.
-- You can run scripts
+- You can work in a Python shell or IDE (coming session)
+- You can run scripts dependent on packages now instaleld in your environment.
 
 .. warning::
 
@@ -91,10 +97,7 @@ What happens at activation?
    - Try with ``venv`` first
    - If very troublesome, try with ``conda``
 
-.. note::
-
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
-
    - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
 
 
@@ -127,41 +130,58 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 Typical workflow
 ................
 
-1. Start from a Python version you would like to use (load the module)
+1. Start from a Python version you would like to use (load the module): 
     - This step are different at different clusters since the naming is different
 
 2. Load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option later)
+    - ``module load <python module>``
 
 The next points will be the same for all clusters
 
-3. Create the isolated environment with something like ``venv``, ``virtualenv`` (use the ``--system-site-packages`` to include all "non-base" packages)
+3. Create the isolated environment with something like ``python -m venv <name-of-environment>`` 
+    - use the ``--system-site-packages`` to include all "non-base" packages
+    - include the full path in the name if you want the environment to be stored other than in the "present working directory".
 4. Activate the environment with ``source <path to virtual environment>/bin activate``
-5. Install (or update) the environment with the packages you need with the ``pip`` command
+5. Install (or update) the environment with the packages you need with the ``pip install`` command
+    - note that ``--user`` must be omitted: else the package
+        will be installed in the global user folder.
+
 6. Work in the isolated environment
+   - When activated you can always continue to add packages!
 7. Deactivate the environment after use with ``deactivate``
+
+.. note::
+
+   To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
+         ``--system-site-packages`` includes the packages already installed in the loaded python module.
+
+   At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
+
+   .. code-block:: console
+
+       $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 
+       $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
+       $ python -m venv --system-site-packages Example3
 
 .. admonition:: Draw-backs
 
    - Only works for Python environments
    - Only works with Python versions already installed
 
+.. admonition:: Example NSC
 
-.. note::
+   .. code-block:: console
 
-    To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
-         ``--system-site-packages`` includes the packages already installed in the loaded python module.
+      ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
+      which python
+      python -V
+      cd /proj/hpc-python-spring-naiss/users/<username>
+      python -m venv env-matplotlib
+      activate  env-matplotlib
+      pip install matplotlib
+      python
+      >>> import matplotlib
 
-    At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you could create a venv (Example3) with a SciPy-bundle included which is compatible with Python/3.11.3:
-
-    .. code-block:: console
-
-       $ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 # for HPC2N and LUNARC
-       $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
-       $ python -m venv --system-site-packages Example3
-
-
-Example 
-.......
 
 Conda
 -----
@@ -174,7 +194,7 @@ Conda
 .. warning::
  
     - Conda is known to create **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically ``300000`` in $HOME). 
-    - Check your disk usage and quota limit with ``uquota`` or **FIX**, depending on system
+    - Check your disk usage and quota limit
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
 
 .. tip::
@@ -183,6 +203,19 @@ Conda
    - Move your ``.conda`` directory to your project folder and make a soft link to it from $HOME
    - Do the following (``mkdir -p`` ignores error output and will not recfreate anothe folder if it already exists):
         - (replace what is inside ``<>`` with relevant path)
+
+   - Solution 1
+
+      This works nicely if you have several projects. Then you can change these varables according to what you are currently working with.
+
+   .. code-block:: bash
+   
+      export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
+      export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
+
+   - Solution 2 
+
+      - This is not good if you have several projects.
 
    .. code-block:: bash
 
@@ -219,6 +252,8 @@ Next steps are the same for all clusters
 3. Create the conda environment
 4. Activate the conda environment by: source activate <conda-env-name>
 5. Now do your work!
+   - When activated you can always continue to add packages!
+
 6. Deactivate
 
  .. prompt:: 
@@ -261,20 +296,16 @@ Install from file/Set up course environment
 - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
 - This is left as exercise for you
 
-We will need to install the LightGBM Python package for one of the examples in the ML section. 
-
-.. tip::
-    
-   **Follow the track where you are working right now**
-
-
-
 
 Exercises
 ---------
 
-.. challenge:: Exercise 0: Make a decision between venv or conda.
+.. challenge:: Exercise 0: Make a decision between ``venv`` or ``conda``.
 
+   - We recommend Conda for LUNARC.
+   - We recommend ``venv`` for HPC2N
+   - Otherwise there are some kind of documentation at all sites. 
+   - ``venv`` "should" work everywhere but has not been fully tested
 
 Breakout room according to grouping
 
@@ -282,38 +313,70 @@ Breakout room according to grouping
 
    First try to find it by navigating.
 
+   - Alvis: https://www.c3se.chalmers.se/documentation/first_time_users/
    - NSC: https://www.nsc.liu.se
    - PDC: https://support.pdc.kth.se/doc/
-   - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/
+   - `LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/>`_. 
    - UPPMAX: https://docs.uppmax.uu.se/
    - HPC2N: https://docs.hpc2n.umu.se/
    - LUMI: https://docs.lumi-supercomputer.eu/software
 
    .. solution::
 
-      **FIX add links to venvs**
-      **FIX conda tab and venv tab?? Or make 1a and 1b**
+      .. tabs::
 
-      NSC:
+         .. tab:: venv
 
-      - https://www.nsc.liu.se/software/python/
-      - https://www.nsc.liu.se/software/anaconda/
+            NSC:
 
-      PDC:
+            - https://www.nsc.liu.se/software/python/
 
-      - https://www.kth.se/blogs/pdc/2020/11/working-with-python-virtual-environments/
+            PDC:
 
-      LUNARC
+            - `Virtual environment with venv <https://pdc-support.github.io/pdc-intro/#165`>
 
-      - https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
+            LUNARC
 
-      UPPMAX
+            - https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/
+            
+            UPPMAX
 
-      - https://docs.uppmax.uu.se/software/conda/
+            - https://docs.uppmax.uu.se/software/python_venv/
+            - `Video By Richel <https://www.youtube.com/watch?v=lj_Q-5l0BqU>`_
+            
+            HPC2N
 
-      LUMI
+            - Video: https://www.youtube.com/watch?v=_ev3g5Zvn9g
+             
+            LUMI
 
-      - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+            - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+
+          .. tab: conda
+
+            NSC:
+
+            - https://www.nsc.liu.se/software/anaconda/
+
+            PDC:
+
+            - https://support.pdc.kth.se/doc/applications/python/
+
+            LUNARC
+
+            - https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
+
+            UPPMAX
+
+            - https://docs.uppmax.uu.se/software/conda/
+
+            LUMI
+
+            - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+
+            HPC2N:
+
+            - Not recommended
 
 .. challenge:: Exercise 2: Prepare the course environment
 
@@ -387,6 +450,8 @@ Breakout room according to grouping
                 - ``venv-torch``
 
    .. tab:: Conda
+
+      Install Spyder in an conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
 
       .. tabs::
 
