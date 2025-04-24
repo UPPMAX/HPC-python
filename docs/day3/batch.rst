@@ -327,8 +327,29 @@ Serial code + self-installed package in virt. env.
             # Run your Python script  (remember to add the path to it 
             # or change to the directory with it first)
             python <my_program.py>
-
             
+   .. tab:: PDC 
+
+        Short serial example for running on Dardel. Loading Python/3.11.x + using any Python packages you have installed yourself with virtual environment.  
+       
+        .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A naiss2025-22-403 # Change to your own 
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            
+            # Load any modules you need, here for Python/3.11.x and compatible SciPy-bundle
+            module load cray-python/3.11.7 
+            
+            # Activate your virtual environment. matplotlib is not available for this Python version on Tetralith, so that would for instance need to be installed in a virtual environment
+            source /cfs/klemming/projects/snic/hpc-python-spring-naiss/<user-dir>/<path-to-virt-env>/bin/activate
+            
+            # Run your Python script  (remember to add the path to it 
+            # or change to the directory with it first)
+            python <my_program.py>
+
+
 
 Job arrays
 ##########
@@ -441,6 +462,28 @@ This is a very simple example of how to run a Python script with a job array.
          # Run your Python script
          srun python $MYPATH/hello-world-array.py $SLURM_ARRAY_TASK_ID
 
+   .. tab:: PDC 
+
+      .. code-block:: bash
+
+         #!/bin/bash
+         # This is a very simple example of how to run a Python script with a job array
+         #SBATCH -A naiss2025-22-403 # Change to your own!
+         #SBATCH --time=00:05:00 # Asking for 5 minutes
+         #SBATCH --array=1-10   # how many tasks in the array
+         #SBATCH -c 1 # Asking for 1 core    # one core per task
+         #SBATCH -o hello-world-%j-%a.out
+
+         # Set a path where the example programs are installed.
+         # Change the below to your own path to where you placed the example programs
+         MYPATH=/cfs/klemming/projects/snic/hpc-python-spring-naiss/<your-dir>/HPC-python/Exercises/examples/programs/
+
+         # Load any modules you need, here for Python 3.11.x
+         ml cray-python/3.11.7 
+
+         # Run your Python script
+         srun python $MYPATH/hello-world-array.py $SLURM_ARRAY_TASK_ID
+         
 MPI code
 ########
 
@@ -462,17 +505,24 @@ We will talk more about parallel code in the session "Parallel computing with Py
    # Load the module environment suitable for the job, it could be more or
    # less, depending on other package needs. This is for a simple job needing 
    # mpi4py. Remove # from the relevant center line 
+
    # Rackham: here mpi4py are not installed and you need a virtual env.
    # module load python/3.11.8 python_ML_packages/3.11.8-cpu openmpi/4.1.5
    # python -m venv mympi4py
    # source mympi4py/bin/activate
    # pip install mpi4py
+
    # Kebnekaise
    # ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 OpenMPI/4.1.5 mpi4py/3.1.4 
+
    # Cosmos
    # ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 OpenMPI/4.1.6 mpi4py/3.1.5 
+
    # Tetralith
    # ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 
+
+   # Dardel 
+   # ml cray-python/3.11.7 
 
    # And finally run the job - use srun for MPI jobs, but not for serial jobs 
    srun ./my_mpi_program
@@ -481,11 +531,11 @@ We will talk more about parallel code in the session "Parallel computing with Py
 GPU code
 ######## 
 
-We will talk more about Python on GPUs in the section "Using GPUs with Python". 
+We will talk more about Python on GPUs in the section "Using GPUs with Python". This is just an example. 
 
 .. hint:: 
 
-   Type along! 
+   If you want, you can try running it now, or wait for tomorrow! 
 
 .. tabs::
 
@@ -502,14 +552,18 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python".
             #SBATCH -n 1
             #SBATCH -M snowy
             #SBATCH --gres=gpu=1
-            
+
+            # Set a path where the example programs are installed.
+            # Change the below to your own path to where you placed the example programs
+            MYPATH=/proj/hpc-python-uppmax/<userdir>/HPC-python/Exercises/examples/programs/
+
             # Load any modules you need, here loading python 3.11.8 and the ML packages 
             module load uppmax
             module load python/3.11.8
             module load python_ML_packages/3.11.8-gpu 
             
             # Run your code
-            python compute.py 
+            python $MYPATH/compute.py 
             
 
    .. tab:: HPC2N
@@ -524,17 +578,21 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python".
             # Asking for one V100 card
             #SBATCH --gpus=1
             #SBATCH -C v100
-            
+
+            # Set a path where the example programs are installed.
+            # Change the below to your own path to where you placed the example programs
+            MYPATH=/proj/nobackup/hpc-python-spring/<your-dir>/HPC-python/Exercises/examples/programs/
+
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load GCC/12.3.0 OpenMPI/4.1.5 Python/3.11.3 SciPy-bundle/2023.07 numba/0.58.1    
             
             # Run your Python script
-            python compute.py
+            python $MYPATH/compute.py
            
    .. tab:: LUNARC
 
-        Example with running ``compute.py`` on Kebnekaise.        
+        Example with running ``compute.py`` on Cosmos.        
        
         .. code-block:: bash
 
@@ -545,16 +603,20 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python".
             #SBATCH -p gpua100 
             #SBATCH --gres=gpu:1
             
+            # Set a path where the example programs are installed.
+            # Change the below to your own path to where you placed the example programs
+             MYPATH=<path-to-your-files>/HPC-python/Exercises/examples/programs/
+
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load GCC/12.3.0  Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 numba/0.58.1    
             
             # Run your Python script
-            python compute.py
+            python $MYPATH/compute.py
            
    .. tab:: NSC
 
-        Example with running ``compute.py`` on Kebnekaise. Note that you need the virtual environment from the previous section, "Install packages", in order to use numba on NSC     
+        Example with running ``compute.py`` on Tetralith. Note that you need a virtual environment in order to use numba on NSC     
        
         .. code-block:: bash
 
@@ -565,7 +627,11 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python".
             #SBATCH -c 32
             # Asking for one GPU 
             #SBATCH --gpus-per-task=1
-            
+         
+            # Set a path where the example programs are installed.
+            # Change the below to your own path to where you placed the example programs
+            MYPATH=/proj/nobackup/hpc-python-spring-naiss/<your-dir>/HPC-python/Exercises/examples/programs/
+
             # Remove any loaded modules and load the ones we need
             module purge  > /dev/null 2>&1
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
@@ -581,11 +647,45 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python".
             source <path-to>/mynumba 
 
             # Run your Python script
-            python compute.py
+            python $MYPATH/compute.py
+
+   .. tab:: PDC 
+
+        Example with running ``compute.py`` on Dardel. Note that you need a virtual environment in order to use numba on PDC      
+       
+        .. code-block:: bash
+
+            #!/bin/bash
+            #SBATCH -A naiss2025-22-403 # Change to your own
+            #SBATCH --time=00:10:00  # Asking for 10 minutes
+            #SBATCH -N 1
+            #SBATCH --ntasks-per-node=1
+            #SBATCH -p gpu
+            
+            # Set a path where the example programs are installed.
+            # Change the below to your own path to where you placed the example programs
+            MYPATH=/cfs/klemming/projects/snic/hpc-python-spring-naiss/<your-dir>/HPC-python/Exercises/examples/programs/
+
+            # Load the module we need
+            module load cray-python/3.11.7
+            module load rocm/5.7.0
+
+            # Prepare a virtual environment with numba - do this before 
+            # running the batch script 
+            # python -m venv mynumba
+            # source mynumba/bin/activate
+            # pip install numba
+
+            # Later, during the batch job, you would just activate 
+            # the virtual environment 
+            source <path-to>/mynumba 
+
+            # Run your Python script
+            python $MYPATH/compute.py
 
    .. tab:: compute.py
 
-        This Python script can (just like the batch scripts for UPPMAX and HPC2N), be found in the ``/HPC-Python/Exercises/examples`` directory, under the subdirectory ``programs`` - if you have cloned the repo or copied the tarball with the exercises.
+        This Python script can (just like the batch scripts for the various centres, be found in the ``/HPC-Python/Exercises/examples`` directory, under the subdirectory ``programs`` - if you have cloned the repo or copied the tarball with the exercises.
 
         .. code-block:: python 
 
@@ -707,156 +807,78 @@ Exercises
             # Run your Python script
             python sum-2args.py 2 3
 
-.. challenge:: Continuation of the Pandas and matplotlib example from "Load and run".  
+.. solution:: Solution for PDC
+    :class: dropdown
 
-   This is the same example that was shown in the section about loading and running Python, but now changed slightly to run as a batch job. The main difference is that here we cannot open the plot directly, but have to save to a file instead. You can see the change inside the Python script.
+          This batch script is for Dardel. Adding the numbers 2 and 3.
 
-   **NOTE** We will not talk about pandas and matplotlib otherwise. You will learn more about them tomorrow.
+          .. code-block:: bash
 
-   **NOTE** the exercise is to write a batch script that runs the pandas/matplotlib example from "Load and run" 
+            #!/bin/bash
+            #SBATCH -A naiss2025-22-403 # Change to your own
+            #SBATCH --time=00:05:00 # Asking for 5 minutes
+            #SBATCH -n 1 # Asking for 1 core
 
-   Reminder, this is how it was run directly, after loading the following (do ``ml purge`` first if you have other modules loaded): 
-  
-   - Rackham
-     
-     .. code-block:: 
+            # Load any modules you need, here for Python 3.11.x
+            module load cray-python/3.11.7
 
-        ml python/3.11.8
+            # Run your Python script
+            python sum-2args.py 2 3
+            
+.. challenge:: How to run a Pandas and matplotlib example as a batch job.  
 
-   - Kebnekaise
+   **How you might do it interactively** 
 
-     .. code-block:: 
+   1. Load Python and prerequisites (and activate any needed virtual environments)
+       - UPPMAX: ml python/3.11.8
+       - HPC2N: ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 
+       - LUNARC: ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
+       - NSC: ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4  
+       - PDC: 
+   2. Start Python (``python``) in the ``<path-to>/Exercises/examples/programs`` directory
+   3. Run these lines: 
 
-        ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
+       - At UPPMAX 
 
-   - Cosmos
+       .. code-block:: python
 
-     .. code-block:: 
-
-        ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5
-
-   - Tetralith
-
-     .. code-block::
-
-        ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4
-
-   .. tabs::
-
-      .. tab:: Directly - remember to change so it does not open the plot 
-
-         Remove the # if running on Kebnekaise, Cosmos, or Tetralith
-
-         .. code-block:: python
-
-            import pandas as pd
-            #import matplotlib
-            import matplotlib.pyplot as plt
-
-            #matplotlib.use('TkAgg')
-
-            dataframe = pd.read_csv("scottish_hills.csv")
-            x = dataframe.Height
-            y = dataframe.Latitude
-            plt.scatter(x, y)
-            plt.show()
-
-.. admonition:: The Python script changes to work from a batch script 
-   :class: dropdown
-
-       Remove the # if running on Kebnekaise, Cosmos, or Tetralith. The script below can be found as ``pandas_matplotlib-batch-rackham.py`` or ``pandas_matplotlib-batch-kebnekaise.py`` or ``pandas_matplotlib-batch-cosmos.py`` or ``pandas_matplotlib-batch-tetralith.py`` in the ``Exercises/examples/programs`` directory.
-
-       .. code-block::
- 
           import pandas as pd
-          #import matplotlib
           import matplotlib.pyplot as plt
-
-          #matplotlib.use('TkAgg')
-
           dataframe = pd.read_csv("scottish_hills.csv")
           x = dataframe.Height
           y = dataframe.Latitude
           plt.scatter(x, y)
-          plt.savefig("myplot.png")
+          plt.show()
 
-.. solution:: Solution: batch script for Rackham
-   :class: dropdown 
+       - At HPC2N, LUNARC, NSC,  
 
-      .. code-block:: bash
+       .. code-block:: python 
+         
+          import pandas as pd 
+          import matplotlib
+          import matplotlib.pyplot as plt
+          matplotlib.use('TkAgg')
+          dataframe = pd.read_csv("scottish_hills.csv")
+          x = dataframe.Height
+          y = dataframe.Latitude
+          plt.scatter(x, y)
+          plt.show()
 
-         #!/bin/bash -l
-         #SBATCH -A uppmax2025-2-296
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
+   **CHALLENGE: How would you do it so you could run as a batch script?** 
+   
+   - Hint: The main difference is that here we cannot open the plot directly, but have to save to a file instead, for instance with ``plt.savefig("myplot.png")``.
+    
+   - Make the change to the Python script and then make a batch script to run it! You can find solutions in the exercises directory, for each centre. 
 
-         # Load any modules you need, here for Python 3.11.8
-         ml python/3.11.8
+   **NOTE** We will not talk about pandas and matplotlib otherwise. You already learned about them earlier.
 
-         # Run your Python script
-         python pandas_matplotlib-batch-rackham.py
+   Submit with ``sbatch <batch-script.sh>``.
 
-.. solution:: Solution: batch script for Kebnekaise
-   :class: dropdown    
-
-      .. code-block:: bash
-
-         #!/bin/bash
-         #SBATCH -A hpc2n2025-076
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
-
-         # Load any modules you need, here for Python 3.11.3
-         ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
-
-         # Run your Python script
-         python pandas_matplotlib-batch-kebnekaise.py
-
-.. solution:: Solution: batch script for Cosmos
-   :class: dropdown
-
-      .. code-block:: bash
-
-         #!/bin/bash
-         #SBATCH -A lu2025-7-34
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
-
-         # Load any modules you need, here for Python 3.11.5
-         ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
-
-         # Run your Python script
-         python pandas_matplotlib-batch-cosmos.py
-
-.. solution:: Solution: batch script for Tetralith
-   :class: dropdown 
-
-      .. code-block:: bash
-
-         #!/bin/bash
-         #SBATCH -A naiss2025-22-403
-         #SBATCH --time=00:05:00 # Asking for 5 minutes
-         #SBATCH -n 1 # Asking for 1 core
-
-         # Load any modules you need, here for Python 3.10.4
-         ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2 Tkinter/3.10.4
-
-         # Run your Python script
-         python pandas_matplotlib-batch-tetralith.py
-
-
-
-Submit with ``sbatch <batch-script.sh>``.
-
-The batch scripts can be found in the directories for hpc2n, uppmax, lunarc, and nsc, under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` .
-
-
-
+   The batch scripts can be found in the directories for hpc2n, uppmax, lunarc, nsc, and pdc under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` .
 
 .. keypoints::
 
    - The SLURM scheduler handles allocations to the calculation nodes
-   - Interactive sessions was presented in last slide
    - Batch jobs runs without interaction with user
    - A batch script consists of a part with SLURM parameters describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
    

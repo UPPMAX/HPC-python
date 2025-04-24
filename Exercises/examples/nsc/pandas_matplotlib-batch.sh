@@ -12,7 +12,7 @@ cd /proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/prog
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2  
+module load buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2 Tkinter/3.10.4
 
 # Run your Python script
 python pandas_matplotlib-batch-tetralith.py
