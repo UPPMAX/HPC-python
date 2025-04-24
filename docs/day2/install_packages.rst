@@ -56,4 +56,9 @@ Exercise
 
 .. challenge:: (optional) Exercise 1: Install a python package you know of for an old version 
 
+   - Load an older module (perhaps one you won't use anymore)
+   - install the python package (it may already be there but with an older version)
+       - (you can always remove your local installation later if you regret it)
+
+
    - We may add a solution in a coming instance of the course
