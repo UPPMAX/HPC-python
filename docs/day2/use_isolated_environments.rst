@@ -144,6 +144,12 @@ The next points will be the same for all clusters
 
 4. Activate the environment with ``source <path to virtual environment>/bin activate``
 
+.. note::
+   
+   - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
+   - For clarity we use the ``source`` style here.
+
+
 5. Install (or update) the environment with the packages you need with the ``pip install`` command
     - note that ``--user`` must be omitted: else the package will be installed in the global user folder.
 
@@ -177,7 +183,7 @@ The next points will be the same for all clusters
       python -V
       cd /proj/hpc-python-spring-naiss/users/<username>
       python -m venv env-matplotlib
-      activate  env-matplotlib
+      source activate  env-matplotlib
       pip install matplotlib
       python
       >>> import matplotlib
@@ -301,12 +307,12 @@ Next steps are the same for all clusters
    - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
    - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
 
-Install from file/Set up course environment
+Install from file
 -------------------------------------------
 
 - All centers has had different approaches in what is included in the module system and not.
 - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
-- This is left as exercise for you, see Exercise 3.
+- This is left as exercise for you, see Exercise 4.
 
 venv
 ....
@@ -561,11 +567,9 @@ Breakout room according to grouping
 
                Follow the tutorial at Virtual environment with venv https://pdc-support.github.io/pdc-intro/#165
 
-         .. admonition:: If you want your virtual environment in a certain place...
-            :class:dropdown
+         .. admonition:: If you want your virtual environment in a certain place
+            :class: dropdown
 
-            - Example for course project location and ``$USER`` being you user name. 
-                - If your directory in the project has another name, replace ``$USER`` with that one!
 
             - UPPMAX: 
                 - Create: ``python -m venv /proj/hpc-python-uppmax/$USER/Example``
