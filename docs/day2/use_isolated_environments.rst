@@ -409,12 +409,14 @@ Breakout room according to grouping
          .. code-block:: 
          
             module load Miniforge/24.7.1-2-hpc1
+            export CONDA_PKG_DIRS=/proj/hpc-python-spring-naiss/$USER
+            export CONDA_ENVS_PATH=/proj/hpc-python-spring-naiss/$USER
             mamba create -n spyder-env spyder
             mamba activate spyder-env
 
          **If you do not have matplotlib already outside any virtual environment**
 
-         - Install matplotlib in your ``.local`` folder, not in a virtual environment.
+         - Install matplotlib in your ``.local`` folder, not in a virtual environment. 
          - Do: 
 
          .. code-block:: console
@@ -435,24 +437,27 @@ Breakout room according to grouping
       .. tab:: PDC 
 
          1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
-
-         
+        
          .. code-block:: 
          
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
             ml PDC/23.12
             ml miniconda3/24.7.1-0-cpeGNU-23.12
             conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/spyder-env
             source activate spyder-env
             conda install spyder
 
-         2. Let's make a Jupyter installation 
+         2. Let's make a Jupyter installation based on Python 3.11.7
 
          .. code-block:: console
 
             ml PDC/23.12
             ml miniconda3/24.7.1-0-cpeGNU-23.12
-            conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/jupyter-env
-            source activate jupyter-env
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/" #only needed once per session
+            conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/jupyter-env python=3.11.7
+            conda activate jupyter-env
             conda install jupyter
             conda install matplotlib pandas seaborn
 
@@ -476,8 +481,8 @@ Breakout room according to grouping
          .. code-block:: 
          
             ml conda
-            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/bjornc
-            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/bjornc
+            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
             conda create -n spyder-env spyder -c conda-forge
             source activate spyder-env
 
@@ -498,7 +503,7 @@ Breakout room according to grouping
              - PyTorch
              - numba
 
-.. challenge:: (Optional) Exercise 3: Install package
+.. challenge:: (Optional) Exercise 3: Install package with venv
 
    - Choose a track below 
 
@@ -607,12 +612,7 @@ Breakout room according to grouping
 
             source /proj/<your-project-id>/<your-dir>/Example/bin/activate
 
-
-
-      .. tab:: conda 
-
-
-.. challenge:: (optional) 4a. Make a test environment and spread (venv)
+.. challenge:: (optional) 4. Make a test environment and spread (venv)
 
    Read `here <https://uppmax.github.io/HPC-python/extra/isolated_deeper.html#creator-developer>`_ 
 
