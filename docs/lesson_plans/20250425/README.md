@@ -405,6 +405,11 @@ with BC today. This will be my meeting schedule:
 
 All my course material is in, only need to test these by making videos.
 
+## 2025-04-25
+
+Course material is just now done (at 7:35 in the morning).
+
+
 ## References
 
 - `[Brendle et al, 2017]` Brendle, Joanna, Robert Lock, and Kate Piazza. "A study of co-teaching identifying effective implementation strategies." International Journal of Special Education 32.3 (2017): 538-550.

@@ -43,7 +43,7 @@ Exercises
     +-----------+---------------------------------------+
     |COSMOS     |`Here <https://youtu.be/h-6qTaJ62vs>`__|
     +-----------+---------------------------------------+
-    |Dardel     |`Here <https://youtu.be/GFsH3cx2rnY>__ |
+    |Dardel     |`Here <https://youtu.be/GFsH3cx2rnY>`__|
     +-----------+---------------------------------------+
     |Kebnekaise |`Here <https://youtu.be/gziyoBeMLYo>`__|
     +-----------+---------------------------------------+
