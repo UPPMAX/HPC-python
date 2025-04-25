@@ -144,6 +144,12 @@ The next points will be the same for all clusters
 
 4. Activate the environment with ``source <path to virtual environment>/bin activate``
 
+.. note::
+   
+   - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
+   - For clarity we use the ``source`` style here.
+
+
 5. Install (or update) the environment with the packages you need with the ``pip install`` command
     - note that ``--user`` must be omitted: else the package will be installed in the global user folder.
 
@@ -177,7 +183,7 @@ The next points will be the same for all clusters
       python -V
       cd /proj/hpc-python-spring-naiss/users/<username>
       python -m venv env-matplotlib
-      activate  env-matplotlib
+      source activate  env-matplotlib
       pip install matplotlib
       python
       >>> import matplotlib
@@ -301,12 +307,12 @@ Next steps are the same for all clusters
    - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
    - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
 
-Install from file/Set up course environment
+Install from file
 -------------------------------------------
 
 - All centers has had different approaches in what is included in the module system and not.
 - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
-- This is left as exercise for you, see Exercise 3.
+- This is left as exercise for you, see Exercise 4.
 
 venv
 ....
@@ -409,12 +415,14 @@ Breakout room according to grouping
          .. code-block:: 
          
             module load Miniforge/24.7.1-2-hpc1
+            export CONDA_PKG_DIRS=/proj/hpc-python-spring-naiss/$USER
+            export CONDA_ENVS_PATH=/proj/hpc-python-spring-naiss/$USER
             mamba create -n spyder-env spyder
             mamba activate spyder-env
 
          **If you do not have matplotlib already outside any virtual environment**
 
-         - Install matplotlib in your ``.local`` folder, not in a virtual environment.
+         - Install matplotlib in your ``.local`` folder, not in a virtual environment. 
          - Do: 
 
          .. code-block:: console
@@ -424,38 +432,50 @@ Breakout room according to grouping
 
          - Check that matplotlib is there by ``pip list``
 
-         **Check were to find environments needed for the lessons in the afternoon tomorrow**
+         We will put requirements files in the course project folder that you can build from in latter lessons
 
-         - browse ``/proj/hpc-python-spring-naiss/`` to see the available environments. 
-         - their names are
-             - ``venvNSC-TF``
-             - ``venvNSC-torch``
-             - ``venvNSC-numba``
+         - These will cover 
 
+             - TensorFlow
+             - PyTorch
+             - numba
 
       .. tab:: PDC 
 
          1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
-
-         
+        
          .. code-block:: 
          
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
             ml PDC/23.12
             ml miniconda3/24.7.1-0-cpeGNU-23.12
             conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/spyder-env
-            mamba activate spyder-env
+            source activate spyder-env
             conda install spyder
 
-         **fix** 
+         2. Let's make a Jupyter installation based on Python 3.11.7
 
          .. code-block:: console
 
-            $ module load PDC/21.11
-            $ module load Anaconda3/2021.05
-            $ cd /cfs/klemming/home/u/username
-            $ python3 -m venv my-venv-dardel
+            ml PDC/23.12
+            ml miniconda3/24.7.1-0-cpeGNU-23.12
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/" #only needed once per session
+            conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/jupyter-env python=3.11.7
+            conda activate jupyter-env
+            conda install jupyter
+            conda install matplotlib pandas seaborn
 
-       .. tab:: LUNARC 
+         We will put requirements files in the course project folder that you can build from in latter lessons
+
+         - These will cover 
+
+             - TensorFlow
+             - PyTorch
+             - numba
+            
+      .. tab:: LUNARC 
 
          - Everything will work by just loading modules.
          - Go down to optional
@@ -467,33 +487,31 @@ Breakout room according to grouping
          .. code-block:: 
          
             ml conda
-            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/bjornc
-            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/bjornc
+            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
             conda create -n spyder-env spyder -c conda-forge
             source activate spyder-env
 
-         **Check were to find environments needed for the lessons in the afternoon tomorrow**
+         We will put requirements files in the course project folder that you can build from in latter lessons
 
-         - browse ``/proj/hpc-python-uppmax/`` to see the available environments. 
-         - their names are, for instance
-             - ``venv-TF``
-             - ``venv-torch``
+         - These will cover 
 
-         - Extra exercise can be to reproduce the examples above.
+             - TensorFlow
+             - PyTorch
 
       .. tab:: HPC2N
 
-         **Check where to find possible environments needed for the lessons in the afternoon tomorrow**
+         We will put requirements files in the course project folder that you can build from in latter lessons
 
-         - browse ``/proj/nobackup/hpc-python-spring/`` to see the available environments.
-         - It may be empty for now but may show up by tomorrow
-         - their names may be, for instance
-             - ``venv-TF``
-             - ``venv-torch``
+         - These will cover 
 
-.. challenge:: (Optional) Exercise 3: Install package
+             - TensorFlow
+             - PyTorch
+             - numba
 
-   - Choose a a track below 
+.. challenge:: (Optional) Exercise 3: Install package with venv
+
+   - Choose a track below 
 
    - Confirm package is absent
    - Create environment
@@ -504,7 +522,7 @@ Breakout room according to grouping
    - Deactivate environment
    - Confirm package is now absent again
 
-      **NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
+   **NOTE**: since it may take up a bit of space if you are installing many Python packages to your isolated environment, we **strongly** recommend you place it in your project storage! 
 
    .. tabs::
 
@@ -549,13 +567,9 @@ Breakout room according to grouping
 
                Follow the tutorial at Virtual environment with venv https://pdc-support.github.io/pdc-intro/#165
 
+         .. admonition:: If you want your virtual environment in a certain place
+            :class: dropdown
 
-         **NOTE**: if you need to for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
-
-         .. admonition:: If you want your virtual environment in a certain place...
-
-            - Example for course project location and ``$USER`` being you user name. 
-                - If your directory in the project has another name, replace ``$USER`` with that one!
 
             - UPPMAX: 
                 - Create: ``python -m venv /proj/hpc-python-uppmax/$USER/Example``
@@ -602,12 +616,7 @@ Breakout room according to grouping
 
             source /proj/<your-project-id>/<your-dir>/Example/bin/activate
 
-
-
-      .. tab:: conda 
-
-
-.. challenge:: (optional) 4a. Make a test environment and spread (venv)
+.. challenge:: (optional) 4. Make a test environment and spread (venv)
 
    Read `here <https://uppmax.github.io/HPC-python/extra/isolated_deeper.html#creator-developer>`_ 
 
@@ -707,9 +716,9 @@ Breakout room according to grouping
 
       deactivate
 
-.. challenge:: 3b. Make a test environment (conda)
+.. challenge:: (optional) Exercise 4b. Make a test environment (conda)
 
-.. challenge:: (optional) Exercise 4: like 3, but for other tool (venv/conda)
+.. challenge:: (optional) Exercise 5: like 3, but for other tool (venv/conda)
 
 
 Summary
