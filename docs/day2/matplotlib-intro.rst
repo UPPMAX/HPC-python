@@ -199,11 +199,11 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
               $ module spider matplotlib/3.8.2
          ----------------------------------------------------------------------------
 
-      The module ``Tkinter`` loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots, and call ``plot.show()`` explicitly to make the display window appear.
+     The module ``Tkinter`` loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots, and call ``plot.show()`` explicitly to make the display window appear.
 
-      We will be using Python/3.11.5, which works with matplotlib/3.8.2. 
+     We will be using Python/3.11.5, which works with matplotlib/3.8.2. 
 
-      If you want to use Jupyter in this session the easiest way is this:
+     If you want to use Jupyter in this session the easiest way is this:
 
      .. code-block:: console
         
