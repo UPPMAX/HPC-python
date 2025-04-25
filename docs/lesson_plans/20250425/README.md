@@ -409,8 +409,8 @@ All my course material is in, only need to test these by making videos.
 
 Course material is just now done (at 7:35 in the morning).
 
-I am worried about the tarball exercise: I estimate this to take some time
-
+I am worried about the tarball exercise: I estimate this to take some time,
+time that I don't have.
 
 ## References
 
