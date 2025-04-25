@@ -34,8 +34,8 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
 
       **1. Login to a remote desktop**
 
-         * Login to the remote desktop website at ``rackham-gui.uppmax.uu.se``
-         * Login to your local ThinLinc client
+         Alt1.  Login to the remote desktop website at ``rackham-gui.uppmax.uu.se``
+         Alt2. Login to your local ThinLinc client
 
       **2. start an interactive session**
 
@@ -451,7 +451,8 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
 
    .. tab:: PDC
 
-      You can interactively launch Jupyter Lab and Notebook on Dardel by following the steps as below:
+      You can interactively launch Jupyter Lab and Notebook on Dardel by following the steps as below. Hopefully the ThinLinc licenses are sufficient!
+      
 
          1. Click on Applications -> PDC-Jupyter -> Jupyter Lab or Jupyter Notebook
 
@@ -472,7 +473,8 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
             .. admonition:: GfxLauncher view
                   :class: dropdown
 
-                  .. figure:: ../img/pdc_reconnect_to_jupyter.png
+                  .. figure:: ../img/pdc_reconnect_to_jupyter.png      
+
 
 More information
 ################
@@ -581,37 +583,47 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
    .. tab:: UPPMAX
 
-      Spyder is not available centrally on Rackham. It will have to be installed in your (conda) virtual environment. 
+      Spyder is not available centrally on Rackham. 
 
-      - We have prepared a virtual environment. 
+      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
 
       .. code-block:: console
 
-         . /proj/hpc-python-uppmax/venv-spyder/bin/activate
+         ml conda
+         export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+         export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+         source activate spyder-env
 
       * you can install packages with pip install from inside Spyder
 
    .. tab:: NSC
 
-      Spyder is not available on Tetralith. It will have to be installed in your (conda) virtual environment.
+      Spyder is not available on Tetralith. 
 
-      - We have prepared a virtual environment
+      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
 
       .. code-block:: console
 
-         . /proj/hpc-python-spring-naiss/venv-spyder-only/bin/activate
+         module load Miniforge/24.7.1-2-hpc1
+         export CONDA_PKG_DIRS=/proj/hpc-python-spring-naiss/$USER
+         export CONDA_ENVS_PATH=/proj/hpc-python-spring-naiss/$USER
+         source activate spyder-env
 
       * you can install packages with pip install from inside Spyder
 
    .. tab:: PDC
 
-      Spyder is not available on Dardel. It will have to be installed in your (venv) virtual environment.
+      Spyder is not available on Dardel.
 
-      - We have prepared a virtual environment
+      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
 
       .. code-block:: console
 
-         . /cfs/klemming/projects/supr/hpc-python-spring-naiss/venv-spyder-only/bin/activate
+         ml PDC/23.12
+         ml miniconda3/24.7.1-0-cpeGNU-23.12
+         export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+         export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+         source activate spyder-env
 
       * you can install packages with pip install from inside Spyder
 

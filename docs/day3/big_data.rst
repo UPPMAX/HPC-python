@@ -5,8 +5,8 @@ Big data with Python
 
    Learners can
 
-   - allocate resources sufficient to data size
    - decide on useful file formats
+   - allocate resources sufficient to data size
    - use data-chunking as technique
 
 To cover
@@ -15,8 +15,9 @@ To cover
 - File format
  
 - Methods
-   - RAM allocation 
-   - chunking 
+
+    - RAM allocation 
+    - chunking 
 
 Files formats
 -------------
@@ -43,6 +44,7 @@ Bit and Byte
        - 64-bit: Double (floating point
 
 .. admonition:: Text data
+   :class: dropdown
 
    - DataTypes
         - 8-bit: char
@@ -62,7 +64,7 @@ In real scientific applications, data is complex and structured and usually cont
 .. admonition:: Tabular data
 
    - A very common type of data is “tabular data”.
-   - Tabular data is structured into rows and columns.
+   - Tabular data is structured into **rows and columns**.
    - Each column usually has a name and a specific data type while each row is a distinct sample which provides data according to each column (including missing values).
    - The simplest and most common way to save tabular data is via the so-called CSV (comma-separated values) file.
 
@@ -393,7 +395,7 @@ Exercises
 
 .. note::
    
-   You can do thes in the Python **command line** or in Jupyter.
+   You can do these in the Python **command line** or in Jupyter.
 
 .. exercise:: Use Xarray to work with NetCDF files
 
