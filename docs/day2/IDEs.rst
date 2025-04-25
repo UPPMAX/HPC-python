@@ -589,8 +589,10 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
       .. code-block:: console
 
-            ml conda
-            source activate spyder-env
+         ml conda
+         export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+         export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+         source activate spyder-env
 
       * you can install packages with pip install from inside Spyder
 
