@@ -72,7 +72,7 @@ On the LUNARC HPC Desktop, the Applications menu lists all the applications avai
 
 
 .. note:: What if On-Demand Applications are missing from the menu?
-   :collapsible:
+   :class: dropdown
 
    On rare occasions, a user may find that the Applications menu is missing all ``Applications - <App_group>`` options. This usually indicates that your ``.bashrc`` file is either missing or has had problematic changes made to it, especially if LMOD commands like ``ml spider <package>`` are also not recognized. If you are a new user on your very first session on COSMOS, the problem should resolve itself if you start a new ThinLinc session with "End existing session" selected. If you are not a new user and module commands are recognized, running ``gfxmenu --force`` in a terminal session may resolve the issue; otherwise, you will probably have to submit a support ticket.
 
