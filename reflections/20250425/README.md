@@ -67,3 +67,16 @@ I replied:
 > If you want to discuss teaching, I am always up to it! After the course of course :-)
 
 After which we exchanged emails to talk about teaching.
+
+
+## Overview of how time is spent
+
+Hour|Lecture (mins)|Dialogue (mins)|Exercises (mins)
+----|--------------|---------------|----------------
+1   |15            |5              |30
+2   |35            |4              |11
+3   |38            |5              |0
+3.75|17            |0              |0
+4   |49            |11             |0
+5   |54            |2              |0
+6   |0             |2              |28
