@@ -301,7 +301,7 @@ To start an interactive session in the simplest way, as shown here:
 
       .. code-block:: console
           
-         salloc -A [project_name]
+         salloc -A [project_name] -t HHH:MM:SS 
 
       Where ``[project_name]`` is the HPC2N project name,
       for example ``salloc -A hpc2n2025-076``.
@@ -324,7 +324,7 @@ To start an interactive session in the simplest way, as shown here:
 
       .. code-block:: console 
 
-         interactive -A [project_name]
+         interactive -A [project_name] -t HHH:MM:SS
 
       Where ``[project_name]`` is the LUNARC project name,
       for example ``interactive -A lu2025-7-34``.  
@@ -398,7 +398,7 @@ To start an interactive session in the simplest way, as shown here:
          bbrydsoe@login1:~> ssh nid001134
          bbrydsoe@nid001134:~> 
 
-Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC/PDC.
+Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC/PDC, and also partition for PDC.
 
 However, this simplest way may have some defaults settings that do not fit you. 
 

@@ -8,9 +8,8 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/cfs/klemming/projects/snic/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
 
-ml purge > /dev/null 2>&1
-ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/13.2.0  OpenMPI/4.1.6 mpi4py/3.1.5
+ml cray-python/3.11.7
 
 mpirun -np 4 python $MYPATH/integration2d_mpi.py

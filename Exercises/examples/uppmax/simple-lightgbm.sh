@@ -18,4 +18,4 @@ module load python/3.11.8
 source /proj/hpc-python-uppmax/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
 
 # Run your Python script
-python simple_lightgbm.py
+python simple_example.py

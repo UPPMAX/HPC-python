@@ -11,10 +11,10 @@ cd /proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/prog
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2
+ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2
 
 # Activate the course environment (assuming it was called vpyenv)
 source /proj/hpc-python-spring-naiss/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
 
 # Run your Python script
-python simple_lightgbm.py
+python simple_example.py

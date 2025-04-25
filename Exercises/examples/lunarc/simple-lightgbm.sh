@@ -17,4 +17,4 @@ module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
 source /lunarc/nobackup/projects/lu2024-17-44/<mydir-name>/<path-to-my-venv>/vpyenv/bin/activate
 
 # Run your Python script
-python simple_lightgbm.py
+python simple_example.py
