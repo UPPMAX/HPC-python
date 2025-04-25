@@ -280,3 +280,7 @@ Exercise 1: using Python packages
 
 In all cases, the package is now installed.
 Well done!
+
+If you haven't done so yet, do :ref:`common-use-tarball`.
+
+If you've done that, read what the next session is about.
