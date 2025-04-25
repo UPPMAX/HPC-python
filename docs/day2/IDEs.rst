@@ -34,8 +34,8 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
 
       **1. Login to a remote desktop**
 
-         * Login to the remote desktop website at ``rackham-gui.uppmax.uu.se``
-         * Login to your local ThinLinc client
+         Alt1.  Login to the remote desktop website at ``rackham-gui.uppmax.uu.se``
+         Alt2. Login to your local ThinLinc client
 
       **2. start an interactive session**
 
@@ -451,7 +451,8 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
 
    .. tab:: PDC
 
-      You can interactively launch Jupyter Lab and Notebook on Dardel by following the steps as below:
+      You can interactively launch Jupyter Lab and Notebook on Dardel by following the steps as below. Hopefully the ThinLinc licenses are sufficient!
+      
 
          1. Click on Applications -> PDC-Jupyter -> Jupyter Lab or Jupyter Notebook
 
@@ -472,7 +473,8 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
             .. admonition:: GfxLauncher view
                   :class: dropdown
 
-                  .. figure:: ../img/pdc_reconnect_to_jupyter.png
+                  .. figure:: ../img/pdc_reconnect_to_jupyter.png      
+
 
 More information
 ################
