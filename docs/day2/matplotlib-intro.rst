@@ -203,10 +203,17 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
 
       We will be using Python/3.11.5, which works with matplotlib/3.8.2. 
 
+      If you want to use Jupyter in this session the easiest way is this:
+
+     .. code-block:: console
+        
+        module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
   .. tab:: PDC (Dardel)
 
-     Due to the limited number of Thinlinc licenses, it is assumed that you will be using SSH with X-forwarding. Note that at PDC, almost all modules require you to load a module starting with PDC (e.g. PDC/23.12, PDCOLD/XX.XX, PDCTEST/XX.XX) before loading anything else. Also, unlike at other centers, if you load the wrong module you should either only use the ``ml unload <module>`` command, or save a module collection to restore after using ``ml purge``, because 13 modules are loaded when you first log in and only one of them is sticky (i.e. not removed by an ordinary purge command).
+     - Due to the limited number of Thinlinc licenses, it is assumed that you will be using SSH with X-forwarding. 
+     - Note that at PDC, almost all modules require you to load a module starting with PDC (e.g. PDC/23.12, PDCOLD/XX.XX, PDCTEST/XX.XX) before loading anything else. 
+     - Also, unlike at other centers, if you load the wrong module you should either only use the ``ml unload <module>`` command, or save a module collection to restore after using ``ml purge``, because 13 modules are loaded when you first log in and only one of them is sticky (i.e. not removed by an ordinary purge command).
 
      Dardel documentation generally assumes that you will need to build your own environment with conda or pip because the options available natively are fairly limited.
 
