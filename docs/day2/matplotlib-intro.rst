@@ -228,7 +228,7 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
 
      The output is misleading in that matplotlib/3.8.2-cpeGNU-23.12 is the module that provides matplotlib/3.8.2 as an extension, so there is really only that one option. This version requires Python 3.11.x, which on Dardel is best provided by ``cray-python/3.11.5`` and ``cray-python/3.11.7`` (both of which include NumPy, SciPy, and mpi4py). This matplotlib version also requires preloading PDC/23.12.
 
-      After importing matplotlib, you will need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots, and call ``plot.show()`` explicitly to make the display window appear.
+     After importing matplotlib, you will need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots, and call ``plot.show()`` explicitly to make the display window appear.
     
 
 Controlling the Display
