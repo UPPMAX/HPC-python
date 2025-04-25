@@ -424,14 +424,13 @@ Breakout room according to grouping
 
          - Check that matplotlib is there by ``pip list``
 
-         **Check were to find environments needed for the lessons in the afternoon tomorrow**
+         We will put requirements files in the course project folder that you can build from in latter lessons
 
-         - browse ``/proj/hpc-python-spring-naiss/`` to see the available environments. 
-         - their names are
-             - ``venvNSC-TF``
-             - ``venvNSC-torch``
-             - ``venvNSC-numba``
+         - These will cover 
 
+             - TensorFlow
+             - PyTorch
+             - numba
 
       .. tab:: PDC 
 
@@ -443,19 +442,29 @@ Breakout room according to grouping
             ml PDC/23.12
             ml miniconda3/24.7.1-0-cpeGNU-23.12
             conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/spyder-env
-            mamba activate spyder-env
+            source activate spyder-env
             conda install spyder
 
-         **fix** 
+         2. Let's make a Jupyter installation 
 
          .. code-block:: console
 
-            $ module load PDC/21.11
-            $ module load Anaconda3/2021.05
-            $ cd /cfs/klemming/home/u/username
-            $ python3 -m venv my-venv-dardel
+            ml PDC/23.12
+            ml miniconda3/24.7.1-0-cpeGNU-23.12
+            conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/jupyter-env
+            source activate jupyter-env
+            conda install jupyter
+            conda install matplotlib pandas seaborn
 
-       .. tab:: LUNARC 
+         We will put requirements files in the course project folder that you can build from in latter lessons
+
+         - These will cover 
+
+             - TensorFlow
+             - PyTorch
+             - numba
+            
+      .. tab:: LUNARC 
 
          - Everything will work by just loading modules.
          - Go down to optional
@@ -472,28 +481,26 @@ Breakout room according to grouping
             conda create -n spyder-env spyder -c conda-forge
             source activate spyder-env
 
-         **Check were to find environments needed for the lessons in the afternoon tomorrow**
+         We will put requirements files in the course project folder that you can build from in latter lessons
 
-         - browse ``/proj/hpc-python-uppmax/`` to see the available environments. 
-         - their names are, for instance
-             - ``venv-TF``
-             - ``venv-torch``
+         - These will cover 
 
-         - Extra exercise can be to reproduce the examples above.
+             - TensorFlow
+             - PyTorch
 
       .. tab:: HPC2N
 
-         **Check where to find possible environments needed for the lessons in the afternoon tomorrow**
+         We will put requirements files in the course project folder that you can build from in latter lessons
 
-         - browse ``/proj/nobackup/hpc-python-spring/`` to see the available environments.
-         - It may be empty for now but may show up by tomorrow
-         - their names may be, for instance
-             - ``venv-TF``
-             - ``venv-torch``
+         - These will cover 
+
+             - TensorFlow
+             - PyTorch
+             - numba
 
 .. challenge:: (Optional) Exercise 3: Install package
 
-   - Choose a a track below 
+   - Choose a track below 
 
    - Confirm package is absent
    - Create environment
@@ -504,7 +511,7 @@ Breakout room according to grouping
    - Deactivate environment
    - Confirm package is now absent again
 
-      **NOTE**: since it may take up a bit of space if you are installing many Python packages to your virtual environment, we **strongly** recommend you place it in your project storage! 
+   **NOTE**: since it may take up a bit of space if you are installing many Python packages to your isolated environment, we **strongly** recommend you place it in your project storage! 
 
    .. tabs::
 
@@ -549,10 +556,8 @@ Breakout room according to grouping
 
                Follow the tutorial at Virtual environment with venv https://pdc-support.github.io/pdc-intro/#165
 
-
-         **NOTE**: if you need to for instance working with both Python 2 and 3, then you can of course create more than one virtual environment, just name them so you can easily remember which one has what. 
-
          .. admonition:: If you want your virtual environment in a certain place...
+            :class:dropdown
 
             - Example for course project location and ``$USER`` being you user name. 
                 - If your directory in the project has another name, replace ``$USER`` with that one!
@@ -707,9 +712,9 @@ Breakout room according to grouping
 
       deactivate
 
-.. challenge:: 3b. Make a test environment (conda)
+.. challenge:: (optional) Exercise 4b. Make a test environment (conda)
 
-.. challenge:: (optional) Exercise 4: like 3, but for other tool (venv/conda)
+.. challenge:: (optional) Exercise 5: like 3, but for other tool (venv/conda)
 
 
 Summary
