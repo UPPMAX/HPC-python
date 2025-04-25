@@ -40,7 +40,7 @@ The GfxLauncher will prompt you for resource specification and then Desktop On D
 .. admonition:: **Wall Time Limits**
    
       Wall time for interactive work with Desktop On Demand is restricted to 48 consecutive
-      not business) hours. In practice, there can be significant startup delays for wall times
+      (not business) hours. In practice, there can be significant startup delays for wall times
       as short as 4 hours. Users should save their work frequently and be conservative in their
       wall time estimates. To save GPU resources, we also encourage users who are able to submit 
       jobs requiring minimal supervision as ordinary batch scripts to do that whenever feasible.
@@ -68,8 +68,13 @@ On the LUNARC HPC Desktop, the Applications menu lists all the applications avai
    
    The CPU terminal allows for a wall time of up to 168 hours (7 days), while the two GPU terminals can only run for 48 hours (2 days) at most. For more on the specifications of the different nodes these terminals can run on, see `LUNARC's webpage on COSMOS <https://www.lunarc.lu.se/systems/cosmos/>`_.
 
-
 **Please be aware that only the applications in the menus prefixed with "Applications -" are set up to run on the Compute nodes.** If you start a terminal session or other application from ``Favorites`` or ``System Tools`` and launch an interactive program from that, it will run on a Login node, with all the risks that that entails for your user privileges.
+
+
+.. note:: What if On-Demand Applications are missing from the menu?
+   :collapsible:
+
+   On rare occasions, a user may find that the Applications menu is missing all ``Applications - <App_group>`` options. This usually indicates that your ``.bashrc`` file is either missing or has had problematic changes made to it, especially if LMOD commands like ``ml spider <package>`` are also not recognized. If you are a new user on your very first session on COSMOS, the problem should resolve itself if you start a new ThinLinc session with "End existing session" selected. If you are not a new user and module commands are recognized, running ``gfxmenu --force`` in a terminal session may resolve the issue; otherwise, you will probably have to submit a support ticket.
 
 
 How do I start?

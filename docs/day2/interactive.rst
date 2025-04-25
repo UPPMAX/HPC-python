@@ -386,6 +386,18 @@ To start an interactive session in the simplest way, as shown here:
       - Stay on the login node and do ``srun ./program``
       - ``ssh`` to the compute node you got allocated and then work there
 
+      .. code-block:: console
+
+         bbrydsoe@login1:~> salloc --time=00:10:00 -A naiss2025-22-403 -p main
+         salloc: Pending job allocation 9722449
+         salloc: job 9722449 queued and waiting for resources
+         salloc: job 9722449 has been allocated resources
+         salloc: Granted job allocation 9722449
+         salloc: Waiting for resource configuration
+         salloc: Nodes nid001134 are ready for job
+         bbrydsoe@login1:~> ssh nid001134
+         bbrydsoe@nid001134:~> 
+
 Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC/PDC.
 
 However, this simplest way may have some defaults settings that do not fit you. 
@@ -422,6 +434,7 @@ Check to be in an interactive session
    - ``r[number].uppmax.uu.se``, where ``[number]`` is a number, you are on a compute node at UPPMAX (rackham).
    - ``cn[number]``, where ``[number]`` is a number, you are on a compute node at LUNARC (cosmos). 
    - ``n[number]``, where ``[number]`` is a number, you are on a compute node at NSC (tetralith). 
+   - ``nid[number]``, where ``[number]`` is a number, you are on a compute node at PDC (dardel).  
 
 .. admonition:: For HPC2N (and sometimes PDC) 
 
@@ -548,7 +561,7 @@ it is a simple script that adds two numbers from user input:
 Exercises
 ---------
 
-- Go to the program directory in your cloned HPC-Python repository
+- Go to the program directory in your cloned HPC-Python repository (or downloaded tarball, in which case it path is just ``Exercises/examples/programs``) 
     - cd <path-to-your-area-under-the-storage-dir>/HPC-python/Exercises/examples/programs
 - There you'll find the two programs that we will use:
 

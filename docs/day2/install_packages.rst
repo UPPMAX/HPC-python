@@ -62,3 +62,82 @@ Exercise
 
 
    - We may add a solution in a coming instance of the course
+
+
+
+.. admonition:: Already installed Python packages in HPC and ML
+   :class: dropdown
+
+   It is difficult to give an exhaustive list of useful packages for Python in HPC, but this list contains some of the more popular ones: 
+
+   .. list-table:: Popular packages
+      :widths: 8 10 10 20 
+      :header-rows: 1
+
+      * - Package
+        - Module to load, UPPMAX
+        - Module to load, HPC2N
+        - Brief description 
+      * - Dask
+        - ``python``
+        - ``dask``
+        - An open-source Python library for parallel computing.
+      * - Keras
+        - ``python_ML_packages``
+        - ``Keras``
+        - An open-source library that provides a Python interface for artificial neural networks. Keras acts as an interface for both the TensorFlow and the Theano libraries. 
+      * - Matplotlib
+        - ``python`` or ``matplotlib``
+        - ``matplotlib``
+        - A plotting library for the Python programming language and its numerical mathematics extension NumPy.
+      * - Mpi4Py
+        - Not installed
+        - ``SciPy-bundle``
+        - MPI for Python package. The library provides Python bindings for the Message Passing Interface (MPI) standard.
+      * - Numba 
+        - ``python``
+        - ``numba``
+        - An Open Source NumPy-aware JIT optimizing compiler for Python. It translates a subset of Python and NumPy into fast machine code using LLVM. It offers a range of options for parallelising Python code for CPUs and GPUs. 
+      * - NumPy
+        - ``python``
+        - ``SciPy-bundle``
+        - A library that adds support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays. 
+      * - Pandas
+        - ``python`` 
+        - ``SciPy-bundle``
+        - Built on top of NumPy. Responsible for preparing high-level data sets for machine learning and training. 
+      * - PyTorch/Torch
+        - ``PyTorch`` or ``python_ML_packages``
+        - ``PyTorch``
+        - PyTorch is an ML library based on the C programming language framework, Torch. Mainly used for natural language processing or computer vision.  
+      * - SciPy
+        - ``python``
+        - ``SciPy-bundle``
+        - Open-source library for data science. Extensively used for scientific and technical computations, because it extends NumPy (data manipulation, visualization, image processing, differential equations solver).  
+      * - Seaborn 
+        - ``python``
+        - Not installed
+        - Based on Matplotlib, but features Pandas’ data structures. Often used in ML because it can generate plots of learning data. 
+      * - Sklearn/SciKit-Learn
+        - ``scikit-learn``
+        - ``scikit-learn``
+        - Built on NumPy and SciPy. Supports most of the classic supervised and unsupervised learning algorithms, and it can also be used for data mining, modeling, and analysis. 
+      * - StarPU
+        - Not installed 
+        - ``StarPU``
+        - A task programming library for hybrid architectures. C/C++/Fortran/Python API, or OpenMP pragmas. 
+      * - TensorFlow
+        - ``TensorFlow``
+        - ``TensorFlow``
+        - Used in both DL and ML. Specializes in differentiable programming, meaning it can automatically compute a function’s derivatives within high-level language. 
+      * - Theano 
+        - Not installed 
+        - ``Theano``
+        - For numerical computation designed for DL and ML applications. It allows users to define, optimise, and gauge mathematical expressions, which includes multi-dimensional arrays.  
+
+   Remember, in order to find out how to load one of the modules, which prerequisites needs to be loaded, as well as which versions are available, use ``module spider <module>`` and ``module spider <module>/<version>``. 
+
+   Often, you also need to load a python module, except in the cases where it is included in ``python`` or ``python_ML_packages`` at UPPMAX or with ``SciPy-bundle`` at HPC2N. 
+
+   NOTE that not all versions of Python will have all the above packages installed! 
+

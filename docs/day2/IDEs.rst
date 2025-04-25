@@ -605,13 +605,13 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
    .. tab:: PDC
 
-      Spyder is not available on Dardel. It will have to be installed in your (conda) virtual environment.
+      Spyder is not available on Dardel. It will have to be installed in your (venv) virtual environment.
 
       - We have prepared a virtual environment
 
       .. code-block:: console
 
-         . /cfs/klemming/projects/supr/hpc-python-spring-naiss0./bin/activate
+         . /cfs/klemming/projects/supr/hpc-python-spring-naiss/venv-spyder-only/bin/activate
 
       * you can install packages with pip install from inside Spyder
 
@@ -620,8 +620,11 @@ Features
 
 When you open Spyder, you should see something like the figure below. There should be a large pane on the left for code, and two smaller panes on the right. Each of the 3 panes have their own button with 3 horizontal lines (the menu button or "burger icon") in the top right, each with additional configuration options for those panes.
 
-.. image:: ../img/cosmos-on-demand-spyder.png
-   :width: 800 px
+.. admonition:: Spyder interface
+   :class: dropdown
+
+   .. figure:: ../img/cosmos-on-demand-spyder.png
+
 
 The top right pane has several useful tabs.
 
@@ -656,8 +659,10 @@ The text and icons should be rescaled when it reopens, and should stay rescaled 
 #. Click "Graphics" and find the "Graphics backend" box below. In that box, next to "Backend" there will be a dropdown menu that probably says "Inline". Click the dropdown and select "Automatic".
 #. Click "Apply" and then "OK" to exit.
 
-.. image:: ../img/cosmos-on-demand-spyder-preferences.png
-   :width: 800 px
+.. admonition:: Spyder interface
+   :class: dropdown
+
+   .. figure:: ../img/cosmos-on-demand-spyder-preferences.png
 
 Now, graphics should appear in their own popup that has menu options to edit and save the content.
 
