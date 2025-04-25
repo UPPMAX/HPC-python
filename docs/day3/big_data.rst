@@ -5,8 +5,8 @@ Big data with Python
 
    Learners can
 
-   - allocate resources sufficient to data size
    - decide on useful file formats
+   - allocate resources sufficient to data size
    - use data-chunking as technique
 
 To cover
@@ -15,6 +15,7 @@ To cover
 - File format
  
 - Methods
+
    - RAM allocation 
    - chunking 
 
@@ -393,7 +394,7 @@ Exercises
 
 .. note::
    
-   You can do thes in the Python **command line** or in Jupyter.
+   You can do these in the Python **command line** or in Jupyter.
 
 .. exercise:: Use Xarray to work with NetCDF files
 
