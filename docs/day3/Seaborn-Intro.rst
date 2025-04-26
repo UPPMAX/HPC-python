@@ -127,6 +127,60 @@ Load and Run Seaborn
         
             pip install seaborn
 
+  .. tab:: Dardel (PDC)
+
+      - Jupyter Lab is only available on Dardel via ThinLinc. 
+      - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
+      - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
+      - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the `exercises <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb>`_ and `solutions <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb>`_ in the GitHub repository (they should render correctly).
+
+      .. important::
+
+         For this session, you could load
+
+         .. code-block:: console
+        
+            ml cray-python/3.11.7
+     
+      On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using ``ml PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12``, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.
+
+
+     - ALTERNATIVE IF THINLINC IS AVAILABLE
+     - Start Jupyter from the Menu and it will work! 
+
+          - Default Anaconda 3 has all packages needed for this lesson
+
+     - OR USE SPYDER:
+          - start interactive session
+
+          .. code-block:: console 
+
+             salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-403
+             salloc: Pending job allocation 9102757
+             salloc: job 9102757 queued and waiting for resources
+             salloc: job 9102757 has been allocated resources
+             salloc: Granted job allocation 9102757
+             salloc: Waiting for resource configuration
+             salloc: Nodes nid001057 are ready for job
+
+          We need to ssh to the specific node, like
+
+          .. code-block:: console 
+
+             ssh nid001057
+
+          Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+
+          .. code-block:: console
+
+             ml PDC/23.12
+             ml miniconda3/24.7.1-0-cpeGNU-23.12
+             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+             source activate spyder-env
+             # If needed, install the packages here by: "conda install matplotlib pandas seaborn"
+             spyder &
+
 In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is ``sns``, but for those of us who never watched The West Wing, ``sb`` is fine and is what will be used in this tutorial.
 
 
