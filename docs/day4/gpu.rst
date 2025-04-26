@@ -5,44 +5,59 @@ Using GPUs with Python
 
    - What is GPU acceleration?
    - How to enable GPUs (for instance with CUDA) in Python code?
-   - How to deploy GPUs at HPC2N, UPPMAX, LUNARC, and NSC?
+   - How to deploy GPUs at HPC2N, UPPMAX, LUNARC, NSC, and PDC?
    
    
 
 .. objectives::
 
-   - Learn common schemes for GPU code acceleration
-   - Learn about the GPU nodes at HPC2N, UPPMAX, LUNARC, and NSC
+   - Get an intro to common schemes for GPU code acceleration
+   - Learn about the GPU nodes at HPC2N, UPPMAX, LUNARC, NSC, PDC
+   - Learn how to make a batch script asking for GPU nodes at HPC2N, UPPMAX, LUNARC, NSC, PDC 
 
 Introduction
 ------------ 
    
 In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU architecture with a GPU based architecture. Here, there is a schemematics of the former:
 
-.. figure:: ../img/cpus.png
+.. figure:: ../img/AMD-Zen4-CPU-b-cn1701.png
    :align: center
 
-   Pure CPU architecture (single node). In the present case there are 28 cores, each with its own cache memory (LX). There is a shared memory (64 GB/NUMA node) for all these cores.
-   The base frequency for each core is 2.6 GHz.
+   Pure CPU architecture (single node). In the present case there are 48 cores, each with its own cache memory (LX). There is a shared memory (~378 GB/NUMA node) for all these cores. This is an AMD Zen4 node. 
+   The base frequency is 2.25 GHz, but it can boost up to 3.1 GHz. 
 
-As for the GPU architecture, a K80 engine looks like this:
+As for the GPU architecture, a GPU card of type Ada Lovelace (like the L40s) looks like this:
 
-.. figure:: ../img/gpu.png
+.. figure:: ../img/lovelace-diagram.png
    :align: center
 
-   A single GPU engine of a K80 card. Each green dot represents a core (single precision) which runs at a frequency of 562 MHz. The cores are arranged in slots called streaming multiprocessors (SMX) in the figure. Cores in the same SMX share some local and fast cache memory.
+   Note: The AD102 GPU also includes 288 FP64 Cores (2 per SM) which are not depicted in the above diagram. The FP64 TFLOP rate is 1/64th the TFLOP rate of FP32 operations. The small number of FP64 Cores are included to ensure any programs with FP64 code operate correctly, including FP64 Tensor Core code.
+      
+   This is a single GPU engine of a L40s card. There are 12 Graphics Processing Clusters (GPCs), 72 Texture Processing Clusters (TPCs), 144 Streaming Multiprocessors (SMs), and a 384-bit memory interface with 12 32-bit memory controllers). 
+   
+   On the diagram, each green dot represents a CUDA core (single precision), while the yellow are RT cores and blue Tensor cores. The cores are arranged in the slots called SMs in the figure. Cores in the same SM share some local and fast cache memory.
+
+.. figure:: ../img/GPC-with-raster-engine.png
+   :align: center 
+
+   The GPC is the dominant high-level hardware block. Each GPC includes a dedicated Raster Engine, two Raster Operations (ROPs) partitions, with each partition containing eight individual ROP units, and six TPCs. Each TPC includes one PolyMorph Engine and two SMs.
+
+   Each SM contain 128 CUDA Cores, one Ada Third-Generation RT Core, four Ada Fourth-Generation Tensor Cores, four Texture Units, a 256 KB Register File, and 128 KB of L1/Shared Memory, which can be configured for different memory sizes depending on the needs of the graphics or compute workload.
 
 In a typical cluster, some GPUs are attached to a single node resulting in a CPU-GPU hybrid architecture. The CPU component is called the host and the GPU part the device.
-One possible layout (Kebnekaise) is as follows:
+One possible layout (Kebnekaise, AMD Zen4 node with L40s GPU) is as follows:
 
 
-.. figure:: ../img/cpu-gpu.png
+.. figure:: ../img/AMD-Zen4-GPU-1605.png 
    :align: center
 
-   Schematics of a hybrid CPU-GPU architecture. A GPU K80 card consisting of two engines is attached to a NUMA island which in turn contains 14 cores. The NUMA island and the GPUs are connected through a PCI-E interconnect which makes the data transfer between both components rather slow.
+   Schematics of a hybrid CPU-GPU architecture. A GPU L40s card is attached to a NUMA island which in turn contains 24 cores. The NUMA island and the GPUs are connected through a PCI-E interconnect which makes the data transfer between both components rather slow.
 
 We can characterize the CPU and GPU performance with two quantities: the **latency** and the **througput**.
-**Latency** refers to the time spent in a sole computation. **Throughput** denotes the number of computations that can be performed in parallel. Then, we can say that a CPU has low latency (able to do fast computations) but low throughput (only a few computations simultaneously).
+
+- **Latency** refers to the time spent in a sole computation. 
+- **Throughput** denotes the number of computations that can be performed in parallel. Then, we can say that a CPU has low latency (able to do fast computations) but low throughput (only a few computations simultaneously).
+
 In the case of GPUs, the latency is high and the throughput is also high. We can visualize the behavior of the CPUs and GPUs with cars as in the figure below. A CPU would be compact road where only a few racing cars can drive whereas a GPU would be a broader road where plenty of slow cars can drive.
 
 
@@ -61,8 +76,8 @@ If you are usually working with for instance NumPy and SciPy, you could optimize
 
 One of the most common use of GPUs with Python is for machine learning or deep learning. For these cases you would use something like Tensorflow or PyTorch libraries which can handle CPU and GPU processing internally without the programmer needing to do so. We will talk more about that later in the course. 
 
-GPUs on UPPMAX, HPC2N, LUNARC, and NSC systems
-----------------------------------------------
+GPUs on UPPMAX, HPC2N, LUNARC, NSC, and PDC systems
+---------------------------------------------------
 
 There are generally either not GPUs on the login nodes or they cannot be accessed for computations.
 To use them you need to either launch an interactive job or submit a batch job.
@@ -71,6 +86,8 @@ UPPMAX
 ######
 
 Rackham's compute nodes do not have GPUs. You need to use Snowy for that. A useful module on Snowy is ``python_ML_packages/3.11.8-gpu``.
+
+Snowy has Nvidia T4's. 
 
 You need to use this batch command (for x being the number of cards, 1):
 
@@ -155,6 +172,18 @@ Tetralith has Nvidia T4 GPUs. In order to access them, add this to your batch sc
    #SBATCH -c 32 
    #SBATCH --gpus-per-task=1
 
+PDC 
+### 
+
+Dardel has 4 AMD Instinct™ MI250X á 2 GCDs per node. 
+
+You need to add this to your batch script or interactive job in order to access them: 
+
+.. code-block:: 
+
+   #SBATCH -N 1
+   #SBATCH --ntasks-per-node=1
+   #SBATCH -p gpu
 
 Numba example
 -------------
@@ -334,14 +363,24 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
       
          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
-         #module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 julia/1.9.4-bdist OpenMPI/4.1.6 SciPy-bundle/2023.11  
-         module load buildenv-gcccuda/12.2.2-gcc11-hpc1 Python/3.10.4-env-hpc2-gcc-2022a-eb
+         module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
-         # Activate the virtual environment we created earlier today 
-         source /proj/hpc-python-spring-naiss/venvNSC-numba/bin/activate
+         # Load a virtual environment where numba is installed
+         # Use the one you created previously under "Install packages"
+         # or you can create it with the following steps:
+         # ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+         # python -m venv mynumba
+         # source mynumba/bin/activate
+         # pip install numba
+         #
+         source <path-to>/mynumba
 
          # Run your Python script 
          python add-list.py 
+
+   .. tab:: PDC: batch 
+
+   Batch script, 
 
 Exercises
 ---------
