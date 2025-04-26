@@ -615,7 +615,7 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
       Spyder is not available on Dardel.
 
-      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
+      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
       .. code-block:: console
 
