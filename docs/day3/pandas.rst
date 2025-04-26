@@ -173,7 +173,10 @@ Load and Run
 
 
      - ALTERNATIVE IF THINLINC IS AVAILABLE
-     - Start Jupyter from the Menu and click to use the conda environment you did create for jupyter 
+     - Start Jupyter from the Menu and it will work! 
+
+          - Default Anaconda 3 has all packages needed for this lesson
+
      - OR USE SPYDER:
           - start interactive session
 
@@ -194,7 +197,7 @@ Load and Run
              ssh nid001057
 
 
-          Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
+          Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
           .. code-block:: console
 
@@ -204,9 +207,7 @@ Load and Run
              export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
              source activate spyder-env
              conda install matplotlib pandas seaborn
-             spyder
-
-      * you can install packages with pip install from inside Spyder
+             spyder %
 
 
 To know if Pandas is the right tool for your job, you can consult the flowchart below.
