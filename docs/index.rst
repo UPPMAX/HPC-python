@@ -200,6 +200,7 @@ Content of the course
    day4/parallel.rst
    day4/gpu.md
    day4/ml.md
+   day4/dim_reduction.rst
    day4/evaluation.rst
 
 .. toctree::
@@ -210,7 +211,7 @@ Content of the course
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
    extra/jupyterHPC2N.rst
-   day3/ML_deeper.rst
+   day4/ML_deeper.rst
 
    uppmax.rst
    kebnekaise.md
