@@ -39,6 +39,16 @@ High-Performance Data Analytics (HPDA)
 Types of scientific data
 ........................
 
+.. admonition:: What do we need?
+   :class: dropdown
+
+   - Human readable?
+   - Space efficiency?
+   - Tidy data?
+   - Arbitrary data?
+   - Array data?
+   - Long term storage/sharing?
+
 Bit and Byte
 ^^^^^^^^^^^^
 
@@ -187,17 +197,6 @@ In real scientific applications, data is complex and structured and usually cont
       - NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.
       - The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.
 
-XARRAY
-......
-- Xarray is a Python package that builds on NumPy but adds labels to multi-dimensional arrays. 
-- It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. 
-- Xarray is particularly tailored to working with NetCDF files. 
-- It reads and writes to NetCDF file using
-    - ``open_dataset()`` function
-    - ``open_dataarray()`` function
-    - ``to_netcdf()`` method. 
-- Explore these in the exercise below!
-
 An overview of common data formats
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -309,6 +308,18 @@ An overview of common data formats
    - ENCCS course "HPDA-Python": `Scientific data <https://enccs.github.io/hpda-python/scientific-data/>`_
    - Aalto Scientific Computing course "Python for Scientific Computing": `Xarray <https://aaltoscicomp.github.io/python-for-scicomp/xarray/>`_
 
+XARRAY Package
+..............
+
+- Xarray is a Python package that builds on NumPy but adds labels to multi-dimensional arrays. 
+- It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. 
+- Xarray is particularly tailored to working with NetCDF files. 
+- It reads and writes to NetCDF file using
+    - ``open_dataset()`` function
+    - ``open_dataarray()`` function
+    - ``to_netcdf()`` method. 
+- Explore these in the exercise below!
+
 Allocating RAM
 --------------
 
@@ -358,6 +369,7 @@ Allocating RAM
         - Bianca
         - Cosmos  
         - Tetralith   
+        - Dardel
       * - Cores/compute node
         - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
         - 20
@@ -365,6 +377,7 @@ Allocating RAM
         - 16
         - 48  
         - 32  
+        - **FIX**
       * - Memory/compute node
         - 128-3072 GB 
         - 128-1024 GB
@@ -372,6 +385,7 @@ Allocating RAM
         - 128-512 GB
         - 256-512 GB  
         - 96-384 GB   
+        - **FIX**
       * - GPU
         - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
         - None
@@ -379,6 +393,7 @@ Allocating RAM
         - NVidia A100
         - NVidia A100 
         - NVidia T4   
+        - **FIX**
 
 Dask
 ----
@@ -515,10 +530,30 @@ Exercises
 
             pip install xarray dask
 
+   .. tab:: PDC **FIX**
+
+      .. important::
+
+         You should for this session load
+
+         .. code-block:: console
+
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+
+         .. code-block:: console
+
+            pip install xarray dask
+
+.. exercise:: Read a bit more about the different data storage formats
+
+   - Discuss a bit later in the group the different formats
+   - Do you have a new favorite?
 
 .. note::
    
-   You can do these in the Python **command line** or in Jupyter.
+   You can do these in the Python **command line** or Spyder, but better in Jupyter.
 
 .. exercise:: Use Xarray to work with NetCDF files
 
@@ -580,7 +615,7 @@ Exercises
      variable names in a code cell and execute. Click the disk-looking objects on the right to expand the fields.
    - Explore ``ds3`` and ``ds4`` datasets, and compare them with ``ds1``. What are the differences?
 
-.. challenge:: Chunk size
+.. challenge:: Chunk sizes in Dask
 
    The following example calculate the mean value of a random generated array. 
    Run the example and see the performance improvement by using dask.
