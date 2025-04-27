@@ -3,14 +3,16 @@ Big data with Python
 
 .. admonition:: "Learning outcomes"
 
-   Learners can
+   Learners 
 
-   - decide on useful file formats
-   - allocate resources sufficient to data size
-   - use data-chunking as technique
+   - can decide on useful file formats
+   - can allocate resources sufficient to data size
+   - can use data-chunking as technique
+   - have grasped more efficient  tha nnumpy 
+    
 
 High-Performance Data Analytics (HPDA)
--------------------------------------------
+--------------------------------------
 
 .. admonition:: What is it?
    :class: dropdown
@@ -37,7 +39,7 @@ High-Performance Data Analytics (HPDA)
       - chunking 
 
 Types of scientific data
-........................
+------------------------
 
 .. admonition:: What do we need?
    :class: dropdown
@@ -50,7 +52,7 @@ Types of scientific data
    - Long term storage/sharing?
 
 Bit and Byte
-^^^^^^^^^^^^
+............
 
 - The smallest building block of storage in the computer is a bit, which stores either a 0 or 1. 
 - Normally a number of 8 bits are combined in a group to make a byte. 
@@ -308,6 +310,22 @@ An overview of common data formats
    - ENCCS course "HPDA-Python": `Scientific data <https://enccs.github.io/hpda-python/scientific-data/>`_
    - Aalto Scientific Computing course "Python for Scientific Computing": `Xarray <https://aaltoscicomp.github.io/python-for-scicomp/xarray/>`_
 
+Computing efficiency with Python
+--------------------------------
+
+Python is an interpreted language, and many features that make development rapid with Python are a result of that, with the price of reduced performance in many cases.
+
+- Dynamic typing
+- Flexible data structures
+
+- There are some packages that are more efficient than Numpy and Pandas.
+
+    - `SciPy <https://docs.scipy.org/doc/scipy/reference/>`_ is a library that builds on top of NumPy. 
+   
+        - It contains a lot of interfaces to battle-tested numerical routines written in Fortran or C, as well as Python implementations of many common algorithms.
+   
+    - `ENCCS course material <https://enccs.github.io/hpda-python/stack/#scipy>`_
+
 XARRAY Package
 ..............
 
@@ -315,10 +333,14 @@ XARRAY Package
 - It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. 
 - Xarray is particularly tailored to working with NetCDF files. 
 - It reads and writes to NetCDF file using
+
     - ``open_dataset()`` function
     - ``open_dataarray()`` function
     - ``to_netcdf()`` method. 
+
 - Explore these in the exercise below!
+
+
 
 Allocating RAM
 --------------
@@ -359,7 +381,7 @@ Allocating RAM
 
 
    .. list-table:: Hardware
-      :widths: 25 25 25 25 25 25 25
+      :widths: 25 25 25 25 25 25 25 25
       :header-rows: 1
 
       * - Technology
