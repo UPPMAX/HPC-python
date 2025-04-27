@@ -798,6 +798,20 @@ We now learn by submitting a batch job which consists of loading python module, 
                python fashion_mnist.py
 
 
+Tips and Tricks (Lessons Learned):
+----------------------------------
+
+* version environment. 
+* Tensor datatypes. dtype in pandas, tensors BF16, FP16, FP32.
+* start small. smaller batch size, smaller sequence length.
+* Consider I/O Operations. small but many can reach hardware IOPs limit. Large but few can be slow.
+* Understand DIR quota (size and iops).
+* OOM on GPU.
+* log everything. Admins can kill jobs. 
+* GPU profiling.
+* model = torch.compile(model)
+
+
 .. challenge::
 
    Try and run the either pytorch or tensorflow code for Fasion MNIST dataset by submitting a batch job.
