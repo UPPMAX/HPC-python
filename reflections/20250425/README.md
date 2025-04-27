@@ -24,7 +24,7 @@ improvisation.
 
 Due to this, there was another technical problem: my rights
 as host were lost. This meant that I could not create breakout rooms.
-I improvides: I gave the learner and end time, up until they could
+I improvised: I gave the learner and end time, up until they could
 do anything they wanted: I even encouraged them to take off their
 headset, as (1) I want them to work undisturbed, and (2) I would
 take questions in the main room. This worked out reasonably well.
