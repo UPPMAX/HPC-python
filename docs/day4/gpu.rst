@@ -31,13 +31,16 @@ As for the GPU architecture, a GPU card of type Ada Lovelace (like the L40s) loo
 .. figure:: ../img/lovelace-diagram.png
    :align: center
 
-   Note: The AD102 GPU also includes 288 FP64 Cores (2 per SM) which are not depicted in the above diagram. The FP64 TFLOP rate is 1/64th the TFLOP rate of FP32 operations. The small number of FP64 Cores are included to ensure any programs with FP64 code operate correctly, including FP64 Tensor Core code. <br>This is a single GPU engine of a L40s card. There are 12 Graphics Processing Clusters (GPCs), 72 Texture Processing Clusters (TPCs), 144 Streaming Multiprocessors (SMs), and a 384-bit memory interface with 12 32-bit memory controllers). <br>On the diagram, each green dot represents a CUDA core (single precision), while the yellow are RT cores and blue Tensor cores. The cores are arranged in the slots called SMs in the figure. Cores in the same SM share some local and fast cache memory.
+   Note: The AD102 GPU also includes 288 FP64 Cores (2 per SM) which are not depicted in the above diagram. The FP64 TFLOP rate is 1/64th the TFLOP rate of FP32 operations. The small number of FP64 Cores are included to ensure any programs with FP64 code operate correctly, including FP64 Tensor Core code. 
+   This is a single GPU engine of a L40s card. There are 12 Graphics Processing Clusters (GPCs), 72 Texture Processing Clusters (TPCs), 144 Streaming Multiprocessors (SMs), and a 384-bit memory interface with 12 32-bit memory controllers).
+   On the diagram, each green dot represents a CUDA core (single precision), while the yellow are RT cores and blue Tensor cores. The cores are arranged in the slots called SMs in the figure. Cores in the same SM share some local and fast cache memory.
 
 .. figure:: ../img/GPC-with-raster-engine.png
    :align: center
    :width: 450 
 
-   The GPC is the dominant high-level hardware block. Each GPC includes a dedicated Raster Engine, two Raster Operations (ROPs) partitions, with each partition containing eight individual ROP units, and six TPCs. Each TPC includes one PolyMorph Engine and two SMs. <br>Each SM contain 128 CUDA Cores, one Ada Third-Generation RT Core, four Ada Fourth-Generation Tensor Cores, four Texture Units, a 256 KB Register File, and 128 KB of L1/Shared Memory, which can be configured for different memory sizes depending on the needs of the graphics or compute workload.
+   The GPC is the dominant high-level hardware block. Each GPC includes a dedicated Raster Engine, two Raster Operations (ROPs) partitions, with each partition containing eight individual ROP units, and six TPCs. Each TPC includes one PolyMorph Engine and two SMs. 
+   Each SM contain 128 CUDA Cores, one Ada Third-Generation RT Core, four Ada Fourth-Generation Tensor Cores, four Texture Units, a 256 KB Register File, and 128 KB of L1/Shared Memory, which can be configured for different memory sizes depending on the needs of the graphics or compute workload.
 
 In a typical cluster, some GPUs are attached to a single node resulting in a CPU-GPU hybrid architecture. The CPU component is called the host and the GPU part the device.
 One possible layout (Kebnekaise, AMD Zen4 node with L40s GPU) is as follows:
@@ -320,7 +323,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
    .. tab:: LUNARC: batch 
 
-      Batch script, "add-list-cosmos.sh", to run the same GPU Python script (the numba code, "add-list.py") at Cosmos. As before, submit with "sbatch add-list-cosmos.sh" (assuming you called the batch script thus - change to fit your own naming style).
+      Batch script, "add-list.sh", to run the same GPU Python script (the numba code, "add-list.py") at Cosmos. As before, submit with "sbatch add-list.sh" (assuming you called the batch script thus - change to fit your own naming style).
 
       .. code-block:: console
 
@@ -343,7 +346,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
    .. tab:: NSC: batch 
 
-      Batch script, "add-list-tetralith.sh", to run the same GPU Python script (the numba code, "add-list.py") at Tetralith. As before, submit with "sbatch add-list-tetralith.sh" (assuming you called the batch script thus - change to fit your own naming style). 
+      Batch script, "add-list.sh", to run the same GPU Python script (the numba code, "add-list.py") at Tetralith. As before, submit with "sbatch add-list.sh" (assuming you called the batch script thus - change to fit your own naming style). 
 
       .. code-block:: 
 
@@ -375,7 +378,37 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
    .. tab:: PDC: batch 
 
-   Batch script, 
+      Batch script, "add-list.sh", to run the same GPU Python script (the numba code, "add-list.py") at Dardel. As before, submit with "sbatch add-list.sh" (assuming you called the batch script thus - change to fit your own naming style). 
+
+      .. code-block:: 
+
+         #!/bin/bash
+         # Remember to change this to your own project ID after the course!
+         #SBATCH -A naiss2025-22-403
+         # We are asking for 10 minutes
+         #SBATCH --time=00:10:00
+         #SBATCH -N 1
+         #SBATCH --ntasks-per-node=1
+         #SBATCH -p gpu
+
+         # Load the modules we need
+         module load cray-python/3.11.7
+         module load rocm/5.7.0
+
+         # Prepare a virtual environment with numba - do this before
+         # running the batch script
+         # python -m venv --system-site-packages mynumba
+         # source mynumba/bin/activate
+         # pip install numba
+
+         # Later, during the batch job, you would just activate
+         # the virtual environmenti - remember to change the path to 
+         # the actual one you used 
+         source <path-to>/mynumba
+
+         # Run your Python script
+         python add-list.py
+
 
 Exercises
 ---------
@@ -436,15 +469,9 @@ Exercises
 
 
 
-   Notice the larger size of the grid in the present case (100*1024) compared
-   to the serial case's size we used previously (10000). Large computations are 
-   necessary on the GPUs to get the benefits of this architecture. 
+   Notice the larger size of the grid in the present case (100*1024) compared to the serial case's size we used previously (10000). Large computations are necessary on the GPUs to get the benefits of this architecture. 
 
-   One can take advantage of the shared memory in a thread block to write faster 
-   code. Here, we wrote the 2D integration example from the previous section where 
-   threads in a block write on a `shared[]` array. Then, this array is reduced 
-   (values added) and the output is collected in the array ``C``. The entire code 
-   is here:
+   One can take advantage of the shared memory in a thread block to write faster code. Here, we wrote the 2D integration example from the previous section where threads in a block write on a `shared[]` array. Then, this array is reduced (values added) and the output is collected in the array ``C``. The entire code is here:
 
 
    .. admonition:: ``integration2d_gpu_shared.py``
@@ -591,6 +618,108 @@ Exercises
             python integration2d_gpu.py
             python integration2d_gpu_shared.py
 
+.. solution:: Solution for LUNARC
+    :class: dropdown
+
+     A template for running the python codes at LUNARC is here:
+
+     .. admonition:: ``job-gpu.sh``
+        :class: dropdown
+      
+         .. code-block:: bash 
+
+            #!/bin/bash
+            # Remember to change this to your own project ID after the course!
+            #SBATCH -A lu2025-7-34
+            #SBATCH -t 00:15:00
+            #SBATCH -n 24
+            #SBATCH -o output_%j.out   # output file
+            #SBATCH -e error_%j.err    # error messages
+            #SBATCH --ntasks-per-node=1
+            #SBATCH -p gpua100
+            #SBATCH --gres=gpu:1
+            #SBATCH --exclusive
+
+            ml purge > /dev/null 2>&1
+            module load GCC/12.2.0  OpenMPI/4.1.4 Python/3.10.8 SciPy-bundle/2023.02 CUDA/12.1.1 numba/0.58.0
+
+            python integration2d_gpu.py
+            python integration2d_gpu_shared.py
+
+.. solution:: Solution for NSC
+    :class: dropdown
+
+     A template for running the python codes at NSC is here:
+
+     .. admonition:: ``job-gpu.sh``
+        :class: dropdown
+      
+         .. code-block:: bash 
+
+            #!/bin/bash
+            # Remember to change this to your own project ID after the course!
+            #SBATCH -A naiss2025-22-403
+            #SBATCH -t 00:20:00
+            #SBATCH -n 24
+            #SBATCH --gpus-per-task=1
+            #SBATCH -o output_%j.out   # output file
+            #SBATCH -e error_%j.err    # error messages
+            #SBATCH --exclusive
+
+            ml purge > /dev/null 2>&1
+            ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
+            ml load Python/3.11.5
+
+            # Load a virtual environment where numba is installed
+            # Use the one you created previously 
+            # or you can create it with the following steps:
+            # ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+            # python -m venv mynumba
+            # source mynumba/bin/activate
+            # pip install numba
+            #
+            source <path-to>/mynumba
+
+            python integration2d_gpu.py
+            python integration2d_gpu_shared.py
+
+.. solution:: Solution for PDC
+    :class: dropdown
+
+     A template for running the python codes at PDC is here:
+
+     .. admonition:: ``job-gpu.sh``
+        :class: dropdown
+      
+         .. code-block:: bash 
+
+            #!/bin/bash
+            # Remember to change this to your own project ID after the course!
+            #SBATCH -A naiss2025-22-403
+            #SBATCH -t 00:20:00
+            #SBATCH -o output_%j.out   # output file
+            #SBATCH -e error_%j.err    # error messages
+            #SBATCH -N 1
+            #SBATCH --ntasks-per-node=1
+            #SBATCH -p gpu 
+
+            ml load cray-python/3.11.7
+            ml load rocm/5.7.0
+
+            # Prepare a virtual environment with TensorFlow and numba - do this before
+            # running the batch script. Or reuse a previous virtual environment 
+            # python -m venv --system-site-packages myTFnumba
+            # source myTFnumba/bin/activate
+            # pip install numba
+            # pip install tensorflow 
+
+            # Later, during the batch job, you would just activate
+            # the virtual environment - change the path to your actual one 
+            source <path-to>/myTFnumba
+
+            python integration2d_gpu.py
+            python integration2d_gpu_shared.py
+
 
 .. keypoints::
 
@@ -600,7 +729,7 @@ Exercises
 .. important::
 
    - Of course, interactive mode could also be from inside Jupyter, VScode, spyder ... 
-   - We will use GPUs more in the ML/DL section tomorrow! 
+   - We will use GPUs more in the ML/DL section! 
 
 Additional information
 ----------------------

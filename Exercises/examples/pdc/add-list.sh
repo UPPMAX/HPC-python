@@ -11,8 +11,7 @@
 # Change the below to your own path to where you placed the example programs
 MYPATH=/cfs/klemming/projects/snic/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
 
-# Remove any loaded modules and load the ones we need
-module purge  > /dev/null 2>&1
+# Load the modules we need
 module load cray-python/3.11.7
 module load rocm/5.7.0
 
