@@ -188,6 +188,8 @@ Numba example
 
 Numba is installed on some of the centers as a module (HPC2N and LUNARC), on UPPMAX in python_ML_packages-gpu, but not on NSC except in a very old version. because of this we will use the virtual environment created earlier today at NSC. 
 
+**NOTE**: PDC/Dardel has AMD GPUs and numba after version 0.53.1 only has compatibility with CUDA. The numba 0.53.1 version is too old to work with anything else installed. Thus, no numba example for PDC. You can try and play around with the hip examples (marked with hip in the name) in the Exercises/examples/programs folder. There are also some example batch scripts for GPUs on Dardel in the Exercises/examples/pdc folder, which you can try with. Note that you need to install ``hip-python`` in a virtual environment to get any of it to work. 
+
 We are going to use the following program for testing (it was taken from 
 a (now absent) linuxhint.com exercise but there are also many great examples at 
 https://numba.readthedocs.io/en/stable/cuda/examples.html): 
@@ -375,40 +377,6 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          # Run your Python script 
          python add-list.py 
-
-   .. tab:: PDC: batch 
-
-      Batch script, "add-list.sh", to run the same GPU Python script (the numba code, "add-list.py") at Dardel. As before, submit with "sbatch add-list.sh" (assuming you called the batch script thus - change to fit your own naming style). 
-
-      .. code-block:: 
-
-         #!/bin/bash
-         # Remember to change this to your own project ID after the course!
-         #SBATCH -A naiss2025-22-403
-         # We are asking for 10 minutes
-         #SBATCH --time=00:10:00
-         #SBATCH -N 1
-         #SBATCH --ntasks-per-node=1
-         #SBATCH -p gpu
-
-         # Load the modules we need
-         module load cray-python/3.11.7
-         module load rocm/5.7.0
-
-         # Prepare a virtual environment with numba - do this before
-         # running the batch script
-         # python -m venv --system-site-packages mynumba
-         # source mynumba/bin/activate
-         # pip install numba
-
-         # Later, during the batch job, you would just activate
-         # the virtual environmenti - remember to change the path to 
-         # the actual one you used 
-         source <path-to>/mynumba
-
-         # Run your Python script
-         python add-list.py
-
 
 Exercises
 ---------
@@ -678,47 +646,11 @@ Exercises
             # source mynumba/bin/activate
             # pip install numba
             #
-            source <path-to>/mynumba
+            source <path-to>/mynumba/bin/activate
 
             python integration2d_gpu.py
             python integration2d_gpu_shared.py
 
-.. solution:: Solution for PDC
-    :class: dropdown
-
-     A template for running the python codes at PDC is here:
-
-     .. admonition:: ``job-gpu.sh``
-        :class: dropdown
-      
-         .. code-block:: bash 
-
-            #!/bin/bash
-            # Remember to change this to your own project ID after the course!
-            #SBATCH -A naiss2025-22-403
-            #SBATCH -t 00:20:00
-            #SBATCH -o output_%j.out   # output file
-            #SBATCH -e error_%j.err    # error messages
-            #SBATCH -N 1
-            #SBATCH --ntasks-per-node=1
-            #SBATCH -p gpu 
-
-            ml load cray-python/3.11.7
-            ml load rocm/5.7.0
-
-            # Prepare a virtual environment with TensorFlow and numba - do this before
-            # running the batch script. Or reuse a previous virtual environment 
-            # python -m venv --system-site-packages myTFnumba
-            # source myTFnumba/bin/activate
-            # pip install numba
-            # pip install tensorflow 
-
-            # Later, during the batch job, you would just activate
-            # the virtual environment - change the path to your actual one 
-            source <path-to>/myTFnumba
-
-            python integration2d_gpu.py
-            python integration2d_gpu_shared.py
 
 
 .. keypoints::
@@ -729,6 +661,7 @@ Exercises
 .. important::
 
    - Of course, interactive mode could also be from inside Jupyter, VScode, spyder ... 
+   - CUDA does not work directly on AMD GPUs, there hip is used instead. 
    - We will use GPUs more in the ML/DL section! 
 
 Additional information

@@ -25,7 +25,7 @@ MYPATH=/proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/
 # pip install numba
 # pip install tensorflow
 #
-source <path-to>/myTFnumba
+source <path-to>/myTFnumba/bin/activate
 
 python $MYPATH/integration2d_gpu.py
 python $MYPATH/integration2d_gpu_shared.py

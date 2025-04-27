@@ -25,5 +25,6 @@ module load craype-accel-amd-gfx90a
 # the virtual environment
 source <path-to>/myhip/bin/activate
 
-# Run your Python script
-python $MYPATH/hip-example.py
+# Run your Python script - this script is taken from 
+# https://github.com/scxiao/hip_cuda_examples/tree/master/hip-python 
+python $MYPATH/vec_add-hip.py

@@ -644,14 +644,14 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python". 
             # source mynumba/bin/activate
             # pip install numba
             #
-            source <path-to>/mynumba 
+            source <path-to>/mynumba/bin/activate
 
             # Run your Python script
             python $MYPATH/compute.py
 
    .. tab:: PDC 
 
-        Example with running ``compute.py`` on Dardel. Note that you need a virtual environment in order to use numba on PDC      
+        Dardel has AMD GPUs and so you cannot directly use CUDA stuff. Older versions of numba (<=0.53.1) are compatible with roc, but not newer. Thus, we will use a different example.        
        
         .. code-block:: bash
 
@@ -667,21 +667,23 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python". 
             MYPATH=/cfs/klemming/projects/snic/hpc-python-spring-naiss/<your-dir>/HPC-python/Exercises/examples/programs/
 
             # Load the module we need
-            module load cray-python/3.11.7
+            module load PDC/23.12
             module load rocm/5.7.0
+            module load cray-python/3.11.5
+            module load craype-accel-amd-gfx90a
 
-            # Prepare a virtual environment with numba - do this before 
+            # Prepare a virtual environment with hip - do this before 
             # running the batch script 
-            # python -m venv --system-site-packages mynumba
-            # source mynumba/bin/activate
-            # pip install numba
+            # python -m venv --system-site-packages myhip
+            # source myhip/bin/activate
+            # pip install hip-python
 
             # Later, during the batch job, you would just activate 
             # the virtual environment 
-            source <path-to>/mynumba 
+            source <path-to>/myhip/bin/activate 
 
             # Run your Python script
-            python $MYPATH/compute.py
+            python $MYPATH/hip-example.py
 
    .. tab:: compute.py
 
@@ -715,6 +717,43 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python". 
                start = timer()
                func2(a)
                print("with GPU:", timer()-start)
+
+   .. tab:: hip-example.py
+
+        This Python script can (just like the batch scripts for the various centres, be found in the ``/HPC-Python/Exercises/examples`` directory, under the subdirectory ``programs`` - if you have cloned the repo or copied the tarball with the exercises. This if for using on Dardel only! 
+
+        .. code-block:: python 
+
+           from hip import hip
+
+
+           def hip_check(call_result):
+
+              err = call_result[0]
+
+              result = call_result[1:]
+
+              if len(result) == 1:
+
+                  result = result[0]
+
+              if isinstance(err, hip.hipError_t) and err != hip.hipError_t.hipSuccess:
+
+                  raise RuntimeError(str(err))
+
+              return result
+
+ 
+           props = hip.hipDeviceProp_t()
+
+           hip_check(hip.hipGetDeviceProperties(props,0))
+
+
+           for attrib in sorted(props.PROPERTIES()):
+
+              print(f"props.{attrib}={getattr(props,attrib)}")
+
+           print("ok")
 
 
 Exercises
