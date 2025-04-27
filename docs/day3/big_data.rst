@@ -9,18 +9,32 @@ Big data with Python
    - allocate resources sufficient to data size
    - use data-chunking as technique
 
-To cover
---------
+High-Performance Data Analytics (HPDA)
+-------------------------------------------
 
-- File format
+.. admonition:: What is it?
+   :class: dropdown
+
+   .. admonition:: 
+      :class: dropdown
+   
+      - **High-performace data analytics (HPDA)**, a subset of high-performance computing which focuses on working with large data.
+
+          - The data can come from either computer models and simulations or from experiments and observations, and the goal is to preprocess, analyse and visualise it to generate scientific results.
+
+      - “**Big data** refers to data sets that are too large or complex to be dealt with by traditional data-processing application software. […] 
+
+          - Big data analysis challenges include capturing data, data storage, data analysis, search, sharing, transfer, visualization, querying, updating, information privacy, and data source.” (from Wikipedia)
+
+.. admonition:: What do we need to cover??
+   :class: dropdown
+
+   - File formats
  
-- Methods
+   - Methods
 
-    - RAM allocation 
-    - chunking 
-
-Files formats
--------------
+      - RAM allocation 
+      - chunking 
 
 Types of scientific data
 ........................
@@ -62,6 +76,7 @@ Data and storage format
 In real scientific applications, data is complex and structured and usually contains both numerical and text data. Here we list a few of the data and file storage formats commonly used.
 
 .. admonition:: Tabular data
+   :class: dropdown
 
    - A very common type of data is “tabular data”.
    - Tabular data is structured into **rows and columns**.
@@ -69,6 +84,7 @@ In real scientific applications, data is complex and structured and usually cont
    - The simplest and most common way to save tabular data is via the so-called CSV (comma-separated values) file.
 
 .. admonition:: Gridded data
+   :class: dropdown
 
    - Gridded data is another very common data type in which numerical data is normally saved in a multi-dimensional rectangular grid. Most probably it is saved in one of the following formats:
 
@@ -83,6 +99,7 @@ In real scientific applications, data is complex and structured and usually cont
 
 
 .. admonition:: Meta data
+   :class: dropdown
 
    Metadata consists of various information about the data. Different types of data may have different metadata conventions.
 
@@ -93,8 +110,8 @@ In real scientific applications, data is complex and structured and usually cont
 
       - When it comes to data storage, there are many types of storage formats used in scientific computing and data analysis. There isn’t one data storage format that works in all cases, so choose a file format that best suits your data.
 
-
 .. admonition:: CSV (comma-separated values)
+   :class: dropdown
 
    **Best use cases**: Sharing data. Small data. Data that needs to be human-readable.
 
@@ -114,11 +131,10 @@ In real scientific applications, data is complex and structured and usually cont
 
        Array data:
                Speed: Bad
-               Ease of use: Ok for one or two dimensional data. Bad for anything higher.
-
-
+               Ease of use: OK for one or two dimensional data. Bad for anything higher.
 
 .. admonition:: HDF5 (Hierarchical Data Format version 5)
+   :class: dropdown
 
    - HDF5 is a high performance storage format for storing large amounts of data in multiple datasets in a single file. 
    - It is especially popular in fields where you need to store big multidimensional arrays such as physical sciences.
@@ -143,6 +159,7 @@ In real scientific applications, data is complex and structured and usually cont
           - Ease of use: Good
 
 .. admonition:: NETCDF4 (Network Common Data Form version 4)
+   :class: dropdown
 
    - NetCDF4 is a data format that uses HDF5 as its file format, but it has standardized structure of datasets and metadata related to these datasets. 
    - This makes it possible to be read from various different programs.
@@ -181,7 +198,113 @@ XARRAY
     - ``to_netcdf()`` method. 
 - Explore these in the exercise below!
 
-.. seealso::
+An overview of common data formats
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+
+   * - | Name:
+     - | Human
+       | readable:
+     - | Space
+       | efficiency:
+     - | Arbitrary
+       | data:
+     - | Tidy
+       | data:
+     - | Array
+       | data:
+     - | Long term
+       | storage/sharing:
+
+   * - :ref:`Pickle <pickle>`
+     - ❌
+     - 🟨
+     - ✅
+     - 🟨
+     - 🟨
+     - ❌
+
+   * - :ref:`CSV <csv>`
+     - ✅
+     - ❌
+     - ❌
+     - ✅
+     - 🟨
+     - ✅
+
+   * - :ref:`Feather <feather>`
+     - ❌
+     - ✅
+     - ❌
+     - ✅
+     - ❌
+     - ❌
+
+   * - :ref:`Parquet <parquet>`
+     - ❌
+     - ✅
+     - 🟨
+     - ✅
+     - 🟨
+     - ✅
+
+   * - :ref:`npy <npy>`
+     - ❌
+     - 🟨
+     - ❌
+     - ❌
+     - ✅
+     - ❌
+
+   * - :ref:`HDF5 <hdf5>`
+     - ❌
+     - ✅
+     - ❌
+     - ❌
+     - ✅
+     - ✅
+
+   * - :ref:`NetCDF4 <netcdf4>`
+     - ❌
+     - ✅
+     - ❌
+     - ❌
+     - ✅
+     - ✅
+
+   * - :ref:`JSON <json>`
+     - ✅
+     - ❌
+     - 🟨
+     - ❌
+     - ❌
+     - ✅
+
+   * - :ref:`Excel <excel>`
+     - ❌
+     - ❌
+     - ❌
+     - 🟨
+     - ❌
+     - 🟨
+
+   * - :ref:`Graph formats <graph>`
+     - 🟨
+     - 🟨
+     - ❌
+     - ❌
+     - ❌
+     - ✅
+
+.. important:: Legend
+
+    - ✅ : Good
+    - 🟨 : Ok / depends on a case
+    - ❌ : Bad
+
+    Adapted from Aalto university's `Python for scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/#what-is-a-data-format>`__... seealso::
 
    - ENCCS course "HPDA-Python": `Scientific data <https://enccs.github.io/hpda-python/scientific-data/>`_
    - Aalto Scientific Computing course "Python for Scientific Computing": `Xarray <https://aaltoscicomp.github.io/python-for-scicomp/xarray/>`_
