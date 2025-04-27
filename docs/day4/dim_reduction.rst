@@ -157,6 +157,12 @@ Face Recognition (FR) Use case
         :align: center
     .. figure:: ../img/face_recognition/fr_8.jpg
         :align: center
-    .. figure:: ../img/face_recognition/fr_9.jpg
-        :align: center
+
+.. keypoints::
+
+  * Dimensionality reduction techniques are useful to be able to **explore** your high dimensional data!
+  * But not only nice pictures
+        * Make **discoveries**!
+        * New **results**!
+        * Use visualisation and clustering for classification
 
