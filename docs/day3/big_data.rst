@@ -8,7 +8,7 @@ Big data with Python
    - can decide on useful file formats
    - can allocate resources sufficient to data size
    - can use data-chunking as technique
-   - have grasped more efficient  tha nnumpy 
+   - have grasped the surface of more efficient packages
     
 
 High-Performance Data Analytics (HPDA)
