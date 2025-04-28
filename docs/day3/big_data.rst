@@ -548,7 +548,7 @@ Exercises
 
             pip install xarray dask
 
-  .. tab:: Dardel (PDC)
+   .. tab:: Dardel (PDC)
 
       - Jupyter Lab and Spyder are only available on Dardel via ThinLinc. 
       - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
