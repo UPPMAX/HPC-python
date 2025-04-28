@@ -291,7 +291,7 @@ An overview of common data formats
      - ❌
      - 🟨
 
-   * - :ref:`Graph formats <graph>`
+   * - :ref:`Graph formats <https://gephi.org/users/supported-graph-formats/>`
      - 🟨
      - 🟨
      - ❌
