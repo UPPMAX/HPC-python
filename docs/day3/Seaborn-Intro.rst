@@ -369,7 +369,7 @@ The ``mpg`` DataFrame can't be used directly, but the correlation matrix of it c
 
    import seaborn as sb
    mpg = sb.load_dataset('mpg')
-   sb.heatmap(mpg.corr(numeric_only=True), annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label':'Correlation Coefficients'})
+   sb.clustermap(mpg.corr(numeric_only=True), annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label':'Correlation Coefficients'})
 
 The most handy kwargs for these two functions is ``annot``, which prints the values of the squares  is ``True`` or accepts an alternative annotation array, and ``cbar_kws``, which accepts formatting kwargs for Matplotlib's ``fig.colorbar()`` as a dictionary. Also shown are ``fmt``, which tells ``annot`` how to render the numbers and uses the same form as the expressions in the curly braces of ``{:}.format()`` after the colon, and ``cmap``, used here to choose a standard Matplotlib colormap instead of Seaborn's default. There are also ``vmin`` and ``vmax`` kwargs to adjust the limits of the colormap, and a ``mask`` kwarg to mask specific squares, among many other kwargs.
 
