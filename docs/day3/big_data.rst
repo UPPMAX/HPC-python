@@ -17,16 +17,13 @@ High-Performance Data Analytics (HPDA)
 .. admonition:: What is it?
    :class: dropdown
 
-   .. admonition:: 
-      :class: dropdown
-   
-      - **High-performace data analytics (HPDA)**, a subset of high-performance computing which focuses on working with large data.
+   - **High-performace data analytics (HPDA)**, a subset of high-performance computing which focuses on working with large data.
 
-          - The data can come from either computer models and simulations or from experiments and observations, and the goal is to preprocess, analyse and visualise it to generate scientific results.
+         - The data can come from either computer models and simulations or from experiments and observations, and the goal is to preprocess, analyse and visualise it to generate scientific results.
 
-      - “**Big data** refers to data sets that are too large or complex to be dealt with by traditional data-processing application software. […] 
+   - “**Big data** refers to data sets that are too large or complex to be dealt with by traditional data-processing application software. […] 
 
-          - Big data analysis challenges include capturing data, data storage, data analysis, search, sharing, transfer, visualization, querying, updating, information privacy, and data source.” (from Wikipedia)
+         - Big data analysis challenges include capturing data, data storage, data analysis, search, sharing, transfer, visualization, querying, updating, information privacy, and data source.” (from Wikipedia)
 
 .. admonition:: What do we need to cover??
    :class: dropdown

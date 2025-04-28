@@ -17,7 +17,7 @@ Summary day 4
    - Machine Learning
 
       - General overview of ML/DL with Python.
-      - General overview of installed ML/DL tools at HPC2N, UPPMAX, and LUNARC.
+      - General overview of installed ML/DL tools at HPCs.
       - Get started with ML/DL in Python.
       - At all clusters you will find PyTorch, TensorFlow, Scikit-learn
       - The loading are slightly different at the clusters
