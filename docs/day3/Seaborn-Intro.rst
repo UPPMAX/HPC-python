@@ -30,32 +30,32 @@ Load and Run Seaborn
 
       As usual, you can check ``ml spider Seaborn`` to see the available versions and how to load them. These Seaborn modules are built to load their Matplotlib and SciPy-bundle dependencies internally.
 
-     If you work at the command line, after importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots. This is not necessary if you work in a GUI like Jupyter or Spyder.
+      If you work at the command line, after importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots. This is not necessary if you work in a GUI like Jupyter or Spyder.
 
-     As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on Kebnekaise:
+      As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on Kebnekaise:
 
-     .. code-block:: console
+      .. code-block:: console
 
-        ----------------------------------------------------------------------------
-          Seaborn:
-        ----------------------------------------------------------------------------
-            Description:
-              Seaborn is a Python visualization library based on matplotlib. It
-              provides a high-level interface for drawing attractive statistical
-              graphics. 
+         ----------------------------------------------------------------------------
+           Seaborn:
+         ----------------------------------------------------------------------------
+             Description:
+               Seaborn is a Python visualization library based on matplotlib. It
+               provides a high-level interface for drawing attractive statistical
+               graphics. 
         
-             Versions:
-                Seaborn/0.12.1
-                Seaborn/0.12.2
-                Seaborn/0.13.2
+              Versions:
+                 Seaborn/0.12.1
+                 Seaborn/0.12.2
+                 Seaborn/0.13.2
         
-        ----------------------------------------------------------------------------
-          For detailed information about a specific "Seaborn" package (including how to load the modules) use the module's full name.
-          Note that names that have a trailing (E) are extensions provided by other modules.
-          For example:
+         ----------------------------------------------------------------------------
+           For detailed information about a specific "Seaborn" package (including how to load the modules) use the module's full name.
+           Note that names that have a trailing (E) are extensions provided by other modules.
+           For example:
         
-             $ module spider Seaborn/0.13.2
-        ----------------------------------------------------------------------------
+              $ module spider Seaborn/0.13.2
+         ----------------------------------------------------------------------------
 
    .. tab:: LUNARC
   
@@ -71,33 +71,33 @@ Load and Run Seaborn
   
       If you must work on the command line, then you will need to load Seaborn separately, along with any prerequisite modules. After importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots.
   
-       As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on COSMOS:
+      As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on COSMOS:
   
-       .. code-block:: console
+      .. code-block:: console
 
-          ----------------------------------------------------------------------------
-            Seaborn:
-          ----------------------------------------------------------------------------
-              Description:
-                Seaborn is a Python visualization library based on matplotlib. It
-                provides a high-level interface for drawing attractive statistical
-                graphics. 
+         ----------------------------------------------------------------------------
+           Seaborn:
+         ----------------------------------------------------------------------------
+             Description:
+               Seaborn is a Python visualization library based on matplotlib. It
+               provides a high-level interface for drawing attractive statistical
+               graphics. 
+         
+              Versions:
+                 Seaborn/0.11.2
+                 Seaborn/0.12.1
+                 Seaborn/0.12.2
+                 Seaborn/0.13.2
           
-               Versions:
-                  Seaborn/0.11.2
-                  Seaborn/0.12.1
-                  Seaborn/0.12.2
-                  Seaborn/0.13.2
+         ----------------------------------------------------------------------------
+           For detailed information about a specific "Seaborn" package (including how to 
+         load the modules) use the module's full name.
+           Note that names that have a trailing (E) are extensions provided by other modu
+         les.
+           For example:
           
-          ----------------------------------------------------------------------------
-            For detailed information about a specific "Seaborn" package (including how to 
-          load the modules) use the module's full name.
-            Note that names that have a trailing (E) are extensions provided by other modu
-          les.
-            For example:
-          
-               $ module spider Seaborn/0.13.2
-          ----------------------------------------------------------------------------
+              $ module spider Seaborn/0.13.2
+         ----------------------------------------------------------------------------
 
    .. tab:: UPPMAX
 
@@ -129,20 +129,20 @@ Load and Run Seaborn
 
    .. tab:: Dardel (PDC)
 
-      - Jupyter Lab is only available on Dardel via ThinLinc. 
-      - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
-      - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
-      - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the `exercises <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb>`_ and `solutions <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb>`_ in the GitHub repository (they should render correctly).
+     - Jupyter Lab is only available on Dardel via ThinLinc. 
+     - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
+     - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
+     - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the `exercises <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb>`_ and `solutions <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb>`_ in the GitHub repository (they should render correctly).
 
-      .. important::
+     .. important::
 
-         For this session, you could load
+        For this session, you could load
 
-         .. code-block:: console
+        .. code-block:: console
         
-            ml cray-python/3.11.7
+           ml cray-python/3.11.7
      
-      On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using ``ml PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12``, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.
+     On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using ``ml PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12``, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.
 
 
      - ALTERNATIVE IF THINLINC IS AVAILABLE
