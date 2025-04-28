@@ -329,7 +329,7 @@ Python is an interpreted language, and many features that make development rapid
 XARRAY Package
 ..............
 
-- Xarray is a Python package that builds on NumPy but adds labels to multi-dimensional arrays. 
+- ``xarray`` is a Python package that builds on NumPy but adds labels to **multi-dimensional arrays**. 
 - It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. 
 - Xarray is particularly tailored to working with NetCDF files. 
 - It reads and writes to NetCDF file using
@@ -339,8 +339,6 @@ XARRAY Package
     - ``to_netcdf()`` method. 
 
 - Explore these in the exercise below!
-
-
 
 Allocating RAM
 --------------
@@ -550,23 +548,62 @@ Exercises
 
             pip install xarray dask
 
-   .. tab:: PDC **FIX**
+  .. tab:: Dardel (PDC)
+
+      - Jupyter Lab and Spyder are only available on Dardel via ThinLinc. 
+      - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
+      - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
+      - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below.
 
       .. important::
 
-         You should for this session load
+         For this session, you could load
 
          .. code-block:: console
-
-            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
-
+        
+            ml cray-python/3.11.5
+         
          - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
 
-         .. code-block:: console
+     - ALTERNATIVE IF THINLINC IS AVAILABLE
+     - Start Jupyter from the Menu and it will work! 
 
-            pip install xarray dask
+          - Default Anaconda 3 has all packages needed for this lesson
 
-.. exercise:: Read a bit more about the different data storage formats
+     - OR USE SPYDER:
+          - start interactive session
+
+          .. code-block:: console 
+
+             salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-403
+             salloc: Pending job allocation 9102757
+             salloc: job 9102757 queued and waiting for resources
+             salloc: job 9102757 has been allocated resources
+             salloc: Granted job allocation 9102757
+             salloc: Waiting for resource configuration
+             salloc: Nodes nid001057 are ready for job
+
+          We need to ssh to the specific node, like
+
+          .. code-block:: console 
+
+             ssh nid001057
+
+
+          Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+
+          .. code-block:: console
+
+             ml PDC/23.12
+             ml miniconda3/24.7.1-0-cpeGNU-23.12
+             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+             source activate spyder-env
+             conda install xarray dask
+             spyder &
+
+
+.. exercise:: While isnatlling or aksing for compute nodes, read a bit more about the different data storage formats
 
    - Discuss a bit later in the group the different formats
    - Do you have a new favorite?
@@ -574,6 +611,61 @@ Exercises
 .. note::
    
    You can do these in the Python **command line** or Spyder, but better in Jupyter.
+
+.. challenge:: Chunk sizes in Dask
+
+   The following example calculate the mean value of a random generated array. 
+   Run the example and see the performance improvement by using dask.
+
+   .. tabs::
+
+      .. tab:: NumPy
+
+         .. code-block:: python
+           
+            import numpy as np
+
+         .. code-block:: python
+           
+            %%time
+            x = np.random.random((20000, 20000))
+            y = x.mean(axis=0)
+
+      .. tab:: Dask
+
+         .. code-block:: python
+           
+            import dask
+            import dask.array as da
+
+         .. code-block:: python
+           
+            %%time
+            x = da.random.random((20000, 20000), chunks=(1000, 1000))
+            y = x.mean(axis=0)
+            y.compute() 
+
+   But what happens if we use different chunk sizes?
+   Try out with different chunk sizes:
+   
+   - What happens if the dask chunks=(20000,20000)
+   
+   - What happens if the dask chunks=(250,250)
+
+
+   .. solution:: Choice of chunk size
+
+      The choice is problem dependent, but here are a few things to consider:
+
+      Each chunk of data should be small enough so that it fits comforably in each worker's available memory. 
+      Chunk sizes between 10MB-1GB are common, depending on the availability of RAM. Dask will likely 
+      manipulate as many chunks in parallel on one machine as you have cores on that machine. 
+      So if you have a machine with 10 cores and you choose chunks in the 1GB range, Dask is likely to use at least 
+      10 GB of memory. Additionally, there should be enough chunks available so that each worker always has something to work on.
+
+      On the otherhand, you also want to avoid chunk sizes that are too small as we see in the exercise.
+      Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs 
+      with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.
 
 .. exercise:: Use Xarray to work with NetCDF files
 
@@ -635,65 +727,11 @@ Exercises
      variable names in a code cell and execute. Click the disk-looking objects on the right to expand the fields.
    - Explore ``ds3`` and ``ds4`` datasets, and compare them with ``ds1``. What are the differences?
 
-.. challenge:: Chunk sizes in Dask
-
-   The following example calculate the mean value of a random generated array. 
-   Run the example and see the performance improvement by using dask.
-
-   .. tabs::
-
-      .. tab:: NumPy
-
-         .. code-block:: python
-           
-            import numpy as np
-
-         .. code-block:: python
-           
-            %%time
-            x = np.random.random((20000, 20000))
-            y = x.mean(axis=0)
-
-      .. tab:: Dask
-
-         .. code-block:: python
-           
-            import dask
-            import dask.array as da
-
-         .. code-block:: python
-           
-            %%time
-            x = da.random.random((20000, 20000), chunks=(1000, 1000))
-            y = x.mean(axis=0)
-            y.compute() 
-
-   But what happens if we use different chunk sizes?
-   Try out with different chunk sizes:
-   
-   - What happens if the dask chunks=(20000,20000)
-   
-   - What happens if the dask chunks=(250,250)
-
-
-   .. solution:: Choice of chunk size
-
-      The choice is problem dependent, but here are a few things to consider:
-
-      Each chunk of data should be small enough so that it fits comforably in each worker's available memory. 
-      Chunk sizes between 10MB-1GB are common, depending on the availability of RAM. Dask will likely 
-      manipulate as many chunks in parallel on one machine as you have cores on that machine. 
-      So if you have a machine with 10 cores and you choose chunks in the 1GB range, Dask is likely to use at least 
-      10 GB of memory. Additionally, there should be enough chunks available so that each worker always has something to work on.
-
-      On the otherhand, you also want to avoid chunk sizes that are too small as we see in the exercise.
-      Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs 
-      with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.
-
 .. keypoints::
 
    - Dask uses lazy execution
    - Only use Dask for processing very large amount of data
+   
 
 .. seealso::
 
