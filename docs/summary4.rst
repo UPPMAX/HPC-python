@@ -29,7 +29,7 @@ Summary day 4
             - For TensorFlow ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2``
             - For Pytorch ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 PyTorch/1.12.1-CUDA-11.7.0 scikit-learn/1.1.2``
          - NSC: For Tetralith, use virtual environment. Pytorch and TensorFlow might coming soon to the cluster!
-
+         - PDC: For both TensorFlow and Pytorch : ``module load PDC singularity/4.1.1-cpeGNU-23.12``
 
 
 

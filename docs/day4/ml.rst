@@ -3,16 +3,16 @@ Machine Learning and Deep Learning
 
 .. questions::
 
-   - Which machine learning and deep learning tools are installed at HPC2N, UPPMAX, and LUNARC?
-   - How to start the tools at HPC2N, UPPMAX, and LUNARC?
-   - How to deploy GPU:s with ML/DL at HPC2N, UPPMAX, and LUNARC?
+   - Which machine learning and deep learning tools are installed at HPCs?
+   - How to start the tools at HPCs?
+   - How to deploy GPU:s with ML/DL at HPCs?
 
 .. objectives::
 
    - Get a general overview of ML/DL with Python. 
-   - Get a general overview of installed ML/DL tools at HPC2N, UPPMAX, and LUNARC.
+   - Get a general overview of installed ML/DL tools at HPCs.
    - Get started with ML/DL in Python.
-   - Code along and demos (Kebnekaise, Rackham/Snowy, Cosmos and Tetralith).
+   - Code along and demos.
    - We will not learn about:
       - How to write and optimize ML/DL code.
       - How to use multi-node setup for training models on CPU and GPU.  
@@ -74,7 +74,7 @@ The loading are slightly different at the clusters
       - For TensorFlow ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2``
       - For Pytorch ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 PyTorch/1.12.1-CUDA-11.7.0 scikit-learn/1.1.2``
    - NSC: For Tetralith, use virtual environment. Pytorch and TensorFlow might coming soon to the cluster!
-
+   - PDC: For both TensorFlow and Pytorch : ``module load PDC singularity/4.1.1-cpeGNU-23.12``
 
 .. admonition:: Learning Material
    :class: dropdown
@@ -102,74 +102,87 @@ There are minor differences depending on the version of python.
 The list is not exhaustive, but lists the more popular ML/DL libraries. I encourage you to `module spider` them to see the exact versions before loading them.
 
 .. list-table::
-   :widths: 15 30 30 15 10
+   :widths: 15 30 30 15 10 15
    :header-rows: 1
 
    * - Tool
-     - UPPMAX (python 3.11.8)
+     - UPPMAX (Python 3.11.8)
      - HPC2N (Python 3.11.3/3.11.5)
      - LUNARC (Python 3.11.3/3.11.5)
      - NSC (Python 3.11.3/3.11.5)
+     - PDC (Python 3.11.7)
    * - NumPy
      - python
      - SciPy-bundle
      - SciPy-bundle
      - N.A.
+     - cray-python
    * - SciPy
      - python
      - SciPy-bundle
      - SciPy-bundle
      - N.A.
+     - cray-python
    * - Scikit-Learn (sklearn)
      - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu) 
      - scikit-learn (no newer than for GCC/12.3.0 and Python 3.11.3)  
      - scikit-learn 
+     - N.A.
      - N.A.
    * - Theano
      - N.A.
      - Theano (only for some older Python versions)
      - N.A.
      - N.A. 
+     - N.A.
    * - TensorFlow
      - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
      - TensorFlow (newest version is for Python 3.11.3)
      - TensorFlow (up to Python 3.10.4) 
      - N.A.
+     - PDC singularity/4.1.1-cpeGNU-23.12 (v2.13)
    * - Keras
      - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
      - Keras (up to Python 3.8.6), TensorFlow (Python 3.11.3)
      - TensorFlow (up to Python 3.10.4)
      - N.A.
+     - PDC singularity/4.1.1-cpeGNU-23.12 (v2.13)
    * - PyTorch (torch)
      - python_ML_packages (Python 3.11.5-gpu and Python 3.11.8-cpu)
      - PyTorch (up to Python 3.11.3) 
      - PyTorch (up to Python 3.10.4) 
      - N.A.
+     - PDC singularity/4.1.1-cpeGNU-23.12 (v2.4)
    * - Pandas
      - python
      - SciPy-bundle
      - SciPy-bundle
      - N.A.
+     - cray-python
    * - Matplotlib
      - python
      - matplotlib
      - matplotlib
      - N.A.
+     - PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12
    * - Beautiful Soup (beautifulsoup4)
      - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
      - BeautifulSoup
      - BeautifulSoup
+     - N.A.
      - N.A.
    * - Seaborn
      - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
      - Seaborn
      - Seaborn 
      - N.A.
+     - N.A.
    * - Horovod 
      - N.A.
      - Horovod (up to Python 3.11.3)
      - N.A.
      - N.A.    
+     - N.A.
 
 Scikit-Learn
 -------------
@@ -796,7 +809,27 @@ We now learn by submitting a batch job which consists of loading python module, 
                #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
 
                python fashion_mnist.py
+               
+      .. tab:: PDC      
+            
+            .. code-block:: bash 
+   
+               #!/bin/bash
+               #SBATCH -A naiss2025-22-403 # Change to your own
+               #SBATCH --time=00:10:00  # Asking for 10 minutes
+               #SBATCH -N 1
+               #SBATCH --ntasks-per-node=1
+               #SBATCH -p gpu
 
+               module load PDC/23.12
+               module load rocm/5.7.0
+               module load cray-python/3.11.5
+               module load craype-accel-amd-gfx90a
+
+               source ../torch_env/bin/activate
+               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+
+               python fashion_mnist.py
 
 Tips and Tricks (Lessons Learned):
 ----------------------------------
@@ -897,7 +930,7 @@ Miscellaneous examples
             .. code-block:: bash 
    
                #!/bin/bash
-               #SBATCH -A naiss2025-22-403 # Change to your own
+               #SBATCH -A naiss-2025-22-403 # Change to your own
                #SBATCH -n 1
                #SBATCH -c 32
                #SBATCH -t 00:10:00 # Asking for 10 minutes
@@ -933,6 +966,36 @@ Miscellaneous examples
 
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
                module load GCC/13.2.0 Python/3.11.5 
+
+               source ../torch_env/bin/activate
+               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               
+               # Output to file - not needed if your job creates output in a file directly
+               # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
+               python tf_program.py 1 2 > myoutput1 2>&1
+               cp myoutput1 mydatadir
+               python tf_program.py 3 4 > myoutput2 2>&1
+               cp myoutput2 mydatadir
+               python tf_program.py 5 6 > myoutput3 2>&1
+               cp myoutput3 mydatadir
+
+         .. tab:: PDC
+
+            Example batch script for Dardel, TensorFlow version 2.13 and Python version 3.11.7. 
+            
+            .. code-block:: bash 
+
+               #!/bin/bash
+               #SBATCH -A naiss-2025-22-403 
+               #SBATCH -p gpua100
+               #SBATCH -n 1
+               #SBATCH --ntasks-per-node=1
+               #SBATCH -t 0:10:00
+               #SBATCH --gres=gpu:1
+
+
+               # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+               module load cray-python/3.11.7
 
                source ../torch_env/bin/activate
                #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
@@ -1077,7 +1140,24 @@ Miscellaneous examples
                python example-tf.py 
 
 
+         .. tab:: PDC
+            
+            .. code-block:: bash 
 
+               #!/bin/bash
+               #SBATCH -A naiss-2025-22-403 
+               #SBATCH -p gpua100
+               #SBATCH -n 1
+               #SBATCH --ntasks-per-node=1
+               #SBATCH -t 0:10:00
+               #SBATCH --gres=gpu:1
+
+
+               # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+               module load cray-python/3.11.7
+               module load PDC singularity/4.1.1-cpeGNU-23.12
+
+               singularity exec --rocm -B /cfs/klemming /pdc/software/resources/sing_hub/rocm5.7-tf2.13-dev python3 example-tf.py 
 
 
 Exercises
