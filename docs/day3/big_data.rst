@@ -482,8 +482,24 @@ Exercises
 
 .. note::
    
-   You can do the python exercises in the Python **command line** or Spyder, but better in Jupyter.
+   - You can do the python exercises in the Python **command line** or Spyder, but better in Jupyter.
+   - You may want to use an `interactive session <https://uppmax.github.io/HPC-python/common/interactive_ondemand.html>`_ (on-demand or interactive/salloc)
 
+.. admonition:: Compute allocations in this workshop 
+
+   - Rackham: ``uppmax2025-2-296``
+   - Kebnekaise: ``hpc2n2025-076``
+   - Cosmos: ``lu2025-7-34``
+   - Tetralith: ``naiss2025-22-403``  
+   - Dardel: ``naiss2025-22-403``
+
+.. admonition:: Storage space for this workshop 
+
+   - Rackham: ``/proj/hpc-python-uppmax``
+   - Kebnekaise: ``/proj/nobackup/hpc-python-spring``
+   - Cosmos: ``/lunarc/nobackup/projects/lu2024-17-44``
+   - Tetralith: ``/proj/hpc-python-spring-naiss``
+   - Dardel: ``/cfs/klemming/projects/snic/hpc-python-spring-naiss``
 
 **Load and run**
 
