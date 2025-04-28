@@ -10,6 +10,11 @@ Summary day 4
    - Parallel
       - You deploy cores and nodes via SLURM, either in interactive mode or batch
       - In Python, threads, distributed and MPI parallelization and DASK can be used.
+
+   - GPUs
+       - You deploy GPU nodes via SLURM, either in interactive mode or batch
+       - In Python the numba package is handy
+
    - Machine Learning
 
       - General overview of ML/DL with Python.
