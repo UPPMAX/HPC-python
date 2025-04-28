@@ -166,3 +166,12 @@ Face Recognition (FR) Use case
         * New **results**!
         * Use visualisation and clustering for classification
 
+Exercise
+---------
+
+.. challenge::
+
+    You will find a jupyter notebook in the tarball called ``DimRed.ipynb`` (``Exercises/day4/Dim_reduction``), which works upon a face recognition dataset kept in the ``dataset`` folder. 
+    Try running the notebook and give the correct dataset path wherever required.
+    
+    The env required for this notebook is ``pip install numpy matplotlib scikit-learn scipy PIL plotly umap-learn``
