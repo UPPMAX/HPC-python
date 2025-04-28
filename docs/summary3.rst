@@ -17,6 +17,12 @@ Summary day 3
 
        - Seaborn plotting functions take in a Pandas DataFrame, sometimes the names of variables in the DataFrame to extract as x and y, and often a hue that makes different subsets of the data appear in different colors depending on the value of the given categorical variable.
 
+   - Batch mode
+      - The SLURM scheduler handles allocations to the calculation nodes
+      - Batch jobs runs without interaction with user
+      - A batch script consists of a part with *SLURM parameters* describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
+      - Remember to include possible input arguments to the Python script in the batch script.
+   
    - Big data
 
        - allocate resources sufficient to data size
