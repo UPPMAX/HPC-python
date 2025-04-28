@@ -480,6 +480,11 @@ Dask Arrays
 Exercises
 ---------
 
+.. note::
+   
+   You can do the python exercises in the Python **command line** or Spyder, but better in Jupyter.
+
+
 **Load and run**
 
 .. tabs::
@@ -603,19 +608,17 @@ Exercises
              spyder &
 
 
-.. exercise:: While isnatlling or aksing for compute nodes, read a bit more about the different data storage formats
+.. exercise:: While installing or asking for compute nodes, read a bit more about the different data storage formats
 
+   - Give it 5 minutes
    - Discuss a bit later in the group the different formats
    - Do you have a new favorite?
 
-.. note::
-   
-   You can do these in the Python **command line** or Spyder, but better in Jupyter.
 
 .. challenge:: Chunk sizes in Dask
 
-   The following example calculate the mean value of a random generated array. 
-   Run the example and see the performance improvement by using dask.
+   - The following example calculate the mean value of a random generated array. 
+   - Run the 2 examples and see the performance improvement by using dask.
 
    .. tabs::
 
@@ -726,6 +729,14 @@ Exercises
    - Explore the hierarchical structure of the ``ds1`` and ``ds2`` datasets in a Jupyter notebook by typing the 
      variable names in a code cell and execute. Click the disk-looking objects on the right to expand the fields.
    - Explore ``ds3`` and ``ds4`` datasets, and compare them with ``ds1``. What are the differences?
+
+.. discussion:: Follow-up discussion
+
+   - New learnings?
+   - Useful file formats
+   - Resources sufficient to data size
+   - Data-chunking as technique if not enough RAM
+   - is Xarray useful for you?
 
 .. keypoints::
 
