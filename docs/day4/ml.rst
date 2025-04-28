@@ -61,7 +61,6 @@ Comparison of ML/DL Libraries
      - Large, growing rapidly
      - Large, extensive documentation and community support
 
-These are all available at UPPMAX, HPC2N, and LUNARC. 
 
 In this course we will look at examples for these, and show how you run them at our centres. 
 
@@ -381,7 +380,7 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
 
 .. challenge::
 
-   Try running ``titanic_sklearn.ipynb`` that can be found in ``Exercises/examples/programs`` directory, on an interactive CPU node. Copy the ``.ipynb`` file into your personal folder. Also copy the ``data`` directory into your personal folder as it contains the dataset for this and subsequent Exercises.
+   Try running ``titanic_sklearn.ipynb`` that can be found in ``Exercises/day4/MLDL`` directory, on an interactive CPU node. Also note that datasets are kept in ``Exercises/day4/MLDL/datasets`` directory. Give the correct path to these datasets for this and subsequent Exercises.
 
    Run it on a jupyter notebook on an interactive CPU node. An interative GPU node will also do. 
 
@@ -834,21 +833,55 @@ We now learn by submitting a batch job which consists of loading python module, 
 Tips and Tricks (Lessons Learned):
 ----------------------------------
 
-* version environment. 
-* Tensor datatypes. dtype in pandas, tensors BF16, FP16, FP32.
-* start small. smaller batch size, smaller sequence length.
-* Consider I/O Operations. small but many can reach hardware IOPs limit. Large but few can be slow.
-* Understand DIR quota (size and iops).
-* OOM on GPU.
-* log everything. Admins can kill jobs. 
-* GPU profiling.
-* model = torch.compile(model)
+
+* Understand your data:
+   - Tensor datatypes affect performance: BF16, FP16, FP32.
+   - Choose appropriate dtypes in pandas to reduce memory usage.
+
+* Version management:
+   - Freeze all your dependencies using requirements.txt or environment.yml.
+   - Document versions of all libraries in your code repository.
+   - Keep your environments away from HOME dir if possible, unless IOPS is a problem.
+
+* Start small:
+   - Begin with smaller batch sizes and sequence lengths.
+   - Helps identify issues before scaling up.
+   - Reduces debugging time when errors occur.
+   - Shorter training cycles allow faster iterations.
+   - Easier to monitor memory usage and prevent OOM errors.
+
+* Optimize I/O operations:
+   - Be aware of I/O bottlenecks: many small files can hit IOPS limits.
+   - Large but few files may cause slower data loading.
+   - Consider using data formats designed for ML (like HDF5).
+
+* Storage management:
+   - Monitor directory quotas carefully (both size and IOPS limits)
+   - Consider using compressed formats for datasets
+
+* GPU memory management:
+   - Monitor CPU and GPU memory usage with tools like `htop`, `nvidia-smi`, `https://pytorch.org/memory_viz`, `nvidia nsight`, `tensorboard profiler`.
+   - Start with smaller batches to avoid Out-Of-Memory (OOM) errors
+   - Use gradient accumulation for training with limited memory
+   - Consider mixed precision training to reduce memory footprint. `autocast()` in PyTorch and `tf.keras.mixed_precision` in TensorFlow.
+
+* Job monitoring:
+   - Log all experiments thoroughly - jobs may be terminated by administrators
+   - Use checkpointing to resume interrupted training
+   - Include timestamps and run parameters in log files
+   - Monitor resource usage for optimizing future jobs
+
+* Performance optimization:
+   - Use GPU profiling tools to identify bottlenecks
+   - Accelerate PyTorch models with: `model = torch.compile(model)`
+   - Optimize data loading operations to match GPU computation speed
+   - Benchmark to find optimal batch sizes for your hardware
 
 
 .. challenge::
 
    Try and run the either pytorch or tensorflow code for Fasion MNIST dataset by submitting a batch job.
-   The dataset is stored in ``data/pytorch`` or ``data/tf`` directory. Copy the ``data`` directory to your personal folder.
+   The dataset is stored in ``datasets/pytorch`` or ``datasets/tf`` directory.
    In order to run this at any HPC resource you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
 
    * Learning outcomes:
@@ -1173,7 +1206,7 @@ Exercises
    .. admonition:: Fit a third order polynomial to a sine function.
     :class: dropdown
 
-        The below program can be found in the ``Exercises/examples/programs`` directory under the name ``pytorch_fitting_gpu.py``. 
+        The below program can be found in the ``Exercises/day4/MLDL`` directory under the name ``pytorch_sine.py``. 
 
         .. code-block:: python
         
@@ -1226,7 +1259,7 @@ Exercises
 
         .. code-block:: bash
 
-            $ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+            $ interactive -A uppmax2025-2-296 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
             You receive the high interactive priority.
 
             Please, use no more than 8 GB of RAM.
@@ -1237,8 +1270,8 @@ Exercises
             $  ml uppmax
             $  ml python/3.11.8
             $  module load python_ML_packages/3.11.8-gpu
-            $  cd /proj/naiss2024-22-415/<user-dir>/HPC-python/Exercises/examples/programs
-            $ srun python pytorch_fitting_gpu.py
+            $  cd /proj/hpc-python-uppmax/<user-dir>/Exercises/day4/MLDL
+            $  python pytorch_sine.py
             99 134.71942138671875
             199 97.72868347167969
             299 71.6167221069336
