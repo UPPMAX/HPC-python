@@ -343,40 +343,27 @@ XARRAY Package
 Allocating RAM
 --------------
 
+- Storing the data in an efficient way is one thing!
+
+- Using the data in a program is another. 
+- How much is actually loaded into the working memory (RAM)
+- Is more data in variables created during the run or work?
+
 .. important::
 
    - Allocate many cores or a full node!
    - You do not have to explicitely run threads or other parallelism.
 
-- Note that shared memory among the cores works within node only
+- Note that shared memory among the cores works within node only.
 
-.. admonition:: How much memory do I get per core?
-   :class: dropdown
 
-   - Divide GB RAM of the booked node with number of cores.
+.. discussion::
 
-   - Example: 128 GB node with 20 cores
-       - ~6.4 GB per core
-
-.. admonition:: How much memory do I get with 5 cores?
-   :class: dropdown
-
-   - Multiply the RAM per core with number of allocated cores..
-
-   - Example: 6.4 GB per core 
-       - ~32 GB 
-
-.. admonition:: Do you remember how to allocate several cores?
-   :class: dropdown
-
-   - Slurm flag ``-n <number of cores>``
-
-- Choose, if necessary a node with more RAM
-   - See local HPC center documentation in how to do so!
+   - Take some time to find out the answers on the questions below, using the table of hardware
+   - I'll ask around in a few minutes
 
 .. admonition:: Table of hardware
    :class: dropdown
-
 
    .. list-table:: Hardware
       :widths: 25 25 25 25 25 25 25 25
@@ -414,6 +401,30 @@ Allocating RAM
         - NVidia A100 
         - NVidia T4   
         - 4 AMD Instinct™ MI250X á 2 GCDs
+
+.. admonition:: How much memory do I get per core?
+   :class: dropdown
+
+   - Divide GB RAM of the booked node with number of cores.
+
+   - Example: 128 GB node with 20 cores
+       - ~6.4 GB per core
+
+.. admonition:: How much memory do I get with 5 cores?
+   :class: dropdown
+
+   - Multiply the RAM per core with number of allocated cores..
+
+   - Example: 6.4 GB per core 
+       - ~32 GB 
+
+.. admonition:: Do you remember how to allocate several cores?
+   :class: dropdown
+
+   - Slurm flag ``-n <number of cores>``
+
+- Choose, if necessary a node with more RAM
+   - See local HPC center documentation in how to do so!
 
 Dask
 ----
