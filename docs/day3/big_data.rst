@@ -399,7 +399,7 @@ Allocating RAM
         - 16
         - 48  
         - 32  
-        - **FIX**
+        - 128
       * - Memory/compute node
         - 128-3072 GB 
         - 128-1024 GB
@@ -407,7 +407,7 @@ Allocating RAM
         - 128-512 GB
         - 256-512 GB  
         - 96-384 GB   
-        - **FIX**
+        - 256-2048 GB
       * - GPU
         - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
         - None
@@ -415,14 +415,12 @@ Allocating RAM
         - NVidia A100
         - NVidia A100 
         - NVidia T4   
-        - **FIX**
+        - 4 AMD Instinct™ MI250X á 2 GCDs
 
 Dask
 ----
 
-.. important::
-
-   How to use more resources than available!!
+How to use more resources than available?
 
 .. image:: ../img/when-to-use-pandas.png
    :width: 600 px
