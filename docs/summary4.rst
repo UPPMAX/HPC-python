@@ -1,9 +1,8 @@
 Summary day 4
 =============
 
-`Summary of first day <./summary1.html>`_
-`Summary of first day <./summary2.html>`_
-`Summary of first day <./summary3.html>`_
+- `Summary of second day <./summary2.html>`_
+- `Summary of third day <./summary3.html>`_
 
 .. keypoints::
 
