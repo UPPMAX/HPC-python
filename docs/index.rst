@@ -178,7 +178,7 @@ Content of the course
    day2/ondemand-desktop.rst
    day2/IDEs.rst
    day2/matplotlib-intro.rst
-   summary1.rst
+   summary2.rst
    day2/evaluation.rst
    day2/python_at_hpc_centers.rst
 
@@ -190,7 +190,7 @@ Content of the course
    day3/Seaborn-Intro.rst
    day3/batch.md
    day3/big_data.md
-   summary2.rst
+   summary3.rst
    day3/evaluation.rst
 
 .. toctree::
@@ -202,6 +202,7 @@ Content of the course
    day4/ml.md
    day4/dim_reduction.rst
    day4/evaluation.rst
+   summary4.rst
 
 .. toctree::
    :maxdepth: 2
