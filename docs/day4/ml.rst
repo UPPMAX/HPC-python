@@ -880,6 +880,8 @@ Tips and Tricks (Lessons Learned):
    The dataset is stored in ``datasets/pytorch`` or ``datasets/tf`` directory.
    In order to run this at any HPC resource you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
 
+   Pytorch env can be created with ``pip install torch torchvision jupyter`` and TensorFlow env can be created with ``pip install tensorflow[and-cuda] jupyter scikit-learn pandas``.
+
    * Learning outcomes:
       - How to submit a batch job on a HPC GPU resource inside a virtual env.
       - How to load the correct modules and activate the correct environment for running PyTorch or TensorFlow code.
