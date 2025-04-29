@@ -30,32 +30,32 @@ Load and Run Seaborn
 
       As usual, you can check ``ml spider Seaborn`` to see the available versions and how to load them. These Seaborn modules are built to load their Matplotlib and SciPy-bundle dependencies internally.
 
-     If you work at the command line, after importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots. This is not necessary if you work in a GUI like Jupyter or Spyder.
+      If you work at the command line, after importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots. This is not necessary if you work in a GUI like Jupyter or Spyder.
 
-     As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on Kebnekaise:
+      As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on Kebnekaise:
 
-     .. code-block:: console
+      .. code-block:: console
 
-        ----------------------------------------------------------------------------
-          Seaborn:
-        ----------------------------------------------------------------------------
-            Description:
-              Seaborn is a Python visualization library based on matplotlib. It
-              provides a high-level interface for drawing attractive statistical
-              graphics. 
+         ----------------------------------------------------------------------------
+           Seaborn:
+         ----------------------------------------------------------------------------
+             Description:
+               Seaborn is a Python visualization library based on matplotlib. It
+               provides a high-level interface for drawing attractive statistical
+               graphics. 
         
-             Versions:
-                Seaborn/0.12.1
-                Seaborn/0.12.2
-                Seaborn/0.13.2
+              Versions:
+                 Seaborn/0.12.1
+                 Seaborn/0.12.2
+                 Seaborn/0.13.2
         
-        ----------------------------------------------------------------------------
-          For detailed information about a specific "Seaborn" package (including how to load the modules) use the module's full name.
-          Note that names that have a trailing (E) are extensions provided by other modules.
-          For example:
+         ----------------------------------------------------------------------------
+           For detailed information about a specific "Seaborn" package (including how to load the modules) use the module's full name.
+           Note that names that have a trailing (E) are extensions provided by other modules.
+           For example:
         
-             $ module spider Seaborn/0.13.2
-        ----------------------------------------------------------------------------
+              $ module spider Seaborn/0.13.2
+         ----------------------------------------------------------------------------
 
    .. tab:: LUNARC
   
@@ -71,33 +71,33 @@ Load and Run Seaborn
   
       If you must work on the command line, then you will need to load Seaborn separately, along with any prerequisite modules. After importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots.
   
-       As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on COSMOS:
+      As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on COSMOS:
   
-       .. code-block:: console
+      .. code-block:: console
 
-          ----------------------------------------------------------------------------
-            Seaborn:
-          ----------------------------------------------------------------------------
-              Description:
-                Seaborn is a Python visualization library based on matplotlib. It
-                provides a high-level interface for drawing attractive statistical
-                graphics. 
+         ----------------------------------------------------------------------------
+           Seaborn:
+         ----------------------------------------------------------------------------
+             Description:
+               Seaborn is a Python visualization library based on matplotlib. It
+               provides a high-level interface for drawing attractive statistical
+               graphics. 
+         
+              Versions:
+                 Seaborn/0.11.2
+                 Seaborn/0.12.1
+                 Seaborn/0.12.2
+                 Seaborn/0.13.2
           
-               Versions:
-                  Seaborn/0.11.2
-                  Seaborn/0.12.1
-                  Seaborn/0.12.2
-                  Seaborn/0.13.2
+         ----------------------------------------------------------------------------
+           For detailed information about a specific "Seaborn" package (including how to 
+         load the modules) use the module's full name.
+           Note that names that have a trailing (E) are extensions provided by other modu
+         les.
+           For example:
           
-          ----------------------------------------------------------------------------
-            For detailed information about a specific "Seaborn" package (including how to 
-          load the modules) use the module's full name.
-            Note that names that have a trailing (E) are extensions provided by other modu
-          les.
-            For example:
-          
-               $ module spider Seaborn/0.13.2
-          ----------------------------------------------------------------------------
+              $ module spider Seaborn/0.13.2
+         ----------------------------------------------------------------------------
 
    .. tab:: UPPMAX
 
@@ -126,6 +126,60 @@ Load and Run Seaborn
          .. code-block:: console
         
             pip install seaborn
+
+   .. tab:: Dardel (PDC)
+
+     - Jupyter Lab is only available on Dardel via ThinLinc. 
+     - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
+     - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
+     - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the `exercises <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb>`_ and `solutions <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb>`_ in the GitHub repository (they should render correctly).
+
+     .. important::
+
+        For this session, you could load
+
+        .. code-block:: console
+        
+           ml cray-python/3.11.7
+     
+     On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using ``ml PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12``, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.
+
+
+     - ALTERNATIVE IF THINLINC IS AVAILABLE
+     - Start Jupyter from the Menu and it will work! 
+
+          - Default Anaconda 3 has all packages needed for this lesson
+
+     - OR USE SPYDER:
+          - start interactive session
+
+          .. code-block:: console 
+
+             salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-403
+             salloc: Pending job allocation 9102757
+             salloc: job 9102757 queued and waiting for resources
+             salloc: job 9102757 has been allocated resources
+             salloc: Granted job allocation 9102757
+             salloc: Waiting for resource configuration
+             salloc: Nodes nid001057 are ready for job
+
+          We need to ssh to the specific node, like
+
+          .. code-block:: console 
+
+             ssh nid001057
+
+          Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+
+          .. code-block:: console
+
+             ml PDC/23.12
+             ml miniconda3/24.7.1-0-cpeGNU-23.12
+             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+             source activate spyder-env
+             # If needed, install the packages here by: "conda install matplotlib pandas seaborn"
+             spyder &
 
 In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is ``sns``, but for those of us who never watched The West Wing, ``sb`` is fine and is what will be used in this tutorial.
 
@@ -315,7 +369,7 @@ The ``mpg`` DataFrame can't be used directly, but the correlation matrix of it c
 
    import seaborn as sb
    mpg = sb.load_dataset('mpg')
-   sb.heatmap(mpg.corr(numeric_only=True), annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label':'Correlation Coefficients'})
+   sb.clustermap(mpg.corr(numeric_only=True), annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label':'Correlation Coefficients'})
 
 The most handy kwargs for these two functions is ``annot``, which prints the values of the squares  is ``True`` or accepts an alternative annotation array, and ``cbar_kws``, which accepts formatting kwargs for Matplotlib's ``fig.colorbar()`` as a dictionary. Also shown are ``fmt``, which tells ``annot`` how to render the numbers and uses the same form as the expressions in the curly braces of ``{:}.format()`` after the colon, and ``cmap``, used here to choose a standard Matplotlib colormap instead of Seaborn's default. There are also ``vmin`` and ``vmax`` kwargs to adjust the limits of the colormap, and a ``mask`` kwarg to mask specific squares, among many other kwargs.
 

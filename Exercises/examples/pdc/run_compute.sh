@@ -10,18 +10,20 @@
 MYPATH=/cfs/klemming/projects/snic/hpc-python-spring-naiss/<your-dir>/HPC-python/Exercises/examples/programs/
 
 # Load the module we need
-module load cray-python/3.11.7
+module load PDC/23.12
 module load rocm/5.7.0
+module load cray-python/3.11.5
+module load craype-accel-amd-gfx90a
 
-# Prepare a virtual environment with numba - do this before
+# Prepare a virtual environment with hip - do this before
 # running the batch script
-# python -m venv --system-site-packages mynumba
-# source mynumba/bin/activate
-# pip install numba
+# python -m venv --system-site-packages myhip
+# source myhip/bin/activate
+# pip install hip-python
 
 # Later, during the batch job, you would just activate
 # the virtual environment
-source <path-to>/mynumba
+source <path-to>/myhip/bin/activate
 
 # Run your Python script
-python $MYPATH/compute.py
+python $MYPATH/hip-example.py

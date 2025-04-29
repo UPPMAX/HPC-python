@@ -3,16 +3,16 @@ Machine Learning and Deep Learning
 
 .. questions::
 
-   - Which machine learning and deep learning tools are installed at HPC2N, UPPMAX, and LUNARC?
-   - How to start the tools at HPC2N, UPPMAX, and LUNARC?
-   - How to deploy GPU:s with ML/DL at HPC2N, UPPMAX, and LUNARC?
+   - Which machine learning and deep learning tools are installed at HPCs?
+   - How to start the tools at HPCs?
+   - How to deploy GPU:s with ML/DL at HPCs?
 
 .. objectives::
 
    - Get a general overview of ML/DL with Python. 
-   - Get a general overview of installed ML/DL tools at HPC2N, UPPMAX, and LUNARC.
+   - Get a general overview of installed ML/DL tools at HPCs.
    - Get started with ML/DL in Python.
-   - Code along and demos (Kebnekaise, Rackham/Snowy, Cosmos and Tetralith).
+   - Code along and demos.
    - We will not learn about:
       - How to write and optimize ML/DL code.
       - How to use multi-node setup for training models on CPU and GPU.  
@@ -61,7 +61,6 @@ Comparison of ML/DL Libraries
      - Large, growing rapidly
      - Large, extensive documentation and community support
 
-These are all available at UPPMAX, HPC2N, and LUNARC. 
 
 In this course we will look at examples for these, and show how you run them at our centres. 
 
@@ -74,7 +73,7 @@ The loading are slightly different at the clusters
       - For TensorFlow ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2``
       - For Pytorch ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 PyTorch/1.12.1-CUDA-11.7.0 scikit-learn/1.1.2``
    - NSC: For Tetralith, use virtual environment. Pytorch and TensorFlow might coming soon to the cluster!
-
+   - PDC: For both TensorFlow and Pytorch : ``module load PDC singularity/4.1.1-cpeGNU-23.12``
 
 .. admonition:: Learning Material
    :class: dropdown
@@ -102,74 +101,87 @@ There are minor differences depending on the version of python.
 The list is not exhaustive, but lists the more popular ML/DL libraries. I encourage you to `module spider` them to see the exact versions before loading them.
 
 .. list-table::
-   :widths: 15 30 30 15 10
+   :widths: 15 30 30 15 10 15
    :header-rows: 1
 
    * - Tool
-     - UPPMAX (python 3.11.8)
+     - UPPMAX (Python 3.11.8)
      - HPC2N (Python 3.11.3/3.11.5)
      - LUNARC (Python 3.11.3/3.11.5)
      - NSC (Python 3.11.3/3.11.5)
+     - PDC (Python 3.11.7)
    * - NumPy
      - python
      - SciPy-bundle
      - SciPy-bundle
      - N.A.
+     - cray-python
    * - SciPy
      - python
      - SciPy-bundle
      - SciPy-bundle
      - N.A.
+     - cray-python
    * - Scikit-Learn (sklearn)
      - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu) 
      - scikit-learn (no newer than for GCC/12.3.0 and Python 3.11.3)  
      - scikit-learn 
+     - N.A.
      - N.A.
    * - Theano
      - N.A.
      - Theano (only for some older Python versions)
      - N.A.
      - N.A. 
+     - N.A.
    * - TensorFlow
      - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
      - TensorFlow (newest version is for Python 3.11.3)
      - TensorFlow (up to Python 3.10.4) 
      - N.A.
+     - PDC singularity/4.1.1-cpeGNU-23.12 (v2.13)
    * - Keras
      - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
      - Keras (up to Python 3.8.6), TensorFlow (Python 3.11.3)
      - TensorFlow (up to Python 3.10.4)
      - N.A.
+     - PDC singularity/4.1.1-cpeGNU-23.12 (v2.13)
    * - PyTorch (torch)
      - python_ML_packages (Python 3.11.5-gpu and Python 3.11.8-cpu)
      - PyTorch (up to Python 3.11.3) 
      - PyTorch (up to Python 3.10.4) 
      - N.A.
+     - PDC singularity/4.1.1-cpeGNU-23.12 (v2.4)
    * - Pandas
      - python
      - SciPy-bundle
      - SciPy-bundle
      - N.A.
+     - cray-python
    * - Matplotlib
      - python
      - matplotlib
      - matplotlib
      - N.A.
+     - PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12
    * - Beautiful Soup (beautifulsoup4)
      - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
      - BeautifulSoup
      - BeautifulSoup
+     - N.A.
      - N.A.
    * - Seaborn
      - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
      - Seaborn
      - Seaborn 
      - N.A.
+     - N.A.
    * - Horovod 
      - N.A.
      - Horovod (up to Python 3.11.3)
      - N.A.
      - N.A.    
+     - N.A.
 
 Scikit-Learn
 -------------
@@ -368,11 +380,12 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
 
 .. challenge::
 
-   Try running ``titanic_sklearn.ipynb`` that can be found in ``Exercises/examples/programs`` directory, on an interactive CPU node. Copy the ``.ipynb`` file into your personal folder. Also copy the ``data`` directory into your personal folder as it contains the dataset for this and subsequent Exercises.
+   Try running ``titanic_sklearn.ipynb`` that can be found in ``Exercises/day4/MLDL`` directory, on an interactive CPU node. Also note that datasets are kept in ``Exercises/day4/MLDL/datasets`` directory. Give the correct path to these datasets for this and subsequent Exercises.
 
    Run it on a jupyter notebook on an interactive CPU node. An interative GPU node will also do. 
 
-   Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC can use prebuilt ``tf_env`` or ``torch_env`` venv.
+   Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC and PDC can build their own venvs.
+   Use ``%matplotlib inline`` in jupyter to see the plots inline.
 
    * Learning outcomes:
       - How to load a jupyter notebook on an interactive node.
@@ -383,7 +396,7 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
 PyTorch and TensorFlow
 -----------------------
 
-The following table demonstrates some common tasks in PyTorch and TensorFlow, highlighting their similarities and differences through code examples:
+The following table demonstrates some common tasks in PyTorch and TensorFlow, highlighting their similarities and differences through code examples (not a working code):
 
 .. list-table::
    :widths: 50 50
@@ -427,8 +440,8 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
           from tensorflow.keras.layers import Dense
           from tensorflow.keras.optimizers import SGD
 
-          # Tensor creation
-          x = tf.Variable([[1, 2], [3, 4]], dtype=tf.float32)
+          # Tensor creation with gradients enabled
+          x = tf.Variable([[1.0, 2.0], [3.0, 4.0]])
 
           # Automatic differentiation
           with tf.GradientTape() as tape:
@@ -437,7 +450,7 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
           print("Gradient of x:", grads)
 
           # Creating and using a neural network layer
-          layer = Dense(2)
+          layer = Dense(2, input_shape=(2,))
           input_tensor = tf.constant([[1.0, 2.0]], dtype=tf.float32)
           output = layer(input_tensor)
           print("Layer output:", output)
@@ -728,8 +741,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             # Load any modules you need, here Python 3.11.8.
             module load python/3.11.8
 
-            source ../torch_env/bin/activate
-            #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+            source ../my_env/bin/activate 
 
             # Run your Python script
             python test_pytorch_nn.py
@@ -748,8 +760,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             # Load any modules you need, here for Python/3.11.3
             module load GCC/12.3.0 Python/3.11.3
 
-            source ../torch_env/bin/activate
-            #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+            source ../my_env/bin/activate
 
             # Run your Python script                                                        
             python fashion_mnist.py
@@ -771,8 +782,7 @@ We now learn by submitting a batch job which consists of loading python module, 
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
                module load GCC/13.2.0 Python/3.11.5 
 
-               source ../torch_env/bin/activate
-               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               source ../my_env/bin/activate
 
                # Run your Python script
                python fashion_mnist.py
@@ -792,16 +802,82 @@ We now learn by submitting a batch job which consists of loading python module, 
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source ../torch_env/bin/activate
-               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               source ../my_env/bin/activate
 
                python fashion_mnist.py
+               
+      .. tab:: PDC      
+            
+            .. code-block:: bash 
+   
+               #!/bin/bash
+               #SBATCH -A naiss2025-22-403 # Change to your own
+               #SBATCH --time=00:10:00  # Asking for 10 minutes
+               #SBATCH -N 1
+               #SBATCH --ntasks-per-node=1
+               #SBATCH -p gpu
+
+               module load PDC/23.12
+               module load rocm/5.7.0
+               module load cray-python/3.11.5
+               module load craype-accel-amd-gfx90a
+
+               source ../my_env/bin/activate
+
+               python fashion_mnist.py
+
+Tips and Tricks (Lessons Learned):
+----------------------------------
+
+
+* Understand your data:
+   - Tensor datatypes affect performance: BF16, FP16, FP32.
+   - Choose appropriate dtypes in pandas to reduce memory usage.
+
+* Version management:
+   - Freeze all your dependencies using requirements.txt or environment.yml.
+   - Document versions of all libraries in your code repository.
+   - Keep your environments away from HOME dir if possible, unless IOPS is a problem.
+
+* Start small:
+   - Begin with smaller batch sizes and sequence lengths.
+   - Helps identify issues before scaling up.
+   - Reduces debugging time when errors occur.
+   - Shorter training cycles allow faster iterations.
+   - Easier to monitor memory usage and prevent OOM errors.
+
+* Optimize I/O operations:
+   - Be aware of I/O bottlenecks: many small files can hit IOPS limits.
+   - Large but few files may cause slower data loading.
+   - Consider using data formats designed for ML (like HDF5).
+
+* Storage management:
+   - Monitor directory quotas carefully (both size and IOPS limits)
+   - Consider using compressed formats for datasets
+
+* GPU memory management:
+   - Monitor CPU and GPU memory usage with tools like `htop`, `nvidia-smi`, `https://pytorch.org/memory_viz`, `nvidia nsight`, `tensorboard profiler`.
+   - Start with smaller batches to avoid Out-Of-Memory (OOM) errors
+   - Use gradient accumulation for training with limited memory
+   - Consider mixed precision training to reduce memory footprint. `autocast()` in PyTorch and `tf.keras.mixed_precision` in TensorFlow.
+
+* Job monitoring:
+   - Log all experiments thoroughly - jobs may be terminated by administrators
+   - Use checkpointing to resume interrupted training
+   - Include timestamps and run parameters in log files
+   - Monitor resource usage for optimizing future jobs
+
+* Performance optimization:
+   - Use GPU profiling tools to identify bottlenecks
+   - Accelerate PyTorch models with: `model = torch.compile(model)`
+   - Optimize data loading operations to match GPU computation speed
+   - Benchmark to find optimal batch sizes for your hardware
 
 
 .. challenge::
 
    Try and run the either pytorch or tensorflow code for Fasion MNIST dataset by submitting a batch job.
-   The dataset is stored in ``data/pytorch`` or ``data/tf`` directory. Copy the ``data`` directory to your personal folder.
+   The dataset is stored in ``datasets/pytorch`` or ``datasets/tf`` directory.
    In order to run this at any HPC resource you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
 
    * Learning outcomes:
@@ -883,7 +959,7 @@ Miscellaneous examples
             .. code-block:: bash 
    
                #!/bin/bash
-               #SBATCH -A naiss2025-22-403 # Change to your own
+               #SBATCH -A naiss-2025-22-403 # Change to your own
                #SBATCH -n 1
                #SBATCH -c 32
                #SBATCH -t 00:10:00 # Asking for 10 minutes
@@ -892,7 +968,7 @@ Miscellaneous examples
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source ../tf_env/bin/activate
+               source ../my_env/bin/activate
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python tf_program.py 1 2 > myoutput1 2>&1
@@ -920,8 +996,36 @@ Miscellaneous examples
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
                module load GCC/13.2.0 Python/3.11.5 
 
-               source ../torch_env/bin/activate
-               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               source ../my_env/bin/activate
+               
+               # Output to file - not needed if your job creates output in a file directly
+               # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
+               python tf_program.py 1 2 > myoutput1 2>&1
+               cp myoutput1 mydatadir
+               python tf_program.py 3 4 > myoutput2 2>&1
+               cp myoutput2 mydatadir
+               python tf_program.py 5 6 > myoutput3 2>&1
+               cp myoutput3 mydatadir
+
+         .. tab:: PDC
+
+            Example batch script for Dardel, TensorFlow version 2.13 and Python version 3.11.7. 
+            
+            .. code-block:: bash 
+
+               #!/bin/bash
+               #SBATCH -A naiss-2025-22-403 
+               #SBATCH -p gpua100
+               #SBATCH -n 1
+               #SBATCH --ntasks-per-node=1
+               #SBATCH -t 0:10:00
+               #SBATCH --gres=gpu:1
+
+
+               # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+               module load cray-python/3.11.7
+
+               source ../my_env/bin/activate
                
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
@@ -1036,7 +1140,7 @@ Miscellaneous examples
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source ../tf_env/bin/activate
+               source ../my_env/bin/activate
                
                # Run your Python script 
                python example-tf.py 
@@ -1063,7 +1167,24 @@ Miscellaneous examples
                python example-tf.py 
 
 
+         .. tab:: PDC
+            
+            .. code-block:: bash 
 
+               #!/bin/bash
+               #SBATCH -A naiss-2025-22-403 
+               #SBATCH -p gpua100
+               #SBATCH -n 1
+               #SBATCH --ntasks-per-node=1
+               #SBATCH -t 0:10:00
+               #SBATCH --gres=gpu:1
+
+
+               # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+               module load cray-python/3.11.7
+               module load PDC singularity/4.1.1-cpeGNU-23.12
+
+               singularity exec --rocm -B /cfs/klemming /pdc/software/resources/sing_hub/rocm5.7-tf2.13-dev python3 example-tf.py 
 
 
 Exercises
@@ -1079,7 +1200,7 @@ Exercises
    .. admonition:: Fit a third order polynomial to a sine function.
     :class: dropdown
 
-        The below program can be found in the ``Exercises/examples/programs`` directory under the name ``pytorch_fitting_gpu.py``. 
+        The below program can be found in the ``Exercises/day4/MLDL`` directory under the name ``pytorch_sine.py``. 
 
         .. code-block:: python
         
@@ -1132,7 +1253,7 @@ Exercises
 
         .. code-block:: bash
 
-            $ interactive -A naiss2024-22-415 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+            $ interactive -A uppmax2025-2-296 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
             You receive the high interactive priority.
 
             Please, use no more than 8 GB of RAM.
@@ -1143,8 +1264,8 @@ Exercises
             $  ml uppmax
             $  ml python/3.11.8
             $  module load python_ML_packages/3.11.8-gpu
-            $  cd /proj/naiss2024-22-415/<user-dir>/HPC-python/Exercises/examples/programs
-            $ srun python pytorch_fitting_gpu.py
+            $  cd /proj/hpc-python-uppmax/<user-dir>/Exercises/day4/MLDL
+            $  python pytorch_sine.py
             99 134.71942138671875
             199 97.72868347167969
             299 71.6167221069336

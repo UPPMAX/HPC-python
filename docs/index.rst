@@ -13,7 +13,7 @@ Welcome to "Using Python in an HPC environment" course material
       - use modules to load Python
       - find site installed Python packages
       - install packages yourself
-      - use virtual environments,
+      - use isolated environments,
       - write a batch script for running Python
       - use Python in parallel
       - use Python for ML and on GPUs.
@@ -22,9 +22,7 @@ Welcome to "Using Python in an HPC environment" course material
 
 .. admonition:: **Course learning outcomes**
 
-    <!-- TODO: BC: Update -->
-
-    - You can find and load a Python package module
+    - You can find and load a Python package modules
     - You can determine if a Python package is installed
     - You can use an isolated environment
     - You can install Python packages
@@ -178,7 +176,7 @@ Content of the course
    day2/ondemand-desktop.rst
    day2/IDEs.rst
    day2/matplotlib-intro.rst
-   summary1.rst
+   summary2.rst
    day2/evaluation.rst
    day2/python_at_hpc_centers.rst
 
@@ -190,7 +188,7 @@ Content of the course
    day3/Seaborn-Intro.rst
    day3/batch.md
    day3/big_data.md
-   summary2.rst
+   summary3.rst
    day3/evaluation.rst
 
 .. toctree::
@@ -200,7 +198,9 @@ Content of the course
    day4/parallel.rst
    day4/gpu.md
    day4/ml.md
+   day4/dim_reduction.rst
    day4/evaluation.rst
+   summary4.rst
 
 .. toctree::
    :maxdepth: 2
@@ -210,7 +210,7 @@ Content of the course
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
    extra/jupyterHPC2N.rst
-   day3/ML_deeper.rst
+   day4/ML_deeper.rst
 
    uppmax.rst
    kebnekaise.md
