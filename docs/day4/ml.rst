@@ -395,7 +395,7 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
 PyTorch and TensorFlow
 -----------------------
 
-The following table demonstrates some common tasks in PyTorch and TensorFlow, highlighting their similarities and differences through code examples:
+The following table demonstrates some common tasks in PyTorch and TensorFlow, highlighting their similarities and differences through code examples (not a working code):
 
 .. list-table::
    :widths: 50 50
