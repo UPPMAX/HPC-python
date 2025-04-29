@@ -198,6 +198,7 @@ Conda
 -----
 
 - Conda is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
+
 - Conda creates isolated environments not clashing with other installations of python and other versions of packages.
 - Conda environment requires that you install all packages needed by yourself. 
     - That is,  you cannot load the python module and use the packages therein inside you Conda environment.
@@ -211,7 +212,7 @@ Conda
 .. tip::
 
    - The conda environemnts inclusing many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
-   - Move your ``.conda`` directory to your project folder and make a soft link to it from $HOME
+   - Move your ``.conda`` directory to your project folder and make a soft link to it from ``$HOME``
    - Do the following (``mkdir -p`` ignores error output and will not recfreate anothe folder if it already exists):
         - (replace what is inside ``<>`` with relevant path)
 
@@ -261,7 +262,7 @@ Next steps are the same for all clusters
 4. Activate the conda environment by: ``source activate <conda-env-name>``
 
     - You can define the packages to be installed here already.
-    - If you want another Python version, you have to define it here, like: conda ... python=3.6.8
+    - If you want another Python version, you have to define it here, like: ``conda ... python=3.6.8``
 
 5. Install the packages with ``conda install ...`` or ``pip install ...``
 6. Now do your work!
