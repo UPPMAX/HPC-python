@@ -380,7 +380,7 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
 
 .. challenge::
 
-   Try running ``titanic_sklearn.ipynb`` that can be found in ``Exercises/day4/MLDL`` directory, on an interactive CPU node. Also note that datasets are kept in ``Exercises/day4/MLDL/datasets`` directory. Give the correct path to these datasets for this and subsequent Exercises.
+   Try running ``titanic_sklearn.ipynb`` that can be found in ``Exercises/day4/MLDL`` directory, on an interactive CPU node. Also note that datasets are kept in ``Exercises/day4/MLDL/datasets`` directory. Give the **full path** to these datasets for this and subsequent Exercises.
 
    Run it on a jupyter notebook on an interactive CPU node. An interative GPU node will also do. 
 
