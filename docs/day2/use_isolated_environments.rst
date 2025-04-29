@@ -68,7 +68,6 @@ What happens at activation?
       - having base environment always active
    - Not recommended at HPC2N
    - At the other clusters, handle with care!
-   - However, on Bianca this is the most straight-forward way to install packages (no ordinary internet)
 
 +------------+---------------------------------+
 | HPC cluster| Conda vs venv                   | 
@@ -100,8 +99,8 @@ What happens at activation?
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
    - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``. 
 
-
 .. admonition:: Other tools perhaps covered in the future
+   :class: dropdown
 
    - `pixi <https://pixi.sh/latest/>`_: package management tool for developers 
        - It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.
@@ -197,11 +196,29 @@ The next points will be the same for all clusters
 Conda
 -----
 
-- Conda is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
+- `Conda <https://anaconda.org/anaconda/conda>`_ is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
 
 - Conda creates isolated environments not clashing with other installations of python and other versions of packages.
 - Conda environment requires that you install all packages needed by yourself. 
     - That is,  you cannot load the python module and use the packages therein inside you Conda environment.
+
+.. admonition:: Conda channels
+   :class:dropdown
+
+   - bioconda
+   - biocore
+   - conda-forge
+   - dranew
+   - free
+   - main
+   - pro
+   - qiime2
+   - r
+   - r2018.11
+   - scilifelab-lts
+    
+    You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX. Otherwise you do with ``conda -c <channel> ...``
+   
 
 .. warning::
  
