@@ -329,6 +329,85 @@ We will only take a look at some of these schemes that illustrate the general co
 parallel computing. The aim of this lecture is to learn how to run parallel codes
 in Python rather than learning to write those codes.
 
+.. demo:: 
+   :class: dropdown
+
+   The idea is to parallelize a simple *for loop* (language-agnostic): 
+
+   .. code-block:: sh 
+
+      for i start at 1 end at 4 
+         wait 1 second 
+      end the for loop
+
+   The waiting step is used to simulate a task without writing too much code. In this way,
+   one can realize how faster the loop can be executed when threads are added:
+
+   .. figure:: ../img/parallel-loop.png
+      :width: 200
+      :align: center
+
+   In the following example ``sleep.py`` the `sleep()` function is called `n` times first in 
+   serial mode and then by using `n` processes. To parallelize the serial code we can use 
+   the ``multiprocessing`` module that is shipped with the base library in Python so that 
+   you don't need to install it.  
+
+   .. code-block:: python
+
+      import sys
+      from time import perf_counter,sleep
+      import multiprocessing
+
+      # number of iterations 
+      n = 4
+      # number of processes
+      numprocesses = 4
+
+      def sleep_serial(n):
+          for i in range(n):
+              sleep(1)
+
+
+      def sleep_threaded(n,numprocesses,processindex):
+          # workload for each process
+          workload = n/numprocesses
+          begin = int(workload*processindex)
+          end = int(workload*(processindex+1))
+          for i in range(begin,end):
+              sleep(1)
+
+      if __name__ == "__main__":
+
+          starttime = perf_counter()   # Start timing serial code
+          sleep_serial(n)
+          endtime = perf_counter()
+
+          print("Time spent serial: %.2f sec" % (endtime-starttime))
+
+
+          starttime = perf_counter()   # Start timing parallel code
+          processes = []
+          for i in range(numprocesses):
+              p = multiprocessing.Process(target=sleep_threaded, args=(n,numprocesses,i))
+              processes.append(p)
+              p.start()
+
+          # waiting for the processes
+          for p in processes:
+              p.join()
+
+          endtime = perf_counter()
+
+          print("Time spent parallel: %.2f sec" % (endtime-starttime))
+
+   First load the modules ``ml GCCcore/11.2.0 Python/3.9.6`` and then run the script
+   with the command  ``srun -A "your-project" -n 1 -c 4 -t 00:05:00 python sleep.py`` to use 4 processes.
+
+
+
+2D integration
+--------------
+
 The workhorse for this section will be a 2D integration example:
 
    .. math:: 
