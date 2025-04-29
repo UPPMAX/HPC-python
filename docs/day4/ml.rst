@@ -385,6 +385,7 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
    Run it on a jupyter notebook on an interactive CPU node. An interative GPU node will also do. 
 
    Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC and PDC can build their own venvs.
+   Use ``%matplotlib inline`` in jupyter to see the plots inline.
 
    * Learning outcomes:
       - How to load a jupyter notebook on an interactive node.
