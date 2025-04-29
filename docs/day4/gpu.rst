@@ -294,7 +294,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          salloc: Granted job allocation 32126787
          salloc: Waiting for resource configuration
          salloc: Nodes b-cn1606 are ready for job
-         $ module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07
+         $ module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 numba/0.58.1
          $ module load CUDA/12.1.1
          $ srun python add-list.py 
          CPU function took 14.216318 seconds.
@@ -318,7 +318,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
           # Remove any loaded modules and load the ones we need
           module purge  > /dev/null 2>&1
-          module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 
+          module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 numba/0.58.1 CUDA/12.1.1 
 
           # Run your Python script
           python add-list.py
@@ -341,7 +341,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
-         module load GCC/12.2.0  OpenMPI/4.1.4 numba/0.58.0 SciPy-bundle/2023.02 
+         module load GCC/12.3.0  Python/3.11.3 OpenMPI/4.1.5 numba/0.58.1 SciPy-bundle/2023.07 CUDA/12.1.1 
 
          # Run your Python script
          python add-list.py
@@ -373,7 +373,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          # source mynumba/bin/activate
          # pip install numba
          #
-         source <path-to>/mynumba
+         source <path-to>/mynumba/bin/activate
 
          # Run your Python script 
          python add-list.py 
