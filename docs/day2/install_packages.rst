@@ -25,7 +25,7 @@ Normally you want reproducibility and the safe way to go is with isolated enviro
    - Packages, missing in the loaded Python module, that can be imported
        - Ex: You usually use 3D data and ``xarray`` is not installed
    - Packages, missing in the loaded Python module, which are not imported
-       - Ex: Jupyter or Spyder IDEs
+       - Ex: Jupyter or Spyder IDEs (not guaranteed to work for virtual environments though)
  
 Typical workflow
 ................
