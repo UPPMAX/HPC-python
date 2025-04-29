@@ -22,11 +22,9 @@ Normally you want reproducibility and the safe way to go is with isolated enviro
 
 .. admonition: Use cases of local general packages
 
-   - General packages, missing in the environment of the loaded Python module
-       - If you believe a package is useful for all your work
-       - Ex. ``numpy`` is not installed, then make your own!
-
-
+   - Packages, missing in the loaded Python module
+       - Ex: You usually use 3D data and ``xarray`` is not installed
+ 
 Typical workflow
 ................
 
@@ -38,11 +36,18 @@ Typical workflow
 
 3. Install with:  ``pip install --user [package name]`` 
 
+Versions
+........
 
-- package name can be pinned, 
+- Package name can be pinned, 
    - like ``numpy==1.26.4`` (Note the double ``==``)
    - like ``numpy>1.22``
    - read `more <https://peps.python.org/pep-0440/#version-specifiers>`_ 
+
+- If not pinned you will get the latest version compatible with the python version you are using.
+
+Installation directory
+......................
 
 - The package most often ends up in ``~/.local/lib/python3.X``
 - Target directory can be changed by adding ``--prefix=[root_folder of installation]``
@@ -56,12 +61,11 @@ Typical workflow
 Exercise
 --------
 
-.. challenge:: (optional) Exercise 1: Install a python package you know of for an old version 
+.. challenge:: (optional) Exercise 1: Install a python package you know of for an old version of Python
 
-   - Load an older module (perhaps one you won't use anymore)
+   - Load an older Python module (perhaps one you won't use anymore)
    - install the python package (it may already be there but with an older version)
        - (you can always remove your local installation later if you regret it)
-
 
    - We may add a solution in a coming instance of the course
 
