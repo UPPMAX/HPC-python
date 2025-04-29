@@ -439,8 +439,8 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
           from tensorflow.keras.layers import Dense
           from tensorflow.keras.optimizers import SGD
 
-          # Tensor creation
-          x = tf.Variable([[1, 2], [3, 4]], dtype=tf.float32)
+          # Tensor creation with gradients enabled
+          x = tf.Variable([[1.0, 2.0], [3.0, 4.0]])
 
           # Automatic differentiation
           with tf.GradientTape() as tape:
@@ -449,7 +449,7 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
           print("Gradient of x:", grads)
 
           # Creating and using a neural network layer
-          layer = Dense(2)
+          layer = Dense(2, input_shape=(2,))
           input_tensor = tf.constant([[1.0, 2.0]], dtype=tf.float32)
           output = layer(input_tensor)
           print("Layer output:", output)
