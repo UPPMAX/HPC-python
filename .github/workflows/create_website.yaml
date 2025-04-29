@@ -15,7 +15,8 @@ jobs:
           sudo apt install plantuml
           #sudo apt install npm
           #npm install mermaid
-          npm install -g @mermaid-js/mermaid-cli
+          #npm install -g @mermaid-js/mermaid-cli
+          docker pull minlag/mermaid-cli
           #npm install markmap
 
       - name: Install dependencies
