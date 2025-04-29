@@ -384,7 +384,7 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
 
    Run it on a jupyter notebook on an interactive CPU node. An interative GPU node will also do. 
 
-   Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC can use prebuilt ``tf_env`` or ``torch_env`` venv.
+   Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC and PDC can build their own venvs.
 
    * Learning outcomes:
       - How to load a jupyter notebook on an interactive node.
@@ -740,8 +740,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             # Load any modules you need, here Python 3.11.8.
             module load python/3.11.8
 
-            source ../torch_env/bin/activate
-            #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+            source ../my_env/bin/activate 
 
             # Run your Python script
             python test_pytorch_nn.py
@@ -760,8 +759,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             # Load any modules you need, here for Python/3.11.3
             module load GCC/12.3.0 Python/3.11.3
 
-            source ../torch_env/bin/activate
-            #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+            source ../my_env/bin/activate
 
             # Run your Python script                                                        
             python fashion_mnist.py
@@ -783,8 +781,7 @@ We now learn by submitting a batch job which consists of loading python module, 
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
                module load GCC/13.2.0 Python/3.11.5 
 
-               source ../torch_env/bin/activate
-               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               source ../my_env/bin/activate
 
                # Run your Python script
                python fashion_mnist.py
@@ -804,8 +801,7 @@ We now learn by submitting a batch job which consists of loading python module, 
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source ../torch_env/bin/activate
-               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               source ../my_env/bin/activate
 
                python fashion_mnist.py
                
@@ -825,8 +821,7 @@ We now learn by submitting a batch job which consists of loading python module, 
                module load cray-python/3.11.5
                module load craype-accel-amd-gfx90a
 
-               source ../torch_env/bin/activate
-               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               source ../my_env/bin/activate
 
                python fashion_mnist.py
 
@@ -972,7 +967,7 @@ Miscellaneous examples
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source ../tf_env/bin/activate
+               source ../my_env/bin/activate
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python tf_program.py 1 2 > myoutput1 2>&1
@@ -1000,8 +995,7 @@ Miscellaneous examples
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
                module load GCC/13.2.0 Python/3.11.5 
 
-               source ../torch_env/bin/activate
-               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               source ../my_env/bin/activate
                
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
@@ -1030,8 +1024,7 @@ Miscellaneous examples
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
                module load cray-python/3.11.7
 
-               source ../torch_env/bin/activate
-               #source ../tf_env/bin/activate #unncomment this for tf env and comment torch env
+               source ../my_env/bin/activate
                
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
@@ -1146,7 +1139,7 @@ Miscellaneous examples
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source ../tf_env/bin/activate
+               source ../my_env/bin/activate
                
                # Run your Python script 
                python example-tf.py 
