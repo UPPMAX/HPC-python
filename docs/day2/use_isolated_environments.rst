@@ -98,7 +98,7 @@ What happens at activation?
    - If very troublesome, try with ``conda``
 
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
-   - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in are active. To see all packages, use ``pip list``. 
+   - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``. 
 
 
 .. admonition:: Other tools perhaps covered in the future
@@ -125,7 +125,6 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
        - venv: ``python -m venv --system-site-packages Example2``
    - Next steps are identical and involves "activating" and ``pip installs``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
-
 
 Typical workflow
 ................
@@ -169,7 +168,7 @@ The next points will be the same for all clusters
        $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
        $ python -m venv --system-site-packages Example
 
-.. admonition:: Draw-backs
+.. warning:: Draw-backs
 
    - Only works for Python environments
    - Only works with Python versions already installed
@@ -194,7 +193,6 @@ The next points will be the same for all clusters
    - Some packaegs may be inhereted from the moduels yopu have loaded
    - You can do ``pip list --local`` to see what is installed by you in the environment.
    - Some IDE:s like Spyder may only find those "local" packages
-
 
 Conda
 -----
@@ -248,7 +246,7 @@ The first 2 steps are cluster dependent and will therefore be slightly different
    .. admonition:: First time
       :class: dropdown   
 
-      - The variable CONDA_ENVS_PATH contains the location of your environments. Set it to your project's environments folder, if you have one, instead of the $HOME folder.
+      - The variables CONDA_ENVS_PATH and CONDA_PKG_DIRS contains the location of your environments. Set it to your project's environments folder, if you have one, instead of the $HOME folder.
       - Otherwise, the default is ``~/.conda/envs``. 
       - Example:
   
@@ -263,7 +261,7 @@ Next steps are the same for all clusters
 4. Activate the conda environment by: ``source activate <conda-env-name>``
 
     - You can define the packages to be installed here already.
-    - If you want another Python version, you have to define it here, like: 
+    - If you want another Python version, you have to define it here, like: conda ... python=3.6.8
 
 5. Install the packages with ``conda install ...`` or ``pip install ...``
 6. Now do your work!
@@ -277,6 +275,11 @@ Next steps are the same for all clusters
     :prompts: (python-36-env) $
     
     conda deactivate
+
+.. admonition:: Comments
+   :class: dropdown
+
+   - When pinning with Conda, use single ``=`` instead of double (as used by pip)
 
 .. admonition:: Conda base env
 
@@ -301,14 +304,15 @@ Next steps are the same for all clusters
 
    - `what-is-the-difference-with-conda-mamba-poetry-pip <https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip>`_
 
-.. warning::
+.. admonition:: What to do when a problem arises?
+   :class: dropdown
 
    - If you experience unexpected problems with the conda provided by the module system on Rackham or anaconda3 on Dardel, you can easily install your own and maintain it yourself.
    - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
    - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
 
 Install from file
--------------------------------------------
+------------------
 
 - All centers has had different approaches in what is included in the module system and not.
 - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
@@ -731,7 +735,11 @@ Summary
    - Make it for each project you have for reproducibility.
    - There are different tools to create virtual environments.
        - ``venv``, most straight-forward and available at all HPC centers. **Recommended**
-       - ``conda``, only recommended for personal use and at some clusters
+            - only supports Python packages
+       - ``conda``, only recommended at some clusters
+            - supports more and is a bit more reliable
+            - do not use together with Python modules
+            - install in project folder due to many files.
 
 .. admonition:: Documentation at the centres
    :class: dropdown
