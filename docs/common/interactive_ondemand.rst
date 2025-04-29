@@ -183,7 +183,7 @@ To start an interactive session in the simplest way, is shown here:
          [x_birbr@n302 ~]$ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
          [x_birbr@n302 ~]$
 
-  .. tab:: PDC (salloc)
+   .. tab:: PDC (salloc)
 
       .. code-block:: console 
 
