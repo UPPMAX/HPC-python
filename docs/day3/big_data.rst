@@ -480,6 +480,11 @@ Dask Arrays
       # It runs using multiple threads on your machine.
       # It could also be distributed to multiple machines
 
+.. seealso::
+
+   - `dask_ml package <https://ml.dask.org/>`_: Dask-ML provides scalable machine learning in Python using Dask alongside popular machine learning libraries like Scikit-Learn, XGBoost, and others.
+   - `Dask.distributed <https://distributed.dask.org/en/stable/>`_: Dask.distributed is a lightweight library for distributed computing in Python. It extends both the concurrent.futures and dask APIs to moderate sized clusters.
+
 Exercises
 ---------
 
