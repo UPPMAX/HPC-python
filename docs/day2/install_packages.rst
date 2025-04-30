@@ -22,10 +22,8 @@ Normally you want reproducibility and the safe way to go is with isolated enviro
 
 .. admonition:: Use cases of local general packages
 
-   - Packages, missing in the loaded Python module, that can be imported
-       - Ex: You usually use 3D data and ``xarray`` is not installed
-   - Packages, missing in the loaded Python module, which are not imported
-       - Ex: Jupyter or Spyder IDEs (not guaranteed to work for virtual environments though)
+   - Packages, missing in the loaded Python module, that would not be specific for a research project.
+   - Comment: You can include the package in a virtual environment as well.
  
 Typical workflow
 ................
@@ -64,8 +62,43 @@ Versions
 Installation directory
 ......................
 
-- The package _typically_ ends up in ``~/.local/lib/python3.X``
+- The package *typically* ends up in ``~/.local/lib/python3.X``
     - Example: Packages installed by both bython version 3.11.5 and 3.11.8 will go into same folder python3.11 and will be seen by both python interpreters. 
+
+Check your installed packages (and dependencies)
+................................................
+
+- Check with ``pip list --user``
+
+.. admonition: Example after just installing ``xarray`` on Tetralith with SciPy-bundle/2023.11 NOT loaded
+   :class:dropdown
+
+   .. code-block:: console
+
+      $ pip list --user
+      Package         Version
+      --------------- -----------
+      numpy           2.2.5
+      pandas          2.2.3
+      python-dateutil 2.9.0.post0
+      pytz            2025.2
+      six             1.17.0
+      tzdata          2025.2
+      xarray          2025.4.0
+
+- It is evident that some packages have dependencies! In the example, ``xarray`` also installs ``numpy`` and ``pandas``!
+
+.. admonition: Example after just installing ``xarray`` on Tetralith with SciPy-bundle/2023.11 LOADED
+   :class:dropdown
+
+   .. code-block:: console
+
+      $ pip list --user
+      Package         Version
+      --------------- -----------
+      xarray          2025.4.0
+
+- It is also evident that if ``numpy`` and ``pandas`` already are available, those will be used!
 
 Exercise
 --------
