@@ -593,7 +593,7 @@ Breakout room according to grouping
 
             .. tab:: NSC 
 
-               Follow the turtorial at `Python <https://www.nsc.liu.se/software/python/>`_: scroll down to "More on Python virtual environments (venvs)"
+               Follow the tutorial at `Python <https://www.nsc.liu.se/software/python/>`_: scroll down to "More on Python virtual environments (venvs)"
 
             .. tab:: PDC 
 
