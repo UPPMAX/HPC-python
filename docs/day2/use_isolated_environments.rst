@@ -149,7 +149,9 @@ The next points will be the same for all clusters
 
 
 5. Install (or update) the environment with the packages you need with the ``pip install`` command
-    - note that ``--user`` must be omitted: else the package will be installed in the global user folder.
+
+    - Note that ``--user`` must be omitted: else the package will be installed in the global user folder.
+    - The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
 6. Work in the isolated environment
    - When activated you can always continue to add packages!
@@ -167,7 +169,9 @@ The next points will be the same for all clusters
        $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
        $ python -m venv --system-site-packages Example
 
-.. warning:: Draw-backs
+.. warning:: 
+
+   Draw-backs
 
    - Only works for Python environments
    - Only works with Python versions already installed
@@ -184,6 +188,9 @@ The next points will be the same for all clusters
       source activate  env-matplotlib
       pip install matplotlib
       python
+
+   .. code-block:: python
+
       >>> import matplotlib
 
 .. note::
@@ -203,7 +210,7 @@ Conda
     - That is,  you cannot load the python module and use the packages therein inside you Conda environment.
 
 .. admonition:: Conda channels
-   :class:dropdown
+   :class: dropdown
 
    - bioconda
    - biocore
@@ -220,11 +227,14 @@ Conda
     You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX. Otherwise you do with ``conda -c <channel> ...``
    
 
-.. warning::
- 
-    - Conda is known to create **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically ``300000`` in $HOME). 
-    - Check your disk usage and quota limit
-    - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
+.. warning:: 
+
+   Drawbacks
+    
+   - Conda cannot use already install packages from the Python modules and libraries already installed, and hence installs them anyway
+   - Conda is therefore known for creating **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically ``300000`` in $HOME). 
+   - Check your disk usage and quota limit
+       - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
 
 .. tip::
 
@@ -237,24 +247,23 @@ Conda
 
       This works nicely if you have several projects. Then you can change these varables according to what you are currently working with.
 
-   .. code-block:: bash
+      .. code-block:: bash
    
-      export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
-      export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
+         export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
+         export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
 
    - Solution 2 
 
-      - This is not good if you have several projects.
+      - This may not be a good idea if you have several projects.
 
-   .. code-block:: bash
+      .. code-block:: bash
 
-      $ mkdir -p ~/.conda
-      $ mv ~/.conda /<path-to-project-folder>/<username>/
-      $ ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
+         $ mkdir -p ~/.conda
+         $ mv ~/.conda /<path-to-project-folder>/<username>/
+         $ ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
 
 Typical workflow
 ................
-
 
 The first 2 steps are cluster dependent and will therefore be slightly different.
 
@@ -300,6 +309,7 @@ Next steps are the same for all clusters
    - When pinning with Conda, use single ``=`` instead of double (as used by pip)
 
 .. admonition:: Conda base env
+   :class: dropdown
 
    - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. It includes a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
 
@@ -351,7 +361,7 @@ Exercises
 
 .. challenge:: Exercise 0: Make a decision between ``venv`` or ``conda``.
 
-   - We recommend Conda for LUNARC.
+   - We recommend `conda` for LUNARC.
    - We recommend ``venv`` for HPC2N
    - Otherwise there are some kind of documentation at all sites. 
    - ``venv`` "should" work everywhere but has not been fully tested
@@ -611,18 +621,11 @@ Breakout room according to grouping
 
             Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
-         .. note::
-
-            - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
-            - For clarity we use the ``source`` style here.
-
          Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
 
          .. code-block:: console
 
              (Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
-
-         The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
 
          Deactivate the venv.
 
