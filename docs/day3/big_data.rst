@@ -61,10 +61,12 @@ Bit and Byte
    Different numerical data types (e.g. integer and floating-point numbers) can be represented by bytes. The more bytes we use for each value, the larger is the range or precision we get, but more bytes require more memory.
 
    - DataTypes
-       - 16-bit: short (integer
+       - 16-bit: short (integer)
        - 32-bit: Int (integer)
-       - 32-bit: Single (floating point
-       - 64-bit: Double (floating point
+       - 32-bit: Single (floating point)
+       - 64-bit: Double (floating point)
+
+   - For some use cases, the precision is not that important, 1% error, or so, is not that crucial. Faster and less data storage!
 
 .. admonition:: Text data
    :class: dropdown
@@ -434,18 +436,11 @@ How to use more resources than available?
 Dask is very popular for data analysis and is used by a number of high-level
 Python libraries:
 
-- Dask-ML scales Scikit-Learn
-
 - Dask is composed of two parts:
 
-    - Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.
-
-    - “Big Data” collections like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to **larger-than-memory** or distributed environments. These parallel collections run on top of dynamic task schedulers.
-
-.. admonition: Dask Clusters
-
-   - Not covered here
-   - https://enccs.github.io/hpda-python/dask/#dask-clusters
+    - **Dask Clusters**: Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.
+        - `ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-clusters>`_
+    - **“Big Data” Collections** like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to **larger-than-memory** or distributed environments. These parallel collections run on top of dynamic task schedulers.
 
 Dask Collections
 ................
@@ -760,12 +755,22 @@ Exercises
    - Useful file formats
    - Resources sufficient to data size
    - Data-chunking as technique if not enough RAM
-   - is Xarray useful for you?
+   - Is xarray useful for you?
 
 .. keypoints::
 
-   - Dask uses lazy execution
-   - Only use Dask for processing very large amount of data
+   - File formats
+       - No format fits all requirements
+       - HDF5 and NetCDF good for Big data
+   - Packages
+       - xarray
+          - can deal with 3D-data and higher dimensions
+       - Dask 
+           - uses lazy execution
+           - Only use for processing very large amount of data
+   - Allocate more RAM by asking for
+       - Several cores
+       - Nodes will more RAM
    
 
 .. seealso::
