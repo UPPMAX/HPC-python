@@ -84,7 +84,7 @@ Check your installed packages (and dependencies)
 - Check with ``pip list --user``
 
 .. admonition:: Example after just installing ``xarray`` on Tetralith with SciPy-bundle/2023.11 NOT loaded
-   :class:dropdown
+   :class: dropdown
 
    .. code-block:: console
 
@@ -102,7 +102,7 @@ Check your installed packages (and dependencies)
 - It is evident that some packages have dependencies! In the example, ``xarray`` also installs ``numpy`` and ``pandas``!
 
 .. admonition:: Example after just installing ``xarray`` on Tetralith with SciPy-bundle/2023.11 LOADED
-   :class:dropdown
+   :class: dropdown
 
    .. code-block:: console
 
