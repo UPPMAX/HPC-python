@@ -438,9 +438,12 @@ Python libraries:
 
 - Dask is composed of two parts:
 
-    - **Dask Clusters**: Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.
+    - **Dask Clusters**
+        - Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.
         - `ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-clusters>`_
-    - **“Big Data” Collections** like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to **larger-than-memory** or distributed environments. These parallel collections run on top of dynamic task schedulers.
+    - **“Big Data” Collections**
+        - Like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to **larger-than-memory** or distributed environments. These parallel collections run on top of dynamic task schedulers.
+        -`ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-collections>`_
 
 Dask Collections
 ................
