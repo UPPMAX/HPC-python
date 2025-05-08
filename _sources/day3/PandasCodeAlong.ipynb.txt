@@ -1,0 +1,1886 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "e4886c8a-f9ea-4bb6-b4f8-e427dc06b73a",
+   "metadata": {
+    "editable": true,
+    "slideshow": {
+     "slide_type": ""
+    },
+    "tags": []
+   },
+   "source": [
+    "# Intro to Pandas\n",
+    "## Code-Along Examples\n",
+    "\n",
+    "Here you have space to work through the code that addresses the prompts in the slide show. The prompts are repeated here for your convenience.\n",
+    "\n",
+    "\n",
+    "### Day 1\n",
+    "#### I. Create a DataFrame\n",
+    "\n",
+    "1. Import Pandas and Numpy.\n",
+    "2. Make an array with 3 columns and 4 rows, with data values of 1-12.\n",
+    "3. Convert it to a DataFrame with columns named `['a', 'b', 'c']`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "c7016d5d-2ca1-4a0a-b306-1b85b2526b87",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    a   b   c\n",
+      "w   1   2   3\n",
+      "x   4   5   6\n",
+      "y   7   8   9\n",
+      "z  10  11  12\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "a = np.arange(1,13).reshape((4,3))\n",
+    "adf = pd.DataFrame(a, columns=['a', 'b', 'c'], index=['w','x','y','z'])\n",
+    "print(adf)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e429221d-158d-48cb-96da-684bc644730a",
+   "metadata": {},
+   "source": [
+    "#### II. View Indices of a DataFrame\n",
+    "4. Get the indices of DataFrame in previous example and print the data-type of the index. See [documentation](https://pandas.pydata.org/docs/reference/api/pandas.Index.html#pandas.Index)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "88dfdb15-ac36-4191-bf3d-31b867237b69",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "RangeIndex(start=0, stop=4, step=1)\n",
+      "int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(adf.index)\n",
+    "print(adf.index.dtype)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f15b38ad-53a5-45a5-8bd3-6bc2ce16e45b",
+   "metadata": {},
+   "source": [
+    "#### III. Basic I/O\n",
+    "\n",
+    "1. Load the file `'exoplanets_5250_EarthUnits.csv'` into a DataFrame called `exos`.\n",
+    "    - Extra: set the index to the leftmost column.\n",
+    "2. Write the DataFrame to a tab-separated text file (.txt). The name is up to you."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "cb21b465-8bc7-497c-9bd1-6db108b7f721",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "exos = pd.read_csv('exoplanets_5250_EarthUnits.csv', index_col=0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "fd679cd2-c5ae-4e2d-a975-6c9b6e60671e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>distance</th>\n",
+       "      <th>star_mag</th>\n",
+       "      <th>planet_type</th>\n",
+       "      <th>discovery_yr</th>\n",
+       "      <th>mass_ME</th>\n",
+       "      <th>radius_RE</th>\n",
+       "      <th>orbital_radius_AU</th>\n",
+       "      <th>orbital_period_yr</th>\n",
+       "      <th>eccentricity</th>\n",
+       "      <th>detection_method</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>#name</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>11 Comae Berenices b</th>\n",
+       "      <td>304.0</td>\n",
+       "      <td>4.72307</td>\n",
+       "      <td>Gas Giant</td>\n",
+       "      <td>2007</td>\n",
+       "      <td>6169.2</td>\n",
+       "      <td>12.096</td>\n",
+       "      <td>1.29</td>\n",
+       "      <td>0.892539</td>\n",
+       "      <td>0.23</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>11 Ursae Minoris b</th>\n",
+       "      <td>409.0</td>\n",
+       "      <td>5.01300</td>\n",
+       "      <td>Gas Giant</td>\n",
+       "      <td>2009</td>\n",
+       "      <td>4687.32</td>\n",
+       "      <td>12.208</td>\n",
+       "      <td>1.53</td>\n",
+       "      <td>1.400000</td>\n",
+       "      <td>0.08</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>14 Andromedae b</th>\n",
+       "      <td>246.0</td>\n",
+       "      <td>5.23133</td>\n",
+       "      <td>Gas Giant</td>\n",
+       "      <td>2008</td>\n",
+       "      <td>1526.4</td>\n",
+       "      <td>12.88</td>\n",
+       "      <td>0.83</td>\n",
+       "      <td>0.508693</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                      distance  star_mag planet_type  discovery_yr  mass_ME  \\\n",
+       "#name                                                                         \n",
+       "11 Comae Berenices b     304.0   4.72307   Gas Giant          2007   6169.2   \n",
+       "11 Ursae Minoris b       409.0   5.01300   Gas Giant          2009  4687.32   \n",
+       "14 Andromedae b          246.0   5.23133   Gas Giant          2008   1526.4   \n",
+       "\n",
+       "                     radius_RE  orbital_radius_AU  orbital_period_yr  \\\n",
+       "#name                                                                  \n",
+       "11 Comae Berenices b    12.096               1.29           0.892539   \n",
+       "11 Ursae Minoris b      12.208               1.53           1.400000   \n",
+       "14 Andromedae b          12.88               0.83           0.508693   \n",
+       "\n",
+       "                      eccentricity detection_method  \n",
+       "#name                                                \n",
+       "11 Comae Berenices b          0.23  Radial Velocity  \n",
+       "11 Ursae Minoris b            0.08  Radial Velocity  \n",
+       "14 Andromedae b               0.00  Radial Velocity  "
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exos.head(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "5a4894bb-0075-4234-b033-4f346f100329",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "planet_type    Super Earth\n",
+       "mass_ME               7.99\n",
+       "Name: 55 Cancri e, dtype: object"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exos.loc['55 Cancri e',['planet_type','mass_ME']]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "777dc491-05b9-43ad-a0fc-982c867f5040",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "exos.to_csv('exos_5250_EUnits.txt', sep='\\t')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6361cb1c-0768-4ec5-993d-fe0a976a4d63",
+   "metadata": {},
+   "source": [
+    "#### IV. Data Inspection\n",
+    "\n",
+    "1. Call `.info()` off the exoplanets DataFrame from the previous example. Familiarize yourself with the specs that are included. Notice anything weird?\n",
+    "2. If nothing stuck out in #1, call `.describe()` on that DataFrame. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "4c0ad1ca-0327-4f04-934a-99a9e1d575bd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'pandas.core.frame.DataFrame'>\n",
+      "Index: 5248 entries, 11 Comae Berenices b to YZ Ceti d\n",
+      "Data columns (total 10 columns):\n",
+      " #   Column             Non-Null Count  Dtype  \n",
+      "---  ------             --------------  -----  \n",
+      " 0   distance           5231 non-null   float64\n",
+      " 1   star_mag           5087 non-null   float64\n",
+      " 2   planet_type        5248 non-null   object \n",
+      " 3   discovery_yr       5248 non-null   int64  \n",
+      " 4   mass_ME            5248 non-null   object \n",
+      " 5   radius_RE          5248 non-null   object \n",
+      " 6   orbital_radius_AU  4959 non-null   float64\n",
+      " 7   orbital_period_yr  5248 non-null   float64\n",
+      " 8   eccentricity       5248 non-null   float64\n",
+      " 9   detection_method   5248 non-null   object \n",
+      "dtypes: float64(5), int64(1), object(4)\n",
+      "memory usage: 451.0+ KB\n"
+     ]
+    }
+   ],
+   "source": [
+    "exos.info()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "6158060a-ccb7-4d5d-8faa-dc1040e35d56",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>distance</th>\n",
+       "      <th>star_mag</th>\n",
+       "      <th>discovery_yr</th>\n",
+       "      <th>orbital_radius_AU</th>\n",
+       "      <th>orbital_period_yr</th>\n",
+       "      <th>eccentricity</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>count</th>\n",
+       "      <td>5231.000000</td>\n",
+       "      <td>5087.000000</td>\n",
+       "      <td>5248.000000</td>\n",
+       "      <td>4959.000000</td>\n",
+       "      <td>5.248000e+03</td>\n",
+       "      <td>5248.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>mean</th>\n",
+       "      <td>2167.800038</td>\n",
+       "      <td>12.683997</td>\n",
+       "      <td>2015.732470</td>\n",
+       "      <td>6.959035</td>\n",
+       "      <td>4.793331e+02</td>\n",
+       "      <td>0.063948</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>std</th>\n",
+       "      <td>3245.981933</td>\n",
+       "      <td>3.108155</td>\n",
+       "      <td>4.308133</td>\n",
+       "      <td>138.701425</td>\n",
+       "      <td>1.680765e+04</td>\n",
+       "      <td>0.141423</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>min</th>\n",
+       "      <td>4.000000</td>\n",
+       "      <td>0.872000</td>\n",
+       "      <td>1992.000000</td>\n",
+       "      <td>0.004400</td>\n",
+       "      <td>2.737850e-04</td>\n",
+       "      <td>0.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>25%</th>\n",
+       "      <td>387.500000</td>\n",
+       "      <td>10.939000</td>\n",
+       "      <td>2014.000000</td>\n",
+       "      <td>0.053000</td>\n",
+       "      <td>1.259411e-02</td>\n",
+       "      <td>0.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>50%</th>\n",
+       "      <td>1373.000000</td>\n",
+       "      <td>13.543000</td>\n",
+       "      <td>2016.000000</td>\n",
+       "      <td>0.102700</td>\n",
+       "      <td>3.449692e-02</td>\n",
+       "      <td>0.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>75%</th>\n",
+       "      <td>2779.000000</td>\n",
+       "      <td>15.021000</td>\n",
+       "      <td>2018.000000</td>\n",
+       "      <td>0.284600</td>\n",
+       "      <td>1.440109e-01</td>\n",
+       "      <td>0.060000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>max</th>\n",
+       "      <td>27727.000000</td>\n",
+       "      <td>44.610000</td>\n",
+       "      <td>2023.000000</td>\n",
+       "      <td>7506.000000</td>\n",
+       "      <td>1.101370e+06</td>\n",
+       "      <td>0.950000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "           distance     star_mag  discovery_yr  orbital_radius_AU  \\\n",
+       "count   5231.000000  5087.000000   5248.000000        4959.000000   \n",
+       "mean    2167.800038    12.683997   2015.732470           6.959035   \n",
+       "std     3245.981933     3.108155      4.308133         138.701425   \n",
+       "min        4.000000     0.872000   1992.000000           0.004400   \n",
+       "25%      387.500000    10.939000   2014.000000           0.053000   \n",
+       "50%     1373.000000    13.543000   2016.000000           0.102700   \n",
+       "75%     2779.000000    15.021000   2018.000000           0.284600   \n",
+       "max    27727.000000    44.610000   2023.000000        7506.000000   \n",
+       "\n",
+       "       orbital_period_yr  eccentricity  \n",
+       "count       5.248000e+03   5248.000000  \n",
+       "mean        4.793331e+02      0.063948  \n",
+       "std         1.680765e+04      0.141423  \n",
+       "min         2.737850e-04      0.000000  \n",
+       "25%         1.259411e-02      0.000000  \n",
+       "50%         3.449692e-02      0.000000  \n",
+       "75%         1.440109e-01      0.060000  \n",
+       "max         1.101370e+06      0.950000  "
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exos.describe()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "66464994-ba91-47a1-af78-e8a70cba90b7",
+   "metadata": {},
+   "source": [
+    "#### V. Selection Syntax\n",
+    "1. Assign rows 25 through 35 of the exoplanets DataFrame to another DataFrame called `df2`.\n",
+    "2. Extract and print both the `'planet_type'` and `'mass_ME'` columns of `df2`.\n",
+    "3. Go back to the full exoplanets DataFrame, select rows where the `'discovery_yr'` is before 2007 and `'planet_type'` is not 'Gas Giant', and print only the `'planet_type'` column of that selection.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "32466cd0-238f-4401-aee2-b7b81b586886",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "                planet_type mass_ME\n",
+      "#name                              \n",
+      "51 Eridani b      Gas Giant     636\n",
+      "51 Pegasi b       Gas Giant  146.28\n",
+      "55 Cancri b       Gas Giant  264.13\n",
+      "55 Cancri c       Gas Giant   54.51\n",
+      "55 Cancri d       Gas Giant  1233.2\n",
+      "55 Cancri e     Super Earth    7.99\n",
+      "55 Cancri f       Gas Giant   44.84\n",
+      "61 Virginis b  Neptune-like     5.1\n",
+      "61 Virginis c  Neptune-like    18.2\n",
+      "61 Virginis d  Neptune-like    22.9\n"
+     ]
+    }
+   ],
+   "source": [
+    "df2 = exos.iloc[25:35]\n",
+    "print(df2[['planet_type','mass_ME']])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "fc730eda-906f-4b9a-bc11-97c9fa81afd1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "#name\n",
+       "55 Cancri e              Super Earth\n",
+       "GJ 436 b                Neptune-like\n",
+       "GJ 581 b                Neptune-like\n",
+       "GJ 876 d                Neptune-like\n",
+       "HD 160691 d             Neptune-like\n",
+       "HD 190360 c             Neptune-like\n",
+       "HD 4308 b               Neptune-like\n",
+       "HD 49674 b              Neptune-like\n",
+       "HD 69830 b              Neptune-like\n",
+       "HD 69830 c              Neptune-like\n",
+       "HD 69830 d              Neptune-like\n",
+       "HD 99492 b              Neptune-like\n",
+       "OGLE-2005-BLG-169L b    Neptune-like\n",
+       "OGLE-2005-BLG-390L b    Neptune-like\n",
+       "PSR B1257+12 b           Terrestrial\n",
+       "PSR B1257+12 c           Super Earth\n",
+       "PSR B1257+12 d           Super Earth\n",
+       "Name: planet_type, dtype: object"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exos.loc[(exos['discovery_yr']<2007) & \n",
+    "         (exos['planet_type'] != 'Gas Giant'),\n",
+    "         'planet_type']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "139fd2c4-bb0a-40d2-8077-5c43fa457e17",
+   "metadata": {},
+   "source": [
+    "#### VI. Bad Data Handling\n",
+    "1. The exoplanets DataFrame has space characters (`' '`) for missing values in the `'mass_ME'` & `'radius_RE'` columns. Use the .replace() method to replace `' '`  with `np.NaN` in-place. \n",
+    "    - Extra: use the `.astype()` method to convert the data types of these columns to `'float64'` in-place. Check your results with `.info()`\n",
+    "2. Use the `.mask()` method to mask the `'eccentricity'` column wherever the data are exactly 0 (these are assumed values). The \"Non-Null Count\" for that column in info() should be smaller."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "8e43890b-82fd-4ab8-8016-ba1fd1c198a1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "exos['mass_ME']=exos['mass_ME'].replace(' ', np.nan).astype('float64')\n",
+    "exos['radius_RE']=exos['radius_RE'].replace(' ', np.nan).astype('float64')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "d793ec1c-d3ae-4142-a035-05fbaa9fefc6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'pandas.core.frame.DataFrame'>\n",
+      "Index: 5248 entries, 11 Comae Berenices b to YZ Ceti d\n",
+      "Data columns (total 10 columns):\n",
+      " #   Column             Non-Null Count  Dtype  \n",
+      "---  ------             --------------  -----  \n",
+      " 0   distance           5231 non-null   float64\n",
+      " 1   star_mag           5087 non-null   float64\n",
+      " 2   planet_type        5248 non-null   object \n",
+      " 3   discovery_yr       5248 non-null   int64  \n",
+      " 4   mass_ME            5227 non-null   float64\n",
+      " 5   radius_RE          5233 non-null   float64\n",
+      " 6   orbital_radius_AU  4959 non-null   float64\n",
+      " 7   orbital_period_yr  5248 non-null   float64\n",
+      " 8   eccentricity       5248 non-null   float64\n",
+      " 9   detection_method   5248 non-null   object \n",
+      "dtypes: float64(7), int64(1), object(2)\n",
+      "memory usage: 451.0+ KB\n"
+     ]
+    }
+   ],
+   "source": [
+    "exos.info()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "634df10b-b803-41c4-8834-27fa9bd57b7d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "exos['eccentricity']=exos['eccentricity'].mask(exos['eccentricity']==0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "2dfd185e-76db-43ef-ab2b-66b8e9eeaa7f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'pandas.core.frame.DataFrame'>\n",
+      "Index: 5248 entries, 11 Comae Berenices b to YZ Ceti d\n",
+      "Data columns (total 10 columns):\n",
+      " #   Column             Non-Null Count  Dtype  \n",
+      "---  ------             --------------  -----  \n",
+      " 0   distance           5231 non-null   float64\n",
+      " 1   star_mag           5087 non-null   float64\n",
+      " 2   planet_type        5248 non-null   object \n",
+      " 3   discovery_yr       5248 non-null   int64  \n",
+      " 4   mass_ME            5227 non-null   float64\n",
+      " 5   radius_RE          5233 non-null   float64\n",
+      " 6   orbital_radius_AU  4959 non-null   float64\n",
+      " 7   orbital_period_yr  5248 non-null   float64\n",
+      " 8   eccentricity       1674 non-null   float64\n",
+      " 9   detection_method   5248 non-null   object \n",
+      "dtypes: float64(7), int64(1), object(2)\n",
+      "memory usage: 451.0+ KB\n"
+     ]
+    }
+   ],
+   "source": [
+    "exos.info()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0daf5cae-be47-4a15-a309-77acdd8ce56c",
+   "metadata": {},
+   "source": [
+    "#### VII. Basic Operations\n",
+    "1. Calculate the median of all numeric columns in the exoplanets DataFrame.\n",
+    "2. Divide the `'mass_ME'` column by 317.8 & assign the result to `'mass_MJ'` (planet mass in Jupiter masses)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "799510ae-1b49-4d8c-adc0-3deb0342c645",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "distance             1373.000000\n",
+      "star_mag               13.543000\n",
+      "discovery_yr         2016.000000\n",
+      "mass_ME                 8.470000\n",
+      "radius_RE               2.732800\n",
+      "orbital_radius_AU       0.102700\n",
+      "orbital_period_yr       0.034497\n",
+      "eccentricity            0.140000\n",
+      "dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(exos.median(numeric_only=True))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "d9cae79f-4cd4-416e-b5d3-0912dd696c92",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "#name\n",
+       "11 Comae Berenices b    19.412209\n",
+       "11 Ursae Minoris b      14.749276\n",
+       "14 Andromedae b          4.803021\n",
+       "14 Herculis b            8.143927\n",
+       "16 Cygni B b             1.781120\n",
+       "Name: mass_MJ, dtype: float64"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exos['mass_MJ']=exos['mass_ME']/317.8\n",
+    "exos['mass_MJ'].head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8b036f2c-bcf3-4e60-ac48-f574b481d8fc",
+   "metadata": {},
+   "source": [
+    "#### VIII. Reorganizing Data\n",
+    "Let\n",
+    "`df1 = pd.DataFrame(np.random.randint(0,high=9,size=(4,3)), columns=['B','a','C'], index=['i','j','h','k'])` and\n",
+    "`df2 = pd.DataFrame(np.identity(3), columns=['B','C','D'], index=['k','l','m'])`.\n",
+    "1. Sort `df1` by index, by index again with `axis=1`, and then by the values of column `'C'`.\n",
+    "2. Concatenate `df1` and `df1`. What happens where the indices aren’t shared?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "cfe85001-b2da-44ab-8d1c-10dbd36641a9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df1 = pd.DataFrame(np.random.randint(0,high=9,size=(4,3)), columns=['B','a','C'], index=['i','j','h','k'])\n",
+    "df2 = pd.DataFrame(np.identity(3), columns=['B','C','D'], index=['k','l','m'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "42dbd395-dc9e-42e7-ab16-1b5850f64693",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>B</th>\n",
+       "      <th>a</th>\n",
+       "      <th>C</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>h</th>\n",
+       "      <td>4</td>\n",
+       "      <td>2</td>\n",
+       "      <td>3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>i</th>\n",
+       "      <td>5</td>\n",
+       "      <td>1</td>\n",
+       "      <td>6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>j</th>\n",
+       "      <td>3</td>\n",
+       "      <td>7</td>\n",
+       "      <td>7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>k</th>\n",
+       "      <td>2</td>\n",
+       "      <td>6</td>\n",
+       "      <td>6</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   B  a  C\n",
+       "h  4  2  3\n",
+       "i  5  1  6\n",
+       "j  3  7  7\n",
+       "k  2  6  6"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df1.sort_index()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "8d7a1e92-4386-48f3-b430-99837351ffb5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>B</th>\n",
+       "      <th>a</th>\n",
+       "      <th>C</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>h</th>\n",
+       "      <td>4</td>\n",
+       "      <td>2</td>\n",
+       "      <td>3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>i</th>\n",
+       "      <td>5</td>\n",
+       "      <td>1</td>\n",
+       "      <td>6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>k</th>\n",
+       "      <td>2</td>\n",
+       "      <td>6</td>\n",
+       "      <td>6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>j</th>\n",
+       "      <td>3</td>\n",
+       "      <td>7</td>\n",
+       "      <td>7</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   B  a  C\n",
+       "h  4  2  3\n",
+       "i  5  1  6\n",
+       "k  2  6  6\n",
+       "j  3  7  7"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df1.sort_values(by='C')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "d7b8b418-ecfb-439f-9f6f-5ee6caf9fddb",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>B</th>\n",
+       "      <th>a</th>\n",
+       "      <th>C</th>\n",
+       "      <th>D</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>i</th>\n",
+       "      <td>5.0</td>\n",
+       "      <td>5.0</td>\n",
+       "      <td>3.0</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>j</th>\n",
+       "      <td>5.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>h</th>\n",
+       "      <td>7.0</td>\n",
+       "      <td>3.0</td>\n",
+       "      <td>7.0</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>k</th>\n",
+       "      <td>4.0</td>\n",
+       "      <td>7.0</td>\n",
+       "      <td>6.0</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>k</th>\n",
+       "      <td>1.0</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>l</th>\n",
+       "      <td>0.0</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>0.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>m</th>\n",
+       "      <td>0.0</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>1.0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     B    a    C    D\n",
+       "i  5.0  5.0  3.0  NaN\n",
+       "j  5.0  0.0  1.0  NaN\n",
+       "h  7.0  3.0  7.0  NaN\n",
+       "k  4.0  7.0  6.0  NaN\n",
+       "k  1.0  NaN  0.0  0.0\n",
+       "l  0.0  NaN  1.0  0.0\n",
+       "m  0.0  NaN  0.0  1.0"
+      ]
+     },
+     "execution_count": 60,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pd.concat([df1,df2], axis=0)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "73793619-e0c5-4849-b008-3861547ac57d",
+   "metadata": {},
+   "source": [
+    "### Day 2\n",
+    "#### X. GroupBy Objects\n",
+    "1. Group the exoplanets DataFrame by `'planet_type'` and assign the result to `grouped_pt`.\n",
+    "2. Print the mean `'mass_ME'` for each group in `grouped_pt` (this is 1 command).\n",
+    "3. **Challenge**\\*: call the `.filter()` method on `grouped_pt` to remove any `'planet_type'` group with 5 or fewer members (\\*I don’t expect most people to get this in the time available)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "f157adc8-79b4-46d9-ba96-eb1e0d31292b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "grouped_pt=exos.groupby('planet_type')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "ac14d677-b1fe-4f55-9e57-0f0a83d5badd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>distance</th>\n",
+       "      <th>star_mag</th>\n",
+       "      <th>planet_type</th>\n",
+       "      <th>discovery_yr</th>\n",
+       "      <th>mass_ME</th>\n",
+       "      <th>radius_RE</th>\n",
+       "      <th>orbital_radius_AU</th>\n",
+       "      <th>orbital_period_yr</th>\n",
+       "      <th>eccentricity</th>\n",
+       "      <th>detection_method</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>#name</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>11 Comae Berenices b</th>\n",
+       "      <td>304.0</td>\n",
+       "      <td>4.72307</td>\n",
+       "      <td>Gas Giant</td>\n",
+       "      <td>2007</td>\n",
+       "      <td>6169.20</td>\n",
+       "      <td>12.0960</td>\n",
+       "      <td>1.290000</td>\n",
+       "      <td>0.892539</td>\n",
+       "      <td>0.23</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>11 Ursae Minoris b</th>\n",
+       "      <td>409.0</td>\n",
+       "      <td>5.01300</td>\n",
+       "      <td>Gas Giant</td>\n",
+       "      <td>2009</td>\n",
+       "      <td>4687.32</td>\n",
+       "      <td>12.2080</td>\n",
+       "      <td>1.530000</td>\n",
+       "      <td>1.400000</td>\n",
+       "      <td>0.08</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>14 Andromedae b</th>\n",
+       "      <td>246.0</td>\n",
+       "      <td>5.23133</td>\n",
+       "      <td>Gas Giant</td>\n",
+       "      <td>2008</td>\n",
+       "      <td>1526.40</td>\n",
+       "      <td>12.8800</td>\n",
+       "      <td>0.830000</td>\n",
+       "      <td>0.508693</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>14 Herculis b</th>\n",
+       "      <td>58.0</td>\n",
+       "      <td>6.61935</td>\n",
+       "      <td>Gas Giant</td>\n",
+       "      <td>2002</td>\n",
+       "      <td>2588.14</td>\n",
+       "      <td>12.5440</td>\n",
+       "      <td>2.773069</td>\n",
+       "      <td>4.800000</td>\n",
+       "      <td>0.37</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>16 Cygni B b</th>\n",
+       "      <td>69.0</td>\n",
+       "      <td>6.21500</td>\n",
+       "      <td>Gas Giant</td>\n",
+       "      <td>1996</td>\n",
+       "      <td>566.04</td>\n",
+       "      <td>13.4400</td>\n",
+       "      <td>1.660000</td>\n",
+       "      <td>2.200000</td>\n",
+       "      <td>0.68</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>55 Cancri e</th>\n",
+       "      <td>41.0</td>\n",
+       "      <td>5.95084</td>\n",
+       "      <td>Super Earth</td>\n",
+       "      <td>2004</td>\n",
+       "      <td>7.99</td>\n",
+       "      <td>1.8750</td>\n",
+       "      <td>0.015440</td>\n",
+       "      <td>0.001916</td>\n",
+       "      <td>0.05</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>61 Virginis b</th>\n",
+       "      <td>28.0</td>\n",
+       "      <td>4.69550</td>\n",
+       "      <td>Neptune-like</td>\n",
+       "      <td>2009</td>\n",
+       "      <td>5.10</td>\n",
+       "      <td>2.1100</td>\n",
+       "      <td>0.050201</td>\n",
+       "      <td>0.011499</td>\n",
+       "      <td>0.12</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>61 Virginis c</th>\n",
+       "      <td>28.0</td>\n",
+       "      <td>4.69550</td>\n",
+       "      <td>Neptune-like</td>\n",
+       "      <td>2009</td>\n",
+       "      <td>18.20</td>\n",
+       "      <td>4.4576</td>\n",
+       "      <td>0.217500</td>\n",
+       "      <td>0.104038</td>\n",
+       "      <td>0.14</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>61 Virginis d</th>\n",
+       "      <td>28.0</td>\n",
+       "      <td>4.69550</td>\n",
+       "      <td>Neptune-like</td>\n",
+       "      <td>2009</td>\n",
+       "      <td>22.90</td>\n",
+       "      <td>5.1072</td>\n",
+       "      <td>0.476000</td>\n",
+       "      <td>0.336756</td>\n",
+       "      <td>0.35</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>AU Microscopii b</th>\n",
+       "      <td>32.0</td>\n",
+       "      <td>8.81000</td>\n",
+       "      <td>Neptune-like</td>\n",
+       "      <td>2020</td>\n",
+       "      <td>20.12</td>\n",
+       "      <td>4.0656</td>\n",
+       "      <td>0.064500</td>\n",
+       "      <td>0.023272</td>\n",
+       "      <td>0.19</td>\n",
+       "      <td>Transit</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>AU Microscopii c</th>\n",
+       "      <td>32.0</td>\n",
+       "      <td>8.81000</td>\n",
+       "      <td>Neptune-like</td>\n",
+       "      <td>2021</td>\n",
+       "      <td>9.60</td>\n",
+       "      <td>3.2368</td>\n",
+       "      <td>0.110100</td>\n",
+       "      <td>0.051745</td>\n",
+       "      <td>0.04</td>\n",
+       "      <td>Transit</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>CD Ceti b</th>\n",
+       "      <td>28.0</td>\n",
+       "      <td>13.95000</td>\n",
+       "      <td>Super Earth</td>\n",
+       "      <td>2020</td>\n",
+       "      <td>3.95</td>\n",
+       "      <td>1.8200</td>\n",
+       "      <td>0.018500</td>\n",
+       "      <td>0.006297</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>CoRoT-7 b</th>\n",
+       "      <td>522.0</td>\n",
+       "      <td>11.72800</td>\n",
+       "      <td>Super Earth</td>\n",
+       "      <td>2009</td>\n",
+       "      <td>4.08</td>\n",
+       "      <td>1.6810</td>\n",
+       "      <td>0.017016</td>\n",
+       "      <td>0.002464</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Transit</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>DMPP-1 d</th>\n",
+       "      <td>204.0</td>\n",
+       "      <td>7.98000</td>\n",
+       "      <td>Super Earth</td>\n",
+       "      <td>2019</td>\n",
+       "      <td>3.35</td>\n",
+       "      <td>1.6500</td>\n",
+       "      <td>0.042200</td>\n",
+       "      <td>0.007940</td>\n",
+       "      <td>0.07</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>DMPP-1 e</th>\n",
+       "      <td>204.0</td>\n",
+       "      <td>7.98000</td>\n",
+       "      <td>Super Earth</td>\n",
+       "      <td>2019</td>\n",
+       "      <td>4.13</td>\n",
+       "      <td>1.8600</td>\n",
+       "      <td>0.065100</td>\n",
+       "      <td>0.015058</td>\n",
+       "      <td>0.07</td>\n",
+       "      <td>Radial Velocity</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>EPIC 201497682 b</th>\n",
+       "      <td>825.0</td>\n",
+       "      <td>13.94800</td>\n",
+       "      <td>Terrestrial</td>\n",
+       "      <td>2019</td>\n",
+       "      <td>0.26</td>\n",
+       "      <td>0.6920</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.005749</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Transit</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>EPIC 201757695.02</th>\n",
+       "      <td>1884.0</td>\n",
+       "      <td>14.97400</td>\n",
+       "      <td>Terrestrial</td>\n",
+       "      <td>2020</td>\n",
+       "      <td>0.69</td>\n",
+       "      <td>0.9080</td>\n",
+       "      <td>0.029600</td>\n",
+       "      <td>0.005476</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Transit</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>EPIC 201833600 c</th>\n",
+       "      <td>840.0</td>\n",
+       "      <td>14.70500</td>\n",
+       "      <td>Terrestrial</td>\n",
+       "      <td>2019</td>\n",
+       "      <td>0.97</td>\n",
+       "      <td>1.0000</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.010951</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Transit</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>EPIC 206215704 b</th>\n",
+       "      <td>358.0</td>\n",
+       "      <td>17.83000</td>\n",
+       "      <td>Terrestrial</td>\n",
+       "      <td>2019</td>\n",
+       "      <td>0.97</td>\n",
+       "      <td>1.0000</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.006297</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Transit</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>EPIC 206317286 b</th>\n",
+       "      <td>1025.0</td>\n",
+       "      <td>14.00500</td>\n",
+       "      <td>Terrestrial</td>\n",
+       "      <td>2019</td>\n",
+       "      <td>0.84</td>\n",
+       "      <td>0.9600</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.004381</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Transit</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>KIC 10001893 b</th>\n",
+       "      <td>5457.0</td>\n",
+       "      <td>15.82900</td>\n",
+       "      <td>Unknown</td>\n",
+       "      <td>2014</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.000548</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Orbital Brightness Modulation</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>KIC 10001893 c</th>\n",
+       "      <td>5457.0</td>\n",
+       "      <td>15.82900</td>\n",
+       "      <td>Unknown</td>\n",
+       "      <td>2014</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.000821</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Orbital Brightness Modulation</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>KIC 10001893 d</th>\n",
+       "      <td>5457.0</td>\n",
+       "      <td>15.82900</td>\n",
+       "      <td>Unknown</td>\n",
+       "      <td>2014</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.002190</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>Orbital Brightness Modulation</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                      distance  star_mag   planet_type  discovery_yr  mass_ME  \\\n",
+       "#name                                                                           \n",
+       "11 Comae Berenices b     304.0   4.72307     Gas Giant          2007  6169.20   \n",
+       "11 Ursae Minoris b       409.0   5.01300     Gas Giant          2009  4687.32   \n",
+       "14 Andromedae b          246.0   5.23133     Gas Giant          2008  1526.40   \n",
+       "14 Herculis b             58.0   6.61935     Gas Giant          2002  2588.14   \n",
+       "16 Cygni B b              69.0   6.21500     Gas Giant          1996   566.04   \n",
+       "55 Cancri e               41.0   5.95084   Super Earth          2004     7.99   \n",
+       "61 Virginis b             28.0   4.69550  Neptune-like          2009     5.10   \n",
+       "61 Virginis c             28.0   4.69550  Neptune-like          2009    18.20   \n",
+       "61 Virginis d             28.0   4.69550  Neptune-like          2009    22.90   \n",
+       "AU Microscopii b          32.0   8.81000  Neptune-like          2020    20.12   \n",
+       "AU Microscopii c          32.0   8.81000  Neptune-like          2021     9.60   \n",
+       "CD Ceti b                 28.0  13.95000   Super Earth          2020     3.95   \n",
+       "CoRoT-7 b                522.0  11.72800   Super Earth          2009     4.08   \n",
+       "DMPP-1 d                 204.0   7.98000   Super Earth          2019     3.35   \n",
+       "DMPP-1 e                 204.0   7.98000   Super Earth          2019     4.13   \n",
+       "EPIC 201497682 b         825.0  13.94800   Terrestrial          2019     0.26   \n",
+       "EPIC 201757695.02       1884.0  14.97400   Terrestrial          2020     0.69   \n",
+       "EPIC 201833600 c         840.0  14.70500   Terrestrial          2019     0.97   \n",
+       "EPIC 206215704 b         358.0  17.83000   Terrestrial          2019     0.97   \n",
+       "EPIC 206317286 b        1025.0  14.00500   Terrestrial          2019     0.84   \n",
+       "KIC 10001893 b          5457.0  15.82900       Unknown          2014      NaN   \n",
+       "KIC 10001893 c          5457.0  15.82900       Unknown          2014      NaN   \n",
+       "KIC 10001893 d          5457.0  15.82900       Unknown          2014      NaN   \n",
+       "\n",
+       "                      radius_RE  orbital_radius_AU  orbital_period_yr  \\\n",
+       "#name                                                                   \n",
+       "11 Comae Berenices b    12.0960           1.290000           0.892539   \n",
+       "11 Ursae Minoris b      12.2080           1.530000           1.400000   \n",
+       "14 Andromedae b         12.8800           0.830000           0.508693   \n",
+       "14 Herculis b           12.5440           2.773069           4.800000   \n",
+       "16 Cygni B b            13.4400           1.660000           2.200000   \n",
+       "55 Cancri e              1.8750           0.015440           0.001916   \n",
+       "61 Virginis b            2.1100           0.050201           0.011499   \n",
+       "61 Virginis c            4.4576           0.217500           0.104038   \n",
+       "61 Virginis d            5.1072           0.476000           0.336756   \n",
+       "AU Microscopii b         4.0656           0.064500           0.023272   \n",
+       "AU Microscopii c         3.2368           0.110100           0.051745   \n",
+       "CD Ceti b                1.8200           0.018500           0.006297   \n",
+       "CoRoT-7 b                1.6810           0.017016           0.002464   \n",
+       "DMPP-1 d                 1.6500           0.042200           0.007940   \n",
+       "DMPP-1 e                 1.8600           0.065100           0.015058   \n",
+       "EPIC 201497682 b         0.6920                NaN           0.005749   \n",
+       "EPIC 201757695.02        0.9080           0.029600           0.005476   \n",
+       "EPIC 201833600 c         1.0000                NaN           0.010951   \n",
+       "EPIC 206215704 b         1.0000                NaN           0.006297   \n",
+       "EPIC 206317286 b         0.9600                NaN           0.004381   \n",
+       "KIC 10001893 b              NaN                NaN           0.000548   \n",
+       "KIC 10001893 c              NaN                NaN           0.000821   \n",
+       "KIC 10001893 d              NaN                NaN           0.002190   \n",
+       "\n",
+       "                      eccentricity               detection_method  \n",
+       "#name                                                              \n",
+       "11 Comae Berenices b          0.23                Radial Velocity  \n",
+       "11 Ursae Minoris b            0.08                Radial Velocity  \n",
+       "14 Andromedae b               0.00                Radial Velocity  \n",
+       "14 Herculis b                 0.37                Radial Velocity  \n",
+       "16 Cygni B b                  0.68                Radial Velocity  \n",
+       "55 Cancri e                   0.05                Radial Velocity  \n",
+       "61 Virginis b                 0.12                Radial Velocity  \n",
+       "61 Virginis c                 0.14                Radial Velocity  \n",
+       "61 Virginis d                 0.35                Radial Velocity  \n",
+       "AU Microscopii b              0.19                        Transit  \n",
+       "AU Microscopii c              0.04                        Transit  \n",
+       "CD Ceti b                     0.00                Radial Velocity  \n",
+       "CoRoT-7 b                     0.00                        Transit  \n",
+       "DMPP-1 d                      0.07                Radial Velocity  \n",
+       "DMPP-1 e                      0.07                Radial Velocity  \n",
+       "EPIC 201497682 b              0.00                        Transit  \n",
+       "EPIC 201757695.02             0.00                        Transit  \n",
+       "EPIC 201833600 c              0.00                        Transit  \n",
+       "EPIC 206215704 b              0.00                        Transit  \n",
+       "EPIC 206317286 b              0.00                        Transit  \n",
+       "KIC 10001893 b                0.00  Orbital Brightness Modulation  \n",
+       "KIC 10001893 c                0.00  Orbital Brightness Modulation  \n",
+       "KIC 10001893 d                0.00  Orbital Brightness Modulation  "
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "grouped_pt.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "9f42cec2-fca3-4120-87ff-fe852cd7b530",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "planet_type\n",
+       "Gas Giant       13.1040\n",
+       "Neptune-like     2.8112\n",
+       "Super Earth      1.5500\n",
+       "Terrestrial      0.8600\n",
+       "Unknown             NaN\n",
+       "Name: radius_RE, dtype: float64"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "grouped_pt['radius_RE'].median()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "id": "06fd6f9b-1737-4ca5-8743-0d61ac3f0605",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "exos2=grouped_pt.filter(lambda g: len(g)>5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "id": "ddcc51ee-70cc-4947-9d8d-7ce95e9a5611",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "planet_type\n",
+       "Neptune-like    1825\n",
+       "Gas Giant       1630\n",
+       "Super Earth     1595\n",
+       "Terrestrial      195\n",
+       "Unknown            3\n",
+       "Name: count, dtype: int64"
+      ]
+     },
+     "execution_count": 71,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exos['planet_type'].value_counts()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "19f8681d-e7c4-4948-a813-70e8fe1291a5",
+   "metadata": {},
+   "source": [
+    "#### XI. Complex functions: `.agg()`\n",
+    "Call the `.agg()` function on `grouped_pt` (the exoplanets DataFrame grouped by `'planet_type'`) to calculate\n",
+    "- the `mean` of `'mass_ME'`, \n",
+    "- the `median` of `'radius_RE'`, and\n",
+    "- the 0.5 `quantile` (50th percentile, default for the quantile function) of `'orbital_period_yr'`\n",
+    "in 1 line of code. Consult [this link to the documentation](https://pandas.pydata.org/docs/user_guide/basics.html#aggregating-with-multiple-functions) (Hint: `.agg()` doesn’t care if the input DataFrame is grouped)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "d7fb8c07-c2f9-4e89-b306-5cae41caa3dc",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "gpo = grouped_pt.agg({'mass_ME':['mean', 'std'], 'radius_RE':'median', 'orbital_period_yr':'quantile'})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "b6ce48d4-d552-4743-9d76-1eb1ee3aea96",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead tr th {\n",
+       "        text-align: left;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead tr:last-of-type th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr>\n",
+       "      <th></th>\n",
+       "      <th colspan=\"2\" halign=\"left\">mass_ME</th>\n",
+       "      <th>radius_RE</th>\n",
+       "      <th>orbital_period_yr</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th></th>\n",
+       "      <th>mean</th>\n",
+       "      <th>std</th>\n",
+       "      <th>median</th>\n",
+       "      <th>quantile</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>planet_type</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Gas Giant</th>\n",
+       "      <td>1468.471433</td>\n",
+       "      <td>6664.964763</td>\n",
+       "      <td>13.1040</td>\n",
+       "      <td>0.391239</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Neptune-like</th>\n",
+       "      <td>15.289496</td>\n",
+       "      <td>54.296279</td>\n",
+       "      <td>2.8112</td>\n",
+       "      <td>0.045448</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Super Earth</th>\n",
+       "      <td>5.775166</td>\n",
+       "      <td>27.183984</td>\n",
+       "      <td>1.5500</td>\n",
+       "      <td>0.019713</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Terrestrial</th>\n",
+       "      <td>1.608564</td>\n",
+       "      <td>11.395427</td>\n",
+       "      <td>0.8600</td>\n",
+       "      <td>0.010951</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Unknown</th>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.000821</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                  mass_ME              radius_RE orbital_period_yr\n",
+       "                     mean          std    median          quantile\n",
+       "planet_type                                                       \n",
+       "Gas Giant     1468.471433  6664.964763   13.1040          0.391239\n",
+       "Neptune-like    15.289496    54.296279    2.8112          0.045448\n",
+       "Super Earth      5.775166    27.183984    1.5500          0.019713\n",
+       "Terrestrial      1.608564    11.395427    0.8600          0.010951\n",
+       "Unknown               NaN          NaN       NaN          0.000821"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "gpo"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7b0284e2-4bf9-4aeb-a4a8-708890730a07",
+   "metadata": {},
+   "source": [
+    "#### XII. Built-In Plotting Methods\n",
+    "Consulting [the docs](https://pandas.pydata.org/docs/user_guide/visualization.html) for how to invoke each kind of plot,\n",
+    "1. Make a KDE plot of the `y='radius_RE'` column of the exoplanets DataFrame. Set the x-limits to 0 and 30."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "id": "85dbb681-16dc-4019-a7bc-4a4df95ef7df",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<Axes: ylabel='Density'>"
+      ]
+     },
+     "execution_count": 81,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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OldPzRHtlgSFQoHExERkZmY6HM/MzERKSkqLr0lOTm7WfseOHUhKSoKXl9c129jO6cx1iYiIiFoi6tBeRkYGpk2bhqSkJCQnJ+ODDz5AYWGhfV2o+fPno7i4GOvWrQNgvUPv3XffRUZGBp544gkcOHAAq1atst+NBwB//vOfccstt+D111/HxIkT8fnnn+Obb77Bvn372nxdIiIiorYQNUhNnToV5eXlWLRoEbRaLRISErBt2zbExsYCALRaLQoLC+3t4+PjsW3bNjz99NN47733EBERgXfeece+hhQApKSkYMOGDXj++efxwgsvoE+fPti4caN9Dam2XJeIiIioLURf2dxTcR0pIiIiz+Pq399ctpWIiIjISQxSRERERE5ikCIiIiJyEoMUERERkZMYpIiIiIicxCBFRERE5CQGKSIiIiInMUgREREROYlBioiIiMhJom4R48lsC8K7ehdpIiIi6jy239uu2tiFQcpJ5eXlAIDo6GiRKyEiIqL2Ki8vh1qt7vB5GKScFBwcDAAoLCx0yX+Inkyv1yM6OhpFRUXct7AD+D66Dt9L1+F76Rp8H12nqqoKMTEx9t/jHcUg5SSp1Dq9TK1W80PtIgEBAXwvXYDvo+vwvXQdvpeuwffRdWy/xzt8HpechYiIiKgHYpAiIiIichKDlJOUSiVeeuklKJVKsUvxeHwvXYPvo+vwvXQdvpeuwffRdVz9XkoEV93/R0RERNTDsEeKiIiIyEkMUkREREROYpAiIiIichKDFBEREZGTGKSctGzZMsTHx0OlUiExMRF79+4VuySPsnDhQkgkEoeHRqMRuyyPsGfPHtx7772IiIiARCLBf//7X4fnBUHAwoULERERAW9vb9x222346aefxCnWzV3vvXzssceafU7Hjh0rTrFubPHixRg1ahT8/f3Ru3dvTJo0CT///LNDG34u26Yt7yU/l9e3fPlyDBs2zL6AaXJyMr766iv78678PDJIOWHjxo2YO3cuFixYgOzsbKSmpiI9PR2FhYVil+ZRhgwZAq1Wa38cP35c7JI8Qm1tLYYPH4533323xeffeOMNLFmyBO+++y5++OEHaDQa3Hnnnaiuru7iSt3f9d5LALjrrrscPqfbtm3rwgo9w+7du/GHP/wBBw8eRGZmJkwmE9LS0lBbW2tvw89l27TlvQT4ubyeqKgovPbaazhy5AiOHDmCO+64AxMnTrSHJZd+HgVqt9GjRwuzZ892ODZw4EDh2WefFakiz/PSSy8Jw4cPF7sMjwdA2LJli/17i8UiaDQa4bXXXrMfa2hoENRqtbBixQoRKvQcV7+XgiAIM2bMECZOnChKPZ6spKREACDs3r1bEAR+Ljvi6vdSEPi5dFZQUJDw4YcfuvzzyB6pdjIajcjKykJaWprD8bS0NOzfv1+kqjzTmTNnEBERgfj4eDz00EPIy8sTuySPl5+fD51O5/D5VCqVuPXWW/n5dNKuXbvQu3dv9O/fH0888QRKSkrELsntVVVVAbi8uTs/l867+r204eey7cxmMzZs2IDa2lokJye7/PPIINVOZWVlMJvNCAsLczgeFhYGnU4nUlWeZ8yYMVi3bh22b9+OlStXQqfTISUlBeXl5WKX5tFsn0F+Pl0jPT0dn3zyCb777ju89dZb+OGHH3DHHXfAYDCIXZrbEgQBGRkZuPnmm5GQkACAn0tntfReAvxcttXx48fh5+cHpVKJ2bNnY8uWLRg8eLDLP49yl1TbA0kkEofvBUFodoxal56ebv966NChSE5ORp8+fbB27VpkZGSIWFn3wM+na0ydOtX+dUJCApKSkhAbG4utW7fi/vvvF7Ey9/XHP/4Rx44dw759+5o9x89l+7T2XvJz2TYDBgxATk4OKisrsWnTJsyYMQO7d++2P++qzyN7pNopJCQEMpmsWWotKSlplm6p7Xx9fTF06FCcOXNG7FI8mu3OR34+O0d4eDhiY2P5OW3Fn/70J3zxxRfYuXMnoqKi7Mf5uWy/1t7LlvBz2TKFQoG+ffsiKSkJixcvxvDhw/H222+7/PPIINVOCoUCiYmJyMzMdDiemZmJlJQUkaryfAaDAbm5uQgPDxe7FI8WHx8PjUbj8Pk0Go3YvXs3P58uUF5ejqKiIn5OryIIAv74xz9i8+bN+O677xAfH+/wPD+XbXe997Il/Fy2jSAIMBgMrv88umAifI+zYcMGwcvLS1i1apVw8uRJYe7cuYKvr69w7tw5sUvzGH/5y1+EXbt2CXl5ecLBgweFe+65R/D39+d72AbV1dVCdna2kJ2dLQAQlixZImRnZwsFBQWCIAjCa6+9JqjVamHz5s3C8ePHhYcfflgIDw8X9Hq9yJW7n2u9l9XV1cJf/vIXYf/+/UJ+fr6wc+dOITk5WYiMjOR7eZXf//73glqtFnbt2iVotVr7o66uzt6Gn8u2ud57yc9l28yfP1/Ys2ePkJ+fLxw7dkx47rnnBKlUKuzYsUMQBNd+HhmknPTee+8JsbGxgkKhEG688UaHW1Pp+qZOnSqEh4cLXl5eQkREhHD//fcLP/30k9hleYSdO3cKAJo9ZsyYIQiC9Vbzl156SdBoNIJSqRRuueUW4fjx4+IW7aau9V7W1dUJaWlpQmhoqODl5SXExMQIM2bMEAoLC8Uu2+209B4CED766CN7G34u2+Z67yU/l23z+OOP239Hh4aGCr/61a/sIUoQXPt5lAiCIDjRQ0ZERETU43GOFBEREZGTGKSIiIiInMQgRUREROQkBikiIiIiJzFIERERETmJQYqIiIjISQxSRERERE5ikCIiIiJyEoMUERERkZMYpIiIiIicxCBFRERE5CQGKSIiIiIn/X+kHf9Rx4y8HQAAAABJRU5ErkJggg==",
+      "text/plain": [
+       "<Figure size 640x480 with 1 Axes>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "exos.plot(kind='kde',y='radius_RE',xlim=[0,30])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d1280780-36db-4e82-ae60-588fd5bb0915",
+   "metadata": {},
+   "source": [
+    "#### XIII. Time Series\n",
+    "\n",
+    "1. Initialize a datetime index with 10 timestamps, 1 second apart, ending on midnight 1/1/2025. Use the `date_range()` function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "eae1313c-d344-4998-a190-00b927396ae2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "DatetimeIndex(['2024-12-31 23:59:51', '2024-12-31 23:59:52',\n",
+      "               '2024-12-31 23:59:53', '2024-12-31 23:59:54',\n",
+      "               '2024-12-31 23:59:55', '2024-12-31 23:59:56',\n",
+      "               '2024-12-31 23:59:57', '2024-12-31 23:59:58',\n",
+      "               '2024-12-31 23:59:59', '2025-01-01 00:00:00'],\n",
+      "              dtype='datetime64[ns]', freq='S')\n"
+     ]
+    }
+   ],
+   "source": [
+    "ts = pd.date_range(end='01/01/2025', freq='1s', periods=10)\n",
+    "print(ts)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d906ac30-5488-44bf-901b-545f019922f0",
+   "metadata": {},
+   "source": [
+    "#### XIV. The Categorical Data-type\n",
+    "Print the memory usage of the exoplanets DataFrame with `deep=True`. Then convert the `'planet_type'` and `'detection_method'` columns to `'category'` type and print the memory usage again. Each column should be <2% of its original size in memory."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "61c30f91-70ba-41f8-8070-d0299bd6cddc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Index                449522\n",
+       "distance              41984\n",
+       "star_mag              41984\n",
+       "planet_type          313433\n",
+       "discovery_yr          41984\n",
+       "mass_ME               41984\n",
+       "radius_RE             41984\n",
+       "orbital_radius_AU     41984\n",
+       "orbital_period_yr     41984\n",
+       "eccentricity          41984\n",
+       "detection_method     306482\n",
+       "dtype: int64"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exos.memory_usage(deep=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "2c80b196-0244-44e8-b67c-f258f3b3ffc4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "exos['planet_type'] = exos['planet_type'].astype('category')\n",
+    "exos['detection_method'] = exos['detection_method'].astype('category')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "c3fe6855-4ee7-4db5-bc20-9802bdf652f2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Index                449522\n",
+       "distance              41984\n",
+       "star_mag              41984\n",
+       "planet_type            5715\n",
+       "discovery_yr          41984\n",
+       "mass_ME               41984\n",
+       "radius_RE             41984\n",
+       "orbital_radius_AU     41984\n",
+       "orbital_period_yr     41984\n",
+       "eccentricity          41984\n",
+       "detection_method       6293\n",
+       "dtype: int64"
+      ]
+     },
+     "execution_count": 38,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exos.memory_usage(deep=True)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d1f90545-5623-44e9-9efd-8c2ab89247ab",
+   "metadata": {},
+   "source": [
+    "#### XV. Numba demo\n",
+    "The example below doesn’t make much physical sense, but run it and compare the outputs of the 2 `timeit` lines. Try increasing or decreasing the number of samples or vary the number of numeric columns.\n",
+    "\n",
+    "If you're on LUNARC and started Jupyter On Demand with the default number of tasks per node, you may have to restart it with 4 tasks per node given the number of threads in the example below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "88d6464c-aa98-48ca-bfb4-c9c89ee8e6dc",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numba"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "da2ae987-5596-42b5-86f2-9b8fe772925f",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ValueError",
+     "evalue": "The number of threads must be between 1 and 1",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[17], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m numba\u001b[38;5;241m.\u001b[39mset_num_threads(\u001b[38;5;241m4\u001b[39m)\n\u001b[1;32m      2\u001b[0m stuff \u001b[38;5;241m=\u001b[39m  df\u001b[38;5;241m.\u001b[39miloc[:,\u001b[38;5;241m4\u001b[39m:\u001b[38;5;241m9\u001b[39m]\u001b[38;5;241m.\u001b[39msample(n\u001b[38;5;241m=\u001b[39m\u001b[38;5;241m250000\u001b[39m, replace\u001b[38;5;241m=\u001b[39m\u001b[38;5;28;01mTrue\u001b[39;00m, ignore_index\u001b[38;5;241m=\u001b[39m\u001b[38;5;28;01mTrue\u001b[39;00m)\n\u001b[1;32m      3\u001b[0m get_ipython()\u001b[38;5;241m.\u001b[39mrun_line_magic(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mtimeit\u001b[39m\u001b[38;5;124m'\u001b[39m, \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mstuff.rolling(500).mean()\u001b[39m\u001b[38;5;124m'\u001b[39m)\n",
+      "File \u001b[0;32m/sw/easybuild_milan/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/numba/np/ufunc/parallel.py:610\u001b[0m, in \u001b[0;36mset_num_threads\u001b[0;34m(n)\u001b[0m\n\u001b[1;32m    608\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28misinstance\u001b[39m(n, (\u001b[38;5;28mint\u001b[39m, np\u001b[38;5;241m.\u001b[39minteger)):\n\u001b[1;32m    609\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mTypeError\u001b[39;00m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mThe number of threads specified must be an integer\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[0;32m--> 610\u001b[0m snt_check(n)\n\u001b[1;32m    611\u001b[0m _set_num_threads(n)\n",
+      "File \u001b[0;32m/sw/easybuild_milan/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/numba/np/ufunc/parallel.py:572\u001b[0m, in \u001b[0;36mgen_snt_check.<locals>.snt_check\u001b[0;34m(n)\u001b[0m\n\u001b[1;32m    570\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21msnt_check\u001b[39m(n):\n\u001b[1;32m    571\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m n \u001b[38;5;241m>\u001b[39m NUMBA_NUM_THREADS \u001b[38;5;129;01mor\u001b[39;00m n \u001b[38;5;241m<\u001b[39m \u001b[38;5;241m1\u001b[39m:\n\u001b[0;32m--> 572\u001b[0m         \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mValueError\u001b[39;00m(msg)\n",
+      "\u001b[0;31mValueError\u001b[0m: The number of threads must be between 1 and 1"
+     ]
+    }
+   ],
+   "source": [
+    "numba.set_num_threads(4)\n",
+    "stuff =  df.iloc[:,4:9].sample(n=250000, replace=True, ignore_index=True)\n",
+    "%timeit stuff.rolling(500).mean()\n",
+    "%timeit stuff.rolling(500).mean(engine='numba', engine_kwargs={\"parallel\": True})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "92154003-d94b-4fc1-a848-03cd32117c60",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

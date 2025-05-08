@@ -1,0 +1,1718 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro to Pandas &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A Brief Introduction to the Seaborn Statistical Plotting Library" href="Seaborn-Intro.html" />
+    <link rel="prev" title="Python documentations at the different HPC centres" href="../day2/python_at_hpc_centers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Loading IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Intro to Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#load-and-run">Load and Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-data-types-and-object-classes">Basic Data Types and Object Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-output-and-making-dataframes-from-scratch">Input/Output and Making DataFrames from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inspection-cleaning-sorting-and-merging">Inspection, Cleaning, Sorting, and Merging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inspection">Inspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-selection-assignment-syntax">Data Selection/Assignment Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-bad-or-missing-data">Handling Bad or Missing Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorting-and-merging">Sorting and Merging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#intro-to-groupby-objects">Intro to GroupBy Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operations">Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-vectorized-functions">Basic Vectorized Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complex-and-user-defined-functions">Complex and User-Defined Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windowing-operations">Windowing Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-topics">Advanced Topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-dummy-variables-for-machine-learning">Getting Dummy Variables for Machine Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#efficient-data-types">Efficient Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-series">Time Series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#key-points">Key Points</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Seaborn-Intro.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intro to Pandas</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/pandas.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intro-to-pandas">
+<h1>Intro to Pandas<a class="headerlink" href="#intro-to-pandas" title="Link to this heading"></a></h1>
+<p><strong>Pandas</strong>, short for PANel Data AnalysiS, is a Python data library for cleaning, organizing, and statistically analyzing moderately large (<span class="math notranslate nohighlight">\(\lesssim3\)</span> GiB) data sets. It was originally developed for analyzing and modelling financial records (panel data) over time, and has since expanded into a package rivaling SciPy in the number and complexity of available functions. Pandas offers:</p>
+<ul class="simple">
+<li><p>Explicit, automatic data alignment: all entries have corresponding row and column labels/indexes.</p></li>
+<li><p>Easy methods to add, remove, transform, compare, broadcast, and aggregate data within and across data structures.</p></li>
+<li><p>Data structures that support any mix of numerical, string, list, Boolean, and datetime datatypes.</p></li>
+<li><p>I/O interfaces that support a wide variety of text, binary, and database formats, including Excel, JSON, HDF5, NetCDF, and SQLite.</p></li>
+<li><p>Hundreds of built-in functions for cleaning, organizing, and statistical analysis, plus support for user-defined functions.</p></li>
+<li><p>A simple interface with the Seaborn plotting library, and increasingly also Matplotlib.</p></li>
+<li><p>Easy multi-threading with Numba.</p></li>
+</ul>
+<p><strong>Limitations.</strong> Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like <code class="docutils literal notranslate"><span class="pre">dask</span></code> and <code class="docutils literal notranslate"><span class="pre">polars</span></code> that can help. In partcular, <code class="docutils literal notranslate"><span class="pre">dask</span></code> will be covered in a later lecture in this workshop. There is also the <code class="docutils literal notranslate"><span class="pre">xarray</span></code> package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.</p>
+<div class="admonition-get-today-s-tarball admonition">
+<p class="admonition-title">Get today’s tarball!</p>
+<p><a class="reference internal" href="../common/use_tarball.html#common-use-tarball"><span class="std std-ref">Use the tarball with exercises</span></a></p>
+</div>
+<section id="load-and-run">
+<h2>Load and Run<a class="headerlink" href="#load-and-run" title="Link to this heading"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">HPC2N</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">UPPMAX</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Tetralith (NSC)</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">Dardel (PDC)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you should load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3</span>
+</pre></div>
+</div>
+</div>
+<p>Pandas, like NumPy, has been part of the SciPy-bundle module since 2020. Use <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> to see which versions are available and how to load them.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!</p>
+</div>
+<p>As of 27-11-2024, the output of <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> on Kebnekaise is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  SciPy-bundle:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      Bundle of Python packages for scientific software</span>
+
+<span class="go">     Versions:</span>
+<span class="go">        SciPy-bundle/2019.03</span>
+<span class="go">        SciPy-bundle/2019.10-Python-2.7.16</span>
+<span class="go">        SciPy-bundle/2019.10-Python-3.7.4</span>
+<span class="go">        SciPy-bundle/2020.03-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2020.03-Python-3.8.2</span>
+<span class="go">        SciPy-bundle/2020.11-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2020.11</span>
+<span class="go">        SciPy-bundle/2021.05</span>
+<span class="go">        SciPy-bundle/2021.10-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2021.10</span>
+<span class="go">        SciPy-bundle/2022.05</span>
+<span class="go">        SciPy-bundle/2023.02</span>
+<span class="go">        SciPy-bundle/2023.07-Python-3.8.6</span>
+<span class="go">        SciPy-bundle/2023.07</span>
+<span class="go">        SciPy-bundle/2023.11</span>
+<span class="go">  ----------------------------------------------------------------------------</span>
+<span class="go">    For detailed information about a specific &quot;SciPy-bundle&quot; package (including how to load the modules) use the module&#39;s full name.</span>
+<span class="go">    Note that names that have a trailing (E) are extensions provided by other modules.</span>
+<span class="go">    For example:</span>
+
+<span class="gp">       $ </span>module<span class="w"> </span>spider<span class="w"> </span>SciPy-bundle/2023.11
+<span class="go">  ----------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you should load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2</span>
+</pre></div>
+</div>
+</div>
+<p>On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don’t need to load any modules.</p>
+<p>If you work at the command line and choose not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> to see which versions are available, which Python versions they depend on, and how to load them.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!</p>
+</div>
+<p>As of 27-11-2024, the output of <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> on Cosmos is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  SciPy-bundle:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      Bundle of Python packages for scientific software</span>
+
+<span class="go">     Versions:</span>
+<span class="go">        SciPy-bundle/2020.11-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2020.11</span>
+<span class="go">        SciPy-bundle/2021.05</span>
+<span class="go">        SciPy-bundle/2021.10-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2021.10</span>
+<span class="go">        SciPy-bundle/2022.05</span>
+<span class="go">        SciPy-bundle/2023.02</span>
+<span class="go">        SciPy-bundle/2023.07</span>
+<span class="go">        SciPy-bundle/2023.11</span>
+<span class="go">        SciPy-bundle/2024.05</span>
+
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  For detailed information about a specific &quot;SciPy-bundle&quot; package (including ho</span>
+<span class="go">w to load the modules) use the module&#39;s full name.</span>
+<span class="go">  Note that names that have a trailing (E) are extensions provided by other modu</span>
+<span class="go">les.</span>
+<span class="go">  For example:</span>
+
+<span class="gp">     $ </span>module<span class="w"> </span>spider<span class="w"> </span>SciPy-bundle/2024.05
+<span class="go">----------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you should load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load python/3.11.8</span>
+</pre></div>
+</div>
+</div>
+<p>On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.</p>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you should load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0</span>
+</pre></div>
+</div>
+<p>Pandas, like NumPy, has typically been part of the SciPy-bundle module since 2020. Use <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> to see which versions are available and how to load them.</p>
+</div>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><blockquote>
+<div><ul class="simple">
+<li><p>Jupyter Lab is only available on Dardel via ThinLinc.</p></li>
+<li><p>As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer.</p></li>
+<li><p>Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime).</p></li>
+<li><p>The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb">exercises</a> and <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb">solutions</a> in the GitHub repository (they should render correctly).</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you could load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml cray-python/3.11.7</span>
+</pre></div>
+</div>
+</div>
+<p>On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">PDC/23.12</span> <span class="pre">matplotlib/3.8.2-cpeGNU-23.12</span></code>, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.</p>
+</div></blockquote>
+<ul>
+<li><p>ALTERNATIVE IF THINLINC IS AVAILABLE</p></li>
+<li><p>Start Jupyter from the Menu and it will work!</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Default Anaconda 3 has all packages needed for this lesson</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>OR USE SPYDER:</dt><dd><ul class="simple">
+<li><p>start interactive session</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-403</span>
+<span class="go">salloc: Pending job allocation 9102757</span>
+<span class="go">salloc: job 9102757 queued and waiting for resources</span>
+<span class="go">salloc: job 9102757 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 9102757</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes nid001057 are ready for job</span>
+</pre></div>
+</div>
+<p>We need to ssh to the specific node, like</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ssh nid001057</span>
+</pre></div>
+</div>
+<p>Use the conda env you created in Exercise 2 in <a class="reference external" href="https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises">Use isolated environemnts</a></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml PDC/23.12</span>
+<span class="go">ml miniconda3/24.7.1-0-cpeGNU-23.12</span>
+<span class="go">export CONDA_ENVS_PATH=&quot;/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/&quot;</span>
+<span class="go">export CONDA_PKG_DIRS=&quot;/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/&quot;</span>
+<span class="go">source activate spyder-env</span>
+<span class="go">conda install matplotlib pandas seaborn</span>
+<span class="go">spyder %</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></div>
+<p>To know if Pandas is the right tool for your job, you can consult the flowchart below.</p>
+<a class="reference internal image-reference" href="../_images/when-to-use-pandas.png"><img alt="../_images/when-to-use-pandas.png" src="../_images/when-to-use-pandas.png" style="width: 600px;" />
+</a>
+<div class="admonition-you-will-learn objectives admonition" id="objectives-0">
+<p class="admonition-title">You will learn…</p>
+<ul class="simple">
+<li><p>What are the basic object classes, data types, and their most important attributes and methods</p></li>
+<li><p>How to input/output Pandas data</p></li>
+<li><p>How to inspect, clean, and sort data for later operations</p></li>
+<li><p>How to perform basic operations - statistics, binary operators, vectorized math and string methods</p></li>
+<li><p>What are GroupBy objects and their uses</p></li>
+<li><p>How to compare data, implement complex and/or user-defined functions, and perform windowed operations</p></li>
+<li><p>Advanced topics (if time allows) - time series, memory-saving data types, how to prep for ML/AI</p></li>
+</ul>
+</div>
+<p>We will also have a short session after this on plotting with Seaborn, a package for easily making publication-ready statistical plots with Pandas data structures.</p>
+</section>
+<section id="basic-data-types-and-object-classes">
+<h2>Basic Data Types and Object Classes<a class="headerlink" href="#basic-data-types-and-object-classes" title="Link to this heading"></a></h2>
+<p>The main object classes of Pandas are <code class="docutils literal notranslate"><span class="pre">Series</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. There is also a separate object class called <code class="docutils literal notranslate"><span class="pre">Index</span></code> for the row indexes/labels and column labels, if applicable. Data that you load from file will mainly be loaded into either Series or DataFrames. Indexes are typically extracted later.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas.Series(data,</span> <span class="pre">index=None,</span> <span class="pre">name=None,</span> <span class="pre">...)</span></code> instantiates a 1D array with customizable indexes (labels) attached to every entry for easy access, and optionally a name for later addition to a DataFrame as a column.</p>
+<ul>
+<li><p>Indexes can be numbers (integer or float), strings, datetime objects, or even tuples. The default is 0-based integer indexing. Indexes are also themselves a Pandas data type.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame(data,</span> <span class="pre">columns=None,</span> <span class="pre">index=None,</span> <span class="pre">...)</span></code> instantiates a 2D array where every column is a Series. All entries are accessible by column and row labels/indexes.</p>
+<ul>
+<li><p>Any function that works with a DataFrame will work with a Series unless the function specifically requires column arguments.</p></li>
+<li><p>Column labels and row indexes/labels can be safely (re)assigned as needed.</p></li>
+</ul>
+</li>
+</ul>
+<p>For the rest of this lesson, example DataFrames will be abbreviated as <code class="docutils literal notranslate"><span class="pre">df</span></code> in code snippets (and example Series, if they appear, will be abbreviated as <code class="docutils literal notranslate"><span class="pre">ser</span></code>).</p>
+<div class="admonition-important-attributes admonition">
+<p class="admonition-title"><strong>Important Attributes</strong></p>
+<p>The API reference in the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/index.html">official Pandas documentation</a> shows hundreds of methods and attributes for Series and DataFrames. The following is a very brief list of the most important attributes and what they output.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.index</span></code> returns a list of <strong>row labels</strong> as an array of Pandas datatype <code class="docutils literal notranslate"><span class="pre">Index</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.columns</span></code> returns a list of <strong>column labels</strong> as an array of Pandas datatype <code class="docutils literal notranslate"><span class="pre">Index</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.dtypes</span></code> lists datatypes by column</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.shape</span></code> gives a tuple of the number of rows and columns in <code class="docutils literal notranslate"><span class="pre">df</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.values</span></code> returns <code class="docutils literal notranslate"><span class="pre">df</span></code> converted to a NumPy array (also applicable to <code class="docutils literal notranslate"><span class="pre">df.columns</span></code> and <code class="docutils literal notranslate"><span class="pre">df.index</span></code>)</p></li>
+</ul>
+</div>
+<p>Pandas assigns the data in a Series and each column of a DataFrame a datatype based on built-in or NumPy datatypes or other formatting cues. Important Pandas datatypes include the following.</p>
+<ul class="simple">
+<li><p>Numerical data are stored as <code class="docutils literal notranslate"><span class="pre">float64</span></code> or <code class="docutils literal notranslate"><span class="pre">int64</span></code>. You can convert to 32-, 16-, and even 8-bit versions of either to save memory.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">object</span></code> datatype stores any of the built-in types <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">Bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, and mixed data types. Malformed data are also often designated as <code class="docutils literal notranslate"><span class="pre">object</span></code> type.</p>
+<ul>
+<li><p>A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Pandas has many functions devoted to time series, so there are several datatypes—<code class="docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>, and <code class="docutils literal notranslate"><span class="pre">period</span></code>. The first two are based on <a class="reference external" href="https://numpy.org/devdocs/reference/arrays.datetime.html">NumPy data types of the same name</a> , and <code class="docutils literal notranslate"><span class="pre">period</span></code> is a time-interval type specified by a starting datetime and a recurrence rate. Unfortunately, we won’t have time to cover these at depth.</p></li>
+</ul>
+<p>There are also specialized datatypes for, e.g. saving on memory or performing windowed operations, including</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Categorical</span></code> is a set-like datatype for non-numeric data with few unique values. The unique values are stored in the attribute <code class="docutils literal notranslate"><span class="pre">.categories</span></code>, that are mapped to a number of low-bit-size integers, and those integers replace the actual values in the DataFrame as it is stored in memory, which can save a lot on memory usage.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Interval</span></code> is a datatype for tuples of bin edges, all of which must be open or closed on the same sides, usually output by Pandas discretizing functions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sparse[float64,</span> <span class="pre">&lt;omitted&gt;]</span></code> is a datatype based on the SciPy sparse matrices, where <code class="docutils literal notranslate"><span class="pre">&lt;omitted&gt;</span></code> can be NaN, 0, or any other missing value placeholder. This placeholder value is stored in the datatype, and the DataFrame itself is compressed in memory by not storing anything at the coordinates of the missing values.</p></li>
+</ul>
+<p>This is far from an exhaustive list.</p>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Index-Class Objects</strong></p>
+<p>Index-class objects, like those returned by <code class="docutils literal notranslate"><span class="pre">df.columns</span></code> and <code class="docutils literal notranslate"><span class="pre">df.index</span></code>, are immutable, hashable sequences used to align data for easy access. All of the previously mentioned categorical, interval, and time series data types have a corresponding Index subclass. Indexes have many Series-like attributes and set-operation methods, but Index methods only return copies, whereas the same methods for DataFrames and Series might return either copies or views into the original depending on the method.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pandas documentation has uses different naming conventions for row and column labels/indexes depending on context.</p>
+<ul class="simple">
+<li><p>“Indexes” usually refer to just the row labels, but may sometimes refer to both row and column labels if those labels are numeric.</p></li>
+<li><p>“Columns” may refer to the labels and contents of columns collectively, or only the labels.</p></li>
+<li><p>Column labels, and rarely also row indexes, are sometimes called “Keys” when discussing commands designed to mimic SQL functions.</p></li>
+<li><p>A column label may be called a “name”, after the optional Series label.</p></li>
+</ul>
+</div>
+</section>
+<section id="input-output-and-making-dataframes-from-scratch">
+<h2>Input/Output and Making DataFrames from Scratch<a class="headerlink" href="#input-output-and-making-dataframes-from-scratch" title="Link to this heading"></a></h2>
+<p>Most of the time, Series and DataFrames will be loaded from files, not made from scratch. The following table lists I/O functions for the most common data formats. Input and output functions are sometimes called readers and writers, respectively. The <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Typ1e</p></th>
+<th class="head"><p>Data Description</p></th>
+<th class="head"><p>Reader</p></th>
+<th class="head"><p>Writer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>text</p></td>
+<td><p><strong>CSV / ASCII text with standard delimiter</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_csv(path_or_url,</span> <span class="pre">sep=',',</span> <span class="pre">**kwargs)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_csv()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>text</p></td>
+<td><p>Fixed-Width Text File</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>text</p></td>
+<td><p>JSON</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_json()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_json()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>text</p></td>
+<td><p>HTML</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_html()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_html()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>text</p></td>
+<td><p>LaTeX</p></td>
+<td><p>N/A</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Styler.to_latex()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>text</p></td>
+<td><p>XML</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_xml()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_xml()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>text</p></td>
+<td><p>Local clipboard</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_clipboard()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_clipboard()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>SQL</p></td>
+<td><p>SQLite table or query</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_sql()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_sql()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>SQL</p></td>
+<td><p>Google BigQuery</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_gbq()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_gbq()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>binary</p></td>
+<td><p>Python Pickle Format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_pickle()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_pickle()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>binary</p></td>
+<td><p><strong>MS Excel</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_excel(path_or_url,</span> <span class="pre">sheet_name=0,</span> <span class="pre">**kwargs)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_excel(path,</span> <span class="pre">sheet_name=...)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>binary</p></td>
+<td><p><strong>OpenDocument</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_excel(path_or_url,</span> <span class="pre">sheet_name=0,</span> <span class="pre">**kwargs)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_excel(path,</span> <span class="pre">engine=&quot;odf&quot;)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>binary</p></td>
+<td><p>HDF5 Format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_hdf()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_hdf()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>binary</p></td>
+<td><p>Apache Parquet</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_parquet()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_parquet()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>This is not a complete list, and most of these functions have several dozen possible kwargs. It is left to the reader to determine what kwargs are needed. As with NumPy’s <code class="docutils literal notranslate"><span class="pre">genfromtxt()</span></code> function, most of the <em>text</em> readers above, and the excel reader, have kwargs that let you choose to load only some of the data.</p>
+<p>In the example below, a CSV file called “exoplanets_5250_EarthUnits.csv” in the current working directory is read into the DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> and then written out to a plain text file where decimals are rendered with commas, the delimiter is the pipe character, and the indexes are preserved as the first column.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Try it yourself!</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;exoplanets_5250_EarthUnits.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In most reader functions, including <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with <code class="docutils literal notranslate"><span class="pre">df.set_index('column_name')</span></code>.</p>
+<p>Building a DataFrame or Series from scratch is also easy. Lists and arrays can be converted directly to Series and DataFrames, respectively.</p>
+<ul class="simple">
+<li><p>Both <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> have an <code class="docutils literal notranslate"><span class="pre">index</span></code> kwarg to assign a list of numbers, names, times, or other hashable keys to each row.</p></li>
+<li><p>You can use the <code class="docutils literal notranslate"><span class="pre">columns</span></code> kwarg in <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> to assign a list of names to the columns of the table. The equivalent for <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> is just <code class="docutils literal notranslate"><span class="pre">name</span></code>, which only takes a single value and doesn’t do anything unless you plan to join that Series to a larger DataFrame.</p></li>
+<li><p>Dictionaries and record arrays can be converted to DataFrames with <code class="docutils literal notranslate"><span class="pre">pd.DataFrame.from_dict(myDict)</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.DataFrame.from_records(myRecArray)</span></code>, respectively, and the keys will automatically be converted to column labels.</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Try it yourself!</p>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>    a   b   c   d
+w  49  31  67  51
+x  44  44   2  42
+y   8  12  38  33
+z  69  76  86  72
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is also possible to convert DataFrames and Series to NumPy arrays (with or without the indexes), dictionaries, record arrays, or strings with the methods <code class="docutils literal notranslate"><span class="pre">.to_numpy()</span></code>, <code class="docutils literal notranslate"><span class="pre">.to_dict()</span></code>, <code class="docutils literal notranslate"><span class="pre">to_records()</span></code>, and <code class="docutils literal notranslate"><span class="pre">to_string()</span></code>.</p>
+</section>
+<section id="inspection-cleaning-sorting-and-merging">
+<h2>Inspection, Cleaning, Sorting, and Merging<a class="headerlink" href="#inspection-cleaning-sorting-and-merging" title="Link to this heading"></a></h2>
+<section id="inspection">
+<h3>Inspection<a class="headerlink" href="#inspection" title="Link to this heading"></a></h3>
+<p>The main data inspection functions for DataFrames (and Series) are as follows.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.head()</span></code> prints first 5 rows of data with row and column labels by default, and accepts an integer argument to print a different number of rows.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.tail()</span></code> does same as <code class="docutils literal notranslate"><span class="pre">df.head()</span></code> for the <em>last</em> 5 (or n) rows.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.info()</span></code> prints the number of rows with their first and last index values; titles, index numbers, valid data counts, and datatypes of columns; and the estimated size of <code class="docutils literal notranslate"><span class="pre">df</span></code> in memory. Don’t rely on this memory estimate; it is only accurate for numerical columns.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> prints summary statistics for all the numerical columns in <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.nunique()</span></code> prints counts of the unique values in each column.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.value_counts()</span></code> prints each unique value and the number of of occurrences for every combination of row and column values for as many of each as are selected (usually applied to just a couple of columns at a time at most)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.sample()</span></code> randomly selects a given number of rows <code class="docutils literal notranslate"><span class="pre">n=nrows</span></code>, or a decimal fraction <code class="docutils literal notranslate"><span class="pre">frac</span></code> of the total number of rows.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.nlargest(n,</span> <span class="pre">columns)</span></code> and <code class="docutils literal notranslate"><span class="pre">df.nsmallest(n,</span> <span class="pre">columns)</span></code> take an integer <code class="docutils literal notranslate"><span class="pre">n</span></code> and a column name or list of column names to sort the table by, and then return the <code class="docutils literal notranslate"><span class="pre">n</span></code> rows with the largest or smallest values in the columns used for sorting. These functions do not return <code class="docutils literal notranslate"><span class="pre">df</span></code> sorted.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>The ``memory_usage()`` Function</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">df.memory_usage(deep=False)</span></code> returns the estimated memory usage of each column. With the default <code class="docutils literal notranslate"><span class="pre">deep=False</span></code>, the sum of the estimated memory size of all columns is the same as what is included with <code class="docutils literal notranslate"><span class="pre">df.info()</span></code>, which is not accurate. However, with <code class="docutils literal notranslate"><span class="pre">deep=True</span></code>, the sizes of strings and other non-numeric data are factored in, giving a much better estimate of the total size of <code class="docutils literal notranslate"><span class="pre">df</span></code> in memory.</p>
+<p>This is because numeric columns are fixed width in memory and can be stored contiguously, but object-type columns are variable in size, so only pointers can be stored at the location of the main DataFrame in memory. The strings that those pointers refer to are kept elsewhere. When <code class="docutils literal notranslate"><span class="pre">deep=False</span></code>, or when the memory usage is estimated with <code class="docutils literal notranslate"><span class="pre">df.info()</span></code>, the memory estimate includes all the numeric data but only the pointers to non-numeric data.</p>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Compare: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 5250 entries, 11 Comae Berenices b to YZ Ceti d
+Data columns (total 10 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   distance           5233 non-null   float64
+ 1   star_mag           5089 non-null   float64
+ 2   planet_type        5250 non-null   object 
+ 3   discovery_yr       5250 non-null   int64  
+ 4   mass_ME            5250 non-null   object 
+ 5   radius_RE          5250 non-null   object 
+ 6   orbital_radius_AU  4961 non-null   float64
+ 7   orbital_period_yr  5250 non-null   float64
+ 8   eccentricity       5250 non-null   float64
+ 9   detection_method   5250 non-null   object 
+dtypes: float64(5), int64(1), object(4)
+memory usage: 451.2+ KB
+None
+
+ Index                42000
+distance             42000
+star_mag             42000
+planet_type          42000
+discovery_yr         42000
+mass_ME              42000
+radius_RE            42000
+orbital_radius_AU    42000
+orbital_period_yr    42000
+eccentricity         42000
+detection_method     42000
+dtype: int64
+
+ Compare: 
+ Index                317502
+distance              42000
+star_mag              42000
+planet_type          313545
+discovery_yr          42000
+mass_ME              282482
+radius_RE            284294
+orbital_radius_AU     42000
+orbital_period_yr     42000
+eccentricity          42000
+detection_method     306608
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-selection-assignment-syntax">
+<h3>Data Selection/Assignment Syntax<a class="headerlink" href="#data-selection-assignment-syntax" title="Link to this heading"></a></h3>
+<p>Below is a table of the syntax for how to select or assign different subsets or cross-sections of a DataFrame. To summmarize it briefly, columns can be selected like dictionary keys, but for everything else there is <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> to select by name and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> to select by index. To select multiple entries at once, pass a list to <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> or array slice notation to <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>To Access/Assign…</p></th>
+<th class="head"><p>Syntax</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 column</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df['col_name']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.col_name</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>1 named row</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.loc['row_name']</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>1 row by index</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.iloc[index]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>1 column by index (rarely used)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.iloc[:,index]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>1 cell by row and column labels</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.loc['row_name','col_name']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.at['row_name','col_name']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.at[index,'col_name']</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>1 cell by row and column indexes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.iloc[row_index,</span> <span class="pre">col_index]</span></code> or <code class="docutils literal notranslate"><span class="pre">df.iat[row_index,</span> <span class="pre">col_index]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>multiple columns</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df[['col0',</span> <span class="pre">'col1',</span> <span class="pre">'col2']]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>multiple named rows</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.loc[['rowA','rowB','rowC']]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>multiple rows by index</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.iloc[j:n]</span></code> or <code class="docutils literal notranslate"><span class="pre">df.take([j,</span> <span class="pre">...,</span> <span class="pre">n])</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>multiple rows and columns by name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.loc[['rowA','rowB',</span> <span class="pre">...],['col0',</span> <span class="pre">'col1',</span> <span class="pre">...]]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>multiple rows and columns by index</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.iloc[j:n,</span> <span class="pre">k:m]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>columns by name and rows by index</p></td>
+<td><p>You can mix <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for selection, <strong>but NOT for assignment!</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conditional Selection.</strong> To select by conditions, any binary comparison operator (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">=&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>) and most logical operators can be used inside the square brackets of <code class="docutils literal notranslate"><span class="pre">df[...]</span></code>, <code class="docutils literal notranslate"><span class="pre">df.loc[...]</span></code>, and <code class="docutils literal notranslate"><span class="pre">df.iloc[...]</span></code> with some restrictions.</p>
+<ul class="simple">
+<li><p>The bitwise logical operators <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, and <code class="docutils literal notranslate"><span class="pre">~</span></code> must be used instead of the plain-English versions (<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">xor</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>) unless all of the conditions are passed as a string to <code class="docutils literal notranslate"><span class="pre">df.query()</span></code> (<code class="docutils literal notranslate"><span class="pre">.query()</span></code> syntax is similar to <code class="docutils literal notranslate"><span class="pre">exec()</span></code> or <code class="docutils literal notranslate"><span class="pre">eval()</span></code>).</p></li>
+<li><p>When 2 or more conditions are specified, <strong>each individual condition must be bracketed by parentheses</strong> or the code will raise a TypeError.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">is</span></code> operator does not work within <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>. Use <code class="docutils literal notranslate"><span class="pre">.isin()</span></code>, <code class="docutils literal notranslate"><span class="pre">.notin()</span></code>, or <code class="docutils literal notranslate"><span class="pre">.str.contains()</span></code> to check for the presence of substrings (see e.g. example below).</p></li>
+</ul>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;PSR&#39;</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;discovery_yr&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">),</span> <span class="s1">&#39;planet_type&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>#name
+PSR B1257+12 b    Terrestrial
+PSR B1257+12 c    Super Earth
+PSR B1257+12 d    Super Earth
+Name: planet_type, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="handling-bad-or-missing-data">
+<h3>Handling Bad or Missing Data<a class="headerlink" href="#handling-bad-or-missing-data" title="Link to this heading"></a></h3>
+<p>Pandas has many standard functions for finding, removing, and replacing missing or unwanted data. It has its own functions for detecting missing data in order to detect both regular NaNs and the datetime equivalent, NaT. Any of the following functions will work on individual columns or any other subset of the DataFrame as well as the whole.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pandas Function</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.isna()</span></code></p></td>
+<td><p>locates missing/invalid data (NaN/NaT)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.notna()</span></code></p></td>
+<td><p>locates valid data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df.dropna(axis=axis,</span> <span class="pre">inplace=False)</span></code></p></td>
+<td><p>remove rows (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>) or columns (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>) containing invalid data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df.fillna()</span></code></p></td>
+<td><p>replace NaNs with a fixed value</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df.interpolate()</span></code></p></td>
+<td><p>interpolate missing data using any method of <code class="docutils literal notranslate"><span class="pre">scipy.interpolate()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df.drop_duplicates(inplace=False)</span></code></p></td>
+<td><p>remove duplicate rows or rows with duplicate values of columns in <code class="docutils literal notranslate"><span class="pre">subset</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df.drop(data,</span> <span class="pre">axis=axis)</span></code></p></td>
+<td><p>remove unneeded columns (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>) or rows (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>) by name or index</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df.mask(condition,</span> <span class="pre">other=None)</span></code></p></td>
+<td><p>mask unwanted numeric data by condition, optionally replace from <code class="docutils literal notranslate"><span class="pre">other</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df.replace(to_replace=old,</span> <span class="pre">value=new)</span></code></p></td>
+<td><p>replace <code class="docutils literal notranslate"><span class="pre">old</span></code> value with <code class="docutils literal notranslate"><span class="pre">new</span></code> (very flexible; see docs)</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are a couple of types of bad data that Pandas handles less well: infinities and whitespaces-as-fill-values.</p>
+<ul class="simple">
+<li><p>Pandas assumes whitespaces are intentional, so <code class="docutils literal notranslate"><span class="pre">.isna()</span></code> will not detect them. If a numerical data column contains spaces where there are missing data, the whole column will be misclassified as <code class="docutils literal notranslate"><span class="pre">object</span></code> type. The fix for this is <code class="docutils literal notranslate"><span class="pre">df['col']</span> <span class="pre">=</span> <span class="pre">df['col'].replace('</span> <span class="pre">',</span> <span class="pre">np.nan).astype('float64')</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.isna()</span></code> does not detect infinities, nor does <code class="docutils literal notranslate"><span class="pre">.notna()</span></code> exclude them. To index infinities for removal or other functions, use <code class="docutils literal notranslate"><span class="pre">np.isinf(copy.to_numpy())</span></code> where <code class="docutils literal notranslate"><span class="pre">copy</span></code> is a copy of the DataFrame or Series, or any subset thereof.</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Try it yourself!</p>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;eccentricity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;eccentricity&#39;</span><span class="p">]</span><span class="o">==</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#Eccentricity is never exactly 0; 0s are dummy values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="c1"># This will make things easier for everyone later</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>            distance  star_mag  planet_type  discovery_yr  mass_ME  radius_RE  \
+#name                                                                           
+CoRoT-21 b    4563.0    16.058    Gas Giant          2012   718.68      14.56   
+K2-239 b       101.0    14.632  Super Earth          2018     1.37       1.10   
+GJ 3293 e       66.0    11.945  Super Earth          2017     3.28       1.63   
+
+            orbital_radius_AU  orbital_period_yr  eccentricity  \
+#name                                                            
+CoRoT-21 b            0.04170           0.007392           NaN   
+K2-239 b              0.04410           0.014237           NaN   
+GJ 3293 e             0.08208           0.036413          0.21   
+
+           detection_method  
+#name                        
+CoRoT-21 b          Transit  
+K2-239 b            Transit  
+GJ 3293 e   Radial Velocity  
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 5250 entries, 11 Comae Berenices b to YZ Ceti d
+Data columns (total 10 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   distance           5233 non-null   float64
+ 1   star_mag           5089 non-null   float64
+ 2   planet_type        5250 non-null   object 
+ 3   discovery_yr       5250 non-null   int64  
+ 4   mass_ME            5227 non-null   float64
+ 5   radius_RE          5233 non-null   float64
+ 6   orbital_radius_AU  4961 non-null   float64
+ 7   orbital_period_yr  5250 non-null   float64
+ 8   eccentricity       1674 non-null   float64
+ 9   detection_method   5250 non-null   object 
+dtypes: float64(7), int64(1), object(2)
+memory usage: 451.2+ KB
+
+ None
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sorting-and-merging">
+<h3>Sorting and Merging<a class="headerlink" href="#sorting-and-merging" title="Link to this heading"></a></h3>
+<p>Some operations, including <strong>all merging operations, require DataFrames to be sorted first</strong>. There are 2 sorting functions, <code class="docutils literal notranslate"><span class="pre">.sort_values(by=row_or_col,</span> <span class="pre">axis=0,</span> <span class="pre">key=None,</span> <span class="pre">kind='quicksort')</span></code> and <code class="docutils literal notranslate"><span class="pre">.sort_index(axis=0,</span> <span class="pre">key=None)</span></code>.</p>
+<ul class="simple">
+<li><p>Both sorting functions return copies unless <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis</span></code> refers to direction along which values will be shifted, not the fixed axis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code> kwarg lets you apply a vectorized function (more on this soon) to the index before sorting. This only alters what the sorting algorithm sees, not the indexes as they will be printed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.sort_index(axis=0,</span> <span class="pre">key=None)</span></code> rearranges rows (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code> or <code class="docutils literal notranslate"><span class="pre">axis='rows'</span></code>) or columns (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code> or <code class="docutils literal notranslate"><span class="pre">axis='columns'</span></code>) so that their indexes or labels are in alphanumeric order.</p>
+<ul>
+<li><p>All uppercase letters are sorted ahead of all lowercase letters, so a row named “Zebra” would be placed before a row named “aardvark”. The <code class="docutils literal notranslate"><span class="pre">key</span></code> kwarg can be used to tell <code class="docutils literal notranslate"><span class="pre">sort</span></code> to ignore capitalization by passing in, e.g., the <code class="docutils literal notranslate"><span class="pre">str.lower</span></code> function.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.sort_values(by=row_or_col,</span> <span class="pre">axis=0,</span> <span class="pre">kind='quicksort')</span></code> sorts Series or DataFrames by value(s) of column(s)/row(s) passed to the <code class="docutils literal notranslate"><span class="pre">by</span></code> kwarg (optional for Series)</p>
+<ul>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">by</span></code> is type <code class="docutils literal notranslate"><span class="pre">list</span></code>, the resulting order may vary depending on the algorithm given for <code class="docutils literal notranslate"><span class="pre">kind</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">by</span></code> is a row label, <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> is mandatory</p></li>
+</ul>
+</li>
+</ul>
+<p>If you have 2 or more DataFrames to put together, there are lots of ways to combine their data to suit your needs, as long as you’ve sorted all of the DataFrames first and as long as they share at least some row and column labels/indexes.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pandas Function or Method</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pd.concat([df1,</span> <span class="pre">df2,</span> <span class="pre">...])</span></code></p></td>
+<td><p>combine 2 or more DataFrames/Series along a shared column or index</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pd.merge(left_df,</span> <span class="pre">right_df,</span> <span class="pre">how='inner')</span></code></p></td>
+<td><p>combine 2 DataFrames/Series on columns SQL-style (<code class="docutils literal notranslate"><span class="pre">how</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pd.merge_ordered(fill_method=None)</span></code></p></td>
+<td><p>combine 2 sorted DataFrames/Series with optional interpolation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pd.merge_asof(...,</span> <span class="pre">on=index)</span></code></p></td>
+<td><p>left-join 2 DataFrames/Series by nearest (not exact) value of <code class="docutils literal notranslate"><span class="pre">index</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df1.reindex_like(df2)</span></code></p></td>
+<td><p>make a copy of <code class="docutils literal notranslate"><span class="pre">df2</span></code> with values from <code class="docutils literal notranslate"><span class="pre">df1</span></code> where indexes are shared</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df1.combine_first(df2)</span></code></p></td>
+<td><p>fill missing values of <code class="docutils literal notranslate"><span class="pre">df1</span></code> with values from <code class="docutils literal notranslate"><span class="pre">df2</span></code> at shared indexes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df1.combine(df2,</span> <span class="pre">func)</span></code></p></td>
+<td><p>merge 2 DataFrames column-wise based on function <code class="docutils literal notranslate"><span class="pre">func</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df1.join(df2)</span></code> (wrapper for <code class="docutils literal notranslate"><span class="pre">merge()</span></code>)</p></td>
+<td><p>join 2 DataFrames/Series on given index(es)/column(s)</p></td>
+</tr>
+</tbody>
+</table>
+<p>All variants of <code class="docutils literal notranslate"><span class="pre">merge()</span></code> and <code class="docutils literal notranslate"><span class="pre">join()</span></code> use SQL-style set operations to combine the input data using one or more keys (usually columns but may be row indexes), which must be shared by both DataFrames and must be identically sorted in both. When only 1 key is given or when all of the keys are along the same axis, most of the different SQL join methods can be understood via the graphic below. There is also a cross-join method (<code class="docutils literal notranslate"><span class="pre">how='cross'</span></code>) that computes every combination of the data in the columns or rows passed to the <code class="docutils literal notranslate"><span class="pre">on</span></code> kwarg.</p>
+<img alt="Visual representation of the different merge methods." src="https://www.datasciencemadesimple.com/wp-content/uploads/2017/09/join-or-merge-in-python-pandas-1.png" />
+<p>When both row and column labels are passed to <code class="docutils literal notranslate"><span class="pre">on</span></code> (it’s not advised to use &gt;1 of each), the <code class="docutils literal notranslate"><span class="pre">on</span></code> works more like image registration (alignment) coordinates. To the extent that the two DataFrames would overlap if aligned by the keys given to <code class="docutils literal notranslate"><span class="pre">on</span></code>, overlapping row and column names/indexes must be identical, and depending on <code class="docutils literal notranslate"><span class="pre">how</span></code>, the data may have to be identical in that overlap area as well.</p>
+<p>If any rows or columns need to be added manually, there is also a <code class="docutils literal notranslate"><span class="pre">df.reindex(labels,</span> <span class="pre">index=rows,</span> <span class="pre">columns=cols)</span></code> method that can add and sort them in the order of <code class="docutils literal notranslate"><span class="pre">labels</span></code> simultaneously.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">dummy0</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
+                      <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>
+                      <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">])</span>
+<span class="n">dummy1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+                      <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span>
+                      <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">])</span>
+<span class="n">dummy1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">dummy1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dummy0</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dummy1</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dummy0</span><span class="p">,</span><span class="n">dummy1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>   A   B   C
+e  0   1   2
+f  3   4   5
+g  6   7   8
+h  9  10  11 
+
+   B  C  D   E
+f -5 -4 -3  -2
+g  1  2  1   2
+h  7  8  5   6
+i  7  8  9  10 
+
+   A  B  C  D   E
+0  0  1  2  1   2
+1  6  7  8  5   6
+2  6  7  8  9  10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="intro-to-groupby-objects">
+<h2>Intro to GroupBy Objects<a class="headerlink" href="#intro-to-groupby-objects" title="Link to this heading"></a></h2>
+<p>One of the most powerful Pandas tools, the <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> method, lets you organize data hierarchically and run statistical analyses on different subsets of data simultaneously by sorting the data according to the values in one or more columns, assuming the data in those columns have a relatively small number of unique values. The resulting data structure is called a <strong>GroupBy object</strong>.</p>
+<p>The basic syntax is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To group by rows, take transpose of DataFrame first with <code class="docutils literal notranslate"><span class="pre">df.T</span></code></p></li>
+<li><p>Most DataFrame methods and attributes can also be called on GroupBy objects, but aggregate methods (like most statistical functions) will be evaluated for every group separately.</p></li>
+<li><p>GroupBy objects have an <code class="docutils literal notranslate"><span class="pre">.nth()</span></code> method to retrieve the n <sup>th</sup> row of every group (n can be negative to index from the end).</p></li>
+<li><p>Groups in GroupBy objects can be selected by category name with <code class="docutils literal notranslate"><span class="pre">.get_group(('cat',))</span></code> or <code class="docutils literal notranslate"><span class="pre">.get_group(('cat1',</span> <span class="pre">'cat2',</span> <span class="pre">...))</span></code>, and accessed as an iterable with the <code class="docutils literal notranslate"><span class="pre">.groups</span></code> attribute.</p></li>
+<li><p>Separate functions can be broadcast to each group in 1 command with the right choice of method, which we will cover later in the Operations section.</p></li>
+</ul>
+<p>Let’s return to our recurring example, the exoplanet dataset, and group it by the column <code class="docutils literal notranslate"><span class="pre">'planet_type'</span></code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Try it yourself!</p>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">grouped1</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;planet_type&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grouped1</span><span class="o">.</span><span class="n">nth</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="c1">#first element of each group</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>                      distance  star_mag   planet_type  discovery_yr  mass_ME  \
+#name                                                                           
+11 Comae Berenices b     304.0   4.72307     Gas Giant          2007  6169.20   
+55 Cancri e               41.0   5.95084   Super Earth          2004     7.99   
+61 Virginis b             28.0   4.69550  Neptune-like          2009     5.10   
+EPIC 201497682 b         825.0  13.94800   Terrestrial          2019     0.26   
+KIC 10001893 b          5457.0  15.82900       Unknown          2014      NaN   
+
+                      radius_RE  orbital_radius_AU  orbital_period_yr  \
+#name                                                                   
+11 Comae Berenices b     12.096           1.290000           0.892539   
+55 Cancri e               1.875           0.015440           0.001916   
+61 Virginis b             2.110           0.050201           0.011499   
+EPIC 201497682 b          0.692                NaN           0.005749   
+KIC 10001893 b              NaN                NaN           0.000548   
+
+                      eccentricity               detection_method  
+#name                                                              
+11 Comae Berenices b          0.23                Radial Velocity  
+55 Cancri e                   0.05                Radial Velocity  
+61 Virginis b                 0.12                Radial Velocity  
+EPIC 201497682 b               NaN                        Transit  
+KIC 10001893 b                 NaN  Orbital Brightness Modulation  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="operations">
+<h2>Operations<a class="headerlink" href="#operations" title="Link to this heading"></a></h2>
+<section id="basic-vectorized-functions">
+<h3>Basic Vectorized Functions<a class="headerlink" href="#basic-vectorized-functions" title="Link to this heading"></a></h3>
+<p>Iteration over DataFrames, Series, and GroupBy objects is slow and should be avoided whenever possible. Fortunately, most mathematical, statistical, and string methods/functions in Pandas are vectorized - that is, they can operate on entire rows, columns, groups, or the whole DataFrame at once without iterating.</p>
+<p><strong>Strings.</strong> Most built-in string methods can be applied column-wise to Pandas data structures using <code class="docutils literal notranslate"><span class="pre">.str.&lt;method&gt;()</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.str.upper()</span></code>/<code class="docutils literal notranslate"><span class="pre">.lower()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.str.&lt;r&gt;strip()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.str.&lt;r&gt;split('</span> <span class="pre">',</span> <span class="pre">n=None,</span> <span class="pre">expand=False)</span></code> can return outputs of several different shapes depending on <code class="docutils literal notranslate"><span class="pre">expand</span></code> (bool, whether to return split strings as lists in 1 column or substrings in multiple columns) and <code class="docutils literal notranslate"><span class="pre">n</span></code> (maximum number of columns to return).</p></li>
+<li><p>Unlike for regular strings, <code class="docutils literal notranslate"><span class="pre">df.str.replace()</span></code> does not accept dict-type input where keys are existing substrings and values are replacements. For multiple simulataneous replacements via dictionary input, use <code class="docutils literal notranslate"><span class="pre">df.replace()</span></code> without the <code class="docutils literal notranslate"><span class="pre">.str</span></code>.</p></li>
+</ul>
+<p><strong>Statistics.</strong> Nearly all NumPy statistical functions and a few <code class="docutils literal notranslate"><span class="pre">scipy.mstats</span></code> functions can be called as aggregate methods of DataFrames, Series, any subsets thereof, or GroupBy objects. All of them ignore NaNs by default. For DataFrames and GroupBy objects, you must set <code class="docutils literal notranslate"><span class="pre">numeric_only=True</span></code> to exclude non-numeric data, and specify whether to aggregate along rows (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>) or columns (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>) .</p>
+<ul class="simple">
+<li><p>NumPy-like methods: <code class="docutils literal notranslate"><span class="pre">.abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">.count()</span></code>, <code class="docutils literal notranslate"><span class="pre">.max()</span></code>, <code class="docutils literal notranslate"><span class="pre">.min()</span></code>, <code class="docutils literal notranslate"><span class="pre">.mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">.median()</span></code>, <code class="docutils literal notranslate"><span class="pre">.mode()</span></code>, <code class="docutils literal notranslate"><span class="pre">.prod()</span></code>, <code class="docutils literal notranslate"><span class="pre">.quantile()</span></code>, <code class="docutils literal notranslate"><span class="pre">.sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">.std()</span></code>, <code class="docutils literal notranslate"><span class="pre">.var()</span></code>, <code class="docutils literal notranslate"><span class="pre">.cumsum()</span></code>, <code class="docutils literal notranslate"><span class="pre">.cumprod()</span></code>, <code class="docutils literal notranslate"><span class="pre">.cummax()</span></code>* and <code class="docutils literal notranslate"><span class="pre">.cummin()</span></code>* (* Pandas-only)</p></li>
+<li><p>SciPy (m)stats-like methods: <code class="docutils literal notranslate"><span class="pre">.sem()</span></code>, <code class="docutils literal notranslate"><span class="pre">.skew()</span></code>, <code class="docutils literal notranslate"><span class="pre">.kurt()</span></code>, and <code class="docutils literal notranslate"><span class="pre">.corr()</span></code></p></li>
+</ul>
+<p>Here’s an example with a GroupBy object.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Try it yourself!</p>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">grouped1</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;planet_type&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grouped1</span><span class="p">[</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span> <span class="c1">#planet types are proxies for mass ranges</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>planet_type
+Gas Giant       467.27
+Neptune-like      8.30
+Super Earth       3.15
+Terrestrial       0.59
+Unknown            NaN
+Name: mass_ME, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Binary Operations.</strong> Normal binary math operators work when both data structures are the same shape or when one is a scalar. However, special Pandas versions of these operators are required to perform a binary operation when one of the data structures is a DataFrame and the other is a Series. All arithmetic operators require you to specify the axis along which to broadcast the operation. Below is a reference table for those binary methods.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pandas Method</p></th>
+<th class="head"><p>Scalar Equivalent</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df1.add(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df1.sub(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df1.mul(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df1.div(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df1.pow(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df1.mod(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>All of the arithmetic operators can be applied in reverse order by adding <code class="docutils literal notranslate"><span class="pre">r</span></code> after the <code class="docutils literal notranslate"><span class="pre">.</span></code> For example, if <code class="docutils literal notranslate"><span class="pre">df1.div(df2)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">df1/df2</span></code>, then <code class="docutils literal notranslate"><span class="pre">df1.rdiv(df2)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">df2/df1</span></code></p>
+<p><strong>Comparative Methods.</strong> Binary comparative operators work normally when comparing a DataFrame/Series to a scalar, but to compare any two Pandas data structures element-wise, comparison methods are required. After any comparative expression, scalar or element-wise, you can add <code class="docutils literal notranslate"><span class="pre">.any()</span></code> or <code class="docutils literal notranslate"><span class="pre">.all()</span></code> once to aggregate along the column axis, and twice to get a single value for the entire DataFrame.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pandas Method</p></th>
+<th class="head"><p>Scalar Equivalent</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df1.gt(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df1.lt(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df1.ge(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df1.le(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df1.eq(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df1.ne(df2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>If 2 DataFrames (or Series) are identically indexed (identical row and column labels in the same order), <code class="docutils literal notranslate"><span class="pre">df1.compare(df2)</span></code> can be used to quickly find discrepant values.</p></li>
+<li><p>To find <em>datatype</em> differences between visually identical datasets, use <code class="docutils literal notranslate"><span class="pre">pd.testing.assert_frame_equal(df1,</span> <span class="pre">df2)</span></code> or <code class="docutils literal notranslate"><span class="pre">pd.testing.assert_series_equal(df1,</span> <span class="pre">df2)</span></code> to see if an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is raised.</p></li>
+</ul>
+</section>
+<section id="complex-and-user-defined-functions">
+<h3>Complex and User-Defined Functions<a class="headerlink" href="#complex-and-user-defined-functions" title="Link to this heading"></a></h3>
+<p>If the transformation you need to apply to your data cannot be simply constructed of the previously described functions, there are 4 methods to help you apply more complex or user-defined functions.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0"><code class="docutils literal notranslate"><span class="pre">.map()</span></code></button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1"><code class="docutils literal notranslate"><span class="pre">.agg()</span></code></button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1"><code class="docutils literal notranslate"><span class="pre">.transform()</span></code></button><button aria-controls="panel-1-1-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-3" name="1-3" role="tab" tabindex="-1"><code class="docutils literal notranslate"><span class="pre">.apply()</span></code></button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>The Series/DataFrame method <code class="docutils literal notranslate"><span class="pre">.map(func)</span></code> takes a scalar function and broadcasts it to every element of the data structure. Function <code class="docutils literal notranslate"><span class="pre">func</span></code> may be passed by name or lambda function, but both input and output must be scalars (no arrays).</p>
+<ul class="simple">
+<li><p>It’s usually faster to apply vectorized functions if possible (e.g. <code class="docutils literal notranslate"><span class="pre">df**0.5</span></code> is faster than <code class="docutils literal notranslate"><span class="pre">df.map(np.sqrt)</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.map()</span></code> does not accept GroupBy objects.</p></li>
+</ul>
+<p>Example below</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">T</span><span class="o">&lt;=</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">T</span><span class="o">&lt;</span><span class="mi">300</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.2</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">616</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">T</span><span class="o">&gt;=</span><span class="mi">300</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">616</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+
+<span class="n">junk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">173</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">675</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span>
+                    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">junk</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">junk</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_func</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>     A    B    C
+0  208  405  550
+1  197  214  332
+2  509  552  392
+3  185  561  613 
+
+          A         B         C
+0  0.149239  0.196646  0.293652
+1  0.123102  0.164482  0.140748
+2  0.268320  0.294846  0.186973
+3  0.097394  0.300172  0.329475
+</pre></div>
+</div>
+</div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>The <code class="docutils literal notranslate"><span class="pre">.agg()</span></code> method applies 1 or more reducing (aggregating) functions (e.g. <code class="docutils literal notranslate"><span class="pre">mean()</span></code>) to a Series, DataFrame, or, importantly, a GroupBy object.</p>
+<ul class="simple">
+<li><p>It only accepts functions that take all values along given axis (column/row) as input and output a single scalar (e.g. <code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.std()</span></code>, etc.).</p></li>
+<li><p>You can pass multiple functions via a list of function names, or a dict with row/column names as keys and the functions to apply to each as values.</p></li>
+<li><p>Unlike the more generalized <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, <code class="docutils literal notranslate"><span class="pre">.agg()</span></code> preserves groups in the output.</p></li>
+</ul>
+<p>Example below</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">grouped2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;detection_method&#39;</span><span class="p">,</span><span class="s1">&#39;planet_type&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grouped2</span><span class="p">[[</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;avg: </span><span class="si">{:.2f}</span><span class="s1">, pct err: </span><span class="si">{:.0%}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+                                <span class="n">np</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                mass_ME
+detection_method              planet_type                              
+Astrometry                    Gas Giant      avg: 4890.84, pct err: 85%
+Direct Imaging                Gas Giant     avg: 7929.95, pct err: 380%
+                              Unknown           avg: nan, pct err: nan%
+Disk Kinematics               Gas Giant        avg: 795.00, pct err: 0%
+Eclipse Timing Variations     Gas Giant      avg: 2154.77, pct err: 80%
+Gravitational Microlensing    Gas Giant     avg: 1012.92, pct err: 128%
+                              Neptune-like     avg: 16.63, pct err: 58%
+                              Super Earth       avg: 2.96, pct err: 31%
+                              Terrestrial        avg: 0.96, pct err: 0%
+Orbital Brightness Modulation Gas Giant       avg: 525.49, pct err: 40%
+                              Terrestrial       avg: 0.55, pct err: 20%
+                              Unknown           avg: nan, pct err: nan%
+Pulsar Timing                 Gas Giant       avg: 476.46, pct err: 49%
+                              Super Earth       avg: 3.39, pct err: 30%
+                              Terrestrial        avg: 0.02, pct err: 0%
+Pulsation Timing Variations   Gas Giant      avg: 2385.00, pct err: 57%
+Radial Velocity               Gas Giant     avg: 1464.50, pct err: 127%
+                              Neptune-like     avg: 13.80, pct err: 55%
+                              Super Earth       avg: 3.33, pct err: 62%
+                              Terrestrial        avg: 0.70, pct err: 0%
+Transit                       Gas Giant      avg: 957.66, pct err: 430%
+                              Neptune-like    avg: 15.47, pct err: 378%
+                              Super Earth      avg: 5.79, pct err: 481%
+                              Terrestrial      avg: 1.65, pct err: 701%
+Transit Timing Variations     Gas Giant     avg: 1194.10, pct err: 181%
+                              Neptune-like     avg: 14.83, pct err: 55%
+                              Super Earth     avg: 34.54, pct err: 114%
+                              Terrestrial       avg: 0.23, pct err: 87%
+</pre></div>
+</div>
+</div>
+</div>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><p>The <code class="docutils literal notranslate"><span class="pre">.transform()</span></code> broadcasts functions to every cell of the DataFrame, Series, or GroupBy object that calls it (aggregating functions not allowed).</p>
+<ul class="simple">
+<li><p>You can pass multiple functions via a list of function names, or a dict with row/column names as keys and the functions to apply to each as values. Lambda functions can be passed in a dict but not a list.</p></li>
+<li><p>Transforming a DataFrame of x columns by list of y functions yields a <em>hierarchical DataFrame</em> with x:math:<a href="#id1"><span class="problematic" id="id2">`</span></a>times`y columns where the first level is the original set of column names and each first-level column has a number of second-level columns equal to the number of functions applied (see example below).</p></li>
+<li><p>Do not allow <code class="docutils literal notranslate"><span class="pre">.transform()</span></code> to modify your data structure in-place!</p></li>
+</ul>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
+                   <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>
+                   <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">funcA</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+<span class="k">def</span> <span class="nf">funcB</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mf">0.5</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">funcA</span><span class="p">,</span><span class="n">funcB</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>      A               B               C          
+  funcA     funcB funcA     funcB funcA     funcB
+e     1 -1.000000     4  0.000000     9  0.414214
+f    16  0.732051    25  1.000000    36  1.236068
+g    49  1.449490    64  1.645751    81  1.828427
+h   100  2.000000   121  2.162278   144  2.316625
+MultiIndex([(&#39;A&#39;, &#39;funcA&#39;),
+            (&#39;A&#39;, &#39;funcB&#39;),
+            (&#39;B&#39;, &#39;funcA&#39;),
+            (&#39;B&#39;, &#39;funcB&#39;),
+            (&#39;C&#39;, &#39;funcA&#39;),
+            (&#39;C&#39;, &#39;funcB&#39;)],
+           )
+</pre></div>
+</div>
+</div>
+</div>
+</div><div aria-labelledby="tab-1-1-3" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-3" name="1-3" role="tabpanel" tabindex="0"><p>If all else fails, <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> can handle aggregating, broadcasting, and expanding* functions (*list-like output for each input cell) for Series, DataFrames, and GroupBy objects. However, its flexibility and relatively intuitive interface come at the cost of speed.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.apply()</span></code> accepts GroupBy objects, but can make mistakes in preserving their structure (either groups or columns) or fail to do so entirely because it has to the infer function type (reducing, broadcasting, or filtering).</p></li>
+<li><p>Error messages may be misleading; e.g. if either input or output is not the expected shape, it may raise <code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">Unexpected</span> <span class="pre">keyword</span> <span class="pre">argument</span></code> that misidentifies a legitimate kwarg of <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> as an extra kwarg to be passed to the input function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.apply()</span></code> may still be better (more intuitive) if your function varies by group: <code class="docutils literal notranslate"><span class="pre">.transform()</span></code> receives GroupBy objects in 2 parts—the original columns split into Series, and then the groups themselves as DataFrames—while <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> only receives the groups (like <code class="docutils literal notranslate"><span class="pre">.agg()</span></code>)</p></li>
+</ul>
+<p>Example below (that will not translate directly to <code class="docutils literal notranslate"><span class="pre">.transform()</span></code>)</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pmass</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Jupiter&#39;</span><span class="p">:</span> <span class="mf">317.8</span><span class="p">,</span> <span class="s1">&#39;Neptune&#39;</span><span class="p">:</span><span class="mf">17.15</span><span class="p">,</span> <span class="s1">&#39;Earth&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">}</span>
+<span class="k">def</span> <span class="nf">scale_mass</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Gas Giant&#39;</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="s1">&#39;Jupiter&#39;</span>
+    <span class="k">elif</span> <span class="s1">&#39;Neptune&#39;</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="s1">&#39;Neptune&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="s1">&#39;Earth&#39;</span>
+    <span class="k">return</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:.1f}</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> masses&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">pmass</span><span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">p</span><span class="p">))</span>
+<span class="n">hdf</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;planet_type&#39;</span><span class="p">)[[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">,</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">scale_mass</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hdf</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>planet_type  #name               
+Gas Giant    11 Comae Berenices b    19.4 Jupiter masses
+             11 Ursae Minoris b      14.7 Jupiter masses
+             14 Andromedae b          4.8 Jupiter masses
+             14 Herculis b            8.1 Jupiter masses
+             16 Cygni B b             1.8 Jupiter masses
+Name: mass_ME, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="windowing-operations">
+<h3>Windowing Operations<a class="headerlink" href="#windowing-operations" title="Link to this heading"></a></h3>
+<p>There are 4 methods for evaluating other methods and functions over moving/expanding windows, usually specified as <em>n</em> rows or time increments passed to the mandatory kwarg <code class="docutils literal notranslate"><span class="pre">window</span></code>, with a similar API to GroupBy objects (most allow similar aggregating methods). All windowing methods have a <code class="docutils literal notranslate"><span class="pre">min_periods</span></code> kwarg to specify the minimum number of valid data points a window must contain for the window to be passed to any subsequent functions; results for any windows that don’t have enough data points will be filled with NaN.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Windowing Type</p></th>
+<th class="head"><p>Allows time-
+based windows?</p></th>
+<th class="head"><p>Allows 2D
+windows?</p></th>
+<th class="head"><p>Accepts GroupBy
+Objects?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.rolling()</span></code></p></td>
+<td><p>rolling/moving/sliding</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.rolling(win_type='&lt;func&gt;')</span></code></p></td>
+<td><p>rolling, weighted by
+<cite>SciPy.signal</cite> functions</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.expanding()</span></code></p></td>
+<td><p>expanding (cumulative)</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.emw()</span></code>*</p></td>
+<td><p>exponentially-weighted
+moving</p></td>
+<td><p>only if given
+<code class="docutils literal notranslate"><span class="pre">halflife</span></code></p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">.rolling()</span></code> (unweighted version) and  <code class="docutils literal notranslate"><span class="pre">.expanding()</span></code> allow windows to span <strong>and aggregate over</strong> multiple columns with <code class="docutils literal notranslate"><span class="pre">method='table'</span></code> set in the kwargs, but any function to be evaluated over those windows must then have <code class="docutils literal notranslate"><span class="pre">engine='numba'</span></code> set in its kwargs as well. If all you want to do is compute the same function over the same window increments for multiple separate columns simultaneously, setting <code class="docutils literal notranslate"><span class="pre">method='table'</span></code> is not necessary.</p>
+<p>* To clarify, <code class="docutils literal notranslate"><span class="pre">.emw()</span></code> is similar to the expanding window, but every data point prior to wherever the window is centered is down-weighted by an exponential decay function. Further information on what exponential decay functions can be specified and how can be found <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/window.html#exponentially-weighted-window">in the official documentation</a>, as this level of detail is beyond the scope of the course.</p>
+<p>For demonstration, here is an example based loosely on the climate of your teacher’s hometown.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Speed-up with Numba</p>
+<p>If you have Numba installed, setting <code class="docutils literal notranslate"><span class="pre">engine=numba</span></code> in functions like <code class="docutils literal notranslate"><span class="pre">.transform()</span></code>, <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, and NumPy-like statistics functions calculated over rolling windows, can boost performance if the function has to be run multiple times over several columns, particularly if you can set <code class="docutils literal notranslate"><span class="pre">engine_kwargs={&quot;parallel&quot;:</span> <span class="pre">True}</span></code>. <strong>Parellelization occurs column-wise, so performance will be boosted if and only if the function is repeated many times over many columns.</strong></p>
+<p>Here is a (somewhat scientifically nonsensical) example using the exoplanets DataFrame to show the speed-up for 5 columns.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numba</span>
+<span class="n">numba</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">stuff</span> <span class="o">=</span>  <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">4</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">250000</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="o">%</span><span class="k">timeit</span> stuff.rolling(500).mean()
+<span class="o">%</span><span class="k">timeit</span> stuff.rolling(500).mean(engine=&#39;numba&#39;, engine_kwargs={&quot;parallel&quot;: True})
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>24.2 ms ± 478 μs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>8.03 ms ± 783 μs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check your work with the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> wrapper!</p>
+<p>Pandas allows you to call some of the simpler Matplotlib methods off of Series and DataFrames without having to import Matplotlib or extract your data to NumPy arrays. If you have a Series with meaningful Indexes, <code class="docutils literal notranslate"><span class="pre">.plot(kind='line')</span></code> (or <code class="docutils literal notranslate"><span class="pre">.plot.&lt;kind&gt;()</span></code>) with no args plots the values of the Series against the Indexes. With a DataFrame, all you have to do is pass the column names to plot and the kind of function you want. The default plot kind is, as written above, ‘line’. Others you can choose are as follows.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'bar'</span></code> | <code class="docutils literal notranslate"><span class="pre">'barh'</span></code> for a bar plot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'hist'</span></code> for a histogram</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'box'</span></code> for a boxplot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'area'</span></code> for an area plot (lines filled underneath)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'kde'</span></code> | <code class="docutils literal notranslate"><span class="pre">'density'</span></code> for a Kernel Density Estimation plot (can also be called as <code class="docutils literal notranslate"><span class="pre">.plot.kde()</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'pie'</span></code> for a pie plot (don’t use this, though)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'scatter'</span></code> for a scatter plot (<strong>DataFrame only</strong>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'hexbin'</span></code> for a hexbin plot (<strong>DataFrame only</strong>)</p></li>
+</ul>
+<p>Most of the args and kwargs that can normally be passed to any of the above plot types in Matplotlib, as well as most of the axis controlling parameters, can be passed as kwargs to the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> wrapper after <code class="docutils literal notranslate"><span class="pre">kind</span></code>. The list can get long and hard to follow, though, so it’s better to use Matplotlib or Seaborn for code you intend to share.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># look at the radius distribution</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Planet radius (Earth radii)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Planet radius (Earth radii)&#39;, ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_12_1.png" src="../_images/pandas_12_1.png" />
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="advanced-topics">
+<h2>Advanced Topics<a class="headerlink" href="#advanced-topics" title="Link to this heading"></a></h2>
+<section id="getting-dummy-variables-for-machine-learning">
+<h3>Getting Dummy Variables for Machine Learning<a class="headerlink" href="#getting-dummy-variables-for-machine-learning" title="Link to this heading"></a></h3>
+<p>ML programs like TensorFlow and PyTorch take Series/DataFrame inputs, but they generally require numeric input. If some of the variables that you want to predict are categorical (e.g. species, sex, or some other classification), they need to be converted to a numerical form that TensorFlow and PyTorch can use. Standard practice is turn a categorical variable with <em>N</em> unique values into <em>N</em> or <em>N</em>-1 boolean columns, where a row entry that was assigned a given category value has a 1 or True in the boolean column corresponding to that category and 0 or False in all the other boolean category columns.</p>
+<p>The Pandas function that does this is <code class="docutils literal notranslate"><span class="pre">pd.get_dummies(data,</span> <span class="pre">dtype=bool,</span> <span class="pre">drop_first=False,</span> <span class="pre">prefix=pref,</span> <span class="pre">columns=columns)</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dtype</span></code> can be <code class="docutils literal notranslate"><span class="pre">bool</span></code> (default, less memory), <code class="docutils literal notranslate"><span class="pre">float</span></code> (more memory usage), <code class="docutils literal notranslate"><span class="pre">int</span></code> (same memory as float), or a more specific string identifier like <code class="docutils literal notranslate"><span class="pre">'float32'</span></code> or <code class="docutils literal notranslate"><span class="pre">'uint16'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">drop_first</span></code>, when True, lets you get rid of one of the categories on the assumption that not fitting any of the remaining categories is perfectly correlated with fitting the dropped category. Be aware that the only way to choose which column is dropped is to rearrange the original data so that the column you want dropped is first.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prefix</span></code> is just a set of strings you can add to dummy column names to make clear which ones are related.</p></li>
+<li><p>If nothing is passed to <code class="docutils literal notranslate"><span class="pre">columns</span></code>, Pandas will try to convert the entire DataFrame to dummy variables, which is usually a bad idea. Always pass the subset of columns you want to convert to <code class="docutils literal notranslate"><span class="pre">columns</span></code>.</p></li>
+</ul>
+<p>Let’s say you did an experiment where you tested 100 people to see if their preference for Coke or Pepsi correlated with whether the container it came in was made of aluminum, plastic, or glass, and whether it was served with or without ice.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choices</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">sodas</span> <span class="o">=</span> <span class="n">choices</span><span class="p">([</span><span class="s1">&#39;Coke&#39;</span><span class="p">,</span><span class="s1">&#39;Pepsi&#39;</span><span class="p">],</span><span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">containers</span> <span class="o">=</span> <span class="n">choices</span><span class="p">([</span><span class="s1">&#39;aluminum&#39;</span><span class="p">,</span><span class="s1">&#39;glass&#39;</span><span class="p">,</span><span class="s1">&#39;plastic&#39;</span><span class="p">],</span><span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ices</span> <span class="o">=</span> <span class="n">choices</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1">###already boolean</span>
+<span class="n">soda_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">sodas</span><span class="p">,</span><span class="n">containers</span><span class="p">,</span><span class="n">ices</span><span class="p">)),</span>
+                       <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brand&#39;</span><span class="p">,</span><span class="s1">&#39;container_material&#39;</span><span class="p">,</span><span class="s1">&#39;with_ice&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soda_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Memory usage:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">soda_df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">dummy_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">soda_df</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brand&#39;</span><span class="p">,</span><span class="s1">&#39;container_material&#39;</span><span class="p">],</span>
+                          <span class="n">prefix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;was&#39;</span><span class="p">,</span><span class="s1">&#39;in&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dummy version:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">dummy_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Memory usage:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">dummy_df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>   brand container_material  with_ice
+0   Coke           aluminum         0
+1   Coke            plastic         1
+2  Pepsi            plastic         1
+3   Coke              glass         1
+4   Coke            plastic         0
+
+ Memory usage:
+ Index                  132
+brand                 5339
+container_material    5564
+with_ice               800
+dtype: int64 
+
+Dummy version:
+    with_ice  was_Pepsi  in_glass  in_plastic
+0         0          0         0           0
+1         1          0         0           1
+2         1          1         0           1
+3         1          0         1           0
+4         0          0         0           1
+
+ Memory usage:
+ Index         132
+with_ice      800
+was_Pepsi     800
+in_glass      800
+in_plastic    800
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dummy variables can also be converted back to categorical variable columns with <code class="docutils literal notranslate"><span class="pre">pd.from_dummies()</span></code> as long as their column names had prefixes to group related variables. But given the memory savings, you might not want to.</p>
+</section>
+<section id="efficient-data-types">
+<h3>Efficient Data Types<a class="headerlink" href="#efficient-data-types" title="Link to this heading"></a></h3>
+<p><strong>Categorical data.</strong> As the memory usage outputs show in the example above, a single 5-8-letter word uses almost 8 times as much memory as a 64-bit float. The <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> datatype provides, among other benefits, a way to get the memory savings of a dummy variable array without having to create one, as long as the number of unique values is much smaller than the number of entries in the column(s) to be converted to <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> type. Internally, the <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> type maps all the unique values of a column to short numerical codes in the column’s place in memory, stores the codes in the smallest integer format that fits the largest-valued code, and only converts the codes to the associated strings when the data are printed.</p>
+<ul class="simple">
+<li><p>To convert a column in an existing Dataframe, simply set that column equal to itself with <code class="docutils literal notranslate"><span class="pre">.astype('category')</span></code> at the end. If defining a new Series that you want to be categorical, simply include <code class="docutils literal notranslate"><span class="pre">dtype='category'</span></code>.</p></li>
+<li><p>To get attributes or call methods of <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> data, use the <code class="docutils literal notranslate"><span class="pre">.cat</span></code> accessor followed by the attribute or method. E.g., to get the category names as an index object, use <code class="docutils literal notranslate"><span class="pre">df['cat_col'].cat.categories</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.cat</span></code> methods include operations to add, remove, rename, and even rearrange categories in a specific hierarchy.</p></li>
+<li><p>The order of categories can be asserted either in the definition of a <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> object to be used as the indexes of a series, by calling <code class="docutils literal notranslate"><span class="pre">.cat.as_ordered()</span></code> on the Series if you’re happy with the current order, or by passing a rearranged or even a completely new list of categories to either <code class="docutils literal notranslate"><span class="pre">.cat.set_categories([newcats],</span> <span class="pre">ordered=True)</span></code> or <code class="docutils literal notranslate"><span class="pre">.cat.reorder_categories([newcats],</span> <span class="pre">ordered=True)</span></code>.</p>
+<ul>
+<li><p>When an order is asserted, it becomes possible to use <code class="docutils literal notranslate"><span class="pre">.min()</span></code> and <code class="docutils literal notranslate"><span class="pre">.max()</span></code> on the categories.</p></li>
+</ul>
+</li>
+<li><p>Numerical data can be recast as categorical by binning it with <code class="docutils literal notranslate"><span class="pre">pd.cut()</span></code> or <code class="docutils literal notranslate"><span class="pre">pd.qcut()</span></code>, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order.</p></li>
+</ul>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="c1"># Convert planet_type to categorical</span>
+<span class="n">ptypes</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ptypes</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="c1"># assert order (coincidentally alphabetical order is also reverse mass-order)</span>
+<span class="n">ptypes</span> <span class="o">=</span> <span class="n">ptypes</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">reorder_categories</span><span class="p">(</span><span class="n">ptypes</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ptypes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Before:
+ 631047
+After:
+ 323219
+#name
+11 Comae Berenices b      Gas Giant
+11 Ursae Minoris b        Gas Giant
+14 Andromedae b           Gas Giant
+14 Herculis b             Gas Giant
+16 Cygni B b              Gas Giant
+                           ...     
+XO-7 b                    Gas Giant
+YSES 2 b                  Gas Giant
+YZ Ceti b               Terrestrial
+YZ Ceti c               Super Earth
+YZ Ceti d               Super Earth
+Name: planet_type, Length: 5250, dtype: category
+Categories (5, object): [&#39;Unknown&#39; &lt; &#39;Terrestrial&#39; &lt; &#39;Super Earth&#39; &lt; &#39;Neptune-like&#39; &lt; &#39;Gas Giant&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># look at the radius distribution before binning, (and get rid of nonsense)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">30</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Radius distribution (Earth radii)&#39;</span><span class="p">)</span>
+<span class="c1">#xlabel normally works but not for &#39;kde&#39; for some reason</span>
+<span class="c1"># Looks bimodal around 2.5 and 13ish. Let&#39;s cut it at 5, 10, and 16 earth radii</span>
+<span class="n">pcut</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
+              <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Rocky&#39;</span><span class="p">,</span> <span class="s1">&#39;Neptunian&#39;</span><span class="p">,</span> <span class="s1">&#39;Jovian&#39;</span><span class="p">,</span> <span class="s1">&#39;Puffy&#39;</span><span class="p">],</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bins: &quot;</span><span class="p">,</span> <span class="n">pcut</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Grouped data, nth rows:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pcut</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Bins:  [&#39;Jovian&#39;, &#39;Puffy&#39;, &#39;Neptunian&#39;, &#39;Rocky&#39;, NaN]
+Categories (4, object): [&#39;Rocky&#39; &lt; &#39;Neptunian&#39; &lt; &#39;Jovian&#39; &lt; &#39;Puffy&#39;]
+
+ Grouped data, nth rows:
+               distance   star_mag  discovery_yr      mass_ME  radius_RE  \
+radius_RE                                                                 
+Rocky      2124.883875  13.723346   2016.504587    12.352942   2.189287   
+Neptunian  3207.872483  12.482742   2016.086957    95.832074   7.233739   
+Jovian     2114.234075   9.903477   2013.642202  1452.623977  13.031046   
+Puffy      1538.681481  11.395561   2015.627737  3221.349708  18.996345   
+
+           orbital_radius_AU  orbital_period_yr  eccentricity  
+radius_RE                                                      
+Rocky               0.152292           0.121120      0.150150  
+Neptunian           0.573751           1.091483      0.163043  
+Jovian             25.063744        1881.701381      0.240422  
+Puffy              15.852211         390.313912      0.140061  
+</pre></div>
+</div>
+<img alt="../_images/pandas_15_2.png" src="../_images/pandas_15_2.png" />
+</div>
+</div>
+<p><strong>Sparse Data.</strong> I you have a DataFrame with lots of rows or columns that are mostly NaN, you can use the <code class="docutils literal notranslate"><span class="pre">SparseArray</span></code> format or <code class="docutils literal notranslate"><span class="pre">SparseDtype</span></code> to save memory.
+Initialize Series or DataFrames as <cite>SparseDtype</cite> by setting the kwarg <code class="docutils literal notranslate"><span class="pre">dtype=SparseDtype(dtype=np.float64,</span> <span class="pre">fill_value=None)</span></code> in the <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> or <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> initialization functions, or call the method <code class="docutils literal notranslate"><span class="pre">.astype(pd.SparseDtype(&quot;float&quot;,</span> <span class="pre">np.nan))</span></code> on an existing Series or DataFrame. Data of <code class="docutils literal notranslate"><span class="pre">SparseDtype</span></code> have a <code class="docutils literal notranslate"><span class="pre">.sparse</span></code> accessor in much the same way as Categorical data have <code class="docutils literal notranslate"><span class="pre">.cat</span></code>. Most <a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html">NumPy universal functions</a> also work on Sparse Arrays. Other methods and attributes include</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.sparse.density</span></code>: prints fraction of data that are non-NaN</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.sparse.fill_value</span></code>: prints fill value for NaNs, if any (might just return NaN)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.sparse.from_spmatrix(data)</span></code>: makes a new <cite>SparseDtype</cite> DataFrame from a SciPy sparse matrix</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.sparse.to_coo()</span></code>: converts a DataFrame (or Series) to sparse SciPy COO type (<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_array.html#scipy.sparse.coo_array">more on those here</a>)</p></li>
+</ul>
+</section>
+<section id="time-series">
+<h3>Time Series<a class="headerlink" href="#time-series" title="Link to this heading"></a></h3>
+<p>If data are loaded into a Series or DataFrame with timestamps or other datetime-like data, those columns will automatically be converted to the relevant Pandas time series datatype. If the time increments are smaller than weeks, this can be nice because it enables things like windowing and resampling based on time increments even if the samples are irregular. With the right choice of plotting interface, time series are also automatically correctly formatted in plots.</p>
+<p>Below is a table of time series datatypes, how they vary depending on whether you’re looking at individual values or a whole column.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scalar Class</p></th>
+<th class="head"><p>Index Subclass</p></th>
+<th class="head"><p>Pandas Data Type</p></th>
+<th class="head"><p>Creation/Conversion Method</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>
+(datetime or
+date only)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">datetime64[ns(,</span> <span class="pre">tz)]</span></code>
+(may or may not have
+time zone info)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.to_datetime(dates)</span></code> or
+<code class="docutils literal notranslate"><span class="pre">.date_range(start,</span> <span class="pre">end=None,</span> <span class="pre">periods=None,</span>
+<span class="pre">freq=None)</span></code> (need 2 out of 3 kwargs)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>
+(increments
+from t[start])</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code>
+(units can be anything
+from ns to <em>weeks</em>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.to_timedelta(tdelts)</span></code> or
+<code class="docutils literal notranslate"><span class="pre">.timedelta_range(start=None,</span> <span class="pre">end=None,</span>
+<span class="pre">periods=None,</span> <span class="pre">freq=None)</span></code> (need 3 of 4 kwargs)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Period</span></code>
+(fixed-width
+bins in time)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">period[freq]</span></code>
+(units can be anything
+from ns to <em>years</em>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.Period(t_init,</span> <span class="pre">freq=None)</span></code> or
+<code class="docutils literal notranslate"><span class="pre">.period_range(start=None,</span> <span class="pre">end=None,</span>
+<span class="pre">periods=None)</span></code> (need 2 out of 3 kwargs)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DateOffset</span></code></p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.tseries.offsets.DateOffset(unit</span> <span class="pre">=</span> <span class="pre">n_units)</span></code>
+(<code class="docutils literal notranslate"><span class="pre">unit</span></code> can be day, month, …)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The relatively niche <code class="docutils literal notranslate"><span class="pre">DateOffset</span></code> type is imported from the <code class="docutils literal notranslate"><span class="pre">dateutil</span></code> package to help deal with calendar irregularities like leap-years and DST.</p>
+<p><strong>Resampling.</strong> Generally, resampling means taking data from one (time) series and interpolating to other (time) increments within the same bounds, whether those steps are more closely spaced than the original (<em>upsampling</em>), more widely spaced (<em>downsampling</em>), or merely shifted. In Pandas, resampling methods are exclusively for time series, and the <code class="docutils literal notranslate"><span class="pre">.resample()</span></code> method is fundamentally a time-based GroupBy. That means any built-in method you can call on a GroupBy method can be called on the output of <code class="docutils literal notranslate"><span class="pre">.resample()</span></code>.</p>
+<ul class="simple">
+<li><p>To <em>shift</em> or <em>downsample</em>, just call the method <code class="docutils literal notranslate"><span class="pre">.resample('&lt;unit&gt;')</span></code> on your time Series (or DataFrame, as long as indexes are timestamps) with any accepted <code class="docutils literal notranslate"><span class="pre">unit</span></code> alias.</p></li>
+<li><p>To <em>upsample</em>, <code class="docutils literal notranslate"><span class="pre">.resample()</span></code> is not enough by itself—you must choose a fill/interpolation method.</p>
+<ul>
+<li><p>The most basic method is to use <code class="docutils literal notranslate"><span class="pre">.resample('&lt;unit&gt;').asfreq()</span></code>, but if the chosen upsampled unit does not evenly divide into or align with the original unit, most of the resampled points will be <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+<li><p>There is also the forward-fill method, <code class="docutils literal notranslate"><span class="pre">.resample('&lt;unit&gt;').ffill(limit=limit)</span></code>, where every data point is propagated forward to intervening sample points either up to the number of points specified by the <code class="docutils literal notranslate"><span class="pre">limit</span></code> kwarg or until the next point in the original series is reached.</p></li>
+<li><p>For a more proper interpolation, there is <code class="docutils literal notranslate"><span class="pre">.resample('&lt;unit&gt;').interpolate(method='linear')</span></code>, in which the <code class="docutils literal notranslate"><span class="pre">method</span></code> can be any method string accepted by either <code class="docutils literal notranslate"><span class="pre">scipy.interpolate.interp1d</span></code> or <code class="docutils literal notranslate"><span class="pre">scipy.interpolate.UnivariateSpline</span></code>, among others, but even these will tend to fail if the new time steps are poorly aligned with the old ones. Sometimes it is necessary to combine this with, e.g. by forward-filling to the next available new time step (see example below), or extract the data and use a SciPy interpolation method on those data more directly.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition-resampling-example admonition">
+<p class="admonition-title">Resampling example</p>
+<p>Let’s say you have data collected on the 15th of the month every month for a year (the data shown are the average monthly highs from the instructor’s birthplace in 2021). If you wanted weekly data (roughly 52 data points) and the data are well-behaved, you could upsample from a monthly frequency to a weekly frequency. Unfortunately, since months are not all the same length and February is only 28 days, the initial sampling frequency is really bad for interpolation—the upsampled data are NaN until mid-August and then take the value on August 15 for the rest of the year.</p>
+<p>A good quick fix (if you’re not that worried about precision) is to do <code class="docutils literal notranslate"><span class="pre">resample().ffill(limit=1)</span></code> before <code class="docutils literal notranslate"><span class="pre">.interpolate(method='&lt;method&gt;')</span></code>. With <code class="docutils literal notranslate"><span class="pre">limit=1</span></code>, <code class="docutils literal notranslate"><span class="pre">ffill()</span></code> propagates the original data forward to the nearest available time step in the upsampled series, and that gives <code class="docutils literal notranslate"><span class="pre">interpolate</span></code> enough data to handle the rest.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">18.</span><span class="p">,</span><span class="mf">20.</span><span class="p">,</span><span class="mf">24.</span><span class="p">,</span><span class="mf">27.</span><span class="p">,</span><span class="mf">30.</span><span class="p">,</span><span class="mf">32.</span><span class="p">,</span><span class="mf">33.</span><span class="p">,</span><span class="mf">33.</span><span class="p">,</span><span class="mf">31.</span><span class="p">,</span><span class="mf">27.</span><span class="p">,</span><span class="mf">23.</span><span class="p">,</span><span class="mf">20.</span><span class="p">],</span>
+               <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;2021-</span><span class="si">{}</span><span class="s1">-15&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+                                     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+<span class="n">tsr</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span> <span class="c1">#linear interpolation</span>
+<span class="n">tsr</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="c1">#a Series with datetime indexes plots with x-axis already formatted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2021-01-15    18.0
+2021-02-15    20.0
+2021-03-15    24.0
+2021-04-15    27.0
+2021-05-15    30.0
+2021-06-15    32.0
+2021-07-15    33.0
+2021-08-15    33.0
+2021-09-15    31.0
+2021-10-15    27.0
+2021-11-15    23.0
+2021-12-15    20.0
+dtype: float64
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_16_2.png" src="../_images/pandas_16_2.png" />
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Pandas lets you construct list- or table-like data structures with mixed data types, the contents of which can be indexed by arbitrary row and column labels</p></li>
+<li><p>The main data structures are Series (1D) and DataFrames (2D). Each column of a DataFrame is a Series.</p></li>
+<li><p>Data is selected primarily using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>, unless you’re grabbing whole columns (then the syntax is dict-like).</p></li>
+<li><p>There are hundreds of attributes and methods that can be called on Pandas data structures to inspect, clean, organize, combine, and applying functions to them, including nearly all NumPy ufuncs (universal functions).</p></li>
+<li><p>The contents of DataFrames can be grouped by one or more columns, and most statistical methods called on the GroupBy object will be aggregated only within the groups.</p></li>
+<li><p>If you need to apply more complex or user-defined functions to your data, you can use <code class="docutils literal notranslate"><span class="pre">.map()</span></code>, <code class="docutils literal notranslate"><span class="pre">.agg()</span></code>, <code class="docutils literal notranslate"><span class="pre">.transform()</span></code>, or <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> to evaluate them, depending on the shape of the function output.</p></li>
+<li><p>Most Pandas methods that apply a function can be sped up by multithreading with Numba, if they are applied over multiple columns. Just set <code class="docutils literal notranslate"><span class="pre">engine=numba</span></code> and <code class="docutils literal notranslate"><span class="pre">engine_kwargs={&quot;parallel&quot;:</span> <span class="pre">True}</span></code> in the kwargs.</p></li>
+<li><p>You can also call simple Matplotlib functions as methods of Pandas data structures to quickly view your data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Categorical</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseDtype</span></code> datatypes can help you reduce the memory footprint of your data.</p></li>
+<li><p>Pandas supports datetime- and timedelta-like data and has methods to resample such data to different time steps.</p></li>
+</ul>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<p>Exercises and their solutions are provided separately in Jupyter notebooks. You may have to modify the search paths for the associated data files. The data files for the Pandas exercises are <code class="docutils literal notranslate"><span class="pre">covid19_italy_region.csv</span></code> and <code class="docutils literal notranslate"><span class="pre">ita_pop_by_reg.txt</span></code>.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../day2/python_at_hpc_centers.html" class="btn btn-neutral float-left" title="Python documentations at the different HPC centres" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Seaborn-Intro.html" class="btn btn-neutral float-right" title="A Brief Introduction to the Seaborn Statistical Plotting Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
