@@ -147,7 +147,7 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
      - N.A.
      - PDC singularity/4.1.1-cpeGNU-23.12 (v2.13)
    * - PyTorch (torch)
-     - N.A.
+     - python_ML_packages (Python 3.11.8-cpu)
      - PyTorch (up to Python 3.11.3) 
      - PyTorch (up to Python 3.10.4) 
      - N.A.
