@@ -123,7 +123,7 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
      - N.A.
      - cray-python
    * - Scikit-Learn (sklearn)
-     - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu) 
+     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu) 
      - scikit-learn (no newer than for GCC/12.3.0 and Python 3.11.3)  
      - scikit-learn 
      - N.A.
@@ -135,19 +135,19 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
      - N.A. 
      - N.A.
    * - TensorFlow
-     - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
+     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
      - TensorFlow (newest version is for Python 3.11.3)
      - TensorFlow (up to Python 3.10.4) 
      - N.A.
      - PDC singularity/4.1.1-cpeGNU-23.12 (v2.13)
    * - Keras
-     - python_ML_packages (Python 3.11.8-gpu and Python 3.11.8-cpu)
+     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
      - Keras (up to Python 3.8.6), TensorFlow (Python 3.11.3)
      - TensorFlow (up to Python 3.10.4)
      - N.A.
      - PDC singularity/4.1.1-cpeGNU-23.12 (v2.13)
    * - PyTorch (torch)
-     - python_ML_packages (Python 3.11.5-gpu and Python 3.11.8-cpu)
+     - python_ML_packages (Python 3.11.8-cpu)
      - PyTorch (up to Python 3.11.3) 
      - PyTorch (up to Python 3.10.4) 
      - N.A.
