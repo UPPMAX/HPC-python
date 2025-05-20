@@ -1,32 +1,28 @@
 #!/bin/env Rscript
 
-t <- readr::read_csv("survey_end.csv")
+t <- readr::read_csv("evaluation_20250425_day_2.csv")
+
 names(t)
-t$Timestamp <- NULL
 
-readr::write_lines(t$`Any other feedback?`, "survey_end_text_question.txt")
-t$`Any other feedback?` <- NULL
-# tail(names(t))
-questions <- stringr::str_remove(
-  stringr::str_remove(
-    names(t), 
-    "Give you confidence levels of the following statements below: \\["),
-  "\\]"
-)
-#new_names <- c(
-#  paste0("q0", seq(1, 9)),
-#  paste0("q", seq(10, 16))
-#)
-new_names <- questions
-names(t) <- new_names
+t <- t |> dplyr::select(dplyr::starts_with("I "))
 
+
+t <- t |> 
+  dplyr::mutate_all(~ replace(., . == "I can absolutely do this!", 5)) |>
+  dplyr::mutate_all(~ replace(., . == "I have good confidence I can do this", 4)) |>
+  dplyr::mutate_all(~ replace(., . == "I have some confidence I can do this", 3)) |>
+  dplyr::mutate_all(~ replace(., . == "I have low confidence I can do this", 2)) |>
+  dplyr::mutate_all(~ replace(., . == "I have no confidence I can do this", 1)) |>
+  dplyr::mutate_all(~ replace(., . == "I don't know even what this is about ...?", 0)) 
+t
 t$i <- seq(1, nrow(t))
 
 names(t)
 t_tidy <- tidyr::pivot_longer(t, cols = starts_with("I", ignore.case = FALSE))
+t_tidy <- t_tidy |> dplyr::filter(!is.na(answer))
 names(t_tidy)
 names(t_tidy) <- c("i", "question", "answer")
-t_tidy
+t_tidy$answer <- as.numeric(t_tidy$answer)
 
 n_individuals <- length(unique(t_tidy$i))
 n_ratings <- length(t_tidy$answer[!is.na(t_tidy$answer)])
