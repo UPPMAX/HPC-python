@@ -65,15 +65,21 @@ ggplot2::ggsave("recommend.png", width = 7, height = 7)
 # Future topics
 #####################################################
 
-# Which future training topics would you like to be provided by the training host(s)? 	
-# TODO
+future_topics <- t |> 
+  dplyr::select(starts_with("Which future training topics would you like to be provided by the training host"))
+names(future_topics) <- "future_topic"
+future_topics <- future_topics |> dplyr::filter(!is.na(future_topic))
+readr::write_lines(future_topics$future_topic, "future_topics.txt")
 
 #####################################################
 # Other feedback
 #####################################################
 
-# Do you have any additional comments?  Suggestions/ideas:  - What did you like best? (materials, exercises, structure) - Where should we improve? (materials, exercises, structure) - Training organi...
-# TODO
+comments <- t |> 
+  dplyr::select(starts_with("Do you have any additional comments?"))
+names(comments) <- "comment"
+comments <- comments |> dplyr::filter(!is.na(comment))
+readr::write_lines(comments$comment, "comments.txt")
 
 #####################################################
 # Confidences
