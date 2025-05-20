@@ -142,8 +142,13 @@ average_confidences <- dplyr::group_by(t_tidy, question) |> dplyr::summarise(mea
   
 readr::write_csv(average_confidences, file = "average_confidences.csv")
 
-ggplot2::ggplot(average_confidences, ggplot2::aes(y = question, x = mean)) +
-  ggplot2::geom_bar(stat = "identity") 
+ggplot2::ggplot(
+  average_confidences, ggplot2::aes(y = question, x = mean)) +
+  ggplot2::geom_bar(stat = "identity") +
+  ggplot2::scale_x_continuous(
+    limits = c(0, 5),
+    breaks = seq(0.0, 5.0, by = 0.5)
+  )
 
 ggplot2::ggsave(filename = "average_confidences_per_question.png", width = 7, height = 7)
 
