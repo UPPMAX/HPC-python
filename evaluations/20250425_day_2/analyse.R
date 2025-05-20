@@ -2,10 +2,8 @@
 
 t <- readr::read_csv("evaluation_20250425_day_2.csv")
 
-names(t)
-
+# Select confidence questions
 t <- t |> dplyr::select(dplyr::starts_with("I "))
-
 
 t <- t |> 
   dplyr::mutate_all(~ replace(., . == "I can absolutely do this!", 5)) |>
@@ -13,14 +11,12 @@ t <- t |>
   dplyr::mutate_all(~ replace(., . == "I have some confidence I can do this", 3)) |>
   dplyr::mutate_all(~ replace(., . == "I have low confidence I can do this", 2)) |>
   dplyr::mutate_all(~ replace(., . == "I have no confidence I can do this", 1)) |>
-  dplyr::mutate_all(~ replace(., . == "I don't know even what this is about ...?", 0)) 
-t
+  dplyr::mutate_all(~ replace(., . == "I don't know even what this is about ...?", 0)) |>
+  dplyr::mutate_all(~ replace(., . == "I did not attend that session", 0)) 
 t$i <- seq(1, nrow(t))
 
-names(t)
 t_tidy <- tidyr::pivot_longer(t, cols = starts_with("I", ignore.case = FALSE))
-t_tidy <- t_tidy |> dplyr::filter(!is.na(answer))
-names(t_tidy)
+t_tidy <- t_tidy |> dplyr::filter(!is.na(value))
 names(t_tidy) <- c("i", "question", "answer")
 t_tidy$answer <- as.numeric(t_tidy$answer)
 
@@ -64,7 +60,7 @@ readr::write_csv(average_confidences, file = "average_confidences.csv")
 ggplot2::ggplot(average_confidences, ggplot2::aes(y = question, x = mean)) +
   ggplot2::geom_bar(stat = "identity") 
 
-ggplot2::ggsave(filename = "average_confidences_per_question.png", width = 6, height = 7)
+ggplot2::ggsave(filename = "average_confidences_per_question.png", width = 7, height = 7)
 
 
 
