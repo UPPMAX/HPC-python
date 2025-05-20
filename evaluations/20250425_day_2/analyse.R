@@ -2,6 +2,85 @@
 
 t <- readr::read_csv("evaluation_20250425_day_2.csv")
 
+#####################################################
+# Course rating
+#####################################################
+
+ratings <- t |> dplyr::select("Overall, how would you rate this training event?")
+names(ratings) <- "rating"
+ggplot2::ggplot(
+  ratings, 
+  ggplot2::aes(x = rating)
+) + ggplot2::geom_histogram() +
+  ggplot2::scale_x_continuous(
+    limits = c(1, 10),
+    breaks = seq(1, 10)
+  ) +
+  ggplot2::scale_y_continuous(
+    name = "Frequency"
+  ) +  
+  ggplot2::labs(
+    title = "Course rating",
+    caption = paste0(
+      "#individuals: ", nrow(ratings), ". ",
+      "#ratings: ", nrow(ratings), ". ",
+      "Mean rating: ", round(mean(ratings$rating), digits = 2)
+    )
+  )
+ggplot2::ggsave("course_rating.png", width = 7, height = 7)
+
+#####################################################
+# Pace
+#####################################################
+
+pace <- t |> dplyr::select(starts_with("What do you think about the pace of teaching overall today?"))
+names(pace) <- "pace"
+readr::write_lines(pace$pace, "pace.txt")
+
+#####################################################
+# Recommend
+#####################################################
+
+recommend <- t |> dplyr::select(starts_with("Would you recommend this course to your colleagues"))
+names(recommend) <- "recommend"
+recommend$recommend <- as.factor(recommend$recommend)
+
+ggplot2::ggplot(recommend, ggplot2::aes(x = recommend)) + 
+  ggplot2::geom_bar() +
+  ggplot2::scale_y_continuous(
+    name = "Number of learners"
+  ) +
+  ggplot2::labs(
+    title = "Would you recommend the course?",
+    caption = paste0(
+      "#individuals: ", nrow(recommend), ". ",
+      "#ratings: ", nrow(recommend), ". ",
+      "%yes: ", 100 * round(mean(recommend$recommend == "Yes"), digits = 2)
+    )
+  )
+
+ggplot2::ggsave("recommend.png", width = 7, height = 7)
+
+#####################################################
+# Future topics
+#####################################################
+
+# Which future training topics would you like to be provided by the training host(s)? 	
+# TODO
+
+#####################################################
+# Other feedback
+#####################################################
+
+# Do you have any additional comments?  Suggestions/ideas:  - What did you like best? (materials, exercises, structure) - Where should we improve? (materials, exercises, structure) - Training organi...
+# TODO
+
+#####################################################
+# Confidences
+#####################################################
+
+t <- readr::read_csv("evaluation_20250425_day_2.csv")
+
 # Select confidence questions
 t <- t |> dplyr::select(dplyr::starts_with("I "))
 
@@ -75,3 +154,10 @@ testthat::expect_true(all(t_sessions_taught %in% t_tidy$question))
 confidences_on_taught_sessions <- t_tidy |> dplyr::filter(question %in% t_sessions_taught)
 success_score <- mean(confidences_on_taught_sessions$answer) / 5.0
 readr::write_lines(x = success_score, "success_score.txt")
+
+
+
+
+
+
+
