@@ -12,7 +12,7 @@ t <- t |>
   dplyr::mutate_all(~ replace(., . == "I have low confidence I can do this", 2)) |>
   dplyr::mutate_all(~ replace(., . == "I have no confidence I can do this", 1)) |>
   dplyr::mutate_all(~ replace(., . == "I don't know even what this is about ...?", 0)) |>
-  dplyr::mutate_all(~ replace(., . == "I did not attend that session", 0)) 
+  dplyr::mutate_all(~ replace(., . == "I did not attend that session", NA)) 
 t$i <- seq(1, nrow(t))
 
 t_tidy <- tidyr::pivot_longer(t, cols = starts_with("I", ignore.case = FALSE))
