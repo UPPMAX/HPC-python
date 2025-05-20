@@ -14,29 +14,29 @@ Sometimes a useful connection between two different sessions gets more or less l
 
 However, the contrast between sessions pulls into sharp focus a few things to improve upon:
 
-Preparedness is key
+- Preparedness is key
 
-Several sessions had examples, code-alongs or exercises that did not work as intended without troubleshooting that was not within the focus of the session. Learning about modules and packages and handling the dependency hell in various ways is very good (I'll get back to this), but it is not good to be interrupted by these things when trying to teach and learn something else.
+  Several sessions had examples, code-alongs or exercises that did not work as intended without troubleshooting that was not within the focus of the session. Learning about modules and packages and handling the dependency hell in various ways is very good (I'll get back to this), but it is not good to be interrupted by these things when trying to teach and learn something else.
 
-It would be good if all of the course materials, for all of the clusters, was confirmed working as intended before the course.[1] I do realize that this is a big undertaking—but make no mistake, this course (with the amount of content it currently has) is definitely a big undertaking.
+  It would be good if all of the course materials, for all of the clusters, was confirmed working as intended before the course.[1] I do realize that this is a big undertaking—but make no mistake, this course (with the amount of content it currently has) is definitely a big undertaking.
 
-Too much content, too little time
+- Too much content, too little time
 
-Full days leave little to zero time for going through the exercises on our own. Having extra exercises for repeating and/or diving deeper after the course is good, but all that is truly intended to be part of the course needs to be given the time within the course. With no time to test and get some confidence that one part is understood and doable, open questions and uncertainty cause several problems for learners.
+  Full days leave little to zero time for going through the exercises on our own. Having extra exercises for repeating and/or diving deeper after the course is good, but all that is truly intended to be part of the course needs to be given the time within the course. With no time to test and get some confidence that one part is understood and doable, open questions and uncertainty cause several problems for learners.
 
-First, it immediately steals away some focus/brainpower. Second, we might not get knowledge/skill presumed by later parts of the course. Third, the sheer worry of the latter is not to be trifled with! I have seen that wreak havoc on learning again and again in various lectures and labs.
+  First, it immediately steals away some focus/brainpower. Second, we might not get knowledge/skill presumed by later parts of the course. Third, the sheer worry of the latter is not to be trifled with! I have seen that wreak havoc on learning again and again in various lectures and labs.
 
-The sessions on Pandas and Seaborn especially were much too rushed, to the point that they felt close to useless. The session on IDEs had barely enough time for me to get Jupyter running, while I would've expected to try VS Code and Spyder as well since all of them are in there. The course taken as a whole also needs either less content or more time.
+  The sessions on Pandas and Seaborn especially were much too rushed, to the point that they felt close to useless. The session on IDEs had barely enough time for me to get Jupyter running, while I would've expected to try VS Code and Spyder as well since all of them are in there. The course taken as a whole also needs either less content or more time.
 
-To solve this nicely, please consider what content is crucial that learners get to try and to ask questions about! The rest can be left in extras for the learners to look at after the course. This is closely related to how general a topic is, if there are many other places to ask questions and get the right answers.
+  To solve this nicely, please consider what content is crucial that learners get to try and to ask questions about! The rest can be left in extras for the learners to look at after the course. This is closely related to how general a topic is, if there are many other places to ask questions and get the right answers.
 
-We learn what we do
+- We learn what we do
 
-In some sessions, mainly Parallellism and ML/DL if I recall correctly, I was learning about modules and packages and lost track of the lecture as I was trying to make the examples work. In some sessions I learned little to nothing as I found no time to try anything. In some sessions I got to try and learn every single thing that was in the course materials.
+  In some sessions, mainly Parallellism and ML/DL if I recall correctly, I was learning about modules and packages and lost track of the lecture as I was trying to make the examples work. In some sessions I learned little to nothing as I found no time to try anything. In some sessions I got to try and learn every single thing that was in the course materials.
 
-There seems to be two good ways to have learners actually do stuff in an online course. One is what Richel does: most of the time in 2-person breakout rooms, working through exercises as the main way of learning.
+  There seems to be two good ways to have learners actually do stuff in an online course. One is what Richel does: most of the time in 2-person breakout rooms, working through exercises as the main way of learning.
 
-Another one is to have a well-prepared code notebook with demos/examples/exercises to be completed by the learners. On desktop screens and larger laptops learners can have their copy of the notebook side-by-side with the meeting. This method can smoothly intersperse both longer and very short bits of hands-on coding into a lecture, akin to how the demos that weren't working in the sessions on Parallel programming should have worked.
+  Another one is to have a well-prepared code notebook with demos/examples/exercises to be completed by the learners. On desktop screens and larger laptops learners can have their copy of the notebook side-by-side with the meeting. This method can smoothly intersperse both longer and very short bits of hands-on coding into a lecture, akin to how the demos that weren't working in the sessions on Parallel programming should have worked.
 
 ## Focus and structure
 
@@ -44,11 +44,16 @@ This course teaches many separate things. This gets a bit too messy, both for th
 
 It would be easier for both groups (though a bit less efficient, for those who both need all of it and are somehow able to efficiently learn it the way it is now) if this content was divided between as much as four separate courses:
 
-Intro to HPC, usage and management of software and code (Logging in, LMOD, SLURM; the things that are actually different between HPC and a single-user single computer)
-Intro to Python (this already exists and is day 1)
-Python coding for big computation, big data and AI (this includes parallell and GPU but is not specific to HPC and probably exists elsewhere)
-Using Python code, packages and environments at NAISS HPC systems (LMOD, venv, conda; when to use what and how they interact)
-Course 1 is general to HPC users, not specific to Python. It should probably be provided by NAISS quite often and be a prerequisite to all other NAISS courses. Courses 2 and 3 are general to Python users, not specific to HPC, widely available from elsewhere. Course 4 is specific to Python in HPC; this is what I, a seasoned learner, would expect NAISS to provide in regards to using Python.
+1. Intro to HPC, usage and management of software and code (Logging in, LMOD, SLURM; the things that are actually different between HPC and a single-user single computer)
+2. Intro to Python (this already exists and is day 1)
+3. Python coding for big computation, big data and AI (this includes parallell and GPU but is not specific to HPC and probably exists elsewhere)
+4. Using Python code, packages and environments at NAISS HPC systems (LMOD, venv, conda; when to use what and how they interact)
+
+Course 1 is general to HPC users, not specific to Python. It should probably be provided by NAISS quite often and be a prerequisite to all other NAISS courses.
+
+Courses 2 and 3 are general to Python users, not specific to HPC, widely available from elsewhere.
+
+Course 4 is specific to Python in HPC; this is what I, a seasoned learner, would expect NAISS to provide in regards to using Python.
 
 ## What I expected (or hoped) to learn that I did not learn
 
