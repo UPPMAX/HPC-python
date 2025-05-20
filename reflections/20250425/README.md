@@ -68,7 +68,6 @@ I replied:
 
 After which we exchanged emails to talk about teaching.
 
-
 ## Overview of how time is spent
 
 Hour|Lecture (mins)|Dialogue (mins)|Exercises (mins)
