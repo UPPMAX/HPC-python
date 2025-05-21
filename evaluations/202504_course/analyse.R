@@ -55,6 +55,7 @@ t$learning_outcomes <- reorder(
   X = order(t$average_confidence),
   decreasing = TRUE
 )
+readr::write_csv(t, "confidences_course.csv")
 
 average_average_confidence <- mean(t$average_confidence)
 
