@@ -1,0 +1,8 @@
+question,mean
+I can decide on useful file formats for big data,3.36
+I can make a plot with Seaborn,3.58
+I can submit a script to the job scheduler,4.33
+"I can use Pandas (basic operations - statistics, binary operators, vectorized math, string methods)",2.91
+I can use Pandas (input/output Pandas data),3.18
+"I can use Pandas (inspect, clean, and sort data for later operations)",3
+I can write a batch script,4.08

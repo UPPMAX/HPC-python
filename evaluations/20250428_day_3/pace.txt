@@ -1,0 +1,13 @@
+presentation heavy - limited hands-on.
+For me it worked and I was able to follow and work on the exercises simultaneously
+I think it was a bit too much content in the first part,
+It was. agood pace. Enough time to understand all the sessions and ask questions
+I was okay but I do not have a background in that so it was pretty difficult for me to follow the practical session
+No comments. I did not attend afternoon lectures.
+Inconsistent: Rebecca fast/crammed (that part had a great lack of exercises), Brigitte and Björn between okay and slightly slow
+Overall good, first 2 sections were too fast.
+COnsidering that is a Intro and Overview of Python on HPC, the path was good and we have at the end some time for doing some exercises and ask for support and feedback to the mentors
+The Pandas section was a bit confusing and maybe too hurried
+Good
+I may need more time to train on Pandas, but I will watch the video again and try to code along. I didn't realize I needed to have a jupyter up and running for the session, so I could not code along
+Suitable
