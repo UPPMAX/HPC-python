@@ -1,11 +1,13 @@
 #!/bin/env Rscript
 
-t <- readr::read_csv("evaluation_20250425_day_2.csv")
+read_data <- function() {
+  readr::read_csv("evaluation_20250425_day_2.csv", show_col_types = FALSE)
+}
 
+t <- read_data()
 #####################################################
 # Course rating
 #####################################################
-
 ratings <- t |> dplyr::select("Overall, how would you rate this training event?")
 names(ratings) <- "rating"
 ggplot2::ggplot(
@@ -85,7 +87,7 @@ readr::write_lines(comments$comment, "comments.txt")
 # Confidences
 #####################################################
 
-t <- readr::read_csv("evaluation_20250425_day_2.csv")
+t <- read_data()
 
 # Select confidence questions
 t <- t |> dplyr::select(dplyr::starts_with("I "))
@@ -139,21 +141,45 @@ ggplot2::ggsave(filename = "confidences_per_question.png", width = 6, height = 7
 names(t_tidy)
 
 average_confidences <- dplyr::group_by(t_tidy, question) |> dplyr::summarise(mean = mean(answer))
-  
+average_confidences$mean <- round(average_confidences$mean, digits = 2)
+
+# Keep these chronologically
 readr::write_csv(average_confidences, file = "average_confidences.csv")
 
+# Sort by value
+average_confidences <- average_confidences |> dplyr::arrange(mean)
+average_confidences$question <- as.factor(average_confidences$question)
+average_confidences$question <- reorder(
+  x = average_confidences$question, 
+  X = order(average_confidences$mean),
+  decreasing = TRUE
+)
+  
+
+average_average_confidence <- mean(average_confidences$mean)
+
 ggplot2::ggplot(
-  average_confidences, ggplot2::aes(y = question, x = mean)) +
+  average_confidences, 
+  ggplot2::aes(y = question, x = mean)
+) +
   ggplot2::geom_bar(stat = "identity") +
   ggplot2::scale_x_continuous(
     limits = c(0, 5),
     breaks = seq(0.0, 5.0, by = 0.5)
+  ) +
+  ggplot2::geom_vline(xintercept = average_average_confidence, lty = "dashed") +
+  ggplot2::theme(
+    strip.text.y = ggplot2::element_text(angle = 0),
+    legend.position = "bottom"
+  ) +
+  ggplot2::labs(
+    title = "Confidences per question",
+    caption = paste0(
+      " Dashed line denotes the average at ", round(average_average_confidence, digits = 2)
+    )
   )
 
 ggplot2::ggsave(filename = "average_confidences_per_question.png", width = 7, height = 7)
-
-
-
 
 
 t_sessions_taught <- unique(t_tidy$question)

@@ -1,9 +1,9 @@
 question,mean
-I can check that I am in an interactive session,3.5714285714285716
-I can create plots in matplotlib,3.8666666666666667
-I can determine if a Python package is installed,4.066666666666666
+I can check that I am in an interactive session,3.57
+I can create plots in matplotlib,3.87
+I can determine if a Python package is installed,4.07
 I can find and load a Python package module,4
-I can install Python packages,4.066666666666666
+I can install Python packages,4.07
 I can use a Python IDE,3.8
-I can use the compute nodes interactively,3.6666666666666665
-"I can work (create, activate, work, deactivate) with a venv virtual environment",3.933333333333333
+I can use the compute nodes interactively,3.67
+"I can work (create, activate, work, deactivate) with a venv virtual environment",3.93
