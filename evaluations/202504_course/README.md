@@ -116,7 +116,7 @@ four separate courses:
   (Logging in, LMOD, SLURM; the things that are actually different
   between HPC and a single-user single computer)
 - Intro to Python (this already exists and is day 1)
-- Python coding for big computation, big data and AI (this includes parallell
+- Python coding for big computation, big data and AI (this includes parallel
   and GPU but is not specific to HPC and probably exists elsewhere)
 - Using Python code, packages and environments at NAISS HPC systems
   (LMOD, venv, conda; when to use what and how they interact)

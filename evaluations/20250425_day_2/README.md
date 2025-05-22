@@ -47,7 +47,7 @@ I have a high level of Linux/Unix proficiency					                              
 
 ![Course ratings](course_rating.png)
 ![All confidences](all_confidences.png)
-![Averaga confidence per question](average_confidences_per_question.png)
+![Average confidence per question](average_confidences_per_question.png)
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
@@ -85,10 +85,10 @@ I have a high level of Linux/Unix proficiency					                              
 
 - every thing is great for me
 - I think all of the training materials were very clear, and I liked the amount of hands-on exercises. I also really appreciated how supportive all of the teachers were, the classes had a very nice atmosphere.
-- Overall, a great session, but it would be great to have more time plannned into each session for questions.
+- Overall, a great session, but it would be great to have more time planned into each session for questions.
 - For the matplotlib part: to improve more demonstrations rather than read so quickly the content to accomplish the schedule. Improve the depth of the course not too superficial to at least catch some key points that helps to start.  The morning session had better demo and I could follow the steps.
 - The written material is quite good and shows the different options, but simply going through them during the course takes too long and sometimes end up with focus on specific HPC systems that not everyone is going to use. There are instructions for each cluster, so maybe the topics should be more generic with access to the specific info as needed. The IDE section, for example, could only show how to do it to very specific cases, while having the cluster instructions and a generic discussion about the options could be better.
-- Overall very good docs from each mentors that states pro and contro and niche details of each HPC. Infinite for trouble-shooting support especially for beginners
+- Overall very good docs from each mentors that states pro and contra and niche details of each HPC. Infinite for trouble-shooting support especially for beginners
 - (did not attend Matplotlib part) 1. Overall the reading/presentation material was good to very good, just too far between exercises - as soon as one step has been explained, I want to test it and make sure I can do it! But some information was outdated and some part or parts had lots of spelling errors.  2. Again and again, there was not enough time margins within each session. Asking us to do stuff on the breaks is BAD. Breaks are needed for food, toilet and looking away from the screen. Can't learn anything if we don't get breaks.  3. Lunch break start and end time needs to be confirmed before 12:00. For those of us caught up in listening and following along it got cut much too short today.
 - It's good that you record, but could you post the recordings a bit faster so we can go through before the rest of the course?
 - Not fond of the IDEs, I think it's unnecessarily cumbersome. Shell is much easier to work in. You don't have to load a lot of other things, set graphics and fight with it :( Why this focus on jupyter or spyder or whatever it was called

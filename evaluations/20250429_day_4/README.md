@@ -18,7 +18,7 @@
 
 ![Course ratings](course_rating.png)
 ![All confidences](all_confidences.png)
-![Averaga confidence per question](average_confidences_per_question.png)
+![Average confidence per question](average_confidences_per_question.png)
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
@@ -37,7 +37,7 @@
 
 ### [Future topics](future_topics.txt)
 
-- spend more time on GPU and high performance computing and parallelism on advanced python script such as fourier transform, matrix operaions, differential equations
+- spend more time on GPU and high performance computing and parallelism on advanced python script such as fourier transform, matrix operations, differential equations
 - During last session 15:15 Prof. Anders Hast shared his experience and gave us hints on PCA. Hence, another host person, next time, on LLMs (Dr. Jayant) or PINNs (Physics-informed neural network) or other Deep Learnings that are now commonly useful and used, would be very appreciated to see practical applications and implementations of them.
 - Better detail on how to prepare code execution for the different HPCs
 - LMOD, SLURM, resource monitoring, how to think about and decide upon resource usage
