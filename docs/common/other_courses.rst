@@ -59,3 +59,22 @@ Third level
 `ENCCS (EuroCC National Competence Centre Sweden) <https://enccs.se/>`_ is a national centre that supports industry, public administration and academia accessing and using European supercomputers. They give higher-level training of programming and specific software.
 
 - `ENCCS training material <https://enccs.se/lessons/>`_ 
+
+HPC Julia course
+----------------
+
+- We teach an Julia course as part of a
+  `R-MATLAB-Julia course <https://github.com/UPPMAX/R-matlab-julia-HPC>`__
+
+HPC MATLAB course
+-----------------
+
+- We teach a MATLAB course as part of a
+  `R-MATLAB-Julia course <https://github.com/UPPMAX/R-matlab-julia-HPC>`__
+
+HPC R course
+------------
+
+- We teach an R course as part of a
+  `R-MATLAB-Julia course <https://github.com/UPPMAX/R-matlab-julia-HPC>`__
+
