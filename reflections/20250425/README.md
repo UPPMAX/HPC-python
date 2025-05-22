@@ -71,7 +71,7 @@ of people outside of class being able to see these recording:
   Moving beyond discussion boards." Journal of Educators Online 15.3 (2018): n3.,
   [paper](https://eric.ed.gov/?id=EJ1199230)].
 
-- [ ] Suggest this in a meeting
+- [x] Suggest this in a meeting
 
 For the course as a whole, think following the
   pedagogic literature has a bigger impact over reading evaluations.
@@ -85,7 +85,7 @@ For the course as a whole, think following the
   than when they passively watch [...] an instructor', 
   '6. Some qualities [...] help students learn [...] better [...]: human faces, [...] instructor enthusiasm'.
 
-- [ ] Suggest this in a meeting
+- [x] Suggest this in a meeting
 
 ## Overview of how time is spent
 
@@ -156,7 +156,7 @@ was time for exercises.
 
 However, I will suggest to do more foundational things at Day 2
 
-- [ ] Suggest to do more foundational things at Day 2 in a meeting
+- [x] Suggest to do more foundational things at Day 2 in a meeting
 
 - Too fast
 
@@ -202,7 +202,7 @@ Sure, we do that on Day 4.
 
 We could add this indeed.
 
-- [ ] Suggest this in a meeting
+- [x] Suggest this in a meeting
 
 ### [Other comments](comments.txt)
 
@@ -263,11 +263,11 @@ Great!
 
 Fun that the spelling errors are mentiond!
 
-- [ ] Mentioned this in a meeting
+- [x] Mentioned this in a meeting
 
 Indeed, the breaks were not respected.
 
-- [ ] Mentioned this in a meeting
+- [x] Mentioned this in a meeting
 
 - It's good that you record, but could you post the recordings a bit faster
   so we can go through before the rest of the course?
@@ -308,7 +308,7 @@ I agree: I liked Anders' lecture too! Even though there were 6
 minutes of exercises (on the YouTube video: 28:47-34:02), I do think
 this is worth it.
 
-- [ ] Mention this in a meeting
+- [x] Mention this in a meeting
 
 > Sometimes a useful connection between two different sessions gets more or
 > less lost, e.g. mentioning line-by-line file IO from the first day when
@@ -332,7 +332,7 @@ I think this will be solved when more exercises are done.
 
 I agree.
 
-- [ ] Mention this in a meeting
+- [x] Mention this in a meeting
 
 > It would be good if all of the course materials, for all of the clusters,
 > was confirmed working as intended before the course.[1] I do realize that this
@@ -366,7 +366,7 @@ was time for exercises and questions.
 
 I agree that we should test if our learners got it.
 
-- [ ] Mention this in a meeting
+- [x] Mention this in a meeting
 
 > The sessions on Pandas and Seaborn especially were much too rushed,
 > to the point that they felt close to useless.
@@ -376,7 +376,7 @@ I agree that we should test if our learners got it.
 > as well since all of them are in there.
 > The course taken as a whole also needs either less content or more time.
 
-- [ ] Mention this in a meeting
+- [x] Mention this in a meeting
 
 > To solve this nicely, please consider what content
  > is crucial that learners get to try and to ask questions about!
@@ -467,3 +467,124 @@ I feel that is a first step to what the learner wants/needs.
 As far as I know, my course material has explicit versions.
 
 - [ ] Check that my course material has explicit versions
+
+## Some other feedback
+
+From [Day 3](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6):
+
+> This is mostly for the parts last week, 
+> I'm not so fond of this calling out of people with their names.
+> It is stressing.
+> I'm here to learn, and I do that better in peace. 
+
+I assume this applies to me, and maybe to other colleagues as well.
+It is too bad that 16.1% (in range 6.1-25%) of the Swedish population,
+has social anxiety, although 'Subjects with social phobia who do find their
+way into the university could be described as having predominantly a
+mild form of the disorder' [Tillfors, Maria, and Tomas Furmark.
+"Social phobia in Swedish university students: prevalence, subgroups and
+avoidant behavior." Social psychiatry and psychiatric epidemiology
+42 (2007): 79-86.][Link](https://doi.org/10.1177%2F070674370404900910).
+The effect of this is unknown, as here I quote the paper:
+'future studies should investigate whether sufferers of
+social phobia underachieve or abolish their studies prematurely.'.
+The main solutions given in that paper is
+'It is an important task to inform students with social phobia that effective
+pharmacological and psychosocial treatments are available.'
+
+I will keep doing this, as asking people randomly is most effective
+(where raising hands is least effective)
+[Bell, Mike. The fundamentals of teaching: A five-step model to put the
+research evidence into practice. Routledge, 2020, pages 128-129].
+However, I do introduce that I will ask people randomly, giving people
+with social anxiety a way out (by turning off the camera) and demonstrating
+that an incorrect answer or a 'I don't know' is fine too.
+So, I agree with the learners, yet his/her
+solution is not the one I will follow.
+
+> Also, could you please post the recordings a bit faster next time.
+> I saw in the Q/A document that Brigitta lost the recordings for the first day
+> so I am happy that Richel at least posted them!
+> Would be better to have them in the same youtube list as the rest though
+
+I think this is a bit harsh on Brigitte. 
+Instead of uploading the video twice, it can be linked to from different
+playlists.
+Alternatively, what about we put the playlist on the website?
+
+- [x] Suggest to do so in a meeting
+
+## Meeting notes
+
+```
+Below are the meeting notes of 2025-05-22 with my suggestions.
+```
+
+- [Richel] I think following the
+  pedagogic literature has a bigger impact over reading evaluations `[Reference 1]` 
+- [Jayant] More InfraVis like collabs demoing usecases
+    - [Richel] I agree we should collaborate more!
+- [Richel] I think the camera recordings do more harm than good,
+  as it kills interactivity during class, at the minimal gain
+  of people outside of class being able to see these recordings `[Reference 2]`.
+- [Richel] From the learners, I read [the suggestion to make day 2 'Intro to HPC, usage and management of software and code'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47) and ['it seemed to me that the time was not spent on the right things'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/pace.txt#L12). What about we listen to that? In practice,
+  I feel this can mean either
+  - switching 'matplotlib' on Day 2 with 'Slurm and batch jobs' on Day 3
+  - move 'matplotlib' on Day 2 for more time for the more foundational things (Install packages, Slurm, isolated environments)
+- [Richel] From the learners I read the suggested topic ['How to find compatible modules and packages'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/future_topics.txt#L9).
+  That this would be useful is also mentioned by this learner
+  ['Learning about modules and packages and handling the dependency hell in various ways is very good'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L19)
+  I think it is great idea to add more time for getting modules to work.
+  What about we add it? On the other hand, one learner stated 
+  ['The fix would be to make sure every single command that loads a module or a python package does specify a specific version'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L57), which would mean to make the course material more version-explicit. I am up for both!
+- [Richel] One learner mentioned ['some part or parts had lots of spelling errors'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/comments.txt#L7). I hope the spell checker (we can get it to
+  work when using markdown) will fix that
+- [Richel] One learner mentioned ['Asking us to do stuff on the breaks is BAD'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/comments.txt#L7). What about we stick to our scheduled breaks?
+- [Richel] A learner stated ['Anders Hast deserves special mention for bringing true researcher enthusiasm, it is great to learn from teachers that know and enjoy the subject at hand like that'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11). Could we give Anders more time for his exercise? Now there were only 6 minutes of exercises (on the YouTube video: 28:47-34:02)
+- [Richel] A learner [exercises should be part of the course under course time](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L25),
+  with the problem that ['we might not get knowledge/skill presumed by later parts of the course'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L27).
+  What about we give our learners the time to do exercises, as well as test if indeed they were able to do so?
+  Adding more time for a session seems fine be my.
+- [Richel] A learner stated ['The session on IDEs had barely enough time for me to get Jupyter running, while I would've expected to try VS Code and Spyder as well since all of them are in there'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29).
+  What about we give this session more time?
+- [Richel] A learner suggested [a 4 day schedule](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47).
+  I know that 'Intro to Python' will get more HPC-ey, among others by adding how to loading
+  Python package modules.
+- [Richel] A learners suggested ['could you please post the recordings a bit faster next time'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6)
+  and ['would be better to have them in the same youtube list as the rest though'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6). I think the first is a bit harsh.
+  The second is doable: just add the existing video to the HPC2N playlist.
+  Alternatively, we can put the videos in a table on the website too
+  
+#### References
+
+- `[Reference 1]` 
+  For example 'long lectures and presentations will fail because students stop viewing and listening
+  after about six minutes'
+  [Nilson, Linda B., and Ludwika A. Goodson. Online teaching at its best: 
+  Merging instructional design with teaching and learning research. John Wiley & Sons, 2021].
+  From the same book, the 25 principes of learning from cognitive science (chapter 4, page 92)
+  gives some great pointers, e.g. '2. Students learn [...] better [...] by engaging in an activity
+  than when they passively watch [...] an instructor', 
+  '6. Some qualities [...] help students learn [...] better [...]: human faces, [...] instructor enthusiasm'.
+- `[Reference 2]` 
+  Using them as a supplementary tool may not be worth it in our settings,
+  as 'No performance advantage was found for viewing recordings despite students'
+  positive perception of their utility.'
+  [Lesser, Melissa, and Lora Packel. "Educational Lessons from a Pandemic: 
+  Lecture Recording and Learning Outcomes." 
+  Internet Journal of Allied Health Sciences and Practice 22.2 (2024): 9., 
+  [Link to paper](https://nsuworks.nova.edu/ijahsp/vol22/iss2/9/)]
+  or 'The main finding is that students using the online lectures 
+  as a substitute for attending lectures are ultimately 
+  at a fairly severe disadvantage in terms of their final marks'
+  [Williams, Andrew, Elisa Birch, and Phil Hancock. "The impact of online lecture recordings on student performance."
+  Australasian Journal of Educational Technology 28.2 (2012), 
+  [Link to paper](https://ajet.org.au/index.php/AJET/article/view/869)].
+  I found most experimental papers do not compare with live recording (it
+  is usual pre-recorded versus an unrecorded/live lesson).
+  The exception is a paper that does recommend the recording live webinars,
+  although it admits that 
+  '[Webinars tend] to be less engaging and less interactive for the participant'
+  [Dailey-Hebert, Amber. "Maximizing interactivity in online learning: 
+  Moving beyond discussion boards." Journal of Educators Online 15.3 (2018): n3.,
+  [paper](https://eric.ed.gov/?id=EJ1199230)].
