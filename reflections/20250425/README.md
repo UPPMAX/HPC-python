@@ -445,7 +445,7 @@ Hey, that is me!
 > would expect NAISS to provide in regards to using Python.
 
 I enjoy this suggested schedule. I know that 'Intro to Python' will get more
-HPC-ey, among others by adding how to loading Python package modules.
+HPCey, among others by adding how to loading Python package modules.
 I feel that is a first step to what the learner wants/needs.
 
 ## What I expected (or hoped) to learn that I did not learn
