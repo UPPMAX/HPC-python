@@ -70,7 +70,8 @@ ggplot2::ggplot(t,
   ggplot2::geom_vline(xintercept = average_average_confidence, lty = "dashed") +
   ggplot2::theme(
     strip.text.y = ggplot2::element_text(angle = 0),
-    legend.position = "bottom"
+    legend.position = "bottom",
+    axis.text = ggplot2::element_text(size = 7)
   ) +
   ggplot2::labs(
     title = "Confidences per question",
