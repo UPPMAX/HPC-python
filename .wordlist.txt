@@ -752,5 +752,22 @@ focussing
 rewatching
 practise
 fourier
-
+Brigitta
+april
+datascience
+DataFrame
+Polars
+InfraVis
+collabs
+usecases
+Routledge
+Furmark
+Tillfors
+psychosocial
+Packel
+Goodson
+Ludwika
+Nilson
+Dailey
+HPC-ey
 

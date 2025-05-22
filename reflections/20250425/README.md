@@ -80,7 +80,7 @@ For the course as a whole, think following the
   after about six minutes'
   [Nilson, Linda B., and Ludwika A. Goodson. Online teaching at its best: 
   Merging instructional design with teaching and learning research. John Wiley & Sons, 2021].
-  From the same book, the 25 principes of learning from cognitive science (chapter 4, page 92)
+  From the same book, the 25 principles of learning from cognitive science (chapter 4, page 92)
   gives some great pointers, e.g. '2. Students learn [...] better [...] by engaging in an activity
   than when they passively watch [...] an instructor', 
   '6. Some qualities [...] help students learn [...] better [...]: human faces, [...] instructor enthusiasm'.
@@ -216,7 +216,7 @@ Great!
 
 Great!
 
-- Overall, a great session, but it would be great to have more time plannned
+- Overall, a great session, but it would be great to have more time planned
   into each session for questions.
 
 I assume this is not about my session, as 60% of its time there
@@ -243,7 +243,7 @@ I assume the 'focus on specific HPC systems that not everyone is going to use'
 does not apply to me: I directly start from the cluster-specific
 documentation.
 
-- Overall very good docs from each mentors that states pro and contro and
+- Overall very good docs from each mentors that states pro and contra and
   niche details of each HPC. Infinite for trouble-shooting support especially
   for beginners
 
@@ -261,7 +261,7 @@ Great!
   For those of us caught up in listening and following along it
   got cut much too short today.
 
-Fun that the spelling errors are mentiond!
+Fun that the spelling errors are mentioned!
 
 - [x] Mentioned this in a meeting
 

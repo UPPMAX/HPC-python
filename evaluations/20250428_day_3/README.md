@@ -27,12 +27,12 @@
 - presentation heavy - limited hands-on.
 - For me it worked and I was able to follow and work on the exercises simultaneously
 - I think it was a bit too much content in the first part,
-- It was. agood pace. Enough time to understand all the sessions and ask questions
+- It was a good pace. Enough time to understand all the sessions and ask questions
 - I was okay but I do not have a background in that so it was pretty difficult for me to follow the practical session
 - No comments. I did not attend afternoon lectures.
 - Inconsistent: Rebecca fast/crammed (that part had a great lack of exercises), Brigitte and Björn between okay and slightly slow
 - Overall good, first 2 sections were too fast.
-- COnsidering that is a Intro and Overview of Python on HPC, the path was good and we have at the end some time for doing some exercises and ask for support and feedback to the mentors
+- Considering that is a Intro and Overview of Python on HPC, the path was good and we have at the end some time for doing some exercises and ask for support and feedback to the mentors
 - The Pandas section was a bit confusing and maybe too hurried
 - Good
 - I may need more time to train on Pandas, but I will watch the video again and try to code along. I didn't realize I needed to have a jupyter up and running for the session, so I could not code along
@@ -54,5 +54,5 @@
 - This course is HPC environments and Python data science tools mixed up into one (with a starting day of HPC access and Python coding basics) and it's too chaotic for good learning, in my not so humble opinion. There are better Python courses elsewhere, without HPC complications - this course might be better with a focus on all the HPC intricacies.
 - The pandas section was too fast with too much information, it was hard to follow without being able to try some of the commands. It might be more interesting to be able to try some basic functions and then have access to the documents where there are more examples and commands.
 - Which HPC have good Documentations, Exercises and recorded videos. What TO DO and not TO DO in Documentation and video lectures like tips and tricks
-- This is mostly for the parts last week, I'm not so fond of this calling out of people with their names. It is stressing. I'm here to learn, and I do that better in peace. Also, could you please post the recordings a bit faster next time. I saw in the Q/A document that Brigitta lost the recordings for the first day so I am happy that Ricel at least posted them! Would be better to have them in the same youtube list as the rest though
+- This is mostly for the parts last week, I'm not so fond of this calling out of people with their names. It is stressing. I'm here to learn, and I do that better in peace. Also, could you please post the recordings a bit faster next time. I saw in the Q/A document that Brigitta lost the recordings for the first day so I am happy that Richel at least posted them! Would be better to have them in the same youtube list as the rest though
 - Please say ahead of the session that we should start up a jupyter or spider so we are ready to type along. It takes time to start up

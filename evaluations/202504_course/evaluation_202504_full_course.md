@@ -32,7 +32,7 @@ However, the contrast between sessions pulls into sharp focus a few things to im
 
 - We learn what we do
 
-  In some sessions, mainly Parallellism and ML/DL if I recall correctly, I was learning about modules and packages and lost track of the lecture as I was trying to make the examples work. In some sessions I learned little to nothing as I found no time to try anything. In some sessions I got to try and learn every single thing that was in the course materials.
+  In some sessions, mainly Parallelism and ML/DL if I recall correctly, I was learning about modules and packages and lost track of the lecture as I was trying to make the examples work. In some sessions I learned little to nothing as I found no time to try anything. In some sessions I got to try and learn every single thing that was in the course materials.
 
   There seems to be two good ways to have learners actually do stuff in an online course. One is what Richel does: most of the time in 2-person breakout rooms, working through exercises as the main way of learning.
 
@@ -46,7 +46,7 @@ It would be easier for both groups (though a bit less efficient, for those who b
 
 1. Intro to HPC, usage and management of software and code (Logging in, LMOD, SLURM; the things that are actually different between HPC and a single-user single computer)
 2. Intro to Python (this already exists and is day 1)
-3. Python coding for big computation, big data and AI (this includes parallell and GPU but is not specific to HPC and probably exists elsewhere)
+3. Python coding for big computation, big data and AI (this includes parallel and GPU but is not specific to HPC and probably exists elsewhere)
 4. Using Python code, packages and environments at NAISS HPC systems (LMOD, venv, conda; when to use what and how they interact)
 
 Course 1 is general to HPC users, not specific to Python. It should probably be provided by NAISS quite often and be a prerequisite to all other NAISS courses.
