@@ -6,6 +6,8 @@
 
 ## [Analysis](analysis.R)
 
+- The same data as a table: [confidences_course.csv](confidences_course.csv)
+
 ![Confidences per question](confidences_per_question.png)
 
 ## [Feedback from a learner](evaluation_202504_full_course.md)
