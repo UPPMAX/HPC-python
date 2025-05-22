@@ -204,7 +204,7 @@ We could add this indeed.
 
 - [x] Suggest this in a meeting
 
-### [Other comments](comments.txt)
+### [Other comments](../../evaluations/20250425_day_2/comments.txt)
 
 - every thing is great for me
 
@@ -484,7 +484,7 @@ way into the university could be described as having predominantly a
 mild form of the disorder' [Tillfors, Maria, and Tomas Furmark.
 "Social phobia in Swedish university students: prevalence, subgroups and
 avoidant behavior." Social psychiatry and psychiatric epidemiology
-42 (2007): 79-86.][Link](https://doi.org/10.1177%2F070674370404900910).
+42 (2007): 79-86.][Link](https://journals.sagepub.com/doi/10.1177/070674370404900910).
 The effect of this is unknown, as here I quote the paper:
 'future studies should investigate whether sufferers of
 social phobia underachieve or abolish their studies prematurely.'.

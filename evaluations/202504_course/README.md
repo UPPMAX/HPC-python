@@ -4,7 +4,7 @@
 - Feedback from a learner: 
   [evaluation_202504_full_course.md](evaluation_202504_full_course.md)
 
-## [Analysis](analysis.R)
+## [Analysis](analyse.R)
 
 - The same data as a table: [confidences_course.csv](confidences_course.csv)
 
