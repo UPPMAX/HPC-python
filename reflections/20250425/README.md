@@ -390,7 +390,7 @@ I hope I do this
 
 > We learn what we do
 
-> In some sessions, mainly Parallellism and ML/DL if I recall correctly,
+> In some sessions, mainly Parallelism and ML/DL if I recall correctly,
 > I was learning about modules and packages and lost track of the lecture as
 > I was trying to make the examples work. In some sessions I learned little
 > to nothing as I found no time to try anything. In some sessions I got to try

@@ -18,7 +18,7 @@
 
 ![Course ratings](course_rating.png)
 ![All confidences](all_confidences.png)
-![Averaga confidence per question](average_confidences_per_question.png)
+![Average confidence per question](average_confidences_per_question.png)
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 

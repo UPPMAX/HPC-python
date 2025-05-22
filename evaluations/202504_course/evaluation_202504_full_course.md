@@ -32,7 +32,7 @@ To solve this nicely, please consider what content is crucial that learners get 
 
 We learn what we do
 
-In some sessions, mainly Parallellism and ML/DL if I recall correctly, I was learning about modules and packages and lost track of the lecture as I was trying to make the examples work. In some sessions I learned little to nothing as I found no time to try anything. In some sessions I got to try and learn every single thing that was in the course materials.
+In some sessions, mainly Parallelism and ML/DL if I recall correctly, I was learning about modules and packages and lost track of the lecture as I was trying to make the examples work. In some sessions I learned little to nothing as I found no time to try anything. In some sessions I got to try and learn every single thing that was in the course materials.
 
 There seems to be two good ways to have learners actually do stuff in an online course. One is what Richel does: most of the time in 2-person breakout rooms, working through exercises as the main way of learning.
 
