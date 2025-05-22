@@ -16,4 +16,4 @@ Date            |`.pdf`                                             |`xlsx`
 - [20250425 (Day 2)](20250425_day_2/README.md)
 - [20250428 (Day 3)](20250428_day_3/README.md)
 - [20250429 (Day 4)](20250429_day_4/README.md)
-
+- [Whole course](202504_course/README.md)
