@@ -555,7 +555,7 @@ Below are the meeting notes of 2025-05-22 with my suggestions.
     - Only do Jupyter: RB
     - Keep the schedule as it is:
 - [Richel] A learner suggested [a 4 day schedule](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47).
-  I know that 'Intro to Python' will get more HPC-ey, among others by adding how to loading
+  I know that 'Intro to Python' will get more HPCey, among others by adding how to loading
   Python package modules.
 - [Richel] A learners suggested ['could you please post the recordings a bit faster next time'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6)
   and ['would be better to have them in the same youtube list as the rest though'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6). I think the first is a bit harsh.
