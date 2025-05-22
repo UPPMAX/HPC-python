@@ -1,7 +1,7 @@
 #!/bin/env Rscript
 
 read_data <- function() {
-  readr::read_csv("evaluation_20250425_day_2.csv", show_col_types = FALSE)
+  readr::read_csv("evaluation_20250428_day_3.csv", show_col_types = FALSE)
 }
 
 t <- read_data()
@@ -136,9 +136,7 @@ ggplot2::ggplot(t_tidy, ggplot2::aes(x = answer)) +
     title = "Confidences per question"
   )
 
-ggplot2::ggsave(filename = "confidences_per_question.png", width = 6, height = 7)
-
-names(t_tidy)
+ggplot2::ggsave(filename = "confidences_per_question.png", width = 7, height = 7)
 
 average_confidences <- dplyr::group_by(t_tidy, question) |> dplyr::summarise(mean = mean(answer))
 average_confidences$mean <- round(average_confidences$mean, digits = 2)
@@ -191,10 +189,4 @@ testthat::expect_true(all(t_sessions_taught %in% t_tidy$question))
 confidences_on_taught_sessions <- t_tidy |> dplyr::filter(question %in% t_sessions_taught)
 success_score <- mean(confidences_on_taught_sessions$answer) / 5.0
 readr::write_lines(x = success_score, "success_score.txt")
-
-
-
-
-
-
 

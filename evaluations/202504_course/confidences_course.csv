@@ -1,0 +1,39 @@
+learning_outcomes,average_confidence,day
+I can measure the effect of using more nodes for parallel code,2.78,4
+"I can use Pandas (basic operations - statistics, binary operators, vectorized math, string methods)",2.91,3
+"I can use Pandas (inspect, clean, and sort data for later operations)",3,3
+I can start a script that uses parallel code,3.11,4
+I can use Pandas (input/output Pandas data),3.18,3
+I can run a Python code that uses TensorFlow,3.2,4
+I can determine which ML and DL modules are installed at a center,3.25,4
+I can decide on useful file formats for big data,3.36,3
+I can run a Python code that uses PyTorch,3.5,4
+I can check that I am in an interactive session,3.57,2
+I can write a batch script that uses GPUs,3.57,4
+I can make a plot with Seaborn,3.58,3
+I can use the compute nodes interactively,3.67,2
+I can use a Python IDE,3.8,2
+I can create plots in matplotlib,3.87,2
+"I can work (create, activate, work, deactivate) with a venv virtual environment",3.93,2
+I can find and load a Python package module,4,2
+I can load a Python (machine learning) module,4,4
+I can determine if a Python package is installed,4.07,2
+I can install Python packages,4.07,2
+I can write a batch script,4.08,3
+I am comfortable using the documentation of my HPC center,4.2,1
+I can describe what the Python interpreter is,4.3,1
+I can describe what the Python programming language is,4.3,1
+I can submit a script to the job scheduler,4.33,3
+I am comfortable using a Python book,4.4,1
+"In Python, I can create a variable",4.5,1
+"In Python, I can use a variable",4.5,1
+"In Python, I know what the modulo operator is and when to use it",4.6,1
+I can load a Python version on my HPC cluster,4.7,1
+I can use a text editor on my HPC cluster,4.7,1
+I can convert a simple equation to Python code,4.8,1
+I can convert a simple text question to Python code,4.8,1
+I can create a Python script,4.8,1
+I can login to my HPC cluster,4.8,1
+I can run a Python script,4.8,1
+"In Python, I can find and use the operator for exponentiation",4.8,1
+I am comfortable learning Python,4.9,1
