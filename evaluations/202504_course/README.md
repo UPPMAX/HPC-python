@@ -1,6 +1,6 @@
 # Evaluation 2025-04
 
-- [analysis.R](analysis.R)
+- [analysis.R](analyse.R)
 - Feedback from a learner: 
   [evaluation_202504_full_course.md](evaluation_202504_full_course.md)
 
