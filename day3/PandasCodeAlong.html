@@ -1,0 +1,1646 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro to Pandas &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Loading IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Seaborn-Intro.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intro to Pandas</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/PandasCodeAlong.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-pandas">
+<h1>Intro to Pandas<a class="headerlink" href="#intro-to-pandas" title="Link to this heading"></a></h1>
+<section id="code-along-examples">
+<h2>Code-Along Examples<a class="headerlink" href="#code-along-examples" title="Link to this heading"></a></h2>
+<p>Here you have space to work through the code that addresses the prompts in the slide show. The prompts are repeated here for your convenience.</p>
+<section id="day-1">
+<h3>Day 1<a class="headerlink" href="#day-1" title="Link to this heading"></a></h3>
+<section id="i-create-a-dataframe">
+<h4>I. Create a DataFrame<a class="headerlink" href="#i-create-a-dataframe" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Import Pandas and Numpy.</p></li>
+<li><p>Make an array with 3 columns and 4 rows, with data values of 1-12.</p></li>
+<li><p>Convert it to a DataFrame with columns named <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">adf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">adf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    a   b   c
+w   1   2   3
+x   4   5   6
+y   7   8   9
+z  10  11  12
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ii-view-indices-of-a-dataframe">
+<h4>II. View Indices of a DataFrame<a class="headerlink" href="#ii-view-indices-of-a-dataframe" title="Link to this heading"></a></h4>
+<ol class="arabic simple" start="4">
+<li><p>Get the indices of DataFrame in previous example and print the data-type of the index. See <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Index.html#pandas.Index">documentation</a>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">adf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">adf</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;], dtype=&#39;object&#39;)
+object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="iii-basic-i-o">
+<h4>III. Basic I/O<a class="headerlink" href="#iii-basic-i-o" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Load the file <code class="docutils literal notranslate"><span class="pre">'exoplanets_5250_EarthUnits.csv'</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">exos</span></code>.</p>
+<ul class="simple">
+<li><p>Extra: set the index to the leftmost column.</p></li>
+</ul>
+</li>
+<li><p>Write the DataFrame to a tab-separated text file (.txt). The name is up to you.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;exoplanets_5250_EarthUnits.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>distance</th>
+      <th>star_mag</th>
+      <th>planet_type</th>
+      <th>discovery_yr</th>
+      <th>mass_ME</th>
+      <th>radius_RE</th>
+      <th>orbital_radius_AU</th>
+      <th>orbital_period_yr</th>
+      <th>eccentricity</th>
+      <th>detection_method</th>
+    </tr>
+    <tr>
+      <th>#name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>11 Comae Berenices b</th>
+      <td>304.0</td>
+      <td>4.72307</td>
+      <td>Gas Giant</td>
+      <td>2007</td>
+      <td>6169.20</td>
+      <td>12.096</td>
+      <td>1.29</td>
+      <td>0.892539</td>
+      <td>0.23</td>
+      <td>Radial Velocity</td>
+    </tr>
+    <tr>
+      <th>11 Ursae Minoris b</th>
+      <td>409.0</td>
+      <td>5.01300</td>
+      <td>Gas Giant</td>
+      <td>2009</td>
+      <td>4687.32</td>
+      <td>12.208</td>
+      <td>1.53</td>
+      <td>1.400000</td>
+      <td>0.08</td>
+      <td>Radial Velocity</td>
+    </tr>
+    <tr>
+      <th>14 Andromedae b</th>
+      <td>246.0</td>
+      <td>5.23133</td>
+      <td>Gas Giant</td>
+      <td>2008</td>
+      <td>1526.40</td>
+      <td>12.88</td>
+      <td>0.83</td>
+      <td>0.508693</td>
+      <td>0.00</td>
+      <td>Radial Velocity</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;55 Cancri e&#39;</span><span class="p">,[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">,</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>planet_type    Super Earth
+mass_ME               7.99
+Name: 55 Cancri e, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;exos_5250_EUnits.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="iv-data-inspection">
+<h4>IV. Data Inspection<a class="headerlink" href="#iv-data-inspection" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">.info()</span></code> off the exoplanets DataFrame from the previous example. Familiarize yourself with the specs that are included. Notice anything weird?</p></li>
+<li><p>If nothing stuck out in #1, call <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> on that DataFrame.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 5250 entries, 11 Comae Berenices b to YZ Ceti d
+Data columns (total 10 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   distance           5233 non-null   float64
+ 1   star_mag           5089 non-null   float64
+ 2   planet_type        5250 non-null   object 
+ 3   discovery_yr       5250 non-null   int64  
+ 4   mass_ME            5250 non-null   object 
+ 5   radius_RE          5250 non-null   object 
+ 6   orbital_radius_AU  4961 non-null   float64
+ 7   orbital_period_yr  5250 non-null   float64
+ 8   eccentricity       5250 non-null   float64
+ 9   detection_method   5250 non-null   object 
+dtypes: float64(5), int64(1), object(4)
+memory usage: 580.2+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>distance</th>
+      <th>star_mag</th>
+      <th>discovery_yr</th>
+      <th>orbital_radius_AU</th>
+      <th>orbital_period_yr</th>
+      <th>eccentricity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>5233.000000</td>
+      <td>5089.000000</td>
+      <td>5250.000000</td>
+      <td>4961.000000</td>
+      <td>5.250000e+03</td>
+      <td>5250.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2167.168737</td>
+      <td>12.683738</td>
+      <td>2015.732190</td>
+      <td>6.962942</td>
+      <td>4.791509e+02</td>
+      <td>0.063924</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3245.522087</td>
+      <td>3.107571</td>
+      <td>4.307336</td>
+      <td>138.673600</td>
+      <td>1.680445e+04</td>
+      <td>0.141402</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.000000</td>
+      <td>0.872000</td>
+      <td>1992.000000</td>
+      <td>0.004400</td>
+      <td>2.737850e-04</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>389.000000</td>
+      <td>10.939000</td>
+      <td>2014.000000</td>
+      <td>0.053000</td>
+      <td>1.259411e-02</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1371.000000</td>
+      <td>13.543000</td>
+      <td>2016.000000</td>
+      <td>0.102800</td>
+      <td>3.449692e-02</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2779.000000</td>
+      <td>15.021000</td>
+      <td>2018.000000</td>
+      <td>0.286000</td>
+      <td>1.442163e-01</td>
+      <td>0.060000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>27727.000000</td>
+      <td>44.610000</td>
+      <td>2023.000000</td>
+      <td>7506.000000</td>
+      <td>1.101370e+06</td>
+      <td>0.950000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="v-selection-syntax">
+<h4>V. Selection Syntax<a class="headerlink" href="#v-selection-syntax" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Assign rows 25 through 35 of the exoplanets DataFrame to another DataFrame called <code class="docutils literal notranslate"><span class="pre">df2</span></code>.</p></li>
+<li><p>Extract and print both the <code class="docutils literal notranslate"><span class="pre">'planet_type'</span></code> and <code class="docutils literal notranslate"><span class="pre">'mass_ME'</span></code> columns of <code class="docutils literal notranslate"><span class="pre">df2</span></code>.</p></li>
+<li><p>Go back to the full exoplanets DataFrame, select rows where the <code class="docutils literal notranslate"><span class="pre">'discovery_yr'</span></code> is before 2007 and <code class="docutils literal notranslate"><span class="pre">'planet_type'</span></code> is not ‘Gas Giant’, and print only the <code class="docutils literal notranslate"><span class="pre">'planet_type'</span></code> column of that selection.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">exos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">25</span><span class="p">:</span><span class="mi">35</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">,</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                planet_type  mass_ME
+#name                               
+51 Eridani b      Gas Giant   636.00
+51 Pegasi b       Gas Giant   146.28
+55 Cancri b       Gas Giant   264.13
+55 Cancri c       Gas Giant    54.51
+55 Cancri d       Gas Giant  1233.20
+55 Cancri e     Super Earth     7.99
+55 Cancri f       Gas Giant    44.84
+61 Virginis b  Neptune-like     5.10
+61 Virginis c  Neptune-like    18.20
+61 Virginis d  Neptune-like    22.90
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;discovery_yr&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">2007</span><span class="p">)</span> <span class="o">&amp;</span> 
+         <span class="p">(</span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Gas Giant&#39;</span><span class="p">),</span>
+         <span class="s1">&#39;planet_type&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#name
+55 Cancri e              Super Earth
+GJ 436 b                Neptune-like
+GJ 581 b                Neptune-like
+GJ 876 d                Neptune-like
+HD 160691 d             Neptune-like
+HD 190360 c             Neptune-like
+HD 4308 b               Neptune-like
+HD 49674 b              Neptune-like
+HD 69830 b              Neptune-like
+HD 69830 c              Neptune-like
+HD 69830 d              Neptune-like
+HD 99492 b              Neptune-like
+OGLE-2005-BLG-169L b    Neptune-like
+OGLE-2005-BLG-390L b    Neptune-like
+PSR B1257+12 b           Terrestrial
+PSR B1257+12 c           Super Earth
+PSR B1257+12 d           Super Earth
+Name: planet_type, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vi-bad-data-handling">
+<h4>VI. Bad Data Handling<a class="headerlink" href="#vi-bad-data-handling" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>The exoplanets DataFrame has space characters (<code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>) for missing values in the <code class="docutils literal notranslate"><span class="pre">'mass_ME'</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">'radius_RE'</span></code> columns. Use the .replace() method to replace <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>  with <code class="docutils literal notranslate"><span class="pre">np.NaN</span></code> in-place.</p>
+<ul class="simple">
+<li><p>Extra: use the <code class="docutils literal notranslate"><span class="pre">.astype()</span></code> method to convert the data types of these columns to <code class="docutils literal notranslate"><span class="pre">'float64'</span></code> in-place. Check your results with <code class="docutils literal notranslate"><span class="pre">.info()</span></code></p></li>
+</ul>
+</li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">.mask()</span></code> method to mask the <code class="docutils literal notranslate"><span class="pre">'eccentricity'</span></code> column wherever the data are exactly 0 (these are assumed values). The “Non-Null Count” for that column in info() should be smaller.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">exos</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 5250 entries, 11 Comae Berenices b to YZ Ceti d
+Data columns (total 10 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   distance           5233 non-null   float64
+ 1   star_mag           5089 non-null   float64
+ 2   planet_type        5250 non-null   object 
+ 3   discovery_yr       5250 non-null   int64  
+ 4   mass_ME            5227 non-null   float64
+ 5   radius_RE          5233 non-null   float64
+ 6   orbital_radius_AU  4961 non-null   float64
+ 7   orbital_period_yr  5250 non-null   float64
+ 8   eccentricity       5250 non-null   float64
+ 9   detection_method   5250 non-null   object 
+dtypes: float64(7), int64(1), object(2)
+memory usage: 580.2+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;eccentricity&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;eccentricity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;eccentricity&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 5250 entries, 11 Comae Berenices b to YZ Ceti d
+Data columns (total 10 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   distance           5233 non-null   float64
+ 1   star_mag           5089 non-null   float64
+ 2   planet_type        5250 non-null   object 
+ 3   discovery_yr       5250 non-null   int64  
+ 4   mass_ME            5227 non-null   float64
+ 5   radius_RE          5233 non-null   float64
+ 6   orbital_radius_AU  4961 non-null   float64
+ 7   orbital_period_yr  5250 non-null   float64
+ 8   eccentricity       1674 non-null   float64
+ 9   detection_method   5250 non-null   object 
+dtypes: float64(7), int64(1), object(2)
+memory usage: 580.2+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vii-basic-operations">
+<h4>VII. Basic Operations<a class="headerlink" href="#vii-basic-operations" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Calculate the median of all numeric columns in the exoplanets DataFrame.</p></li>
+<li><p>Divide the <code class="docutils literal notranslate"><span class="pre">'mass_ME'</span></code> column by 317.8 &amp; assign the result to <code class="docutils literal notranslate"><span class="pre">'mass_MJ'</span></code> (planet mass in Jupiter masses)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">exos</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>distance             1371.000000
+star_mag               13.543000
+discovery_yr         2016.000000
+mass_ME                 8.470000
+radius_RE               2.732800
+orbital_radius_AU       0.102800
+orbital_period_yr       0.034497
+eccentricity            0.140000
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;mass_MJ&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">317.8</span>
+<span class="n">exos</span><span class="p">[</span><span class="s1">&#39;mass_MJ&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#name
+11 Comae Berenices b    19.412209
+11 Ursae Minoris b      14.749276
+14 Andromedae b          4.803021
+14 Herculis b            8.143927
+16 Cygni B b             1.781120
+Name: mass_MJ, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="viii-reorganizing-data">
+<h4>VIII. Reorganizing Data<a class="headerlink" href="#viii-reorganizing-data" title="Link to this heading"></a></h4>
+<p>Let
+<code class="docutils literal notranslate"><span class="pre">df1</span> <span class="pre">=</span> <span class="pre">pd.DataFrame(np.random.randint(0,high=9,size=(4,3)),</span> <span class="pre">columns=['B','a','C'],</span> <span class="pre">index=['i','j','h','k'])</span></code> and
+<code class="docutils literal notranslate"><span class="pre">df2</span> <span class="pre">=</span> <span class="pre">pd.DataFrame(np.identity(3),</span> <span class="pre">columns=['B','C','D'],</span> <span class="pre">index=['k','l','m'])</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Sort <code class="docutils literal notranslate"><span class="pre">df1</span></code> by index, by index again with <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>, and then by the values of column <code class="docutils literal notranslate"><span class="pre">'C'</span></code>.</p></li>
+<li><p>Concatenate <code class="docutils literal notranslate"><span class="pre">df1</span></code> and <code class="docutils literal notranslate"><span class="pre">df1</span></code>. What happens where the indices aren’t shared?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;j&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">])</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;l&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>B</th>
+      <th>a</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>h</th>
+      <td>5</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>i</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>j</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>6</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>B</th>
+      <th>a</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>h</th>
+      <td>5</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>i</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>6</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>j</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span><span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>B</th>
+      <th>a</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>i</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>j</th>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>h</th>
+      <td>5.0</td>
+      <td>7.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>6.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="day-2">
+<h3>Day 2<a class="headerlink" href="#day-2" title="Link to this heading"></a></h3>
+<section id="x-groupby-objects">
+<h4>X. GroupBy Objects<a class="headerlink" href="#x-groupby-objects" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Group the exoplanets DataFrame by <code class="docutils literal notranslate"><span class="pre">'planet_type'</span></code> and assign the result to <code class="docutils literal notranslate"><span class="pre">grouped_pt</span></code>.</p></li>
+<li><p>Print the mean <code class="docutils literal notranslate"><span class="pre">'mass_ME'</span></code> for each group in <code class="docutils literal notranslate"><span class="pre">grouped_pt</span></code> (this is 1 command).</p></li>
+<li><p><strong>Challenge</strong>*: call the <code class="docutils literal notranslate"><span class="pre">.filter()</span></code> method on <code class="docutils literal notranslate"><span class="pre">grouped_pt</span></code> to remove any <code class="docutils literal notranslate"><span class="pre">'planet_type'</span></code> group with 5 or fewer members (*I don’t expect most people to get this in the time available).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_pt</span><span class="o">=</span><span class="n">exos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;planet_type&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_pt</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>distance</th>
+      <th>star_mag</th>
+      <th>planet_type</th>
+      <th>discovery_yr</th>
+      <th>mass_ME</th>
+      <th>radius_RE</th>
+      <th>orbital_radius_AU</th>
+      <th>orbital_period_yr</th>
+      <th>eccentricity</th>
+      <th>detection_method</th>
+      <th>mass_MJ</th>
+    </tr>
+    <tr>
+      <th>#name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>11 Comae Berenices b</th>
+      <td>304.0</td>
+      <td>4.72307</td>
+      <td>Gas Giant</td>
+      <td>2007</td>
+      <td>6169.20</td>
+      <td>12.0960</td>
+      <td>1.290000</td>
+      <td>0.892539</td>
+      <td>0.23</td>
+      <td>Radial Velocity</td>
+      <td>19.412209</td>
+    </tr>
+    <tr>
+      <th>11 Ursae Minoris b</th>
+      <td>409.0</td>
+      <td>5.01300</td>
+      <td>Gas Giant</td>
+      <td>2009</td>
+      <td>4687.32</td>
+      <td>12.2080</td>
+      <td>1.530000</td>
+      <td>1.400000</td>
+      <td>0.08</td>
+      <td>Radial Velocity</td>
+      <td>14.749276</td>
+    </tr>
+    <tr>
+      <th>14 Andromedae b</th>
+      <td>246.0</td>
+      <td>5.23133</td>
+      <td>Gas Giant</td>
+      <td>2008</td>
+      <td>1526.40</td>
+      <td>12.8800</td>
+      <td>0.830000</td>
+      <td>0.508693</td>
+      <td>NaN</td>
+      <td>Radial Velocity</td>
+      <td>4.803021</td>
+    </tr>
+    <tr>
+      <th>14 Herculis b</th>
+      <td>58.0</td>
+      <td>6.61935</td>
+      <td>Gas Giant</td>
+      <td>2002</td>
+      <td>2588.14</td>
+      <td>12.5440</td>
+      <td>2.773069</td>
+      <td>4.800000</td>
+      <td>0.37</td>
+      <td>Radial Velocity</td>
+      <td>8.143927</td>
+    </tr>
+    <tr>
+      <th>16 Cygni B b</th>
+      <td>69.0</td>
+      <td>6.21500</td>
+      <td>Gas Giant</td>
+      <td>1996</td>
+      <td>566.04</td>
+      <td>13.4400</td>
+      <td>1.660000</td>
+      <td>2.200000</td>
+      <td>0.68</td>
+      <td>Radial Velocity</td>
+      <td>1.781120</td>
+    </tr>
+    <tr>
+      <th>55 Cancri e</th>
+      <td>41.0</td>
+      <td>5.95084</td>
+      <td>Super Earth</td>
+      <td>2004</td>
+      <td>7.99</td>
+      <td>1.8750</td>
+      <td>0.015440</td>
+      <td>0.001916</td>
+      <td>0.05</td>
+      <td>Radial Velocity</td>
+      <td>0.025142</td>
+    </tr>
+    <tr>
+      <th>61 Virginis b</th>
+      <td>28.0</td>
+      <td>4.69550</td>
+      <td>Neptune-like</td>
+      <td>2009</td>
+      <td>5.10</td>
+      <td>2.1100</td>
+      <td>0.050201</td>
+      <td>0.011499</td>
+      <td>0.12</td>
+      <td>Radial Velocity</td>
+      <td>0.016048</td>
+    </tr>
+    <tr>
+      <th>61 Virginis c</th>
+      <td>28.0</td>
+      <td>4.69550</td>
+      <td>Neptune-like</td>
+      <td>2009</td>
+      <td>18.20</td>
+      <td>4.4576</td>
+      <td>0.217500</td>
+      <td>0.104038</td>
+      <td>0.14</td>
+      <td>Radial Velocity</td>
+      <td>0.057269</td>
+    </tr>
+    <tr>
+      <th>61 Virginis d</th>
+      <td>28.0</td>
+      <td>4.69550</td>
+      <td>Neptune-like</td>
+      <td>2009</td>
+      <td>22.90</td>
+      <td>5.1072</td>
+      <td>0.476000</td>
+      <td>0.336756</td>
+      <td>0.35</td>
+      <td>Radial Velocity</td>
+      <td>0.072058</td>
+    </tr>
+    <tr>
+      <th>AU Microscopii b</th>
+      <td>32.0</td>
+      <td>8.81000</td>
+      <td>Neptune-like</td>
+      <td>2020</td>
+      <td>20.12</td>
+      <td>4.0656</td>
+      <td>0.064500</td>
+      <td>0.023272</td>
+      <td>0.19</td>
+      <td>Transit</td>
+      <td>0.063310</td>
+    </tr>
+    <tr>
+      <th>AU Microscopii c</th>
+      <td>32.0</td>
+      <td>8.81000</td>
+      <td>Neptune-like</td>
+      <td>2021</td>
+      <td>9.60</td>
+      <td>3.2368</td>
+      <td>0.110100</td>
+      <td>0.051745</td>
+      <td>0.04</td>
+      <td>Transit</td>
+      <td>0.030208</td>
+    </tr>
+    <tr>
+      <th>CD Ceti b</th>
+      <td>28.0</td>
+      <td>13.95000</td>
+      <td>Super Earth</td>
+      <td>2020</td>
+      <td>3.95</td>
+      <td>1.8200</td>
+      <td>0.018500</td>
+      <td>0.006297</td>
+      <td>NaN</td>
+      <td>Radial Velocity</td>
+      <td>0.012429</td>
+    </tr>
+    <tr>
+      <th>CoRoT-7 b</th>
+      <td>522.0</td>
+      <td>11.72800</td>
+      <td>Super Earth</td>
+      <td>2009</td>
+      <td>4.08</td>
+      <td>1.6810</td>
+      <td>0.017016</td>
+      <td>0.002464</td>
+      <td>NaN</td>
+      <td>Transit</td>
+      <td>0.012838</td>
+    </tr>
+    <tr>
+      <th>DMPP-1 d</th>
+      <td>204.0</td>
+      <td>7.98000</td>
+      <td>Super Earth</td>
+      <td>2019</td>
+      <td>3.35</td>
+      <td>1.6500</td>
+      <td>0.042200</td>
+      <td>0.007940</td>
+      <td>0.07</td>
+      <td>Radial Velocity</td>
+      <td>0.010541</td>
+    </tr>
+    <tr>
+      <th>DMPP-1 e</th>
+      <td>204.0</td>
+      <td>7.98000</td>
+      <td>Super Earth</td>
+      <td>2019</td>
+      <td>4.13</td>
+      <td>1.8600</td>
+      <td>0.065100</td>
+      <td>0.015058</td>
+      <td>0.07</td>
+      <td>Radial Velocity</td>
+      <td>0.012996</td>
+    </tr>
+    <tr>
+      <th>EPIC 201497682 b</th>
+      <td>825.0</td>
+      <td>13.94800</td>
+      <td>Terrestrial</td>
+      <td>2019</td>
+      <td>0.26</td>
+      <td>0.6920</td>
+      <td>NaN</td>
+      <td>0.005749</td>
+      <td>NaN</td>
+      <td>Transit</td>
+      <td>0.000818</td>
+    </tr>
+    <tr>
+      <th>EPIC 201757695.02</th>
+      <td>1884.0</td>
+      <td>14.97400</td>
+      <td>Terrestrial</td>
+      <td>2020</td>
+      <td>0.69</td>
+      <td>0.9080</td>
+      <td>0.029600</td>
+      <td>0.005476</td>
+      <td>NaN</td>
+      <td>Transit</td>
+      <td>0.002171</td>
+    </tr>
+    <tr>
+      <th>EPIC 201833600 c</th>
+      <td>840.0</td>
+      <td>14.70500</td>
+      <td>Terrestrial</td>
+      <td>2019</td>
+      <td>0.97</td>
+      <td>1.0000</td>
+      <td>NaN</td>
+      <td>0.010951</td>
+      <td>NaN</td>
+      <td>Transit</td>
+      <td>0.003052</td>
+    </tr>
+    <tr>
+      <th>EPIC 206215704 b</th>
+      <td>358.0</td>
+      <td>17.83000</td>
+      <td>Terrestrial</td>
+      <td>2019</td>
+      <td>0.97</td>
+      <td>1.0000</td>
+      <td>NaN</td>
+      <td>0.006297</td>
+      <td>NaN</td>
+      <td>Transit</td>
+      <td>0.003052</td>
+    </tr>
+    <tr>
+      <th>EPIC 206317286 b</th>
+      <td>1025.0</td>
+      <td>14.00500</td>
+      <td>Terrestrial</td>
+      <td>2019</td>
+      <td>0.84</td>
+      <td>0.9600</td>
+      <td>NaN</td>
+      <td>0.004381</td>
+      <td>NaN</td>
+      <td>Transit</td>
+      <td>0.002643</td>
+    </tr>
+    <tr>
+      <th>KIC 10001893 b</th>
+      <td>5457.0</td>
+      <td>15.82900</td>
+      <td>Unknown</td>
+      <td>2014</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000548</td>
+      <td>NaN</td>
+      <td>Orbital Brightness Modulation</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>KIC 10001893 c</th>
+      <td>5457.0</td>
+      <td>15.82900</td>
+      <td>Unknown</td>
+      <td>2014</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000821</td>
+      <td>NaN</td>
+      <td>Orbital Brightness Modulation</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>KIC 10001893 d</th>
+      <td>5457.0</td>
+      <td>15.82900</td>
+      <td>Unknown</td>
+      <td>2014</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.002190</td>
+      <td>NaN</td>
+      <td>Orbital Brightness Modulation</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>LkCa 15 b</th>
+      <td>516.0</td>
+      <td>12.02500</td>
+      <td>Unknown</td>
+      <td>2015</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.700000</td>
+      <td>0.999316</td>
+      <td>NaN</td>
+      <td>Direct Imaging</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>LkCa 15 c</th>
+      <td>516.0</td>
+      <td>12.02500</td>
+      <td>Unknown</td>
+      <td>2015</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.600000</td>
+      <td>0.999316</td>
+      <td>NaN</td>
+      <td>Direct Imaging</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_pt</span><span class="p">[</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>planet_type
+Gas Giant       13.1040
+Neptune-like     2.8112
+Super Earth      1.5500
+Terrestrial      0.8600
+Unknown             NaN
+Name: radius_RE, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos2</span><span class="o">=</span><span class="n">grouped_pt</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>planet_type
+Neptune-like    1825
+Gas Giant       1630
+Super Earth     1595
+Terrestrial      195
+Unknown            5
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="xi-complex-functions-agg">
+<h4>XI. Complex functions: <code class="docutils literal notranslate"><span class="pre">.agg()</span></code><a class="headerlink" href="#xi-complex-functions-agg" title="Link to this heading"></a></h4>
+<p>Call the <code class="docutils literal notranslate"><span class="pre">.agg()</span></code> function on <code class="docutils literal notranslate"><span class="pre">grouped_pt</span></code> (the exoplanets DataFrame grouped by <code class="docutils literal notranslate"><span class="pre">'planet_type'</span></code>) to calculate</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">mean</span></code> of <code class="docutils literal notranslate"><span class="pre">'mass_ME'</span></code>,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">median</span></code> of <code class="docutils literal notranslate"><span class="pre">'radius_RE'</span></code>, and</p></li>
+<li><p>the 0.5 <code class="docutils literal notranslate"><span class="pre">quantile</span></code> (50th percentile, default for the quantile function) of <code class="docutils literal notranslate"><span class="pre">'orbital_period_yr'</span></code>
+in 1 line of code. Consult <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/basics.html#aggregating-with-multiple-functions">this link to the documentation</a> (Hint: <code class="docutils literal notranslate"><span class="pre">.agg()</span></code> doesn’t care if the input DataFrame is grouped)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gpo</span> <span class="o">=</span> <span class="n">grouped_pt</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;mass_ME&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">],</span> <span class="s1">&#39;radius_RE&#39;</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;orbital_period_yr&#39;</span><span class="p">:</span><span class="s1">&#39;quantile&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gpo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">mass_ME</th>
+      <th>radius_RE</th>
+      <th>orbital_period_yr</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>mean</th>
+      <th>std</th>
+      <th>median</th>
+      <th>quantile</th>
+    </tr>
+    <tr>
+      <th>planet_type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Gas Giant</th>
+      <td>1468.471433</td>
+      <td>6664.964763</td>
+      <td>13.1040</td>
+      <td>0.391239</td>
+    </tr>
+    <tr>
+      <th>Neptune-like</th>
+      <td>15.289496</td>
+      <td>54.296279</td>
+      <td>2.8112</td>
+      <td>0.045448</td>
+    </tr>
+    <tr>
+      <th>Super Earth</th>
+      <td>5.775166</td>
+      <td>27.183984</td>
+      <td>1.5500</td>
+      <td>0.019713</td>
+    </tr>
+    <tr>
+      <th>Terrestrial</th>
+      <td>1.608564</td>
+      <td>11.395427</td>
+      <td>0.8600</td>
+      <td>0.010951</td>
+    </tr>
+    <tr>
+      <th>Unknown</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.002190</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="xii-built-in-plotting-methods">
+<h4>XII. Built-In Plotting Methods<a class="headerlink" href="#xii-built-in-plotting-methods" title="Link to this heading"></a></h4>
+<p>Consulting <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/visualization.html">the docs</a> for how to invoke each kind of plot,</p>
+<ol class="arabic simple">
+<li><p>Make a KDE plot of the <code class="docutils literal notranslate"><span class="pre">y='radius_RE'</span></code> column of the exoplanets DataFrame. Set the x-limits to 0 and 30.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;radius_RE&#39;</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/d6d6eed337e598b9cf1ad43c03258f0e751415dab4b16030aef981edc63d02ed.png" src="../_images/d6d6eed337e598b9cf1ad43c03258f0e751415dab4b16030aef981edc63d02ed.png" />
+</div>
+</div>
+</section>
+<section id="xiii-time-series">
+<h4>XIII. Time Series<a class="headerlink" href="#xiii-time-series" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Initialize a datetime index with 10 timestamps, 1 second apart, ending on midnight 1/1/2025. Use the <code class="docutils literal notranslate"><span class="pre">date_range()</span></code> function.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;01/01/2025&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1s&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2024-12-31 23:59:51&#39;, &#39;2024-12-31 23:59:52&#39;,
+               &#39;2024-12-31 23:59:53&#39;, &#39;2024-12-31 23:59:54&#39;,
+               &#39;2024-12-31 23:59:55&#39;, &#39;2024-12-31 23:59:56&#39;,
+               &#39;2024-12-31 23:59:57&#39;, &#39;2024-12-31 23:59:58&#39;,
+               &#39;2024-12-31 23:59:59&#39;, &#39;2025-01-01 00:00:00&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;s&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="xiv-the-categorical-data-type">
+<h4>XIV. The Categorical Data-type<a class="headerlink" href="#xiv-the-categorical-data-type" title="Link to this heading"></a></h4>
+<p>Print the memory usage of the exoplanets DataFrame with <code class="docutils literal notranslate"><span class="pre">deep=True</span></code>. Then convert the <code class="docutils literal notranslate"><span class="pre">'planet_type'</span></code> and <code class="docutils literal notranslate"><span class="pre">'detection_method'</span></code> columns to <code class="docutils literal notranslate"><span class="pre">'category'</span></code> type and print the memory usage again. Each column should be &lt;2% of its original size in memory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index                449638
+distance              42000
+star_mag              42000
+planet_type          313545
+discovery_yr          42000
+mass_ME               42000
+radius_RE             42000
+orbital_radius_AU     42000
+orbital_period_yr     42000
+eccentricity          42000
+detection_method     306608
+mass_MJ               42000
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exos</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">exos</span><span class="p">[</span><span class="s1">&#39;detection_method&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exos</span><span class="p">[</span><span class="s1">&#39;detection_method&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exos</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index                449638
+distance              42000
+star_mag              42000
+planet_type            5717
+discovery_yr          42000
+mass_ME               42000
+radius_RE             42000
+orbital_radius_AU     42000
+orbital_period_yr     42000
+eccentricity          42000
+detection_method       6295
+mass_MJ               42000
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="xv-numba-demo">
+<h4>XV. Numba demo<a class="headerlink" href="#xv-numba-demo" title="Link to this heading"></a></h4>
+<p>The example below doesn’t make much physical sense, but run it and compare the outputs of the 2 <code class="docutils literal notranslate"><span class="pre">timeit</span></code> lines. Try increasing or decreasing the number of samples or vary the number of numeric columns.</p>
+<p>If you’re on LUNARC and started Jupyter On Demand with the default number of tasks per node, you may have to restart it with 4 tasks per node given the number of threads in the example below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numba</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numba</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">stuff</span> <span class="o">=</span>  <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">4</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">250000</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="o">%</span><span class="k">timeit</span> stuff.rolling(500).mean()
+<span class="o">%</span><span class="k">timeit</span> stuff.rolling(500).mean(engine=&#39;numba&#39;, engine_kwargs={&quot;parallel&quot;: True})
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">numba</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">stuff</span> <span class="o">=</span>  <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">4</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">250000</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;timeit&#39;</span><span class="p">,</span> <span class="s1">&#39;stuff.rolling(500).mean()&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;timeit&#39;</span><span class="p">,</span> <span class="s1">&#39;stuff.rolling(500).mean(engine=</span><span class="se">\&#39;</span><span class="s1">numba</span><span class="se">\&#39;</span><span class="s1">, engine_kwargs={&quot;parallel&quot;: True})&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
