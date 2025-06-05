@@ -34,7 +34,7 @@ Welcome to "Using Python in an HPC environment" course material
     - Use Python for ML
     - Use GPUs with Python
 
-Schedule Spring 2025
+Schedule Autumn 2025
 --------------------
 
 .. admonition:: Schedule
