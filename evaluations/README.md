@@ -11,9 +11,17 @@ Date            |`.pdf`                                             |`xlsx`
 
 - [20241205 (pdf)](20241205/evaluation_20241205.pdf)
 
-## 2025-04
+## 2025
 
-- [20250425 (Day 2)](20250425_day_2/README.md)
-- [20250428 (Day 3)](20250428_day_3/README.md)
-- [20250429 (Day 4)](20250429_day_4/README.md)
-- [Whole course](202504_course/README.md)
+Course iteration|Day|Evaluations
+----------------|---|-----------
+7  (2025 spring)|1  |[Evaluation](https://uppmax.github.io/naiss_intro_python/evaluations/20250424/)
+.               |2  |[Evaluation](20250425_day_2/README.md)
+.               |3  |[Evaluation](20250428_day_3/README.md)
+.               |4  |[Evaluation](20250429_day_4/README.md)
+.               |All|[Evaluation](202504_course/README.md)
+8  (2025 autumn)|1  |[Evaluation](https://uppmax.github.io/naiss_intro_python/evaluations/20251127/)
+.               |2  |[Evaluation](20251128_day_2/README.md)
+.               |3  |[Evaluation](20251201_day_3/README.md)
+.               |4  |[Evaluation](20251202_day_4/README.md)
+.               |All|[Evaluation](202511_course/README.md)
