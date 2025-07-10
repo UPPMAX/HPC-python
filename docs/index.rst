@@ -29,7 +29,6 @@ Welcome to "Using Python in an HPC environment" course material
     - You can write and submit batch job scripts
     - You can use the compute nodes interactively
     - You can use a Python IDE
-    - You can create plots in ``matplotlib``
     - Use Python in parallel
     - Use Python for ML
     - Use GPUs with Python
@@ -175,7 +174,6 @@ Content of the course
    day2/interactive.md
    day2/ondemand-desktop.rst
    day2/IDEs.rst
-   day2/matplotlib-intro.rst
    summary2.rst
    day2/evaluation.rst
    day2/python_at_hpc_centers.rst
@@ -184,8 +182,6 @@ Content of the course
    :maxdepth: 2
    :caption: Lessons day 3 (advanced analysis):
 
-   day3/pandas.rst
-   day3/Seaborn-Intro.rst
    day3/batch.md
    day3/big_data.md
    summary3.rst
