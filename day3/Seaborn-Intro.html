@@ -1,0 +1,649 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Brief Introduction to the Seaborn Statistical Plotting Library &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Loading IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">A Brief Introduction to the Seaborn Statistical Plotting Library</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/Seaborn-Intro.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="a-brief-introduction-to-the-seaborn-statistical-plotting-library">
+<h1>A Brief Introduction to the Seaborn Statistical Plotting Library<a class="headerlink" href="#a-brief-introduction-to-the-seaborn-statistical-plotting-library" title="Link to this heading"></a></h1>
+<p>Seaborn is a plotting library built entirely with Matplotlib and designed to quickly and easily create presentation-ready statistical plots from Pandas data structures.</p>
+<p>Seaborn can produce a wide variety of statistical plots, and even offers built-in regression functions, but in the interest of time, we will focus on just a few that are hard to replicate with Matplotlib alone. We will make extensive use of Seaborn’s built-in testing datasets, of which there are many. You will have seen a couple already in the Matplotlib and Pandas lectures.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Don’t Rely on Seaborn for Regression Analysis</p>
+<p>We will not cover regression because Seaborn does not return any parameters needed to assess the
+quality of the fit. The official documentation itself warns that the Seaborn regression functions are
+only intended for quick and dirty visualizations to <em>motivate</em> proper in-depth analysis.</p>
+</div>
+<section id="load-and-run-seaborn">
+<h2>Load and Run Seaborn<a class="headerlink" href="#load-and-run-seaborn" title="Link to this heading"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">HPC2N</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">UPPMAX</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Tetralith</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">Dardel (PDC)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should for this session load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 Seaborn/0.13.2</span>
+</pre></div>
+</div>
+</div>
+<p>As usual, you can check <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">Seaborn</span></code> to see the available versions and how to load them. These Seaborn modules are built to load their Matplotlib and SciPy-bundle dependencies internally.</p>
+<p>If you work at the command line, after importing Matplotlib, you will need to set <code class="docutils literal notranslate"><span class="pre">matplotlib.use('Tkinter')</span></code> in order to view your plots. This is not necessary if you work in a GUI like Jupyter or Spyder.</p>
+<p>As of 27-11-2024, <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">Seaborn</span></code> outputs the following versions on Kebnekaise:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  Seaborn:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      Seaborn is a Python visualization library based on matplotlib. It</span>
+<span class="go">      provides a high-level interface for drawing attractive statistical</span>
+<span class="go">      graphics.</span>
+
+<span class="go">     Versions:</span>
+<span class="go">        Seaborn/0.12.1</span>
+<span class="go">        Seaborn/0.12.2</span>
+<span class="go">        Seaborn/0.13.2</span>
+
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  For detailed information about a specific &quot;Seaborn&quot; package (including how to load the modules) use the module&#39;s full name.</span>
+<span class="go">  Note that names that have a trailing (E) are extensions provided by other modules.</span>
+<span class="go">  For example:</span>
+
+<span class="gp">     $ </span>module<span class="w"> </span>spider<span class="w"> </span>Seaborn/0.13.2
+<span class="go">----------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should for this session load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Seaborn/0.13.2</span>
+</pre></div>
+</div>
+</div>
+<p>On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter Lab applications to use Seaborn. These applications are configured to load Seaborn and all its dependencies autonatically, including the SciPy-bundle. The demonstrations will be done on Cosmos with Spyder.</p>
+<p>If you must work on the command line, then you will need to load Seaborn separately, along with any prerequisite modules. After importing Matplotlib, you will need to set <code class="docutils literal notranslate"><span class="pre">matplotlib.use('Tkinter')</span></code> in order to view your plots.</p>
+<p>As of 27-11-2024, <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">Seaborn</span></code> outputs the following versions on COSMOS:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  Seaborn:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      Seaborn is a Python visualization library based on matplotlib. It</span>
+<span class="go">      provides a high-level interface for drawing attractive statistical</span>
+<span class="go">      graphics.</span>
+
+<span class="go">     Versions:</span>
+<span class="go">        Seaborn/0.11.2</span>
+<span class="go">        Seaborn/0.12.1</span>
+<span class="go">        Seaborn/0.12.2</span>
+<span class="go">        Seaborn/0.13.2</span>
+
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  For detailed information about a specific &quot;Seaborn&quot; package (including how to</span>
+<span class="go">load the modules) use the module&#39;s full name.</span>
+<span class="go">  Note that names that have a trailing (E) are extensions provided by other modu</span>
+<span class="go">les.</span>
+<span class="go">  For example:</span>
+
+<span class="gp">     $ </span>module<span class="w"> </span>spider<span class="w"> </span>Seaborn/0.13.2
+<span class="go">----------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should for this session load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load python/3.11.8</span>
+</pre></div>
+</div>
+</div>
+<p>On Rackham, Seaborn/0.13.2 is included in <code class="docutils literal notranslate"><span class="pre">python_ML_packages/3.11.8-cpu</span></code>. Jupyter-Lab is available but Spyder is not installed centrally.</p>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should for this session load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>And install <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to <code class="docutils literal notranslate"><span class="pre">~/.local/</span></code> if you don’t already have it</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install seaborn</span>
+</pre></div>
+</div>
+</div>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Jupyter Lab is only available on Dardel via ThinLinc.</p></li>
+<li><p>As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer.</p></li>
+<li><p>Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime).</p></li>
+<li><p>The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb">exercises</a> and <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb">solutions</a> in the GitHub repository (they should render correctly).</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you could load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml cray-python/3.11.7</span>
+</pre></div>
+</div>
+</div>
+<p>On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">PDC/23.12</span> <span class="pre">matplotlib/3.8.2-cpeGNU-23.12</span></code>, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.</p>
+<ul>
+<li><p>ALTERNATIVE IF THINLINC IS AVAILABLE</p></li>
+<li><p>Start Jupyter from the Menu and it will work!</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Default Anaconda 3 has all packages needed for this lesson</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>OR USE SPYDER:</dt><dd><ul class="simple">
+<li><p>start interactive session</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-403</span>
+<span class="go">salloc: Pending job allocation 9102757</span>
+<span class="go">salloc: job 9102757 queued and waiting for resources</span>
+<span class="go">salloc: job 9102757 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 9102757</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes nid001057 are ready for job</span>
+</pre></div>
+</div>
+<p>We need to ssh to the specific node, like</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ssh nid001057</span>
+</pre></div>
+</div>
+<p>Use the conda env you created in Exercise 2 in <a class="reference external" href="https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises">Use isolated environments</a></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml PDC/23.12</span>
+<span class="go">ml miniconda3/24.7.1-0-cpeGNU-23.12</span>
+<span class="go">export CONDA_ENVS_PATH=&quot;/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/&quot;</span>
+<span class="go">export CONDA_PKG_DIRS=&quot;/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/&quot;</span>
+<span class="go">source activate spyder-env</span>
+<span class="gp"># </span>If<span class="w"> </span>needed,<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>packages<span class="w"> </span>here<span class="w"> </span>by:<span class="w"> </span><span class="s2">&quot;conda install matplotlib pandas seaborn&quot;</span>
+<span class="go">spyder &amp;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></div>
+<p>In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is <code class="docutils literal notranslate"><span class="pre">sns</span></code>, but for those of us who never watched The West Wing, <code class="docutils literal notranslate"><span class="pre">sb</span></code> is fine and is what will be used in this tutorial.</p>
+</section>
+<section id="common-features">
+<h2>Common Features<a class="headerlink" href="#common-features" title="Link to this heading"></a></h2>
+<section id="sample-datasets">
+<h3>Sample Datasets<a class="headerlink" href="#sample-datasets" title="Link to this heading"></a></h3>
+<p>This tutorial will make use of some of the free test data sets that Seaborn provides with the <code class="docutils literal notranslate"><span class="pre">.load_dataset()</span></code> function. These are also handy for playing with Pandas and a variety of machine learning packages (TensorFlow, PyTorch, etc.). The full list of datasets can be viewed with <code class="docutils literal notranslate"><span class="pre">sb.get_dataset_names()</span></code>, and for more details, you can <a class="reference external" href="https://github.com/mwaskom/seaborn-data">visit the GitHub repository</a> and follow the links in the ReadMe under “Data Sources”. A few of the more popular data sets include…</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'penguins'</span></code>, sex-segregated measurements of the beaks, flippers, and body masses of 3 species of penguins that live on the Antarctic Peninsula.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'iris'</span></code>, measurements of the petal and sepal dimensions of three species of iris flower.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'titanic'</span></code>, records of the ticket class, demographics, and survival status of passengers on the Titanic</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'mpg'</span></code>, information about the model, year, physical characteristics, engine specifications, and fuel economy of a variety of cars.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'planets'</span></code>, a much older, smaller sample of the exoplanets data we used in the Matplotlib seminar, with fewer physical and orbital parameters. Hopefully it will be updated soon.</p></li>
+</ul>
+<p>For most of this tutorial, we will use the <code class="docutils literal notranslate"><span class="pre">'mpg'</span></code> dataset. For a more categorical dataset, we will use the <code class="docutils literal notranslate"><span class="pre">'titanic'</span></code> set.</p>
+</section>
+<section id="commonalities-in-plotting">
+<h3>Commonalities in Plotting<a class="headerlink" href="#commonalities-in-plotting" title="Link to this heading"></a></h3>
+<p>Seaborn plotting functions are designed to take Pandas DataFrames (or sometimes Series) as inputs. As such, different plot types share many of the same kwargs (there are no args). The following are the most important:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>—the DataFrame in which to search for the remaining kwargs. You can pass it as either the first positional arg or as a kwarg, but it’s mandatory either way.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>—the names of two columns in your DataFrame to plot against each other. These are usually necessary, but not if you’re plotting every possible pairing of numerical data columns against each other all at once, as in <code class="docutils literal notranslate"><span class="pre">pairplot</span></code> or <code class="docutils literal notranslate"><span class="pre">heatmap</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hue</span></code>—this kwarg accepts a categorical variable (e.g. species, sex, brand, etc.) column name, groups the data by those categories, and plots them all on the same plot in a different color.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The default colors are usually fine if you have &lt;5 categories, but if you want to change them, you can set your code under <cite>with sb.color_palette(“&lt;palette&gt;”)</cite> where <cite>&lt;palette&gt;</cite> can be any of the options described <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette">in the official documentation</a>. You can also set your own palette for the whole session with <code class="docutils literal notranslate"><span class="pre">sb.set_palette(your_color_list)</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ax</span></code>—this kwarg takes the name of an axis object if you want to add your Seaborn plot(s) as subplots on an existing figure.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Figure vs. Axis-level interfaces.</strong> Whether you import <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> and instantiate the usual <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span></code> or not, Seaborn plotting commands look almost identical apart from the <code class="docutils literal notranslate"><span class="pre">ax</span></code> kwarg, which you only need to add Seaborn subplots to other figures. If you use Seaborn plots with <code class="docutils literal notranslate"><span class="pre">ax</span></code>, they are essentially drop-in replacements for other Matplotlib axes methods, but you lose some of the nicer automatic formatting features, like exterior legends. Without the <code class="docutils literal notranslate"><span class="pre">ax</span></code> kwarg, a Seaborn plot will occupy a whole figure, which can make it trickier to format axes labels properly. <a class="reference external" href="https://seaborn.pydata.org/tutorial/function_overview.html#figure-level-vs-axes-level-functions">A fuller explanation of the pros and cons of each approach is provided in the official documentation.</a>.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Seaborn typically titles axes by the variable names as they appear in the DataFrame, underscores and all. It’s easy enough to override the labels for a simple pairwise plot, but correcting the typesetting can get tedious and tricky when there are many subplots. Since proper typesetting is necessary for figures to be published, an upcoming example will demonstrate one possible way to fix the axis label formatting.</p>
+</div>
+<p>Another common feature of Seaborn is that many of the high-level functions that you would ordinarily use are actually wrappers for more flexible base classes with methods that let you layer different plot types on top of each other. We’ll only cover one case here, but keep it in mind when you</p>
+</section>
+</section>
+<section id="plotting-with-seaborn">
+<h2>Plotting with Seaborn<a class="headerlink" href="#plotting-with-seaborn" title="Link to this heading"></a></h2>
+<p>Here we will explore a few of the plot types Seaborn offers that are difficult to replicate in Matplotlib:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sb.jointplot()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sb.pairplot()</span></code> and the underlying <code class="docutils literal notranslate"><span class="pre">sb.PairGrid()</span></code> function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sb.heatmap()</span></code> and <code class="docutils literal notranslate"><span class="pre">sb.clustermap()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sb.violinplot()</span></code> (yes, there is a Matplotlib violin plot method, but the Seaborn version produces much nicer figures with much less work) and related plots</p></li>
+</ol>
+<section id="joint-plots">
+<h3>Joint Plots<a class="headerlink" href="#joint-plots" title="Link to this heading"></a></h3>
+<p>A joint plot is a plot of 2 variables against each other with small histograms of each variable along the top and right sides of the plot. If you participated in the Matplotlib tutorial, you saw how tedious this is to make in pure Matplotlib. But what takes at least a dozen lines of code in pure Matplotlib can be done in 1 line with Seaborn.</p>
+<p>To demonstrate with the <code class="docutils literal notranslate"><span class="pre">'mpg'</span></code> dataset, let’s plot the fuel economy in mpg against vehicle weight. As a bonus, let’s color the data by region of origin.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="n">mpg</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
+<span class="n">jp</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">mpg</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">marginal_ticks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#fix the labels to make them presentable</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Weight [lbs]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fuel Economy [mpg]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(37.722222222222214, 0.5, &#39;Fuel Economy [mpg]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/Seaborn-Intro_0_1.png" src="../_images/Seaborn-Intro_0_1.png" />
+</div>
+</div>
+<p>The only kwarg shown that we didn’t cover already is <cite>marginal_tick</cite>, which shows the y-axis ticks for the marginal probability distributions (the smoothed histograms along the sides). Normally they are off (<code class="docutils literal notranslate"><span class="pre">False</span></code>) to avoid overlap with the main axis ticks.</p>
+<p>By default the main plot is a scatter plot, and the marginal plots are either histograms if the data are not shaded by a categorical variable, or kernel density estimations (KDEs, which are basically histograms smoothed by convolution with a usually Gaussian kernel) if the <code class="docutils literal notranslate"><span class="pre">hue</span></code> kwarg is used. The type of central plot can be changed with the <code class="docutils literal notranslate"><span class="pre">kind</span></code> kwarg, which also accepts</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'scatter'</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'hist'</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'hex'</span></code> (for hexbin),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'kde'</span></code> (which plots contours of the smoothed bivariate distribution),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'reg'</span></code> (which does linear regression internally and plots the trendline over a scatter plot), and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'resid'</span></code> (which does linear regression internally and makes a scatter plot of the data minus the trend).</p></li>
+</ul>
+<p>The options that involve linear regression cannot be used with <code class="docutils literal notranslate"><span class="pre">hue</span></code>, and many of the other options change the appearance of the marginal distributions.</p>
+<p>That’s all well and good, but what if you have a lot of variables that you need to do this kind of analysis with?</p>
+</section>
+<section id="pairplot-and-pairgrid">
+<h3>Pairplot and PairGrid<a class="headerlink" href="#pairplot-and-pairgrid" title="Link to this heading"></a></h3>
+<p>When confronted with a multivariate dataset, you often need to plot many numeric variables against each other in every unique combination, and also look at the probability distributions of each individual variable. With only a handful of variables, this is typically done on a Corner Plot, a set of plots with histograms on the diagonal and bivariate distributions on the lower off-diagonal. Seaborn makes this kind of plot easy to make and customize, and you don’t even need to tell it to ignore non-numeric columns—it automatically ignores any categorical column not specified with <code class="docutils literal notranslate"><span class="pre">hue</span></code>.</p>
+<p>For a typical dataset and typical display settings, it is enough to use Seaborn’s <code class="docutils literal notranslate"><span class="pre">pairplot()</span></code> function, a wrapper around the underlying, more customizable <code class="docutils literal notranslate"><span class="pre">PairGrid()</span></code>. We’ll again use the the <code class="docutils literal notranslate"><span class="pre">'mpg'</span></code> data set to demonstrate.</p>
+<p>First, let’s see how many variables there are and whether any of them take a small number of discrete values. If there are more than about 5-6 numeric variables, a pairplot featuring all of them can become hard to read if constrained to the size of a journal page, so it’s better to plot only as many as necessary.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="n">mpg</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mpg</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mpg</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 398 entries, 0 to 397
+Data columns (total 9 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   mpg           398 non-null    float64
+ 1   cylinders     398 non-null    int64  
+ 2   displacement  398 non-null    float64
+ 3   horsepower    392 non-null    float64
+ 4   weight        398 non-null    int64  
+ 5   acceleration  398 non-null    float64
+ 6   model_year    398 non-null    int64  
+ 7   origin        398 non-null    object 
+ 8   name          398 non-null    object 
+dtypes: float64(4), int64(3), object(2)
+memory usage: 28.1+ KB
+None
+mpg             129
+cylinders         5
+displacement     82
+horsepower       93
+weight          351
+acceleration     95
+model_year       13
+origin            3
+name            305
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s drop ‘cylinders’, ‘model_year’, and ‘name’, and keep ‘origin’ for the <code class="docutils literal notranslate"><span class="pre">hue</span></code>. While we’re at it, let’s see what it would take just to give the axis labels proper capitalization and units.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="n">mpg</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">mpg</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;model_year&#39;</span><span class="p">,</span><span class="s1">&#39;cylinders&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">temp</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">corner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">xlabel</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_label_text</span><span class="p">()</span>
+            <span class="n">ylabel</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_label_text</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">xlabel</span> <span class="o">==</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span>
+                <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Fuel Economy [mpg]&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">xlabel</span><span class="o">==</span><span class="s1">&#39;weight&#39;</span><span class="p">:</span>
+                <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Weight [lbs]&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">capwords</span><span class="p">(</span><span class="n">xlabel</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">ylabel</span> <span class="o">==</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span>
+                <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fuel Economy [mpg]&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ylabel</span><span class="o">==</span><span class="s1">&#39;weight&#39;</span><span class="p">:</span>
+                <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Weight [lbs]&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">capwords</span><span class="p">(</span><span class="n">ylabel</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Seaborn-Intro_2_0.png" src="../_images/Seaborn-Intro_2_0.png" />
+</div>
+</div>
+<p>As you can see, most of the code was spent fixing the labels. The actual plot was a breeze.</p>
+<p>The kwargs shown that we haven’t seen before are <code class="docutils literal notranslate"><span class="pre">diag_kind</span></code> and <code class="docutils literal notranslate"><span class="pre">corner</span></code>. Technically <code class="docutils literal notranslate"><span class="pre">diag_kind='kde'</span></code> wasn’t necessary because, as with <code class="docutils literal notranslate"><span class="pre">jointplot()</span></code>, setting the <code class="docutils literal notranslate"><span class="pre">hue</span></code> kwarg automatically tells Seaborn to smooth the marginal distributions along the diagonal so they can be plotted with a lines instead of bars, which makes it easier to see multiple data sets layered on top of each other. Without <code class="docutils literal notranslate"><span class="pre">hue</span></code>, however, the default is <code class="docutils literal notranslate"><span class="pre">diag_kind='hist'</span></code>, which doesn’t look nearly as nice. The other kwarg <code class="docutils literal notranslate"><span class="pre">corner</span></code> is a boolean switch that, when True, tells Seaborn not to mirror the bivariate distributions below the diagonal to the space above the diagonal. The default is <code class="docutils literal notranslate"><span class="pre">corner=False</span></code>, which is usually not what you want.</p>
+<p>That said, sometimes it’s nice to mirror the bivariate data above the diagonal but display it in a different form. That’s not doable with just <code class="docutils literal notranslate"><span class="pre">sb.pairplot()</span></code>, but it is with the underlying <code class="docutils literal notranslate"><span class="pre">sb.PairGrid()</span></code> function, which has many more methods and some different kwargs. The way we change the format of different parts of the grid is to use the <code class="docutils literal notranslate"><span class="pre">.map_&lt;position&gt;(sb.&lt;plotkind&gt;)</span></code> series of methods of <code class="docutils literal notranslate"><span class="pre">PairGrid</span></code> objects:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.map_diag()</span></code> which handles data on the diagonal,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.map_upper()</span></code> which handles data above the diagonal, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.map_lower()</span></code> which handles data below the diagonal.</p></li>
+</ul>
+<p>Each of these takes Seaborn’s version of a standard pairwise plot type and casts the variables to their respective subplots in the form of that plot. Some of the plot options include <code class="docutils literal notranslate"><span class="pre">scatterplot</span></code>, <code class="docutils literal notranslate"><span class="pre">histplot</span></code>, <code class="docutils literal notranslate"><span class="pre">kdeplot</span></code>, and <code class="docutils literal notranslate"><span class="pre">ecdfplot</span></code>.</p>
+<p>Legends also have to be added manually, but that’s a small price to pay for the extra flexibility. Let’s redo the previous pairplot, but this time plot the lower off-diagonal plots as scatter plots, the upper off-diagonals as KDEs (which render as contours in 2D), and the diagonals as stacked histograms just to show off. (We’ll skip the axis typesetting this time.)</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="n">mpg</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">mpg</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;model_year&#39;</span><span class="p">,</span><span class="s1">&#39;cylinders&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">temp</span><span class="p">,</span> <span class="n">despine</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">diag_sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_upper</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_lower</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Seaborn-Intro_3_0.png" src="../_images/Seaborn-Intro_3_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">PairGrid()</span></code> does accept the <code class="docutils literal notranslate"><span class="pre">corner</span></code> and <code class="docutils literal notranslate"><span class="pre">hue</span></code> kwargs, but not <code class="docutils literal notranslate"><span class="pre">diag_kind</span></code>, for reasons that are hopefully obvious. That <code class="docutils literal notranslate"><span class="pre">despine</span></code> and <code class="docutils literal notranslate"><span class="pre">diag_sharey</span></code> kwargs are unique to <code class="docutils literal notranslate"><span class="pre">PairGrid()</span></code>. When <code class="docutils literal notranslate"><span class="pre">despine=False</span></code> (default is <code class="docutils literal notranslate"><span class="pre">True</span></code> for aesthetic reasons), the entire bounding box of each set of axes is drawn, instead of just the bottom and left edges. When <code class="docutils literal notranslate"><span class="pre">diag_sharey=False</span></code> (default is <code class="docutils literal notranslate"><span class="pre">True</span></code>), Seaborn does not attempt to match the scale of the marginal distributions on the diagonal to the y-axes of the off diagonals, which allows the plots on the diagonals to fill their space instead of potentially getting squished.</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">map_</span></code> commands, the kwargs depend on the type of plot that was passed. Where <code class="docutils literal notranslate"><span class="pre">histplot</span></code> was passed, the <code class="docutils literal notranslate"><span class="pre">multiple</span></code> and <code class="docutils literal notranslate"><span class="pre">element</span></code> kwargs offer nice ways to adjust the appearance of the histograms so that they would display well as layers. Setting <code class="docutils literal notranslate"><span class="pre">multiple=&quot;stack&quot;</span></code> insured that the smallest histograms were drawn in front of the largest, and setting <code class="docutils literal notranslate"><span class="pre">element=&quot;step&quot;</span></code> erased the sides of the histogram bins where they touched adjacent bins, which made the layered plot less cluttered. <code class="docutils literal notranslate"><span class="pre">kdeplot</span></code> and <code class="docutils literal notranslate"><span class="pre">scatterplot</span></code> have their own kwargs to control things like linestyles and markers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike most other plots demonstrated here, <code class="docutils literal notranslate"><span class="pre">pairplot()</span></code> and <code class="docutils literal notranslate"><span class="pre">PairGrid()</span></code> do <strong>not</strong> have an <code class="docutils literal notranslate"><span class="pre">ax</span></code> kwarg because they are already plotting multiple subplots. They will and must occupy an entire figure.</p>
+</div>
+</section>
+<section id="heatmap-and-clustermap">
+<h3>Heatmap and Clustermap<a class="headerlink" href="#heatmap-and-clustermap" title="Link to this heading"></a></h3>
+<p>Sometimes you have too many variables to look at with pairplots or corner plots, and the best you can do is map the correlation coeffcients between different parameters. Alternatively, you might have a DataFrame with a comparable number of numeric rows and columns, and you want to see how the rows and columns correlate. Either way, the DataFrame must be able to be coerced to <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p>
+<p>Once again, this type of plot is extremely tedious to make in pure Matplotlib, but in Seaborn, it can require as little as one line of code. There are two functions that do this: <code class="docutils literal notranslate"><span class="pre">sb.heatmap()</span></code> and <code class="docutils literal notranslate"><span class="pre">sb.clustermap()</span></code>. The main difference between the two is that the latter attempts to rearrange variables such that those that are correlated are positioned next to each other on the plot, while the former simply lists the variables in the order they were given in the DataFrame.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mpg</span></code> DataFrame can’t be used directly, but the correlation matrix of it can be. Fortunately, <code class="docutils literal notranslate"><span class="pre">.corr()</span></code> is a DataFrame method. Let’s see what <code class="docutils literal notranslate"><span class="pre">heatmap()</span></code> and <code class="docutils literal notranslate"><span class="pre">clustermap()</span></code> look like for the numeric columns of <code class="docutils literal notranslate"><span class="pre">mpg</span></code>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="n">mpg</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">mpg</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;Correlation Coefficients&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/Seaborn-Intro_4_1.png" src="../_images/Seaborn-Intro_4_1.png" />
+</div>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="n">mpg</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">mpg</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;Correlation Coefficients&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.matrix.ClusterGrid at 0x7ff40949f470&gt;
+</pre></div>
+</div>
+<img alt="../_images/Seaborn-Intro_5_1.png" src="../_images/Seaborn-Intro_5_1.png" />
+</div>
+</div>
+<p>The most handy kwargs for these two functions is <code class="docutils literal notranslate"><span class="pre">annot</span></code>, which prints the values of the squares  is <code class="docutils literal notranslate"><span class="pre">True</span></code> or accepts an alternative annotation array, and <code class="docutils literal notranslate"><span class="pre">cbar_kws</span></code>, which accepts formatting kwargs for Matplotlib’s <code class="docutils literal notranslate"><span class="pre">fig.colorbar()</span></code> as a dictionary. Also shown are <code class="docutils literal notranslate"><span class="pre">fmt</span></code>, which tells <code class="docutils literal notranslate"><span class="pre">annot</span></code> how to render the numbers and uses the same form as the expressions in the curly braces of <code class="docutils literal notranslate"><span class="pre">{:}.format()</span></code> after the colon, and <code class="docutils literal notranslate"><span class="pre">cmap</span></code>, used here to choose a standard Matplotlib colormap instead of Seaborn’s default. There are also <code class="docutils literal notranslate"><span class="pre">vmin</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax</span></code> kwargs to adjust the limits of the colormap, and a <code class="docutils literal notranslate"><span class="pre">mask</span></code> kwarg to mask specific squares, among many other kwargs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a bug in Seaborn/0.12.2 that causes <code class="docutils literal notranslate"><span class="pre">heatmap()</span></code> and <code class="docutils literal notranslate"><span class="pre">clustermap()</span></code> with <code class="docutils literal notranslate"><span class="pre">annot=True</span></code> to only label the top row. This is fixed in later versions.</p>
+</div>
+</section>
+<section id="violin-plots-and-the-like">
+<h3>Violin Plots and the Like<a class="headerlink" href="#violin-plots-and-the-like" title="Link to this heading"></a></h3>
+<p>Seaborn offers several plots in the boxplot/violinplot mold. <code class="docutils literal notranslate"><span class="pre">sb.swarmplot()</span></code> (essentially a scatter plot shaped like a violin plot) and <code class="docutils literal notranslate"><span class="pre">sb.boxenplot()</span></code> (like a hybrid of box plot and histogram) have no Matplotlib counterpart. Even those with Matplotlib analogs are much easier to make and come out with a much more viewer-friendly appearance. Partly this is because Seaborn makes it so much easier to color different datasets, which in Matplotlib involves painstakingly drawing and filling in separate patches for each dataset.</p>
+<p>In matplotlib, the default violin plot only shows the median, limits, and the kde of the distributions, all in a uniform color. Seaborn also over-plots a thin box-and-whisker plot (without the fliers) to show the quartiles, it shades different datasets by <code class="docutils literal notranslate"><span class="pre">hue</span></code> automatically, and it offers a <code class="docutils literal notranslate"><span class="pre">split</span></code> feature that allows you to show a second categorical variable on the same plot as long as it only takes 2 values. Let’s have a look using the <code class="docutils literal notranslate"><span class="pre">'titanic'</span></code> dataset.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="n">tdf</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;titanic&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tdf</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;class&#39;, ylabel=&#39;age&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/Seaborn-Intro_6_1.png" src="../_images/Seaborn-Intro_6_1.png" />
+</div>
+</div>
+<p>And now let’s see the same plot with <code class="docutils literal notranslate"><span class="pre">split=True</span></code>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="n">tdf</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;titanic&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tdf</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;class&#39;, ylabel=&#39;age&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/Seaborn-Intro_7_1.png" src="../_images/Seaborn-Intro_7_1.png" />
+</div>
+</div>
+<p>There are dozens of other kwargs to control the appearance of different elements of the plot, but exploring them is left as an exercise to the reader. Instead, let’s look at a plot that has a similar shape but shows individual data points: <code class="docutils literal notranslate"><span class="pre">sb.swarmplot()</span></code>. This plot type is useful for smaller datasets where you are suspicious that a KDE or boxplot might smooth out important small-scale structures.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="n">tdf</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;titanic&#39;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tdf</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;class&#39;, ylabel=&#39;age&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/Seaborn-Intro_8_2.png" src="../_images/Seaborn-Intro_8_2.png" />
+</div>
+</div>
+<p>This shows that the <code class="docutils literal notranslate"><span class="pre">sb.violinplot()</span></code> version concealed significant differences in the absolute survival rates in each passenger class. Seaborn/0.13.0 and later offer a couple of different kwargs to control the normalization so that you don’t have to sacrifice this detail in your violin plots anymore, but these are not available for all students at all HPC centers this year. <code class="docutils literal notranslate"><span class="pre">sb.swarmplot()</span></code> may not look as clean, but it may be a more accurate alternative for the time being.</p>
+</section>
+</section>
+<section id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Seaborn makes statistical plots easy and good-looking!</p></li>
+<li><p>Seaborn plotting functions take in a Pandas DataFrame, sometimes the names of variables in the DataFrame to extract as <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, and often a <code class="docutils literal notranslate"><span class="pre">hue</span></code> that makes different subsets of the data appear in different colors depending on the value of the given categorical variable.</p></li>
+<li><p>Seaborn also offers datasets to play with.</p></li>
+<li><p>Typesetting axes labels can be an issue, though.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
