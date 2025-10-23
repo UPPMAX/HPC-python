@@ -68,6 +68,15 @@ Parallel computing with Python
 
       This will install the ``PyCall`` connector between Python and Julia.
 
+      - For the ``Heat`` examples: 
+
+      .. code-block:: console
+
+         ml GCC/11.2.0 OpenMPI/4.1.1
+         ml CUDA/12.0.0
+         pip install torch --index-url https://download.pytorch.org/whl/cu126
+         pip install heat[hdf5,netcdf]
+
       - Quit Python, you should be ready to go!
 
    .. tab:: UPPMAX
@@ -1203,6 +1212,75 @@ example,
          source /path-to-your-project/vpyenv-python-course/bin/activate
 
          srun python integration2d_mpi.py
+
+
+Heat (advanced)
+---------------
+
+More details for this package can be found here `Heat package <https://github.com/helmholtz-analytics/heat/tree/main>`_.
+
+   .. admonition:: ``heat_matmat.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         import heat as ht
+         import torch
+         import time
+
+         if torch.cuda.is_available():
+            device = "gpu"
+         else:
+            device = "cpu"
+
+         # load large matrices distributed across CPUs/GPUs
+         A = ht.random.randn(10000, 10000, split=0, device=device)  # Split along rows
+         B = ht.random.randn(10000, 10000, split=None, device=device)  # Do not split just copy
+
+         # Perform distributed matrix multiplication
+         start = time.time()
+         C = ht.linalg.matmul(A, B)
+         end = time.time()
+         print("rank= ", ht.MPI_WORLD.rank, "reported time= ",  end-start)
+
+
+   .. admonition:: ``heat_gradients.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         import heat as ht
+         import torch
+         import torch.nn as nn
+         import torch.optim as optim
+         import time
+
+         # Distributed dataset
+         X = ht.random.randn(30000, 10000, split=0)
+         y = ht.random.randn(30000, 1, split=0)
+
+         # Local model per rank
+         model = nn.Linear(10000, 1)
+         optimizer = optim.SGD(model.parameters(), lr=0.01)
+
+         start = time.time()
+         # Train local arrays
+         for epoch in range(1000):
+            out = model(X.larray)
+            loss = torch.mean((out - y.larray) ** 2)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+
+            # Average parameters across ranks (distributed synchronization)
+            for param in model.parameters():
+               ht.MPI_WORLD.Allreduce(ht.communication.MPI.IN_PLACE, param.data, op=ht.communication.MPI.SUM)
+               param.data /= ht.MPI_WORLD.size
+
+         end = time.time()
+         print("rank= ", ht.MPI_WORLD.rank, "reported time= ",  end-start)
+         print(f"Rank {ht.MPI_WORLD.rank} done training")
+
 
 Monitoring resources' usage
 ---------------------------
