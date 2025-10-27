@@ -1217,7 +1217,39 @@ example,
 Heat (advanced)
 ---------------
 
+Heat is a library for distributing tensor operations by using MPI as a backend. Heat uses 
+Distributed N-Dimensional (DND) arrays that can be seen as a global array. Locally, each
+rank retains a chunk of the array which is a tensor PyTorch tensor:
+
+
+   .. admonition:: ``heat_matmat.py``
+      :class: dropdown
+
+      .. code-block:: python
+
+         import heat as ht
+         
+         x = ht.arange(10, split=0)
+         
+         print(type(x))        # <class 'heat.core.dndarray.DNDarray'>
+         print(type(x.larray)) # <class 'torch.Tensor'>
+
+
+.. code-block:: console 
+
+    $ srun -A projectID -t 00:08:00 -o output_%j.out -e error_%j.err -n 2 python heat_datatypes.py
+
+    Output:
+       <class 'heat.core.dndarray.DNDarray'>
+       <class 'torch.Tensor'>
+       <class 'heat.core.dndarray.DNDarray'>
+       <class 'torch.Tensor'>
+
+         
 More details for this package can be found here `Heat package <https://github.com/helmholtz-analytics/heat/tree/main>`_.
+
+**Example 1: Distributing matrix-matrix multiplication operations** 
+
 
    .. admonition:: ``heat_matmat.py``
       :class: dropdown
@@ -1243,6 +1275,7 @@ More details for this package can be found here `Heat package <https://github.co
          end = time.time()
          print("rank= ", ht.MPI_WORLD.rank, "reported time= ",  end-start)
 
+**Example 2: Distributing gradients**
 
    .. admonition:: ``heat_gradients.py``
       :class: dropdown
