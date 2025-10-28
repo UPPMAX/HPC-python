@@ -508,45 +508,45 @@ serial code faster. For instance, the ``Numba`` module can assist you to obtain 
 compiled-quality function with minimal efforts. This can be achieved with the ``njit()`` 
 decorator: 
 
-   .. admonition:: ``integration2d_serial_numba.py``
-      :class: dropdown
+.. admonition:: ``integration2d_serial_numba.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         from numba import njit
-         import math
-         import sys
-         from time import perf_counter
-         
-         # grid size
-         n = 10000
-         
-         def integration2d_serial(n):
-             # interval size (same for X and Y)
-             h = math.pi / float(n)
-             # cummulative variable 
-             mysum = 0.0
-             
-             # regular integration in the X axis
-             for i in range(n):
-                 x = h * (i + 0.5)
-                 # regular integration in the Y axis
-                 for j in range(n):
-                     y = h * (j + 0.5)
-                     mysum += math.sin(x + y)
-             
-             integral = h**2 * mysum
-             return integral
-         
-         
-         if __name__ == "__main__":
-         
-             starttime = perf_counter()
-             integral = njit(integration2d_serial)(n)
-             endtime = perf_counter()
-         
-         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-         print("Time spent: %.2f sec" % (endtime-starttime))
+      from numba import njit
+      import math
+      import sys
+      from time import perf_counter
+      
+      # grid size
+      n = 10000
+      
+      def integration2d_serial(n):
+            # interval size (same for X and Y)
+            h = math.pi / float(n)
+            # cummulative variable 
+            mysum = 0.0
+            
+            # regular integration in the X axis
+            for i in range(n):
+               x = h * (i + 0.5)
+               # regular integration in the Y axis
+               for j in range(n):
+                  y = h * (j + 0.5)
+                  mysum += math.sin(x + y)
+            
+            integral = h**2 * mysum
+            return integral
+      
+      
+      if __name__ == "__main__":
+      
+            starttime = perf_counter()
+            integral = njit(integration2d_serial)(n)
+            endtime = perf_counter()
+      
+      print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+      print("Time spent: %.2f sec" % (endtime-starttime))
 
 The execution time is now:
 
@@ -565,44 +565,43 @@ We start by writing the expensive part of our Python code in a Fortran function 
 called ``fortran_function.f90``:
 
 
-   .. admonition:: ``fortran_function.f90``
-      :class: dropdown
+.. admonition:: ``fortran_function.f90``
+   :class: dropdown
 
-      .. code-block:: fortran
+   .. code-block:: fortran
 
-         function integration2d_fortran(n) result(integral)
-             implicit none
-             integer, parameter :: dp=selected_real_kind(15,9)
-             real(kind=dp), parameter   :: pi=3.14159265358979323_dp
-             integer, intent(in)        :: n
-             real(kind=dp)              :: integral
-         
-             integer                    :: i,j
-         !   interval size
-             real(kind=dp)              :: h
-         !   x and y variables
-             real(kind=dp)              :: x,y
-         !   cummulative variable
-             real(kind=dp)              :: mysum
-         
-             h = pi/(1.0_dp * n)
-             mysum = 0.0_dp
-         !   regular integration in the X axis
-             do i = 0, n-1
-                x = h * (i + 0.5_dp)
-         !      regular integration in the Y axis
-                do j = 0, n-1
-                    y = h * (j + 0.5_dp)
-                    mysum = mysum + sin(x + y)
-                enddo
-             enddo
-         
-             integral = h*h*mysum
-                     
-         end function integration2d_fortran
+      function integration2d_fortran(n) result(integral)
+            implicit none
+            integer, parameter :: dp=selected_real_kind(15,9)
+            real(kind=dp), parameter   :: pi=3.14159265358979323_dp
+            integer, intent(in)        :: n
+            real(kind=dp)              :: integral
+      
+            integer                    :: i,j
+      !   interval size
+            real(kind=dp)              :: h
+      !   x and y variables
+            real(kind=dp)              :: x,y
+      !   cummulative variable
+            real(kind=dp)              :: mysum
+      
+            h = pi/(1.0_dp * n)
+            mysum = 0.0_dp
+      !   regular integration in the X axis
+            do i = 0, n-1
+               x = h * (i + 0.5_dp)
+      !      regular integration in the Y axis
+               do j = 0, n-1
+                  y = h * (j + 0.5_dp)
+                  mysum = mysum + sin(x + y)
+               enddo
+            enddo
+      
+            integral = h*h*mysum
+                  
+      end function integration2d_fortran
 
-Then, we need to compile this code and generate the Python module
-(``myfunction``):
+Then, we need to compile this code and generate the Python module (``myfunction``):
 
 .. warning::
 
@@ -625,26 +624,26 @@ this will produce the Python/C API ``myfunction.cpython-39-x86_64-linux-gnu.so``
 can be called in Python as a module:
 
 
-   .. admonition:: ``call_fortran_code.py``
-      :class: dropdown
+.. admonition:: ``call_fortran_code.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         from time import perf_counter
-         import myfunction
-         import numpy
-         
-         # grid size
-         n = 10000
-         
-         if __name__ == "__main__":
-         
-             starttime = perf_counter()
-             integral = myfunction.integration2d_fortran(n)
-             endtime = perf_counter()
-         
-         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-         print("Time spent: %.2f sec" % (endtime-starttime))
+      from time import perf_counter
+      import myfunction
+      import numpy
+      
+      # grid size
+      n = 10000
+      
+      if __name__ == "__main__":
+      
+            starttime = perf_counter()
+            integral = myfunction.integration2d_fortran(n)
+            endtime = perf_counter()
+      
+      print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+      print("Time spent: %.2f sec" % (endtime-starttime))
 
 The execution time is considerably reduced: 
 
@@ -660,82 +659,82 @@ compiled language) you can write these parts in Julia (which doesn't require com
 then calling Julia code in Python. For the workhorse integration case that we are using, 
 the Julia code can look like this:
 
-   .. admonition:: ``julia_function.jl``
-      :class: dropdown
+.. admonition:: ``julia_function.jl``
+   :class: dropdown
 
-      .. code-block:: julia
+   .. code-block:: julia
 
-         function integration2d_julia(n::Int)
-         # interval size
-         h = π/n
-         # cummulative variable
-         mysum = 0.0
-         # regular integration in the X axis
-         for i in 0:n-1
-            x = h*(i+0.5)
-         #   regular integration in the Y axis
-            for j in 0:n-1
-               y = h*(j + 0.5)
-               mysum = mysum + sin(x+y)
-            end
+      function integration2d_julia(n::Int)
+      # interval size
+      h = π/n
+      # cummulative variable
+      mysum = 0.0
+      # regular integration in the X axis
+      for i in 0:n-1
+         x = h*(i+0.5)
+      #   regular integration in the Y axis
+         for j in 0:n-1
+            y = h*(j + 0.5)
+            mysum = mysum + sin(x+y)
          end
-         return mysum*h*h
-         end
+      end
+      return mysum*h*h
+      end
 
 
 A caller script for Julia would be,
 
 
-   .. admonition:: ``call_julia_code.py``
-      :class: dropdown
+.. admonition:: ``call_julia_code.py``
+   :class: dropdown
 
-      .. tabs::
+   .. tabs::
 
-         .. tab:: Julia v. 1.9.3
+      .. tab:: Julia v. 1.9.3
 
-            .. code-block:: python
+         .. code-block:: python
 
-               from time import perf_counter
-               import julia
-               from julia import Main
-               
-               Main.include('julia_function.jl')
-               
-               # grid size
-               n = 10000
-               
-               if __name__ == "__main__":
-               
-                  starttime = perf_counter()
-                  integral = Main.integration2d_julia(n)
-                  endtime = perf_counter()
-               
-                  print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-                  print("Time spent: %.2f sec" % (endtime-starttime))
+            from time import perf_counter
+            import julia
+            from julia import Main
+            
+            Main.include('julia_function.jl')
+            
+            # grid size
+            n = 10000
+            
+            if __name__ == "__main__":
+            
+               starttime = perf_counter()
+               integral = Main.integration2d_julia(n)
+               endtime = perf_counter()
+            
+               print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+               print("Time spent: %.2f sec" % (endtime-starttime))
 
-         .. tab:: Julia v. 1.9.4/1.10.4
+      .. tab:: Julia v. 1.9.4/1.10.4
 
-            .. code-block:: python
+         .. code-block:: python
 
-               from time import perf_counter
-               from juliacall import Main as julia
+            from time import perf_counter
+            from juliacall import Main as julia
 
-               # Include the Julia script
-               julia.include("julia_function.jl")
+            # Include the Julia script
+            julia.include("julia_function.jl")
 
-               # grid size
-               n = 10000
+            # grid size
+            n = 10000
 
-               if __name__ == "__main__":
+            if __name__ == "__main__":
 
 
-                  starttime = perf_counter()
-                  # Call the function defined in the julia script
-                  integral = julia.integration2d_julia(n)  # function takes arguments
-                  endtime = perf_counter()
+               starttime = perf_counter()
+               # Call the function defined in the julia script
+               integral = julia.integration2d_julia(n)  # function takes arguments
+               endtime = perf_counter()
 
-                  print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-                  print("Time spent: %.2f sec" % (endtime-starttime))
+               print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+               print("Time spent: %.2f sec" % (endtime-starttime))
 
 
 
@@ -766,7 +765,7 @@ For jobs dealing with files I/O one can observe some speedup by using the `threa
 However, for CPU intensive jobs one would see a decrease in performance w.r.t. the serial code.
 This is because Python uses the Global Interpreter Lock 
 (`GIL <https://docs.python.org/3/c-api/init.html>`_) which serializes the code when 
-several threads are used.
+several threads are used. The GIL serialization is avoided in Python versions \> 3.14. 
 
 In the following code we used the `threading` module to parallelize the 2D integration example.
 Threads are created with the construct ``threading.Thread(target=function, args=())``, where 
