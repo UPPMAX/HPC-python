@@ -773,64 +773,64 @@ Threads are created with the construct ``threading.Thread(target=function, args=
 arguments of that function. Threads are started with the ``start()`` method and when they finish
 their job they are joined with the ``join()`` method,
 
-   .. admonition:: ``integration2d_threading.py``
-      :class: dropdown
+.. admonition:: ``integration2d_threading.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         import threading
-         import math
-         import sys
-         from time import perf_counter
-         
-         # grid size
-         n = 10000
-         # number of threads
-         numthreads = 4
-         # partial sum for each thread
-         partial_integrals = [None]*numthreads
-         
-         def integration2d_threading(n,numthreads,threadindex):
-             global partial_integrals;
-             # interval size (same for X and Y)
-             h = math.pi / float(n)
-             # cummulative variable 
-             mysum = 0.0
-             # workload for each thread
-             workload = n/numthreads
-             # lower and upper integration limits for each thread 
-             begin = int(workload*threadindex)
-             end = int(workload*(threadindex+1))
-             # regular integration in the X axis
-             for i in range(begin,end):
-                 x = h * (i + 0.5)
-                 # regular integration in the Y axis
-                 for j in range(n):
-                     y = h * (j + 0.5)
-                     mysum += math.sin(x + y)
-             
-             partial_integrals[threadindex] = h**2 * mysum
-         
-         
-         if __name__ == "__main__":
-         
-             starttime = perf_counter()
-             # start the threads 
-             threads = []
-             for i in range(numthreads):
-                 t = threading.Thread(target=integration2d_threading, args=(n,numthreads,i))
-                 threads.append(t)
-                 t.start()
-         
-             # waiting for the threads
-             for t in threads:
-                 t.join()
-         
-             integral = sum(partial_integrals)
-             endtime = perf_counter()
-         
-         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-         print("Time spent: %.2f sec" % (endtime-starttime))
+      import threading
+      import math
+      import sys
+      from time import perf_counter
+      
+      # grid size
+      n = 10000
+      # number of threads
+      numthreads = 4
+      # partial sum for each thread
+      partial_integrals = [None]*numthreads
+      
+      def integration2d_threading(n,numthreads,threadindex):
+            global partial_integrals;
+            # interval size (same for X and Y)
+            h = math.pi / float(n)
+            # cummulative variable 
+            mysum = 0.0
+            # workload for each thread
+            workload = n/numthreads
+            # lower and upper integration limits for each thread 
+            begin = int(workload*threadindex)
+            end = int(workload*(threadindex+1))
+            # regular integration in the X axis
+            for i in range(begin,end):
+               x = h * (i + 0.5)
+               # regular integration in the Y axis
+               for j in range(n):
+                  y = h * (j + 0.5)
+                  mysum += math.sin(x + y)
+            
+            partial_integrals[threadindex] = h**2 * mysum
+      
+      
+      if __name__ == "__main__":
+      
+            starttime = perf_counter()
+            # start the threads 
+            threads = []
+            for i in range(numthreads):
+               t = threading.Thread(target=integration2d_threading, args=(n,numthreads,i))
+               threads.append(t)
+               t.start()
+      
+            # waiting for the threads
+            for t in threads:
+               t.join()
+      
+            integral = sum(partial_integrals)
+            endtime = perf_counter()
+      
+      print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+      print("Time spent: %.2f sec" % (endtime-starttime))
 
 
 Notice the output of running this code on the terminal:
@@ -856,20 +856,20 @@ environment variables.
 
 Consider the following code that computes the dot product of a matrix with itself:
 
-   .. admonition:: ``dot.py``
-      :class: dropdown
+.. admonition:: ``dot.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         from time import perf_counter
-         import numpy as np
-         
-         A = np.random.rand(3000,3000)
-         starttime = perf_counter()
-         B = np.dot(A,A)
-         endtime = perf_counter()
-         
-         print("Time spent: %.2f sec" % (endtime-starttime))
+      from time import perf_counter
+      import numpy as np
+      
+      A = np.random.rand(3000,3000)
+      starttime = perf_counter()
+      B = np.dot(A,A)
+      endtime = perf_counter()
+      
+      print("Time spent: %.2f sec" % (endtime-starttime))
 
 the timing for running this code with 1 thread is:
 
@@ -893,44 +893,44 @@ It is also possible to use efficient threads if you have blocks of code written
 in a compiled language. Here, we will see the case of the Fortran code written above
 where OpenMP threads are used. The parallelized code looks as follows:
 
-   .. admonition:: ``fortran_function_openmp.f90``
-      :class: dropdown
+.. admonition:: ``fortran_function_openmp.f90``
+   :class: dropdown
 
-      .. code-block:: fortran
+   .. code-block:: fortran
 
-         function integration2d_fortran_openmp(n) result(integral)
-             !$ use omp_lib
-             implicit none
-             integer, parameter :: dp=selected_real_kind(15,9)
-             real(kind=dp), parameter   :: pi=3.14159265358979323
-             integer, intent(in)        :: n
-             real(kind=dp)              :: integral
-         
-             integer                    :: i,j
-         !   interval size
-             real(kind=dp)              :: h
-         !   x and y variables
-             real(kind=dp)              :: x,y
-         !   cummulative variable
-             real(kind=dp)              :: mysum
-         
-             h = pi/(1.0_dp * n)
-             mysum = 0.0_dp
-         !   regular integration in the X axis
-         !$omp parallel do reduction(+:mysum) private(x,y,j)
-             do i = 0, n-1
-                x = h * (i + 0.5_dp)
-         !      regular integration in the Y axis
-                do j = 0, n-1
-                    y = h * (j + 0.5_dp)
-                    mysum = mysum + sin(x + y)
-                enddo
-             enddo
-         !$omp end parallel do
-         
-             integral = h*h*mysum
-                     
-         end function integration2d_fortran_openmp
+      function integration2d_fortran_openmp(n) result(integral)
+            !$ use omp_lib
+            implicit none
+            integer, parameter :: dp=selected_real_kind(15,9)
+            real(kind=dp), parameter   :: pi=3.14159265358979323
+            integer, intent(in)        :: n
+            real(kind=dp)              :: integral
+      
+            integer                    :: i,j
+      !   interval size
+            real(kind=dp)              :: h
+      !   x and y variables
+            real(kind=dp)              :: x,y
+      !   cummulative variable
+            real(kind=dp)              :: mysum
+      
+            h = pi/(1.0_dp * n)
+            mysum = 0.0_dp
+      !   regular integration in the X axis
+      !$omp parallel do reduction(+:mysum) private(x,y,j)
+            do i = 0, n-1
+               x = h * (i + 0.5_dp)
+      !      regular integration in the Y axis
+               do j = 0, n-1
+                  y = h * (j + 0.5_dp)
+                  mysum = mysum + sin(x + y)
+               enddo
+            enddo
+      !$omp end parallel do
+      
+            integral = h*h*mysum
+                  
+      end function integration2d_fortran_openmp
 
 The way to compile this code differs to the one we saw before, now we will need the flags
 for OpenMP:
@@ -943,33 +943,33 @@ for OpenMP:
 
 the generated module can be then loaded,
 
-   .. admonition:: ``call_fortran_code_openmp.py``
-      :class: dropdown
+.. admonition:: ``call_fortran_code_openmp.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         from time import perf_counter
-         import myfunction_openmp
-         import numpy
-         
-         # grid size
-         n = 10000
-         
-         if __name__ == "__main__":
-         
-             starttime = perf_counter()
-             integral = myfunction_openmp.integration2d_fortran_openmp(n)
-             endtime = perf_counter()
-         
-             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-             print("Time spent: %.2f sec" % (endtime-starttime))
+      from time import perf_counter
+      import myfunction_openmp
+      import numpy
+      
+      # grid size
+      n = 10000
+      
+      if __name__ == "__main__":
+      
+            starttime = perf_counter()
+            integral = myfunction_openmp.integration2d_fortran_openmp(n)
+            endtime = perf_counter()
+      
+            print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+            print("Time spent: %.2f sec" % (endtime-starttime))
 
 the execution time by using 4 threads is:
 
 .. code-block:: console
 
     $ export OMP_NUM_THREADS=4
-    $ python call_fortran_code_openmp.py
+    $ srun -A projID -t 00:08:00 -o output_%j.out -e error_%j.err -c 4 python call_fortran_code_openmp.py
     Integral value is 4.492945e-12, Error is 4.492945e-12
     Time spent: 0.37 sec
 
@@ -983,6 +983,54 @@ The `PyOMP <https://github.com/Python-for-HPC/PyOMP>`_ module offers an interfac
 directives in Python, so the compilation step mentioned above is avoided. PyOMP is an extension of
 Numba. 
 
+.. admonition:: ``integration2d_omp.py``
+   :class: dropdown
+
+   .. code-block:: python
+
+      import math
+      from time import perf_counter
+      from numba.openmp import njit
+      from numba.openmp import openmp_context as openmp
+
+      # grid size
+      n = 100000
+
+      @njit
+      def integration2d_omp(n):
+         h = math.pi / float(n)
+         mysum = 0.0
+
+         # parallelize the outer loop
+         with openmp("parallel for reduction(+:mysum)"):
+            for i in range(n):
+                  x = h * (i + 0.5)
+                  for j in range(n):
+                     y = h * (j + 0.5)
+                     mysum += math.sin(x + y)
+
+         return h**2 * mysum
+
+
+      if __name__ == "__main__":
+         start = perf_counter()
+         integral = integration2d_omp(n)
+         end = perf_counter()
+
+         print(f"Integral value is {integral:e}, Error is {abs(integral - 0.0):e}")
+         print(f"Time spent: {end - start:.2f} sec")
+
+.. code-block:: console
+
+    $ export OMP_NUM_THREADS=1
+    $ srun -A projID -t 00:08:00 -o output_%j.out -e error_%j.err -c 1 python integration2d_omp.py
+    Integral value is 1.969642e-16, Error is 1.969642e-16
+    Time spent: 120.26 sec
+
+    $ export OMP_NUM_THREADS=4
+    $ srun -A projID -t 00:08:00 -o output_%j.out -e error_%j.err -c 4 python integration2d_omp.py
+    Integral value is 1.353859e-10, Error is 1.353859e-10
+    Time spent: 36.11 sec
 
 
 Distributed Memory
@@ -995,65 +1043,65 @@ In the distributed parallelization scheme the workers (processes) can share some
 memory but they can also exchange information by sending and receiving messages for
 instance.
 
-   .. admonition:: ``integration2d_multiprocessing.py``
-      :class: dropdown
+.. admonition:: ``integration2d_multiprocessing.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         import multiprocessing
-         from multiprocessing import Array
-         import math
-         import sys
-         from time import perf_counter
-         
-         # grid size
-         n = 10000
-         # number of processes
-         numprocesses = 4
-         # partial sum for each thread
-         partial_integrals = Array('d',[0]*numprocesses, lock=False)
-         
-         def integration2d_multiprocessing(n,numprocesses,processindex):
-             global partial_integrals;
-             # interval size (same for X and Y)
-             h = math.pi / float(n)
-             # cummulative variable 
-             mysum = 0.0
-             # workload for each process
-             workload = n/numprocesses
-         
-             begin = int(workload*processindex)
-             end = int(workload*(processindex+1))
-             # regular integration in the X axis
-             for i in range(begin,end):
-                 x = h * (i + 0.5)
-                 # regular integration in the Y axis
-                 for j in range(n):
-                     y = h * (j + 0.5)
-                     mysum += math.sin(x + y)
-             
-             partial_integrals[processindex] = h**2 * mysum
-         
-         
-         if __name__ == "__main__":
-         
-             starttime = perf_counter()
-             
-             processes = []
-             for i in range(numprocesses):
-                 p = multiprocessing.Process(target=integration2d_multiprocessing, args=(n,numprocesses,i))
-                 processes.append(p)
-                 p.start()
-         
-             # waiting for the processes
-             for p in processes:
-                 p.join()
-         
-             integral = sum(partial_integrals)
-             endtime = perf_counter()
-         
-             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-             print("Time spent: %.2f sec" % (endtime-starttime))
+      import multiprocessing
+      from multiprocessing import Array
+      import math
+      import sys
+      from time import perf_counter
+      
+      # grid size
+      n = 10000
+      # number of processes
+      numprocesses = 4
+      # partial sum for each thread
+      partial_integrals = Array('d',[0]*numprocesses, lock=False)
+      
+      def integration2d_multiprocessing(n,numprocesses,processindex):
+            global partial_integrals;
+            # interval size (same for X and Y)
+            h = math.pi / float(n)
+            # cummulative variable 
+            mysum = 0.0
+            # workload for each process
+            workload = n/numprocesses
+      
+            begin = int(workload*processindex)
+            end = int(workload*(processindex+1))
+            # regular integration in the X axis
+            for i in range(begin,end):
+               x = h * (i + 0.5)
+               # regular integration in the Y axis
+               for j in range(n):
+                  y = h * (j + 0.5)
+                  mysum += math.sin(x + y)
+            
+            partial_integrals[processindex] = h**2 * mysum
+      
+      
+      if __name__ == "__main__":
+      
+            starttime = perf_counter()
+            
+            processes = []
+            for i in range(numprocesses):
+               p = multiprocessing.Process(target=integration2d_multiprocessing, args=(n,numprocesses,i))
+               processes.append(p)
+               p.start()
+      
+            # waiting for the processes
+            for p in processes:
+               p.join()
+      
+            integral = sum(partial_integrals)
+            endtime = perf_counter()
+      
+            print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+            print("Time spent: %.2f sec" % (endtime-starttime))
 
 In this case, the execution time is reduced:
 
@@ -1069,62 +1117,62 @@ MPI
 More details for the MPI parallelization scheme in Python can be found in a previous
 `MPI course <https://github.com/MPI-course-collaboration/MPI-course>`_ offered by some of us.
 
-   .. admonition:: ``integration2d_mpi.py``
-      :class: dropdown
+.. admonition:: ``integration2d_mpi.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         from mpi4py import MPI
-         import math
-         import sys
-         from time import perf_counter
-         
-         # MPI communicator
-         comm = MPI.COMM_WORLD
-         # MPI size of communicator
-         numprocs = comm.Get_size()
-         # MPI rank of each process
-         myrank = comm.Get_rank()
-         
-         # grid size
-         n = 10000
-         
-         def integration2d_mpi(n,numprocs,myrank):
-             # interval size (same for X and Y)
-             h = math.pi / float(n)
-             # cummulative variable 
-             mysum = 0.0
-             # workload for each process
-             workload = n/numprocs
-         
-             begin = int(workload*myrank)
-             end = int(workload*(myrank+1))
-             # regular integration in the X axis
-             for i in range(begin,end):
-                 x = h * (i + 0.5)
-                 # regular integration in the Y axis
-                 for j in range(n):
-                     y = h * (j + 0.5)
-                     mysum += math.sin(x + y)
-             
-             partial_integrals = h**2 * mysum
-             return partial_integrals
-         
-         
-         if __name__ == "__main__":
-         
-             starttime = perf_counter()
-             
-             p = integration2d_mpi(n,numprocs,myrank)
-         
-             # MPI reduction
-             integral = comm.reduce(p, op=MPI.SUM, root=0)
-         
-             endtime = perf_counter()
-         
-             if myrank == 0:
-                 print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-                 print("Time spent: %.2f sec" % (endtime-starttime))
+      from mpi4py import MPI
+      import math
+      import sys
+      from time import perf_counter
+      
+      # MPI communicator
+      comm = MPI.COMM_WORLD
+      # MPI size of communicator
+      numprocs = comm.Get_size()
+      # MPI rank of each process
+      myrank = comm.Get_rank()
+      
+      # grid size
+      n = 10000
+      
+      def integration2d_mpi(n,numprocs,myrank):
+            # interval size (same for X and Y)
+            h = math.pi / float(n)
+            # cummulative variable 
+            mysum = 0.0
+            # workload for each process
+            workload = n/numprocs
+      
+            begin = int(workload*myrank)
+            end = int(workload*(myrank+1))
+            # regular integration in the X axis
+            for i in range(begin,end):
+               x = h * (i + 0.5)
+               # regular integration in the Y axis
+               for j in range(n):
+                  y = h * (j + 0.5)
+                  mysum += math.sin(x + y)
+            
+            partial_integrals = h**2 * mysum
+            return partial_integrals
+      
+      
+      if __name__ == "__main__":
+      
+            starttime = perf_counter()
+            
+            p = integration2d_mpi(n,numprocs,myrank)
+      
+            # MPI reduction
+            integral = comm.reduce(p, op=MPI.SUM, root=0)
+      
+            endtime = perf_counter()
+      
+            if myrank == 0:
+               print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+               print("Time spent: %.2f sec" % (endtime-starttime))
 
 
 Execution of this code gives the following output:
@@ -1243,17 +1291,17 @@ Distributed N-Dimensional (DND) arrays that can be seen as a global array. Local
 rank retains a chunk of the array which is a tensor PyTorch tensor:
 
 
-   .. admonition:: ``heat_matmat.py``
-      :class: dropdown
+.. admonition:: ``heat_datatypes.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         import heat as ht
-         
-         x = ht.arange(10, split=0)
-         
-         print(type(x))        # <class 'heat.core.dndarray.DNDarray'>
-         print(type(x.larray)) # <class 'torch.Tensor'>
+      import heat as ht
+      
+      x = ht.arange(10, split=0)
+      
+      print(type(x))        # <class 'heat.core.dndarray.DNDarray'>
+      print(type(x.larray)) # <class 'torch.Tensor'>
 
 
 .. code-block:: console 
@@ -1272,68 +1320,68 @@ More details for this package can be found here `Heat package <https://github.co
 **Example 1: Distributing matrix-matrix multiplication operations** 
 
 
-   .. admonition:: ``heat_matmat.py``
-      :class: dropdown
+.. admonition:: ``heat_matmat.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         import heat as ht
-         import torch
-         import time
+      import heat as ht
+      import torch
+      import time
 
-         if torch.cuda.is_available():
-            device = "gpu"
-         else:
-            device = "cpu"
+      if torch.cuda.is_available():
+         device = "gpu"
+      else:
+         device = "cpu"
 
-         # load large matrices distributed across CPUs/GPUs
-         A = ht.random.randn(10000, 10000, split=0, device=device)  # Split along rows
-         B = ht.random.randn(10000, 10000, split=None, device=device)  # Do not split just copy
+      # load large matrices distributed across CPUs/GPUs
+      A = ht.random.randn(10000, 10000, split=0, device=device)  # Split along rows
+      B = ht.random.randn(10000, 10000, split=None, device=device)  # Do not split just copy
 
-         # Perform distributed matrix multiplication
-         start = time.time()
-         C = ht.linalg.matmul(A, B)
-         end = time.time()
-         print("rank= ", ht.MPI_WORLD.rank, "reported time= ",  end-start)
+      # Perform distributed matrix multiplication
+      start = time.time()
+      C = ht.linalg.matmul(A, B)
+      end = time.time()
+      print("rank= ", ht.MPI_WORLD.rank, "reported time= ",  end-start)
 
 **Example 2: Distributing gradients**
 
-   .. admonition:: ``heat_gradients.py``
-      :class: dropdown
+.. admonition:: ``heat_gradients.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         import heat as ht
-         import torch
-         import torch.nn as nn
-         import torch.optim as optim
-         import time
+      import heat as ht
+      import torch
+      import torch.nn as nn
+      import torch.optim as optim
+      import time
 
-         # Distributed dataset
-         X = ht.random.randn(30000, 10000, split=0)
-         y = ht.random.randn(30000, 1, split=0)
+      # Distributed dataset
+      X = ht.random.randn(30000, 10000, split=0)
+      y = ht.random.randn(30000, 1, split=0)
 
-         # Local model per rank
-         model = nn.Linear(10000, 1)
-         optimizer = optim.SGD(model.parameters(), lr=0.01)
+      # Local model per rank
+      model = nn.Linear(10000, 1)
+      optimizer = optim.SGD(model.parameters(), lr=0.01)
 
-         start = time.time()
-         # Train local arrays
-         for epoch in range(1000):
-            out = model(X.larray)
-            loss = torch.mean((out - y.larray) ** 2)
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
+      start = time.time()
+      # Train local arrays
+      for epoch in range(1000):
+         out = model(X.larray)
+         loss = torch.mean((out - y.larray) ** 2)
+         optimizer.zero_grad()
+         loss.backward()
+         optimizer.step()
 
-            # Average parameters across ranks (distributed synchronization)
-            for param in model.parameters():
-               ht.MPI_WORLD.Allreduce(ht.communication.MPI.IN_PLACE, param.data, op=ht.communication.MPI.SUM)
-               param.data /= ht.MPI_WORLD.size
+         # Average parameters across ranks (distributed synchronization)
+         for param in model.parameters():
+            ht.MPI_WORLD.Allreduce(ht.communication.MPI.IN_PLACE, param.data, op=ht.communication.MPI.SUM)
+            param.data /= ht.MPI_WORLD.size
 
-         end = time.time()
-         print("rank= ", ht.MPI_WORLD.rank, "reported time= ",  end-start)
-         print(f"Rank {ht.MPI_WORLD.rank} done training")
+      end = time.time()
+      print("rank= ", ht.MPI_WORLD.rank, "reported time= ",  end-start)
+      print(f"Rank {ht.MPI_WORLD.rank} done training")
 
 
 Monitoring resources' usage
