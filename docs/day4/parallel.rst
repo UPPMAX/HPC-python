@@ -72,10 +72,16 @@ Parallel computing with Python
 
       .. code-block:: console
 
-         ml GCC/11.2.0 OpenMPI/4.1.1
-         ml CUDA/12.0.0
-         pip install torch --index-url https://download.pytorch.org/whl/cu126
-         pip install heat[hdf5,netcdf]
+         $ ml GCC/11.2.0 OpenMPI/4.1.1
+         $ ml CUDA/12.0.0
+         $ pip install torch --index-url https://download.pytorch.org/whl/cu126
+         $ pip install heat[hdf5,netcdf]
+
+      - The PyOMP example needs an additional package:
+
+      .. code-block:: console 
+
+         $ pip install pyomp
 
       - Quit Python, you should be ready to go!
 
@@ -419,51 +425,51 @@ in Python rather than learning to write those codes.
 
 The workhorse for this section will be a 2D integration example:
 
-   .. math:: 
-       \int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0
+.. math:: 
+      \int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0
 
 One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
 More specifically, one divides the integration range in both directions into ``n`` bins. A
 serial code (without any optimization) can be seen in the following code block.
 
-   .. admonition:: ``integration2d_serial.py``
-      :class: dropdown
+.. admonition:: ``integration2d_serial.py``
+   :class: dropdown
 
-      .. code-block:: python
+   .. code-block:: python
 
-         import math
-         import sys
-         from time import perf_counter
-         
-         # grid size
-         n = 10000
-         
-         def integration2d_serial(n):
-             global integral;
-             # interval size (same for X and Y)
-             h = math.pi / float(n)
-             # cummulative variable 
-             mysum = 0.0
-             
-             # regular integration in the X axis
-             for i in range(n):
-                 x = h * (i + 0.5)
-                 # regular integration in the Y axis
-                 for j in range(n):
-                     y = h * (j + 0.5)
-                     mysum += math.sin(x + y)
-             
-             integral = h**2 * mysum
-         
-         
-         if __name__ == "__main__":
-         
-             starttime = perf_counter()
-             integration2d_serial(n)
-             endtime = perf_counter()
-         
-         print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-         print("Time spent: %.2f sec" % (endtime-starttime))
+      import math
+      import sys
+      from time import perf_counter
+      
+      # grid size
+      n = 10000
+      
+      def integration2d_serial(n):
+            global integral;
+            # interval size (same for X and Y)
+            h = math.pi / float(n)
+            # cummulative variable 
+            mysum = 0.0
+            
+            # regular integration in the X axis
+            for i in range(n):
+               x = h * (i + 0.5)
+               # regular integration in the Y axis
+               for j in range(n):
+                  y = h * (j + 0.5)
+                  mysum += math.sin(x + y)
+            
+            integral = h**2 * mysum
+      
+      
+      if __name__ == "__main__":
+      
+            starttime = perf_counter()
+            integration2d_serial(n)
+            endtime = perf_counter()
+      
+      print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+      print("Time spent: %.2f sec" % (endtime-starttime))
 
 We can run this code on the terminal as follows (similarly at both HPC2N and UPPMAX): 
 
@@ -745,8 +751,12 @@ If even with the previous (and possibly others from your own) serial optimizatio
 doesn't achieve the expected performance, you may start looking for some parallelization 
 scheme. Here, we describe the most common schemes.  
 
+Shared Memory
+-------------
+
 Threads
--------
+~~~~~~~
+
 
 In a threaded parallelization scheme, the workers (threads) share a global memory address space.
 The `threading <https://docs.python.org/3/library/threading.html>`_ 
@@ -836,7 +846,7 @@ Although we are distributing the work on 4 threads, the execution time is longer
 serial code. This is due to the GIL mentioned above.
 
 Implicit Threaded 
------------------
+~~~~~~~~~~~~~~~~~
 
 Some libraries like OpenBLAS, LAPACK, and MKL provide an implicit threading mechanism. They
 are used, for instance, by ``numpy`` module for computing linear algebra operations. You can obtain information
@@ -967,8 +977,20 @@ the execution time by using 4 threads is:
 More information about how OpenMP works can be found in the material of a previous
 `OpenMP course <https://github.com/hpc2n/OpenMP-Collaboration>`_ offered by some of us.
 
+PyOMP
+~~~~~
+
+The `PyOMP <https://github.com/Python-for-HPC/PyOMP>`_ module offers an interface for writing OpenMP 
+directives in Python, so the compilation step mentioned above is avoided. PyOMP is an extension of
+Numba. 
+
+
+
+Distributed Memory
+------------------
+
 Distributed
------------
+~~~~~~~~~~~
 
 In the distributed parallelization scheme the workers (processes) can share some common
 memory but they can also exchange information by sending and receiving messages for
@@ -1043,7 +1065,7 @@ In this case, the execution time is reduced:
     Time spent: 6.06 sec
 
 MPI
----
+~~~
 
 More details for the MPI parallelization scheme in Python can be found in a previous
 `MPI course <https://github.com/MPI-course-collaboration/MPI-course>`_ offered by some of us.
@@ -1215,7 +1237,7 @@ example,
 
 
 Heat (advanced)
----------------
+~~~~~~~~~~~~~~~
 
 Heat is a library for distributing tensor operations by using MPI as a backend. Heat uses 
 Distributed N-Dimensional (DND) arrays that can be seen as a global array. Locally, each
