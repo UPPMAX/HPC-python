@@ -381,7 +381,7 @@ The following table summarizes all the available subplot creation methods and th
 
 ======================== ========== ======================== ================================ ========================
                            Supported features
------------------------- --------------------------------------------------------------------------------------------
+------------------------ ---------------------------------------------------------------------------------------------
  Method                   Iterable   Coordinate projections   Row-/column-spanning subplots    Max number of subplots
 ======================== ========== ======================== ================================ ========================
 ``plt.subplots()``        Yes        one for all subplots     requires ``fig.add_gridspec()`` arbitrary
@@ -389,7 +389,7 @@ The following table summarizes all the available subplot creation methods and th
 ``fig.add_subplot()``     No         can vary per subplot     requires ``fig.add_gridspec()`` 9
 ``plt.subplot_mosaic()``  Yes        can vary per subplot     Yes                             arbitrary
 ``plt.subplot2grid()``\*  Yes        one for all subplots     Yes                             arbitrary
-======================== ========== ======================== =============================== ========================
+======================== ========== ======================== ================================ ========================
 
 \*Note: ``plt.subplot_mosaic()`` is recommended over ``plt.subplot2grid()``.
 
