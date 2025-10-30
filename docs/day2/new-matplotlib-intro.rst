@@ -241,13 +241,20 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
 Controlling the Display
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-At the regular terminal, Matplotlib figures will typically not display unless you a set *backend* that allows displays and is compatible with your version of python (The exception to this is Rackham, which should run without you having to set a backend). *Backends* are engines for either displaying figures or writing them to image files (see `the matplotlib docs page on backends for more detail <https://matplotlib.org/stable/users/explain/figure/backends.html>`_ for more info).
+**Command Line.** For Python 3.11.x, a Tkinter-based backend is typically required to generate figure popups when you type ``plt.show()`` at the command line (on Dardel this is preset). *Backends* are engines for either displaying figures or writing them to image files (see `the matplotlib docs page on backends for more detail <https://matplotlib.org/stable/users/explain/figure/backends.html>`_ for more info). To set the appropriate backend:
 
-**Command Line.** For Python 3.11.x, a Tkinter-based backend is required to generate figure popups when you type ``plt.show()`` at the command line. You can set the appropriate backend by importing the top-level ``matplotlib`` package and then running ``matplotlib.use('TkAgg')`` before doing any plotting (if you forget, you can set it at any time). If for some reason that doesn't work, or if you're on Rackham and the default backend doesn't work for you, you can try ``matplotlib.use('Qt5Agg')``.
+1. import the top-level ``matplotlib`` package
+2. run ``matplotlib.use('TkAgg')`` before doing any plotting (if you forget, you can set it at any time).
+(3.) If for some reason that backend or the default backend doesn't work, you can try ``matplotlib.use('Qt5Agg')``.
 
 **Jupyter.** In Jupyter, after importing matplotlib or any of its sub-modules, you typically need to add ``% matplotlib inline`` before you make any plots. You should not need to set ``matplotlib.use()``.
 
-**Spyder.** In Spyder, the default setting is for figures to be displayed in-line at the IPython console or in a "Graphics" tab in the upper right. In either case, the graphic will be too small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup, go to "Preferences", then "IPython console", click the "Graphics" tab, and switch the Backend from "Inline" to "Automatic" the provided drop-down menu. These settings should be retained from session to session, so you only have to do it the first time you run Spyder. The interactive popup for Spyder offers extensive editing and saving options.
+**Spyder.** In Spyder, the default setting is for figures to be displayed either in-line at the IPython console or in a "Graphics" tab in the upper right, depending on the version. In either case, the graphic will be small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup:
+
+-  go to "Preferences", then "IPython console", and click the "Graphics" tab
+-  toggle the drop-down menu to the right of "Backend" and select "Automatic".
+
+These settings should be retained from session to session, so you only have to do it the first time you run Spyder. The interactive popup for Spyder offers extensive editing and saving options.
 
 Matplotlib uses a default resolution of 100 dpi and a default figure size of 6.4" x 4.8" (16.26 x 12.19 cm) in GUIs and with the default backend. The inline backend in Jupyter (what the ``% matplotlib inline`` command sets) uses an even lower-res default of 80 dpi.
 
@@ -300,8 +307,7 @@ Most people's first attempt to plot something in matplotlib looks like the follo
    plt.title('Demo Plot - Implicit API')
    plt.show()
 
-The *explicit* API looks more like the following example. A figure and a set of axes objects are created explicitly, usually with ``fig,axes = plt.subplots(nrows=nrows, ncols=ncols)``, even if there will be only 1 set of axes (in which case the ``nrows`` and ``ncols`` kwargs are omitted). Then the vast majority of the plotting and formatting commands are called as methods of the axes object. Notice that most of the formatting methods now start with ``set_`` when called upon an ``axes`` object.
-
+The *explicit* API looks more like the following example.
 
 .. jupyter-execute::
 
@@ -319,8 +325,9 @@ The *explicit* API looks more like the following example. A figure and a set of 
    ax.set_title('Demo Plot - Explicit API')
    plt.show()
 
+A figure and a set of axes objects are created explicitly, usually with ``fig,axes = plt.subplots(nrows=nrows, ncols=ncols)``, even if there will be only 1 set of axes (in which case the ``nrows`` and ``ncols`` kwargs are omitted). Then the vast majority of the plotting and formatting commands are called as methods of the axes object (with the most oft-encountered exception being ``fig.colorbar()``; see `this article on colorbar placement for details <https://matplotlib.org/stable/users/explain/axes/colorbar_placement.html>`__). Notice that most of the formatting methods now start with ``set_`` when called upon an ``axes`` object.
 
-The outputs look the same above because the example was chosen to work with both APIs, but there is a lot that can be done with the explicit API but not the implicit API. A prime example is using the subplots function for its main purpose, which is to support and format 2 or more separate sets of axes on the same figure.
+The outputs look the same for both of these examples because the plot type was chosen to work with both APIs, but the explicit API offers a much wider range of plot types and customizations. A prime example is using the subplots function for its main purpose, which is to support and format 2 or more separate sets of axes on the same figure.
 
 .. challenge:: Let x be an array of 50 values from -5 to 5. Plot y = 1/(1+exp(-x)).
 
@@ -340,94 +347,52 @@ The outputs look the same above because the example was chosen to work with both
                plt.show()
 
 
-Subplots and Subplot Mosaics
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Subplots
+~~~~~~~~
 
-For the standard ``plt.subplots(nrows=nrows, ncols=ncols)`` command, the shape of ``axes`` will be 
+For the standard ``ax = plt.subplots(nrows=nrows, ncols=ncols)`` command, the shape of ``ax`` will be 
 
 * 2D if both ``nrows`` and ``ncols`` are given, 
-* 1D if either ``nrows`` or ``ncols`` are provided but not both, or 
+* 1D if only one of either ``nrows`` or ``ncols`` is provided, or 
 * 0D (not iterable) if neither are given.
 
+If ``ax`` is 2D or 1D, it can be indexed and iterated over, which makes it easy to generate an arbitrary number of similar-looking subplots. These plots can also be made to share axes, as the example below demonstrates.
+
 .. jupyter-execute::
 
    import numpy as np
    import matplotlib.pyplot as plt
    %matplotlib inline 
    x = np.linspace(0,2*np.pi, 50)
-   fig, axes = plt.subplots(nrows=2,  sharex=True)
+   fig, ax = plt.subplots(nrows=2,  sharex=True)
    fig.subplots_adjust(hspace=0.05) #reduces space between 2 plots
-   axes[0].plot(x,3+3*np.sin(x),'b-', label=r'3+3$\times$sin(x)')
-   axes[1].plot(x, 2+2*np.cos(x), 'r-.', label=r'2+2$\times$cos(x)')
-   axes[1].set_xlabel('x [rads]')
-   for ax in axes: 
-       ax.legend()
-       ax.set_ylabel('y')
-   axes[0].set_title('Demo Plot - Explicit API')
+   ax[0].plot(x,3+3*np.sin(x),'b-', label=r'3+3$\times$sin(x)')
+   ax[1].plot(x, 2+2*np.cos(x), 'r-.', label=r'2+2$\times$cos(x)')
+   ax[1].set_xlabel('x [rads]')
+   for a in ax: 
+       a.legend()
+       a.set_ylabel('y')
+   ax[0].set_title('Demo Plot - Subplots')
    plt.show()
 
-There are also the ``plt.subplot()`` and ``fig.add_subplot()`` methods, but they require more code to put >1 plot on a single figure. Each plot is added 1 at a time, and there can be no more than 9 plots on one figure. The main benefit of these alternatives is that different coordinate projections can be set for each subplot in a figure with multiple subplots, as the example below demonstrates.
+If you need more flexibility between subplots in terms of formatting and coordinate projections, there are a few other options depending on what you need to do. Generally, all methods support shared axes and allow non-Cartesian coordinate projections, but not all methods varying projections per plot, and only a couple allow row- or column-spanning subplots.
 
-.. jupyter-execute::
+The following table summarizes all the available subplot creation methods and their capabilities:
 
-   import numpy as np
-   import matplotlib.pyplot as plt
-   %matplotlib inline 
-   x = np.linspace(0,2*np.pi, 50)
-   # for variable projections
-   fig = plt.figure(figsize=(8,4))
-   ax1 = plt.subplot(121)
-   #once labels are added, have to break up plt.plot()
-   #  args cannot follow kwargs
-   ax1.plot(x,3+3*np.sin(x),'b-', label=r'3+3$\times$sin(x)')
-   ax1.plot(x, 2+2*np.cos(x), 'r-.', label=r'2+2$\times$cos(x)')
-   ax1.set_xlabel('x [rads]')
-   ax1.set_ylabel('y')
-   ax1.legend()
-   ax1.set_title('a) Cartesian projection (default)')
-   ax2 = plt.subplot(122, projection='polar')
-   ax2.plot(x, 3+3*np.sin(x), 'b-', x, 2+2*np.cos(x), 'r-.')
-   ax2.set_title('b) Polar projection')
-   fig.suptitle('Demo Plots')
-   plt.show()
+======================== ========== ======================== ================================ ========================
+                           Supported features
+------------------------ --------------------------------------------------------------------------------------------
+ Method                   Iterable   Coordinate projections   Row-/column-spanning subplots    Max number of subplots
+======================== ========== ======================== ================================ ========================
+``plt.subplots()``        Yes        one for all subplots     requires ``fig.add_gridspec()`` arbitrary
+``plt.subplot()``         No         can vary per subplot     requires ``fig.add_gridspec()`` 9
+``fig.add_subplot()``     No         can vary per subplot     requires ``fig.add_gridspec()`` 9
+``plt.subplot_mosaic()``  Yes        can vary per subplot     Yes                             arbitrary
+``plt.subplot2grid()``\*  Yes        one for all subplots     Yes                             arbitrary
+======================== ========== ======================== =============================== ========================
 
-The 3-digit number in parentheses gives the position of that set of axes on the subplot grid: the first digit is the total number of panels in a row, the second digit gives the number of plots in a column, and the last digit is the 1-based index of that plot as it would appear in a flattened ordered list. E.g. if a subplot grid had 2 rows and 3 columns, the top row would be indexed [1,2,3], and the bottom row would be indexed [4,5,6].
+\*Note: ``plt.subplot_mosaic()`` is recommended over ``plt.subplot2grid()``.
 
-The final alternative is ``plt.subplot_mosaic()``, which allows one to easily set subplots to span multiple rows or columns. 
-
-* Each plot is identified by a single ASCII character (any alphanumeric character) in a string. Multiple occurrences of the same character are used to indicate where that plot spans multiple rows or columns.
-* The character ``.`` is used to denote gaps.
-* The character sequence can be intuitive like in the example below, where each row on the grid is on a separate line, but you can also separate rows with ``;`` for more compact code (no spaces!). 
-* There is a ``per_subplot_kw``, which accepts a nested dictionary where the single-character plot labels are keys, and the values are themselves dictionaries with axes methods or kwargs of ``plt.subplot()`` as keys and their inputs as values. These are useful if you need to, for example, specify a different axis projection for each plot.
-
-.. jupyter-execute::
-
-   import numpy as np
-   import matplotlib.pyplot as plt
-   %matplotlib inline 
-   x = np.linspace(0,2*np.pi, 50)
-   fig, axd = plt.subplot_mosaic(
-       """
-       ABB
-       AC.
-       DDD
-       """, layout="constrained",
-       per_subplot_kw={"C": {"projection": "polar"},
-                      ('B','D'): {'xscale':'log'}})
-   for k, ax in axd.items():
-       ax.text(0.5, 0.5, k, transform=ax.transAxes, 
-               ha="center", va="center",  color="b",
-               fontsize=25)
-   axd['B'].plot(x, 1+np.sin(x), 'r-.',
-                 label='Plot 1')
-   axd['D'].plot(x,0.5+0.5*np.sin(x), 'c-',
-                 label='Plot 2')
-   fig.legend(loc='outside upper right')
-
-
-The above demo also includes an example of how to add text to a plot. `Refer to the Matplotlib documentation for more on how to place text. <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.text.html>`_
-
- 
 Saving your Data
 ~~~~~~~~~~~~~~~~
 
@@ -436,7 +401,7 @@ The Matplotlib GUI has a typical save menu option (indicated by the usual floppy
 -  ``plt.savefig(fname, *, transparent=None, dpi='figure', format=None)`` is the general-purpose save function. There are other kwargs not shown here, but these are the most important. The file type can be given ``format`` or inferred from an extension given in ``fname``. The default ``dpi`` is inherited from ``plt.figure()`` or ``plt.subplots()``. If ``transparent=True``, the white background of a typical figure is removed so the figure can be displayed on top of other content.
 -  ``plt.imsave(fname, arr, **kwargs)`` is specifically for saving arrays to images. It accepts a 2D (single-channel) array with a specified colormap and normalization, or an RGB(A) array (a stack of images in 3 color channels, or 3 color channels and an opacity array). Generally you also have to set ``origin='lower'`` for the image to be rendered right-side up.
 
-A few common formats that Matplotlib supports include PDF, PS, EPS, PNG, and JPG/JPEG. Other desirable formats like TIFF and SVG are not supported natively in interactive display backends, but can be used with static backends (used for saving figures without displaying them) or with the installation of the ``Pillow`` module. At most facilities, Pillow is loaded with Matplotlib, so you will see SVG as a save option in the GUI. `Matplotlib has a tutorial here <https://matplotlib.org/stable/tutorials/images.html>`_  on importing images into arrays for use with ``pyplot.imshow()``.
+A few common formats that Matplotlib supports include PDF, PS, EPS, PNG, and JPG/JPEG. Other desirable formats like TIFF and SVG are not supported natively in interactive display backends, but can be used with static backends (used for saving figures without displaying them) or with the installation of the ``Pillow`` module. At most facilities, Pillow is loaded with Matplotlib, so you will see SVG as a save-format option in the GUI. `Matplotlib has a tutorial here <https://matplotlib.org/stable/tutorials/images.html>`_  on importing images into arrays for use with ``pyplot.imshow()``.
 
 .. challenge:: Rerun your earlier example and save it as an SVG file if the option is available, PDF otherwise.
 
@@ -468,7 +433,7 @@ For volumetric data, the options are similar:
 -  ``ax = plt.subplot(nrows, ncols, index, projection='3d')`` for one 3D subplot among several with varying projections or coordinate systems, or
 -  ``ax = plt.figure().add_subplot(projection='3d')`` for a singular plot.
 
-**Colors and colormaps.** Every plotting method accepts either a single color (the kwarg for which may be ``c`` or ``color``) or a colormap (which is usually ``cmap`` in kwargs). Matplotlib has an excellent series of pages on `how to specify colors and transparency <https://matplotlib.org/stable/users/explain/colors/colors.html>`__, `how to adjust colormap normalizations <https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#sphx-glr-users-explain-colors-colormapnorms-py>`__, and `which colormaps to choose based on the types of data and your audience <https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py>`__.
+**Colors and colormaps.** Every plotting method accepts either a single color (the kwarg for which may be ``c`` or ``color``) or a colormap (which is usually ``cmap`` in kwargs). Matplotlib has an excellent series of pages on `how to specify colors and transparency <https://matplotlib.org/stable/users/explain/colors/colors.html>`__, `how to adjust colormap normalizations <https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#sphx-glr-users-explain-colors-colormapnorms-py>`__, and `which colormaps to choose based on the types of data and your audience <https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py>`__. 
 
 Key Points
 ----------
