@@ -20,7 +20,7 @@ explanations of function arguments.
    
    -  SciPy
    -  Pandas
-   -  LaTeX math typesetting (reference links are provided)
+   -  LaTeX math typesetting
    
    You should be familiar with the meanings of the terms ``args`` and ``kwargs``, since they will appear frequently:
    
@@ -327,7 +327,7 @@ The *explicit* API looks more like the following example.
 
 A figure and a set of axes objects are created explicitly, usually with ``fig,axes = plt.subplots(nrows=nrows, ncols=ncols)``, even if there will be only 1 set of axes (in which case the ``nrows`` and ``ncols`` kwargs are omitted). Then the vast majority of the plotting and formatting commands are called as methods of the axes object (with the most oft-encountered exception being ``fig.colorbar()``; see `this article on colorbar placement for details <https://matplotlib.org/stable/users/explain/axes/colorbar_placement.html>`__). Notice that most of the formatting methods now start with ``set_`` when called upon an ``axes`` object.
 
-The outputs look the same for both of these examples because the plot type was chosen to work with both APIs, but the explicit API offers a much wider range of plot types and customizations. A prime example is using the subplots function for its main purpose, which is to support and format 2 or more separate sets of axes on the same figure.
+The outputs look the same for both of these examples because the plot type was chosen to work with both APIs, but the explicit API offers a much wider range of plot types and customizations. 
 
 .. challenge:: Let x be an array of 50 values from -5 to 5. Plot y = 1/(1+exp(-x)).
 
@@ -350,13 +350,11 @@ The outputs look the same for both of these examples because the plot type was c
 Subplots
 ~~~~~~~~
 
-For the standard ``ax = plt.subplots(nrows=nrows, ncols=ncols)`` command, the shape of ``ax`` will be 
+A prime example of a feature only available through the explicit API is subplots, which support and format 2 or more separate sets of axes on the same figure. For the standard ``fig, ax = plt.subplots(nrows=nrows, ncols=ncols)`` command, the shape of ``ax`` will be 
 
 * 2D if both ``nrows`` and ``ncols`` are given, 
 * 1D if only one of either ``nrows`` or ``ncols`` is provided, or 
 * 0D (not iterable) if neither are given.
-
-If ``ax`` is 2D or 1D, it can be indexed and iterated over, which makes it easy to generate an arbitrary number of similar-looking subplots. These plots can also be made to share axes, as the example below demonstrates.
 
 .. jupyter-execute::
 
@@ -375,23 +373,56 @@ If ``ax`` is 2D or 1D, it can be indexed and iterated over, which makes it easy 
    ax[0].set_title('Demo Plot - Subplots')
    plt.show()
 
-If you need more flexibility between subplots in terms of formatting and coordinate projections, there are a few other options depending on what you need to do. Generally, all methods support shared axes and allow non-Cartesian coordinate projections, but not all methods varying projections per plot, and only a couple allow row- or column-spanning subplots.
+Other subplot creation functions are available if you need more flexibility between subplots in terms of formatting and coordinate projections. Generally, all methods support shared axes and allow non-Cartesian coordinate projections, but not all methods allow varying projections per plot, and only a couple include support for row- or column-spanning subplots.
 
 The following table summarizes all the available subplot creation methods and their capabilities:
 
-======================== ========== ======================== ================================ ========================
+======================== =============== ======================== ================================ ========================
                            Supported features
------------------------- ---------------------------------------------------------------------------------------------
- Method                   Iterable   Coordinate projections   Row-/column-spanning subplots    Max number of subplots
-======================== ========== ======================== ================================ ========================
-``plt.subplots()``        Yes        one for all subplots     requires ``fig.add_gridspec()`` arbitrary
-``plt.subplot()``         No         can vary per subplot     requires ``fig.add_gridspec()`` 9
-``fig.add_subplot()``     No         can vary per subplot     requires ``fig.add_gridspec()`` 9
-``plt.subplot_mosaic()``  Yes        can vary per subplot     Yes                             arbitrary
-``plt.subplot2grid()``\*  Yes        one for all subplots     Yes                             arbitrary
-======================== ========== ======================== ================================ ========================
+------------------------ --------------------------------------------------------------------------------------------------
+ Method                   Iterable Axes   Coordinate projections   Row-/column-spanning subplots    Max number of subplots
+======================== =============== ======================== ================================ ========================
+``plt.subplots()``        Yes             one for all subplots     requires ``fig.add_gridspec()`` arbitrary
+``plt.subplot()``         No              can vary per subplot     requires ``fig.add_gridspec()`` 9
+``fig.add_subplot()``     No              can vary per subplot     requires ``fig.add_gridspec()`` 9
+``plt.subplot_mosaic()``  Yes             can vary per subplot     Yes                             arbitrary
+``plt.subplot2grid()``\*  Yes             one for all subplots     Yes                             arbitrary
+======================== =============== ======================== ================================ ========================
 
 \*Note: ``plt.subplot_mosaic()`` is recommended over ``plt.subplot2grid()``.
+
+.. note "Mathtext and String Insertion"
+   :class: dropdown
+      
+      Most journals expect that you typeset all variables and math scripts so they appear the same in your plots as in your main text, whether those symbols appear in the `axes labels, function labels, plot titles, or annotations. <https://matplotlib.org/stable/users/explain/text/text_intro.html>`__ Matplotlib now `supports most LaTeX math commands, <https://matplotlib.org/stable/users/explain/text/mathtext.html#mathtext>`__ but you need to know some basic LaTeX syntax, some of which is covered in that link. For more information, you can refer to `the WikiBooks documentation on LaTeX math <https://en.wikibooks.org/wiki/LaTeX/Mathematics>`__, starting with the Symbols section.
+      
+      -  LaTeX may need to be installed separately for Matplotlib versions earlier than 3.7, or for exceptionally obscure symbols or odd-sized delimiters.
+      
+      Unfortunately, Python and LaTeX both use curly braces (``{}``) as parts of different functions, so some awkward adjustments had to be made to resolve the collision, and **Matplotlib documentation does not cover this.**
+      
+      -  In ``str.format()``, **all** curly braces (``{}``) associated with LaTeX commands must be doubled (``{{}}``), including nested braces. An odd-numbered set of nested curly brace pairs will be interpreted as a site for string insertion.
+      -  Many characters also require the whole string to have an ``r`` (for raw input) in front of the first single- or double-quote, like :math:`\times` (rendered as ``'$\times$'``), :math:`\pm` or :math:`\mp`\ (rendered as ``'$\pm$'`` and ``'$\mp$'`` respectively), or most Greek letters.
+      -  Most basic operator symbols (+, -, /, >, <, !, :, \|, [], ()) can be used as-is, but some that have functional meanings in LaTeX, Python, or both (e.g. $ and %) must be preceded by a single- (LaTeX command symbols only) or double-backslash (\\\\) to escape their typical usage.
+      -  Spaces within any character sequence between two ``$``\ s are not rendered; they only exist to separate alphabetic characters from commands. You can insert a space with ``\;`` if you don't want to split up the LaTeX sequence to add spaces.
+      
+      You *can* use string insertion inside of formatting operators like the super- and subscript commands, but it can require a *lot* of sequential curly braces. The following is an example demonstrating some tricky typesetting. Note that you generally cannot split the string text over multiple lines because the backslash has other essential uses to the typesetting.
+      
+      .. jupyter-execute::
+      
+         import numpy as np
+         import matplotlib.pyplot as plt
+         %matplotlib inline 
+         v_init=15.1
+         error_arr=[-0.4,0.3]
+         fig,ax=plt.subplots(dpi=120,figsize=(5,5))
+         ax.set_aspect('equal') #arrowheads will slant if axes are not equal
+         ax.arrow(0,0,10.68,10.68,length_includes_head=True,color='b',
+                  head_width=0.4)
+         ax.text(6, 5.4, r"$|\vec{{v}}_{{\mathrm{{init}}}}|$ = ${:.1f}_{{{:.1}}}^{{+{:.1}}}\;\mathrm{{m\cdot s}}^{{-1}}$".format(v_init,*error_arr),
+                 ha='center',va='center',rotation=45.,size=14, color='b')
+         ax.set_xlim(0,12)
+         ax.set_ylim(0,12)
+         plt.show()
 
 Saving your Data
 ~~~~~~~~~~~~~~~~
@@ -433,12 +464,12 @@ For volumetric data, the options are similar:
 -  ``ax = plt.subplot(nrows, ncols, index, projection='3d')`` for one 3D subplot among several with varying projections or coordinate systems, or
 -  ``ax = plt.figure().add_subplot(projection='3d')`` for a singular plot.
 
-**Colors and colormaps.** Every plotting method accepts either a single color (the kwarg for which may be ``c`` or ``color``) or a colormap (which is usually ``cmap`` in kwargs). Matplotlib has an excellent series of pages on `how to specify colors and transparency <https://matplotlib.org/stable/users/explain/colors/colors.html>`__, `how to adjust colormap normalizations <https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#sphx-glr-users-explain-colors-colormapnorms-py>`__, and `which colormaps to choose based on the types of data and your audience <https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py>`__. 
+**Colors and colormaps.** Every plotting method accepts either a single color (the kwarg for which may be ``c`` or ``color``) or a colormap (which is usually ``cmap`` in kwargs) depending on the shape of the data. Matplotlib has an excellent series of pages on `how to specify colors and transparency <https://matplotlib.org/stable/users/explain/colors/colors.html>`__, `how to adjust colormap normalizations <https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#sphx-glr-users-explain-colors-colormapnorms-py>`__, and `which colormaps to choose based on the types of data and your audience <https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py>`__. 
 
-Key Points
-----------
 
--  Matplotlib is the essential Python data visualization package, with nearly 40 different plot types to choose from depending on the shape of your data and which qualities you want to highlight.
--  Almost every plot will start by instantiating the figure, ``fig`` (the blank canvas), and 1 or more axes objects, ``ax``, with ``fig, ax = plt.subplots(*args, **kwargs)``.
--  There are several ways to tile subplots depending on how many there are, how they are shaped, and whether they require non-Cartesian coordinate systems.
--  Most of the plotting and formatting commands you will use are methods of ``Axes`` objects. (A few, like ``colorbar`` are methods of the ``Figure``, and some commands are methods both.)
+.. keypoints::
+
+   -  Matplotlib is the essential Python data visualization package, with nearly 40 different plot types to choose from depending on the shape of your data and which qualities you want to highlight.
+   -  Almost every plot will start by instantiating the figure, ``fig`` (the blank canvas), and 1 or more axes objects, ``ax``, with ``fig, ax = plt.subplots(*args, **kwargs)``.
+   -  There are several ways to tile subplots depending on how many there are, how they are shaped, and whether they require non-Cartesian coordinate systems.
+   -  Most of the plotting and formatting commands you will use are methods of ``Axes`` objects. (A few, like ``colorbar`` are methods of the ``Figure``, and some commands are methods both.)
