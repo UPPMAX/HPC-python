@@ -348,6 +348,7 @@ The outputs look the same for both of these examples because the plot type was c
 
 
 .. admonition:: Subplots and Subplot Mosaics
+   :collapsible: open
 
    A prime example of a feature only available through the explicit API is subplots, which support and format 2 or more separate sets of axes on the same figure. The `Matplotlib documentation on subplots and subplot mosaics <https://matplotlib.org/stable/users/explain/axes/arranging_axes.html>`__ is extensive and fairly straightforward, so this topic will not be covered in depth here. The table below summarizes all the available subplot creation methods that you may see and their capabilities so you can compare them:
    
@@ -369,35 +370,35 @@ The outputs look the same for both of these examples because the plot type was c
 .. admonition:: Mathtext and String Insertion (Not covered by Matplotlib documentation)
    :collapsible:
       
-      Most journals expect that you typeset all variables and math scripts so they appear the same in your plots as in your main text, whether those symbols appear in the `axes labels, function labels, plot titles, or annotations. <https://matplotlib.org/stable/users/explain/text/text_intro.html>`__ Matplotlib now `supports most LaTeX math commands, <https://matplotlib.org/stable/users/explain/text/mathtext.html#mathtext>`__ but you need to know some basic LaTeX syntax, some of which is covered in that link. For more information, you can refer to `the WikiBooks documentation on LaTeX math <https://en.wikibooks.org/wiki/LaTeX/Mathematics>`__, starting with the Symbols section.
-      
-      -  LaTeX may need to be installed separately for Matplotlib versions earlier than 3.7, or for exceptionally obscure symbols or odd-sized delimiters.
-      
-      Unfortunately, Python and LaTeX both use curly braces (``{}``) as parts of different functions, so some awkward adjustments had to be made to resolve the collision. *Matplotlib documentation does not cover this.*
-      
-      -  In ``str.format()``, **all** curly braces (``{}``) associated with LaTeX commands must be doubled (``{{}}``), including nested braces. *An odd-numbered set of nested curly brace pairs will be interpreted as a site for string insertion.*
-      -  Many characters also require the whole string to have an ``r`` (for raw input) in front of the first single- or double-quote, like :math:`\times` (rendered as ``'$\times$'``), :math:`\pm` or :math:`\mp`\ (rendered as ``'$\pm$'`` and ``'$\mp$'`` respectively), or some less-used Greek letters.
-      -  Most basic operator symbols (+, -, /, >, <, !, :, \|, [], ()) can be used as-is, but some that have functional meanings in LaTeX, Python, or both (e.g. ``$`` and ``%``) must be preceded by a single- (LaTeX command symbols only) or double-backslash (``\\``) to escape their typical usage.
-      -  Spaces within any character sequence between two ``$`` signs are not rendered; they only exist to separate alphabetic characters from commands. You can insert a space with ``\;`` if you don't want to split up the LaTeX sequence to add spaces.
-      
-      You *can* use string insertion inside of formatting operators like the super- and subscript commands, but it can require a *lot* of sequential curly braces. The following is an example demonstrating some tricky typesetting. Note that you generally *cannot split the string text over multiple lines* because the backslash has other essential uses to the typesetting.
-      
-      .. jupyter-execute::
-      
-         import numpy as np
-         import matplotlib.pyplot as plt
-         %matplotlib inline 
-         v_init=15.1
-         error_arr=[-0.4,0.3]
-         fig,ax=plt.subplots(dpi=120,figsize=(5,5))
-         ax.set_aspect('equal') #arrowheads look ugly if axes are not equal
-         ax.arrow(0, 0, 10.68, 10.68, length_includes_head=True, color='b',
-                  head_width=0.4)
-         ax.text(6, 5.4, r"$|\vec{{v}}_{{\mathrm{{init}}}}|$ = ${:.1f}_{{{:.1}}}^{{+{:.1}}}\;\mathrm{{m\cdot s}}^{{-1}}$".format(v_init,*error_arr),
-                 ha='center', va='center', rotation=45., size=14, color='b')
-         ax.set_xlim(0,12)
-         ax.set_ylim(0,12)
-         plt.show()
+   Most journals expect that you typeset all variables and math scripts so they appear the same in your plots as in your main text, whether those symbols appear in the `axes labels, function labels, plot titles, or annotations. <https://matplotlib.org/stable/users/explain/text/text_intro.html>`__ Matplotlib now `supports most LaTeX math commands, <https://matplotlib.org/stable/users/explain/text/mathtext.html#mathtext>`__ but you need to know some basic LaTeX syntax, some of which is covered in that link. For more information, you can refer to `the WikiBooks documentation on LaTeX math <https://en.wikibooks.org/wiki/LaTeX/Mathematics>`__, starting with the Symbols section.
+   
+   -  LaTeX may need to be installed separately for Matplotlib versions earlier than 3.7, or for exceptionally obscure symbols or odd-sized delimiters.
+   
+   Unfortunately, Python and LaTeX both use curly braces (``{}``) as parts of different functions, so some awkward adjustments had to be made to resolve the collision. *Matplotlib documentation does not cover this.*
+   
+   -  In ``str.format()``, **all** curly braces (``{}``) associated with LaTeX commands must be doubled (``{{}}``), including nested braces. *An odd-numbered set of nested curly brace pairs will be interpreted as a site for string insertion.*
+   -  Many characters also require the whole string to have an ``r`` (for raw input) in front of the first single- or double-quote, like :math:`\times` (rendered as ``'$\times$'``), :math:`\pm` or :math:`\mp`\ (rendered as ``'$\pm$'`` and ``'$\mp$'`` respectively), or some less-used Greek letters.
+   -  Most basic operator symbols (+, -, /, >, <, !, :, \|, [], ()) can be used as-is, but some that have functional meanings in LaTeX, Python, or both (e.g. ``$`` and ``%``) must be preceded by a single- (LaTeX command symbols only) or double-backslash (``\\``) to escape their typical usage.
+   -  Spaces within any character sequence between two ``$`` signs are not rendered; they only exist to separate alphabetic characters from commands. You can insert a space with ``\;`` if you don't want to split up the LaTeX sequence to add spaces.
+   
+   You *can* use string insertion inside of formatting operators like the super- and subscript commands, but it can require a *lot* of sequential curly braces. The following is an example demonstrating some tricky typesetting. Note that you generally *cannot split the string text over multiple lines* because the backslash has other essential uses to the typesetting.
+   
+   .. jupyter-execute::
+   
+      import numpy as np
+      import matplotlib.pyplot as plt
+      %matplotlib inline 
+      v_init=15.1
+      error_arr=[-0.4,0.3]
+      fig,ax=plt.subplots(dpi=120,figsize=(5,5))
+      ax.set_aspect('equal') #arrowheads look ugly if axes are not equal
+      ax.arrow(0, 0, 10.68, 10.68, length_includes_head=True, color='b',
+               head_width=0.4)
+      ax.text(6, 5.4, r"$|\vec{{v}}_{{\mathrm{{init}}}}|$ = ${:.1f}_{{{:.1}}}^{{+{:.1}}}\;\mathrm{{m\cdot s}}^{{-1}}$".format(v_init,*error_arr),
+              ha='center', va='center', rotation=45., size=14, color='b')
+      ax.set_xlim(0,12)
+      ax.set_ylim(0,12)
+      plt.show()
 
 
 Saving your Data
