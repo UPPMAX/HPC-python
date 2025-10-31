@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pandas Exercises &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Loading IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="batch.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Pandas Exercises</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-exercises">
+<h1>Pandas Exercises<a class="headerlink" href="#pandas-exercises" title="Link to this heading"></a></h1>
+<p>Here you can test your comprehension of the Pandas introductory material. As with most coding packages, it is more important that you understand enough to know what to look for if you get stuck than it is to actually memorize all the methods, attributes, and syntax. You are welcome to consult the lecture material and/or the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">official documentation</a> whenever you want.</p>
+<p>Just do what you can figure out how to do with the time you have.</p>
+<p>This exercise is meant to simulate a semi-realistic workflow on a real data set. You’ll be using data on various metrics of the COVID19 pandemic throughout Italy in 2020.</p>
+<ol class="arabic simple" start="0">
+<li><p><strong>Start by importing Pandas and NumPy</strong> (to make sure you have the right modules loaded):</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy and pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>Load the file <code class="docutils literal notranslate"><span class="pre">covid19_italy_region.csv</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">it_covid19</span></code>. Use the appropriate kwargs to set the leftmost column as the row indexes. You may refer to official documentation on file readers as needed.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load &#39;covid19_italy_region.csv&#39; into a DataFrame</span>
+<span class="n">it_covid19</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;covid19_italy_region.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="2">
+<li><p>Inspect <code class="docutils literal notranslate"><span class="pre">it_covid19</span></code> by printing the following (hint: each prompt requires a different 1-word command):</p>
+<p>a. The <strong>last</strong> 5 rows of the DataFrame (fewer 0s than the first 5)</p>
+<p>b. The table listing the names, number of non-null entries, and data types of each column</p>
+<p>c. The number of unique values in each column</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#a. print last 5 rows</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">it_covid19</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                     Date Country  RegionCode     RegionName   Latitude  \
+SNo                                                                       
+6022  2020-12-06T17:00:00     ITA          19        Sicilia  38.115697   
+6023  2020-12-06T17:00:00     ITA           9        Toscana  43.769231   
+6024  2020-12-06T17:00:00     ITA          10         Umbria  43.106758   
+6025  2020-12-06T17:00:00     ITA           2  Valle d&#39;Aosta  45.737503   
+6026  2020-12-06T17:00:00     ITA           5         Veneto  45.434905   
+
+      Longitude  HospitalizedPatients  IntensiveCarePatients  \
+SNo                                                            
+6022  13.362357                  1367                    213   
+6023  11.255889                  1360                    252   
+6024  12.388247                   332                     60   
+6025   7.320149                   102                      8   
+6026  12.338452                  2508                    308   
+
+      TotalHospitalizedPatients  HomeConfinement  CurrentPositiveCases  \
+SNo                                                                      
+6022                       1580            38166                 39746   
+6023                       1612            27587                 29199   
+6024                        392             5673                  6065   
+6025                        110              877                   987   
+6026                       2816            73988                 76804   
+
+      NewPositiveCases  Recovered  Deaths  TotalPositiveCases  TestsPerformed  
+SNo                                                                            
+6022              1022      29984    1759               71489        692062.0  
+6023               753      76331    2867              108397        983103.0  
+6024               234      18619     460               25144        231538.0  
+6025                34       5406     333                6726         34644.0  
+6026              3444      84235    4210              165249       1090932.0  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#b. print column info table</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">it_covid19</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 6027 entries, 0 to 6026
+Data columns (total 16 columns):
+ #   Column                     Non-Null Count  Dtype  
+---  ------                     --------------  -----  
+ 0   Date                       6027 non-null   object 
+ 1   Country                    6027 non-null   object 
+ 2   RegionCode                 6027 non-null   int64  
+ 3   RegionName                 6027 non-null   object 
+ 4   Latitude                   6027 non-null   float64
+ 5   Longitude                  6027 non-null   float64
+ 6   HospitalizedPatients       6027 non-null   int64  
+ 7   IntensiveCarePatients      6027 non-null   int64  
+ 8   TotalHospitalizedPatients  6027 non-null   int64  
+ 9   HomeConfinement            6027 non-null   int64  
+ 10  CurrentPositiveCases       6027 non-null   int64  
+ 11  NewPositiveCases           6027 non-null   int64  
+ 12  Recovered                  6027 non-null   int64  
+ 13  Deaths                     6027 non-null   int64  
+ 14  TotalPositiveCases         6027 non-null   int64  
+ 15  TestsPerformed             4872 non-null   float64
+dtypes: float64(3), int64(10), object(3)
+memory usage: 800.5+ KB
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#c. print number of unique values in each column</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">it_covid19</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date                          287
+Country                         1
+RegionCode                     21
+RegionName                     21
+Latitude                       21
+Longitude                      21
+HospitalizedPatients         1451
+IntensiveCarePatients         462
+TotalHospitalizedPatients    1515
+HomeConfinement              3211
+CurrentPositiveCases         3358
+NewPositiveCases             1086
+Recovered                    4128
+Deaths                       1998
+TotalPositiveCases           4644
+TestsPerformed               4835
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>As you can see from the previous question, there is only 1 value in the <code class="docutils literal notranslate"><span class="pre">Country</span></code> column, and you can safely assume the <code class="docutils literal notranslate"><span class="pre">RegionCode</span></code>, <code class="docutils literal notranslate"><span class="pre">RegionName</span></code>, <code class="docutils literal notranslate"><span class="pre">Latitude</span></code>, and <code class="docutils literal notranslate"><span class="pre">Longitude</span></code> columns are degenerate. <strong>Drop the <code class="docutils literal notranslate"><span class="pre">Country</span></code>, <code class="docutils literal notranslate"><span class="pre">RegionCode</span></code>, <code class="docutils literal notranslate"><span class="pre">Latitude</span></code>, and <code class="docutils literal notranslate"><span class="pre">Longitude</span></code> columns from <code class="docutils literal notranslate"><span class="pre">it_covid19</span></code>, all in-place, but keep the <code class="docutils literal notranslate"><span class="pre">RegionName</span></code> column.</strong> Make sure you specify the correct axis when you drop!</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop Country, RegionCode, Latitude, and Longitude in-place</span>
+<span class="n">it_covid19</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span> <span class="s1">&#39;RegionCode&#39;</span><span class="p">,</span> <span class="s1">&#39;Latitude&#39;</span><span class="p">,</span><span class="s1">&#39;Longitude&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the next couple of problems, there is a tab-separated text table of the regions of Italy, their March 2020 populations (except P. A. Trento and Bolzano, whose numbers are from 2021), and population densities provided. Getting time-resolved population data was more trouble than these exercises warrant, so this won’t be very scientific, but you will get some (more) experience with the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>, <code class="docutils literal notranslate"><span class="pre">compare()</span></code>, and <code class="docutils literal notranslate"><span class="pre">apply()</span></code> methods.</p>
+<ol class="arabic simple" start="4">
+<li><p>Load the file <code class="docutils literal notranslate"><span class="pre">'ita_pop_by_reg.txt'</span></code> with <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> (note that the delimiters in this text file are tabs, not commas) into a variable called <code class="docutils literal notranslate"><span class="pre">it_pop</span></code>. Don’t set anything as the Index yet, but it’s a good idea to view the resulting DataFrame.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#4. Load &#39;ita_pop_by_reg.txt&#39;</span>
+<span class="n">it_pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ita_pop_by_reg.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">it_pop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   Region  2020_mar_pop  pop_density_sq_km
+0                 Abruzzo       1292126                118
+1              Basilicata        552084                 54
+2                Calabria       1890094                121
+3                Campania       5704571                409
+4          Emilia-Romagna       4464643                197
+5   Friuli-Venezia Giulia       1204970                151
+6                   Lazio       5750888                332
+7                 Liguria       1523084                278
+8               Lombardia      10026900                418
+9                  Marche       1510898                158
+10                 Molise        299563                 65
+11           P.A. Bolzano        531178                 72
+12            P.A. Trento        541098                 87
+13               Piemonte       4308215                168
+14                 Puglia       3947623                200
+15               Sardegna       1609313                 66
+16                Sicilia       4866505                186
+17                Toscana       3689590                160
+18                 Umbria        869169                102
+19          Valle d&#39;Aosta        124830                 38
+20                 Veneto       4876121                265
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Get the unique values of the <code class="docutils literal notranslate"><span class="pre">'RegionName'</span></code> column of the <code class="docutils literal notranslate"><span class="pre">it_covid19</span></code> DataFrame, convert the result to a Series (just plug it straight into the Pandas Series definition function), and <code class="docutils literal notranslate"><span class="pre">compare</span></code> them to the Region column of the table you just loaded. That whole sentence’s worth of instructions can be done in one line. The <code class="docutils literal notranslate"><span class="pre">compare</span></code> method should return 1 subtle discrepancy.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5. compare series of &#39;RegionName&#39; unique values in it_covid19 to it_pop[&#39;Region&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">it_pop</span><span class="p">[</span><span class="s1">&#39;Region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">it_covid19</span><span class="p">[</span><span class="s1">&#39;RegionName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    self                  other
+5  Friuli-Venezia Giulia  Friuli Venezia Giulia
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Use string vectorization to <code class="docutils literal notranslate"><span class="pre">replace</span></code> the problematic strings in the relevant column in your choice of one or the other DataFrame. Then rerun the <code class="docutils literal notranslate"><span class="pre">compare()</span></code> command above and make sure it comes back empty. (Hint: there’s a reason “replace” is typeset as code.)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace the discrepant strings and double check</span>
+<span class="n">it_covid19</span><span class="p">[</span><span class="s1">&#39;RegionName&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">it_covid19</span><span class="p">[</span><span class="s1">&#39;RegionName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Friuli Venezia Giulia&#39;</span><span class="p">,</span>
+                                                              <span class="s1">&#39;Friuli-Venezia Giulia&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">it_pop</span><span class="p">[</span><span class="s1">&#39;Region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">it_covid19</span><span class="p">[</span><span class="s1">&#39;RegionName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Empty DataFrame
+Columns: [self, other]
+Index: []
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Group <code class="docutils literal notranslate"><span class="pre">it_covid19</span></code> by <code class="docutils literal notranslate"><span class="pre">'RegionName'</span></code> and print the maximum values for all the numeric columns for each group (don’t forget, there’s a kwarg you’ll have to pass to <code class="docutils literal notranslate"><span class="pre">max()</span></code> to keep it from raising an error). The whole command should fit on one line.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">it_covid19</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;RegionName&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                       HospitalizedPatients  IntensiveCarePatients  \
+RegionName                                                           
+Abruzzo                                 714                     77   
+Basilicata                              165                     30   
+Calabria                                435                     53   
+Campania                               2331                    227   
+Emilia-Romagna                         3944                    375   
+Friuli-Venezia Giulia                   652                     62   
+Lazio                                  3408                    364   
+Liguria                                1402                    179   
+Lombardia                             12077                   1381   
+Marche                                 1001                    169   
+Molise                                   69                     14   
+P.A. Bolzano                            487                     65   
+P.A. Trento                             436                     81   
+Piemonte                               5225                    453   
+Puglia                                 1693                    227   
+Sardegna                                616                     76   
+Sicilia                                1604                    253   
+Toscana                                1832                    298   
+Umbria                                  375                     78   
+Valle d&#39;Aosta                           170                     27   
+Veneto                                 2654                    356   
+
+                       TotalHospitalizedPatients  HomeConfinement  \
+RegionName                                                          
+Abruzzo                                      790            17415   
+Basilicata                                   185             6259   
+Calabria                                     482            10576   
+Campania                                    2532           102438   
+Emilia-Romagna                              4310            69514   
+Friuli-Venezia Giulia                        711            14482   
+Lazio                                       3762            90735   
+Liguria                                     1510            15589   
+Lombardia                                  13328           155066   
+Marche                                      1168            19458   
+Molise                                        78             2647   
+P.A. Bolzano                                 530            11186   
+P.A. Trento                                  478             2675   
+Piemonte                                    5618            73011   
+Puglia                                      1911            44018   
+Sardegna                                     680            14280   
+Sicilia                                     1847            38993   
+Toscana                                     2128            52083   
+Umbria                                       449            11129   
+Valle d&#39;Aosta                                183             2199   
+Veneto                                      2963            78169   
+
+                       CurrentPositiveCases  NewPositiveCases  Recovered  \
+RegionName                                                                 
+Abruzzo                               18192               939      12206   
+Basilicata                             6444               329       2397   
+Calabria                              11024               936       7533   
+Campania                             104786              4601      62060   
+Emilia-Romagna                        72526              2822      59432   
+Friuli-Venezia Giulia                 15173              1432      19401   
+Lazio                                 94211              2997      33422   
+Liguria                               17027              1209      40842   
+Lombardia                            164406             11489     289706   
+Marche                                20058               834      11008   
+Molise                                 2720               176       2438   
+P.A. Bolzano                          11675               820      13862   
+P.A. Trento                            3004               390      13995   
+Piemonte                              78406              5349     105127   
+Puglia                                45834              1884      16795   
+Sardegna                              14960               623       8695   
+Sicilia                               40730              1871      29984   
+Toscana                               54152              2787      76331   
+Umbria                                11572               783      18619   
+Valle d&#39;Aosta                          2363               245       5406   
+Veneto                                80997              3980      84235   
+
+                       Deaths  TotalPositiveCases  TestsPerformed  
+RegionName                                                         
+Abruzzo                   980               30274        246492.0  
+Basilicata                175                8940        160485.0  
+Calabria                  343               18537        370059.0  
+Campania                 1990              165293       1153658.0  
+Emilia-Romagna           6162              133761       1115823.0  
+Friuli-Venezia Giulia    1035               35467        296752.0  
+Lazio                    2622              130255       1882721.0  
+Liguria                  2521               53779        298052.0  
+Lombardia               23024              429109       2415099.0  
+Marche                   1327               32393        253076.0  
+Molise                    135                5286         90383.0  
+P.A. Bolzano              578               25361        152109.0  
+P.A. Trento               691               17103        141146.0  
+Piemonte                 6623              177788       1000611.0  
+Puglia                   1712               64341        567857.0  
+Sardegna                  531               24186        333552.0  
+Sicilia                  1759               71489        692062.0  
+Toscana                  2867              108397        983103.0  
+Umbria                    460               25144        231538.0  
+Valle d&#39;Aosta             333                6726         34644.0  
+Veneto                   4210              165249       1090932.0  
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="8">
+<li><p>Challenge time! We’re going to use the populations from <code class="docutils literal notranslate"><span class="pre">it_pop</span></code> to get an estimated running percentage of the population that had been infected, assuming (probably incorrectly) this was too early in the pandemic for many reinfections to have occurred. We will use the <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> function on the <code class="docutils literal notranslate"><span class="pre">it_covid19</span></code> DataFrame to divide the <code class="docutils literal notranslate"><span class="pre">'TotalPositiveCases</span></code> column by the Region’s population to get an unadjusted cumulative per-capita infection rate converted to a percentage.</p>
+<p>a. First, set the <code class="docutils literal notranslate"><span class="pre">&quot;Region&quot;</span></code> column of <code class="docutils literal notranslate"><span class="pre">it_pop</span></code> as the index of that DataFrame in-place.</p>
+<p>b. For the sake of time, most of the function you will have to use in the next step has been written for you. Fill in the remainder of the definition of function <code class="docutils literal notranslate"><span class="pre">per_cap()</span></code>.</p>
+<p>c. Using the <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> function on the <code class="docutils literal notranslate"><span class="pre">it_covid19</span></code> DataFrame, divide the <code class="docutils literal notranslate"><span class="pre">'TotalPositiveCases</span></code> column by the Region’s population to get an unadjusted cumulative per capita infection rate converted to a percentage. Set the result equal to a new column of DataFrame <code class="docutils literal notranslate"><span class="pre">it_covid19</span></code>, labelled <code class="docutils literal notranslate"><span class="pre">'TotCasesPct'</span></code> or something similarly informative.</p>
+<p>d. Group <code class="docutils literal notranslate"><span class="pre">it_covid19</span></code> by RegionName again and use <code class="docutils literal notranslate"><span class="pre">.nth()</span></code> to retrieve the last row of both the <code class="docutils literal notranslate"><span class="pre">RegionName</span></code> column and the new column for each Region.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#8-a. Set Region as index of `it_pop`</span>
+<span class="n">it_pop</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Region&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#8-b. Finish the per_cap function</span>
+<span class="k">def</span> <span class="nf">per_cap</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">pop</span><span class="o">=</span><span class="n">it_pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;RegionName&#39;</span><span class="p">],</span><span class="s1">&#39;2020_mar_pop&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;TotalPositiveCases&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">pop</span><span class="p">)</span><span class="o">*</span><span class="mf">100.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#8-c. Apply the function column-wise and assign it to the column &#39;TotCasesPct&#39;</span>
+<span class="n">it_covid19</span><span class="p">[</span><span class="s1">&#39;TotCasesPct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">it_covid19</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">per_cap</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#8-d. Group the results by RegionName again and print the n=-1 row of &#39;TotCasesPct&#39; by Region</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">it_covid19</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;RegionName&#39;</span><span class="p">)[[</span><span class="s1">&#39;RegionName&#39;</span><span class="p">,</span><span class="s1">&#39;TotCasesPct&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">nth</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 RegionName  TotCasesPct
+SNo                                     
+6006                Abruzzo     2.342960
+6007             Basilicata     1.619319
+6008               Calabria     0.980745
+6009               Campania     2.897554
+6010         Emilia-Romagna     2.996007
+6011  Friuli-Venezia Giulia     2.943393
+6012                  Lazio     2.264955
+6013                Liguria     3.530928
+6014              Lombardia     4.279578
+6015                 Marche     2.143957
+6016                 Molise     1.764570
+6017           P.A. Bolzano     4.774482
+6018            P.A. Trento     3.160795
+6019               Piemonte     4.126721
+6020                 Puglia     1.629867
+6021               Sardegna     1.502877
+6022                Sicilia     1.469001
+6023                Toscana     2.937915
+6024                 Umbria     2.892878
+6025          Valle d&#39;Aosta     5.388128
+6026                 Veneto     3.388944
+</pre></div>
+</div>
+</div>
+</div>
+<section id="thats-all-for-now-good-job">
+<h2>That’s all for now! Good job!<a class="headerlink" href="#thats-all-for-now-good-job" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
