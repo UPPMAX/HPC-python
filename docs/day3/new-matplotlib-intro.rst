@@ -347,51 +347,26 @@ The outputs look the same for both of these examples because the plot type was c
                plt.show()
 
 
-Subplots
-~~~~~~~~
+.. admonition:: Subplots and Subplot Mosaics
 
-A prime example of a feature only available through the explicit API is subplots, which support and format 2 or more separate sets of axes on the same figure. For the standard ``fig, ax = plt.subplots(nrows=nrows, ncols=ncols)`` command, the shape of ``ax`` will be 
+   A prime example of a feature only available through the explicit API is subplots, which support and format 2 or more separate sets of axes on the same figure. The `Matplotlib documentation on subplots and subplot mosaics <https://matplotlib.org/stable/users/explain/axes/arranging_axes.html>`__ is extensive and fairly straightforward, so this topic will not be covered in depth here. The table below summarizes all the available subplot creation methods that you may see and their capabilities so you can compare them:
+   
+   ======================== =============== ======================== ================================ ========================
+                              Supported features
+   ------------------------ --------------------------------------------------------------------------------------------------
+    Method                   Iterable Axes   Coordinate projections   Row-/column-spanning subplots    Max number of subplots
+   ======================== =============== ======================== ================================ ========================
+   ``plt.subplots()``        Yes             one for all subplots     requires ``fig.add_gridspec()`` arbitrary
+   ``plt.subplot()``         No              can vary per subplot     requires ``fig.add_gridspec()`` 9
+   ``fig.add_subplot()``     No              can vary per subplot     requires ``fig.add_gridspec()`` 9
+   ``plt.subplot_mosaic()``  Yes             can vary per subplot     Yes                             arbitrary
+   ``plt.subplot2grid()``\*  Yes             one for all subplots     Yes                             arbitrary
+   ======================== =============== ======================== ================================ ========================
 
-* 2D if both ``nrows`` and ``ncols`` are given, 
-* 1D if only one of either ``nrows`` or ``ncols`` is provided, or 
-* 0D (not iterable) if neither are given.
+   \*Note: ``plt.subplot_mosaic()`` is recommended over ``plt.subplot2grid()``.
 
-.. jupyter-execute::
 
-   import numpy as np
-   import matplotlib.pyplot as plt
-   %matplotlib inline 
-   x = np.linspace(0,2*np.pi, 50)
-   fig, ax = plt.subplots(nrows=2,  sharex=True)
-   fig.subplots_adjust(hspace=0.05) #reduces space between 2 plots
-   ax[0].plot(x,3+3*np.sin(x),'b-', label=r'3+3$\times$sin(x)')
-   ax[1].plot(x, 2+2*np.cos(x), 'r-.', label=r'2+2$\times$cos(x)')
-   ax[1].set_xlabel('x [rads]')
-   for a in ax: 
-       a.legend()
-       a.set_ylabel('y')
-   ax[0].set_title('Demo Plot - Subplots')
-   plt.show()
-
-Other subplot creation functions are available if you need more flexibility between subplots in terms of formatting and coordinate projections. Generally, all methods support shared axes and allow non-Cartesian coordinate projections, but not all methods allow varying projections per plot, and only a couple include support for row- or column-spanning subplots.
-
-The following table summarizes all the available subplot creation methods and their capabilities:
-
-======================== =============== ======================== ================================ ========================
-                           Supported features
------------------------- --------------------------------------------------------------------------------------------------
- Method                   Iterable Axes   Coordinate projections   Row-/column-spanning subplots    Max number of subplots
-======================== =============== ======================== ================================ ========================
-``plt.subplots()``        Yes             one for all subplots     requires ``fig.add_gridspec()`` arbitrary
-``plt.subplot()``         No              can vary per subplot     requires ``fig.add_gridspec()`` 9
-``fig.add_subplot()``     No              can vary per subplot     requires ``fig.add_gridspec()`` 9
-``plt.subplot_mosaic()``  Yes             can vary per subplot     Yes                             arbitrary
-``plt.subplot2grid()``\*  Yes             one for all subplots     Yes                             arbitrary
-======================== =============== ======================== ================================ ========================
-
-\*Note: ``plt.subplot_mosaic()`` is recommended over ``plt.subplot2grid()``.
-
-.. admonition:: Mathtext and String Insertion
+.. admonition:: Mathtext and String Insertion (Not covered by Matplotlib documentation)
    :collapsible:
       
       Most journals expect that you typeset all variables and math scripts so they appear the same in your plots as in your main text, whether those symbols appear in the `axes labels, function labels, plot titles, or annotations. <https://matplotlib.org/stable/users/explain/text/text_intro.html>`__ Matplotlib now `supports most LaTeX math commands, <https://matplotlib.org/stable/users/explain/text/mathtext.html#mathtext>`__ but you need to know some basic LaTeX syntax, some of which is covered in that link. For more information, you can refer to `the WikiBooks documentation on LaTeX math <https://en.wikibooks.org/wiki/LaTeX/Mathematics>`__, starting with the Symbols section.
