@@ -9,13 +9,13 @@ Course dates
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
 |Week|Day      |Date      |Time                 |Description                                                                            |
 +====+=========+==========+=====================+=======================================================================================+
-|17  |Thursday |2025-11-27|9:00 (sharp) to 16:00|:ref:`schedule-day-1`                                                                  |
+|48  |Thursday |2025-11-27|9:00 (sharp) to 16:00|:ref:`schedule-day-1`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
-|17  |Friday   |2025-11-28|9:00 (sharp) to 16:00|:ref:`schedule-day-2`                                                                  |
+|48  |Friday   |2025-11-28|9:00 (sharp) to 16:00|:ref:`schedule-day-2`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
-|18  |Monday   |2025-12-01|9:00 (sharp) to 16:00|:ref:`schedule-day-3`                                                                  |
+|49  |Monday   |2025-12-01|9:00 (sharp) to 16:00|:ref:`schedule-day-3`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
-|18  |Tuesday  |2025-12-02|9:00 (sharp) to 16:00|:ref:`schedule-day-4`                                                                  |
+|49  |Tuesday  |2025-12-02|9:00 (sharp) to 16:00|:ref:`schedule-day-4`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
 
 .. _schedule-day-1:
@@ -31,8 +31,8 @@ See schedule at `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_p
 
 .. _schedule-day-2:
 
-Day 2: Packages and basic analysis
-----------------------------------
+Day 2: Packages and basic analysis (WIP)
+----------------------------------------
 
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
 
@@ -109,7 +109,7 @@ Day 3: Batch jobs and Big Data
 
 .. _schedule-day-4:
 
-Day 4: Parallelism, GPUs\*, and machine learning\*\*
+Day 4: Parallelism, GPUs, and machine learning (WIP)
 ----------------------------------------------------
 
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
@@ -144,5 +144,3 @@ Day 4: Parallelism, GPUs\*, and machine learning\*\*
 |15:45-16:00 | Evaluation     |.                   |
 +------------+----------------+--------------------+
 
-\* Move to Day 3?
-\*\* Extend, add exercises?
