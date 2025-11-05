@@ -3,6 +3,7 @@
 - Day 2
 - Date: 2025-04-25
 - Author: Richel
+- [Lesson plan](../../docs/lesson_plans/20250425/README.md)
 
 My session went reasonably well. I felt tight on time,
 and there were 2 technical problems, 
