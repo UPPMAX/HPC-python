@@ -202,15 +202,16 @@ Content of the course
    :maxdepth: 2
    :caption: Extra:
 
+   bianca.rst
+   evaluations/README.md
    extra/other_courses.rst
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
    extra/jupyterHPC2N.rst
-   day4/ML_deeper.rst
-
-   uppmax.rst
    kebnekaise.md
-   bianca.rst
+   day4/ML_deeper.rst
+   reflections/README.md
+   uppmax.rst
 
 .. Indices and tables
 .. ==================

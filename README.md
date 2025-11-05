@@ -27,12 +27,11 @@ open _build/html/index.html      # On macOS
 ```
 
 
-# Rendered material
+# Rendered website
 
-- https://uppmax.github.io/HPC-python/index.html
+- [Rendered website](https://uppmax.github.io/HPC-python/)
 
 # Others
 
-- [Evaluations](evaluations/README.md)
 - [Meeting notes](meeting_notes/README.md)
 
