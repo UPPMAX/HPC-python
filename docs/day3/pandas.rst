@@ -17,6 +17,14 @@ Intro to Pandas
 Load and Run
 ------------
 
+Pandas has been part of the SciPy-bundle module (which also contains NumPy) since 2020, so at most HPC resources, you should use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
+
+.. important::
+
+   Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
+
+Some facilities also have Anaconda, which typically includes Pandas, JupyterLab, NumPy, SciPy, and many other popular packages. However, if there is a Python package you want that is not included, you will typically have to build your own environment to install it, and extra steps may be required to use that conda environment in a development tool like Jupyter Lab.
+
 
 .. tabs::
 
@@ -29,14 +37,6 @@ Load and Run
          .. code-block:: console
         
             ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
-
-     
-      Pandas, like NumPy, has been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
-
-      .. important::
-    
-        Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
-
 
       As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Kebnekaise is:
 
@@ -225,7 +225,7 @@ The main object classes of Pandas are ``Series`` and ``DataFrame``. There is als
 
 * ``pandas.Series(data, index=None, name=None, ...)`` instantiates a 1D array with customizable indexes (labels) attached to every entry for easy access, and optionally a name for later addition to a DataFrame as a column.
 
-  - Indexes can be numbers (integer or float), strings, datetime objects, or even tuples. The default is 0-based integer indexing. Indexes are also themselves a Pandas data type.
+  - Indexes can be numbers (integer or float), strings, datetime objects, or even tuples. The default is 0-based integer indexing. Indexes are also a Pandas data type (the data type of the row and column labels)
 
 * ``pandas.DataFrame(data, columns=None, index=None, ...)`` instantiates a 2D array where every column is a Series. All entries are accessible by column and row labels/indexes.
 
@@ -233,7 +233,6 @@ The main object classes of Pandas are ``Series`` and ``DataFrame``. There is als
   - Column labels and row indexes/labels can be safely (re)assigned as needed.
 
 For the rest of this lesson, example DataFrames will be abbreviated as ``df`` in code snippets (and example Series, if they appear, will be abbreviated as ``ser``).
-
 
 .. admonition:: **Important Attributes**
 
@@ -261,6 +260,60 @@ There are also specialized datatypes for, e.g. saving on memory or performing wi
 * ``Sparse[float64, <omitted>]`` is a datatype based on the SciPy sparse matrices, where ``<omitted>`` can be NaN, 0, or any other missing value placeholder. This placeholder value is stored in the datatype, and the DataFrame itself is compressed in memory by not storing anything at the coordinates of the missing values. 
 
 This is far from an exhaustive list.
+
+Input/Output and Making DataFrames from Scratch
+-----------------------------------------------
+
+Most of the time, Series and DataFrames will be loaded from files, not made from scratch. The following table lists I/O functions for a few of the most common data formats. Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise). 
+
+======  ============================================  ===================================================  =================================
+Typ1e    Data Description                              Reader                                               Writer
+======  ============================================  ===================================================  =================================
+text    **CSV / ASCII text with standard delimiter**  ``read_csv(path_or_url, sep=',', **kwargs)``         ``to_csv(path, **kwargs)``
+text    Fixed-Width Text File                         ``read_fwf()``                                       N/A
+text    JSON                                          ``read_json()``                                      ``to_json(path, **kwargs)``
+SQL     SQLite table or query                         ``read_sql()``                                       ``to_sql(path, **kwargs)``
+binary  **MS Excel**/**OpenDocument**                 ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, **kwargs)``
+binary  HDF5 Format                                   ``read_hdf()``                                       ``to_hdf(path, **kwargs)``
+======  ============================================  ===================================================  =================================
+
+This is far from a complete list, and most of these functions have several dozen possible kwargs. It is left to the reader to determine what kwargs are needed. As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
+
+In the example below, a CSV file called "exoplanets_5250_EarthUnits.csv" in the current working directory is read into the DataFrame ``df`` and then written out to a plain text file where decimals are rendered with commas, the delimiter is the pipe character, and the indexes are preserved as the first column.
+
+
+.. hint:: 
+
+   Try it yourself!
+   
+   .. code-block:: python
+   
+      import pandas as pd
+      df = pd.read_csv('exoplanets_5250_EarthUnits.csv',index_col=0)
+      df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='|',decimal=',', index=True)
+
+In most reader functions, including ``index_col=0`` sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
+
+Building a DataFrame or Series from scratch is also easy. Lists and arrays can be converted directly to Series and DataFrames, respectively.
+
+* Both ``pd.Series()`` and ``pd.DataFrame()`` have an ``index`` kwarg to assign a list of numbers, names, times, or other hashable keys to each row. 
+* You can use the ``columns`` kwarg in ``pd.DataFrame()`` to assign a list of names to the columns of the table. The equivalent for ``pd.Series()`` is just ``name``, which only takes a single value and doesn't do anything unless you plan to join that Series to a larger DataFrame.
+* Dictionaries and record arrays can be converted to DataFrames with ``pd.DataFrame.from_dict(myDict)`` and ``pd.DataFrame.from_records(myRecArray)``, respectively, and the keys will automatically be converted to column labels.
+
+**Example**
+
+.. hint:: 
+
+   Try it yourself!
+
+   .. jupyter-execute::
+   
+       import numpy as np
+       import pandas as pd
+       df = pd.DataFrame( np.random.randint(0,100, size=(4,4)), columns=['a','b','c','d'], index=['w','x','y','z'] )
+       print(df)
+
+It is also possible to convert DataFrames and Series to NumPy arrays (with or without the indexes), dictionaries, record arrays, or strings with the methods ``.to_numpy()``, ``.to_dict()``, ``to_records()``, and ``to_string()``, respectively.
 
 
 
