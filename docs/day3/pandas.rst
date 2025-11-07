@@ -128,13 +128,19 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
 
       .. important::
 
-         For this session, you should load
+         For this session, if you are on **Rackham**, you should load
 
          .. code-block:: console
         
             module load python/3.11.8
+
+         If you are on **Pelle**, you should load
+
+         .. code-block:: console
+        
+            module load python/3.XX.X
      
-      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version.
+      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version. On Pelle... FIXME
 
 
    .. tab:: Tetralith (NSC)
@@ -264,7 +270,7 @@ This is far from an exhaustive list.
 Input/Output and Making DataFrames from Scratch
 -----------------------------------------------
 
-Most of the time, Series and DataFrames will be loaded from files, not made from scratch. The following table lists I/O functions for a few of the most common data formats. Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise). 
+Most of the time, Series and DataFrames will be loaded from files, not made from scratch. The following table lists I/O functions for a few of the most common data formats; `the full table with links to the documentation pages for each function can be found here. <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html>`__ Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise). 
 
 ======  ============================================  ===================================================  =================================
 Typ1e    Data Description                              Reader                                               Writer
@@ -277,20 +283,20 @@ binary  **MS Excel**/**OpenDocument**                 ``read_excel(path_or_url, 
 binary  HDF5 Format                                   ``read_hdf()``                                       ``to_hdf(path, **kwargs)``
 ======  ============================================  ===================================================  =================================
 
-This is far from a complete list, and most of these functions have several dozen possible kwargs. It is left to the reader to determine what kwargs are needed. As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
+This is far from a complete list, and most of these functions have several dozen possible kwargs. *Most kwargs in a given reader function also appear in the corresponding writer function, and serve the same purpose.* It is left to the reader to determine which kwargs are needed. As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
 
 In the example below, a CSV file called "exoplanets_5250_EarthUnits.csv" in the current working directory is read into the DataFrame ``df`` and then written out to a plain text file where decimals are rendered with commas, the delimiter is the pipe character, and the indexes are preserved as the first column.
 
 
-.. hint:: 
+.. challenge:: 
 
-   Try it yourself!
+   Code along! Open your preferred IDE and load the provided file ``exoplanets_5250_EarthUnits.csv`` into DataFrame ``df``. Then, save ``df`` to a text (.txt) file with a tab (``\t``) separator.
    
    .. code-block:: python
    
       import pandas as pd
       df = pd.read_csv('exoplanets_5250_EarthUnits.csv',index_col=0)
-      df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='|',decimal=',', index=True)
+      df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='|',index=True)
 
 In most reader functions, including ``index_col=0`` sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
 
@@ -302,18 +308,16 @@ Building a DataFrame or Series from scratch is also easy. Lists and arrays can b
 
 **Example**
 
-.. hint:: 
+.. challenge:: 
 
-   Try it yourself!
+   Code along! In your preferred IDE, recreate the DataFrame shown below and view it with a print statement.
 
    .. jupyter-execute::
    
        import numpy as np
        import pandas as pd
-       df = pd.DataFrame( np.random.randint(0,100, size=(4,4)), columns=['a','b','c','d'], index=['w','x','y','z'] )
+       df = pd.DataFrame( np.arange(1,13).reshape((4,3)), index=['w','x','y','z'], columns=['a','b','c'] )
        print(df)
 
 It is also possible to convert DataFrames and Series to NumPy arrays (with or without the indexes), dictionaries, record arrays, or strings with the methods ``.to_numpy()``, ``.to_dict()``, ``to_records()``, and ``to_string()``, respectively.
-
-
 
