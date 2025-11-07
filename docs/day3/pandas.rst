@@ -1,6 +1,19 @@
-###############
-Intro to Pandas
-###############
+Intro to Pandas on HPC
+======================
+
+.. objectives::
+
+   You will learn how to 
+   - Find and load Pandas on your local HPC resource
+   - Load data into DataFrames in whole or in part
+   - Estimate the size of your data in memory
+   - Reduce your data size by converting to appropriate memory-saving data types
+   - Run standard functions with multi-threading using Numba
+
+.. note::
+
+   We will **not** cover Pandas functionality in depth except insofar as the workflow differs between an HPC cluster and a personal laptop. For in-depth instruction on the Pandas library, NAISS offers a different course, "An Introduction to Pandas for Data Science."
+
 
 **Pandas**, short for PANel Data AnalysiS, is a Python data library for cleaning, organizing, and statistically analyzing moderately large (:math:`\lesssim3` GiB) data sets. It was originally developed for analyzing and modelling financial records (panel data) over time, and has since expanded into a package rivaling SciPy in the number and complexity of available functions. Pandas offers:
 
@@ -12,7 +25,7 @@ Intro to Pandas
 * A simple interface with the Seaborn plotting library, and increasingly also Matplotlib.
 * Easy multi-threading with Numba.
 
-**Limitations.** Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like ``dask`` and ``polars`` that can help. In partcular, ``dask`` will be covered in a later lecture in this workshop. There is also the ``xarray`` package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.
+**Limitations.** Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like ``dask`` and ``polars`` that can help with large data sets. In partcular, ``dask`` will be covered tomorrow in the Parallel Computing section of this course. There is also the ``xarray`` package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.
 
 Load and Run
 ------------
@@ -281,6 +294,7 @@ text    JSON                                          ``read_json()``           
 SQL     SQLite table or query                         ``read_sql()``                                       ``to_sql(path, **kwargs)``
 binary  **MS Excel**/**OpenDocument**                 ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, **kwargs)``
 binary  HDF5 Format                                   ``read_hdf()``                                       ``to_hdf(path, **kwargs)``
+binary  Apache Parquet                                ``read_parquet()``                                   ``to_parquet()``
 ======  ============================================  ===================================================  =================================
 
 This is far from a complete list, and most of these functions have several dozen possible kwargs. *Most kwargs in a given reader function also appear in the corresponding writer function, and serve the same purpose.* It is left to the reader to determine which kwargs are needed. As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
@@ -292,11 +306,11 @@ In the example below, a CSV file called "exoplanets_5250_EarthUnits.csv" in the 
 
    Code along! Open your preferred IDE and load the provided file ``exoplanets_5250_EarthUnits.csv`` into DataFrame ``df``. Then, save ``df`` to a text (.txt) file with a tab (``\t``) separator.
    
-   .. code-block:: python
-   
-      import pandas as pd
-      df = pd.read_csv('exoplanets_5250_EarthUnits.csv',index_col=0)
-      df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='|',index=True)
+.. code-block:: python
+
+   import pandas as pd
+   df = pd.read_csv('exoplanets_5250_EarthUnits.csv',index_col=0)
+   df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='\t',index=True)
 
 In most reader functions, including ``index_col=0`` sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
 
@@ -312,12 +326,40 @@ Building a DataFrame or Series from scratch is also easy. Lists and arrays can b
 
    Code along! In your preferred IDE, recreate the DataFrame shown below and view it with a print statement.
 
-   .. jupyter-execute::
-   
-       import numpy as np
-       import pandas as pd
-       df = pd.DataFrame( np.arange(1,13).reshape((4,3)), index=['w','x','y','z'], columns=['a','b','c'] )
-       print(df)
+.. jupyter-execute::
+
+    import numpy as np
+    import pandas as pd
+    df = pd.DataFrame( np.arange(1,13).reshape((4,3)), index=['w','x','y','z'], columns=['a','b','c'] )
+    print(df)
 
 It is also possible to convert DataFrames and Series to NumPy arrays (with or without the indexes), dictionaries, record arrays, or strings with the methods ``.to_numpy()``, ``.to_dict()``, ``to_records()``, and ``to_string()``, respectively.
+
+
+Inspection and Memory Usage
+---------------------------
+
+The main data inspection functions for DataFrames (and Series) are as follows.
+
+* ``df.head()`` (or ``df.tail()``)  prints first (or last) 5 rows of data with row and column labels, or accepts an integer argument to print a different number of rows.
+* ``df.info()`` prints the number of rows with their first and last index values; titles, index numbers, valid data counts, and datatypes of columns; and the estimated size of ``df`` in memory. **Note:** do not rely on this memory estimate if your dataframe contains non-numeric data (see below). 
+* ``df.describe()`` prints summary statistics for all the numerical columns in ``df``.
+* ``df.nunique()`` prints counts of the unique values in each column.
+* ``df.value_counts()`` prints each unique value and the number of of occurrences for every combination of row and column values for as many of each as are selected (usually applied to just a couple of columns at a time at most)
+* ``df.sample()`` randomly selects a given number of rows ``n=nrows``, or a decimal fraction ``frac`` of the total number of rows.
+
+.. important:: The ``memory_usage()`` Function
+   
+   ``df.memory_usage(deep=False)`` returns the estimated memory usage of each column. With the default ``deep=False``, the sum of the estimated memory size of all columns is the same as what is included with ``df.info()``, which is not accurate. However, with ``deep=True``, the sizes of strings and other non-numeric data are factored in, giving a much better estimate of the total size of ``df`` in memory.
+  
+   This is because numeric columns are fixed width in memory and can be stored contiguously, but object-type columns are variable in size, so only pointers can be stored at the location of the main DataFrame in memory. The strings that those pointers refer to are kept elsewhere. When ``deep=False``, or when the memory usage is estimated with ``df.info()``, the memory estimate includes all the numeric data but only the pointers to non-numeric data.
+
+.. jupyter-execute::
+
+    import numpy as np
+    import pandas as pd
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits.csv',index_col=0)
+    print(df.info())
+    print('\n',df.memory_usage())
+    print('\n Compare: \n',df.memory_usage(deep=True))
 
