@@ -31,12 +31,10 @@ See schedule at `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_p
 
 .. _schedule-day-2:
 
-Day 2: Packages and basic analysis (WIP)
-----------------------------------------
+Day 2: Packages, environments and using compute nodes
+-----------------------------------------------------
 
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
-
-    Course starts at 9:00 sharp and ends at 16:00
 
 +------------+---------------------------------+--------------------------------+
 |Time        | Topic                           |Teacher                         |
@@ -78,8 +76,8 @@ Day 2: Packages and basic analysis (WIP)
 
 .. _schedule-day-3:
 
-Day 3: Batch jobs and Big Data
-------------------------------
+Day 3: Basic analysis, Big Data and Batch jobs
+----------------------------------------------
 
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
 
@@ -115,8 +113,8 @@ Day 3: Batch jobs and Big Data
 
 .. _schedule-day-4:
 
-Day 4: Parallelism, GPUs, and machine learning (WIP)
-----------------------------------------------------
+Day 4: Parallelism, GPUs, and machine learning
+----------------------------------------------
 
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
 
