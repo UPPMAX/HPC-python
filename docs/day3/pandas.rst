@@ -96,7 +96,7 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
         
             ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2
      
-      On the LUNARC HPC Desktop, all versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
+      On the LUNARC HPC Desktop, all On-Demand versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don't need to load any modules. 
 
       If you work at the command line and choose not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use ``ml spider SciPy-bundle`` to see which versions are available, which Python versions they depend on, and how to load them.
 
@@ -104,7 +104,7 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
     
          Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!
 
-      As of 27-11-2024, the output of ``ml spider SciPy-bundle`` on Cosmos is:
+      As of 10-11-2025, the output of ``ml spider SciPy-bundle`` on Cosmos is:
 
       .. code-block:: console
 
@@ -224,16 +224,15 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
              conda install matplotlib pandas seaborn
              spyder %
 
+.. note::
+
+   2025 versions of SciPy-bundle are not widely installed or recommended, because numerical stability tests are failing during installation.
+
 
 To know if Pandas is the right tool for your job, you can consult the flowchart below.
 
 .. image:: ../img/when-to-use-pandas.png
    :width: 600 px
-
-
-.. objectives:: You will learn...
-
-   * TK
 
 We will also have a short session after this on plotting with Seaborn, a package for easily making publication-ready statistical plots with Pandas data structures.
 
@@ -304,12 +303,12 @@ In the example below, a CSV file called "exoplanets_5250_EarthUnits.csv" in the 
 
 .. challenge:: 
 
-   Code along! Open your preferred IDE and load the provided file ``exoplanets_5250_EarthUnits.csv`` into DataFrame ``df``. Then, save ``df`` to a text (.txt) file with a tab (``\t``) separator.
+   Code along! Open your preferred IDE and load the provided file ``exoplanets_5250_EarthUnits_fixed.csv`` into DataFrame ``df``. Then, save ``df`` to a text (.txt) file with a tab (``\t``) separator.
    
 .. code-block:: python
 
    import pandas as pd
-   df = pd.read_csv('exoplanets_5250_EarthUnits.csv',index_col=0)
+   df = pd.read_csv('exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
    df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='\t',index=True)
 
 In most reader functions, including ``index_col=0`` sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
@@ -339,7 +338,8 @@ It is also possible to convert DataFrames and Series to NumPy arrays (with or wi
 Inspection and Memory Usage
 ---------------------------
 
-The main data inspection functions for DataFrames (and Series) are as follows.
+Review of Inspect
+The main data inspection functions for DataFrames (and Series) are as follows:
 
 * ``df.head()`` (or ``df.tail()``)  prints first (or last) 5 rows of data with row and column labels, or accepts an integer argument to print a different number of rows.
 * ``df.info()`` prints the number of rows with their first and last index values; titles, index numbers, valid data counts, and datatypes of columns; and the estimated size of ``df`` in memory. **Note:** do not rely on this memory estimate if your dataframe contains non-numeric data (see below). 
@@ -347,12 +347,11 @@ The main data inspection functions for DataFrames (and Series) are as follows.
 * ``df.nunique()`` prints counts of the unique values in each column.
 * ``df.value_counts()`` prints each unique value and the number of of occurrences for every combination of row and column values for as many of each as are selected (usually applied to just a couple of columns at a time at most)
 * ``df.sample()`` randomly selects a given number of rows ``n=nrows``, or a decimal fraction ``frac`` of the total number of rows.
+* ``df.memory_usage()`` returns the estimated memory usage per column (see important notes below).
 
 .. important:: The ``memory_usage()`` Function
    
-   ``df.memory_usage(deep=False)`` returns the estimated memory usage of each column. With the default ``deep=False``, the sum of the estimated memory size of all columns is the same as what is included with ``df.info()``, which is not accurate. However, with ``deep=True``, the sizes of strings and other non-numeric data are factored in, giving a much better estimate of the total size of ``df`` in memory.
-  
-   This is because numeric columns are fixed width in memory and can be stored contiguously, but object-type columns are variable in size, so only pointers can be stored at the location of the main DataFrame in memory. The strings that those pointers refer to are kept elsewhere. When ``deep=False``, or when the memory usage is estimated with ``df.info()``, the memory estimate includes all the numeric data but only the pointers to non-numeric data.
+   ``df.memory_usage(deep=False)`` returns the estimated memory usage of each column, but with the default ``deep=False``, this includes the sizes of *pointers* to non-numeric data, but not the full sizes of strings and other non-numeric data. The sum of these per-column estimates is the same as what is reported by ``df.info()``, which is an significant underestimate. This is because numeric columns are fixed width in memory and can be stored contiguously, but object-type columns are variable in size, so only pointers can be stored at the location of the main DataFrame in memory. The strings that those pointers refer to are kept elsewhere. With ``deep=True``, the sizes of strings and other non-numeric data are factored in, giving a much better estimate of the total size of ``df`` in memory.
 
 .. jupyter-execute::
 
@@ -363,3 +362,89 @@ The main data inspection functions for DataFrames (and Series) are as follows.
     print('\n',df.memory_usage())
     print('\n Compare: \n',df.memory_usage(deep=True))
 
+HPC-Specific Topics
+-------------------
+
+Efficient Data Types
+^^^^^^^^^^^^^^^^^^^^
+
+**Categorical data.** As the memory usage outputs show in the example above, a single 5-8-letter word uses almost 8 times as much memory as a 64-bit float. The ``Categorical`` datatype provides, among other benefits, a way to get the memory savings of a dummy variable array without having to create one, as long as the number of unique values is much smaller than the number of entries in the column(s) to be converted to ``Categorical`` type. Internally, the ``Categorical`` type maps all the unique values of a column to short numerical codes in the column's place in memory, stores the codes in the smallest integer format that fits the largest-valued code, and only converts the codes to the associated strings when the data are printed. 
+
+* To convert a column in an existing Dataframe, simply set that column equal to itself with ``.astype('category')`` at the end. If defining a new Series that you want to be categorical, simply include ``dtype='category'``.
+* To get attributes or call methods of ``Categorical`` data, use the ``.cat`` accessor followed by the attribute or method. E.g., to get the category names as an index object, use ``df['cat_col'].cat.categories``.
+* ``.cat`` methods include operations to add, remove, rename, and even rearrange categories in a specific hierarchy.
+* The order of categories can be asserted either in the definition of a ``Categorical`` object to be used as the indexes of a series, by calling ``.cat.as_ordered()`` on the Series if you're happy with the current order, or by passing a rearranged or even a completely new list of categories to either ``.cat.set_categories([newcats], ordered=True)`` or ``.cat.reorder_categories([newcats], ordered=True)``.
+
+  - When an order is asserted, it becomes possible to use ``.min()`` and ``.max()`` on the categories.
+
+* Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order.
+
+.. jupyter-execute::
+
+    import pandas as pd
+    import numpy as np
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)    
+    print("Before:\n", df['planet_type'].memory_usage(deep=True))
+    # Convert planet_type to categorical
+    ptypes=df['planet_type'].astype('category')
+    print("After:\n", ptypes.memory_usage(deep=True))
+    # assert order (coincidentally alphabetical order is also reverse mass-order)
+    ptypes = ptypes.cat.reorder_categories(ptypes.cat.categories[::-1], ordered=True)
+    print(ptypes)
+    
+
+.. jupyter-execute::
+
+    import pandas as pd
+    import numpy as np
+    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
+    # look at the radius distribution before binning, (and get rid of nonsense)
+    df['radius_RE'].loc[df['radius_RE']<30].plot(kind='kde', xlim=(0,30), title='Radius distribution (Earth radii)')
+    #xlabel normally works but not for 'kde' for some reason
+    # Looks bimodal around 2.5 and 13ish. Let's cut it at 5, 10, and 16 earth radii
+    pcut = pd.cut(df['radius_RE'], bins=[df['radius_RE'].min(), 5, 10, 16, df['radius_RE'].max()], 
+                  labels=['Rocky', 'Neptunian', 'Jovian', 'Puffy'], )
+    print("Bins: ", pcut.unique())
+    print("\n Grouped data, nth rows:\n", df.groupby(pcut).mean(numeric_only=True))
+
+
+**Sparse Data.** I you have a DataFrame with lots of rows or columns that are mostly NaN, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory.
+Initialize Series or DataFrames as `SparseDtype` by setting the kwarg ``dtype=SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", np.nan))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>`_ also work on Sparse Arrays. Other methods and attributes include
+
+- ``df.sparse.density``: prints fraction of data that are non-NaN
+- ``df.sparse.fill_value``: prints fill value for NaNs, if any (might just return NaN)
+- ``df.sparse.from_spmatrix(data)``: makes a new `SparseDtype` DataFrame from a SciPy sparse matrix
+- ``df.sparse.to_coo()``: converts a DataFrame (or Series) to sparse SciPy COO type (`more on those here <https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_array.html#scipy.sparse.coo_array>`_)
+
+
+Getting Dummy Variables for Machine Learning
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ML programs like TensorFlow and PyTorch take Series/DataFrame inputs, but they generally require numeric input. If some of the variables that you want to predict are categorical (e.g. species, sex, or some other classification), they need to be converted to a numerical form that TensorFlow and PyTorch can use. Standard practice is turn a categorical variable with *N* unique values into *N* or *N*-1 boolean columns, where a row entry that was assigned a given category value has a 1 or True in the boolean column corresponding to that category and 0 or False in all the other boolean category columns.
+
+The Pandas function that does this is ``pd.get_dummies(data, dtype=bool, drop_first=False, prefix=pref, columns=columns)``.
+
+* ``dtype`` can be ``bool`` (default, less memory), ``float`` (more memory usage), ``int`` (same memory as float), or a more specific string identifier like ``'float32'`` or ``'uint16'``
+* ``drop_first``, when True, lets you get rid of one of the categories on the assumption that not fitting any of the remaining categories is perfectly correlated with fitting the dropped category. Be aware that the only way to choose which column is dropped is to rearrange the original data so that the column you want dropped is first.
+* ``prefix`` is just a set of strings you can add to dummy column names to make clear which ones are related.
+* If nothing is passed to ``columns``, Pandas will try to convert the entire DataFrame to dummy variables, which is usually a bad idea. Always pass the subset of columns you want to convert to ``columns``.
+
+Let's say you did an experiment where you tested 100 people to see if their preference for Coke or Pepsi correlated with whether the container it came in was made of aluminum, plastic, or glass, and whether it was served with or without ice.
+
+.. jupyter-execute::
+
+    from random import choices
+    import pandas as pd
+    sodas = choices(['Coke','Pepsi'],k=100)
+    containers = choices(['aluminum','glass','plastic'],k=100)
+    ices = choices([1, 0],k=100) ###already boolean
+    soda_df = pd.DataFrame(list(zip(sodas,containers,ices)),
+                           columns=['brand','container_material','with_ice'])
+    print(soda_df.head())
+    print("\n Memory usage:\n",soda_df.memory_usage(deep=True),"\n")
+    dummy_df = pd.get_dummies(soda_df, drop_first=True, columns=['brand','container_material'],
+                              prefix=['was','in'], dtype=int)
+    print("Dummy version:\n",dummy_df.head())
+    print("\n Memory usage:\n",dummy_df.memory_usage(deep=True))
+
+Dummy variables can also be converted back to categorical variable columns with ``pd.from_dummies()`` as long as their column names had prefixes to group related variables. But given the memory savings, you might not want to.
