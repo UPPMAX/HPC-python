@@ -378,10 +378,10 @@ The main data inspection functions for DataFrames (and Series) are as follows:
    1 cell (scalar output)           ``df.at['row','col']`` or ``df.iat[i,j]``
    column(s) by name                ``df['col']`` or ``df[['col0', 'col1', ...]]``
    row(s) by index                  ``df.iloc[i]`` or ``df.iloc[i:j]``
-   rows & columns by name           ``df.loc[['rowA','rowB', ...], ['col0', 'col1', ...]]``
-   rows & columns by index          ``df.iloc[i:j, m:n] ``
+   rows and columns by name         ``df.loc[['rowA','rowB', ...], ['col0', 'col1', ...]]``
+   rows and columns by index        ``df.iloc[i:j, m:n]``
    
-   columns by name & rows by index  You can mix ``.loc[]`` and ``.iloc[]`` for selection, **but NOT for assignment!**
+   columns by name, rows by index   You can mix ``.loc[]`` and ``.iloc[]`` for selection, **but NOT for assignment!**
    ===============================  ==================================================================================
 
    The following table describes basic functions for finding, removing, and replacing missing or unwanted data, which will be necessary ahead of any machine learning applications. Pandas has its own functions for detecting missing data in order to detect both regular ``NaN``s and the datetime equivalent, ``NaT``. Any of the following functions will work on individual columns or any other subset of the DataFrame as well as the whole. `Click here for more information on handling missing or invalid data in Pandas. <https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html>`__
