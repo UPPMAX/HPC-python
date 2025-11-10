@@ -7,8 +7,11 @@
    viewBox="0 0 210 88"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    sodipodi:docname="parallel-arch.svg"
+   inkscape:export-filename="parallel-arch.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,12 +28,12 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.1811908"
-     inkscape:cx="571.0339"
-     inkscape:cy="240.43533"
+     inkscape:cx="506.69206"
+     inkscape:cy="241.70524"
      inkscape:window-width="2222"
      inkscape:window-height="1120"
-     inkscape:window-x="1479"
-     inkscape:window-y="74"
+     inkscape:window-x="3500"
+     inkscape:window-y="274"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1" />
   <defs
@@ -100,33 +103,33 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.3333px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;white-space:pre;shape-inside:url(#rect1368);fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.51339;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"><tspan
            x="159.9636"
            y="448.03147"
-           id="tspan6580"><tspan
+           id="tspan2582"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6578">Threads
+             id="tspan2580">Threads
 </tspan></tspan><tspan
            x="102.90117"
            y="484.6981"
-           id="tspan6584"><tspan
+           id="tspan2586"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6582">Implicit threading
+             id="tspan2584">Implicit threading
 </tspan></tspan><tspan
            x="155.88874"
            y="521.36473"
-           id="tspan6588"><tspan
+           id="tspan2590"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6586">OpenMP
+             id="tspan2588">OpenMP
 </tspan></tspan><tspan
            x="163.24355"
            y="558.03135"
-           id="tspan6592"><tspan
+           id="tspan2594"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6590">PyOMP
+             id="tspan2592">PyOMP
 </tspan></tspan><tspan
            x="77.041016"
            y="594.69798"
-           id="tspan6596"><tspan
+           id="tspan2598"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6594">
+             id="tspan2596">
 </tspan></tspan></text>
       <text
          xml:space="preserve"
@@ -135,33 +138,33 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.3333px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;white-space:pre;shape-inside:url(#rect1368-4);fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.51339;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"><tspan
            x="143.66414"
            y="448.03147"
-           id="tspan6600"><tspan
+           id="tspan2602"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6598">Distributed
+             id="tspan2600">Distributed
 </tspan></tspan><tspan
            x="187.69274"
            y="484.6981"
-           id="tspan6604"><tspan
+           id="tspan2606"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6602">MPI
+             id="tspan2604">MPI
 </tspan></tspan><tspan
            x="182.78714"
            y="521.36473"
-           id="tspan6608"><tspan
+           id="tspan2610"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6606">Heat
+             id="tspan2608">Heat
 </tspan></tspan><tspan
            x="180.35225"
            y="558.03135"
-           id="tspan6612"><tspan
+           id="tspan2614"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6610">Dask
+             id="tspan2612">Dask
 </tspan></tspan><tspan
            x="77.041016"
            y="594.69798"
-           id="tspan6616"><tspan
+           id="tspan2618"><tspan
              style="font-weight:normal;-inkscape-font-specification:Arial"
-             id="tspan6614">
+             id="tspan2616">
 </tspan></tspan></text>
     </g>
   </g>

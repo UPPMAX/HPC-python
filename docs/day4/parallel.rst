@@ -255,7 +255,7 @@ already. For instance, common architectures include those where several cores in
 CPU share a common memory space and also those where CPUs are connected through some
 network interconnect.
 
-.. figure:: ../img/shared-distributed-mem.svg
+.. figure:: ../img/shared-distributed-mem.png
    :width: 550
    :align: center
 
@@ -311,7 +311,7 @@ HPC resources. If fact, one can underuse the cluster if one allocates more resou
 what the simulation requires. 
 
 .. figure:: ../img/laundry-machines.svg
-   :width: 200
+   :width: 400
    :align: center
 
    Under-using a cluster.
