@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="88mm"
+   viewBox="0 0 210 88"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   sodipodi:docname="parallel-arch.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.1811908"
+     inkscape:cx="571.0339"
+     inkscape:cy="240.43533"
+     inkscape:window-width="2222"
+     inkscape:window-height="1120"
+     inkscape:window-x="1479"
+     inkscape:window-y="74"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="77.040894"
+       y="421.60843"
+       width="273.45285"
+       height="176.09348"
+       id="rect1368" />
+    <rect
+       x="77.040894"
+       y="421.60843"
+       width="273.45285"
+       height="176.09348"
+       id="rect1368-4" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g6543"
+       transform="translate(0,-1.8820743)">
+      <rect
+         style="font-variation-settings:normal;opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.665;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         id="rect290"
+         width="194.65349"
+         height="72.599953"
+         x="7.6732559"
+         y="9.582098"
+         ry="0.93376154" />
+      <rect
+         style="font-variation-settings:normal;fill:#00e4ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.665002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+         id="rect290-7"
+         width="194.65349"
+         height="18.342873"
+         x="7.6732559"
+         y="9.582099"
+         ry="0.23592123" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;text-anchor:middle;fill:#00e4ff;fill-opacity:1;stroke:#000000;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         x="53.112206"
+         y="22.175709"
+         id="text1237"><tspan
+           sodipodi:role="line"
+           id="tspan1235"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#000000;fill-opacity:1;stroke-width:0.665"
+           x="53.112206"
+           y="22.175709">Shared Memory</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;text-anchor:middle;fill:#00e4ff;fill-opacity:1;stroke:#000000;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         x="154.90712"
+         y="21.372021"
+         id="text1237-4"><tspan
+           sodipodi:role="line"
+           id="tspan1235-3"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#000000;fill-opacity:1;stroke-width:0.665"
+           x="154.90712"
+           y="21.372021">Distributed Memory</tspan></text>
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-5.1519336,-74.591039)"
+         id="text1366"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.3333px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;white-space:pre;shape-inside:url(#rect1368);fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.51339;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"><tspan
+           x="159.9636"
+           y="448.03147"
+           id="tspan6580"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6578">Threads
+</tspan></tspan><tspan
+           x="102.90117"
+           y="484.6981"
+           id="tspan6584"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6582">Implicit threading
+</tspan></tspan><tspan
+           x="155.88874"
+           y="521.36473"
+           id="tspan6588"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6586">OpenMP
+</tspan></tspan><tspan
+           x="163.24355"
+           y="558.03135"
+           id="tspan6592"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6590">PyOMP
+</tspan></tspan><tspan
+           x="77.041016"
+           y="594.69798"
+           id="tspan6596"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6594">
+</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,94.312397,-73.819855)"
+         id="text1366-0"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.3333px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;white-space:pre;shape-inside:url(#rect1368-4);fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.51339;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"><tspan
+           x="143.66414"
+           y="448.03147"
+           id="tspan6600"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6598">Distributed
+</tspan></tspan><tspan
+           x="187.69274"
+           y="484.6981"
+           id="tspan6604"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6602">MPI
+</tspan></tspan><tspan
+           x="182.78714"
+           y="521.36473"
+           id="tspan6608"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6606">Heat
+</tspan></tspan><tspan
+           x="180.35225"
+           y="558.03135"
+           id="tspan6612"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6610">Dask
+</tspan></tspan><tspan
+           x="77.041016"
+           y="594.69798"
+           id="tspan6616"><tspan
+             style="font-weight:normal;-inkscape-font-specification:Arial"
+             id="tspan6614">
+</tspan></tspan></text>
+    </g>
+  </g>
+</svg>
