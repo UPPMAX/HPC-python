@@ -750,7 +750,7 @@ If even with the previous (and possibly others from your own) serial optimizatio
 doesn't achieve the expected performance, you may start looking for some parallelization 
 scheme. Here, we describe the most common schemes.  
 
-.. figure:: ../img/parallel-arch.svg
+.. figure:: ../img/parallel-arch.png
    :width: 550
    :align: center
 
