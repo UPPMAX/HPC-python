@@ -409,7 +409,7 @@ The main data inspection functions for DataFrames (and Series) are as follows:
 Operations
 ^^^^^^^^^^
 
-Pandas DataFrames and Series have a vast library of function methods that are evaluated vectorwise (whole columns at once) automatically. In lieu of in-depth discussion (which is provided by a separate course, "An Introduction to Pandas for Data Science"), important groups of operations and links to official documentation on their use are provided below. Users are encouraged to refer to these links in later exercises demonstrating how to make them run more efficiently on HPC systems. *Iteration through loops is costly and usually avoidable, and therefore should be avoided whenever possible.*
+Pandas DataFrames and Series have a vast library of function methods that are evaluated vector-wise (whole columns or rows at once) automatically. In lieu of in-depth discussion (provided by a separate course, "An Introduction to Pandas for Data Science"), important groups of operations and links to official documentation on their use are provided below. Users are encouraged to refer to these links in later exercises demonstrating how to make them run more efficiently on HPC systems. **Iteration through loops is costly and usually avoidable.**
 
 .. tabs::
 
@@ -428,7 +428,7 @@ Pandas DataFrames and Series have a vast library of function methods that are ev
 
    .. tab:: Binary/Comparative Methods
 
-      **Binary Operations.** Normal binary math operators (``+``, ``%``, ``**``, etc.) work when both data structures are the same shape or when one is a scalar. Special Pandas versions of these operators are required when one of the data structures is a DataFrame and the other is a Series. All arithmetic operators require you to specify the axis along which to broadcast the operation. `Click here for full documentation with examples. <https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#flexible-binary-operations>`__
+      **Binary Operations.** Normal binary math operators (``+``, ``%``, ``**``, etc.) work when both data structures are the same shape or when one is a scalar. However, special Pandas versions of these operators are required when one of the data structures is a DataFrame and the other is a Series. `Click here for full documentation with examples. <https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#flexible-binary-operations>`__ All of these arithmetic operators require you to specify the axis along which to broadcast the operation. 
 
       **Comparative Methods.** Binary comparative operators work normally when comparing a DataFrame/Series to a scalar, but to compare any two Pandas data structures element-wise, comparison methods are required. After any comparative expression, scalar or element-wise, you can add ``.any()`` or ``.all()`` once to aggregate along the column axis, and twice to get a single value for the entire DataFrame. `Click here for more complete documentation on these operators and boolean reductions thereof. <https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#flexible-comparisons>`__
 
@@ -480,14 +480,24 @@ Efficient Data Types
     
 * Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order. 
 
-**Sparse Data.** I you have a DataFrame with lots of rows or columns that are mostly NaN, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory.
-Initialize Series or DataFrames as `SparseDtype` by setting the kwarg ``dtype=SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", np.nan))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>`_ also work on Sparse Arrays. Other methods and attributes include
+**Sparse Data.** If you have a DataFrame where around half or more of the entries are NaN or a filler value, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory. Initialize Series or DataFrames as ``SparseDtype`` by setting the kwarg ``dtype=pd.SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", fill_value))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>`__ also work on Sparse Arrays. Other methods and attributes include:
 
 - ``df.sparse.density``: prints fraction of data that are non-NaN
-- ``df.sparse.fill_value``: prints fill value for NaNs, if any (might just return NaN)
+- ``df.sparse.fill_value``: prints fill value for NaNs, if any (if None, it returns NaN)
 - ``df.sparse.from_spmatrix(data)``: makes a new `SparseDtype` DataFrame from a SciPy sparse matrix
 - ``df.sparse.to_coo()``: converts a DataFrame (or Series) to sparse SciPy COO type (`more on those here <https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_array.html#scipy.sparse.coo_array>`_)
 
+This example shows the difference in memory usage between a 1000x1000 identity matrix as a regular NumPy array and as a SparseDtype DataFrame:
+
+.. jupyter-execute::
+
+    import pandas as pd
+    import numpy as np
+    import sys
+    a = np.diag( np.random.rand(1000) )
+    print("Regular memory usage as Numpy array: ", sys.getsizeof(a))
+    spdf = pd.DataFrame(a, dtype=pd.SparseDtype(dtype=np.float64, fill_value=0))
+    print("Memory usage as SparseDtype DataFrame: ", spdf.memory_usage(deep=True).sum())
 
 Automatic Multi-Threading with Numba
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -512,10 +522,11 @@ Here is a (somewhat scientifically nonsensical) example using the exoplanets Dat
      %timeit stuff.rolling(500).mean()
      %timeit stuff.rolling(500).mean(engine='numba', engine_kwargs={"parallel": True})
 
-Cython
-^^^^^^
+Speed-up with Cython
+^^^^^^^^^^^^^^^^^^^^
 
-The Cython package lets Python code be compiled into C with very little additional code. The compiled code can then run markedly faster depending on the application and whether or not variables are declared with C data types.
+The Cython package lets Python code be compiled into C with minimal additional code. The compiled code can then run markedly faster depending on the application and whether or not variables are declared with static data types. The `Pandas documentation on Cython shows an example using Jupyter, <https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#cython-writing-c-extensions-for-pandas>` but the typical use case requires writing a ``.pyx`` file, compiling it with a ``setup.py`` script, and executing the compiled file from a Slurm script or the bash shell.
+
 (TBC; see https://cython.readthedocs.io/en/stable/src/tutorial/cython_tutorial.html https://cython.readthedocs.io/en/stable/src/tutorial/array.html#array-array and https://cython.readthedocs.io/en/stable/src/tutorial/memory_allocation.html#memory-allocation )
 
 
