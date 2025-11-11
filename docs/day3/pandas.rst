@@ -236,8 +236,12 @@ To know if Pandas is the right tool for your job, you can consult the flowchart 
 
 We will also have a short session after this on plotting with Seaborn, a package for easily making publication-ready statistical plots with Pandas data structures.
 
+
+Introductory Topics (Review)
+----------------------------
+
 Important Data Types and Object Classes
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The main object classes of Pandas are ``Series`` and ``DataFrame``. There is also a separate object class called ``Index`` for the row indexes/labels and column labels, if applicable. Data that you load from file will mainly be loaded into either Series or DataFrames. Indexes are typically extracted later if needed.
 
@@ -280,11 +284,8 @@ There are also specialized datatypes for, e.g. saving on memory or performing wi
 
 This is far from an exhaustive list.
 
-Loading or Creating DataFrames
-------------------------------
-
-Loading DataFrames from File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Loading/Creating DataFrames
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most of the time, Series and DataFrames will be loaded from files, not made from scratch. To review, the following table lists I/O functions for a few of the most common data formats; `the full table with links to the documentation pages for each function can be found here. <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html>`__ Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise). 
 
@@ -299,11 +300,22 @@ binary  HDF5 Format                                   ``read_hdf()``            
 binary  Apache Parquet                                ``read_parquet()``                                   ``to_parquet()``
 ======  ============================================  ===================================================  =================================
 
-Most of these functions have several dozen possible kwargs. It is left to the reader to determine which kwargs are needed. *Most kwargs in a given reader function also appear in the corresponding writer function, and serve the same purpose.* As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
+Most of these functions have several dozen possible kwargs. It is left to the reader to determine which kwargs are needed. *Most kwargs in a given reader function also appear in the corresponding writer function, and serve the same purpose.*
 
-Most of the above formats were chosen not only because they are common, but because, apart from ``read_excel()``, these support **chunking** for data sets that are larger than memory.
+.. tip::
+   
+   Most of the *text* readers above, and the Excel reader, have kwargs that let you choose to load only some of the data, namely ``nrows`` and ``usecols``.
 
-In the example below, a CSV file called "exoplanets_5250_EarthUnits_fixed.csv" in the current working directory is read into the DataFrame ``df`` and then written out to a plain text file where decimals are rendered with commas, the delimiter is the pipe character, and the indexes are preserved as the first column.
+   * ``nrows`` lets you read in only the first *n* rows with their column headers, where $n \ge 0$. If $n=0$, only the column names will be returned. This is a very efficient way to inspect large datasets.
+   * ``usecols`` is the same as in NumPy's ``loadtxt()`` and ``genfromtxt()`` functions, i.e., it selects columns by position index and returns a data structure containing only those columns of data.
+
+
+.. tip::
+
+   Most of the above reader/writer functions were chosen not only because they are commonly used, but because, apart from ``read_excel()``, these support **chunking** for data sets that are larger than memory. Chunking is the act of performing operations, including I/O, on fixed-row-count subsets of the data, assuming each row is independent. For more information see the documentation on `using chunking <https://pandas.pydata.org/pandas-docs/stable/user_guide/scale.html#use-chunking.>`__
+   
+In most reader functions, including ``index_col=0`` sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
+
 
 .. challenge:: 
 
@@ -315,18 +327,12 @@ In the example below, a CSV file called "exoplanets_5250_EarthUnits_fixed.csv" i
    df = pd.read_csv('exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
    df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='\t',index=True)
 
-In most reader functions, including ``index_col=0`` sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
 
-Creating DataFrames in Python
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Building a DataFrame or Series from scratch is also easy. Lists and arrays can be converted directly to Series and DataFrames, respectively.
+**Creating DataFrames in Python.** Building a DataFrame or Series from scratch is also easy. Lists and arrays can be converted directly to Series and DataFrames, respectively.
 
 * Both ``pd.Series()`` and ``pd.DataFrame()`` have an ``index`` kwarg to assign a list of numbers, names, times, or other hashable keys to each row. 
 * You can use the ``columns`` kwarg in ``pd.DataFrame()`` to assign a list of names to the columns of the table. The equivalent for ``pd.Series()`` is just ``name``, which only takes a single value and doesn't do anything unless you plan to join that Series to a larger DataFrame.
 * Dictionaries and record arrays can be converted to DataFrames with ``pd.DataFrame.from_dict(myDict)`` and ``pd.DataFrame.from_records(myRecArray)``, respectively, and the keys will automatically be converted to column labels.
-
-**Example**
 
 .. challenge:: 
 
@@ -339,10 +345,11 @@ Building a DataFrame or Series from scratch is also easy. Lists and arrays can b
     df = pd.DataFrame( np.arange(1,13).reshape((4,3)), index=['w','x','y','z'], columns=['a','b','c'] )
     print(df)
 
-It is also possible to convert DataFrames and Series to NumPy arrays (with or without the indexes), dictionaries, record arrays, or strings with the methods ``.to_numpy()``, ``.to_dict()``, ``to_records()``, and ``to_string()``, respectively.
+It is also possible (and occasionally necessary) to convert DataFrames and Series to NumPy arrays, dictionaries, record arrays, or strings with the methods ``.to_numpy()``, ``.to_dict()``, ``to_records()``, and ``to_string()``, respectively.
+
 
 Inspection and Memory Usage
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The main data inspection functions for DataFrames (and Series) are as follows:
 
@@ -366,8 +373,7 @@ The main data inspection functions for DataFrames (and Series) are as follows:
     print('\n',df.memory_usage())
     print('\n Compare: \n',df.memory_usage(deep=True))
 
-
-.. admonition:: "Selection and Preprocessing Cheatsheet"
+.. admonition:: "Data Selection and Preprocessing Cheatsheet"
    :collapsible:
    
    Below is a table of the syntax for how to select or assign different subsets or cross-sections of a DataFrame. `The complete guide, including how to select data by conditions, can be found at this link. <https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html>`__
@@ -384,7 +390,7 @@ The main data inspection functions for DataFrames (and Series) are as follows:
    columns by name, rows by index   You can mix ``.loc[]`` and ``.iloc[]`` for selection, **but NOT for assignment!**
    ===============================  ==================================================================================
 
-   The following table describes basic functions for finding, removing, and replacing missing or unwanted data, which will be necessary ahead of any machine learning applications. Pandas has its own functions for detecting missing data in order to detect both regular ``NaN``s and the datetime equivalent, ``NaT``. Any of the following functions will work on individual columns or any other subset of the DataFrame as well as the whole. `Click here for more information on handling missing or invalid data in Pandas. <https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html>`__
+   The following table describes basic functions for finding, removing, and replacing missing or unwanted data, which is necessary ahead of any machine learning applications. Pandas has its own functions for detecting missing data in order to detect both regular ``NaN`` and the datetime equivalent, ``NaT``. Any of the following functions will work on individual columns or any other subset of the DataFrame as well as the whole. `Click here for more information on handling missing or invalid data in Pandas. <https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html>`__
 
    =========================================  ============================================================================
    Pandas Function                            Purpose                                 
@@ -399,6 +405,49 @@ The main data inspection functions for DataFrames (and Series) are as follows:
    ``df.mask(condition, other=None)``         mask unwanted numeric data by condition, optionally replace from ``other``
    ``df.replace(to_replace=old, value=new)``  replace ``old`` value with ``new`` (very flexible; see docs)
    =========================================  ============================================================================
+
+Operations
+^^^^^^^^^^
+
+Pandas DataFrames and Series have a vast library of function methods that are evaluated vectorwise (whole columns at once) automatically. In lieu of in-depth discussion (which is provided by a separate course, "An Introduction to Pandas for Data Science"), important groups of operations and links to official documentation on their use are provided below. Users are encouraged to refer to these links in later exercises demonstrating how to make them run more efficiently on HPC systems. *Iteration through loops is costly and usually avoidable, and therefore should be avoided whenever possible.*
+
+.. tabs::
+
+   .. tab:: String Operations
+
+      Most built-in string methods can be applied column-wise to Pandas data structures (Series, Index, or columns of DataFrames) using ``.str.<method>()``, where ``.str.`` is an accessor. `Click here for complete documentation about working with text data in Pandas. <https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html>`__
+
+   .. tab:: Statistical Functions
+
+      Nearly all NumPy statistical functions (UFuncs) and a few ``scipy.mstats`` functions can be called as aggregate methods of DataFrames, Series, any subsets thereof, or `GroupBy objects (for which the statistics are calculated per group). <https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html>`__ 
+
+      * NumPy-like methods: ``.abs()``, ``.count()``, ``.max()``, ``.min()``, ``.mean()``, ``.median()``, ``.mode()``, ``.prod()``, ``.quantile()``, ``.sum()``, ``.std()``, ``.var()``, ``.cumsum()``, ``.cumprod()``, ``.cummax()``\* and ``.cummin()``\* (\* Pandas-only)
+      * SciPy (m)stats-like methods: ``.sem()``, ``.skew()``, ``.kurt()``, and ``.corr()``
+
+      All of the above ignore NaNs by default, and can be evaluated within `rolling windows. <https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html>`__ For DataFrames and GroupBy objects, you must set ``numeric_only=True`` to exclude non-numeric data, and specify whether to aggregate along rows (``axis=0``) or columns (``axis=1``). `Start at this link for more complete documentation. <https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#descriptive-statistics>`__
+
+   .. tab:: Binary/Comparative Methods
+
+      **Binary Operations.** Normal binary math operators (``+``, ``%``, ``**``, etc.) work when both data structures are the same shape or when one is a scalar. Special Pandas versions of these operators are required when one of the data structures is a DataFrame and the other is a Series. All arithmetic operators require you to specify the axis along which to broadcast the operation. `Click here for full documentation with examples. <https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#flexible-binary-operations>`__
+
+      **Comparative Methods.** Binary comparative operators work normally when comparing a DataFrame/Series to a scalar, but to compare any two Pandas data structures element-wise, comparison methods are required. After any comparative expression, scalar or element-wise, you can add ``.any()`` or ``.all()`` once to aggregate along the column axis, and twice to get a single value for the entire DataFrame. `Click here for more complete documentation on these operators and boolean reductions thereof. <https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#flexible-comparisons>`__
+
+      .. tip::
+
+         * If 2 DataFrames (or Series) are identically indexed (identical row and column labels in the same order), ``df1.compare(df2)`` can be used to quickly find discrepant values, and ``df1.equals(df2)`` can be used to test for equality between DataFrames with missing data.
+         * To find *datatype* differences between visually identical datasets, use ``pd.testing.assert_frame_equal(df1, df2)`` or ``pd.testing.assert_series_equal(df1, df2)`` to see if an ``AssertionError`` is raised.
+
+   .. tab:: User-Defined Functions
+
+      If the transformation you need to apply to your data cannot be simply constructed of the previously described functions there are several methods to help you apply more complex or user-defined functions. For more complete information `read all subsections of the documentation under the heading "Function Application." <https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#function-application>`__
+
+      * ``.map(func)`` takes a scalar function and broadcasts it to every element of the data structure. Function ``func`` may be passed by name or lambda function, but both input and output must be scalars (no arrays).
+      * ``.agg()`` applies 1 or more reducing (aggregating) functions (e.g. ``.mean()``) to a Series, DataFrame, or GroupBy object.
+      * ``.transform()`` broadcasts functions to every cell of the DataFrame, Series, or GroupBy object that calls it (aggregating functions are not allowed). Group-wise transformations can yield surprising results due to how GroupBy objects are received.
+      * ``.apply()`` can handle aggregating, broadcasting, and expanding\* functions (\*list-like output for each input cell) for Series, DataFrames, and GroupBy objects, and can evaluate the functions either row-wise or column-wise. However, its flexibility and relatively intuitive interface come at the cost of speed, and the output structure can be unpredictable when the inputs are GroupBy objects. 
+      * ``.pipe()`` is useful when you need to chain several functions that take and return whole DataFrames or GroupBy objects.
+      
+      The ``.agg()`` and ``.transform()`` methods in particular allow simultaneous evaluation of a different function for each column, or multiple functions per column for 1 or more columnns. If multiple functions are applied per column for >1 column, however, the output will be a `hierarchical DataFrame, <https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html#hierarchical-indexing-multiindex>`__ which can be hard to work with.
 
 
 HPC-Specific Topics
@@ -416,8 +465,6 @@ Efficient Data Types
 
   - When an order is asserted, it becomes possible to use ``.min()`` and ``.max()`` on the categories.
 
-* Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order.
-
 .. jupyter-execute::
 
     import pandas as pd
@@ -431,21 +478,7 @@ Efficient Data Types
     ptypes = ptypes.cat.reorder_categories(ptypes.cat.categories[::-1], ordered=True)
     print(ptypes)
     
-
-.. jupyter-execute::
-
-    import pandas as pd
-    import numpy as np
-    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
-    # look at the radius distribution before binning, (and get rid of nonsense)
-    df['radius_RE'].loc[df['radius_RE']<30].plot(kind='kde', xlim=(0,30), title='Radius distribution (Earth radii)')
-    #xlabel normally works but not for 'kde' for some reason
-    # Looks bimodal around 2.5 and 13ish. Let's cut it at 5, 10, and 16 earth radii
-    pcut = pd.cut(df['radius_RE'], bins=[df['radius_RE'].min(), 5, 10, 16, df['radius_RE'].max()], 
-                  labels=['Rocky', 'Neptunian', 'Jovian', 'Puffy'], )
-    print("Bins: ", pcut.unique())
-    print("\n Grouped data, nth rows:\n", df.groupby(pcut).mean(numeric_only=True))
-
+* Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order. 
 
 **Sparse Data.** I you have a DataFrame with lots of rows or columns that are mostly NaN, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory.
 Initialize Series or DataFrames as `SparseDtype` by setting the kwarg ``dtype=SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", np.nan))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>`_ also work on Sparse Arrays. Other methods and attributes include
@@ -454,6 +487,36 @@ Initialize Series or DataFrames as `SparseDtype` by setting the kwarg ``dtype=Sp
 - ``df.sparse.fill_value``: prints fill value for NaNs, if any (might just return NaN)
 - ``df.sparse.from_spmatrix(data)``: makes a new `SparseDtype` DataFrame from a SciPy sparse matrix
 - ``df.sparse.to_coo()``: converts a DataFrame (or Series) to sparse SciPy COO type (`more on those here <https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_array.html#scipy.sparse.coo_array>`_)
+
+
+Automatic Multi-Threading with Numba
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If Numba is installed, setting ``engine=numba`` in functions can boost performance if the function has to be run multiple times over several columns, particularly if you can set ``engine_kwargs={"parallel": True}``. Types of functions that this works for include:
+
+* Statistical functions like ``mean()``, ``median()``, and ``std()``, which can be applied to the whole data set or to rolling windows. 
+* Complex functions, or user-defined functions decorated with ``@jit``, applied via ``.agg()``, ``.transform()``, ``.map()``, or ``.apply()``.
+
+Parallel function evaluation occurs column-wise, so **performance will be boosted if and only if the function is repeated many times over many columns.** For small datasets, the added overhead can worsen performance.
+
+Here is a (somewhat scientifically nonsensical) example using the exoplanets DataFrame to show the speed-up for 5 columns.
+
+.. jupyter-execute::
+   
+     import numpy as np
+     import pandas as pd
+     df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
+     import numba
+     numba.set_num_threads(4)
+     stuff =  df.iloc[:,4:9].sample(n=250000, replace=True, ignore_index=True)
+     %timeit stuff.rolling(500).mean()
+     %timeit stuff.rolling(500).mean(engine='numba', engine_kwargs={"parallel": True})
+
+Cython
+^^^^^^
+
+The Cython package lets Python code be compiled into C with very little additional code. The compiled code can then run markedly faster depending on the application and whether or not variables are declared with C data types.
+(TBC; see https://cython.readthedocs.io/en/stable/src/tutorial/cython_tutorial.html https://cython.readthedocs.io/en/stable/src/tutorial/array.html#array-array and https://cython.readthedocs.io/en/stable/src/tutorial/memory_allocation.html#memory-allocation )
 
 
 Getting Dummy Variables for Machine Learning
