@@ -236,10 +236,10 @@ To know if Pandas is the right tool for your job, you can consult the flowchart 
 
 We will also have a short session after this on plotting with Seaborn, a package for easily making publication-ready statistical plots with Pandas data structures.
 
-Basic Data Types and Object Classes
------------------------------------
+Important Data Types and Object Classes
+---------------------------------------
 
-The main object classes of Pandas are ``Series`` and ``DataFrame``. There is also a separate object class called ``Index`` for the row indexes/labels and column labels, if applicable. Data that you load from file will mainly be loaded into either Series or DataFrames. Indexes are typically extracted later.
+The main object classes of Pandas are ``Series`` and ``DataFrame``. There is also a separate object class called ``Index`` for the row indexes/labels and column labels, if applicable. Data that you load from file will mainly be loaded into either Series or DataFrames. Indexes are typically extracted later if needed.
 
 * ``pandas.Series(data, index=None, name=None, ...)`` instantiates a 1D array with customizable indexes (labels) attached to every entry for easy access, and optionally a name for later addition to a DataFrame as a column.
 
@@ -252,7 +252,8 @@ The main object classes of Pandas are ``Series`` and ``DataFrame``. There is als
 
 For the rest of this lesson, example DataFrames will be abbreviated as ``df`` in code snippets (and example Series, if they appear, will be abbreviated as ``ser``).
 
-.. admonition:: **Important Attributes**
+.. admonition:: **Important Attributes Cheatsheet**
+   :collapsible: closed
 
    The API reference in the `official Pandas documentation <https://pandas.pydata.org/docs/user_guide/index.html>`_ shows hundreds of methods and attributes for Series and DataFrames. The following is a very brief list of the most important attributes and what they output.
    
@@ -279,16 +280,18 @@ There are also specialized datatypes for, e.g. saving on memory or performing wi
 
 This is far from an exhaustive list.
 
-Input/Output and Making DataFrames from Scratch
------------------------------------------------
+Loading or Creating DataFrames
+------------------------------
 
-Most of the time, Series and DataFrames will be loaded from files, not made from scratch. The following table lists I/O functions for a few of the most common data formats; `the full table with links to the documentation pages for each function can be found here. <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html>`__ Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise). 
+Loading DataFrames from File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Most of the time, Series and DataFrames will be loaded from files, not made from scratch. To review, the following table lists I/O functions for a few of the most common data formats; `the full table with links to the documentation pages for each function can be found here. <https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html>`__ Input and output functions are sometimes called readers and writers, respectively. The ``read_csv()`` is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise). 
 
 ======  ============================================  ===================================================  =================================
 Typ1e    Data Description                              Reader                                               Writer
 ======  ============================================  ===================================================  =================================
 text    **CSV / ASCII text with standard delimiter**  ``read_csv(path_or_url, sep=',', **kwargs)``         ``to_csv(path, **kwargs)``
-text    Fixed-Width Text File                         ``read_fwf()``                                       N/A
 text    JSON                                          ``read_json()``                                      ``to_json(path, **kwargs)``
 SQL     SQLite table or query                         ``read_sql()``                                       ``to_sql(path, **kwargs)``
 binary  **MS Excel**/**OpenDocument**                 ``read_excel(path_or_url, sheet_name=0, **kwargs)``  ``to_excel(path, **kwargs)``
@@ -296,10 +299,11 @@ binary  HDF5 Format                                   ``read_hdf()``            
 binary  Apache Parquet                                ``read_parquet()``                                   ``to_parquet()``
 ======  ============================================  ===================================================  =================================
 
-This is far from a complete list, and most of these functions have several dozen possible kwargs. *Most kwargs in a given reader function also appear in the corresponding writer function, and serve the same purpose.* It is left to the reader to determine which kwargs are needed. As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
+Most of these functions have several dozen possible kwargs. It is left to the reader to determine which kwargs are needed. *Most kwargs in a given reader function also appear in the corresponding writer function, and serve the same purpose.* As with NumPy's ``genfromtxt()`` function, most of the *text* readers above, and the excel reader, have kwargs that let you choose to load only some of the data.
 
-In the example below, a CSV file called "exoplanets_5250_EarthUnits.csv" in the current working directory is read into the DataFrame ``df`` and then written out to a plain text file where decimals are rendered with commas, the delimiter is the pipe character, and the indexes are preserved as the first column.
+Most of the above formats were chosen not only because they are common, but because, apart from ``read_excel()``, these support **chunking** for data sets that are larger than memory.
 
+In the example below, a CSV file called "exoplanets_5250_EarthUnits_fixed.csv" in the current working directory is read into the DataFrame ``df`` and then written out to a plain text file where decimals are rendered with commas, the delimiter is the pipe character, and the indexes are preserved as the first column.
 
 .. challenge:: 
 
@@ -312,6 +316,9 @@ In the example below, a CSV file called "exoplanets_5250_EarthUnits.csv" in the 
    df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='\t',index=True)
 
 In most reader functions, including ``index_col=0`` sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with ``df.set_index('column_name')``.
+
+Creating DataFrames in Python
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Building a DataFrame or Series from scratch is also easy. Lists and arrays can be converted directly to Series and DataFrames, respectively.
 
@@ -334,11 +341,9 @@ Building a DataFrame or Series from scratch is also easy. Lists and arrays can b
 
 It is also possible to convert DataFrames and Series to NumPy arrays (with or without the indexes), dictionaries, record arrays, or strings with the methods ``.to_numpy()``, ``.to_dict()``, ``to_records()``, and ``to_string()``, respectively.
 
-
 Inspection and Memory Usage
 ---------------------------
 
-Review of Inspect
 The main data inspection functions for DataFrames (and Series) are as follows:
 
 * ``df.head()`` (or ``df.tail()``)  prints first (or last) 5 rows of data with row and column labels, or accepts an integer argument to print a different number of rows.
@@ -346,7 +351,6 @@ The main data inspection functions for DataFrames (and Series) are as follows:
 * ``df.describe()`` prints summary statistics for all the numerical columns in ``df``.
 * ``df.nunique()`` prints counts of the unique values in each column.
 * ``df.value_counts()`` prints each unique value and the number of of occurrences for every combination of row and column values for as many of each as are selected (usually applied to just a couple of columns at a time at most)
-* ``df.sample()`` randomly selects a given number of rows ``n=nrows``, or a decimal fraction ``frac`` of the total number of rows.
 * ``df.memory_usage()`` returns the estimated memory usage per column (see important notes below).
 
 .. important:: The ``memory_usage()`` Function
@@ -362,13 +366,48 @@ The main data inspection functions for DataFrames (and Series) are as follows:
     print('\n',df.memory_usage())
     print('\n Compare: \n',df.memory_usage(deep=True))
 
+
+.. admonition:: "Selection and Preprocessing Cheatsheet"
+   :collapsible:
+   
+   Below is a table of the syntax for how to select or assign different subsets or cross-sections of a DataFrame. `The complete guide, including how to select data by conditions, can be found at this link. <https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html>`__
+   
+   ===============================  ==================================================================================
+   To Access/Assign...                   Syntax
+   ===============================  ==================================================================================
+   1 cell (scalar output)           ``df.at['row','col']`` or ``df.iat[i,j]``
+   column(s) by name                ``df['col']`` or ``df[['col0', 'col1', ...]]``
+   row(s) by index                  ``df.iloc[i]`` or ``df.iloc[i:j]``
+   rows and columns by name         ``df.loc[['rowA','rowB', ...], ['col0', 'col1', ...]]``
+   rows and columns by index        ``df.iloc[i:j, m:n]``
+   
+   columns by name, rows by index   You can mix ``.loc[]`` and ``.iloc[]`` for selection, **but NOT for assignment!**
+   ===============================  ==================================================================================
+
+   The following table describes basic functions for finding, removing, and replacing missing or unwanted data, which will be necessary ahead of any machine learning applications. Pandas has its own functions for detecting missing data in order to detect both regular ``NaN``s and the datetime equivalent, ``NaT``. Any of the following functions will work on individual columns or any other subset of the DataFrame as well as the whole. `Click here for more information on handling missing or invalid data in Pandas. <https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html>`__
+
+   =========================================  ============================================================================
+   Pandas Function                            Purpose                                 
+   =========================================  ============================================================================
+   ``.isna()``                                locates missing/invalid data (NaN/NaT)
+   ``.notna()``                               locates valid data
+   ``df.dropna(axis=axis, inplace=False)``    remove rows (``axis=0``) or columns (``axis=1``) containing invalid data
+   ``df.fillna()``                            replace NaNs with a fixed value
+   ``df.interpolate()``                       interpolate missing data using any method of ``scipy.interpolate()``
+   ``df.drop_duplicates(inplace=False)``      remove duplicate rows or rows with duplicate values of columns in ``subset``
+   ``df.drop(data, axis=axis)``               remove unneeded columns (``axis=1``) or rows (``axis=0``) by name or index
+   ``df.mask(condition, other=None)``         mask unwanted numeric data by condition, optionally replace from ``other``
+   ``df.replace(to_replace=old, value=new)``  replace ``old`` value with ``new`` (very flexible; see docs)
+   =========================================  ============================================================================
+
+
 HPC-Specific Topics
 -------------------
 
 Efficient Data Types
 ^^^^^^^^^^^^^^^^^^^^
 
-**Categorical data.** As the memory usage outputs show in the example above, a single 5-8-letter word uses almost 8 times as much memory as a 64-bit float. The ``Categorical`` datatype provides, among other benefits, a way to get the memory savings of a dummy variable array without having to create one, as long as the number of unique values is much smaller than the number of entries in the column(s) to be converted to ``Categorical`` type. Internally, the ``Categorical`` type maps all the unique values of a column to short numerical codes in the column's place in memory, stores the codes in the smallest integer format that fits the largest-valued code, and only converts the codes to the associated strings when the data are printed. 
+**Categorical data.** ``Categorical`` type maps all the unique values of a column to short numerical codes in the column's place in memory, stores the codes in the smallest integer format that fits the largest-valued code, and only converts the codes to the associated strings when the data are printed. This data type is extremely efficient when the number of unique values are small relative to the size of the data set, but it is not recommended when half or more of the data values are unique.  
 
 * To convert a column in an existing Dataframe, simply set that column equal to itself with ``.astype('category')`` at the end. If defining a new Series that you want to be categorical, simply include ``dtype='category'``.
 * To get attributes or call methods of ``Categorical`` data, use the ``.cat`` accessor followed by the attribute or method. E.g., to get the category names as an index object, use ``df['cat_col'].cat.categories``.
