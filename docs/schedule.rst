@@ -18,6 +18,11 @@ Course dates
 |49  |Tuesday  |2025-12-02|9:00 (sharp) to 16:00|:ref:`schedule-day-4`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
 
+Next course dates:
+
+- 3 March 2026: 1 day course
+- 20,22-24 April 2026: 4 day course
+
 .. _schedule-day-1:
 
 Day 1: Log in and use Basic Python in a cluster environment
