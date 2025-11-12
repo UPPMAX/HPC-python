@@ -500,7 +500,7 @@ Exercises
 
    - Rackham: ``uppmax2025-2-296``
    - Kebnekaise: ``hpc2n2025-076``
-   - Cosmos: ``lu2025-7-34``
+   - Cosmos: ``lu2025-7-106``
    - Tetralith: ``naiss2025-22-403``  
    - Dardel: ``naiss2025-22-403``
 
@@ -508,7 +508,7 @@ Exercises
 
    - Rackham: ``/proj/hpc-python-uppmax``
    - Kebnekaise: ``/proj/nobackup/hpc-python-spring``
-   - Cosmos: ``/lunarc/nobackup/projects/lu2024-17-44``
+   - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
    - Tetralith: ``/proj/hpc-python-spring-naiss``
    - Dardel: ``/cfs/klemming/projects/snic/hpc-python-spring-naiss``
 
