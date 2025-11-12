@@ -771,7 +771,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             .. code-block:: bash
                
                #!/bin/bash
-               #SBATCH -A lu2025-7-34
+               #SBATCH -A lu2025-7-106
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -987,7 +987,7 @@ Miscellaneous examples
             .. code-block:: bash 
 
                #!/bin/bash
-               #SBATCH -A lu2025-7-34
+               #SBATCH -A lu2025-7-106
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -1155,7 +1155,7 @@ Miscellaneous examples
             .. code-block:: bash 
 
                #!/bin/bash
-               #SBATCH -A lu2025-7-34
+               #SBATCH -A lu2025-7-106
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
