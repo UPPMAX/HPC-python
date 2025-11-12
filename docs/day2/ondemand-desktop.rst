@@ -53,70 +53,131 @@ Starting the On-Demand Interface
        
           If you start a terminal session or another application from ``Favorites``, ``System Tools``, or other menu headings not prefixed with ``Applications -`` or ``PDC-``, and launch an interactive program from that, it will run on a login node. Do not run intensive programs this way!
 
+
+      .. note:: What if On-Demand Applications are missing from the menu?
+         :class: dropdown
+      
+         On rare occasions, a user may find that the Applications menu is missing all ``Applications - <App_group>`` options. This usually indicates that your ``.bashrc`` file is either missing or has had problematic changes made to it, especially if LMOD commands like ``ml spider <package>`` are also not recognized. If you are a new user on your very first session on COSMOS, the problem should resolve itself if you start a new ThinLinc session with "End existing session" selected. If you are not a new user and module commands are recognized, running ``gfxmenu --force`` in a terminal session may resolve the issue; otherwise, you will probably have to submit a support ticket.
+
 === "Kebnekaise"
 
     To start an Open OnDemand session on Kebnekaise,
     
     1. Open `https://portal.hpc2n.umu.se <https://portal.hpc2n.umu.se>`__ in your browser. The page looks like this:
-    
-        <img src="https://docs.hpc2n.umu.se/images/open-ondemand-portal.png" alt="HPC2N Open On-Demand Portal" width="1200"/>
+   
+       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-portal.png
+          :width: 1200
+          :align: center
+          :alt: HPC2N Open On-Demand Portal
     
     2. Click the blue button labeled "Login to HPC2N OnDemand".
     3. A login window should open with boxes for your login credentials. Enter your HPC2N username and password, then click "Sign In".
     4. You will now be on the HPC2N Open OnDemand dashboard. The top of it looks like this:
-    
-        <img src="https://docs.hpc2n.umu.se/images/open-ondemand-dashboard.png" alt="HPC2N Open On-Demand Portal" width="1200"/>
+   
+       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-dashboard.png
+          :width: 1200
+          :align: center
+          :alt: HPC2N Open On-Demand Dashboard
     
     5. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
+
+       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-apps.png
+          :width: 1200
+          :align: center
+          :alt: HPC2N Open On-Demand Apps
     
-        <img src="https://docs.hpc2n.umu.se/images/open-ondemand-apps.png" alt="HPC2N Open On-Demand dashboard" width="1200"/>
+    .. warning::
     
-    !!! warning
-    
-        Unlike on Cosmos and Dardel, On-Demand applications on Kebnekaise are **not** reachable through Thinlinc, regardless of whether you use the desktop client or a browser! If you find similar-looking applications in the Thinlinc interface, be aware that they all run on login nodes!
+       Unlike on Cosmos and Dardel, On-Demand applications on Kebnekaise are **not** reachable through Thinlinc, regardless of whether you use the desktop client or a browser! If you find similar-looking applications in the Thinlinc interface, be aware that they all run on login nodes!
 
 
-.. note:: What if On-Demand Applications are missing from the menu?
-   :class: dropdown
+Setting Job Parameters
+----------------------
+.. tabs::
 
-   On rare occasions, a user may find that the Applications menu is missing all ``Applications - <App_group>`` options. This usually indicates that your ``.bashrc`` file is either missing or has had problematic changes made to it, especially if LMOD commands like ``ml spider <package>`` are also not recognized. If you are a new user on your very first session on COSMOS, the problem should resolve itself if you start a new ThinLinc session with "End existing session" selected. If you are not a new user and module commands are recognized, running ``gfxmenu --force`` in a terminal session may resolve the issue; otherwise, you will probably have to submit a support ticket.
+   ..tab:: "COSMOS (and Dardel)"
+
+      Upon clicking your chosen application, a pop-up interface called the **GfxLauncher** will appear and let you set the following options:
+      
+      1. **Wall time** - how long your interactive session will remain open. *When it ends, the whole window closes immediately and any unsaved work is lost.* You can select the time from a drop-down menu, or type in the time manually. On Cosmos, CPU-only applications (indicated with "(CPU)" in the name) can run for up to 168 hours (7 days), but the rest are limited to 48 hours. Default is 30 minutes.
+      2. **Requirements** - how many tasks per node you need. The default is usually 1 or 4 tasks per node. There is also a **gear icon** to the right of this box that can pull up a second menu (see figure below) where you can set
+      
+        - the name of your job, 
+        - the number of tasks per node, 
+        - the amount of memory per CPU core, and/or 
+        - whether or not to use a full node.
+
+      .. figure:: ../img/cosmos-on-demand-job-settings.png
+         :width: 800
+         :align: center
+      
+         The GfxLauncher GUI (here used to launch Jupyter Lab). The box on the left is the basic menu and the box on the right is what pops up when the gear/cog icon next to ``Requirements`` is clicked.
+
+      3. **Resource** - which kind of node you want in terms of the architecture (AMD or Intel) and number of cores in the CPU (or GPU). Options and defaults vary by program, and the option to change this is not always available.
+      4. **Project** - choose from a drop-down menu the project with which your work is associated. This is mainly to keep your usage in line with your allocations and permissions, and to send any applicable invoices to the correct PI.
+      
+      When you're happy with your settings, click "Start". The GfxLauncher menu will stay open in the background so that you can monitor your wall time usage with the `Usage` bar. Leave this window open---your application depends on it!
+      
+      .. warning::
+      
+         Closing the GfxLauncher popup after your application starts will kill the application immediately!
+         
+      If you want, you can also look at the associated SLURM scripts by clicking the "More" button at the bottom of the GfxLauncher menu and clicking the "Script" tab (example below), or view the logs under the "Logg" tab.
+            
+      .. figure:: ../img/cosmos-on-demand-jupyter-more.png
+         :width: 600
+         :align: center
+      
+      If an app fails to start, the first step of troubleshooting will always be to check the "Logg" tab.
+      
+      .. tip:: 
+      
+        **Terminals on Compute nodes.** If you don't see the program you want to run interactively listed under any other ``Applications`` sub-menus, or if the usual menu item fails to launch the application, you may still be able to launch it via one of the terminals under ``Applications - General``, or the GPU Accelerated Terminal under ``Applications - Visualization``.
+      
+        The CPU terminal allows for a wall time of up to 168 hours (7 days), while the two GPU terminals can only run for 48 hours (2 days) at most. For more on the specifications of the different nodes these terminals can run on, see `LUNARC's webpage on COSMOS <https://www.lunarc.lu.se/systems/cosmos/>`__.
+      
+      If you finish before your wall time is up and close the app, the app should stop in the GfxLauncher window within a couple of minutes, but you can always force it to stop by clicking the "Stop" button. This may be necessary for Jupyter Lab.
+      
+   ..tab:: "Kebnekaise"
+      
+      If you go to "Interactive apps" and select Jupyter Notebook, or any of the other options, a page will open that looks like this:
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter
+      
+      Most of the options you have to set will be the same whether you choose Jupyter Notebook, VSCode, or even the Kebnekaise desktop. The parameters required for all apps include:
+      
+      - **Compute Project** - Dropdown menu where you can choose (one of) your compute projects to launch with. 
+      - **Number of Hours** - Wall time. The maximum is 12 hours, but you should avoid using more than you need to conserve your allocation and minimize queuing time.
+      - **Node type** - Choose from options described below the dropdown menu. If you pick "any GPU", leave "Number of Cores" empty.   
+      - **Number of Cores** - Choose any number up to 28. Each core has 4GB of memory. This is only a valid field if you pick "any" or "Large memory" for the "Node type" selection. 
+      - **Working directory** - Default is ``$HOME``. You can either type a full path manually or click "Select Path" to open a file browser if you are unsure of the full path.
+      - **"I would like to receive an email when my job starts"** - Check box if you agree.
+      
+      For some apps, like Jupyter Notebook, you will also see an option to choose a **Runtime environment.** Choices include "System provided", "Project provided", or "User provided". If you or your project do not have a custom environment, then use "System provided".
+      
+      Once you enter your desired parameters, click **Launch**. If the parameters are all valid, the page will reload and looks something like this for as long as your job is in the queue:
 
 
-How do I start?
-^^^^^^^^^^^^^^^
-
-For most programs, the start-up process is roughly the same:
-
-#. Log into COSMOS via Thinlinc to start a LUNARC HPC Desktop session.
-#. Click ``Applications`` in the top left corner and hover over the items prefixed with ``Applications -`` until you find your desired application.
-#. Upon clicking your chosen application, a pop-up, the Gfx Launcher interface, will appear and let you set the following options:
-      #. **Wall time** - how long your interactive session will remain open. When it ends, the whole window closes immediately and any unsaved work is lost. You can select the time from a drop-down menu, or type in the time manually. CPU-only applications can run for up to 168 hours (7 days), but the rest are limited to 48 hours. Default is 30 minutes.
-      #. **Requirements** - how many tasks per node you need. The default is usually 1 or 4 tasks per node. There is also a **gear icon** to the right of this box that can pull up a second menu where you can set the name of your job, the number of tasks per node, the amount of memory per CPU core, and/or toggle whether or not to use a full node.
-      #. **Resource** - which kind of node you want in terms of the architecture (AMD or Intel) and number of cores in the CPU (or GPU). Options and defaults vary by program, but it is recommended that you leave the default node type in place.
-      #. **Project** - choose from a drop-down menu the project with which your work is associated. This is mainly to keep your usage in line with your licenses and permissions, and to send any applicable invoices to the correct PI. Licensed software will only work for projects whose group members are covered by the license.
-
-   .. figure:: ../img/cosmos-on-demand-resource-specs.png
-      :width: 600
-      :align: center
-
-      The GfxLauncher GUI (here used to launch Spyder). The box on the left is the basic menu and the box on the right is what pops up when the gear icon next to ``Requirements`` is clicked.
-
-
-4. When you're happy with your settings, click "Start". The Gfx Launcher menu will stay open in the background so that you can monitor your remaining time and resources with the ``Usage`` bar.
-
-If you want, you can also look at the associated SLURM scripts by clicking the "More" button at the bottom of the Gfx Launcher menu and clicking the "Script" tab (example below), or view the logs under the "Logg" tab.
-
-   .. figure:: ../img/cosmos-on-demand-more.png
-      :width: 400
-      :align: center
-
-For a few applications (e.g. Jupyter Lab), GfxLauncher will also offer an additional menu item titled ``Job settings...``. This is where you can load custom environments or additional modules if absolutely necessary. However, this feature is still a work in progress; any module already in the module box when you first open ``Job settings`` is likely necessary to run the program, and searching for additional modules (Select modules button) tends to erase any listed previously. For now, additional modules must be entered by hand (not always including the version number) in a comma-separated list. Moreover, incompatible and redundant modules tend to make the application shut down as soon as it is queued, raising a spurious alert that the requested walltime has expired.
-
-   .. figure:: ../img/cosmos-on-demand-job-settings.png
-      :width: 550
-      :align: center
-
-      The Job Properties menu (right) pops up when the box titled ``Job settings...`` in the main GfxLauncher window (left) is clicked. Only use it if you know what you're doing!
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-starting.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter waiting
+      
+      When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from "Queued" to "Running", and the number of nodes and cores with appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:
+      
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-ready.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter waiting
+      
+      For all apps, the equivalent of a start button will be a bright blue rectangle near the bottom of the job box, usually with "Connect to" and the app name on it. When you click this button, your app should launch in a new window.
+      
+      .. important::
+      
+         Closing the GUI window for your app before time runs out (e.g. the browser for Jupyter Notebook) does not stop your job or release the resources associated with it! If you want to stop your job and avoid spending any more of your resource budget on it, you must click the red "Delete" button near the top right of your interactive job listing. Otherwise, you can reopen any closed app as long as time remains in the job allocated for it.
 
 
 .. [#f1] Open OnDemand is a web service that allows HPC users to schedule jobs, run notebooks and work interactively on a remote cluster from any device that supports a modern browser. The Open OnDemand project was funded by NSF and is currently maintained by the Ohio SuperComputing Centre. Read more about `OpenOndemand.org <https://openondemand.org/>`__.
