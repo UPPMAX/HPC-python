@@ -182,7 +182,7 @@ Content of the course
    :maxdepth: 2
    :caption: Lessons day 3 (advanced analysis):
 
-   day3/new_matplotlib_intro.rst
+   day3/new-matplotlib-intro.rst
    day3/pandas.rst
    day3/batch.md
    day3/big_data.md
