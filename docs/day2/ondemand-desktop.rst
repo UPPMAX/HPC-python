@@ -59,35 +59,35 @@ Starting the On-Demand Interface
       
          On rare occasions, a user may find that the Applications menu is missing all ``Applications - <App_group>`` options. This usually indicates that your ``.bashrc`` file is either missing or has had problematic changes made to it, especially if LMOD commands like ``ml spider <package>`` are also not recognized. If you are a new user on your very first session on COSMOS, the problem should resolve itself if you start a new ThinLinc session with "End existing session" selected. If you are not a new user and module commands are recognized, running ``gfxmenu --force`` in a terminal session may resolve the issue; otherwise, you will probably have to submit a support ticket.
 
-=== "Kebnekaise"
+   ..tab:: "Kebnekaise"
 
-    To start an Open OnDemand session on Kebnekaise,
-    
-    1. Open `https://portal.hpc2n.umu.se <https://portal.hpc2n.umu.se>`__ in your browser. The page looks like this:
-   
+      To start an Open OnDemand session on Kebnekaise,
+      
+      1. Open `https://portal.hpc2n.umu.se <https://portal.hpc2n.umu.se>`__ in your browser. The page looks like this:
+      
        .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-portal.png
           :width: 1200
           :align: center
           :alt: HPC2N Open On-Demand Portal
-    
-    2. Click the blue button labeled "Login to HPC2N OnDemand".
-    3. A login window should open with boxes for your login credentials. Enter your HPC2N username and password, then click "Sign In".
-    4. You will now be on the HPC2N Open OnDemand dashboard. The top of it looks like this:
-   
+      
+      2. Click the blue button labeled "Login to HPC2N OnDemand".
+      3. A login window should open with boxes for your login credentials. Enter your HPC2N username and password, then click "Sign In".
+      4. You will now be on the HPC2N Open OnDemand dashboard. The top of it looks like this:
+      
        .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-dashboard.png
           :width: 1200
           :align: center
           :alt: HPC2N Open On-Demand Dashboard
-    
-    5. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
-
+      
+      5. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
+      
        .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-apps.png
           :width: 1200
           :align: center
           :alt: HPC2N Open On-Demand Apps
-    
-    .. warning::
-    
+      
+      .. warning::
+      
        Unlike on Cosmos and Dardel, On-Demand applications on Kebnekaise are **not** reachable through Thinlinc, regardless of whether you use the desktop client or a browser! If you find similar-looking applications in the Thinlinc interface, be aware that they all run on login nodes!
 
 
