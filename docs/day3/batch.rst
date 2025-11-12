@@ -156,7 +156,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2025-7-34 # Change to your own
+            #SBATCH -A lu2025-7-106 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -293,7 +293,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2025-7-34 # Change to your own 
+            #SBATCH -A lu2025-7-106 # Change to your own 
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
@@ -424,7 +424,7 @@ This is a very simple example of how to run a Python script with a job array.
 
          #!/bin/bash
          # This is a very simple example of how to run a Python script with a job array
-         #SBATCH -A lu2025-7-34 # Change to your own!
+         #SBATCH -A lu2025-7-106 # Change to your own!
          #SBATCH --time=00:05:00 # Asking for 5 minutes
          #SBATCH --array=1-10   # how many tasks in the array 
          #SBATCH -c 1 # Asking for 1 core    # one core per task 
@@ -597,7 +597,7 @@ We will talk more about Python on GPUs in the section "Using GPUs with Python". 
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2025-7-34 # Change to your own
+            #SBATCH -A lu2025-7-106 # Change to your own
             #SBATCH --time=00:10:00  # Asking for 10 minutes
             # Asking for one GPU
             #SBATCH -p gpua100 
@@ -818,7 +818,7 @@ Exercises
           .. code-block:: bash
  
             #!/bin/bash
-            #SBATCH -A lu2025-7-34 # Change to your own
+            #SBATCH -A lu2025-7-106 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
