@@ -610,8 +610,8 @@ Breakout room according to grouping
                 - Create: ``python -m venv /proj/nobackup/hpc-python-spring/$USER/Example``
                 - Activate: ``source /proj/nobackup/hpc-python-spring/<user-dir>/Example/bin/activate``
             - LUNARC: 
-                - Create: ``python -m venv /lunarc/nobackup/projects/lu2024-17-44/$USER/Example``
-                - Activate: ``source /lunarc/nobackup/projects/lu2024-17-44/<user-dir>/Example/bin/activate``
+                - Create: ``python -m venv /lunarc/nobackup/projects/lu2025-17-52/$USER/Example``
+                - Activate: ``source /lunarc/nobackup/projects/lu2025-17-52/<user-dir>/Example/bin/activate``
             - NSC: 
                 - Create: ``python -m venv /proj/hpc-python-spring-naiss/$USER/Example``
                 - Activate: ``source /proj/hpc-python-spring-naiss/<user-dir>/Example/bin/activate``
