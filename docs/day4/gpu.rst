@@ -331,7 +331,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          #!/bin/bash
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A lu2025-7-34 
+         #SBATCH -A lu2025-7-106 
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
          #SBATCH --ntasks-per-node=1
@@ -598,7 +598,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A lu2025-7-34
+            #SBATCH -A lu2025-7-106
             #SBATCH -t 00:15:00
             #SBATCH -n 24
             #SBATCH -o output_%j.out   # output file
