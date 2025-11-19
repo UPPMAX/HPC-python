@@ -386,7 +386,6 @@ The main data inspection functions for DataFrames (and Series) are as follows:
    row(s) by index                  ``df.iloc[i]`` or ``df.iloc[i:j]``
    rows and columns by name         ``df.loc[['rowA','rowB', ...], ['col0', 'col1', ...]]``
    rows and columns by index        ``df.iloc[i:j, m:n]``
-   
    columns by name, rows by index   You can mix ``.loc[]`` and ``.iloc[]`` for selection, **but NOT for assignment!**
    ===============================  ==================================================================================
 
@@ -471,14 +470,19 @@ Efficient Data Types
     import numpy as np
     df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)    
     print("Before:\n", df['planet_type'].memory_usage(deep=True))
-    # Convert planet_type to categorical
+    # Convert planet_type to Categorical
     ptypes=df['planet_type'].astype('category')
     print("After:\n", ptypes.memory_usage(deep=True))
     # assert order (coincidentally alphabetical order is also reverse mass-order)
     ptypes = ptypes.cat.reorder_categories(ptypes.cat.categories[::-1], ordered=True)
     print(ptypes)
-    
-* Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order. 
+
+Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order. However, some mathematical operations may no longer work on the results.
+
+.. note::
+
+   The Pandas datatype ``Categorical`` is named for general data science term "categorical variable", a classifier like species, sex, brand name, etc. The Pandas datatype should always be typeset as code and capitalized in this documentation. 
+
 
 **Sparse Data.** If you have a DataFrame where around half or more of the entries are NaN or a filler value, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory. Initialize Series or DataFrames as ``SparseDtype`` by setting the kwarg ``dtype=pd.SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", fill_value))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>`__ also work on Sparse Arrays. Other methods and attributes include:
 
@@ -499,15 +503,19 @@ This example shows the difference in memory usage between a 1000x1000 identity m
     spdf = pd.DataFrame(a, dtype=pd.SparseDtype(dtype=np.float64, fill_value=0))
     print("Memory usage as SparseDtype DataFrame: ", spdf.memory_usage(deep=True).sum())
 
-Automatic Multi-Threading with Numba
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Numba (JIT Compilation)
+^^^^^^^^^^^^^^^^^^^^^^^
 
-If Numba is installed, setting ``engine=numba`` in functions can boost performance if the function has to be run multiple times over several columns, particularly if you can set ``engine_kwargs={"parallel": True}``. Types of functions that this works for include:
+If Numba is installed, setting ``engine=numba`` in most built-in functions can boost performance if the function has to be run multiple times over several columns, particularly if you can set ``engine_kwargs={"parallel": True}``. Numba uses Just-In-Time (JIT) compilation to compile pure Python code to a machine-optimized form at runtime, automatically incorporating multi-threading across available CPU cores if parallelism is enabled. Types of functions that this works for include:
 
 * Statistical functions like ``mean()``, ``median()``, and ``std()``, which can be applied to the whole data set or to rolling windows. 
 * Complex functions, or user-defined functions decorated with ``@jit``, applied via ``.agg()``, ``.transform()``, ``.map()``, or ``.apply()``.
 
-Parallel function evaluation occurs column-wise, so **performance will be boosted if and only if the function is repeated many times over many columns.** For small datasets, the added overhead can worsen performance.
+Parallel function evaluation occurs column-wise, so **performance will be boosted if and only if the function is repeated many times over many columns.** For small datasets, the added overhead can actually worsen performance.
+
+.. tip::
+
+   Since JIT-compiled functions are parallelized column-wise, make sure that the number of threads allocated for any interactive session or slurm script and the number of threads passed to Numba are all equal to the number of columns you want to process in parallel. Assuming you have imported Numba as ``numba``, the way to tell Numba the number of threads to use is: ``numba.set_num_threads(ncols)`` where ``ncols`` is the number of columns to apply the function to in parallel.   
 
 Here is a (somewhat scientifically nonsensical) example using the exoplanets DataFrame to show the speed-up for 5 columns.
 
@@ -522,25 +530,26 @@ Here is a (somewhat scientifically nonsensical) example using the exoplanets Dat
      %timeit stuff.rolling(500).mean()
      %timeit stuff.rolling(500).mean(engine='numba', engine_kwargs={"parallel": True})
 
-Speed-up with Cython
-^^^^^^^^^^^^^^^^^^^^
+.. tip::
 
-The Cython package lets Python code be compiled into C with minimal additional code. The compiled code can then run markedly faster depending on the application and whether or not variables are declared with static data types. The `Pandas documentation on Cython shows an example using Jupyter, <https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#cython-writing-c-extensions-for-pandas>` but the typical use case requires writing a ``.pyx`` file, compiling it with a ``setup.py`` script, and executing the compiled file from a Slurm script or the bash shell.
+   Alternatively to JIT, the Cython package lets Python code be compiled into C with minimal additional code. The compiled code can then run markedly faster depending on the application and whether or not variables are declared with static data types. The `Pandas documentation on Cython shows an example in Jupyter using IPython magic commands, <https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#cython-writing-c-extensions-for-pandas>`__ (see also `this article on IPython Magics <https://www.python4data.science/en/latest/workspace/ipython/magics.html>`__).
 
-(TBC; see https://cython.readthedocs.io/en/stable/src/tutorial/cython_tutorial.html https://cython.readthedocs.io/en/stable/src/tutorial/array.html#array-array and https://cython.readthedocs.io/en/stable/src/tutorial/memory_allocation.html#memory-allocation )
+   However, the more typical use case requires writing a ``.pyx`` file, compiling it with a ``setup.py`` script, and executing the compiled file from a Slurm script or the bash shell. Since this approach requires somewhat more C experience, it is outside the scope of this course. Interested users can `view the official Cython documentation here. <https://cython.readthedocs.io/en/stable/src/tutorial/cython_tutorial.html>__
 
 
 Getting Dummy Variables for Machine Learning
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ML programs like TensorFlow and PyTorch take Series/DataFrame inputs, but they generally require numeric input. If some of the variables that you want to predict are categorical (e.g. species, sex, or some other classification), they need to be converted to a numerical form that TensorFlow and PyTorch can use. Standard practice is turn a categorical variable with *N* unique values into *N* or *N*-1 boolean columns, where a row entry that was assigned a given category value has a 1 or True in the boolean column corresponding to that category and 0 or False in all the other boolean category columns.
+Machine Learning (ML) programs like TensorFlow and PyTorch take Series/DataFrame inputs, but they generally require numeric input. If some of the variables that you want to predict are categorical\* (e.g. species, sex, brand name, etc.; see also the note in Efficient Datatypes), they need to be converted to a numerical form that TensorFlow and PyTorch can use. Standard practice is turn a categorical variable with *N* unique values into *N* or *N*-1 boolean columns, where a row entry that was assigned a given category value has a 1 or True in the boolean column corresponding to that category and 0 or False in all the other boolean category columns.   
 
 The Pandas function that does this is ``pd.get_dummies(data, dtype=bool, drop_first=False, prefix=pref, columns=columns)``.
 
-* ``dtype`` can be ``bool`` (default, less memory), ``float`` (more memory usage), ``int`` (same memory as float), or a more specific string identifier like ``'float32'`` or ``'uint16'``
-* ``drop_first``, when True, lets you get rid of one of the categories on the assumption that not fitting any of the remaining categories is perfectly correlated with fitting the dropped category. Be aware that the only way to choose which column is dropped is to rearrange the original data so that the column you want dropped is first.
+* ``dtype`` can be ``bool`` (default, less memory), ``float`` (more memory usage), ``int`` (same memory as ``float``), or a type string with precision like ``'float32'`` or ``'uint16'``
+* ``drop_first``, when True, removes the first category encountered in the original column, which should be done if and only if
+   - all categories are mutually exclusive, and
+   - non-membership in the remaining categories is perfectly correlated with membership in the dropped category. 
 * ``prefix`` is just a set of strings you can add to dummy column names to make clear which ones are related.
-* If nothing is passed to ``columns``, Pandas will try to convert the entire DataFrame to dummy variables, which is usually a bad idea. Always pass the subset of columns you want to convert to ``columns``.
+* If nothing is passed to ``columns``, Pandas will try to convert the entire DataFrame to dummy variables, which is usually a bad idea. *Always pass the subset of columns you want to convert to the ``columns`` kwarg.*
 
 Let's say you did an experiment where you tested 100 people to see if their preference for Coke or Pepsi correlated with whether the container it came in was made of aluminum, plastic, or glass, and whether it was served with or without ice.
 
@@ -560,4 +569,26 @@ Let's say you did an experiment where you tested 100 people to see if their pref
     print("Dummy version:\n",dummy_df.head())
     print("\n Memory usage:\n",dummy_df.memory_usage(deep=True))
 
-Dummy variables can also be converted back to categorical variable columns with ``pd.from_dummies()`` as long as their column names had prefixes to group related variables. But given the memory savings, you might not want to.
+Dummy variables can also be converted to categorical columns names with ``pd.from_dummies()`` as long as their column names had prefixes to group related variables.
+
+* Both dummy variables and the ``Categorical`` data type use less memory than the default ``object``-type for categorical data if there are many repeating values.
+* Dummy variables typically use more memory than ``Categorical`` datatype columns, but they allow more vectorwise operations.
+
+
+Chunking for Large Datasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When a data file is larger than memory, your first instinct should be to load only the columns and rows that you need. We already discussed the ``usecols`` and ``nrows`` kwargs when we went over the most common reader functions. But what if the data you need to load is still larger than memory?
+
+* Several of the most common Pandas data reader functions, like ``read_csv()``, also have a **``chunksize`` kwarg** that allow you to read in and work on out-of-memory datasets in batches of rows that fit in memory.
+* Similarly, common writer functions also let you append chunks to file rather than overwriting them to write to files that are larger than memory, using the kwarg **``mode='a'``**.
+
+While loaded, chunks can be indexed and manipulated like full-sized DataFrames. 
+
+Workflows that can be applied to chunks can also be used to aggregate over multiple files, so it may also be worth breaking a single out-of-memory file into logical subsections that individually fit in memory. `The Pandas documentation on chunking chooses this method of demonstration <https://pandas.pydata.org/docs/user_guide/scale.html#use-chunking>`__ rather than showing how to iterate over chunks loaded from an individual file.
+
+The following example uses the table ``covid19_italy_region.csv``, which is not out-of-memory for a typical HPC cluster but is fairly large. We will use...TBC
+
+.. caution::
+
+   Chunking with Pandas alone works only when no coordination is required between chunks. Functions that apply independently to every row are ideal. Some aggregate statistics can be calculated if care is taken to make sure that either all chunks are of identical size or that different-sized chunks are reweighted appropriately. However, if your data have natural groupings where group membership is not known by position a priori, or where each group is itself larger than memory, you may be better off using Dask or other libraries. 
