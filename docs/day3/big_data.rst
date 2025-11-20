@@ -283,7 +283,7 @@ An overview of common data formats
      - ✅
 
    * - :ref:`Excel <excel>`
-     - ❌
+     - ✅
      - ❌
      - ❌
      - 🟨
