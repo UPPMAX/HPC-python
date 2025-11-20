@@ -184,6 +184,7 @@ Content of the course
 
    day3/new-matplotlib-intro.rst
    day3/pandas.rst
+   day3/seaborn-new.rst
    day3/batch.md
    day3/big_data.md
    summary3.rst
