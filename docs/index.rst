@@ -51,18 +51,18 @@ Schedule Autumn 2025
 
    **Target group**
 
-   - The course is for present or presumptive users at the **NAISS** resources at PDC and NSC as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden.
-   - The course is a NAISS cooperation with **teachers** from **UPPMAX** (Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
-   - Although there are differences we will only have **few seperate sessions**.
+   - The course is for present or presumptive users at the **NAISS** resources at PDC, NSC, and C3SE as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden.
+   - The course is a NAISS cooperation with **teachers** from the NAISS branches **UPPMAX** (Pelle, Maya, Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
+   - Although there are differences we will only have **few separate sessions**.
    - Most participants will use The NAISS resources **Tetralith** system at NSC or **Dardel** system at PDC for the course.
 
-       - Alvis at **C3SE (Chalmers)** may be added in the future.
+       - Alvis at **C3SE (Chalmers)** is in the process of being added.
 
    - Users with the "local" affiliation below, can work at the following clusters:
 
       - Kebnekaise: UmU, IRF, MIUN, SLU, LTU.
       - Cosmos: LU.
-      - Rackham/Snowy: UU.
+      - Pelle/Maya/Rackham/Snowy: UU.
 
    - The general information given in the course will be true for all/most HPC centres in Sweden.
 
@@ -77,6 +77,7 @@ Schedule Autumn 2025
       - `LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
       - `NSC <https://www.nsc.liu.se/support/>`_
       - `PDC <https://support.pdc.kth.se/doc/applications/python/>`_
+      - `C3SE <https://www.c3se.chalmers.se/documentation/module_system/python/>`_  
 
 .. admonition:: Some practicals
 
@@ -122,7 +123,7 @@ Schedule Autumn 2025
 .. admonition:: Q/A collabration document
 
    - Use the Q/A page for the workshop with your questions.
-       - `https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EZdjaHPgG-NMl9luOFWbQacBsYpY8zs2YmgosHrMcOQnuQ?e=yEGirA <https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EZdjaHPgG-NMl9luOFWbQacBsYpY8zs2YmgosHrMcOQnuQ?e=yEGirA>`_
+       - `https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/IQDToLTHrvKHQ7PSkxBv9v_lAfFXgfgLZVMLRDzQ_jOrfDw <https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/IQDToLTHrvKHQ7PSkxBv9v_lAfFXgfgLZVMLRDzQ_jOrfDw>`_
    - Use this page for the workshop with your questions
    - It helps us identify content that is missing in the course material
    - We answer those questions as soon as possible
@@ -171,6 +172,7 @@ Content of the course
    day2/use_packages.rst
    day2/install_packages.rst
    day2/use_isolated_environments.rst
+   day2/basic_batch_slurm.rst
    day2/interactive.md
    day2/ondemand-desktop.rst
    day2/IDEs.rst
@@ -185,8 +187,8 @@ Content of the course
    day3/new-matplotlib-intro.rst
    day3/pandas.rst
    day3/seaborn-new.rst
-   day3/batch.md
    day3/big_data.md
+   day3/batch-new.rst
    summary3.rst
    day3/evaluation.rst
 
