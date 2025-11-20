@@ -121,53 +121,88 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
 
   .. tab:: UPPMAX
 
-     On Rackham, **loading Python version 3.8.7 or newer will allow you to import Matplotlib and NumPy** without having to load anything else. If you wish to also import Jupyter, Pandas, and/or Seaborn, those and Matplotlib are also provided all together by ``python_ML_packages``. The output of ``module spider python_ML_packages`` is
+     On **Pelle**, there is currently only 1 version of Matplotlib, ``matplotlib/3.9.2-gfbf-2024a``, and it can be loaded directly. The following shows the output of ``ml`` (module list) after loading ``matplotlib/3.9.2-gfbf-2024a``:
 
      .. code-block:: console
 
-         ----------------------------------------------------------------------------
-           python_ML_packages:
-         ----------------------------------------------------------------------------
-              Versions:
-                 python_ML_packages/3.9.5-cpu
-                 python_ML_packages/3.9.5-gpu
-                 python_ML_packages/3.11.8-cpu
-         
-         ----------------------------------------------------------------------------
-           For detailed information about a specific "python_ML_packages" package (includ
-         ing how to load the modules) use the module's full name.
-           Note that names that have a trailing (E) are extensions provided by other modu
-         les.
-           For example:
-         
-              $ module spider python_ML_packages/3.11.8-cpu
-         ----------------------------------------------------------------------------
+        Currently Loaded Modules:
+        1) GCCcore/13.3.0                             25) freetype/2.13.2-GCCcore-13.3.0
+        2) zlib/1.3.1-GCCcore-13.3.0                  26) expat/2.6.2-GCCcore-13.3.0
+        3) binutils/2.42-GCCcore-13.3.0               27) util-linux/2.40-GCCcore-13.3.0
+        4) GCC/13.3.0                                 28) fontconfig/2.15.0-GCCcore-13.3.0
+        5) OpenBLAS/0.3.27-GCC-13.3.0                 29) xorg-macros/1.20.1-GCCcore-13.3.0
+        6) FlexiBLAS/3.4.4-GCC-13.3.0                 30) libpciaccess/0.18.1-GCCcore-13.3.0
+        7) FFTW/3.3.10-GCC-13.3.0                     31) X11/20240607-GCCcore-13.3.0
+        8) gfbf/2024a                                 32) Tk/8.6.14-GCCcore-13.3.0
+        9) bzip2/1.0.8-GCCcore-13.3.0                 33) Tkinter/3.12.3-GCCcore-13.3.0
+       10) ncurses/6.5-GCCcore-13.3.0                 34) NASM/2.16.03-GCCcore-13.3.0
+       11) libreadline/8.2-GCCcore-13.3.0             35) libjpeg-turbo/3.0.1-GCCcore-13.3.0
+       12) Tcl/8.6.14-GCCcore-13.3.0                  36) jbigkit/2.1-GCCcore-13.3.0
+       13) SQLite/3.45.3-GCCcore-13.3.0               37) gzip/1.13-GCCcore-13.3.0
+       14) XZ/5.4.5-GCCcore-13.3.0                    38) lz4/1.9.4-GCCcore-13.3.0
+       15) libffi/3.4.5-GCCcore-13.3.0                39) zstd/1.5.6-GCCcore-13.3.0
+       16) OpenSSL/3                                  40) libdeflate/1.20-GCCcore-13.3.0
+       17) Python/3.12.3-GCCcore-13.3.0               41) LibTIFF/4.6.0-GCCcore-13.3.0
+       18) cffi/1.16.0-GCCcore-13.3.0                 42) giflib/5.2.1-GCCcore-13.3.0
+       19) cryptography/42.0.8-GCCcore-13.3.0         43) libwebp/1.4.0-GCCcore-13.3.0
+       20) virtualenv/20.26.2-GCCcore-13.3.0          44) OpenJPEG/2.5.2-GCCcore-13.3.0
+       21) Python-bundle-PyPI/2024.06-GCCcore-13.3.0  45) LittleCMS/2.16-GCCcore-13.3.0
+       22) SciPy-bundle/2024.05-gfbf-2024a            46) Pillow-SIMD/10.4.0-GCCcore-13.3.0
+       23) libpng/1.6.43-GCCcore-13.3.0               47) Qhull/2020.2-GCCcore-13.3.0
+       24) Brotli/1.1.0-GCCcore-13.3.0                48) matplotlib/3.9.2-gfbf-2024a
 
-     We recommend the latest version, ``python_ML_packages/3.11.8-cpu``
+     Take note of the ``-gfbf-2024a`` suffix on some Python modules and the ``-GCCcore-13.3.0`` suffix on most other modules. You should stick to these for the duration of this course to ensure compatibility.
 
-     For versions earlier than Python 3.8.x, ``module spider matplotlib`` outputs the following:
+     .. adminition:: Rackham (Soon to be retired)
+        :collapsible: closed
 
-     .. code-block:: console
-
-         ----------------------------------------------------------------------------
-           matplotlib:
-         ----------------------------------------------------------------------------
-             Description:
-               matplotlib is a python 2D plotting library which produces publication
-               quality figures in a variety of hardcopy formats and interactive
-               environments across platforms. matplotlib can be used in python
-               scripts, the python and ipython shell, web application servers, and
-               six graphical user interface toolkits.
-         
-              Versions:
-                 matplotlib/2.2.3-fosscuda-2018b-Python-2.7.15
-                 matplotlib/3.0.0-intel-2018b-Python-3.6.6
-                 matplotlib/3.0.3-foss-2019a-Python-3.7.2
-                 matplotlib/3.3.3-foss-2020b
-                 matplotlib/3.3.3-fosscuda-2020b
-                 matplotlib/3.4.3-foss-2021b
-
-     The native backend should work if you are logged in via Thinlinc, but if there is a problem, try setting ``matplotlib.use('Qt5Agg')`` in your script. You'll need X-forwarding to view any graphics via SSH, and that may be prohibitively slow.
+        On Rackham, **loading Python version 3.8.7 or newer will allow you to import Matplotlib and NumPy** without having to load anything else. If you wish to also import Jupyter, Pandas, and/or Seaborn, those and Matplotlib are also provided all together by ``python_ML_packages``. The output of ``module spider python_ML_packages`` is
+   
+        .. code-block:: console
+   
+            ----------------------------------------------------------------------------
+              python_ML_packages:
+            ----------------------------------------------------------------------------
+                 Versions:
+                    python_ML_packages/3.9.5-cpu
+                    python_ML_packages/3.9.5-gpu
+                    python_ML_packages/3.11.8-cpu
+            
+            ----------------------------------------------------------------------------
+              For detailed information about a specific "python_ML_packages" package (includ
+            ing how to load the modules) use the module's full name.
+              Note that names that have a trailing (E) are extensions provided by other modu
+            les.
+              For example:
+            
+                 $ module spider python_ML_packages/3.11.8-cpu
+            ----------------------------------------------------------------------------
+   
+        We recommend the latest version, ``python_ML_packages/3.11.8-cpu``
+   
+        For versions earlier than Python 3.8.x, ``module spider matplotlib`` outputs the following:
+   
+        .. code-block:: console
+   
+            ----------------------------------------------------------------------------
+              matplotlib:
+            ----------------------------------------------------------------------------
+                Description:
+                  matplotlib is a python 2D plotting library which produces publication
+                  quality figures in a variety of hardcopy formats and interactive
+                  environments across platforms. matplotlib can be used in python
+                  scripts, the python and ipython shell, web application servers, and
+                  six graphical user interface toolkits.
+            
+                 Versions:
+                    matplotlib/2.2.3-fosscuda-2018b-Python-2.7.15
+                    matplotlib/3.0.0-intel-2018b-Python-3.6.6
+                    matplotlib/3.0.3-foss-2019a-Python-3.7.2
+                    matplotlib/3.3.3-foss-2020b
+                    matplotlib/3.3.3-fosscuda-2020b
+                    matplotlib/3.4.3-foss-2021b
+   
+        The native backend should work if you are logged in via Thinlinc, but if there is a problem, try setting ``matplotlib.use('Qt5Agg')`` in your script. You'll need X-forwarding to view any graphics via SSH, and that may be prohibitively slow.
 
   .. tab:: NSC (Tetralith)
 
@@ -329,22 +364,22 @@ A figure and a set of axes objects are created explicitly, usually with ``fig,ax
 
 The outputs look the same for both of these examples because the plot type was chosen to work with both APIs, but the explicit API offers a much wider range of plot types and customizations. 
 
-.. challenge:: Let x be an array of 50 values from -5 to 5. Plot y = 1/(1+exp(-x)).
+.. challenge:: Let x be an array of 50 values from -5 to 5. Write a script to plot y = 1/(1+exp(-x)) that will run from the command line. (Hint: Refer to the section above on *Controlling the Display*.)
 
 .. solution:: Solution
     :class: dropdown
 
-         The code block below uses Jupyter to render the output, which requires ``%matplotlib inline``. If you're at the command line, you would have had to import matplotlib and set ``matplotlib.use('TkAgg')`` or the recommended backend from the section on controlling the display. You did not have to choose a format string.
-
-          .. jupyter-execute::
-
-               import numpy as np
-               import matplotlib.pyplot as plt
-               %matplotlib inline 
-               x = np.linspace(-5,5, 50)
-               fig, ax = plt.subplots()
-               ax.plot(x, 1/(1+np.exp(-x)))
-               plt.show()
+      The code block below uses Jupyter to render the output, which requires ``%matplotlib inline``. At the command line, you would have had to import matplotlib and set ``matplotlib.use('TkAgg')`` or the recommended backend from the section on controlling the display.
+   
+       .. jupyter-execute::
+   
+            import numpy as np
+            import matplotlib.pyplot as plt
+            %matplotlib inline 
+            x = np.linspace(-5,5, 50)
+            fig, ax = plt.subplots()
+            ax.plot(x, 1/(1+np.exp(-x)))
+            plt.show()
 
 
 .. admonition:: Subplots and Subplot Mosaics
@@ -409,9 +444,14 @@ The Matplotlib GUI has a typical save menu option (indicated by the usual floppy
 -  ``plt.savefig(fname, *, transparent=None, dpi='figure', format=None)`` is the general-purpose save function. There are other kwargs not shown here, but these are the most important. The file type can be given ``format`` or inferred from an extension given in ``fname``. The default ``dpi`` is inherited from ``plt.figure()`` or ``plt.subplots()``. If ``transparent=True``, the white background of a typical figure is removed so the figure can be displayed on top of other content.
 -  ``plt.imsave(fname, arr, **kwargs)`` is specifically for saving arrays to images. It accepts a 2D (single-channel) array with a specified colormap and normalization, or an RGB(A) array (a stack of images in 3 color channels, or 3 color channels and an opacity array). Generally you also have to set ``origin='lower'`` for the image to be rendered right-side up.
 
-A few common formats that Matplotlib supports include PDF, PS, EPS, PNG, and JPG/JPEG. Other desirable formats like TIFF and SVG are not supported natively in interactive display backends, but can be used with static backends (used for saving figures without displaying them) or with the installation of the ``Pillow`` module. At most facilities, Pillow is loaded with Matplotlib, so you will see SVG as a save-format option in the GUI. `Matplotlib has a tutorial here <https://matplotlib.org/stable/tutorials/images.html>`_  on importing images into arrays for use with ``pyplot.imshow()``.
+A few common formats that Matplotlib supports include PDF, PS, EPS, PNG, and JPG/JPEG. Other desirable formats like TIFF and SVG are not supported natively in interactive display backends, but can be used with static backends (used for saving figures without displaying them) or with the installation of the ``Pillow`` module. At most facilities, Pillow is loaded with Matplotlib, so you will see SVG as a save-format option in the GUI, and it should be allowed in the format kwarg of ``plt.savefig()``. `Matplotlib has a tutorial here <https://matplotlib.org/stable/tutorials/images.html>`_  on importing images into arrays for use with ``plt.imshow()``.
 
-.. challenge:: Rerun your earlier example and save it as an SVG file if the option is available, PDF otherwise.
+.. challenge:: Reformat the earlier example to save a file in the format ``'svg'`` without going through the GUI, as you would have to do to create plots with code that runs via batch script.
+
+.. solution:: Solution
+    :class: dropdown
+
+    If your previous code already runs at the command line, all you had to do was replace ``plt.show()`` with something like ``plt.savefig('my_fig', format='svg')``.
 
 
 Standard Available Plot Types
