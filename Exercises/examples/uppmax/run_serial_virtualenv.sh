@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH -A uppmax2025-2-296 # Change to your own after the course
+#SBATCH -A uppmax2025-2-393 # Change to your own after the course
 #SBATCH --time=00:01:00 # Asking for 1 minute
 #SBATCH -n 1 # Asking for 1 core
 

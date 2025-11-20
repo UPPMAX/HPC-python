@@ -222,7 +222,7 @@ Step 2: Make a work directory
 
         .. code-block:: console
 
-           $ mkdir /proj/nobackup/hpc-python-spring/bbrydsoe/
+           $ mkdir /proj/nobackup/fall-courses/bbrydsoe/
 
    .. tab:: LUNARC
 
@@ -242,7 +242,7 @@ Step 2: Make a work directory
 
         .. code-block:: console
 
-           $ mkdir /proj/hpc-python-spring-naiss/users/jlpicard
+           $ mkdir /proj/courses-fall-2025/users/jlpicard
 
    .. tab:: PDC
 
@@ -252,7 +252,7 @@ Step 2: Make a work directory
 
         .. code-block:: console
 
-           $ mkdir /cfs/klemming/projects/supr/hpc-python-spring-naiss/sevenof9/
+           $ mkdir /cfs/klemming/projects/supr/courses-fall-2025/sevenof9/
 
 
 Test an editor

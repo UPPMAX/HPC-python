@@ -74,13 +74,13 @@ of this course. See :ref:`common-naiss-projects-overview` for where these are.
     +------------+------------------------------------------------------------+
     | Dardel     | ``cd /cfs/klemming/projects/snic/hpc-python-spring-naiss`` |
     +------------+------------------------------------------------------------+
-    | Kebnekaise | ``cd /proj/nobackup/hpc-python-spring``                    |
+    | Kebnekaise | ``cd /proj/nobackup/fall-courses``                    |
     +------------+------------------------------------------------------------+
     | LUMI       | None. Use ``cd /project/[your_project_code]``              |
     +------------+------------------------------------------------------------+
     | Rackham    | ``cd /proj/hpc-python-uppmax``                             |
     +------------+------------------------------------------------------------+
-    | Tetralith  | ``cd /proj/hpc-python-spring-naiss/users/``                |
+    | Tetralith  | ``cd /proj/courses-fall-2025/users/``                |
     +------------+------------------------------------------------------------+
 
 .. admonition:: In general, how can I see which projects I have?

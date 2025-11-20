@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH -A uppmax2025-2-296 # Change to your own after the course
+#SBATCH -A uppmax2025-2-393 # Change to your own after the course
 # We want to run on Snowy
 #SBATCH -M snowy
 #SBATCH --time=00:10:00  # Asking for 10 minutes

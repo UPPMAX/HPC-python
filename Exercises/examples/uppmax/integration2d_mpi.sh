@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH -A uppmax2025-2-296
+#SBATCH -A uppmax2025-2-393
 #SBATCH -t 00:05:00
 #SBATCH -n 4
 #SBATCH -o output_%j.out   # output file

@@ -498,16 +498,16 @@ Exercises
 
 .. admonition:: Compute allocations in this workshop 
 
-   - Rackham: ``uppmax2025-2-296``
-   - Kebnekaise: ``hpc2n2025-076``
+   - Rackham: ``uppmax2025-2-393``
+   - Kebnekaise: ``hpc2n2025-151``
    - Cosmos: ``lu2025-7-106``
-   - Tetralith: ``naiss2025-22-403``  
-   - Dardel: ``naiss2025-22-403``
+   - Tetralith: ``naiss2025-22-934``  
+   - Dardel: ``naiss2025-22-934``
 
 .. admonition:: Storage space for this workshop 
 
    - Rackham: ``/proj/hpc-python-uppmax``
-   - Kebnekaise: ``/proj/nobackup/hpc-python-spring``
+   - Kebnekaise: ``/proj/nobackup/fall-courses``
    - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
    - Tetralith: ``/proj/hpc-python-spring-naiss``
    - Dardel: ``/cfs/klemming/projects/snic/hpc-python-spring-naiss``
@@ -607,7 +607,7 @@ Exercises
 
           .. code-block:: console 
 
-             salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-403
+             salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934
              salloc: Pending job allocation 9102757
              salloc: job 9102757 queued and waiting for resources
              salloc: job 9102757 has been allocated resources
@@ -628,8 +628,8 @@ Exercises
 
              ml PDC/23.12
              ml miniconda3/24.7.1-0-cpeGNU-23.12
-             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
-             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
              source activate spyder-env
              conda install xarray dask
              spyder &

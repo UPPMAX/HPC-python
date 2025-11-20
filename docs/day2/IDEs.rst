@@ -47,14 +47,14 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
             
                .. code-block:: sh
 
-                  $ interactive -A uppmax2025-2-296 -t 4:00:00
+                  $ interactive -A uppmax2025-2-393 -t 4:00:00
 
 
             .. tab:: Snowy
 
                .. code-block:: sh
 
-                  $ interactive -M snowy -A uppmax2025-2-296 -t 4:00:00 --gres=gpu:1
+                  $ interactive -M snowy -A uppmax2025-2-393 -t 4:00:00 --gres=gpu:1
 
 
 
@@ -201,7 +201,7 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
          .. code-block:: slurm
 
             #!/bin/bash
-            #SBATCH -A hpc2n2025-076
+            #SBATCH -A hpc2n2025-151
             # This example asks for 1 core
             #SBATCH -n 1
             # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
@@ -314,7 +314,7 @@ Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppm
             .. code-block:: 
 
                #!/bin/bash
-               #SBATCH -A hpc2n2025-076
+               #SBATCH -A hpc2n2025-151
                # This example asks for 1 core
                #SBATCH -n 1
                # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
@@ -621,8 +621,8 @@ To use Spyder on one of the HPC center resources, you must have a Thinlinc windo
 
          ml PDC/23.12
          ml miniconda3/24.7.1-0-cpeGNU-23.12
-         export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
-         export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+         export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+         export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
          source activate spyder-env
 
       * you can install packages with pip install from inside Spyder

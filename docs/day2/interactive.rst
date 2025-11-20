@@ -28,16 +28,16 @@ Interactive work on the compute nodes
 
 .. admonition:: Compute allocations in this workshop 
 
-   - Rackham: ``uppmax2025-2-296``
-   - Kebnekaise: ``hpc2n2025-076``
+   - Rackham: ``uppmax2025-2-393``
+   - Kebnekaise: ``hpc2n2025-151``
    - Cosmos: ``lu2025-7-106``
-   - Tetralith: ``naiss2025-22-403``  
-   - Dardel: ``naiss2025-22-403``
+   - Tetralith: ``naiss2025-22-934``  
+   - Dardel: ``naiss2025-22-934``
 
 .. admonition:: Storage space for this workshop 
 
    - Rackham: ``/proj/hpc-python-uppmax``
-   - Kebnekaise: ``/proj/nobackup/hpc-python-spring``
+   - Kebnekaise: ``/proj/nobackup/fall-courses``
    - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
    - Tetralith: ``/proj/hpc-python-spring-naiss``
    - Dardel: ``/cfs/klemming/projects/snic/hpc-python-spring-naiss``
@@ -260,13 +260,13 @@ To start an interactive session in the simplest way, as shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the UPPMAX project name,
-      for example ``interactive -A uppmax2025-2-296``.
+      for example ``interactive -A uppmax2025-2-393``.
 
       The output will look similar to this:
 
       .. code-block:: console
 
-          [richel@rackham4 ~]$ interactive -A uppmax2025-2-296
+          [richel@rackham4 ~]$ interactive -A uppmax2025-2-393
           You receive the high interactive priority.
           You may run for at most one hour.
           Your job has been put into the devcore partition and is expected to start at once.
@@ -304,13 +304,13 @@ To start an interactive session in the simplest way, as shown here:
          salloc -A [project_name] -t HHH:MM:SS 
 
       Where ``[project_name]`` is the HPC2N project name,
-      for example ``salloc -A hpc2n2025-076``.
+      for example ``salloc -A hpc2n2025-151``.
 
       This will look similar to this (including asking for resources - time is required):
 
       .. code-block:: console
 
-          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2025-076
+          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2025-151
           salloc: Pending job allocation 20174806
           salloc: job 20174806 queued and waiting for resources
           salloc: job 20174806 has been allocated resources
@@ -327,13 +327,13 @@ To start an interactive session in the simplest way, as shown here:
          interactive -A [project_name] -t HHH:MM:SS
 
       Where ``[project_name]`` is the LUNARC project name,
-      for example ``interactive -A lu2025-7-34``.  
+      for example ``interactive -A lu2025-7-106``.  
 
       This will look similar to this (including asking for resources - time is required): 
 
       .. code-block:: console
 
-         [bbrydsoe@cosmos3 ~]$ interactive -A lu2025-7-34 -n 4 -t 00:10:00
+         [bbrydsoe@cosmos3 ~]$ interactive -A lu2025-7-106 -n 4 -t 00:10:00
          Cluster name: COSMOS
          Waiting for JOBID 988025 to start
 
@@ -351,13 +351,13 @@ To start an interactive session in the simplest way, as shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the NSC project name,
-      for example ``interactive -A naiss2025-22-403``.  
+      for example ``interactive -A naiss2025-22-934``.  
 
       This will look similar to this: 
 
       .. code-block:: console
 
-         [x_birbr@tetralith1 ~]$ interactive -A naiss2025-22-403 
+         [x_birbr@tetralith1 ~]$ interactive -A naiss2025-22-934 
          salloc: Pending job allocation 40137281
          salloc: job 40137281 queued and waiting for resources
          salloc: job 40137281 has been allocated resources
@@ -373,13 +373,13 @@ To start an interactive session in the simplest way, as shown here:
 
          salloc --time=HHH:MM:SS -A [project_id] -p [partition] 
 
-      Where ``[project_id]`` is the PDC project id, for example ``naiss2025-22-403``, and ``[partition]`` is main or gpu. 
+      Where ``[project_id]`` is the PDC project id, for example ``naiss2025-22-934``, and ``[partition]`` is main or gpu. 
 
       This will look similar to this: 
 
       .. code-block:: console 
 
-         bbrydsoe@login1:~> salloc --time=HHH:MM:SS -A naiss2025-22-403 -p main 
+         bbrydsoe@login1:~> salloc --time=HHH:MM:SS -A naiss2025-22-934 -p main 
 
       Then, when you get the allocation, do one of:
 
@@ -388,7 +388,7 @@ To start an interactive session in the simplest way, as shown here:
 
       .. code-block:: console
 
-         bbrydsoe@login1:~> salloc --time=00:10:00 -A naiss2025-22-403 -p main
+         bbrydsoe@login1:~> salloc --time=00:10:00 -A naiss2025-22-934 -p main
          salloc: Pending job allocation 9722449
          salloc: job 9722449 queued and waiting for resources
          salloc: job 9722449 has been allocated resources
@@ -594,31 +594,31 @@ In this example we will start a session with 2 cores
 
       .. code-block:: console
 
-         interactive -A uppmax2025-2-296 -p core -n 2
+         interactive -A uppmax2025-2-393 -p core -n 2
       
    .. tab:: HPC2N
 
       .. code-block:: console
           
-         salloc -A hpc2n2025-076 -n 2 -t 00:30:00
+         salloc -A hpc2n2025-151 -n 2 -t 00:30:00
 
    .. tab:: LUNARC
 
       .. code-block:: console
 
-         interactive -A lu2025-7-34 -t 00:30:00 -n 2
+         interactive -A lu2025-7-106 -t 00:30:00 -n 2
 
    .. tab:: NSC
 
       .. code-block:: console
 
-         interactive -A naiss2025-22-403 -n 2
+         interactive -A naiss2025-22-934 -n 2
 
    .. tab:: PDC 
 
       .. code-block:: console 
 
-         salloc -n 2 --time=00:30:00 -A naiss2025-22-403 -p main 
+         salloc -n 2 --time=00:30:00 -A naiss2025-22-934 -p main 
 
 
 Exercise 2: check to be in an interactive session

@@ -183,7 +183,7 @@ The next points will be the same for all clusters
       ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
       which python
       python -V
-      cd /proj/hpc-python-spring-naiss/users/<username>
+      cd /proj/courses-fall-2025/users/<username>
       python -m venv env-matplotlib
       source activate  env-matplotlib
       pip install matplotlib
@@ -478,11 +478,11 @@ Breakout room according to grouping
         
          .. code-block:: 
          
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/"
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
             ml PDC/23.12
             ml miniconda3/24.7.1-0-cpeGNU-23.12
-            conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/spyder-env
+            conda create --prefix /cfs/klemming/projects/supr/courses-fall-2025/$USER/spyder-env
             source activate spyder-env
             conda install spyder
 
@@ -492,9 +492,9 @@ Breakout room according to grouping
 
             ml PDC/23.12
             ml miniconda3/24.7.1-0-cpeGNU-23.12
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/" #only needed once per session
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/" #only needed once per session
-            conda create --prefix /cfs/klemming/projects/supr/hpc-python-spring-naiss/$USER/jupyter-env python=3.11.7
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            conda create --prefix /cfs/klemming/projects/supr/courses-fall-2025/$USER/jupyter-env python=3.11.7
             conda activate jupyter-env
             conda install jupyter
             conda install matplotlib pandas seaborn
@@ -607,8 +607,8 @@ Breakout room according to grouping
                 - Create: ``python -m venv /proj/hpc-python-uppmax/$USER/Example``
                 - Activate: ``source /proj/hpc-python-uppmax/<user-dir>/Example/bin/activate``
             - HPC2N: 
-                - Create: ``python -m venv /proj/nobackup/hpc-python-spring/$USER/Example``
-                - Activate: ``source /proj/nobackup/hpc-python-spring/<user-dir>/Example/bin/activate``
+                - Create: ``python -m venv /proj/nobackup/fall-courses/$USER/Example``
+                - Activate: ``source /proj/nobackup/fall-courses/<user-dir>/Example/bin/activate``
             - LUNARC: 
                 - Create: ``python -m venv /lunarc/nobackup/projects/lu2025-17-52/$USER/Example``
                 - Activate: ``source /lunarc/nobackup/projects/lu2025-17-52/<user-dir>/Example/bin/activate``

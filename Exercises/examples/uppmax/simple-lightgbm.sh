@@ -1,6 +1,6 @@
 #!/bin/bash -l
 # Change to your own project ID after the course!
-#SBATCH -A uppmax2025-2-296
+#SBATCH -A uppmax2025-2-393
 # We are asking for 10 minutes
 #SBATCH --time=00:10:00
 #SBATCH -n 1

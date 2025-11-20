@@ -254,7 +254,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       .. code-block:: console
       
-         $ interactive -A uppmax2025-2-296 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --gres=gpu:1  -t 1:00:01 
+         $ interactive -A uppmax2025-2-393 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --gres=gpu:1  -t 1:00:01 
          You receive the high interactive priority.
 
          Please, use no more than 8 GB of RAM.
@@ -287,7 +287,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       .. code-block:: console
 
-         $ salloc -A hpc2n2025-076 --time=00:30:00 -n 1 --gpus=1 -C l40s 
+         $ salloc -A hpc2n2025-151 --time=00:30:00 -n 1 --gpus=1 -C l40s 
          salloc: Pending job allocation 32126787
          salloc: job 32126787 queued and waiting for resources
          salloc: job 32126787 has been allocated resources
@@ -309,7 +309,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
           #!/bin/bash
           # Remember to change this to your own project ID after the course!
-          #SBATCH -A hpc2n2025-076     # HPC2N ID - change to your own
+          #SBATCH -A hpc2n2025-151     # HPC2N ID - change to your own
           # We are asking for 5 minutes
           #SBATCH --time=00:05:00
           # Asking for one L40s GPU
@@ -354,7 +354,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          #!/bin/bash
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A naiss2025-22-403
+         #SBATCH -A naiss2025-22-934
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
          #SBATCH -n 1 
@@ -522,7 +522,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A hpc2n2025-076
+            #SBATCH -A hpc2n2025-151
             #SBATCH -t 00:08:00
             #SBATCH -N 1
             #SBATCH -n 24
@@ -558,7 +558,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A uppmax2025-2-296
+            #SBATCH -A uppmax2025-2-393
             # We want to run on Snowy
             #SBATCH -M snowy
             # We are asking for 10 minutes
@@ -626,7 +626,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A naiss2025-22-403
+            #SBATCH -A naiss2025-22-934
             #SBATCH -t 00:20:00
             #SBATCH -n 24
             #SBATCH --gpus-per-task=1

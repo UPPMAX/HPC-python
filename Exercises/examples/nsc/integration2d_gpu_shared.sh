@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A naiss2025-22-403
+#SBATCH -A naiss2025-22-934
 #SBATCH -t 00:20:00
 #SBATCH -n 24
 #SBATCH --gpus-per-task=1

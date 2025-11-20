@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A naiss2025-22-403
+#SBATCH -A naiss2025-22-934
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
 # The following two lines splits the output in a file for any errors and a file for other output.

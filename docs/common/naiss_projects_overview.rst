@@ -10,13 +10,13 @@ These are the NAISS course projects:
 +============+==========================+
 | COSMOS     | :code:`lu2025-7-106`     |
 +------------+--------------------------+
-| Dardel     | :code:`naiss-2025-22-403`|
+| Dardel     | :code:`naiss2025-22-934`|
 +------------+--------------------------+
-| Kebnekaise | :code:`hpc2n2025-076`    |
+| Kebnekaise | :code:`hpc2n2025-151`    |
 +------------+--------------------------+
 | Pelle      | :code:`uppmax2025-2-393` |
 +------------+--------------------------+
-| Tetralith  | :code:`naiss-2025-22-403`|
+| Tetralith  | :code:`naiss2025-22-934`|
 +------------+--------------------------+
 
 Storage spaces for this workshop:
@@ -24,19 +24,19 @@ Storage spaces for this workshop:
 +------------+------------------------------------------------------------+
 | HPC cluster| Course project                                             |
 +============+============================================================+
-| Alvis      | None. Use ``/mimer/NOBACKUP/groups/[your_project_code]``   |
+| Alvis      | None. Use ``/mimer/NOBACKUP/groups/courses-fall-2025``   |
 +------------+------------------------------------------------------------+
 | Bianca     | None. Use ``/proj/[your_project_code]``                    |
 +------------+------------------------------------------------------------+
 | COSMOS     | :code:`/lunarc/nobackup/projects/lu2025-17-52`             |
 +------------+------------------------------------------------------------+
-| Dardel     | :code:`/cfs/klemming/projects/supr/hpc-python-spring-naiss`|
+| Dardel     | :code:`/cfs/klemming/projects/supr/courses-fall-2025`|
 +------------+------------------------------------------------------------+
-| Kebnekaise | :code:`/proj/nobackup/hpc-python-spring`                   |
+| Kebnekaise | :code:`/proj/nobackup/fall-courses`                   |
 +------------+------------------------------------------------------------+
 | LUMI       | None. Use ``/project/[your_project_code]``                 |
 +------------+------------------------------------------------------------+
 | Pelle      | :code:`/proj/hpc-python-uppmax`                            |
 +------------+------------------------------------------------------------+
-| Tetralith  | :code:`/proj/hpc-python-spring-naiss/users/`               |
+| Tetralith  | :code:`/proj/courses-fall-2025/users/`               |
 +------------+------------------------------------------------------------+

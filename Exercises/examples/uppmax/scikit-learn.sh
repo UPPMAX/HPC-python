@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID after the course!
-#SBATCH -A uppmax2025-2-296
+#SBATCH -A uppmax2025-2-393
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
 # Running on Snowy and asking for 1 GPU 

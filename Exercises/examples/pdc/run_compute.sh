@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A naiss2025-22-403 # Change to your own
+#SBATCH -A naiss2025-22-934 # Change to your own
 #SBATCH --time=00:10:00  # Asking for 10 minutes
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=1

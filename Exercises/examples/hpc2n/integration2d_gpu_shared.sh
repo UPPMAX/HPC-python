@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A hpc2n2025-076
+#SBATCH -A hpc2n2025-151
 #SBATCH -t 00:08:00
 #SBATCH -N 1
 #SBATCH -n 24
@@ -17,7 +17,7 @@ ml CUDA/12.1.1 numba/0.58.1
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/nobackup/hpc-python-spring/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/nobackup/fall-courses/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 python $MYPATH/integration2d_gpu.py
 python $MYPATH/integration2d_gpu_shared.py

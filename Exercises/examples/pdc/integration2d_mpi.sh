@@ -1,6 +1,6 @@
 #!/bin/bash
 # Change to your own project id! 
-#SBATCH -A naiss2025-22-403
+#SBATCH -A naiss2025-22-934
 #SBATCH -t 00:05:00
 #SBATCH -n 4
 #SBATCH -o output_%j.out   # output file

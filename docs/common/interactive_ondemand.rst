@@ -76,13 +76,13 @@ To start an interactive session in the simplest way, is shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the UPPMAX project name,
-      for example ``interactive -A uppmax2025-2-296``.
+      for example ``interactive -A uppmax2025-2-393``.
 
       The output will look similar to this:
 
       .. code-block:: console
 
-          [richel@rackham4 ~]$ interactive -A uppmax2025-2-296
+          [richel@rackham4 ~]$ interactive -A uppmax2025-2-393
           You receive the high interactive priority.
           You may run for at most one hour.
           Your job has been put into the devcore partition and is expected to start at once.
@@ -120,13 +120,13 @@ To start an interactive session in the simplest way, is shown here:
          salloc -A [project_name]
 
       Where ``[project_name]`` is the HPC2N project name,
-      for example ``salloc -A hpc2n2025-076``.
+      for example ``salloc -A hpc2n2025-151``.
 
       This will look similar to this (including asking for resources - time is required):
 
       .. code-block:: console
 
-          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2025-076
+          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2025-151
           salloc: Pending job allocation 20174806
           salloc: job 20174806 queued and waiting for resources
           salloc: job 20174806 has been allocated resources
@@ -143,13 +143,13 @@ To start an interactive session in the simplest way, is shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the LUNARC project name,
-      for example ``interactive -A lu2025-7-34``.  
+      for example ``interactive -A lu2025-7-106``.  
 
       This will look similar to this (including asking for resources - time is required): 
 
       .. code-block:: console
 
-         [bbrydsoe@cosmos3 ~]$ interactive -A lu2025-7-34 -n 4 -t 00:10:00
+         [bbrydsoe@cosmos3 ~]$ interactive -A lu2025-7-106 -n 4 -t 00:10:00
          Cluster name: COSMOS
          Waiting for JOBID 988025 to start
 
@@ -167,13 +167,13 @@ To start an interactive session in the simplest way, is shown here:
          interactive -A [project_name]
 
       Where ``[project_name]`` is the NSC project name,
-      for example ``interactive -A naiss2025-22-403``.  
+      for example ``interactive -A naiss2025-22-934``.  
 
       This will look similar to this: 
 
       .. code-block:: console
 
-         [x_birbr@tetralith1 ~]$ interactive -A naiss2025-22-403 
+         [x_birbr@tetralith1 ~]$ interactive -A naiss2025-22-934 
          salloc: Pending job allocation 40137281
          salloc: job 40137281 queued and waiting for resources
          salloc: job 40137281 has been allocated resources
@@ -190,13 +190,13 @@ To start an interactive session in the simplest way, is shown here:
          salloc -A [project_name]
 
       Where ``[project_name]`` is the PDC project name,
-      for example ``interactive -A naiss2025-22-403``.  
+      for example ``interactive -A naiss2025-22-934``.  
 
       This will look similar to this: 
 
       .. code-block:: console
 
-         claremar@login1:~> salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-403
+         claremar@login1:~> salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934
          salloc: Pending job allocation 9102757
          salloc: job 9102757 queued and waiting for resources
          salloc: job 9102757 has been allocated resources

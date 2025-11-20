@@ -1,6 +1,6 @@
 #!/bin/bash
 # Batch script for running the program "multiproc.py" on Kebnekaise
-#SBATCH -A naiss2025-22-403 # Remember to change this to your own project ID
+#SBATCH -A naiss2025-22-934 # Remember to change this to your own project ID
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
 #SBATCH -n 4

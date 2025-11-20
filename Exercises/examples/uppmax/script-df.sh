@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A uppmax2025-2-296 # your project_ID
+#SBATCH -A uppmax2025-2-393 # your project_ID
 #SBATCH -J job-serial        # name of the job
 #SBATCH -n 1                 # nr. tasks
 #SBATCH --time=00:20:00      # requested time

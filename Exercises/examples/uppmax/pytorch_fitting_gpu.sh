@@ -1,6 +1,6 @@
 #!/bin/bash -l
 # Remember to change this to your own project ID after the course!
-#SBATCH -A uppmax2025-2-296
+#SBATCH -A uppmax2025-2-393
 # We are asking for 15 minutes
 #SBATCH --time=00:15:00
 # We want to run on Snowy

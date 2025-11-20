@@ -30,7 +30,7 @@ pip install --no-cache-dir --no-build-isolation tensorflow-hub
 4) Make a batch script like the below (UPPMAX) and submit it: 
 
 #!/bin/bash -l
-#SBATCH -A uppmax2025-2-296
+#SBATCH -A uppmax2025-2-393
 #SBATCH -t 00:05:00
 #SBATCH -M snowy
 #SBATCH -n 1
