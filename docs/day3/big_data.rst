@@ -10,3 +10,31 @@ Big data with Python
    - can use data-chunking as technique
    - know where to learn more
     
+Why
+---
+
+Exercise
+::::::::
+
+
+
+Solutions and tools
+-------------------
+
+File formats
+::::::::::::
+
+RAM
+:::
+
+Chunking
+::::::::
+
+Exercises
+---------
+
+- Pandas 
+
+
+
+
