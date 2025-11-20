@@ -141,19 +141,21 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
 
       .. important::
 
-         For this session, if you are on **Rackham**, you should load
+         For this session, if you are on **Pelle**, you should load
+
+         .. code-block:: console
+        
+            module load SciPy-bundle/2024.05-gfbf-2024a
+
+         That module includes Pandas, NumPy, SciPy, etc. If you want to plot any of the data used in the examples and exercises, you will need to load ``matplotlib/3.9.2-gfbf-2024a`` separately.
+
+         If you are on **Rackham**, you should load
 
          .. code-block:: console
         
             module load python/3.11.8
-
-         If you are on **Pelle**, you should load
-
-         .. code-block:: console
-        
-            module load python/3.XX.X
      
-      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version. On Pelle... FIXME
+      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version. Older versions are not recommended for this course.
 
 
    .. tab:: Tetralith (NSC)
@@ -587,8 +589,8 @@ While loaded, chunks can be indexed and manipulated like full-sized DataFrames.
 
 Workflows that can be applied to chunks can also be used to aggregate over multiple files, so it may also be worth breaking a single out-of-memory file into logical subsections that individually fit in memory. `The Pandas documentation on chunking chooses this method of demonstration <https://pandas.pydata.org/docs/user_guide/scale.html#use-chunking>`__ rather than showing how to iterate over chunks loaded from an individual file.
 
-The following example uses the table ``covid19_italy_region.csv``, which is not out-of-memory for a typical HPC cluster but is fairly large. We will use...TBC
+The following example uses the table ``covid19_italy_region.csv``, which is not out-of-memory for a typical HPC cluster but is fairly large. The data are split over Italy's 21 adminstrative Regions. Let's say we want to tally up the NewPositiveCases
 
 .. caution::
 
-   Chunking with Pandas alone works only when no coordination is required between chunks. Functions that apply independently to every row are ideal. Some aggregate statistics can be calculated if care is taken to make sure that either all chunks are of identical size or that different-sized chunks are reweighted appropriately. However, if your data have natural groupings where group membership is not known by position a priori, or where each group is itself larger than memory, you may be better off using Dask or other libraries. 
+   Chunking with Pandas alone works only when no coordination is required between chunks. Functions that apply independently to every row are ideal. Some aggregate statistics can be calculated if care is taken to make sure that either all chunks are of identical size or that different-sized chunks are reweighted appropriately. However, if your data have natural groupings where group membership is not known by position a priori, or where each group is itself larger than memory, you may be better off using Dask or other libraries.
