@@ -23,9 +23,9 @@ Log in and other preparations
 
 .. admonition:: Cluster-specific approaches
 
-   - The course is a cooperation between **UPPMAX** (Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on the compute systems at all these centres, as well as select resources at NSC (Tetralith) and PDC (Dardel).
+   - The course is a cooperation between the NAISS branches **UPPMAX** (Pelle, Maya, Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on the compute systems at all these centres, as well as select resources at NSC (Tetralith) and PDC (Dardel).
    - Although there are differences we will only have **few separate sessions**.
-   - Most participants will use NSC's or Dardel's systems for the course, as Rackham, Kebnekaise and Cosmos are only for local (UU, UmU, IRF, MIUN, SLU, LTU, LU) users.
+   - Most participants will use NSC's or Dardel's systems for the course, as Pelle, Rackham, Kebnekaise and Cosmos are only for local (UU, UmU, IRF, MIUN, SLU, LTU, LU) users.
    - The general information given in the course will be true for all/most HPC centres in Sweden.
 
       - The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres.
@@ -60,9 +60,15 @@ For beginners: use the **bold** login method.
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | HPC cluster| Login method [*]         | Documentation                                                                                          | Video                                                      |
 +============+==========================+========================================================================================================+============================================================+
+| ALVIS      | SSH client               | `ssh <user>@alvis1.c3se.chalmers.se` or `ssh <user>@alvis2.c3se.chalmers.se` | |
++------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| ALVIS      | Remote Desktop Protocol (RDP) | Server: `alvis1.c3se.chalmers.se` or `alvis2.c3se.chalmers.se` | | 
++------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| ALVIS      | OpenOndemand portal      | `https://alvis.c3se.chalmers.se ` | |
++------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | COSMOS     | SSH client               | `here <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/>`__          | `here <https://youtu.be/sMsenzWERTg>`__                    |
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
-| COSMOS     |**Local ThinLinc client** | `here <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/using_hpc_desktop/>`__    | `here <https://youtu.be/wn7TgElj_Ng>`__                    |
+| COSMOS     | **Local ThinLinc client** | `here <https://lunarc-documentation.readthedocs.io/en/latest/getting_started/using_hpc_desktop/>`__    | `here <https://youtu.be/wn7TgElj_Ng>`__                    |
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | Dardel     | **SSH client**           | `here <hhttps://support.pdc.kth.se/doc/login/ssh_login/>`__                                            | `here <https://youtu.be/I8cNqiYuA-4?si=MDKS4wEB1nQODvxj>`__|
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
@@ -72,7 +78,9 @@ For beginners: use the **bold** login method.
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | Kebnekaise | Local ThinLinc client    | `here <https://docs.hpc2n.umu.se/documentation/access/>`__                                             | `here <https://youtu.be/_jpj0GW9ASc?si=1k0ZnXABbhUm0px6>`__|
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
-| Kebnekaise |**Remote desktop website**| `here <https://docs.hpc2n.umu.se/documentation/access/>`__                                             | `here <https://youtu.be/_O4dQn8zPaw?si=z32av8XY81WmfMAW>`__|
+| Kebnekaise | **Remote desktop website**| `here <https://docs.hpc2n.umu.se/documentation/access/>`__                                             | `here <https://youtu.be/_O4dQn8zPaw?si=z32av8XY81WmfMAW>`__|
++------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| Kebnekaise | Open OnDemand            | `https://portal.hpc2n.umu.se`       | | 
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | LUMI       | SSH client               | `here <https://docs.lumi-supercomputer.eu/firststeps/loggingin/>`__                                    | `here <https://youtu.be/bPdvn2gajgU>`__                    |
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
@@ -96,6 +104,7 @@ For beginners: use the **bold** login method.
     +---------------------------------------------+---------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
     | How to access your HPC cluster              | Features                                                                                          |How it looks like                                                     |
     +=============================================+===================================================================================================+======================================================================+
+    | Access to compute node via OpenOnDemand portal (similar to Gfx launcher but from a website instead of from inside ThinLinc | Familiar desktop or service, clunky, no need to install software, easy to use, not available at all centers | |
     | Remote desktop via a website                | Familiar remote desktop, clumsy, clunky, no need to install software, not available at all centers| .. figure:: ../img/rackham_remote_desktop_via_website_480_x_270.png  |
     +---------------------------------------------+---------------------------------------------------------------------------------------------------+----------------------------------------------------------------------+
     | Remote desktop via a local ThinLinc client  | Familiar remote desktop, clumsy, need to install ThinLinc                                         | .. figure:: ../img/thinlinc_local_rackham_zoom.png                   |
