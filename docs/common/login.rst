@@ -84,9 +84,9 @@ For beginners: use the **bold** login method.
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | LUMI       | SSH client               | `here <https://docs.lumi-supercomputer.eu/firststeps/loggingin/>`__                                    | `here <https://youtu.be/bPdvn2gajgU>`__                    |
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
-| Rackham    | SSH client               | `here <https://docs.uppmax.uu.se/getting_started/login_rackham_remote_desktop_local_thinlinc_client>`__| `here <https://youtu.be/TSVGSKyt2bQ>`__                    |
+| Pelle     | SSH client               | `here <https://docs.uppmax.uu.se/getting_started/login_pelle/>`__| `here <https://youtu.be/TSVGSKyt2bQ>`__                    |
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
-| Rackham    | Local ThinLinc client    | `here <https://docs.uppmax.uu.se/getting_started/login_rackham_console_password/>`__                   | `here <https://youtu.be/PqEpsn74l0g>`__                    |
+| Pelle    | Local ThinLinc client    | `here <https://docs.uppmax.uu.se/getting_started/login_pelle/>`__                   | `here <https://youtu.be/PqEpsn74l0g>`__                    |
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | Rackham    |**Remote desktop website**| `here <https://docs.uppmax.uu.se/getting_started/login_rackham_remote_desktop_website/>`__             | `here <https://youtu.be/HQ2iuKRPabc>`__                    |
 +------------+--------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
@@ -134,7 +134,7 @@ For beginners: use the **bold** login method.
     +-----------+-------------------------------+
     |LUMI       |The only one                   |
     +-----------+-------------------------------+
-    |Rackham    |XFCE                           |
+    |Pelle    |XFCE                           |
     +-----------+-------------------------------+
     |Tetralith  |The only one                   |
     +-----------+-------------------------------+
@@ -159,11 +159,11 @@ For beginners: use the **bold** login method.
 
    .. tab:: UPPMAX
 
-      1. Log in to Rackham!
+      1. Log in to Pelle!
 
-        - Terminal: ``ssh -X <user>@rackham.uppmax.uu.se``
+        - Terminal: ``ssh -X <user>@pelle.uppmax.uu.se``
 
-        - ThinLinc app: ``<user>@rackham-gui.uppmax.uu.se``
+        - ThinLinc app: ``<user>@pelle-gui.uppmax.uu.se``
         - ThinLinc in web browser: ``https://rackham-gui.uppmax.uu.se``
 
    .. tab:: HPC2N
@@ -176,6 +176,11 @@ For beginners: use the **bold** login method.
 
       - Cosmos through terminal: ``<user>@cosmos.lunarc.lu.se``
       - Cosmos through ThinLinc, use: ``<user>@cosmos-dt.lunarc.lu.se``
+
+   .. tab:: C3SE
+
+      - Pelle through terminal: ``ssh <user>@pelle.uppmax.uu.se``
+      - Pelle through ThinLinc: ``pelle-gui.uppmax.uu.se`` and UPPMAX username and password 
 
    .. tab:: NSC
 
@@ -243,6 +248,13 @@ Step 2: Make a work directory
 
            $ mkdir $HOME/hpc-python
 
+
+      - Or use the project storage: 
+
+        .. code-block:: console
+
+           $ mkdir /lunarc/nobackup/projects/lu2025-17-52/<yourdir>
+
    .. tab:: NSC
 
       - Create a working directory where you can code along.
@@ -263,6 +275,16 @@ Step 2: Make a work directory
 
            $ mkdir /cfs/klemming/projects/supr/courses-fall-2025/sevenof9/
 
+
+   .. tab:: C3SE 
+
+      - Create a working directory where you can code along. 
+
+         - Example. If your username is sisko and you are at C3SE, then we recommend you create this folder: 
+
+         .. code-block:: console 
+
+            $ mkdir /mimer/NOBACKUP/groups/courses-fall-2025/sisko 
 
 Test an editor
 --------------

@@ -21,7 +21,7 @@ We recommend ``nano`` unless you are used to another editor:
 
 - `Text editors at HPC2N <https://docs.hpc2n.umu.se/tutorials/linuxguide/#editors>`__
 - `Text editors at UPPMAX <http://docs.uppmax.uu.se/software/text_editors/>`__
-- Any of the above links would be helpful for you.
+- Any of the above links would be helpful for you, regardless of which cluster you use.
 
 .. challenge::
 
