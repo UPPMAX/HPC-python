@@ -1,0 +1,58 @@
+TRY FIRST TO SOLVE IT YOURSELF!
+
+
+
+1) Load some needed modules
+
+module load python_ML_packages
+module load python/3.9.5
+module load gcc/10.3.0
+module load build-tools
+module load cmake/3.22.2
+
+2) Create a virtual environment (named env-horovod, located in /proj/naiss2023-22-500/<mydir-name>)
+
+cd /proj/naiss2023-22-1126/<mydir-name>
+python -m venv --system-site-packages env-horovod
+
+3) Activate the environment and install Horovod and prerequsites: 
+
+(Remember, if you are in another directory, then preface with that, or change to the dir) 
+
+source env-horovod/bin/activate
+
+pip install --no-cache-dir --no-build-isolation horovod
+
+NOTE: This will take quite long time! 
+
+pip install --no-cache-dir --no-build-isolation tensorflow-hub
+
+4) Make a batch script like the below (UPPMAX) and submit it: 
+
+#!/bin/bash -l
+#SBATCH -A uppmax2025-2-393
+#SBATCH -t 00:05:00
+#SBATCH -M snowy
+#SBATCH -n 1
+#SBATCH -o output_%j.out   # output file
+#SBATCH -e error_%j.err    # error messages
+#SBATCH --gres=gpu:1
+
+# Set a path where the example programs are installed. 
+# Change the below to your own path to where you placed the example programs
+MYPATH=/proj/hpc-python/<mydir-name>/HPC-python/Exercises/examples/programs/
+
+ml purge
+module load uppmax 
+module load python_ML_packages
+module load python/3.9.5
+module load gcc/10.3.0
+module load build-tools
+module load cmake/3.22.2
+
+# Change the below to your own path to the virtual environment you installed horovod to 
+source /proj/hpc-python/<mydir-name>/env-horovod/bin/activate
+
+srun python $MYPATH/Transfer_Learning_NLP_Horovod.py --epochs 10 --batch-size 64
+
+

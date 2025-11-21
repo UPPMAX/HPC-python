@@ -8,9 +8,8 @@ To get the materials:
    - UPPMAX: Copy the file ``/proj/hpc-python/Exercises.tar.gz`` to your own project storage directory below ``/proj/hpc-python``. 
    - HPC2N: Copy the file ``/proj/nobackup/python-hpc/Exercises.tar.gz`` to your own storage directory below ``/proj/nobackup/ipython-hpc``.
 
-The directories below "Exercises/examples" contains the following directories:
+The directories below "Exercises/dayN" contains the following directories:
 
 - programs: Python codes, mainly, as well as a few Fortran and Julia codes
-- hpc2n: Batch scripts that can run on Kebnekaise when you have edited the MYPATH variable inside (since the Python scripts recides in the programs directory)
-- uppmax: same as above, but for UPPMAX (Rackham mainly) 
+- hpc2n, uppmax, cosmos, nsc, pdc, c3se: Batch scripts that can run on (one of) the clusters at the center in questions, when you have edited the MYPATH variable inside (since the Python scripts recides in the programs directory)
 
