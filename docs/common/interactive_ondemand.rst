@@ -4,28 +4,34 @@ Interactive sessions and Desktop On-Demand
 .. note::
 
    - Demanding work (CPU or Memory intensive) should be done on the compute nodes.
-   - If you need live interaction you should satrt an "interactive session"
-   - On Cosmos (LUNARC) and Dardel (PDC) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher``.
+   - If you need live interaction you should start an "interactive session"
+   - On Cosmos (LUNARC) and Dardel (PDC) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher`` which is started inside ThinLinc.
+   - On Kebnekaise (HPC2N) and Alvis (C3SE) it can be done graphically with the Desktop-on-Demand portal.   
    - Otherwise the terminal approach will work in all centers.
 
 The command to request an interactive node differs per HPC cluster:
 
 +---------+-----------------+-------------+-------------+
-| Cluster | ``interactive`` | ``salloc``  | GfxLauncher |
+| Cluster | ``interactive`` | ``salloc``  | ``srun``    | GfxLauncher / Desktop-On-Demand Portal |
 +=========+=================+=============+=============+
-| HPC2N   | Works           | Recommended | Possible    |
-+---------+-----------------+-------------+-------------+
-| UPPMAX  | Recommended     | Works       | N/A         |
-+---------+-----------------+-------------+-------------+
-| LUNARC  | Works           | N/A         | Recommended | 
-+---------+-----------------+-------------+-------------+
-| NSC     | Recommended     | N/A         | N/A         | 
-+---------+-----------------+-------------+-------------+ 
-| PDC     | N/A             | Recommended | Possible    | 
-+---------+-----------------+-------------+-------------+ 
+| HPC2N   | N/A             | Recommended | N/A | Recommended |
++---------+-----------------+-------------+-----+--------+
+| UPPMAX  | Recommended     | Works       | N/A | N/A         |
++---------+-----------------+-------------+-----+--------+
+| LUNARC  | Works           | N/A         | N/A | Recommended | 
++---------+-----------------+-------------+-----+--------+
+| NSC     | Recommended     | N/A         | N/A | N/A     | 
++---------+-----------------+-------------+-----+--------+ 
+| PDC     | N/A             | Recommended | N/A | Possible    | 
++---------+-----------------+-------------+-----+--------+ 
+| C3SE    | N/A             | N/A         | Works | Recommended | 
++---------+-----------------+-------------+-------+------------+
 
 Start an interactive session from OnDemand 
 ==========================================
+
+ThinLinc + GfxLauncher 
+----------------------
 
 For most programs, the start-up process is roughly the same:
 
@@ -59,6 +65,16 @@ For a few applications (e.g. Jupyter Lab), GfxLauncher will also offer an additi
       :align: center
 
       The Job Properties menu (right) pops up when the box titled ``Job settings...`` in the main GfxLauncher window (left) is clicked. Only use it if you know what you're doing!
+
+Open-On-Demand Portal
+---------------------
+
+- Kebnekaise: 
+    - Go to ``https://portal.hpc2n.umu.se/`` and login.
+    - Documentation here: ``https://docs.hpc2n.umu.se/tutorials/connections/#open__ondemand`` 
+- Alvis: 
+    - Go to ``https://alvis.c3se.chalmers.se/``
+    - There is some documentation here: ``https://uppmax.github.io/HPC-python/common/interactive_ondemand.html#start-an-interactive-session-from-ondemand``
 
 Start an interactive session from the terminal
 ==============================================
