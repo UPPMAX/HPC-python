@@ -15,19 +15,21 @@ Running Python in batch mode
 
 .. admonition:: Compute allocations in this workshop 
 
-   - Rackham: ``uppmax2025-2-393``
+   - Pelle: ``uppmax2025-2-393``
    - Kebnekaise: ``hpc2n2025-151``
    - Cosmos: ``lu2025-7-106``
    - Tetralith: ``naiss2025-22-934``  
    - Dardel: ``naiss2025-22-934``
+   - Alvis: ``naiss2025-22-934``  
 
 .. admonition:: Storage space for this workshop 
 
    - Rackham: ``/proj/hpc-python-uppmax``
    - Kebnekaise: ``/proj/nobackup/fall-courses``
    - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
-   - Tetralith: ``/proj/hpc-python-spring-naiss``
-   - Dardel: ``/cfs/klemming/projects/snic/hpc-python-spring-naiss``
+   - Tetralith: ``/proj/courses-fall-courses``
+   - Dardel: ``/cfs/klemming/projects/supr/courses-fall-courses``
+   - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
 
 .. admonition:: Reservation
 
