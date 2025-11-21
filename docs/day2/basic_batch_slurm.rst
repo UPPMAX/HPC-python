@@ -112,7 +112,7 @@ Workflow
 Common file extensions for batch scripts are ``.sh`` or ``.batch``, but they are not necessary. You can choose any name that makes sense to you. 
 
 Simple example batch script
---------------------------- 
+########################### 
 
 .. hint:: 
 
@@ -197,7 +197,7 @@ This first example shows how to run a short, serial script. The batch script (na
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for 3.11.3 and compatible SciPy-bundle
+            # Load any modules you need, here for 3.11.5 and compatible SciPy-bundle
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
             
             # Run your Python script 
@@ -310,7 +310,7 @@ Exercises
             #SBATCH -n 1 # Asking for 1 core
             
             # Load any modules you need, here for Python 3.11.3
-            module load GCC/12.3.0  Python/3.11.3
+            module load GCC/12.3.0  Python/3.11.3 SciPy-bundle/2023.07
             
             # Run your Python script 
             python sum-2args.py 2 3 
@@ -327,8 +327,9 @@ Exercises
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for python 3.11.8
-            module load python/3.11.8
+            # Load any modules you need, here for Python 3.12.3
+            module load Python/3.12.3-GCCcore-13.3.0
+            module load SciPy-bundle/2024.05-gfbf-2024a
             
             # Run your Python script 
             python sum-2args.py 2 3 
@@ -387,60 +388,9 @@ Exercises
             # Run your Python script
             python sum-2args.py 2 3
             
-.. challenge:: How to run a Pandas and matplotlib example as a batch job.  
+.. solution:: Solution for C3SE 
 
-   **How you might do it interactively** 
-
-   1. Load Python and prerequisites (and activate any needed virtual environments)
-       - UPPMAX: ml python/3.11.8
-       - HPC2N: ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 
-       - LUNARC: ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
-       - NSC: ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4  
-       - PDC: 
-           - ml cray-python/3.11.7  
-           - python -m venv --system-site-packages mymatplotlib
-           - source mymatplotlib/bin/activate
-           - pip install matplotlib
-   2. Start Python (``python``) in the ``<path-to>/Exercises/examples/programs`` directory
-   3. Run these lines: 
-
-       - At UPPMAX and PDC  
-
-       .. code-block:: python
-
-          import pandas as pd
-          import matplotlib.pyplot as plt
-          dataframe = pd.read_csv("scottish_hills.csv")
-          x = dataframe.Height
-          y = dataframe.Latitude
-          plt.scatter(x, y)
-          plt.show()
-
-       - At HPC2N, LUNARC, and NSC 
-
-       .. code-block:: python 
-         
-          import pandas as pd 
-          import matplotlib
-          import matplotlib.pyplot as plt
-          matplotlib.use('TkAgg')
-          dataframe = pd.read_csv("scottish_hills.csv")
-          x = dataframe.Height
-          y = dataframe.Latitude
-          plt.scatter(x, y)
-          plt.show()
-
-   **CHALLENGE: How would you do it so you could run as a batch script?** 
-   
-   - Hint: The main difference is that here we cannot open the plot directly, but have to save to a file instead, for instance with ``plt.savefig("myplot.png")``.
-    
-   - Make the change to the Python script and then make a batch script to run it! You can find solutions in the exercises directory, for each centre. 
-
-   **NOTE** We will not talk about pandas and matplotlib otherwise. You already learned about them earlier.
-
-   Submit with ``sbatch <batch-script.sh>``.
-
-   The batch scripts can be found in the directories for hpc2n, uppmax, lunarc, nsc, and pdc under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` .
+              Alvis should only be used for GPU jobs 
 
 .. keypoints::
 
