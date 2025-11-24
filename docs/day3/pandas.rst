@@ -137,25 +137,17 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
         ----------------------------------------------------------------------------
 
 
-   .. tab:: UPPMAX
+   .. tab:: UPPMAX (Pelle)
 
       .. important::
 
-         For this session, if you are on **Pelle**, you should load
+         For this session, you should load
 
          .. code-block:: console
         
             module load SciPy-bundle/2024.05-gfbf-2024a
 
          That module includes Pandas, NumPy, SciPy, etc. If you want to plot any of the data used in the examples and exercises, you will need to load ``matplotlib/3.9.2-gfbf-2024a`` separately.
-
-         If you are on **Rackham**, you should load
-
-         .. code-block:: console
-        
-            module load python/3.11.8
-     
-      On Rackham, Python versions 3.8 and newer include NumPy, Pandas, and Matplotlib. There is no need to load additional modules after loading your preferred Python version. Older versions are not recommended for this course.
 
 
    .. tab:: Tetralith (NSC)
