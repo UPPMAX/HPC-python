@@ -29,7 +29,7 @@ Interactive work on the compute nodes
 
 .. admonition:: Storage space for this workshop 
 
-   - Rackham: ``/proj/hpc-python-uppmax``
+   - Pelle: ``/proj/hpc-python-uppmax``
    - Kebnekaise: ``/proj/nobackup/fall-courses``
    - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
    - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
@@ -78,21 +78,15 @@ Any longer, resource-intensive, or parallel jobs must be run through a **batch s
    - On Cosmos (LUNARC), Dardel (PDC), Alvis (C3SE), and Kebnekaise (HPC2N) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher`` or portal.
    - Otherwise the terminal approach will work in all centers.
 
-The different way HPC2N, UPPMAX, LUNARC, NSC, and PDC provide for an interactive session
+The different way HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE provide for an interactive session
 -----------------------------------------------------------------------------------
-
-Example, HPC2N vs. UPPMAX vs. LUNARC (NSC is similar to LUNARC, PDC is similar to UPPMAX *or* can be similar to HPC2N): 
-
-.. mermaid:: ../mermaid/interactive_node_transitions.mmd 
-
-.. figure:: ../img/cosmos-interactive.png
-      :width: 400
-      :align: center
 
 Here we define an interactive session as a session with direct access to a compute node.
 Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
 
-This differs between the centers :
+Some centers only offer command line interactive sessions, and some also have ways of providing graphicsal interactive sessions. 
+
+The way this differs between the centers (command line):
 
 - HPC2N: the user remains on a login node. 
   All commands can be sent directly to the compute node using ``srun``
@@ -101,130 +95,130 @@ This differs between the centers :
 - LUNARC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node
 - NSC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node  
 - PDC: the user remains on a login node and can submit jobs to the compute node with ``srun`` *or* (recommended) the user login to the compute node with ssh after the job is allocated. Any commands are then run directly on the compute node. 
+C3SE: the user runs a shell on a compute node. 
 
-Start an interactive session
+Start an interactive session 
 ----------------------------
 
-To start an interactive session, 
-one needs to allocate resources on the cluster first.
+To start an interactive session, one needs to allocate resources on the cluster first.
 
 The command to request an interactive node differs per HPC cluster:
 
++---------+-----------------+-------------+----------+-------------------------+
+| Cluster | ``interactive`` | ``salloc``  | ``srun`` | GfxLauncher/OpenOnDemand portal |
++=========+=================+=============+==========+=========================+
+| Tetralith (NSC) | Recommended | N/A | N/A | N/A | 
 +---------+-----------------+-------------+-------------+
-| Cluster | ``interactive`` | ``salloc``  | GfxLauncher |
-+=========+=================+=============+=============+
-| HPC2N   | Works           | Recommended | Possible    |
+| Dardel (PDC) | N/A | Recommended | N/A | Possible (GfxLauncher | 
 +---------+-----------------+-------------+-------------+
-| UPPMAX  | Recommended     | Works       | N/A         |
+| Alvis (C3SE) | N/A | N/A | Works | Recommended (OOD) | 
 +---------+-----------------+-------------+-------------+
-| LUNARC  | Works           | N/A         | Recommended | 
-+---------+-----------------+-------------+-------------+
-| NSC     | Recommended     | N/A         | N/A         | 
+| Kebnekaise (HPC2N) | N/A | Recommended | N/A | Recommended (OOD) | 
 +---------+-----------------+-------------+-------------+ 
-| PDC     | N/A             | Recommended | Possible    |
-+---------+-----------------+-------------+-------------+
+| Pelle (UPPMAX) | Recommended | Works | N/A | N/A |
++---------+-----------------+-------------+-------------+ 
+| Cosmos (LUNARC) | Works | N/A | N/A | Recommended (GfxLauncher) | 
++---------+-------+-------+-----+-----+---------------------------+
 
-Start an interactive session in the simplest way
+
+Start an interactive session in the simplest way (command line) 
 ################################################
 
 To start an interactive session in the simplest way, as shown here:
 
 .. tabs::
 
-   .. tab:: UPPMAX
+   .. tab:: Tetralith 
+
+      The command “interactive” is recommended at NSC. 
 
       Use:
 
       .. code-block:: console
 
-         interactive -A [project_name]
+         interactive -A [project_name] -t HHH:MM:SS 
 
-      Where ``[project_name]`` is the UPPMAX project name,
-      for example ``interactive -A uppmax2025-2-393``.
+      Where ``[project_name]`` is the NAISS project name,
+      for example ``interactive -A naiss2025-22-934``.
+
+      If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU. 
 
       The output will look similar to this:
 
       .. code-block:: console
 
-          [richel@rackham4 ~]$ interactive -A uppmax2025-2-393
-          You receive the high interactive priority.
-          You may run for at most one hour.
-          Your job has been put into the devcore partition and is expected to start at once.
-          (Please remember, you may not simultaneously have more than one devel/devcore job, running or queued, in the batch system.)
-
-          Please, use no more than 8 GB of RAM.
-
-          salloc: Pending job allocation 9093699
-          salloc: job 9093699 queued and waiting for resources
-          salloc: job 9093699 has been allocated resources
-          salloc: Granted job allocation 9093699
-          salloc: Waiting for resource configuration
-          salloc: Nodes r314 are ready for job
-           _   _ ____  ____  __  __    _    __  __
-          | | | |  _ \|  _ \|  \/  |  / \   \ \/ /   | System:    r314
-          | | | | |_) | |_) | |\/| | / _ \   \  /    | User:      richel
-          | |_| |  __/|  __/| |  | |/ ___ \  /  \    | 
-           \___/|_|   |_|   |_|  |_/_/   \_\/_/\_\   | 
-
-          ###############################################################################
-
-                        User Guides: https://docs.uppmax.uu.se/
-
-                        Write to support@uppmax.uu.se, if you have questions or comments.
-
-
-          [richel@r314 ~]$ 
+         [x_birbr@tetralith3 ~]$ interactive -A naiss2025-22-403
+         salloc: Pending job allocation 44252533
+         salloc: job 44252533 queued and waiting for resources
+         salloc: job 44252533 has been allocated resources
+         salloc: Granted job allocation 44252533
+         salloc: Waiting for resource configuration
+         salloc: Nodes n340 are ready for job
+         [x_birbr@n340 ~]$ 
 
       Note that the prompt has changed to show that one is on an interactive node.
       
-   .. tab:: HPC2N
+   .. tab:: Dardel
 
+      The command salloc (or OpenOnDemand through Gfx launcher) is recommended at PDC. 
+
+      Remember that Dardel requires you to provide the **partition** as well.  
+   
       .. code-block:: console
           
-         salloc -A [project_name] -t HHH:MM:SS 
+         salloc -A [project_name] -t HHH:MM:SS -p main
 
-      Where ``[project_name]`` is the HPC2N project name,
-      for example ``salloc -A hpc2n2025-151``.
+      Where ``[project_name]`` is the NAISS project name,
+      for example ``salloc -A naiss2025-22-934 -t 00:10:00 -p main``.
 
       This will look similar to this (including asking for resources - time is required):
 
       .. code-block:: console
 
-          b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2025-151
-          salloc: Pending job allocation 20174806
-          salloc: job 20174806 queued and waiting for resources
-          salloc: job 20174806 has been allocated resources
-          salloc: Granted job allocation 20174806
+          bbrydsoe@login1:~> salloc --time=00:10:00 -A naiss2025-22-934 -p main
+          salloc: Pending job allocation 9722449
+          salloc: job 9722449 queued and waiting for resources
+          salloc: job 9722449 has been allocated resources
+          salloc: Granted job allocation 9722449
           salloc: Waiting for resource configuration
-          salloc: Nodes b-cn0241 are ready for job
-          b-an01 [~]$ module load GCC/12.3.0 Python/3.11.3
-          b-an01 [~]$ 
+          salloc: Nodes nid001134 are ready for job
+          bbrydsoe@login1:~>
 
-   .. tab:: LUNARC 
+      Again, you are on the login node, and anything you want to run in the allocation must be preface with srun.
+
+      However, you have another option; you can ssh to the allocated compute node and then it will be true interactivity:
 
       .. code-block:: console 
 
-         interactive -A [project_name] -t HHH:MM:SS
+         bbrydsoe@login1:~> ssh nid001134
+         bbrydsoe@nid001134:~
 
-      Where ``[project_name]`` is the LUNARC project name,
-      for example ``interactive -A lu2025-7-106``.  
+      It is also possible to use OpenOnDemand through Gfx launcher.
 
-      This will look similar to this (including asking for resources - time is required): 
+      To do this, login with ThinLinc and start the Gfxlauncher application. There is some documentation here: <a href="https://support.pdc.kth.se/doc/login/interactive_hpc/" target="_blank">Interactive HPC at PDC</a>.
 
-      .. code-block:: console
+      Please be aware that the number of ThinLinc licenses are limited. 
 
-         [bbrydsoe@cosmos3 ~]$ interactive -A lu2025-7-106 -n 4 -t 00:10:00
-         Cluster name: COSMOS
-         Waiting for JOBID 988025 to start
+      We will look more at OpenOnDemand/GfxLauncher in a short while. 
 
-      The terminal will refresh for the new connection: 
+   .. tab:: Alvis 
 
-      .. code-block:: console
+      The command “srun” from command line works at C3Se. It is not recommended as when the login node is restarted the interactive job is also terminated.
 
-         [bbrydsoe@cn137 ~]$ module load GCC/13.2.0 Python/3.11.5
-         [bbrydsoe@cn137 ~]$ 
+      .. code-block:: console 
 
-   .. tab:: NSC 
+         [brydso@alvis2 ~]$ srun --account=NAISS2025-22-395 --gpus-per-node=T4:1 --time=01:00:00 --pty=/bin/bash
+        [brydso@alvis2-12 ~]$
+
+      The recommended way to do interactive jobs at Alvis is with OpenOnDemand.
+
+      You access the Open OnDemand service through https://alvis.c3se.chalmers.se.
+
+      NOTE that you need to connect from a network on SUNET.
+ 
+      More information about C3SE’s Open OnDemand service can be found here: https://www.c3se.chalmers.se/documentation/connecting/ondemand/.   
+
+   .. tab:: Kebnekaise
 
       .. code-block:: console 
 
