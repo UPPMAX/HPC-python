@@ -56,9 +56,9 @@ One good example is Jupyter.
 
    - For HPC2N, using Jupyter on HPC2N is possible, and can be done either from the OpenOnDemand portal (easy) or through a batch job and ThinLinc (harder). 
    - For UPPMAX, using Jupyter is easy. 
-   - For LUNARC, using Jupyter (<https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>) works best using the LUNARC HPC Desktop. Go to the Applications menu, hover over Applications - Python, and select Jupyter Lab from the menu that pops up to the right.
+   - For LUNARC, using Jupyter (https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab) works best using the LUNARC HPC Desktop. Go to the Applications menu, hover over Applications - Python, and select Jupyter Lab from the menu that pops up to the right.
    - For NSC, using Jupyter is easiest done through ThinLinc, but can also be used via an SSH tunnel. 
-   - For PDC, you can use Jupyter easiest through the GfxLauncher in ThinLinc: <a href="https://support.pdc.kth.se/doc/login/interactive_hpc/" target="_blank">https://support.pdc.kth.se/doc/login/interactive_hpc/</a>
+   - For PDC, you can use Jupyter easiest through the GfxLauncher in ThinLinc: https://support.pdc.kth.se/doc/login/interactive_hpc/
    - For C3SE, you can easiest use Jupyter through the OpenOnDemand portal.   
 
 .. admonition:: In this session we will talk about 
@@ -69,7 +69,7 @@ One good example is Jupyter.
 
 An interactive session is a session with direct access to a compute node. Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
 
-You can find information about the cluster hardware in the <a href="https://uppmax.github.io/HPC-python/common/understanding_clusters.html" target="_blank">HPC clusters</a> common section. 
+You can find information about the cluster hardware in the Common section: https://uppmax.github.io/HPC-python/common/understanding_clusters.html
 
 Any longer, resource-intensive, or parallel jobs must be run through a **batch script** or an **interactive session**. 
 
@@ -95,7 +95,7 @@ The way this differs between the centers (command line):
 - LUNARC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node
 - NSC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node  
 - PDC: the user remains on a login node and can submit jobs to the compute node with ``srun`` *or* (recommended) the user login to the compute node with ssh after the job is allocated. Any commands are then run directly on the compute node. 
-C3SE: the user runs a shell on a compute node. 
+- C3SE: the user runs a shell on a compute node. 
 
 Start an interactive session 
 ----------------------------
