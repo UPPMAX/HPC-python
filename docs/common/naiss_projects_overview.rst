@@ -26,19 +26,19 @@ Storage spaces for this workshop:
 +------------+------------------------------------------------------------+
 | HPC cluster| Course project                                             |
 +============+============================================================+
-| Alvis      | :code:`/mimer/NOBACKUP/groups/courses-fall-2025`   |
+| Alvis      | :code:`/mimer/NOBACKUP/groups/courses-fall-2025`           |
 +------------+------------------------------------------------------------+
 | Bianca     | None. Use ``/proj/[your_project_code]``                    |
 +------------+------------------------------------------------------------+
 | COSMOS     | :code:`/lunarc/nobackup/projects/lu2025-17-52`             |
 +------------+------------------------------------------------------------+
-| Dardel     | :code:`/cfs/klemming/projects/supr/courses-fall-2025`|
+| Dardel     | :code:`/cfs/klemming/projects/supr/courses-fall-2025`      |
 +------------+------------------------------------------------------------+
-| Kebnekaise | :code:`/proj/nobackup/fall-courses`                   |
+| Kebnekaise | :code:`/proj/nobackup/fall-courses`                        |
 +------------+------------------------------------------------------------+
 | LUMI       | None. Use ``/project/[your_project_code]``                 |
 +------------+------------------------------------------------------------+
 | Pelle      | :code:`/proj/hpc-python-uppmax`                            |
 +------------+------------------------------------------------------------+
-| Tetralith  | :code:`/proj/courses-fall-2025/users/`               |
+| Tetralith  | :code:`/proj/courses-fall-2025/users/`                     |
 +------------+------------------------------------------------------------+
