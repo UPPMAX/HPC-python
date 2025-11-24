@@ -104,21 +104,21 @@ To start an interactive session, one needs to allocate resources on the cluster 
 
 The command to request an interactive node differs per HPC cluster:
 
-+---------+-----------------+-------------+----------+-------------------------+
-| Cluster | ``interactive`` | ``salloc``  | ``srun`` | GfxLauncher/OpenOnDemand portal |
-+=========+=================+=============+==========+=========================+
-| Tetralith (NSC) | Recommended | N/A | N/A | N/A | 
-+---------+-----------------+-------------+-------------+
-| Dardel (PDC) | N/A | Recommended | N/A | Possible (GfxLauncher | 
-+---------+-----------------+-------------+-------------+
-| Alvis (C3SE) | N/A | N/A | Works | Recommended (OOD) | 
-+---------+-----------------+-------------+-------------+
-| Kebnekaise (HPC2N) | N/A | Recommended | N/A | Recommended (OOD) | 
-+---------+-----------------+-------------+-------------+ 
-| Pelle (UPPMAX) | Recommended | Works | N/A | N/A |
-+---------+-----------------+-------------+-------------+ 
-| Cosmos (LUNARC) | Works | N/A | N/A | Recommended (GfxLauncher) | 
-+---------+-------+-------+-----+-----+---------------------------+
++--------------------+-----------------+-------------+----------+---------------------------------+
+| Cluster            | ``interactive`` | ``salloc``  | ``srun`` | GfxLauncher/OpenOnDemand portal |
++====================+=================+=============+==========+=================================+
+| Tetralith (NSC)    | Recommended     | N/A         | N/A      | N/A                             | 
++--------------------+-----------------+-------------+----------+---------------------------------+
+| Dardel (PDC)       | N/A             | Recommended | N/A      | Possible (GfxLauncher)          | 
++--------------------+-----------------+-------------+----------+---------------------------------+
+| Alvis (C3SE)       | N/A             | N/A         | Works    | Recommended (OOD)               | 
++--------------------+-----------------+-------------+----------+---------------------------------+
+| Kebnekaise (HPC2N) | N/A             | Recommended | N/A      | Recommended (OOD)               | 
++--------------------+-----------------+-------------+----------+---------------------------------+
+| Pelle (UPPMAX)     | Recommended     | Works       | N/A      | N/A                             |
++--------------------+-----------------+-------------+----------+---------------------------------+
+| Cosmos (LUNARC)    | Works           | N/A         | N/A      | Recommended (GfxLauncher)       | 
++--------------------+-----------------+-------------+----------+---------------------------------+
 
 
 Start an interactive session in the simplest way (command line) 
