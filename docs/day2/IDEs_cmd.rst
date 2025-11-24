@@ -3,13 +3,11 @@ Starting IDEs from command line
 
 .. admonition:: Learning objectives
 
-   - Be abke to start IDEs from the command-line
+   - Be able to start IDEs from the command-line
 
       - Jupyter
       - VScode
       - spyder
-
-
 
 Introduction
 ------------
@@ -21,13 +19,11 @@ This session from command line
 
 Next session from OnDemand.
 
-The
+The IDEs
 
 - Jupyter
 - VScode
 - Spyder
-
-- See last session how to start.
 
 Jupyter
 -------
@@ -35,6 +31,9 @@ Jupyter
 Jupyter is web application that (among other things) allows literature programming for Python. That is, Jupyter allows to create documents where Python code is shown and run and its results shown, surrounded by written text (e.g. English).
 
 Additionally, Jupyter allows to share files and hence includes a file manager.
+
+Principles
+##########
 
 Jupyter is:
 
@@ -481,188 +480,138 @@ Local notes
 
                   .. figure:: ../img/pdc_reconnect_to_jupyter.png      
 
+Spyder
+------
 
+Spyder is a powerful and flexible IDE originally developed to be the main scripting environment for scientific Anaconda users. It is designed to enable quick and easily repeatable experimentation, with automatic syntax checking, auto-complete suggestions, a runtime variable browser, and a graphics window that makes plots easy to manipulate after creation without additional code.
 
+Spyder is available independent of Anaconda, but conda is still the recommended installer. Packages from the ``conda-forge`` source repo are still open-source, so conda is still usable on some facilities despite the recent changes in licensing. It is also possible to `build a pip environment with Spyder <https://docs.spyder-ide.org/current/installation.html#using-pip>`_, although this is only recommended for experienced Python users running on Linux operating systems.
 
+To use Spyder on one of the HPC center resources, you must have a Thinlinc window open and logged into your choice of HPC resource. For personal use, it is relatively easy to `install as a standalone package on Windows or Mac <https://docs.spyder-ide.org/current/installation.html>`_, and there is also the option of `using Spyder online via Binder <https://mybinder.org/v2/gh/spyder-ide/binder-environments/spyder-stable?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fspyder-ide%252FSpyder-Workshop%26urlpath%3Ddesktop%252F%26branch%3Dmaster>`_.
+
+Principles
+##########
+
+- start an interactive session
+- load a Python or module
+- load your Spyder environment
+- start Spyder
 
 .. tabs::
 
-   .. tab:: Tetralith 
+   .. tab:: LUNARC
 
-      The command ``interactive`` is recommended at NSC. 
+      On COSMOS, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under ``Applications - Python``. All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes. Refer to `the Desktop On Demand documentation <https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html>`_ to help you fill in GfxLauncher prompt.
 
-      Use:
+      Avoid launching Spyder from the command line on the login node.
 
-      .. code-block:: console
+   .. tab:: HPC2N
 
-         interactive -A [project_name] -t HHH:MM:SS 
-
-      Where ``[project_name]`` is the NAISS project name,
-      for example ``interactive -A naiss2025-22-934``.
-
-      If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU. 
-
-      The output will look similar to this:
+      The only available version of Spyder on Kebnekaise is Spyder/4.1.5 for Python-3.8.2 (the latest release of Spyder available for users to install in their own environments is 6.0.2). Python 3.8.2 is associated with compatible versions of Matplotlib and Pandas, but not Seaborn or any of the ML packages to be covered later. To run the available version of Spyder, run the following commands:
 
       .. code-block:: console
 
-         [x_birbr@tetralith3 ~]$ interactive -A naiss2025-22-403
-         salloc: Pending job allocation 44252533
-         salloc: job 44252533 queued and waiting for resources
-         salloc: job 44252533 has been allocated resources
-         salloc: Granted job allocation 44252533
-         salloc: Waiting for resource configuration
-         salloc: Nodes n340 are ready for job
-         [x_birbr@n340 ~]$ 
-
-      Note that the prompt has changed to show that one is on an interactive node.
+         ml GCC/9.3.0  OpenMPI/4.0.3  Python  Spyder
+         spyder3
       
-   .. tab:: Dardel
+      If you want a newer version with more and newer compatible Python packages, you will have to create a virtual environment.
 
-      The command ``salloc`` (or OpenOnDemand through Gfx launcher) is recommended at PDC. 
+   .. tab:: UPPMAX
 
-      Remember that Dardel requires you to provide the **partition** as well.  
+      Spyder is not available centrally on Rackham. 
+
+      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
+
+      .. code-block:: console
+
+         ml conda
+         export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+         export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+         source activate spyder-env
+
+      * you can install packages with pip install from inside Spyder
+
+   .. tab:: NSC
+
+      Spyder is not available on Tetralith. 
+
+      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
+
+      .. code-block:: console
+
+         module load Miniforge/24.7.1-2-hpc1
+         export CONDA_PKG_DIRS=/proj/hpc-python-spring-naiss/$USER
+         export CONDA_ENVS_PATH=/proj/hpc-python-spring-naiss/$USER
+         source activate spyder-env
+
+      * you can install packages with pip install from inside Spyder
+
+   .. tab:: PDC
+
+      Spyder is not available on Dardel.
+
+      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+
+      .. code-block:: console
+
+         ml PDC/23.12
+         ml miniconda3/24.7.1-0-cpeGNU-23.12
+         export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+         export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+         source activate spyder-env
+
+      * you can install packages with pip install from inside Spyder
+
+
+
+VS Code
+--------
+
+VS Code is a powerful and flexible IDE that is popular among developers for its ease of use and flexibility. It is designed to be a lightweight and fast editor that can be customized to suit the user's needs. It has a built-in terminal, debugger, and Git integration, and can be extended with a wide range of plugins.
+
+VS Code can be downloaded and installed on your local machine from the `VS Code website <https://code.visualstudio.com/>`_. It is also available on the HPC center resources, but the installation process is different for each center.
+
+VS Code is available on ThinLinc on UPPMAX and LUNARC only. On HPC2N and NSC, you will have to install it on your own laptop. 
+At UPPMAX(Rackham) load it using ``module load VSCodium``, this is an open source version of VS Code. At LUNARC(Cosmos) you can find it under Applications->Programming->Visual Studio Code.
+
+However, VS Code is best used on your local machine, as it is a resource-intensive application that can slow down the ThinLinc interface. The VS Code Server can be installed on all the HPCs that give your the ability to run your code on the HPCs but edit it on your local machine.
+Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.
+
+On your own computer through SSH tunneling 
+############################################
+
+Install VS Code on your local machine and follow the steps below to connect to the HPC center resources.
+
+.. admonition:: Steps to connect VS Code via SSH
+   :class: dropdown
+
+   .. figure:: ../img/vscode_remote_tunnels_before_install.png
    
-      .. code-block:: console
-          
-         salloc -A [project_name] -t HHH:MM:SS -p main
+   .. figure:: ../img/vscode_add_new_remote.png
+   
+   Type ssh [username]@rackham.uppmax.uu.se where [username] is your UPPMAX username, for example, ssh sven@rackham.uppmax.uu.se. 
+   This will change as per the HPC center you are using:  
+   
+   .. figure:: ../img/vscode_ssh_to_rackham.png
+   
+   Use the ~/.ssh/config file:  
+   
+   .. figure:: ../img/vscode_remote_tunnels_use_ssh_config_in_home.png
+   
+   Click on 'Connect':  
+   
+   .. figure:: ../img/vscode_connect_to_rackham.png
+   
+   .. figure:: ../img/vscode_connected_to_rackham.png
 
-      Where ``[project_name]`` is the NAISS project name,
-      for example ``salloc -A naiss2025-22-934 -t 00:10:00 -p main``.
+When you first establish the ssh connection to Rackham, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
+This also where VS Code will install all your extentions that can quickly fill up your home directory.
 
-      This will look similar to this (including asking for resources - time is required):
-
-      .. code-block:: console
-
-          bbrydsoe@login1:~> salloc --time=00:10:00 -A naiss2025-22-934 -p main
-          salloc: Pending job allocation 9722449
-          salloc: job 9722449 queued and waiting for resources
-          salloc: job 9722449 has been allocated resources
-          salloc: Granted job allocation 9722449
-          salloc: Waiting for resource configuration
-          salloc: Nodes nid001134 are ready for job
-          bbrydsoe@login1:~>
-
-      Again, you are on the login node, and anything you want to run in the allocation must be preface with srun.
-
-      However, you have another option; you can ssh to the allocated compute node and then it will be true interactivity:
-
-      .. code-block:: console 
-
-         bbrydsoe@login1:~> ssh nid001134
-         bbrydsoe@nid001134:~
-
-   .. tab:: Alvis 
-
-      The command ``srun`` from command line works at C3SE. It is not recommended as when the login node is restarted the interactive job is also terminated.
-
-      .. code-block:: console 
-
-         [brydso@alvis2 ~]$ srun --account=NAISS2025-22-395 --gpus-per-node=T4:1 --time=01:00:00 --pty=/bin/bash
-        [brydso@alvis2-12 ~]$
-
-      The recommended way to do interactive jobs at Alvis is with OpenOnDemand.
-
-      You access the Open OnDemand service through https://alvis.c3se.chalmers.se.
-
-      NOTE that you need to connect from a network on SUNET.
- 
-      More information about C3SE’s Open OnDemand service can be found here: https://www.c3se.chalmers.se/documentation/connecting/ondemand/.   
-
-   .. tab:: Kebnekaise
-
-      The command ``salloc`` (or OpenOnDemand) is recommended at HPC2N.
-
-      Usage: ``salloc -A [project_name] -t HHH:MM:SS``
-
-      You have to give project ID and walltime. If you need more CPUs (1 is default) or GPUs, you have to ask for that as well.
-
-      .. code-block:: console 
-
-         b-an01 [~]$ salloc -A hpc2n2025-151 -t 00:10:00
-         salloc: Pending job allocation 34624444
-         salloc: job 34624444 queued and waiting for resources
-         salloc: job 34624444 has been allocated resources
-         salloc: Granted job allocation 34624444
-         salloc: Nodes b-cn1403 are ready for job
-         b-an01 [~]$
-
-      WARNING! This is not true interactivity! Note that we are still on the login node!
-
-      In order to run anything in the allocation, you need to preface with ``srun`` like this:
-
-      .. code-block:: console 
-
-          b-an01 [~]$ srun /bin/hostname
-          b-cn1403.hpc2n.umu.se
-          b-an01 [~]$
-
-      Otherwise anything will run on the login node! Also, interactive sessions (for instance a program that asks for input) will not work correctly as that dialogoue happens on the compute node which you do not have real access to!
-
-   .. tab:: Pelle  
-
-      At UPPMAX, ``interactive`` is recommended.
-
-      Usage: ``interactive -A [project_name] -t HHH:MM:SS``
-
-      If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU.
-
-      .. code-block:: console 
-
-         [bbrydsoe@pelle1 ~]$ interactive -A uppmax2025-2-393 -t 00:15:00
-         This is a temporary version of interactive-script for Pelle
-         Most interactive-script functionality is removed
-         salloc: Pending job allocation 205612
-         salloc: job 205612 queued and waiting for resources
-         salloc: job 205612 has been allocated resources
-         salloc: Granted job allocation 205612
-         salloc: Waiting for resource configuration
-         salloc: Nodes p115 are ready for job
-         [bbrydsoe@p115 ~]$ 
-
-       **``salloc`` also works** 
-
-       Usage: ``salloc -A [project_name] -t HHH:MM:SS``
-
-       You have to give project ID and walltime. If you need more CPUs (1 is default) or GPUs, you have to ask for that as well.
-
-       .. code-block:: console 
-
-          [bbrydsoe@pelle1 ~]$ salloc -A uppmax2025-2-393 -t 00:15:00
-          salloc: Pending job allocation 205613
-          salloc: job 205613 queued and waiting for resources
-          salloc: job 205613 has been allocated resources
-          salloc: Granted job allocation 205613
-          salloc: Nodes p115 are ready for job
-          [bbrydsoe@p115 ~]$ 
-       
-   .. tab:: Cosmos
-
-      The command ``interactive`` works at LUNARC. It is not the recommended way to do interactive work. 
-
-      Usage: ``interactive -A [project_name] -t HHH:MM:SS``
-
-      If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU.
-
-      .. code-block:: console 
-
-         [bbrydsoe@cosmos2 ~]$ interactive -A lu2025-7-76 -t 00:15:00
-         Cluster name: COSMOS
-         Waiting for JOBID 1724396 to start
-
-      After a short wait, you get something like this:
-
-      .. code-block::  console 
-
-         [bbrydsoe@cn094 ~]$
-
-
-
-
-Exercises
----------
+Exercises with step-by-step instructions
+----------------------------------------
 
 .. admonition:: Compute allocations in this workshop 
+   :class: dropdown   
 
    - Pelle: ``uppmax2025-2-393``
    - Kebnekaise: ``hpc2n2025-151``
@@ -672,6 +621,7 @@ Exercises
    - Dardel: ``naiss2025-22-934``
 
 .. admonition:: Storage space for this workshop 
+   :class: dropdown
 
    - Pelle: ``/proj/hpc-python-uppmax``
    - Kebnekaise: ``/proj/nobackup/fall-courses``
@@ -679,3 +629,19 @@ Exercises
    - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
    - Tetralith: ``/proj/courses-fall-courses``
    - Dardel: ``/cfs/klemming/projects/supr/courses-fall-courses``
+
+
+Exercise 1: Start Jupyter on a compute node
+###########################################
+
+
+
+Exercise 2: Start Spyder on a compute node
+##########################################
+
+
+Exercise 3: Run VScode locally with a connection to a compute node
+##################################################################
+
+
+
