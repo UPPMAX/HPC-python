@@ -81,8 +81,7 @@ You can find information about the cluster hardware in the <a href="https://uppm
 - The **calculation nodes** have to be used for intense computing. Any longer, resource-intensive, or parallel jobs must be run through a **batch script** or an **interactive session**.
 
 - Beginner's guide to clusters: https://docs.hpc2n.umu.se/tutorials/clusterguide/
-- NAISS course about <a href="https://uppmax.github.io/NAISS_Slurm/" target="_blank">Running jobs on HPC systems</a>. 
-
+- NAISS course about Running jobs on HPC systems: https://uppmax.github.io/NAISS_Slurm/
 
 What are some important commands regarding batch jobs? 
 ------------------------------------------------------
