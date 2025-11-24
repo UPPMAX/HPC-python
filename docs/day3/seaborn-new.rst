@@ -67,7 +67,7 @@ Load and Run Seaborn
         
             ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Seaborn/0.13.2
 
-      On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter Lab applications to use Seaborn. These applications are configured to load Seaborn and all its dependencies autonatically, including the SciPy-bundle. The demonstrations will be done on Cosmos with Spyder.
+      On Cosmos, it is recommended that you use the On-Demand Spyder or Jupyter Lab applications to use Seaborn. These applications are configured to load Seaborn and all its dependencies autonatically, including the SciPy-bundle. The demonstrations will be done on Cosmos with Spyder.
   
       If you must work on the command line, then you will need to load Seaborn separately, along with any prerequisite modules. After importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots.
   
@@ -99,7 +99,7 @@ Load and Run Seaborn
               $ module spider Seaborn/0.13.2
          ----------------------------------------------------------------------------
 
-   .. tab:: UPPMAX (Pelle and Rackham)
+   .. tab:: UPPMAX (Pelle)
 
       .. important::
 
@@ -110,14 +110,6 @@ Load and Run Seaborn
             module load python/FIXME
      
       On Pelle, Seaborn/FIXME is included in ...
-  
-         You should for this session load
-
-         .. code-block:: console
-        
-            module load python/3.11.8
-     
-      On Rackham, Seaborn/0.13.2 is included in ``python_ML_packages/3.11.8-cpu``. Jupyter-Lab is available but Spyder is not installed centrally.
 
    .. tab:: NSC (Tetralith)
      
