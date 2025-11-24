@@ -41,7 +41,7 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
 
 .. tabs::
 
-  .. tab:: HPC2N
+  .. tab:: HPC2N (Kebnekaise)
 
      If you use Matplotlib at the command line, you will need to load the module ``Tkinter`` and then, after importing matplotlib, set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots.
 
@@ -84,9 +84,9 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
          Names marked by a trailing (E) are extensions provided by another module.
         
 
-  .. tab:: LUNARC
+  .. tab:: LUNARC (Cosmos)
 
-     On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter applications to use Matplotlib. Some Matplotlib scripts will be demonstrated on Cosmos with Spyder.
+     On Cosmos, it is recommended that you use the On-Demand Spyder or Jupyter applications to use Matplotlib. Some Matplotlib scripts will be demonstrated on Cosmos with Spyder.
       
      If you must work on the command line, then you will need to load matplotlib separately, along with all the prerequisite modules (don't forget the SciPy-bundle if you plan to use NumPy, SciPy, or Pandas!). The module ``Tkinter`` loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots.
 
@@ -119,9 +119,9 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
 
      There is a bug in matplotlib/3.9.2, so for now that version should be avoided.
 
-  .. tab:: UPPMAX
+  .. tab:: UPPMAX (Pelle)
 
-     On **Pelle**, there is currently only 1 version of Matplotlib, ``matplotlib/3.9.2-gfbf-2024a``, and it can be loaded directly. The following shows the output of ``ml`` (module list) after loading ``matplotlib/3.9.2-gfbf-2024a``:
+     On Pelle, there is currently only 1 version of Matplotlib, ``matplotlib/3.9.2-gfbf-2024a``, and it can be loaded directly. The following shows the output of ``ml`` (module list) after loading ``matplotlib/3.9.2-gfbf-2024a``:
 
      .. code-block:: console
 
@@ -152,57 +152,6 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
        24) Brotli/1.1.0-GCCcore-13.3.0                48) matplotlib/3.9.2-gfbf-2024a
 
      Take note of the ``-gfbf-2024a`` suffix on some Python modules and the ``-GCCcore-13.3.0`` suffix on most other modules. You should stick to these for the duration of this course to ensure compatibility.
-
-     .. adminition:: Rackham (Soon to be retired)
-        :collapsible: closed
-
-        On Rackham, **loading Python version 3.8.7 or newer will allow you to import Matplotlib and NumPy** without having to load anything else. If you wish to also import Jupyter, Pandas, and/or Seaborn, those and Matplotlib are also provided all together by ``python_ML_packages``. The output of ``module spider python_ML_packages`` is
-   
-        .. code-block:: console
-   
-            ----------------------------------------------------------------------------
-              python_ML_packages:
-            ----------------------------------------------------------------------------
-                 Versions:
-                    python_ML_packages/3.9.5-cpu
-                    python_ML_packages/3.9.5-gpu
-                    python_ML_packages/3.11.8-cpu
-            
-            ----------------------------------------------------------------------------
-              For detailed information about a specific "python_ML_packages" package (includ
-            ing how to load the modules) use the module's full name.
-              Note that names that have a trailing (E) are extensions provided by other modu
-            les.
-              For example:
-            
-                 $ module spider python_ML_packages/3.11.8-cpu
-            ----------------------------------------------------------------------------
-   
-        We recommend the latest version, ``python_ML_packages/3.11.8-cpu``
-   
-        For versions earlier than Python 3.8.x, ``module spider matplotlib`` outputs the following:
-   
-        .. code-block:: console
-   
-            ----------------------------------------------------------------------------
-              matplotlib:
-            ----------------------------------------------------------------------------
-                Description:
-                  matplotlib is a python 2D plotting library which produces publication
-                  quality figures in a variety of hardcopy formats and interactive
-                  environments across platforms. matplotlib can be used in python
-                  scripts, the python and ipython shell, web application servers, and
-                  six graphical user interface toolkits.
-            
-                 Versions:
-                    matplotlib/2.2.3-fosscuda-2018b-Python-2.7.15
-                    matplotlib/3.0.0-intel-2018b-Python-3.6.6
-                    matplotlib/3.0.3-foss-2019a-Python-3.7.2
-                    matplotlib/3.3.3-foss-2020b
-                    matplotlib/3.3.3-fosscuda-2020b
-                    matplotlib/3.4.3-foss-2021b
-   
-        The native backend should work if you are logged in via Thinlinc, but if there is a problem, try setting ``matplotlib.use('Qt5Agg')`` in your script. You'll need X-forwarding to view any graphics via SSH, and that may be prohibitively slow.
 
   .. tab:: NSC (Tetralith)
 
