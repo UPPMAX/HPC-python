@@ -533,7 +533,7 @@ Here is a (somewhat scientifically nonsensical) example using a DataFrame of var
      import pandas as pd
      df = pd.read_csv('./docs/day3/covid19_italy_region.csv',index_col=0)
      import numba    # on Cosmos, this requires a conda environment with Numba installed
-     numba.set_num_threads(10)
+     numba.set_num_threads(4)   #10 would be optimal but apparently the limit in this interface is 4
      stuff = df.iloc[:,6:]
      %timeit stuff.rolling(630).mean() #30-day rolling average
      %timeit stuff.rolling(630).mean(engine='numba', engine_kwargs={"parallel": True})
