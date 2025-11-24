@@ -130,7 +130,7 @@ To start an interactive session in the simplest way, as shown here:
 
    .. tab:: Tetralith 
 
-      The command “interactive” is recommended at NSC. 
+      The command ``interactive`` is recommended at NSC. 
 
       Use:
 
@@ -160,7 +160,7 @@ To start an interactive session in the simplest way, as shown here:
       
    .. tab:: Dardel
 
-      The command salloc (or OpenOnDemand through Gfx launcher) is recommended at PDC. 
+      The command ``salloc`` (or OpenOnDemand through Gfx launcher) is recommended at PDC. 
 
       Remember that Dardel requires you to provide the **partition** as well.  
    
@@ -203,7 +203,7 @@ To start an interactive session in the simplest way, as shown here:
 
    .. tab:: Alvis 
 
-      The command “srun” from command line works at C3Se. It is not recommended as when the login node is restarted the interactive job is also terminated.
+      The command ``srun`` from command line works at C3SE. It is not recommended as when the login node is restarted the interactive job is also terminated.
 
       .. code-block:: console 
 
@@ -220,67 +220,119 @@ To start an interactive session in the simplest way, as shown here:
 
    .. tab:: Kebnekaise
 
+      The command ``salloc`` (or OpenOnDemand) is recommended at HPC2N.
+
+      Usage: ``salloc -A [project_name] -t HHH:MM:SS``
+
+      You have to give project ID and walltime. If you need more CPUs (1 is default) or GPUs, you have to ask for that as well.
+
       .. code-block:: console 
 
-         interactive -A [project_name]
+         b-an01 [~]$ salloc -A hpc2n2025-151 -t 00:10:00
+         salloc: Pending job allocation 34624444
+         salloc: job 34624444 queued and waiting for resources
+         salloc: job 34624444 has been allocated resources
+         salloc: Granted job allocation 34624444
+         salloc: Nodes b-cn1403 are ready for job
+         b-an01 [~]$
 
-      Where ``[project_name]`` is the NSC project name,
-      for example ``interactive -A naiss2025-22-934``.  
+      WARNING! This is not true interactivity! Note that we are still on the login node!
 
-      This will look similar to this: 
+      In order to run anything in the allocation, you need to preface with ``srun`` like this:
 
-      .. code-block:: console
+      .. code-block:: console 
 
-         [x_birbr@tetralith1 ~]$ interactive -A naiss2025-22-934 
-         salloc: Pending job allocation 40137281
-         salloc: job 40137281 queued and waiting for resources
-         salloc: job 40137281 has been allocated resources
-         salloc: Granted job allocation 40137281
+          b-an01 [~]$ srun /bin/hostname
+          b-cn1403.hpc2n.umu.se
+          b-an01 [~]$
+
+      Otherwise anything will run on the login node! Also, interactive sessions (for instance a program that asks for input) will not work correctly as that dialogoue happens on the compute node which you do not have real access to!
+
+      **OpenOnDemand**
+
+      This is the recommended way to do interactive jobs at HPC2N.
+
+      - Go to https://portal.hpc2n.umu.se/ and login.
+      - Documentation here: https://docs.hpc2n.umu.se/tutorials/connections/#open__ondemand
+
+      More about OpenOnDemand desktop in a short while. 
+
+   .. tab:: Pelle  
+
+      At UPPMAX, ``interactive`` is recommended.
+
+      Usage: ``interactive -A [project_name] -t HHH:MM:SS``
+
+      If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU.
+
+      .. code-block:: console 
+
+         [bbrydsoe@pelle1 ~]$ interactive -A uppmax2025-2-393 -t 00:15:00
+         This is a temporary version of interactive-script for Pelle
+         Most interactive-script functionality is removed
+         salloc: Pending job allocation 205612
+         salloc: job 205612 queued and waiting for resources
+         salloc: job 205612 has been allocated resources
+         salloc: Granted job allocation 205612
          salloc: Waiting for resource configuration
-         salloc: Nodes n302 are ready for job
-         [x_birbr@n302 ~]$ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
-         [x_birbr@n302 ~]$
+         salloc: Nodes p115 are ready for job
+         [bbrydsoe@p115 ~]$ 
 
-   .. tab:: PDC 
+       **``salloc`` also works** 
+
+       Usage: ``salloc -A [project_name] -t HHH:MM:SS``
+
+       You have to give project ID and walltime. If you need more CPUs (1 is default) or GPUs, you have to ask for that as well.
+
+       .. code-block:: console 
+
+          [bbrydsoe@pelle1 ~]$ salloc -A uppmax2025-2-393 -t 00:15:00
+          salloc: Pending job allocation 205613
+          salloc: job 205613 queued and waiting for resources
+          salloc: job 205613 has been allocated resources
+          salloc: Granted job allocation 205613
+          salloc: Nodes p115 are ready for job
+          [bbrydsoe@p115 ~]$ 
+       
+   .. tab:: Cosmos
+
+      The command ``interactive`` works at LUNARC. It is not the recommended way to do interactive work. 
+
+      Usage: ``interactive -A [project_name] -t HHH:MM:SS``
+
+      If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU.
 
       .. code-block:: console 
 
-         salloc --time=HHH:MM:SS -A [project_id] -p [partition] 
+         [bbrydsoe@cosmos2 ~]$ interactive -A lu2025-7-76 -t 00:15:00
+         Cluster name: COSMOS
+         Waiting for JOBID 1724396 to start
 
-      Where ``[project_id]`` is the PDC project id, for example ``naiss2025-22-934``, and ``[partition]`` is main or gpu. 
+      After a short wait, you get something like this:
 
-      This will look similar to this: 
+      .. code-block::  console 
 
-      .. code-block:: console 
+         [bbrydsoe@cn094 ~]$
 
-         bbrydsoe@login1:~> salloc --time=HHH:MM:SS -A naiss2025-22-934 -p main 
+      **GfxLauncher**
 
-      Then, when you get the allocation, do one of:
+      This is the recommended wait to work interactively at LUNARC.
 
-      - Stay on the login node and do ``srun ./program``
-      - ``ssh`` to the compute node you got allocated and then work there
+      - Login with ThinLinc: https://lunarc-documentation.readthedocs.io/en/latest/getting_started/using_hpc_desktop/
+      - Follow the documentation for starting the GfxLauncher for OpenOnDemand: https://lunarc-documentation.readthedocs.io/en/latest/getting_started/gfxlauncher/
 
-      .. code-block:: console
+      More about GfxLauncher and OpenOnDemand in a short while! 
 
-         bbrydsoe@login1:~> salloc --time=00:10:00 -A naiss2025-22-934 -p main
-         salloc: Pending job allocation 9722449
-         salloc: job 9722449 queued and waiting for resources
-         salloc: job 9722449 has been allocated resources
-         salloc: Granted job allocation 9722449
-         salloc: Waiting for resource configuration
-         salloc: Nodes nid001134 are ready for job
-         bbrydsoe@login1:~> ssh nid001134
-         bbrydsoe@nid001134:~> 
 
-Indeed, all you need is the UPPMAX/NSC project name, as well as time for HPC2N/LUNARC/PDC, and also partition for PDC.
+Indeed, all you need at most of the centers, for command line interactivity, is the project name, as well as time - and also partition for PDC. 
 
-However, this simplest way may have some defaults settings that do not fit you. 
+However, this simplest way may have some default settings that do not fit you. 
 
 - session duration is too short
 - the session has too few cores available (default is usually 1) 
 - or if you need GPUs 
 
-You can add more resources the same way as for batch jobs - more about that tomorrow.
+You can add more resources the same way as for batch jobs. 
 
 There is some information here: <https://uppmax.github.io/R-python-julia-matlab-HPC/python/interactivePython.html#start-an-interactive-session-in-a-more-elaborate-way>.
 
@@ -634,4 +686,10 @@ Conclusion
    - seen that not all Python scripts 
      can be run interactively on multiples cores
    - exited an interactive session
+
+
+    At centres that have OpenOnDemand installed, you do not have to submit a batch job, but can run directly on the already allocated resources (see interactive jobs).
+        OpenOnDemand is a good option for interactive tasks, graphical applications/visualization, and simpler job submittions. It can also be more user-friendly.
+        Regardless, there are many situations where submitting a batch job is the best option instead, including when you want to run jobs that need many resources (time, memory, multiple cores, multiple GPUs) or when you run multiple jobs concurrently or in a specified succession, without need for manual intervention. Batch jobs are often also preferred for automation (scripts) and reproducibility. Many types of application software fall into this category.
+    At centres that have ThinLinc you can usually submit MATLAB jobs to compute resources from within MATLAB.
 
