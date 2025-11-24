@@ -321,13 +321,16 @@ In most reader functions, including ``index_col=0`` sets the first column as the
 
 .. challenge:: 
 
-   Code along! Open your preferred IDE and load the provided file ``exoplanets_5250_EarthUnits_fixed.csv`` into DataFrame ``df``. Then, save ``df`` to a text (.txt) file with a tab (``\t``) separator.
-   
-.. code-block:: python
+   Open your preferred IDE and load the provided file ``exoplanets_5250_EarthUnits_fixed.csv`` into DataFrame ``df`` (optionally, you can set the first column to be the indices). Then, save ``df`` to a text (.txt) file with a tab (``\t``) separator.
 
-   import pandas as pd
-   df = pd.read_csv('exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
-   df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='\t',index=True)
+.. solution:: Solution
+    :class: dropdown
+
+   .. code-block:: python
+   
+      import pandas as pd
+      df = pd.read_csv('exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
+      df.to_csv('./docs/day3/exoplanets_5250_EarthUnits.txt', sep='\t',index=True)
 
 
 **Creating DataFrames in Python.** Building a DataFrame or Series from scratch is also easy. Lists and arrays can be converted directly to Series and DataFrames, respectively.
@@ -338,14 +341,17 @@ In most reader functions, including ``index_col=0`` sets the first column as the
 
 .. challenge:: 
 
-   Code along! In your preferred IDE, recreate the DataFrame shown below and view it with a print statement.
+   In your preferred IDE or at the command line, create a DataFrame with 4 rows labeled ``['w','x','y','z']`` and 3 columns labeled ``['a','b','c']``. The contents of the cells are up to you. Print the result and verify that it has the right shape.
 
-.. jupyter-execute::
+.. solution:: Solution
+    :class: dropdown
 
-    import numpy as np
-    import pandas as pd
-    df = pd.DataFrame( np.arange(1,13).reshape((4,3)), index=['w','x','y','z'], columns=['a','b','c'] )
-    print(df)
+   .. jupyter-execute::
+   
+       import numpy as np
+       import pandas as pd
+       df = pd.DataFrame( np.arange(1,13).reshape((4,3)), index=['w','x','y','z'], columns=['a','b','c'] )
+       print(df)
 
 It is also possible (and occasionally necessary) to convert DataFrames and Series to NumPy arrays, dictionaries, record arrays, or strings with the methods ``.to_numpy()``, ``.to_dict()``, ``to_records()``, and ``to_string()``, respectively.
 
@@ -466,18 +472,26 @@ Efficient Data Types
 
   - When an order is asserted, it becomes possible to use ``.min()`` and ``.max()`` on the categories.
 
-.. jupyter-execute::
+.. challenge::
 
-    import pandas as pd
-    import numpy as np
-    df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)    
-    print("Before:\n", df['planet_type'].memory_usage(deep=True))
-    # Convert planet_type to Categorical
-    ptypes=df['planet_type'].astype('category')
-    print("After:\n", ptypes.memory_usage(deep=True))
-    # assert order (coincidentally alphabetical order is also reverse mass-order)
-    ptypes = ptypes.cat.reorder_categories(ptypes.cat.categories[::-1], ordered=True)
-    print(ptypes)
+   Take the exoplanets DataFrame that you loaded before and print the memory usage with ``deep=True``. Then, convert the ``'planet_type'`` column to datatype ``category``. Print the memory usage again and compare the changed column's estimated size in memory to the original.
+
+
+.. solution:: Solution
+    :class: dropdown
+
+   .. jupyter-execute::
+   
+       import pandas as pd
+       import numpy as np
+       df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)    
+       print("Before:\n", df['planet_type'].memory_usage(deep=True))
+       # Convert planet_type to Categorical
+       ptypes=df['planet_type'].astype('category')
+       print("After:\n", ptypes.memory_usage(deep=True))
+       # assert order (coincidentally alphabetical order is also reverse mass-order)
+       ptypes = ptypes.cat.reorder_categories(ptypes.cat.categories[::-1], ordered=True)
+       print(ptypes)
 
 Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order. However, some mathematical operations may no longer work on the results.
 
@@ -508,7 +522,7 @@ This example shows the difference in memory usage between a 1000x1000 identity m
 Numba (JIT Compilation)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-If Numba is installed, setting ``engine=numba`` in most built-in functions can boost performance if the function has to be run multiple times over several columns, particularly if you can set ``engine_kwargs={"parallel": True}``. Numba uses Just-In-Time (JIT) compilation to compile pure Python code to a machine-optimized form at runtime, automatically incorporating multi-threading across available CPU cores if parallelism is enabled. Types of functions that this works for include:
+If the Numba module is installed, setting ``engine=numba`` in most built-in functions can boost performance if the function has to be run multiple times over several columns, particularly if you can set ``engine_kwargs={"parallel": True}``. Numba uses Just-In-Time (JIT) compilation to compile pure Python code to a machine-optimized form at runtime, automatically incorporating multi-threading across available CPU cores if parallelism is enabled. Types of functions that this works for include:
 
 * Statistical functions like ``mean()``, ``median()``, and ``std()``, which can be applied to the whole data set or to rolling windows. 
 * Complex functions, or user-defined functions decorated with ``@jit``, applied via ``.agg()``, ``.transform()``, ``.map()``, or ``.apply()``.
@@ -519,18 +533,18 @@ Parallel function evaluation occurs column-wise, so **performance will be booste
 
    Since JIT-compiled functions are parallelized column-wise, make sure that the number of threads allocated for any interactive session or slurm script and the number of threads passed to Numba are all equal to the number of columns you want to process in parallel. Assuming you have imported Numba as ``numba``, the way to tell Numba the number of threads to use is: ``numba.set_num_threads(ncols)`` where ``ncols`` is the number of columns to apply the function to in parallel.   
 
-Here is a (somewhat scientifically nonsensical) example using the exoplanets DataFrame to show the speed-up for 5 columns.
+Here is a (somewhat scientifically nonsensical) example using a DataFrame of various COVID19 statistics across Italy's 21 administrative regions over the first 2 years of the pandemic. Columns 6-15 are statistics that a rolling mean might make sense for (if we normalized by Region population).
 
 .. jupyter-execute::
    
      import numpy as np
      import pandas as pd
-     df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)
-     import numba
-     numba.set_num_threads(4)
-     stuff =  df.iloc[:,4:9].sample(n=250000, replace=True, ignore_index=True)
-     %timeit stuff.rolling(500).mean()
-     %timeit stuff.rolling(500).mean(engine='numba', engine_kwargs={"parallel": True})
+     df = pd.read_csv('./docs/day3/covid19_italy_region.csv',index_col=0)
+     import numba    # on Cosmos, this requires a conda environment with Numba installed
+     numba.set_num_threads(10)
+     stuff = df.iloc[:,6:]
+     %timeit stuff.rolling(630).mean() #30-day rolling average
+     %timeit stuff.rolling(630).mean(engine='numba', engine_kwargs={"parallel": True})
 
 .. tip::
 
@@ -589,8 +603,43 @@ While loaded, chunks can be indexed and manipulated like full-sized DataFrames.
 
 Workflows that can be applied to chunks can also be used to aggregate over multiple files, so it may also be worth breaking a single out-of-memory file into logical subsections that individually fit in memory. `The Pandas documentation on chunking chooses this method of demonstration <https://pandas.pydata.org/docs/user_guide/scale.html#use-chunking>`__ rather than showing how to iterate over chunks loaded from an individual file.
 
-The following example uses the table ``covid19_italy_region.csv``, which is not out-of-memory for a typical HPC cluster but is fairly large. The data are split over Italy's 21 adminstrative Regions. Let's say we want to tally up the NewPositiveCases
+The following example uses the table ``global_disaster_response_2018-2024.csv``, which is not out-of-memory for a typical HPC cluster but is fairly large. The data were not in any particular order, but there are 50000 rows spread fairly evenly over the time period, so this example uses chunks of 5000 rows. 
+
+.. jupyter-execute::
+
+    import pandas as pd
+    import numpy as np
+    loss_sum = 0
+    for chunk in pd.read_csv('./docs/day3/global_disaster_response_2018-2024.csv',
+                             chunksize=5000):
+       loss_sum+=chunk['economic_loss_usd'].sum()
+    print('total loss over all disasters in this database: $', np.round(loss_sum/10**9,2), 'billion USD')
 
 .. caution::
 
    Chunking with Pandas alone works only when no coordination is required between chunks. Functions that apply independently to every row are ideal. Some aggregate statistics can be calculated if care is taken to make sure that either all chunks are of identical size or that different-sized chunks are reweighted appropriately. However, if your data have natural groupings where group membership is not known by position a priori, or where each group is itself larger than memory, you may be better off using Dask or other libraries.
+
+.. challenge
+
+   Use chunks of 10000 rows to accumulate a sum over the ``'casualties'`` column of the ``global_disaster_response_2018-2024.csv`` file.
+
+.. solution:: Solution
+    :class: dropdown
+
+   .. code-block:: python
+
+      cas_sum = 0
+      for chunk in pd.read_csv('/home/rlpitts/Documents/global_disaster_response_2018-2024.csv',
+                               chunksize=10000):
+      cas_sum+=chunk['casualties'].sum()
+
+.. keypoints::
+
+   - Pandas lets you construct list- or table-like data structures with mixed data types, the contents of which can be indexed by arbitrary row and column labels
+   - The main data structures are Series (1D) and DataFrames (2D). Each column of a DataFrame is a Series.
+   - Data is selected primarily using ``.loc[]`` and ``.iloc[]``, unless you're grabbing whole columns (then the syntax is dict-like).
+   - There are hundreds of attributes and methods that can be called on Pandas data structures to inspect, clean, organize, combine, and apply functions to them, including nearly all NumPy ufuncs (universal functions).
+   - ``Categorical`` and ``SparseDtype`` datatypes can help you reduce the memory footprint of your data.
+   - Most Pandas methods that apply a function can be sped up by multithreading with Numba, if they are applied over multiple columns. Just set ``engine=numba`` and ``engine_kwargs={"parallel": True}`` in the kwargs.
+   - Pandas includes a built-in function to convert categorical data columns to dummy variables for Machine Learning input.
+   - Several Pandas reader/writer functions support chunking, i.e., loading subsets of data files that would otherwise not fit in memory.  
