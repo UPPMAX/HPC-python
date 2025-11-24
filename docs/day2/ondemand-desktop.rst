@@ -13,19 +13,19 @@ Desktop On Demand
 What is Desktop On Demand? Is it right for my job?
 --------------------------------------------------
 
-On Cosmos (LUNARC), Kebnekaise (HPC2N), and Dardel (PDC), some applications are available through one of a couple of On Demand services. On Demand applications provide an interactive environment to schedule jobs on compute nodes using a graphic user interface (GUI) instead of the typical batch submission script. How you reach this interface is dependent on the system you use and their choice of On Demand client.
+On Cosmos (LUNARC), Kebnekaise (HPC2N), Alvis (C3SE), and Dardel (PDC), some applications are available through one of a couple of On Demand services. On Demand applications provide an interactive environment to schedule jobs on compute nodes using a graphic user interface (GUI) instead of the typical batch submission script. How you reach this interface is dependent on the system you use and their choice of On Demand client.
 
 - **Cosmos** and **Dardel** use the On-Demand Desktop developed at LUNARC, which is accessible via Thinlinc.
-- **Kebnekaise** uses Open OnDemand[#f1]_ via a `dedicated web portal, https://portal.hpc2n.umu.se <https://portal.hpc2n.umu.se>`__.
+- **Kebnekaise** and **Alvis** uses Open OnDemand[#f1]_ via a `dedicated web portal, https://portal.hpc2n.umu.se <https://portal.hpc2n.umu.se>`__.
 
-Desktop On-Demand is most appropriate for *interactive* work requiring small-to-medium amounts of computing resources. Non-interactive jobs and jobs that take more than a day or so should generally be submitted as batch jobs. If you have a longer job that requires an interactive interface to submit, make sure you keep track of the wall time limits for your facility.
+Desktop On-Demand is most appropriate for *interactive* work requiring small-to-medium amounts of computing resources. Non-interactive jobs and jobs that take more than a day or so should generally be submitted as batch jobs. If you have a longer job that requires an interactive interface to submit, make sure you keep track of the wall time limits for your facility. Some of the Desktop On Demand's only allow at most 12 hours of allocation at a time. 
 
-On-Demand applications are *not* accessible via SSH; you must use either Thinlinc (Cosmos and Dardel) or the dedicated web portal (Kebnekaise).
+On-Demand applications are *not* accessible via SSH; you must use either Thinlinc (Cosmos and Dardel) or the dedicated web portal (Kebnekaise and Alvis).
 
 .. important:: "On-Demand App Availability for this Course"
 
-   - Jupyter (Lab and/or Notebook) is available as an On-Demand application at all 3 facilities covered on this page. For Cosmos specifically, it can also load custom conda environments (but NOT pip environments).
-   - On Cosmos and Kebnekaise, VSCode can also be run via On-Demand.
+   - Jupyter (Lab and/or Notebook) is available as an On-Demand application at all 4 facilities covered on this page. For Cosmos specifically, it can also load custom conda environments (but NOT pip environments).
+   - On Alvis, Cosmos and Kebnekaise, VSCode can also be run via On-Demand.
    - Spyder can be run via On-Demand on Cosmos only. It also supports custom conda environments.
    - On Cosmos, there are also interactive On-Demand command lines (for CPUs and GPUs) under `Applications - General` that can be used to start Jupyter or Spyder with a custom pip-based environment.
 
@@ -38,20 +38,20 @@ Starting the On-Demand Interface
 
 .. tabs::
 
-   ..tab:: "COSMOS (and Dardel)"
+   .. tab:: "COSMOS (and Dardel)"
    
-       For most programs, the start-up process is roughly the same:
+      For most programs, the start-up process is roughly the same:
    
-       1. Log into COSMOS (or Dardel) via your usual Thinlinc client or browser interface to start an HPC Desktop session.
-       2. Click ``Applications`` in the top left corner, hover over the items prefixed with ``Applications -`` until you find your desired application (on Dardel, On-Demand applications are prefixed with ``PDC-``), and click it. The top-level Applications menu on Cosmos looks like this:
+      1. Log into COSMOS (or Dardel) via your usual Thinlinc client or browser interface to start an HPC Desktop session.
+      2. Click ``Applications`` in the top left corner, hover over the items prefixed with ``Applications -`` until you find your desired application (on Dardel, On-Demand applications are prefixed with ``PDC-``), and click it. The top-level Applications menu on Cosmos looks like this:
           
-       .. figure:: ../img/Cosmos-AppMenu.png
-          :width: 400
-          :align: center
+      .. figure:: ../img/Cosmos-AppMenu.png
+         :width: 400
+         :align: center
 
-       .. warning::
+      .. warning::
        
-          If you start a terminal session or another application from ``Favorites``, ``System Tools``, or other menu headings not prefixed with ``Applications -`` or ``PDC-``, and launch an interactive program from that, it will run on a login node. Do not run intensive programs this way!
+         If you start a terminal session or another application from ``Favorites``, ``System Tools``, or other menu headings not prefixed with ``Applications -`` or ``PDC-``, and launch an interactive program from that, it will run on a login node. Do not run intensive programs this way!
 
 
       .. note:: What if On-Demand Applications are missing from the menu?
@@ -59,7 +59,7 @@ Starting the On-Demand Interface
       
          On rare occasions, a user may find that the Applications menu is missing all ``Applications - <App_group>`` options. This usually indicates that your ``.bashrc`` file is either missing or has had problematic changes made to it, especially if LMOD commands like ``ml spider <package>`` are also not recognized. If you are a new user on your very first session on COSMOS, the problem should resolve itself if you start a new ThinLinc session with "End existing session" selected. If you are not a new user and module commands are recognized, running ``gfxmenu --force`` in a terminal session may resolve the issue; otherwise, you will probably have to submit a support ticket.
 
-   ..tab:: "Kebnekaise"
+   .. tab:: "Kebnekaise"
 
       To start an Open OnDemand session on Kebnekaise,
       
@@ -89,6 +89,37 @@ Starting the On-Demand Interface
       .. warning::
       
        Unlike on Cosmos and Dardel, On-Demand applications on Kebnekaise are **not** reachable through Thinlinc, regardless of whether you use the desktop client or a browser! If you find similar-looking applications in the Thinlinc interface, be aware that they all run on login nodes!
+
+   .. tab:: "Alvis"
+
+      To start an Open OnDemand session on Alvis,
+      
+      1. Open `https://alvis.c3se.chalmers.se/ <https://alvis.c3se.chalmers.se/>`__ in your browser. The page looks like this:
+      
+       .. figure:: ../img/alvis-OOD.png
+          :width: 1200
+          :align: center
+          :alt: Alvis Open On-Demand Portal
+      
+      2. Click the blue button labeled "Login using SUPR".
+      3. A login window should open to let you authenticate with your SUPR credentials. Fill them in if you are not logged in. Click "Sign In".
+      4. You will now be on the C3SE Open OnDemand dashboard. The top of it looks like this:
+      
+       .. figure:: ../img/alvis-OOD-logged-in.png
+          :width: 1200
+          :align: center
+          :alt: Alvis Open On-Demand Dashboard
+      
+      5. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
+      
+       .. figure:: ../img/alvis-OOD-apps.png
+          :width: 1200
+          :align: center
+          :alt: Alvis Open On-Demand Apps
+      
+      .. warning::
+      
+       Unlike on Cosmos and Dardel, On-Demand applications on Alvis are **not** reachable through Thinlinc, regardless of whether you use the desktop client or a browser! If you find similar-looking applications in the Thinlinc interface, be aware that they all run on login nodes!
 
 
 Setting Job Parameters
@@ -181,3 +212,11 @@ Setting Job Parameters
 
 
 .. [#f1] Open OnDemand is a web service that allows HPC users to schedule jobs, run notebooks and work interactively on a remote cluster from any device that supports a modern browser. The Open OnDemand project was funded by NSF and is currently maintained by the Ohio SuperComputing Centre. Read more about `OpenOndemand.org <https://openondemand.org/>`__.
+
+
+   - At centres that have OpenOnDemand installed, you do not have to submit a batch job, but can run directly on the already allocated resources
+   - OpenOnDemand is a good option for interactive tasks, graphical applications/visualization, and simpler job submittions. It can also be more user-friendly.
+   - Regardless, there are many situations where submitting a batch job is the best option instead, including when you want to run jobs that need many resources (time, memory, multiple cores, multiple GPUs) or when you run multiple jobs concurrently or in a specified succession, without need for manual intervention. Batch jobs are often also preferred for automation (scripts) and reproducibility. Many types of application software fall into this category.
+    - At centres that have ThinLinc you can usually submit MATLAB jobs to compute resources from within MATLAB.
+
+~

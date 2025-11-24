@@ -345,7 +345,7 @@ You leave interactive mode with ``exit``.
 Check to be in an interactive session
 -------------------------------------
 
-.. admonition:: For UPPMAX, LUNARC, C3SE, and NSC (and in some cases PDC) 
+.. admonition:: For UPPMAX, LUNARC, and NSC (and in some cases PDC) 
 
    You check if you are in an interactive session with: 
 
@@ -353,15 +353,14 @@ Check to be in an interactive session
 
       hostname
 
-   If the output contains the words ``pelle``, ``cosmos``, ``tetralith``, ``alvis`` or ``login`` you are on the login node. 
+   If the output contains the words ``rackham``, ``cosmos``, ``tetralith``, or ``login`` you are on the login node. 
 
    If the output contains: 
 
-   - ``p[number].uppmax.uu.se``, where ``[number]`` is a number, you are on a compute node at UPPMAX (pelle).
+   - ``r[number].uppmax.uu.se``, where ``[number]`` is a number, you are on a compute node at UPPMAX (rackham).
    - ``cn[number]``, where ``[number]`` is a number, you are on a compute node at LUNARC (cosmos). 
    - ``n[number]``, where ``[number]`` is a number, you are on a compute node at NSC (tetralith). 
    - ``nid[number]``, where ``[number]`` is a number, you are on a compute node at PDC (dardel).  
-   - ``alvis[number]-[other-number]``, where ``[number]`` is the login node you logged into (usually 2 or 3) and ``othernumber`` is a number, you are on a compute node at C3SE (alvis). 
 
 .. admonition:: For HPC2N (and sometimes PDC) 
 
@@ -381,7 +380,7 @@ Check to be in an interactive session
 
       hostname
 
-   for HPC2N as it will always show that you are on a login node
+   for HPC2n as it will always show that you are on a login node
 
 Check that the number of cores booked is correct
 ------------------------------------------------
@@ -400,7 +399,7 @@ Running a Python script in an interactive session
 
 .. tabs::
 
-   .. tab:: UPPMAX/LUNARC/C3SE/NSC/PDC (when SSH'ed to a compute node) 
+   .. tab:: UPPMAX/LUNARC/NSC/PDC (when SSH'ed to a compute node) 
 
       To run a Python script in an interactive session, first load the Python modules:
 
@@ -408,12 +407,11 @@ Running a Python script in an interactive session
 
          module load [python/version + any prerequisites]
 
-      Suggested versions (and prerequisites): 
+      Recommended versions (and prerequisites): 
 
-      - UPPMAX/pelle: Python/3.12.3-GCCcore-13.3.0
-      - LUNARC/cosmos: GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11
-      - C3SE/Alvis: Python/3.11.3-GCCcore-12.3.0 OpenMPI/4.1.5-GCC-12.3.0 SciPy-bundle/2023.07-gfbf-2023a
-      - NSC/tetralith: buildtool-easybuild/4.9.4-hpc71cbb0050 GCC/13.2.0 Python/3.11.5 
+      - UPPMAX/rackham: python/3.11.8
+      - LUNARC/cosmos: GCC/13.2.0 Python/3.11.5
+      - NSC/tetralith: buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
       - PDC/dardel: cray-python/3.11.7 
 
       To run a Python script on 1 core, do:
@@ -486,7 +484,189 @@ it is a simple script that adds two numbers from user input:
 
    - Why is/is it not a good script for interactive?
 
-   - Try start an interactive session and run the scripts. 
+Exercises
+---------
+
+- Go to the program directory in your cloned HPC-Python repository (or downloaded tarball, in which case it path is just ``Exercises/examples/programs``) 
+    - cd <path-to-your-area-under-the-storage-dir>/HPC-python/Exercises/examples/programs
+- There you'll find the two programs that we will use:
+
+ ``sum-2args.py`` and ``add2.py``
+
+- After loading a Python module (potentially with prerequisites), run the two programs.
+
+.. code-block:: console
+
+   python sum-2args.py 3 14
+
+.. code-block:: console
+
+   python add2.py
+
+- Add numbers according to prompts.
+
+- If this works you are good to go for the interactive session exercises!
+
+Exercise 1: start an interactive session
+########################################
+
+In this example we will start a session with 2 cores
+
+.. tabs::
+
+   .. tab:: UPPMAX
+
+      On UPPMAX, ``interactive`` is recommended:
+
+      .. code-block:: console
+
+         interactive -A uppmax2025-2-393 -p core -n 2
+      
+   .. tab:: HPC2N
+
+      .. code-block:: console
+          
+         salloc -A hpc2n2025-151 -n 2 -t 00:30:00
+
+   .. tab:: LUNARC
+
+      .. code-block:: console
+
+         interactive -A lu2025-7-106 -t 00:30:00 -n 2
+
+   .. tab:: NSC
+
+      .. code-block:: console
+
+         interactive -A naiss2025-22-934 -n 2
+
+   .. tab:: PDC 
+
+      .. code-block:: console 
+
+         salloc -n 2 --time=00:30:00 -A naiss2025-22-934 -p main 
+
+
+Exercise 2: check to be in an interactive session
+#################################################
+
+.. tabs::
+
+   .. tab:: UPPMAX/LUNARC/NSC/PDC 
+
+      Use:
+
+      .. code-block:: console
+
+         hostname
+
+   .. tab:: HPC2N (and PDC when not SSH'ed to the compute node) 
+
+      Use:
+
+      .. code-block:: console
+
+         srun hostname
+
+      Misleading would be to use:
+
+      .. code-block:: console
+
+         hostname
+
+      This will always show that you are on a login node
+
+
+
+Exercise 3: check to have booked the expected amount of cores
+#############################################################
+
+.. tabs::
+
+   .. tab:: Exercise 3: confirm to have booked two cores
+
+      Confirm to have booked two cores. 
+
+   .. tab:: UPPMAX/LUNARC/NSC/PDC
+
+      Use:
+
+      .. code-block:: console
+
+         srun hostname
+
+   .. tab:: HPC2N
+
+      Use:
+
+      .. code-block:: console
+
+         srun hostname
+
+Exercise 4.1. Running the first Python script in an interactive session on all cores
+####################################################################################
+
+Running `sum-2args.py` in an interactive session
+
+.. exercise:: HPC2N, UPPMAX, LUNARC, NSC, and PDC 
+
+   Run the script using ``srun``:
+         
+   .. code-block:: console
+      
+      b-an01 [~]$ srun python sum-2args.py 3 4
+      The sum of the two numbers is: 7
+      The sum of the two numbers is: 7
+      b-an01 [~]$             
+
+   Similar to ``srun hostname``, this script is run once per node and works as expected.
+                        
+Exercise 4.2. Running a second Python script in an interactive session on all cores
+###################################################################################
+
+
+Running `add2.py` in an interactive session
+
+.. exercise:: HPC2N, UPPMAX, LUNARC, NSC, PDC 
+
+   Run the script using ``srun``:
+
+   .. code-block:: console 
+         
+      b-an01 [~]$ srun python add2.py 
+      2
+      3
+      Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+      Enter the first number: Enter the second number: The sum of 2 and 3 is 5
+      
+   As you can see, it is possible, but it will not show any interaction it otherwise would have. At least not at HPC2N. Is it different elsewhere? 
+
+Exercise 5: exit
+################
+
+Exit the interactive mode 
+
+.. tabs::
+
+   .. tab:: UPPMAX, LUNARC, NSC, PDC
+
+      Use:
+
+      .. code-block:: console
+
+         exit
+
+      The prompt should change to contain the name of the login node (contain rackham, cosmos, or tetralith), which indicates you are back on a login node.
+      
+   .. tab:: HPC2N (and PDC without SSH to compute node) 
+
+      Use:
+
+      .. code-block:: console
+
+         exit
+
+      The prompt will remain the same.
 
 Conclusion
 ----------
@@ -496,8 +676,9 @@ Conclusion
    You have:
 
    - learned a little about login nodes and compute nodes
+   - been introduced to the SLURM job scheduler 
    - seen how to use a compute node interactively,
-     which differs between HPC2N, UPPMAX, LUNARC, C3SE, NSC, and PDC (particularly between HPC2N (and PDC) and the others) 
+     which differs between HPC2N, UPPMAX, LUNARC, NSC, and PDC (particularly between HPC2N (and PDC) and the others) 
    - checked if we are in an interactive session
    - checked if we have booked the right number of cores
    - run Python scripts in an interactive session,
@@ -506,4 +687,9 @@ Conclusion
      can be run interactively on multiples cores
    - exited an interactive session
 
+
+    At centres that have OpenOnDemand installed, you do not have to submit a batch job, but can run directly on the already allocated resources (see interactive jobs).
+        OpenOnDemand is a good option for interactive tasks, graphical applications/visualization, and simpler job submittions. It can also be more user-friendly.
+        Regardless, there are many situations where submitting a batch job is the best option instead, including when you want to run jobs that need many resources (time, memory, multiple cores, multiple GPUs) or when you run multiple jobs concurrently or in a specified succession, without need for manual intervention. Batch jobs are often also preferred for automation (scripts) and reproducibility. Many types of application software fall into this category.
+    At centres that have ThinLinc you can usually submit MATLAB jobs to compute resources from within MATLAB.
 
