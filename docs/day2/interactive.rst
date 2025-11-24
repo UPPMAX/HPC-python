@@ -3,23 +3,15 @@ Interactive work on the compute nodes
 
 .. admonition:: Learning objectives
 
-   - What are the UPPMAX, HPC2N, LUNARC, NSC, and PDC clusters?
-   - Understand what the batch system is 
-   - Short introduction to SLURM scheduler 
    - Understand what an interactive session is
    - Understand why one may need an interactive session
    - How to work with an interactive session (single + multiple cores)
    - Run an interactive-friendly Python script
    - Run an interactive-unfriendly Python script
-   - How to load IDEs
-       - Jupyter
-       - VScode
-       - spyder
-   - On-demand desktop       
+   - Gfx Launcher and On-demand desktop       
 
 .. questions:: 
    
-   - What is the batch system? 
    - Imagine you are developing a Python script in a line-by-line fashion. How to do so best?
        - Why not do so on the login node?
        - Why not do so by using ``sbatch``?
@@ -28,9 +20,10 @@ Interactive work on the compute nodes
 
 .. admonition:: Compute allocations in this workshop 
 
-   - Rackham: ``uppmax2025-2-393``
+   - Pelle: ``uppmax2025-2-393``
    - Kebnekaise: ``hpc2n2025-151``
    - Cosmos: ``lu2025-7-106``
+   - Alvis: ``naiss2025-22-934``
    - Tetralith: ``naiss2025-22-934``  
    - Dardel: ``naiss2025-22-934``
 
@@ -39,28 +32,9 @@ Interactive work on the compute nodes
    - Rackham: ``/proj/hpc-python-uppmax``
    - Kebnekaise: ``/proj/nobackup/fall-courses``
    - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
-   - Tetralith: ``/proj/hpc-python-spring-naiss``
-   - Dardel: ``/cfs/klemming/projects/snic/hpc-python-spring-naiss``
-
-.. admonition:: Reservation
-
-   Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name. 
-
-   **NOTE** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for. 
-
-   - UPPMAX 
-       - the reservation is "magnetic" and so will be used automatically 
-   - HPC2N
-       - hpc-python-fri for cpu on Friday
-       - hpc-python-mon for cpu on Monday
-       - hpc-python-tue for gpu on Tuesday
-
-   - LUNARC 
-       - py4hpc_day1 for cpu on Thursday
-       - py4hpc_day2 for cpu on Friday
-       - py4hpc_day3 for cpu on Monday
-       - py4hpc_day4 for cpu on Tuesday 
-       - py4hpc_gpu for gpu on Tuesday 
+   - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
+   - Tetralith: ``/proj/courses-fall-courses``
+   - Dardel: ``/cfs/klemming/projects/supr/courses-fall-courses``
 
 Introduction
 ------------
@@ -80,123 +54,29 @@ One good example is Jupyter.
 
 .. admonition:: About Jupyter
 
-   - For HPC2N, using Jupyter on HPC2N is possible, through a batch job. 
-   - For UPPMAX, using Jupyter is easier. 
+   - For HPC2N, using Jupyter on HPC2N is possible, and can be done either from the OpenOnDemand portal (easy) or through a batch job and ThinLinc (harder). 
+   - For UPPMAX, using Jupyter is easy. 
    - For LUNARC, using Jupyter (<https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>) works best using the LUNARC HPC Desktop. Go to the Applications menu, hover over Applications - Python, and select Jupyter Lab from the menu that pops up to the right.
    - For NSC, using Jupyter is easiest done through ThinLinc, but can also be used via an SSH tunnel. 
+   - For PDC, you can use Jupyter easiest through the GfxLauncher in ThinLinc: <a href="https://support.pdc.kth.se/doc/login/interactive_hpc/" target="_blank">https://support.pdc.kth.se/doc/login/interactive_hpc/</a>
+   - For C3SE, you can easiest use Jupyter through the OpenOnDemand portal.   
 
 .. admonition:: In this session we will talk about 
 
-   - the batch system in general
-   - handy options to the batch system 
-   - interactive/salloc
-   - Jupyter
-   - VScode
-   - Spyder
+   - interactive/salloc/srun
+   - Running a Python script interactively 
    - Open-on-demand desktop 
 
 An interactive session is a session with direct access to a compute node. Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
 
-Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, NSC, and PDC
-------------------------------------------------------------------------------------
-
-**What is a cluster?**
-
-- Login nodes and calculations/compute nodes
-
-- A network of computers, each computer working as a **node**.
-
-- Each node contains several processor cores and RAM and a local disk called scratch.
-
-.. figure:: ../img/node.png
-   :align: center
-
-- The user logs in to **login nodes**  via Internet through ssh or Thinlinc.
-
-  - Here the file management and lighter data analysis can be performed.
-
-.. figure:: ../img/nodes.png
-   :align: center
-
-- The **calculation nodes** have to be used for intense computing.
-
-- Beginner's guide to clusters: https://docs.hpc2n.umu.se/tutorials/clusterguide/ 
-
-Common features
-###############
-
-- Intel CPUs
-- Linux kernel
-- Bash shell
-
-.. role:: raw-html(raw)
-    :format: html
-
-.. list-table:: Hardware
-   :widths: 25 25 25 25 25 25 25 25
-   :header-rows: 1
-
-   * - Technology
-     - Kebnekaise
-     - Rackham
-     - Snowy
-     - Bianca
-     - Cosmos
-     - Tetralith  
-     - Dardel 
-   * - Cores per calculation node
-     - 28 (Intel Skylake), 72 (largemem), 128/256 (AMD Zen3/Zen4)
-     - 20
-     - 16
-     - 16
-     - 48 (AMD) and 32 (Intel) 
-     - 32   
-     - 128  
-   * - Memory per calculation node
-     - 128-3072 GB 
-     - 128-1024 GB
-     - 128-4096 GB
-     - 128-512 GB
-     - 256-512 GB 
-     - 96-384 GB  
-     - 256-2048 GB
-   * - GPU
-     - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100
-     - None
-     - Nvidia T4 
-     - 2 NVIDIA A100
-     - NVidia A100
-     - NVidia T4 
-     - 4 AMD Instinct™ MI250X á 2 GCDs
-
-Running your programs and scripts on UPPMAX, HPC2N, LUNARC, NSC, and PDC 
-------------------------------------------------------------------------
+You can find information about the cluster hardware in the <a href="https://uppmax.github.io/HPC-python/common/understanding_clusters.html" target="_blank">HPC clusters</a> common section. 
 
 Any longer, resource-intensive, or parallel jobs must be run through a **batch script** or an **interactive session**. 
 
    - Demanding work (CPU or Memory intensive) should be done on the compute nodes.
    - If you need live interaction you should start an "interactive session"
-   - On Cosmos (LUNARC) and Dardel (PDC) (and soon at HPC2N) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher``.
+   - On Cosmos (LUNARC), Dardel (PDC), Alvis (C3SE), and Kebnekaise (HPC2N) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher`` or portal.
    - Otherwise the terminal approach will work in all centers.
-
-
-The batch system used at UPPMAX, HPC2N, LUNARC, NSC, and PDC is called SLURM.
-
-SLURM is an Open Source job scheduler, which provides three key functions
-
-- Keeps track of available system resources
-- Enforces local system resource usage and job scheduling policies
-- Manages a job queue, distributing work across resources according to policies
-
-In order to run a batch job, you need to create and submit a SLURM submit file (also called a batch submit file, a batch script, or a job script) *or* give the commands for an interactive job.
-
-Guides and documentation at:
-
-- HPC2N: http://www.hpc2n.umu.se/support
-- UPPMAX: http://docs.uppmax.uu.se/cluster_guides/slurm/
-- LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_intro/
-- NSC: https://www.nsc.liu.se/support/batch-jobs/
-- PDC: https://support.pdc.kth.se/doc/run_jobs/job_scheduling/ 
 
 The different way HPC2N, UPPMAX, LUNARC, NSC, and PDC provide for an interactive session
 -----------------------------------------------------------------------------------

@@ -24,7 +24,7 @@ Basic batch and Slurm
 
 .. admonition:: Storage space for this workshop 
 
-   - Rackham: ``/proj/hpc-python-uppmax``
+   - Pelle: ``/proj/hpc-python-uppmax``
    - Kebnekaise: ``/proj/nobackup/fall-courses``
    - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
    - Tetralith: ``/proj/courses-fall-courses``
@@ -61,6 +61,28 @@ Most Swedish HPC clusters are running Slurm. It is an Open Source job scheduler,
 - Third, it manages a queue of pending jobs, in order to distribute work across resources according to policies.
 
 Slurm is designed to handle thousands of nodes in a single cluster, and can sustain throughput of 120,000 jobs per hour.
+
+What is a cluster? 
+------------------ 
+
+You can find information about the cluster hardware in the <a href="https://uppmax.github.io/HPC-python/common/understanding_clusters.html" target="_blank">HPC clusters</a> common section. This is just a brief overview.
+
+- Login nodes and calculations/compute nodes
+
+- A network of computers, each computer working as a **node**.
+
+- Each node contains several processor cores and RAM and a local disk called scratch.
+
+.. figure:: ../img/node.png
+   :align: center
+
+- The user logs in to **login nodes**  via Internet through ssh or Thinlinc.
+    - Here the file management and lighter data analysis can be performed.
+- The **calculation nodes** have to be used for intense computing. Any longer, resource-intensive, or parallel jobs must be run through a **batch script** or an **interactive session**.
+
+- Beginner's guide to clusters: https://docs.hpc2n.umu.se/tutorials/clusterguide/
+- NAISS course about <a href="https://uppmax.github.io/NAISS_Slurm/" target="_blank">Running jobs on HPC systems</a>. 
+
 
 What are some important commands regarding batch jobs? 
 ------------------------------------------------------
