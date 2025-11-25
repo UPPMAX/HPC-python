@@ -366,7 +366,7 @@ Go over file formats and see if some are more relevant for your work.
 
 .. discussion::
 
-   Any changes and why?
+   - Would you look at other file formats and why?
 
 Dask
 ----
@@ -431,21 +431,6 @@ Dask Arrays
    - `dask_ml package <https://ml.dask.org/>`_: Dask-ML provides scalable machine learning in Python using Dask alongside popular machine learning libraries like Scikit-Learn, XGBoost, and others.
    - `Dask.distributed <https://distributed.dask.org/en/stable/>`_: Dask.distributed is a lightweight library for distributed computing in Python. It extends both the concurrent.futures and dask APIs to moderate sized clusters.
 
-
-
-Allocating RAM
---------------
-
-- Mention memory per core considerations.
-- Show SLURM options for memory and time.
-- Briefly explain what happens when a Dask job runs on multiple cores.
-
-
-
-.. admonition:: Keywords
-
-   OOM
-
 Chunking
 ::::::::
 
@@ -465,6 +450,26 @@ Big file → split into chunks → parallel workers → results combined.
    - Request appropriate memory and runtime in SLURM.
    - Store temporary data in local scratch ($SNIC_TMP).
    - Check job memory usage with sacct or sstat.
+
+Exercise DASK
+-------------
+
+
+
+Allocating RAM
+--------------
+
+- Mention memory per core considerations.
+- Show SLURM options for memory and time.
+- Briefly explain what happens when a Dask job runs on multiple cores.
+
+
+
+.. admonition:: Keywords
+
+   OOM
+
+
 
 Workflow
 --------
@@ -487,7 +492,6 @@ Summary
    - Resources sufficient to data size
    - Data-chunking as technique if not enough RAM
    - Is xarray useful for you?
-
 
 .. keypoints::
 
