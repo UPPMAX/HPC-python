@@ -15,7 +15,7 @@ What is Desktop On Demand? Is it right for my job?
 
 On Cosmos (LUNARC), Kebnekaise (HPC2N), Alvis (C3SE), and Dardel (PDC), some applications are available through one of a couple of On Demand services. On Demand applications provide an interactive environment to schedule jobs on compute nodes using a graphic user interface (GUI) instead of the typical batch submission script. How you reach this interface is dependent on the system you use and their choice of On Demand client.
 
-- **Cosmos** and **Dardel** use the On-Demand Desktop developed at LUNARC, which is accessible via Thinlinc.
+s- **Cosmos** and **Dardel** use the On-Demand Desktop developed at LUNARC, which is accessible via Thinlinc.
 - **Kebnekaise** and **Alvis** uses Open OnDemand[#f1]_ via a `dedicated web portal, https://portal.hpc2n.umu.se <https://portal.hpc2n.umu.se>`__ and `for alvis, https://alvis.c3se.chalmers.se/ <https://alvis.c3se.chalmers.se/>`__ 
 
 Desktop On-Demand is most appropriate for *interactive* work requiring small-to-medium amounts of computing resources. Non-interactive jobs and jobs that take more than a day or so should generally be submitted as batch jobs. If you have a longer job that requires an interactive interface to submit, make sure you keep track of the wall time limits for your facility. Some of the Desktop On Demand's only allow at most 12 hours of allocation at a time. 
@@ -210,6 +210,88 @@ Setting Job Parameters
       
          Closing the GUI window for your app before time runs out (e.g. the browser for Jupyter Notebook) does not stop your job or release the resources associated with it! If you want to stop your job and avoid spending any more of your resource budget on it, you must click the red "Delete" button near the top right of your interactive job listing. Otherwise, you can reopen any closed app as long as time remains in the job allocated for it.
 
+   .. tab:: "Kebnekaise"
+      
+      If you go to "Interactive apps" and select Jupyter Notebook, or any of the other options, a page will open that looks like this:
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter
+      
+      Most of the options you have to set will be the same whether you choose Jupyter Notebook, VSCode, or even the Kebnekaise desktop. The parameters required for all apps include:
+      
+      - **Compute Project** - Dropdown menu where you can choose (one of) your compute projects to launch with. 
+      - **Number of Hours** - Wall time. The maximum is 12 hours, but you should avoid using more than you need to conserve your allocation and minimize queuing time.
+      - **Node type** - Choose from options described below the dropdown menu. If you pick "any GPU", leave "Number of Cores" empty.   
+      - **Number of Cores** - Choose any number up to 28. Each core has 4GB of memory. This is only a valid field if you pick "any" or "Large memory" for the "Node type" selection. 
+      - **Working directory** - Default is ``$HOME``. You can either type a full path manually or click "Select Path" to open a file browser if you are unsure of the full path.
+      - **"I would like to receive an email when my job starts"** - Check box if you agree.
+      
+      For some apps, like Jupyter Notebook, you will also see an option to choose a **Runtime environment.** Choices include "System provided", "Project provided", or "User provided". If you or your project do not have a custom environment, then use "System provided".
+      
+      Once you enter your desired parameters, click **Launch**. If the parameters are all valid, the page will reload and looks something like this for as long as your job is in the queue:
+
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-starting.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter waiting
+      
+      When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from "Queued" to "Running", and the number of nodes and cores with appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-ready.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter waiting
+      
+      For all apps, the equivalent of a start button will be a bright blue rectangle near the bottom of the job box, usually with "Connect to" and the app name on it. When you click this button, your app should launch in a new window.
+      
+      .. important::
+      
+         Closing the GUI window for your app before time runs out (e.g. the browser for Jupyter Notebook) does not stop your job or release the resources associated with it! If you want to stop your job and avoid spending any more of your resource budget on it, you must click the red "Delete" button near the top right of your interactive job listing. Otherwise, you can reopen any closed app as long as time remains in the job allocated for it.
+
+   .. tab:: "Alvis"
+      
+      If you go to "Interactive Apps" and select Jupyter, or any of the other options, a page will open that looks like this:
+
+      .. figure:: ../img/alvis-jup.png
+         :width: 1200
+         :align: center
+         :alt: Alvis Open On-Demand Jupyter
+      
+      Most of the options you have to set will be the same whether you choose Jupyter Notebook, VSCode, or even the Desktop. The parameters required for all apps include:
+      
+      - **Account** - Dropdown menu where you can choose (one of) your compute project accounts to launch with. 
+      - **Number of Hours** - Wall time. You should avoid using too much, to conserve your allocation and minimize queuing time. 
+      - **Resource** - Choose from options described below the dropdown menu. CPUs: 1, 2, 4. GPUs: here you pick ``<type>:<number>``, where ``<type>`` is the type of GPU and number is 1-4. pty.   
+      - **Runtime** - for when you are creating your own Jupyter runtime environment. See ``/apps/portal/jupyter/`` for examples. 
+      - **Working directory** - Default is ``$HOME``. You can either type a full path manually or click "Select Path" to open a file browser if you are unsure of the full path.
+      - **"I would like to receive an email when my job starts"** - Check box if you agree.
+      
+      For some apps, like Jupyter Notebook, you will also see an option to choose a **Runtime environment.** Choices include "System provided", "Project provided", or "User provided". If you or your project do not have a custom environment, then use "System provided".
+      
+      Once you enter your desired parameters, click **Launch**. If the parameters are all valid, the page will reload and looks something like this for as long as your job is in the queue:
+
+
+      .. figure:: ../img/alvis-jup-wait.png
+         :width: 1200
+         :align: center
+         :alt: Alvis Open On-Demand Jupyter waiting
+      
+      When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from "Queued" to "Running", and the number of nodes and cores with appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-ready.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter waiting
+      
+      For all apps, the equivalent of a start button will be a bright blue rectangle near the bottom of the job box, usually with "Connect to" and the app name on it. When you click this button, your app should launch in a new window.
+      
+      .. important::
+      
+         Closing the GUI window for your app before time runs out (e.g. the browser for Jupyter Notebook) does not stop your job or release the resources associated with it! If you want to stop your job and avoid spending any more of your resource budget on it, you must click the red "Delete" button near the top right of your interactive job listing. Otherwise, you can reopen any closed app as long as time remains in the job allocated for it.
+      
 
 .. [#f1] Open OnDemand is a web service that allows HPC users to schedule jobs, run notebooks and work interactively on a remote cluster from any device that supports a modern browser. The Open OnDemand project was funded by NSF and is currently maintained by the Ohio SuperComputing Centre. Read more about `OpenOndemand.org <https://openondemand.org/>`__.
 
