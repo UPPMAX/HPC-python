@@ -66,6 +66,269 @@ Solutions and tools
 File formats
 ------------
 
+Bit and Byte
+............
+
+- The smallest building block of storage and memory (RAM) in the computer is a bit, which stores either a 0 or 1. 
+- Normally a number of 8 bits are combined in a group to make a byte. 
+- One byte (8 bits) can represent/hold at most 2^8 distinct values. Organising bytes in different ways can represent different types of information, i.e. data.
+
+.. admonition:: Numerical data
+   :class: dropdown
+
+   Different numerical data types (e.g. integer and floating-point numbers) can be represented by bytes. The more bytes we use for each value, the larger is the range or precision we get, but more bytes require more memory.
+
+   - DataTypes
+       - 16-bit: short (integer)
+       - 32-bit: Int (integer)
+       - 32-bit: Single (floating point)
+       - 64-bit: Double (floating point)
+
+   - For some use cases, the precision is not that important, 1% error, or so, is not that crucial. Faster and less data storage!
+
+.. admonition:: Text data
+   :class: dropdown
+
+   - DataTypes
+        - 8-bit: char
+
+   .. admonition:: more
+      :class: dropdown
+
+      - When it comes to text data, the simplest character encoding is ASCII (American Standard Code for Information Interchange) and was the most common character encodings until 2008 when UTF-8 took over.
+      - The original ASCII uses only 7 bits for representing each character and therefore encodes only 128 specified characters. Later it became common to use an 8-bit byte to store each character in memory, providing an extended ASCII.
+      - As computers became more powerful and the need for including more characters from other languages like Chinese, Greek and Arabic became more pressing, UTF-8 became the most common encoding. UTF-8 uses a minimum of one byte and up to four bytes per character.
+
+Data and storage format
+.......................
+
+In real scientific applications, data is complex and structured and usually contains both numerical and text data. Here we list a few of the data and file storage formats commonly used.
+
+.. admonition:: Tabular data
+   :class: dropdown
+
+   - A very common type of data is “tabular data”.
+   - Tabular data is structured into **rows and columns**.
+   - Each column usually has a name and a specific data type while each row is a distinct sample which provides data according to each column (including missing values).
+   - The simplest and most common way to save tabular data is via the so-called CSV (comma-separated values) file.
+
+.. admonition:: Gridded data
+   :class: dropdown
+
+   - Gridded data is another very common data type in which numerical data is normally saved in a multi-dimensional rectangular grid. Most probably it is saved in one of the following formats:
+
+   .. admonition:: more
+      :class: dropdown
+
+      - Hierarchical Data Format (HDF5) - Container for many arrays
+
+      - Network Common Data Form (NetCDF) - Container for many arrays which conform to the NetCDF data model
+
+      - Zarr - New cloud-optimized format for array storage
+
+
+.. admonition:: Meta data
+   :class: dropdown
+
+   Metadata consists of various information about the data. Different types of data may have different metadata conventions.
+
+   .. admonition:: more
+      :class: dropdown
+
+      - In Earth and Environmental science, there are widespread robust practices around metadata. For NetCDF files, metadata can be embedded directly into the data files. The most common metadata convention is Climate and Forecast (CF) Conventions, commonly used with NetCDF data.
+
+      - When it comes to data storage, there are many types of storage formats used in scientific computing and data analysis. There isn’t one data storage format that works in all cases, so choose a file format that best suits your data.
+
+.. admonition:: CSV (comma-separated values)
+   :class: dropdown
+
+   **Best use cases**: Sharing data. Small data. Data that needs to be human-readable.
+
+   - Key features
+
+       Type: Text format
+       Packages needed: NumPy, Pandas
+       Space efficiency: Bad
+       Good for sharing/archival: Yes
+
+   .. admonition:: more
+      :class: dropdown
+
+       Tidy data:
+               Speed: Bad
+               Ease of use: Great
+
+       Array data:
+               Speed: Bad
+               Ease of use: OK for one or two dimensional data. Bad for anything higher.
+
+.. admonition:: HDF5 (Hierarchical Data Format version 5)
+   :class: dropdown
+
+   - HDF5 is a high performance storage format for storing large amounts of data in multiple datasets in a single file. 
+   - It is especially popular in fields where you need to store big multidimensional arrays such as physical sciences.
+   - **Best use cases**: Working with big datasets in array data format.
+
+   - Key features
+
+       - Type: Binary format
+       - Packages needed: Pandas, PyTables, h5py
+       - Space efficiency: Good for numeric data.
+       - Good for sharing/archival: Yes, if datasets are named well.
+
+   .. admonition:: more
+      :class: dropdown
+
+      - Tidy data:
+          - Speed: Ok
+          - Ease of use: Good
+
+      - Array data:
+          - Speed: Great
+          - Ease of use: Good
+
+.. admonition:: NETCDF4 (Network Common Data Form version 4)
+   :class: dropdown
+
+   - NetCDF4 is a data format that uses HDF5 as its file format, but it has standardized structure of datasets and metadata related to these datasets. 
+   - This makes it possible to be read from various different programs.
+
+     **Best use cases**: Working with big datasets in array data format. Especially useful if the dataset contains spatial or temporal dimensions. Archiving or sharing those datasets.
+   
+   - Key features
+
+       - Type: Binary format
+       - Packages needed: Pandas, netCDF4/h5netcdf, xarray
+       - Space efficiency: Good for numeric data.
+       - Good for sharing/archival: Yes.
+
+   .. admonition:: more
+      :class: dropdown
+
+      - Tidy data:
+          - Speed: Ok
+          - Ease of use: Good
+
+      - Array data:
+          - Speed: Good
+          - Ease of use: Great
+
+      - NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.
+      - The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.
+
+An overview of common data formats
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+
+   * - | Name:
+     - | Human
+       | readable:
+     - | Space
+       | efficiency:
+     - | Arbitrary
+       | data:
+     - | Tidy
+       | data:
+     - | Array
+       | data:
+     - | Long term
+       | storage/sharing:
+
+   * - :ref:`Pickle <pickle>`
+     - ❌
+     - 🟨
+     - ✅
+     - 🟨
+     - 🟨
+     - ❌
+
+   * - :ref:`CSV <csv>`
+     - ✅
+     - ❌
+     - ❌
+     - ✅
+     - 🟨
+     - ✅
+
+   * - :ref:`Feather <feather>`
+     - ❌
+     - ✅
+     - ❌
+     - ✅
+     - ❌
+     - ❌
+
+   * - :ref:`Parquet <parquet>`
+     - ❌
+     - ✅
+     - 🟨
+     - ✅
+     - 🟨
+     - ✅
+
+   * - :ref:`npy <npy>`
+     - ❌
+     - 🟨
+     - ❌
+     - ❌
+     - ✅
+     - ❌
+
+   * - :ref:`HDF5 <hdf5>`
+     - ❌
+     - ✅
+     - ❌
+     - ❌
+     - ✅
+     - ✅
+
+   * - :ref:`NetCDF4 <netcdf4>`
+     - ❌
+     - ✅
+     - ❌
+     - ❌
+     - ✅
+     - ✅
+
+   * - :ref:`JSON <json>`
+     - ✅
+     - ❌
+     - 🟨
+     - ❌
+     - ❌
+     - ✅
+
+   * - :ref:`Excel <excel>`
+     - ✅
+     - ❌
+     - ❌
+     - 🟨
+     - ❌
+     - 🟨
+
+   * - :ref:`Graph formats <https://gephi.org/users/supported-graph-formats/>`
+     - 🟨
+     - 🟨
+     - ❌
+     - ❌
+     - ❌
+     - ✅
+
+.. important:: Legend
+
+    - ✅ : Good
+    - 🟨 : Ok / depends on a case
+    - ❌ : Bad
+
+    Adapted from Aalto university's `Python for scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/#what-is-a-data-format>`__... seealso::
+
+   - ENCCS course "HPDA-Python": `Scientific data <https://enccs.github.io/hpda-python/scientific-data/>`_
+   - Aalto Scientific Computing course "Python for Scientific Computing": `Xarray <https://aaltoscicomp.github.io/python-for-scicomp/xarray/>`_
+
+
+
 Computing efficiency with Python
 --------------------------------
 
