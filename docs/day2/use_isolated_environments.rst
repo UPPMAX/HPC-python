@@ -16,7 +16,11 @@ Use isolated environments
 
 .. admonition:: For teachers
 
-
+   - Introduction 10 m
+   - venv 5 m
+   - Exercise venv 10 m
+   - Conda 5
+   - Conda exercise 10 m
 
 Isolated environments
 ---------------------
@@ -215,6 +219,23 @@ Conda
          $ mv ~/.conda /<path-to-project-folder>/<username>/
          $ ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
 
+.. admonition:: Example NSC
+
+   .. code-block:: console
+
+      module load Miniforge/24.7.1-2-hpc1
+      export CONDA_PKG_DIRS=/proj/hpc-python-spring-naiss/$USER
+      export CONDA_ENVS_PATH=/proj/hpc-python-spring-naiss/$USER
+      mamba create -n numpy-proj-39 python=3.9.5 -c conda-forge
+      mamba activate spyder-env
+      mamba install numpy
+      which python  # should point to the conda environment!
+      python -V     # should give python version 3.9.5
+
+   .. code-block:: python
+
+      >>> import numpy
+
 .. admonition:: Comments
    :class: dropdown
 
@@ -223,21 +244,22 @@ Conda
 .. admonition:: Conda base env
    :class: dropdown
 
-   - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. It includes a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
+   - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments. 
+   - It includes a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
 
 .. admonition:: Conda cheat sheet
    :class: dropdown
    
-   - List packages in present environment:	``conda list``
-   - List all environments:			``conda info -e`` or ``conda env list``
-   - Install a package: ``conda install somepackage``
-   - Install from certain channel (conda-forge): ``conda install -c conda-forge somepackage``
-   - Install a specific version: ``conda install somepackage=1.2.3``
-   - Create a new environment: ``conda create --name myenvironment``
+   - List packages in present environment:	         ``conda list``
+   - List all environments:			                 ``conda info -e`` or ``conda env list``
+   - Install a package:                              ``conda install somepackage``
+   - Install from certain channel (conda-forge):     ``conda install -c conda-forge somepackage``
+   - Install a specific version:                     ``conda install somepackage=1.2.3``
+   - Create a new environment:                       ``conda create --name myenvironment``
    - Create a new environment from requirements.txt: ``conda create --name myenvironment --file requirements.txt``
-   - On e.g. HPC systems where you don’t have write access to central installation directory: conda create --prefix /some/path/to/env``
-   - Activate a specific environment: ``conda activate myenvironment``
-   - Deactivate current environment: ``conda deactivate``
+   - On e.g. HPC systems where you don’t have write access to central installation directory: ``conda create --prefix /some/path/to/env``
+   - Activate a specific environment:                ``conda activate myenvironment``
+   - Deactivate current environment:                 ``conda deactivate``
 
 .. admonition:: Conda vs mamba etc...
    :class: dropdown
