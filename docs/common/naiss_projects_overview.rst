@@ -45,9 +45,9 @@ Storage spaces for this workshop:
 
 .. admonition:: Reservations
 
-   Include with ``#SBATCH --reservation==<reservation-name>`` at most centers. (On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name.)
+   Include in slurm scripts with ``#SBATCH --reservation==<reservation-name>`` at most centers. (On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name.)
 
-   **NOTE** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for. 
+   **NOTE:** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for. 
 
    - UPPMAX 
        -   
@@ -61,3 +61,4 @@ Storage spaces for this workshop:
    - LUNARC 
        - ``hpc-python-dayN`` for up to 2 CPU nodes per day, where N=1 for Thursday, 2 for Friday, 3 for Monday, and 4 for Tuesday
        - ``hpc-python-day4-gpu`` for the GPU and ML sessions on Tuesday afternoon
+       - **Note**: for On-Demand apps, click the gear icon next to "Resource" in GfxLauncher popup to see additional options, which should include a box to include a reservation. Ticking that box will reveal a dropdown menu with the list of reservations associated with the project.
