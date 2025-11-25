@@ -368,12 +368,79 @@ Go over file formats and see if some are more relevant for your work.
 
    Any changes and why?
 
+Dask
+----
+
+How to use more resources than available?
+
+.. image:: ../img/when-to-use-pandas.png
+   :width: 600 px
+
+Dask is very popular for data analysis and is used by a number of high-level
+Python libraries:
+
+- Dask is composed of two parts:
+
+    - **Dask Clusters**
+        - Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.
+        - `ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-clusters>`_
+    - **“Big Data” Collections**
+        - Like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to **larger-than-memory** or distributed environments. These parallel collections run on top of dynamic task schedulers.
+        -`ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-collections>`_
+
+Dask Collections
+................
+
+- Dask provides dynamic parallel task scheduling and three main high-level collections:
+  
+    - ``dask.array``: Parallel NumPy arrays
+        - scales NumPy (see also xarray)
+    - ``dask.dataframe``: Parallel Pandas DataFrames
+        - scales Pandas workflows
+    - ``dask.bag``: Parallel Python Lists 
+        - https://enccs.github.io/hpda-python/dask/#dask-bag
+
+Dask Arrays
+^^^^^^^^^^^
+
+- A Dask array looks and feels a lot like a NumPy array. 
+- However, a Dask array uses the so-called "lazy" execution mode, which allows one to 
+    - build up complex, large calculations symbolically 
+    - before turning them over the scheduler for execution. 
+
+- Dask divides arrays into many small pieces (chunks), as small as necessary to 
+  fit it into memory. 
+- Operations are delayed (lazy computing) e.g. tasks are queue and no computation 
+  is performed until you actually ask values to be computed (for instance print mean values). 
+- Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
+
+.. discussion:: Example from dask.org
+
+   .. code-block::
+
+      # Arrays implement the Numpy API
+      import dask.array as da
+      x = da.random.random(size=(10000, 10000),
+                           chunks=(1000, 1000))
+      x + x.T - x.mean(axis=0)
+      # It runs using multiple threads on your machine.
+      # It could also be distributed to multiple machines
+
+.. seealso::
+
+   - `dask_ml package <https://ml.dask.org/>`_: Dask-ML provides scalable machine learning in Python using Dask alongside popular machine learning libraries like Scikit-Learn, XGBoost, and others.
+   - `Dask.distributed <https://distributed.dask.org/en/stable/>`_: Dask.distributed is a lightweight library for distributed computing in Python. It extends both the concurrent.futures and dask APIs to moderate sized clusters.
+
+
+
 Allocating RAM
 --------------
 
 - Mention memory per core considerations.
 - Show SLURM options for memory and time.
 - Briefly explain what happens when a Dask job runs on multiple cores.
+
+
 
 .. admonition:: Keywords
 
