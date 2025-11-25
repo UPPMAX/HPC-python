@@ -109,7 +109,7 @@ Load and Run Seaborn
         
             module load Seaborn/0.13.2-gfbf-2024a
      
-         This loads not just Seaborn, but also ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, so loading this module should load everything you need for this part of the course.
+         This loads not just Seaborn, but also ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``. However, it does *not* load JupyterLab, so if that is your preferred IDE, you will have to load it separately.
 
    .. tab:: NSC (Tetralith)
      
