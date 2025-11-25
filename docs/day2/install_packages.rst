@@ -14,13 +14,13 @@ There are 2 ways to install missing python packages at a HPC cluster.
 
 - Local installation, always available for the version of Python you had active when doing the installation
     - ``pip install --user [package name]``
-- Isolated environment. See next session
+- Isolated environment. See next session.
     - virtual environents provided by python
     - conda
 
 Normally you want reproducibility and the safe way to go is with isolated environments specific to your different projects.
 
-.. admonition:: Use cases of local general packages
+.. admonition:: Use cases of local _general_ packages
 
    - Packages, missing in the loaded Python module, that would not be specific for a research project.
    - Comment: You can include the package in a virtual environment as well.
@@ -31,19 +31,18 @@ Typical workflow
 1. Load the Python module with correct version.
     - Differs among the clusters
 
-2. Check that the right python is used with ``which python3`` or ``which python``
+2. Check that the right Python is used with ``which python3`` or ``which python`` (should not be a "system" python in ``/usr/bin``)
     - Double check the version ``python3 -V`` or ``python -V``
 
-3. Install with:  ``pip install --user <package-name [version]>`` 
-
+3. Install with: ``pip install --user <package-name [version]>`` 
    - Bit more secure (using really the loaded Python): ``python -m pip install --user <package-name [version]>``
 
-Versions
-........
+Package versions
+................
 
 - Package name can be pinned, 
    - like ``numpy==1.26.4`` (Note the double ``==``)
-   - like ``numpy>1.22``
+   - like ``numpy>1.22``: only later than...
    - read `more <https://peps.python.org/pep-0440/#version-specifiers>`_ 
 
 - If not pinned you will get the latest version compatible with the python version you are using.
@@ -78,8 +77,8 @@ Installation directory
 - The package *typically* ends up in ``~/.local/lib/python3.X``
     - Example: Packages installed by both bython version 3.11.5 and 3.11.8 will go into same folder python3.11 and will be seen by both python interpreters. 
 
-Check your installed packages (and dependencies)
-................................................
+Check your own installed packages (and dependencies)
+....................................................
 
 - Check with ``pip list --user``
 
@@ -100,8 +99,9 @@ Check your installed packages (and dependencies)
       xarray          2025.4.0
 
 - It is evident that some packages have dependencies! In the example, ``xarray`` also installs ``numpy`` and ``pandas``!
+- What if we load SciPy-bundle/2023.11, where ``numpy`` and ``pandas`` are already present?
 
-.. admonition:: Example after just installing ``xarray`` on Tetralith with SciPy-bundle/2023.11 LOADED
+.. admonition:: Example after just installing ``xarray`` on Tetralith with ``SciPy-bundle/2023.11`` LOADED
    :class: dropdown
 
    .. code-block:: console
@@ -111,7 +111,30 @@ Check your installed packages (and dependencies)
       --------------- -----------
       xarray          2025.4.0
 
-- It is also evident that if ``numpy`` and ``pandas`` already are available, those will be used!
+   - Let's see what we get in total if we then use ``xarray``
+
+   .. code-block:: console
+
+      $ pip list 
+      Package         Version
+      --------------- -----------
+      ...
+      numpy           1.26.2
+      pandas          2.1.3
+      ...
+      xarray          2025.4.0
+
+
+- It is also evident that if ``numpy`` and ``pandas`` already are available, those will be used, but may be of older versions!
+- If ``SciPy-bundle/2023.11`` was loaded when installing ``xarray`` you need to load it every time you need ``xarray``.
+
+.. keypoints::
+
+   - You can install Python packages as a user with the ``pip install --user <package>[==<version>]``.
+   - The ``pip`` command will look after available _valid_ dependencies already seen or install them on the fly.
+   - You can load package modules to help minimizing new instalaltions of dependencies.
+
+      - Then you need to load that package module eggverytime you need the "main" package.
 
 Exercise
 --------
