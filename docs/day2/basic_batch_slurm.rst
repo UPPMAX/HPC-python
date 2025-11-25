@@ -40,13 +40,14 @@ Basic batch and Slurm
    - UPPMAX 
        -   
    - HPC2N
-       - hpc-python-fri for one AMD Zen4 cpu on Friday
-       - hpc-python-mon for one AMD Zen4 cpu on Monday
-       - hpc-python-tue for two L40s gpus on Tuesday
+       - ``hpc-python-fri`` for one AMD Zen4 cpu on Friday
+       - ``hpc-python-mon`` for one AMD Zen4 cpu on Monday
+       - ``hpc-python-tue`` for two L40s gpus on Tuesday
        - it is magnetic, so will be used automatically 
 
    - LUNARC 
-       - 
+       - ``hpc-python-dayN`` for up to 2 CPU nodes per day, where N=1 for Thursday, 2 for Friday, 3 for Monday, and 4 for Tuesday
+       - ``hpc-python-day4-gpu`` for the GPU and ML sessions on Tuesday afternoon
 
 
 What is a batch job?
