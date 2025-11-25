@@ -64,10 +64,49 @@ Solutions and tools
 - Is chunking suitable?
 
 File formats
-::::::::::::
+------------
 
-RAM
-:::
+Computing efficiency with Python
+--------------------------------
+
+Python is an interpreted language, and many features that make development rapid with Python are a result of that, with the price of reduced performance in many cases.
+
+- Dynamic typing
+- Flexible data structures
+
+- There are some packages that are more efficient than Numpy and Pandas.
+
+    - `SciPy <https://docs.scipy.org/doc/scipy/reference/>`_ is a library that builds on top of NumPy. 
+   
+        - It contains a lot of interfaces to battle-tested numerical routines written in Fortran or C, as well as Python implementations of many common algorithms.
+   
+    - `ENCCS course material <https://enccs.github.io/hpda-python/stack/#scipy>`_
+
+XARRAY Package
+..............
+
+- ``xarray`` is a Python package that builds on NumPy but adds labels to **multi-dimensional arrays**. 
+- It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. 
+- Xarray is particularly tailored to working with NetCDF files. 
+- It reads and writes to NetCDF file using
+
+    - ``open_dataset()`` function
+    - ``open_dataarray()`` function
+    - ``to_netcdf()`` method. 
+
+- Explore these in the exercise below!
+
+Exercise file formats
+---------------------
+
+Go over file formats and see if some are more relevant for your work.
+
+.. discussion::
+
+   Any changes and why?
+
+Allocating RAM
+--------------
 
 - Mention memory per core considerations.
 - Show SLURM options for memory and time.
