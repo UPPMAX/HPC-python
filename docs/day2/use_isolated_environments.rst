@@ -224,8 +224,8 @@ Conda
    .. code-block:: console
 
       module load Miniforge/24.7.1-2-hpc1
-      export CONDA_PKG_DIRS=/proj/hpc-python-spring-naiss/$USER
-      export CONDA_ENVS_PATH=/proj/hpc-python-spring-naiss/$USER
+      export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
+      export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
       mamba create -n numpy-proj-39 python=3.9.5 -c conda-forge
       mamba activate spyder-env
       mamba install numpy
@@ -381,8 +381,8 @@ Breakout room according to grouping
          .. code-block:: 
          
             module load Miniforge/24.7.1-2-hpc1
-            export CONDA_PKG_DIRS=/proj/hpc-python-spring-naiss/$USER
-            export CONDA_ENVS_PATH=/proj/hpc-python-spring-naiss/$USER
+            export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
+            export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
             mamba create -n spyder-env spyder
             mamba activate spyder-env
 
