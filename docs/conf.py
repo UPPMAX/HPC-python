@@ -38,7 +38,7 @@ extensions = ["sphinx_lesson",
     "sphinx.ext.githubpages",
     "sphinx_rtd_theme_ext_color_contrast",
     "sphinxemoji.sphinxemoji",
-    'sphinx_prompt',
+    'sphinx-prompt',
     'sphinxcontrib.plantuml',
     'sphinx.ext.graphviz',
     'sphinxcontrib.mermaid',
@@ -77,14 +77,14 @@ copybutton_exclude = '.linenos, .gp, .go'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [
-    "README*",
-    "_build",
-    "Thumbs.db",
-    ".DS_Store",
-    "jupyter_execute",
-    "*venv*",
-]
+# exclude_patterns = [
+#     "README*",
+#     "_build",
+#     "Thumbs.db",
+#     ".DS_Store",
+#     "jupyter_execute",
+#     "*venv*",
+# ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
