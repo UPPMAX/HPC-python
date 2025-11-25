@@ -140,12 +140,13 @@ Simple example batch script
    Type along!
 
 This first example shows how to run a short, serial script. The batch script (named ``run_mmmult.sh``) can be found in the directory: 
+
 - If you did ``git clone https://github.com/UPPMAX/HPC-python.git``
-    - HPC-Python/Exercises/day2/<center>, where <center> is hpc2n, uppmax, lunarc, nsc, pdc, or c3se. 
-    - The Python script is in HPC-Python/Exercises/day2/programs and is named ``mmmult.py``. 
+    - ``HPC-Python/Exercises/day2/<center>``, where <center> is hpc2n, uppmax, lunarc, nsc, pdc, or c3se. 
+    - The Python script is in ``HPC-Python/Exercises/day2/programs`` and is named ``mmmult.py``. 
 - If you did ``wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz`` and then ``tar -xvzf exercises.tar.gz`` 
-    - exercises/day2/<center>, where <center> is hpc2n, uppmax, lunarc, nsc, or pdc.
-    - The Python script is in exercises/day2/programs and is named ``mmmult.py``.  
+    - ``exercises/day2/<center>``, where <center> is hpc2n, uppmax, lunarc, nsc, or pdc.
+    - The Python script is in ``exercises/day2/programs`` and is named ``mmmult.py``.  
 
 1. The batch script is run with ``sbatch run_mmmult.sh``. 
 2. Try type ``squeue -u <username>`` to see if it is pending or running. 
@@ -155,22 +156,22 @@ This first example shows how to run a short, serial script. The batch script (na
 
    .. tab:: UPPMAX
 
-        Short serial example script for Pelle. Loading Python 3.12.3 and a compatible SciPy-bundle for Numpy.  
+      Short serial example script for Pelle. Loading Python 3.12.3 and a compatible SciPy-bundle for Numpy.  
 
-        .. code-block:: bash
+      .. code-block:: bash
 
-            #!/bin/bash -l 
-            #SBATCH -A uppmax2025-2-393 # Change to your own after the course
-            #SBATCH --time=00:20:00 # Asking for 20 minutes
-            #SBATCH -n 1 # Asking for 1 core
+         #!/bin/bash -l 
+         #SBATCH -A uppmax2025-2-393 # Change to your own after the course
+         #SBATCH --time=00:20:00 # Asking for 20 minutes
+         #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here Python 3.12.3 
-            # and a compatible SciPy-bundle for numpy  
-            module load Python/3.12.3-GCCcore-13.3.0
-            module load SciPy-bundle/2024.05-gfbf-2024a
-            
-            # Run your Python script 
-            python mmmult.py   
+         # Load any modules you need, here Python 3.12.3 
+         # and a compatible SciPy-bundle for numpy  
+         module load Python/3.12.3-GCCcore-13.3.0
+         module load SciPy-bundle/2024.05-gfbf-2024a
+         
+         # Run your Python script 
+         python mmmult.py   
             
 
    .. tab:: HPC2N
