@@ -26,7 +26,7 @@ xdg-open _build/html/index.html  # On Linux
 open _build/html/index.html      # On macOS
 ```
 
-To perform auto rebuilds and see changes on locahost:
+To perform auto rebuilds and see changes on localhost:
 
 ```cmd
 pip install sphinx-autobuild
