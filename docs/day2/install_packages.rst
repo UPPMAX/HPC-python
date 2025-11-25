@@ -147,6 +147,9 @@ Exercise
 
    - We may add a solution in a coming instance of the course
 
+
+<!--
+
 .. admonition:: Already installed Python packages in HPC and ML
    :class: dropdown
 
@@ -223,3 +226,4 @@ Exercise
 
    NOTE that not all versions of Python will have all the above packages installed! 
 
+-->
