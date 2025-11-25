@@ -16,7 +16,7 @@ What is Desktop On Demand? Is it right for my job?
 On Cosmos (LUNARC), Kebnekaise (HPC2N), Alvis (C3SE), and Dardel (PDC), some applications are available through one of a couple of On Demand services. On Demand applications provide an interactive environment to schedule jobs on compute nodes using a graphic user interface (GUI) instead of the typical batch submission script. How you reach this interface is dependent on the system you use and their choice of On Demand client.
 
 - **Cosmos** and **Dardel** use the On-Demand Desktop developed at LUNARC, which is accessible via Thinlinc.
-- **Kebnekaise** and **Alvis** uses Open OnDemand[#f1]_ via a `dedicated web portal, https://portal.hpc2n.umu.se <https://portal.hpc2n.umu.se>`__.
+- **Kebnekaise** and **Alvis** uses Open OnDemand[#f1]_ via a `dedicated web portal, https://portal.hpc2n.umu.se <https://portal.hpc2n.umu.se>`__ and `for alvis, https://alvis.c3se.chalmers.se/ <https://alvis.c3se.chalmers.se/>`__ 
 
 Desktop On-Demand is most appropriate for *interactive* work requiring small-to-medium amounts of computing resources. Non-interactive jobs and jobs that take more than a day or so should generally be submitted as batch jobs. If you have a longer job that requires an interactive interface to submit, make sure you keep track of the wall time limits for your facility. Some of the Desktop On Demand's only allow at most 12 hours of allocation at a time. 
 
@@ -126,7 +126,7 @@ Setting Job Parameters
 ----------------------
 .. tabs::
 
-   ..tab:: "COSMOS (and Dardel)"
+   .. tab:: "COSMOS (and Dardel)"
 
       Upon clicking your chosen application, a pop-up interface called the **GfxLauncher** will appear and let you set the following options:
       
@@ -169,7 +169,7 @@ Setting Job Parameters
       
       If you finish before your wall time is up and close the app, the app should stop in the GfxLauncher window within a couple of minutes, but you can always force it to stop by clicking the "Stop" button. This may be necessary for Jupyter Lab.
       
-   ..tab:: "Kebnekaise"
+   .. tab:: "Kebnekaise"
       
       If you go to "Interactive apps" and select Jupyter Notebook, or any of the other options, a page will open that looks like this:
 
