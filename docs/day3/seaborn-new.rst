@@ -103,13 +103,13 @@ Load and Run Seaborn
 
       .. important::
 
-         On Pelle, you should load
+         On Pelle, the only available Seaborn module right now is ``Seaborn/0.13.2-gfbf-2024a``, and it can be loaded directly, as shown below:
 
          .. code-block:: console
         
-            module load python/FIXME
+            module load Seaborn/0.13.2-gfbf-2024a
      
-      On Pelle, Seaborn/FIXME is included in ...
+         This loads not just Seaborn, but also ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, so loading this module should load everything you need for this part of the course.
 
    .. tab:: NSC (Tetralith)
      
