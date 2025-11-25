@@ -7,6 +7,11 @@ Install packages
     - Learn how to install a (general-purpose) Python package with `pip`
     - Understand limitations of this way, e.g. use cases/best practices
 
+.. admonition:: For the teacher
+
+    - Dialogue with users during class 20 min
+    - Exercise about 10 min
+
 Introduction
 ------------
 
