@@ -3,51 +3,20 @@ Running Python in batch mode
 
 .. questions::
 
-   - What is a batch job?
-   - What are some important commands regarding batch jobs? 
-   - How to make a batch job?
+   - Can I run more advanced Python scripts as batch jobs?
+   - Can you do matplotlib or pandas as batch jobs?
+   - What about using virtual environments in batch jobs? 
  
 .. objectives:: 
 
-   - Short introduction to SLURM scheduler commands 
-   - Show structure of a batch script
-   - Try example
+   - Use a virtual environment in a batch script. 
+   - Show how a Python code with pandas and matplotlib can be transformed to run in a batch script. 
+   - Some examples to try. 
 
-.. admonition:: Compute allocations in this workshop 
+.. admonition:: Compute allocations, storage space, reservations in this workshop 
 
-   - Rackham: ``uppmax2025-2-393``
-   - Kebnekaise: ``hpc2n2025-151``
-   - Cosmos: ``lu2025-7-106``
-   - Tetralith: ``naiss2025-22-934``  
-   - Dardel: ``naiss2025-22-934``
-
-.. admonition:: Storage space for this workshop 
-
-   - Rackham: ``/proj/hpc-python-uppmax``
-   - Kebnekaise: ``/proj/nobackup/fall-courses``
-   - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
-   - Tetralith: ``/proj/hpc-python-spring-naiss``
-   - Dardel: ``/cfs/klemming/projects/snic/hpc-python-spring-naiss``
-
-.. admonition:: Reservation
-
-   Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name. 
-
-   **NOTE** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for. 
-
-   - UPPMAX 
-       - the reservation is "magnetic" and so will be used automatically  
-   - HPC2N
-       - hpc-python-fri for cpu on Friday
-       - hpc-python-mon for cpu on Monday
-       - hpc-python-tue for gpu on Tuesday
-
-   - LUNARC 
-       - py4hpc_day1 for cpu on Thursday
-       - py4hpc_day2 for cpu on Friday
-       - py4hpc_day3 for cpu on Monday
-       - py4hpc_day4 for cpu on Tuesday 
-       - py4hpc_gpu for gpu on Tuesday 
+   - This was covered Friday, during the section on basic batch and Slurm
+   - You can find an overview in the common section NAISS projects overview: https://uppmax.github.io/HPC-python/common/naiss_projects_overview.html 
 
 Running your programs and scripts on UPPMAX, HPC2N, LUNARC, NSC, and PDC 
 ------------------------------------------------------------------------
