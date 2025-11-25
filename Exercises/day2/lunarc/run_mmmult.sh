@@ -11,8 +11,8 @@ MYPATH=/lunarc/nobackup/projects/lu2025-17-522024-17-44/<mydir-name>/HPC-python/
 # Purge any loaded modules
 ml purge > /dev/null 2>&1
 
-# Load any modules you need, here Python 3.11.3, SciPy-bundle,  and prerequisites.
-module load GCC/12.3.0  Python/3.11.3 SciPy-bundle/2023.07
+# Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
+module load GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11
 
 # Run your Python script
 python mmmult.py

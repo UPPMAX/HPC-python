@@ -9,7 +9,8 @@
 MYPATH=/proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 module purge  > /dev/null 2>&1
-module load buildtool-easybuild/4.8.0-hpce082752a2  GCC/13.2.0 SciPy-bundle/2023.11
+module load buildtool-easybuild/4.8.0-hpce082752a2  GCC/13.2.0 Python/3.11.5 
+module load SciPy-bundle/2023.11 JupyterLab/4.2.0
 
 # Run your Python script
 python $MYPATH/mmmult.py

@@ -8,7 +8,7 @@
 MYPATH=/proj/hpc-python-uppmax/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Load any modules you need, here for Python 3.11.8
-ml python/3.11.8
+ml python/3.12.3-GCCcore-13.3.0
 
 # Run your Python script
 python $MYPATH/sum-2args.py 2 3

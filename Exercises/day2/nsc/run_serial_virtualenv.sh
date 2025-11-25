@@ -8,7 +8,7 @@
 MYPATH=/proj/<your-projecct-storage>/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Load any modules you need. This is an example 
-ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2
+ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
 # Activate your virtual environment. 
 # CHANGE <path-to-virt-env> to the full path where you installed your 
@@ -18,4 +18,4 @@ ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/
 source <path-to-virt-env>/bin/activate
 
 # Run your Python script - remember to add the name of your script
-python $MYPATH/seaborn-example.py
+python $MYPATH/virt-example.py

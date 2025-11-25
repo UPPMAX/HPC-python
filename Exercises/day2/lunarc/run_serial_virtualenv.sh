@@ -18,4 +18,4 @@ module load GCC/12.3.0  Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
 source <path-to-virt-env>/bin/activate
 
 # Run your Python script - remember to add the name of your script
-python $MYPATH/seaborn-example.py
+python $MYPATH/example.py

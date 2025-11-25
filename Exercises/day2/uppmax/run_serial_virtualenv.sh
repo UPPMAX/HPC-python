@@ -8,9 +8,8 @@
 MYPATH=/proj/hpc-python-uppmax/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Load any modules you need, here for Python 3.11.8
-module load uppmax
-module load python_ML_packages/3.11.8-cpu
-module load python/3.11.8
+module load Python/3.12.3-GCCcore-13.3.0
+module load SciPy-bundle/2024.05-gfbf-2024a
 
 # Activate your virtual environment. 
 # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment

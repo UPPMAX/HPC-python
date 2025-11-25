@@ -65,7 +65,7 @@ Slurm is designed to handle thousands of nodes in a single cluster, and can sust
 What is a cluster? 
 ------------------ 
 
-You can find information about the cluster hardware in the <a href="https://uppmax.github.io/HPC-python/common/understanding_clusters.html" target="_blank">HPC clusters</a> common section. This is just a brief overview.
+You can find information about the cluster hardware in the https://uppmax.github.io/HPC-python/common/understanding_clusters.html common section. This is just a brief overview.
 
 - Login nodes and calculations/compute nodes
 
