@@ -15,7 +15,7 @@ What is Desktop On Demand? Is it right for my job?
 
 On Cosmos (LUNARC), Kebnekaise (HPC2N), Alvis (C3SE), and Dardel (PDC), some applications are available through one of a couple of On Demand services. On Demand applications provide an interactive environment to schedule jobs on compute nodes using a graphic user interface (GUI) instead of the typical batch submission script. How you reach this interface is dependent on the system you use and their choice of On Demand client.
 
-s- **Cosmos** and **Dardel** use the On-Demand Desktop developed at LUNARC, which is accessible via Thinlinc.
+- **Cosmos** and **Dardel** use the On-Demand Desktop developed at LUNARC, which is accessible via Thinlinc.
 - **Kebnekaise** and **Alvis** uses Open OnDemand[#f1]_ via a `dedicated web portal, https://portal.hpc2n.umu.se <https://portal.hpc2n.umu.se>`__ and `for alvis, https://alvis.c3se.chalmers.se/ <https://alvis.c3se.chalmers.se/>`__ 
 
 Desktop On-Demand is most appropriate for *interactive* work requiring small-to-medium amounts of computing resources. Non-interactive jobs and jobs that take more than a day or so should generally be submitted as batch jobs. If you have a longer job that requires an interactive interface to submit, make sure you keep track of the wall time limits for your facility. Some of the Desktop On Demand's only allow at most 12 hours of allocation at a time. 
