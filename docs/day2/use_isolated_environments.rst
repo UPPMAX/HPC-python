@@ -18,9 +18,8 @@ Use isolated environments
 
    - Introduction 10 m
    - venv 5 m
-   - Exercise venv 10 m
    - Conda 5
-   - Conda exercise 10 m
+   - Conda exercise 30 m
 
 Isolated environments
 ---------------------
