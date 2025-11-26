@@ -562,6 +562,14 @@ Principles
 
       * you can install packages with pip install from inside Spyder
 
+- Start Spyder:
+
+.. code-block:: console
+
+   spyder &
+
+- Keep open for next session!
+
 
 
 VS Code
