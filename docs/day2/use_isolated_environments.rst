@@ -434,6 +434,8 @@ Breakout room according to grouping
             conda activate jupyter-env
             conda install matplotlib pandas seaborn xarray dask numba
 
+         - Check that the above packages are there by ``conda list``.
+     
          We will put requirements files in the course project folder that you can build from in latter lessons
 
          - These will cover 
@@ -458,6 +460,8 @@ Breakout room according to grouping
             export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
             conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
             source activate spyder-env
+
+            - Check that the above packages are there by ``conda list``.
 
          We will put requirements files in the course project folder that you can build from in latter lessons
 
