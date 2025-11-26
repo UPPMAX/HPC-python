@@ -135,9 +135,7 @@ Parallel computing with Python
       
       .. code-block:: console
 
-         $ ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/11.3.0 Python/3.10.4
-
-         $ ml GCC/11.3.0 OpenMPI/4.1.4
+         $ ml buildenv-gcccuda/12.2.2-gcc11-hpc1
 
          $ python -m venv /path-to-your-project/vpyenv-python-course
 
@@ -169,6 +167,21 @@ Parallel computing with Python
       .. code-block:: julia
        
          pkg> add PythonCall
+
+      - For the ``Heat`` examples: 
+
+      .. code-block:: console
+
+         $ pip install torch --index-url https://download.pytorch.org/whl/cu126
+         $ pip install heat[hdf5,netcdf]
+
+      - The PyOMP example needs an additional package:
+
+      .. code-block:: console 
+
+         $ pip install pyomp
+
+      - Quit Python, you should be ready to go!
 
    .. tab:: LUNARC
       
