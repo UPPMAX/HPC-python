@@ -996,8 +996,8 @@ the execution time by using 4 threads is:
 More information about how OpenMP works can be found in the material of a previous
 `OpenMP course <https://github.com/hpc2n/OpenMP-Collaboration>`_ offered by some of us.
 
-PyOMP
-~~~~~
+PyOMP (Advanced)
+~~~~~~~~~~~~~~~~
 
 The `PyOMP <https://github.com/Python-for-HPC/PyOMP>`_ module offers an interface for writing OpenMP 
 directives in Python, so the compilation step mentioned above is avoided. PyOMP is an extension of
@@ -1301,7 +1301,7 @@ example,
          srun python integration2d_mpi.py
 
 
-Heat (advanced)
+Heat (Advanced)
 ~~~~~~~~~~~~~~~
 
 Heat is a library for distributing tensor operations by using MPI as a backend. Heat uses 
