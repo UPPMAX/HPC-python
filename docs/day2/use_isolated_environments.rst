@@ -207,6 +207,7 @@ Conda
    
          export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
          export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
+         mamba create --prefix=$CONDA_ENVS_PATH/<conda env name>
 
    - Solution 2 
 
@@ -225,7 +226,7 @@ Conda
       module load Miniforge/24.7.1-2-hpc1
       export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
       export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
-      mamba create -n numpy-proj-39 python=3.9.5 -c conda-forge
+      mamba create --prefix=$CONDA_ENVS_PATH/numpy-proj-39 python=3.9.5 -c conda-forge
       mamba activate spyder-env
       mamba install numpy
       which python  # should point to the conda environment!
@@ -247,7 +248,6 @@ Conda
    - It includes a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
 
 .. admonition:: Conda cheat sheet
-   :class: dropdown
    
    - List packages in present environment:	         ``conda list``
    - List all environments:			                 ``conda info -e`` or ``conda env list``
@@ -382,22 +382,18 @@ Breakout room according to grouping
             module load Miniforge/24.7.1-2-hpc1
             export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
             export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
-            mamba create -n spyder-env spyder
+            mamba create --prefix=$CONDA_ENVS_PATH/spyder-env python=3.12 spyder 
             mamba activate spyder-env
 
-         **If you do not have matplotlib already outside any virtual environment**
+         - Let's install packages that we need. 
 
-         - Install matplotlib in your ``.local`` folder, not in a virtual environment. 
-         - Do: 
+         .. code-block:: 
+         
+            conda install matplotlib pandas seaborn xarray dask numba        
 
-         .. code-block:: console
+         - Check that the above packages are there by ``conda list``. 
 
-            ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 
-            pip install --user matplotlib
-
-         - Check that matplotlib is there by ``pip list``
-
-         We will put requirements files in the course project folder that you can build from in latter lessons
+         We will put requirements files in the course project folder that you can build from in latter lessons.
 
          - These will cover 
 
@@ -411,15 +407,22 @@ Breakout room according to grouping
         
          .. code-block:: 
          
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
             ml PDC/23.12
             ml miniconda3/24.7.1-0-cpeGNU-23.12
-            conda create --prefix /cfs/klemming/projects/supr/courses-fall-2025/$USER/spyder-env
+            conda create --prefix CONDA_ENVS_PATH/spyder-env python=3.12 spyder 
             source activate spyder-env
-            conda install spyder
 
-         2. Let's make a Jupyter installation based on Python 3.11.7
+         - Let's install packages that we need. 
+
+         .. code-block:: 
+         
+            conda install matplotlib pandas seaborn xarray dask numba        
+
+         - Check that the above packages are there by ``conda list``. 
+
+        2. Let's make a Jupyter installation based on Python 3.11.7
 
          .. code-block:: console
 
@@ -427,10 +430,10 @@ Breakout room according to grouping
             ml miniconda3/24.7.1-0-cpeGNU-23.12
             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
-            conda create --prefix /cfs/klemming/projects/supr/courses-fall-2025/$USER/jupyter-env python=3.11.7
+            conda create --prefix CONDA_ENVS_PATH/jupyter-env python=3.11.7
             conda activate jupyter-env
             conda install jupyter
-            conda install matplotlib pandas seaborn
+            conda install matplotlib pandas seaborn xarray dask numba
 
          We will put requirements files in the course project folder that you can build from in latter lessons
 
@@ -443,7 +446,7 @@ Breakout room according to grouping
       .. tab:: LUNARC 
 
          - Everything will work by just loading modules.
-         - Go down to optional
+         - Go down to the other exercises!
 
       .. tab:: UPPMAX
 
@@ -454,7 +457,7 @@ Breakout room according to grouping
             ml conda
             export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
             export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
-            conda create -n spyder-env spyder -c conda-forge
+            conda create --prefix CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
             source activate spyder-env
 
          We will put requirements files in the course project folder that you can build from in latter lessons
@@ -561,6 +564,8 @@ Breakout room according to grouping
    - Confirm package is now present
    - Deactivate environment
    - Confirm package is now absent again
+
+
 
 
 .. challenge:: (optional) 5. Make a test environment and spread (venv)
