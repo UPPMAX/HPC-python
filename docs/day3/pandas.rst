@@ -9,11 +9,13 @@ Intro to Pandas on HPC
    - Estimate the size of your data in memory
    - Reduce your data size by converting to appropriate memory-saving data types
    - Run standard functions with multi-threading using Numba
+   - Load and write out-of-memory files with chunking.
+
+It is recommended that you do exercises and other code experimentation for this session in Jupyter Lab unless otherwise advised, but it is ultimately up to you.
 
 .. note::
 
-   We will **not** cover Pandas functionality in depth except insofar as the workflow differs between an HPC cluster and a personal laptop. For in-depth instruction on the Pandas library, NAISS offers a different course, "An Introduction to Pandas for Data Science."
-
+   This course focuses on functions and workflows specific to Pandas usage on an HPC cluster. Basic functionality will only be discussed briefly. For a more in-depth introduction to the Pandas library in general, NAISS offers a different course, "An Introduction to Pandas for Data Science."
 
 **Pandas**, short for PANel Data AnalysiS, is a Python data library for cleaning, organizing, and statistically analyzing moderately large (:math:`\lesssim3` GiB) data sets. It was originally developed for analyzing and modelling financial records (panel data) over time, and has since expanded into a package rivaling SciPy in the number and complexity of available functions. Pandas offers:
 
@@ -491,7 +493,6 @@ Numerical data can be recast as categorical by binning it with ``pd.cut()`` or `
 
    The Pandas datatype ``Categorical`` is named for general data science term "categorical variable", a classifier like species, sex, brand name, etc. The Pandas datatype should always be typeset as code and capitalized in this documentation. 
 
-
 **Sparse Data.** If you have a DataFrame where around half or more of the entries are NaN or a filler value, you can use the ``SparseArray`` format or ``SparseDtype`` to save memory. Initialize Series or DataFrames as ``SparseDtype`` by setting the kwarg ``dtype=pd.SparseDtype(dtype=np.float64, fill_value=None)`` in the ``pd.Series()`` or ``pd.DataFrame()`` initialization functions, or call the method ``.astype(pd.SparseDtype("float", fill_value))`` on an existing Series or DataFrame. Data of ``SparseDtype`` have a ``.sparse`` accessor in much the same way as Categorical data have ``.cat``. Most `NumPy universal functions <https://numpy.org/doc/stable/reference/ufuncs.html>`__ also work on Sparse Arrays. Other methods and attributes include:
 
 - ``df.sparse.density``: prints fraction of data that are non-NaN
@@ -589,47 +590,50 @@ Chunking for Large Datasets
 When a data file is larger than memory, your first instinct should be to load only the columns and rows that you need. We already discussed the ``usecols`` and ``nrows`` kwargs when we went over the most common reader functions. But what if the data you need to load is still larger than memory?
 
 * Several of the most common Pandas data reader functions, like ``read_csv()``, also have a **``chunksize`` kwarg** that allow you to read in and work on out-of-memory datasets in batches of rows that fit in memory.
-* Similarly, common writer functions also let you append chunks to file rather than overwriting them to write to files that are larger than memory, using the kwarg **``mode='a'``**.
+* Similarly, common writer functions also let you append chunks to file rather than overwriting them to write to files that are larger than memory, using the kwarg **``mode='a'``**. Be aware that you will have to set up the chunk iteration so that ``header=False`` for every chunk after the first, or else it will try to inject header rows before every chunk.
 
 While loaded, chunks can be indexed and manipulated like full-sized DataFrames. 
 
 Workflows that can be applied to chunks can also be used to aggregate over multiple files, so it may also be worth breaking a single out-of-memory file into logical subsections that individually fit in memory. `The Pandas documentation on chunking chooses this method of demonstration <https://pandas.pydata.org/docs/user_guide/scale.html#use-chunking>`__ rather than showing how to iterate over chunks loaded from an individual file.
 
-The following example uses the table ``global_disaster_response_2018-2024.csv``, which is not out-of-memory for a typical HPC cluster but is fairly large. The data were not in any particular order, but there are 50000 rows spread fairly evenly over the time period, so this example uses chunks of 5000 rows. 
+The following example and later exercise use the table ``global_disaster_response_2018-2024.csv``, which is not out-of-memory for a typical HPC cluster but is large enough that the additional overhead of chunking does not significantly change the computation time. It contains 50000 rows of data that do not seem to be sorted by date, country, disaster type, cost, response time, or any other included column.
 
-.. jupyter-execute::
+This example demonstrates both reading and writing in chunks by simulating bootstrapping (randomly sampling with replacement, which this example only approximates) a dataset that technically fits in memory to a create a much larger dataset:
 
-    import pandas as pd
-    import numpy as np
-    loss_sum = 0
-    for chunk in pd.read_csv('./docs/day3/global_disaster_response_2018-2024.csv',
-                             chunksize=5000):
-       loss_sum+=chunk['economic_loss_usd'].sum()
-    print('total loss over all disasters in this database: $', np.round(loss_sum/10**9,2), 'billion USD')
+.. code-block:: python
+
+   import pandas as pd
+   incl_head = True   #set to add header for 1st chunk
+   for chunk in pd.read_csv('global_disaster_response_2018-2024.csv', chunksize=10000):
+      chunk.sample(frac=5, replace=True).to_csv('bootstrapped_disaster_response_2018-2024.csv',
+                   mode='a', index=False, header=incl_head)
+      incl_head = False    #disable header addition after 1st chunk
 
 .. caution::
 
-   Chunking with Pandas alone works only when no coordination is required between chunks. Functions that apply independently to every row are ideal. Some aggregate statistics can be calculated if care is taken to make sure that either all chunks are of identical size or that different-sized chunks are reweighted appropriately. However, if your data have natural groupings where group membership is not known by position a priori, or where each group is itself larger than memory, you may be better off using Dask or other libraries.
+   Chunking with Pandas works best when no coordination is required between chunks. Some aggregate statistics can be calculated if care is taken to make sure that either all chunks are of identical size or that different-sized chunks are reweighted appropriately. However, if your data have natural groupings where group membership is not known by position a priori, or where each group is itself larger than memory, you may be better off using Dask or other libraries. Windowed operations will also not work because there will be no overlap between chunks.
 
 .. challenge
 
-   Use chunks of 10000 rows to accumulate a sum over the ``'casualties'`` column of the ``global_disaster_response_2018-2024.csv`` file.
+   Load ``global_disaster_response_2018-2024.csv`` in chunks of 10000, and accumulate the sum of the ``'economic_loss_usd'`` column (hint: remember that DataFrames and Series have a ``.sum()`` method). Print the final sum. The result should be around $253 billion USD.
 
 .. solution:: Solution
     :class: dropdown
 
-   .. code-block:: python
-
-      cas_sum = 0
-      for chunk in pd.read_csv('/home/rlpitts/Documents/global_disaster_response_2018-2024.csv',
-                               chunksize=10000):
-      cas_sum+=chunk['casualties'].sum()
+   .. jupyter-execute::
+   
+       import pandas as pd
+       import numpy as np
+       loss_sum = 0
+       for chunk in pd.read_csv('./docs/day3/global_disaster_response_2018-2024.csv',
+                                chunksize=10000):
+          loss_sum+=chunk['economic_loss_usd'].sum()
+       print('total loss over all disasters in this database: $', np.round(loss_sum/10**9,2), 'billion USD')   
 
 .. keypoints::
 
    - Pandas lets you construct list- or table-like data structures with mixed data types, the contents of which can be indexed by arbitrary row and column labels
    - The main data structures are Series (1D) and DataFrames (2D). Each column of a DataFrame is a Series.
-   - Data is selected primarily using ``.loc[]`` and ``.iloc[]``, unless you're grabbing whole columns (then the syntax is dict-like).
    - There are hundreds of attributes and methods that can be called on Pandas data structures to inspect, clean, organize, combine, and apply functions to them, including nearly all NumPy ufuncs (universal functions).
    - ``Categorical`` and ``SparseDtype`` datatypes can help you reduce the memory footprint of your data.
    - Most Pandas methods that apply a function can be sped up by multithreading with Numba, if they are applied over multiple columns. Just set ``engine=numba`` and ``engine_kwargs={"parallel": True}`` in the kwargs.
