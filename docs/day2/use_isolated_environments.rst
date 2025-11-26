@@ -16,17 +16,17 @@ Use isolated environments
 
 .. admonition:: For teachers
 
-   - Introduction 10 m
+   - Introduction 5 m
    - venv 5 m
    - Conda 5
-   - Conda exercise 30 m
+   - Exercises 30 m
 
 Isolated environments
 ---------------------
 
 - As an example, maybe you have been using TensorFlow 1.x.x for your project and 
     - now you need to install a package that requires TensorFlow 2.x.x 
-    - but you will still be needing the old version of TensorFlow for another package, for instance. 
+    - but you will still be needing the old version of TensorFlow. 
 - This is easily solved with isolated environments.
 
 - Another example is when a reviewer want you to remake a figure. 
@@ -308,7 +308,7 @@ Breakout room according to grouping
    - Alvis: https://www.c3se.chalmers.se/documentation/first_time_users/
    - NSC: https://www.nsc.liu.se
    - PDC: https://support.pdc.kth.se/doc/
-   - LUNARC: <https://lunarc-documentation.readthedocs.io/en/latest/>`_. 
+   - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/
    - UPPMAX: https://docs.uppmax.uu.se/
    - HPC2N: https://docs.hpc2n.umu.se/
    - LUMI: https://docs.lumi-supercomputer.eu/software
@@ -477,8 +477,8 @@ Breakout room according to grouping
 .. challenge:: (Optional) Exercise 3: Install package with venv
 
    - Choose a track below 
-
-   - Bianca users are not recommended (Attend or coverthe `Bianca intermediate course <https://docs.uppmax.uu.se/courses_workshops/bianca_intermediate/>`__ yourself)
+   - Bianca users are not recommended today 
+       - (attend or cover the `Bianca intermediate course <https://docs.uppmax.uu.se/courses_workshops/bianca_intermediate/>`__ yourself)
 
    - Confirm package is absent
    - Create environment in your user's folder in the course project
@@ -532,28 +532,38 @@ Breakout room according to grouping
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
  
-      - Note that your prompt is changing to start with (Example) to show that you are within an environment.
+   - Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
-      - Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
+   - Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
 
-      .. code-block:: console
+   .. code-block:: console
 
-         (Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
+      (Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
 
-      - Deactivate the venv.
+   - Deactivate the venv.
 
-      .. code-block:: console
+   .. code-block:: console
 
-         (Example) $ deactivate
+      (Example) $ deactivate
+
+   - Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
+
+   .. prompt:: console
+
+      $ source /proj/<your-project-id>/<your-dir>/Example/bin/activate
+
+.. challenge:: (optional) Exercise 4: like 3, but for Conda
+
+   - Create environment in your user's folder in the course project
+   - Activate environment
+   - Confirm package is absent
+   - Install package in isolated environment
+   - Confirm package is now present
+   - Deactivate environment
+   - Confirm package is now absent again
 
 
-      - Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
-
-      .. prompt:: console
-
-         $ source /proj/<your-project-id>/<your-dir>/Example/bin/activate
-
-.. challenge:: (optional) 4. Make a test environment and spread (venv)
+.. challenge:: (optional) 5. Make a test environment and spread (venv)
 
    Read `here <https://uppmax.github.io/HPC-python/extra/isolated_deeper.html#creator-developer>`_ 
 
@@ -653,9 +663,8 @@ Breakout room according to grouping
 
       deactivate
 
-.. challenge:: (optional) Exercise 4b. Make a test environment (conda)
+.. challenge:: (optional) Exercise 5b. Make a test environment (conda)
 
-.. challenge:: (optional) Exercise 5: like 3, but for other tool (venv/conda)
 
 
 Summary
