@@ -226,12 +226,11 @@ Controlling the Display
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Command Line.** For Python 3.11.x, a Tkinter-based backend is typically required to generate figure popups when you type ``plt.show()`` at the command line (on Dardel this is preset). *Backends* are engines for either displaying figures or writing them to image files (see `the matplotlib docs page on backends for more detail <https://matplotlib.org/stable/users/explain/figure/backends.html>`_ for more info). To set the appropriate backend:
+   
+1. import the top-level ``matplotlib`` package,
+2. run ``matplotlib.use('TkAgg')`` before doing any plotting (if you forget, you can set it at any time). If for some reason that backend or the default backend doesn't work, you can also try ``matplotlib.use('Qt5Agg')``.
 
-1. import the top-level ``matplotlib`` package
-2. run ``matplotlib.use('TkAgg')`` before doing any plotting (if you forget, you can set it at any time).
-(3.) If for some reason that backend or the default backend doesn't work, you can try ``matplotlib.use('Qt5Agg')``.
-
-**Jupyter.** In Jupyter, after importing matplotlib or any of its sub-modules, you typically need to add ``% matplotlib inline`` before you make any plots. You should not need to set ``matplotlib.use()``.
+**Jupyter.** In Jupyter, after importing matplotlib or any of its sub-modules, you typically need to add ``% matplotlib inline`` before you make any plots. You should not need to use ``matplotlib.use(...)``.
 
 **Spyder.** In Spyder, the default setting is for figures to be displayed either in-line at the IPython console or in a "Graphics" tab in the upper right, depending on the version. In either case, the graphic will be small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup:
 
