@@ -308,7 +308,7 @@ Breakout room according to grouping
    - Alvis: https://www.c3se.chalmers.se/documentation/first_time_users/
    - NSC: https://www.nsc.liu.se
    - PDC: https://support.pdc.kth.se/doc/
-   - `LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/>`_. 
+   - LUNARC: <https://lunarc-documentation.readthedocs.io/en/latest/>`_. 
    - UPPMAX: https://docs.uppmax.uu.se/
    - HPC2N: https://docs.hpc2n.umu.se/
    - LUMI: https://docs.lumi-supercomputer.eu/software
@@ -478,8 +478,10 @@ Breakout room according to grouping
 
    - Choose a track below 
 
+   - Bianca users are not recommended (Attend or coverthe `Bianca intermediate course <https://docs.uppmax.uu.se/courses_workshops/bianca_intermediate/>`__ yourself)
+
    - Confirm package is absent
-   - Create environment
+   - Create environment in your user's folder in the course project
    - Activate environment
    - Confirm package is absent
    - Install package in isolated environment
@@ -487,92 +489,69 @@ Breakout room according to grouping
    - Deactivate environment
    - Confirm package is now absent again
 
-   **NOTE**: since it may take up a bit of space if you are installing many Python packages to your isolated environment, we **strongly** recommend you place it in your project storage! 
-
    .. tabs::
 
-      .. tab:: venv
+      .. tab:: NSC 
 
-         Create a ``venv``. First load the python version you want to base your virtual environment on:
+         - Start in folder ``/proj/courses-fall-2025/$USER``
+         - Follow the tutorial at `Python <https://www.nsc.liu.se/software/python/>`_: scroll down to "More on Python virtual environments (venvs)"
 
-         .. tabs::
+      .. tab:: PDC 
 
-            .. tab:: UPPMAX
+         - Start in folder ``/cfs/klemming/projects/snic/courses-fall-2025/$USER``
+         - Follow the tutorial at Virtual environment with venv https://pdc-support.github.io/pdc-intro/#165
 
-               .. code-block:: console
-
-                  $ module load python/3.11.8 
-                  $ python -m venv --system-site-packages Example2
-
-              "Example2" is the name of the virtual environment. The directory "Example2" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
-
-            .. tab:: HPC2N
-
-               .. code-block:: console
-
-                  $ module load GCC/12.3.0 Python/3.11.3
-                  $ python -m venv --system-site-packages Example2
-
-               "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
-
-            .. tab:: LUNARC 
-
-               .. code-block:: console
-
-                  $ module load GCC/12.3.0 Python/3.11.3
-                  $ python -m venv --system-site-packages Example2
-
-               "Example2" is the name of the virtual environment. You can name it whatever you want. The directory “Example2” is created in the present working directory.
-
-            .. tab:: NSC 
-
-               Follow the tutorial at `Python <https://www.nsc.liu.se/software/python/>`_: scroll down to "More on Python virtual environments (venvs)"
-
-            .. tab:: PDC 
-
-               Follow the tutorial at Virtual environment with venv https://pdc-support.github.io/pdc-intro/#165
-
-         .. admonition:: If you want your virtual environment in a certain place
-            :class: dropdown
-
-
-            - UPPMAX: 
-                - Create: ``python -m venv /proj/hpc-python-uppmax/$USER/Example``
-                - Activate: ``source /proj/hpc-python-uppmax/<user-dir>/Example/bin/activate``
-            - HPC2N: 
-                - Create: ``python -m venv /proj/nobackup/fall-courses/$USER/Example``
-                - Activate: ``source /proj/nobackup/fall-courses/<user-dir>/Example/bin/activate``
-            - LUNARC: 
-                - Create: ``python -m venv /lunarc/nobackup/projects/lu2025-17-52/$USER/Example``
-                - Activate: ``source /lunarc/nobackup/projects/lu2025-17-52/<user-dir>/Example/bin/activate``
-            - NSC: 
-                - Create: ``python -m venv /proj/hpc-python-spring-naiss/$USER/Example``
-                - Activate: ``source /proj/hpc-python-spring-naiss/<user-dir>/Example/bin/activate``
-            - PDC: 
-                - Create: ``python -m venv /cfs/klemming/projects/snic/hpc-python-spring-naiss/$USER/Example``
-                - Activate: ``source /cfs/klemming/projects/snic/hpc-python-spring-naiss/$USER/Example/bin/activate``
-
-            Note that your prompt is changing to start with (Example) to show that you are within an environment.
-
-         Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
+      .. tab:: UPPMAX: Pelle
 
          .. code-block:: console
 
-             (Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
+            $ module load Python/3.12.3-GCCcore-13.3.0 
+            $ python -m venv --system-site-packages /proj/hpc-python-uppmax/$USER/Example
+            $ source /proj/hpc-python-uppmax/$USER/Example/bin/activate
 
-         Deactivate the venv.
+        "Example" is the name of the virtual environment. The directory "Example" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
+
+      .. tab:: HPC2N
 
          .. code-block:: console
 
-             (Example) $ deactivate
+            $ module load GCC/12.3.0 Python/3.11.3
+            $ python -m venv /proj/nobackup/fall-courses/$USER/Example
+            $ source /proj/nobackup/fall-courses/$USER/Example/bin/activate
+
+         "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
+
+      .. tab:: LUNARC 
+
+         .. code-block:: console
+
+            $ module load GCC/12.3.0 Python/3.11.3
+            $ python -m venv --system-site-packages /lunarc/nobackup/projects/lu2025-17-52/$USER/Example
+            $ source /lunarc/nobackup/projects/lu2025-17-52/<user-dir>/Example/bin/activate``
+
+         "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
+
+ 
+      - Note that your prompt is changing to start with (Example) to show that you are within an environment.
+
+      - Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated: 
+
+      .. code-block:: console
+
+         (Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
+
+      - Deactivate the venv.
+
+      .. code-block:: console
+
+         (Example) $ deactivate
 
 
+      - Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
 
-         Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
+      .. prompt:: console
 
-         .. prompt:: console
-
-            source /proj/<your-project-id>/<your-dir>/Example/bin/activate
+         $ source /proj/<your-project-id>/<your-dir>/Example/bin/activate
 
 .. challenge:: (optional) 4. Make a test environment and spread (venv)
 
