@@ -411,7 +411,7 @@ Breakout room according to grouping
             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
             ml PDC/23.12
             ml miniconda3/24.7.1-0-cpeGNU-23.12
-            conda create --prefix CONDA_ENVS_PATH/spyder-env python=3.12 spyder 
+            conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder 
             source activate spyder-env
 
          - Let's install packages that we need. 
@@ -426,11 +426,11 @@ Breakout room according to grouping
 
          .. code-block:: console
 
-            ml PDC/23.12
-            ml miniconda3/24.7.1-0-cpeGNU-23.12
+            ml PDC/24.11
+            ml miniconda3/25.3.1-1-cpeGNU-24.11
             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
-            conda create --prefix CONDA_ENVS_PATH/jupyter-env python=3.11.7
+            conda create --prefix $CONDA_ENVS_PATH/jupyter-env python=3.11.7
             conda activate jupyter-env
             conda install jupyter
             conda install matplotlib pandas seaborn xarray dask numba
@@ -457,7 +457,7 @@ Breakout room according to grouping
             ml conda
             export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
             export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
-            conda create --prefix CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
+            conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
             source activate spyder-env
 
          We will put requirements files in the course project folder that you can build from in latter lessons
