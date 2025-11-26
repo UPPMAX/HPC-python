@@ -18,22 +18,14 @@ Running Python in batch mode
    - This was covered Friday, during the section on basic batch and Slurm
    - You can find an overview in the common section NAISS projects overview: https://uppmax.github.io/HPC-python/common/naiss_projects_overview.html 
 
-Running your programs and scripts on UPPMAX, HPC2N, LUNARC, NSC, and PDC 
-------------------------------------------------------------------------
+Running your programs and scripts on UPPMAX, HPC2N, LUNARC, C3SE, NSC, and PDC 
+------------------------------------------------------------------------------
 
-As mentioned under interactive jobs, any longer, resource-intensive, or parallel jobs must be run through a **batch script** or in an interactive session on allocated compute nodes.
+As mentioned yesterday, in the introduction to Slurm and batch jobs: 
 
-A batch job is **not** interactive, so you cannot make changes to the job while it is running. 
-
-In order to run a batch job, you need to create and submit a SLURM submit file (also called a batch submit file, a batch script, or a job script).
-
-Guides and documentation at: 
-
-- HPC2N: http://www.hpc2n.umu.se/support 
-- UPPMAX: http://docs.uppmax.uu.se/cluster_guides/slurm/
-- LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_intro/
-- NSC: https://www.nsc.liu.se/support/batch-jobs/   
-- PDC: https://support.pdc.kth.se/doc/run_jobs/job_scheduling/
+- Any longer, resource-intensive, or parallel jobs must be run through a **batch script** or in an interactive session on allocated compute nodes.
+- A batch job is **not** interactive, so you cannot make changes to the job while it is running. 
+- In order to run a batch job, you need to create and submit a SLURM submit file (also called a batch submit file, a batch script, or a job script).
 
 Workflow
 ########
