@@ -9,7 +9,7 @@ Install packages
 
 .. admonition:: For the teacher
 
-    - Dialogue with users during class 20 min
+    - Dialogue with users during class 15 min
     - Exercise about 10 min
 
 Introduction
