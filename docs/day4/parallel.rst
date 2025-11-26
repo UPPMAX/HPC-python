@@ -431,6 +431,9 @@ in Python rather than learning to write those codes.
    First load the modules ``ml GCCcore/11.2.0 Python/3.9.6`` (on Kebnekaise) and then run the script
    with the command  ``srun -A "your-project" -n 1 -c 4 -t 00:05:00 python sleep.py`` to use 4 processes.
 
+   Optional flags for ``srun`` for writing output and error files are ``-o output_%j.out -e error_%j.err`` instead 
+   of writing on the terminal screen.
+
 
 
 2D integration
@@ -481,8 +484,8 @@ serial code (without any optimization) can be seen in the following code block.
             integration2d_serial(n)
             endtime = perf_counter()
       
-      print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-      print("Time spent: %.2f sec" % (endtime-starttime))
+            print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+            print("Time spent: %.2f sec" % (endtime-starttime))
 
 We can run this code on the terminal as follows (similarly at both HPC2N and UPPMAX): 
 
@@ -558,14 +561,14 @@ decorator:
             integral = njit(integration2d_serial)(n)
             endtime = perf_counter()
       
-      print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-      print("Time spent: %.2f sec" % (endtime-starttime))
+            print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+            print("Time spent: %.2f sec" % (endtime-starttime))
 
 The execution time is now:
 
 .. code-block:: console
 
-    $ python integration2d_serial_numba.py
+    $ srun -A <your-projec-id> -n 1 -t 00:10:00 python integration2d_serial_numba.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 1.90 sec
 
@@ -655,14 +658,14 @@ can be called in Python as a module:
             integral = myfunction.integration2d_fortran(n)
             endtime = perf_counter()
       
-      print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-      print("Time spent: %.2f sec" % (endtime-starttime))
+            print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+            print("Time spent: %.2f sec" % (endtime-starttime))
 
 The execution time is considerably reduced: 
 
 .. code-block:: console
 
-    $ python call_fortran_code.py
+    $ srun -A <your-projec-id> -n 1 -t 00:10:00 python call_fortran_code.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 1.30 sec
 
@@ -755,7 +758,7 @@ Timing in this case is similar to the Fortran serial case:
 
 .. code-block:: console 
 
-    $ python call_julia_code.py
+    $ srun -A <your-projec-id> -n 1 -t 00:10:00 python call_julia_code.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 1.29 sec
 
@@ -846,15 +849,15 @@ their job they are joined with the ``join()`` method,
             integral = sum(partial_integrals)
             endtime = perf_counter()
       
-      print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
-      print("Time spent: %.2f sec" % (endtime-starttime))
+            print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+            print("Time spent: %.2f sec" % (endtime-starttime))
 
 
 Notice the output of running this code on the terminal:
 
 .. code-block:: console
 
-    $ python integration2d_threading.py
+    $ srun -A <your-projec-id> -n 1 -c 4 -t 00:10:00 python integration2d_threading.py
     Integral value is 4.492851e-12, Error is 4.492851e-12
     Time spent: 21.29 sec
 
@@ -894,7 +897,7 @@ the timing for running this code with 1 thread is:
 .. code-block:: console
 
     $ export OMP_NUM_THREADS=1
-    $ python dot.py
+    $ srun -A <your-projec-id> -n 1 -c 1 -t 00:10:00 python dot.py
     Time spent: 1.14 sec
 
 while running with 2 threads is:
@@ -903,7 +906,7 @@ while running with 2 threads is:
 .. code-block:: console
 
     $ export OMP_NUM_THREADS=2
-    $ python dot.py
+    $ srun -A <your-projec-id> -n 1 -c 2 -t 00:10:00 python dot.py
     Time spent: 0.60 sec
 
 It is also possible to use efficient threads if you have blocks of code written
@@ -986,7 +989,7 @@ the execution time by using 4 threads is:
 .. code-block:: console
 
     $ export OMP_NUM_THREADS=4
-    $ srun -A projID -t 00:08:00 -o output_%j.out -e error_%j.err -c 4 python call_fortran_code_openmp.py
+    $ srun -A <your-projec-id> -t 00:08:00 -c 4 python call_fortran_code_openmp.py
     Integral value is 4.492945e-12, Error is 4.492945e-12
     Time spent: 0.37 sec
 
@@ -1040,12 +1043,12 @@ Numba.
 .. code-block:: console
 
     $ export OMP_NUM_THREADS=1
-    $ srun -A projID -t 00:08:00 -o output_%j.out -e error_%j.err -c 1 python integration2d_omp.py
+    $ srun -A projID -t 00:08:00 -n 1 -c 1 python integration2d_omp.py
     Integral value is 1.969642e-16, Error is 1.969642e-16
     Time spent: 120.26 sec
 
     $ export OMP_NUM_THREADS=4
-    $ srun -A projID -t 00:08:00 -o output_%j.out -e error_%j.err -c 4 python integration2d_omp.py
+    $ srun -A projID -t 00:08:00 -n 1 -c 4 python integration2d_omp.py
     Integral value is 1.353859e-10, Error is 1.353859e-10
     Time spent: 36.11 sec
 
@@ -1124,7 +1127,7 @@ In this case, the execution time is reduced:
 
 .. code-block:: console
 
-    $ python integration2d_multiprocessing.py
+    $ srun -A projID -t 00:08:00 -n 1 -c 4 python integration2d_multiprocessing.py
     Integral value is 4.492851e-12, Error is 4.492851e-12
     Time spent: 6.06 sec
 
@@ -1200,7 +1203,7 @@ Execution of this code gives the following output:
     Integral value is 4.492851e-12, Error is 4.492851e-12
     Time spent: 5.76 sec
 
-For long jobs, one will need to run in batch mode. Here is an example of a batch script for this MPI
+For long jobs or MPI jobs, one will need to run in batch mode. Here is an example of a batch script for this MPI
 example,
 
 .. tabs::
@@ -1210,7 +1213,7 @@ example,
       .. code-block:: sh
 
          #!/bin/bash
-         #SBATCH -A hpc2n20XX-XYZ
+         #SBATCH -A hpc2n-20XX-XYZ
          #SBATCH -t 00:05:00        # wall time
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
@@ -1230,7 +1233,7 @@ example,
       .. code-block:: sh 
 
          #!/bin/bash -l
-         #SBATCH -A naiss202X-XY-XYZ
+         #SBATCH -A naiss-202X-XY-XYZ
          #SBATCH -t 00:05:00
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
@@ -1255,8 +1258,6 @@ example,
          #SBATCH -o output_%j.out   # output file
          #SBATCH -e error_%j.err    # error messages
 
-         ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/11.3.0 Python/3.10.4
-         ml GCC/11.3.0 OpenMPI/4.1.4
          #ml julia/1.9.4-bdist  # if Julia is needed
 
          source /path-to-your-project/vpyenv-python-course/bin/activate
@@ -1318,19 +1319,67 @@ rank retains a chunk of the array which is a tensor PyTorch tensor:
       x = ht.arange(10, split=0)
       
       print(type(x))        # <class 'heat.core.dndarray.DNDarray'>
+      print(x.shape)        # <class 'heat.core.dndarray.DNDarray'>
       print(type(x.larray)) # <class 'torch.Tensor'>
+      print(x.larray.shape) # <class 'torch.Tensor'>
 
+
+
+It is recommended to use a batch script for Heat scripts:
+
+.. tabs::
+
+   .. tab:: HPC2N
+
+      .. code-block:: sh
+
+         #!/bin/bash
+         #SBATCH -A hpc2n-20XX-XYZ
+         #SBATCH -t 00:05:00        # wall time
+         #SBATCH -n 2
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+     
+         ml purge > /dev/null 2>&1
+         ml GCCcore/11.2.0 Python/3.9.6
+         ml GCC/11.2.0 OpenMPI/4.1.1
+         #ml Julia/1.7.1-linux-x86_64  # if Julia is needed
+      
+         source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
+       
+         mpirun -np 2 python heat_datatypes.py
+
+   .. tab:: NSC 
+
+      .. code-block:: sh 
+
+         #!/bin/bash -l
+         #SBATCH -A naiss202X-XY-XYZ
+         #SBATCH -t 00:05:00
+         #SBATCH -n 2
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+
+         #ml julia/1.9.4-bdist  # if Julia is needed
+
+         source /path-to-your-project/vpyenv-python-course/bin/activate
+
+         mpirun -np 2 python heat_datatypes.py
+
+On Kebnekaise, the ``srun`` command also works:
 
 .. code-block:: console 
 
-    $ srun -A projectID -t 00:08:00 -o output_%j.out -e error_%j.err -n 2 python heat_datatypes.py
+    $ srun -A projectID -t 00:08:00 -n 2 python heat_datatypes.py
 
     Output:
-       <class 'heat.core.dndarray.DNDarray'>
+       (10,)
        <class 'torch.Tensor'>
+       torch.Size([5])
        <class 'heat.core.dndarray.DNDarray'>
+       (10,)
        <class 'torch.Tensor'>
-
+       torch.Size([5])
          
 More details for this package can be found here `Heat package <https://github.com/helmholtz-analytics/heat/tree/main>`_.
 
