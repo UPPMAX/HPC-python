@@ -47,6 +47,10 @@ Local notes
 
 .. tabs::   
 
+   .. tab:: NSC
+
+      - For NSC, you can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster. 
+
    .. tab:: HPC2N
         
       - For HPC2N, as JupyterLab it is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
@@ -57,11 +61,8 @@ Local notes
 
    .. tab:: LUNARC
 
-      - For LUNARC, you can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_. 
-
-   .. tab:: NSC
-
-      - For NSC, you can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster. 
+      - For LUNARC, you can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. 
+      - There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_. 
 
 .. tabs::
 
@@ -499,38 +500,6 @@ Principles
 
 .. tabs::
 
-   .. tab:: LUNARC
-
-      On COSMOS, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under ``Applications - Python``. All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes. Refer to `the Desktop On Demand documentation <https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html>`_ to help you fill in GfxLauncher prompt.
-
-      Avoid launching Spyder from the command line on the login node.
-
-   .. tab:: HPC2N
-
-      The only available version of Spyder on Kebnekaise is Spyder/4.1.5 for Python-3.8.2 (the latest release of Spyder available for users to install in their own environments is 6.0.2). Python 3.8.2 is associated with compatible versions of Matplotlib and Pandas, but not Seaborn or any of the ML packages to be covered later. To run the available version of Spyder, run the following commands:
-
-      .. code-block:: console
-
-         ml GCC/9.3.0  OpenMPI/4.0.3  Python  Spyder
-         spyder3
-      
-      If you want a newer version with more and newer compatible Python packages, you will have to create a virtual environment.
-
-   .. tab:: UPPMAX
-
-      Spyder is not available centrally on Rackham. 
-
-      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
-
-      .. code-block:: console
-
-         ml conda
-         export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
-         export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
-         source activate spyder-env
-
-      * you can install packages with pip install from inside Spyder
-
    .. tab:: NSC
 
       Spyder is not available on Tetralith. 
@@ -562,14 +531,49 @@ Principles
 
       * you can install packages with pip install from inside Spyder
 
+   .. tab:: UPPMAX
+
+      Spyder is not available centrally on Rackham. 
+
+      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
+
+      .. code-block:: console
+
+         ml conda
+         export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+         export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+         source activate spyder-env
+
+      * you can install packages with pip install from inside Spyder
+
+   .. tab:: LUNARC
+
+      - On COSMOS, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under ``Applications - Python``. 
+      - All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes.         - Refer to `the Desktop On Demand documentation <https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html>`_ to help you fill in GfxLauncher prompt.
+
+      Avoid launching Spyder from the command line on the login node.
+
+   .. tab:: HPC2N
+
+      The only available version of Spyder on Kebnekaise is Spyder/4.1.5 for Python-3.8.2 (the latest release of Spyder available for users to install in their own environments is 6.0.2). Python 3.8.2 is associated with compatible versions of Matplotlib and Pandas, but not Seaborn or any of the ML packages to be covered later. To run the available version of Spyder, run the following commands:
+
+      .. code-block:: console
+
+         ml GCC/9.3.0  OpenMPI/4.0.3  Python  Spyder
+         spyder3
+      
+      If you want a newer version with more and newer compatible Python packages, you will have to create a virtual environment.
+
+
 - Start Spyder:
 
 .. code-block:: console
 
    spyder &
+   # or
+   spyder3 &
 
 - Keep open for next session!
-
 
 
 VS Code
