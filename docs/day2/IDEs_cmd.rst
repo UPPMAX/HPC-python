@@ -512,15 +512,13 @@ Spyder
 
 Spyder is a powerful and flexible IDE originally developed to be the main scripting environment for scientific Anaconda users. It is designed to enable quick and easily repeatable experimentation, with automatic syntax checking, auto-complete suggestions, a runtime variable browser, and a graphics window that makes plots easy to manipulate after creation without additional code.
 
-Spyder is available independent of Anaconda, but conda is still the recommended installer. Packages from the ``conda-forge`` source repo are still open-source, so conda is still usable on some facilities despite the recent changes in licensing. It is also possible to `build a pip environment with Spyder <https://docs.spyder-ide.org/current/installation.html#using-pip>`_, although this is only recommended for experienced Python users running on Linux operating systems.
-
 To use Spyder on one of the HPC center resources, you must have a Thinlinc window open and logged into your choice of HPC resource. For personal use, it is relatively easy to `install as a standalone package on Windows or Mac <https://docs.spyder-ide.org/current/installation.html>`_, and there is also the option of `using Spyder online via Binder <https://mybinder.org/v2/gh/spyder-ide/binder-environments/spyder-stable?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fspyder-ide%252FSpyder-Workshop%26urlpath%3Ddesktop%252F%26branch%3Dmaster>`_.
 
 Principles
 ##########
 
 - start an interactive session
-- load a Python or module
+- load a Python or Spyder module
 - load your Spyder environment
 - start Spyder
 
@@ -530,7 +528,7 @@ Principles
 
       Spyder is not available on Tetralith. 
 
-      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
+      - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
 
       .. code-block:: console
 
