@@ -254,10 +254,68 @@ Setting Job Parameters
 
 .. [#f1] Open OnDemand is a web service that allows HPC users to schedule jobs, run notebooks and work interactively on a remote cluster from any device that supports a modern browser. The Open OnDemand project was funded by NSF and is currently maintained by the Ohio SuperComputing Centre. Read more about `OpenOndemand.org <https://openondemand.org/>`__.
 
+Job Parameters - GPUs
+---------------------
+
+Most settings are the same, with exception of the "Resource" or "Node Type"/"Core Number" settings. Here is shown how it would look: 
+
+.. tabs::
+
+   .. tab:: "COSMOS (and Dardel)"
+
+      This is how it looks in Dardel, which has a GfXLauncher setup very similar to Cosmos. 
+      
+      .. figure:: ../img/dardel-thinlinc.png
+         :width: 800
+         :align: center
+      
+      .. figure:: ../img/dardel-thinlinc-gfx.png
+         :width: 600
+         :align: center
+     
+      .. figure:: ../img/dardel-thinlinc-gfx-settings.png
+         :width: 600
+         :align: center
+
+      .. figure:: ../img/dardel-thinlinc-gfx-starting.png
+         :width: 600
+         :align: center
+
+      .. figure:: ../img/dardel-thinlinc-gfx-jupyterlab.png
+         :width: 600
+         :align: center      
+
+   .. tab:: "Kebnekaise and Alvis"
+      
+      Since these are similar, I am only showing how it looks in Alvis. 
+
+      .. figure:: ../img/alvis-OOD-loggedin.png
+         :width: 1200
+         :align: center
+         :alt: Alvis Open On-Demand 
+
+      .. figure:: ../img/alvis-OOD-jup-settings.png
+         :width: 1200
+         :align: center
+         :alt: Alvis Open On-Demand Jupyter settings
+      
+      Click "Launch"
+
+      .. figure:: ../img/alvis-OOD-jup-starting.png
+         :width: 1200
+         :align: center
+         :alt: Alvis Open On-Demand Jupyter starting
+      
+      When it is ready, click "Connect to Jupyter". Here I have started a terminal inside Jupyter, changed to my exercises directory and checked I can run a Python program (with PyTorch). I also check I have GPUs. 
+
+      .. figure:: ../img/alvis-OOD-jup-ok.png
+         :width: 1200
+         :align: center
+         :alt: Alvis Open On-Demand Jupyter
+
 
 - At centres that have OpenOnDemand installed, you do not have to submit a batch job, but can run directly on the already allocated resources
 - OpenOnDemand is a good option for interactive tasks, graphical applications/visualization, and simpler job submittions. It can also be more user-friendly.
 - Regardless, there are many situations where submitting a batch job is the best option instead, including when you want to run jobs that need many resources (time, memory, multiple cores, multiple GPUs) or when you run multiple jobs concurrently or in a specified succession, without need for manual intervention. Batch jobs are often also preferred for automation (scripts) and reproducibility. Many types of application software fall into this category.
 - At centres that have ThinLinc you can usually submit MATLAB jobs to compute resources from within MATLAB.
 
-~

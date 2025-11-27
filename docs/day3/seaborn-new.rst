@@ -4,13 +4,14 @@ A Brief Introduction to the Seaborn Statistical Plotting Library
 
 Seaborn is a plotting library built entirely with Matplotlib and designed to quickly and easily create presentation-ready statistical plots from Pandas data structures.
 
-Seaborn can produce a wide variety of statistical plots, and even offers built-in regression functions, but in the interest of time, we will focus on just a few that are hard to replicate with Matplotlib alone. We will make extensive use of Seaborn's built-in testing datasets, of which there are many. You will have seen a couple already in the Matplotlib and Pandas lectures.
+Seaborn can produce a wide variety of statistical plots, but in the interest of time, we will focus on a few that are especially hard to replicate with Matplotlib alone. We will use a couple of Seaborn's built-in testing datasets, of which there are many.
 
-.. caution:: Don't Rely on Seaborn for Regression Analysis
+.. caution:: Do NOT Rely on Seaborn for Regression Analysis!
 
-   We will not cover regression because Seaborn does not return any parameters needed to assess the 
-   quality of the fit. The official documentation itself warns that the Seaborn regression functions are
-   only intended for quick and dirty visualizations to *motivate* proper in-depth analysis.
+   Seaborn has a built-in regression function, but we will not cover it because Seaborn does not return
+   any parameters needed to assess the quality of the fit. The official documentation itself warns that
+   the Seaborn regression functions are only intended for quick and dirty visualizations to *motivate*
+   proper in-depth analysis.
 
 
 Load and Run Seaborn
@@ -20,88 +21,45 @@ Load and Run Seaborn
 
    .. tab:: HPC2N (Kebnekaise)
 
-      .. important::
+      .. important:: "Interactive use (Recommended)"
 
-         You should for this session load
+         Go to the Open On-Demand web portal and start Jupyter Notebook (or VSCode) as described `here in the Kebnekaise documentation <https://docs.hpc2n.umu.se/tutorials/connections/#interactive__apps__-__jupyter__notebook>`__ and discussed on day 2 in the On-Demand lecture session. Available Spyder versions are old and generally not recommended.
+
+      .. admonition:: "Non-Interactive Use"
+
+         To use Seaborn in a batch script, you can load
 
          .. code-block:: console
         
-            ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 Seaborn/0.13.2
+            ml GCC/13.2.0 Seaborn/0.13.2
 
-      As usual, you can check ``ml spider Seaborn`` to see the available versions and how to load them. These Seaborn modules are built to load their Matplotlib and SciPy-bundle dependencies internally.
-
-      If you work at the command line, after importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots. This is not necessary if you work in a GUI like Jupyter or Spyder.
-
-      As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on Kebnekaise:
-
-      .. code-block:: console
-
-         ----------------------------------------------------------------------------
-           Seaborn:
-         ----------------------------------------------------------------------------
-             Description:
-               Seaborn is a Python visualization library based on matplotlib. It
-               provides a high-level interface for drawing attractive statistical
-               graphics. 
-        
-              Versions:
-                 Seaborn/0.12.1
-                 Seaborn/0.12.2
-                 Seaborn/0.13.2
-        
-         ----------------------------------------------------------------------------
-           For detailed information about a specific "Seaborn" package (including how to load the modules) use the module's full name.
-           Note that names that have a trailing (E) are extensions provided by other modules.
-           For example:
-        
-              $ module spider Seaborn/0.13.2
-         ----------------------------------------------------------------------------
+         As usual, ``ml spider Seaborn`` shows the available versions and how to load them. These Seaborn modules are built to load their Matplotlib, Tkinter, and SciPy-bundle dependencies internally.           
 
    .. tab:: LUNARC (Cosmos)
-  
-      .. important::
 
-         You should for this session load
+      .. important:: "Interactive Use (Recommended)"
+      
+         Start a Thinlinc session and open one of Spyder, Jupyter Lab, or VSCode from the On-Demand applications menu as discussed in the `On-Demand lesson <../day2/ondemand-desktop.rst>`__ from Day 2. Spyder and Jupyter Lab are configured to load Seaborn and all its dependencies automatically via the latest version of Anaconda, whereas VSCode requires modules to be selected to load as part of the additional job settings.
+
+      .. admonition:: "Non-Interactive Use"
+
+         To use Seaborn in a batch script, you can either load
 
          .. code-block:: console
         
-            ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Seaborn/0.13.2
+            ml GCC/13.2.0 Seaborn/0.13.2
 
-      On Cosmos, it is recommended that you use the On-Demand Spyder or Jupyter Lab applications to use Seaborn. These applications are configured to load Seaborn and all its dependencies autonatically, including the SciPy-bundle. The demonstrations will be done on Cosmos with Spyder.
-  
-      If you must work on the command line, then you will need to load Seaborn separately, along with any prerequisite modules. After importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots.
-  
-      As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on COSMOS:
-  
-      .. code-block:: console
+         if you prefer pip-installed Python packages, or you can load
 
-         ----------------------------------------------------------------------------
-           Seaborn:
-         ----------------------------------------------------------------------------
-             Description:
-               Seaborn is a Python visualization library based on matplotlib. It
-               provides a high-level interface for drawing attractive statistical
-               graphics. 
-         
-              Versions:
-                 Seaborn/0.11.2
-                 Seaborn/0.12.1
-                 Seaborn/0.12.2
-                 Seaborn/0.13.2
-          
-         ----------------------------------------------------------------------------
-           For detailed information about a specific "Seaborn" package (including how to 
-         load the modules) use the module's full name.
-           Note that names that have a trailing (E) are extensions provided by other modu
-         les.
-           For example:
-          
-              $ module spider Seaborn/0.13.2
-         ----------------------------------------------------------------------------
+         .. code-block:: console
+        
+            ml Anaconda3/2024.06-1
+
+         if you have a conda environment or otherwise prefer Anaconda. As usual, ``ml spider Seaborn`` shows the available versions and how to load them.
 
    .. tab:: UPPMAX (Pelle)
 
-      .. important::
+      .. important:: "General Use"
 
          On Pelle, the only available Seaborn module right now is ``Seaborn/0.13.2-gfbf-2024a``, and it can be loaded directly, as shown below:
 
@@ -109,79 +67,110 @@ Load and Run Seaborn
         
             module load Seaborn/0.13.2-gfbf-2024a
      
-         This loads not just Seaborn, but also ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``. However, it does *not* load JupyterLab, so if that is your preferred IDE, you will have to load it separately.
+         This command also loads ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, but not any IDEs.
+
+      .. admonition:: Interactive Use
+
+         In a Thinlinc session, open a terminal and start 
+
+         ``interactive -A [project_name] -t HHH:MM:SS``
+
+         as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. Once transferred to a compute node, load ``Seaborn/0.13.2-gfbf-2024a`` and then load and run your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__.
 
    .. tab:: NSC (Tetralith)
      
-      .. important::
+      .. important:: "General Use"
 
          You should for this session load
 
          .. code-block:: console
         
-            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11
 
-         - And install ``seaborn`` to ``~/.local/`` if you don't already have it
+         and then install ``seaborn`` to ``~/.local/`` if you don't already have it.
 
          .. code-block:: console
         
             pip install seaborn
 
+      .. admonition:: Interactive Use
+
+         In a Thinlinc session, open a terminal and start 
+
+         ``interactive -A [project_name] -t HHH:MM:SS``
+
+         as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. Once transferred to a compute node, do
+
+         .. code-block:: console
+        
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+         or swap JupyterLab for your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__. Seaborn should not have to be loaded as a module since it would be installed in your home directory, which is always in ``$PATH``.
+
    .. tab:: Dardel (PDC)
 
-     - Jupyter Lab is only available on Dardel via ThinLinc. 
-     - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
-     - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
-     - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the `exercises <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb>`_ and `solutions <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb>`_ in the GitHub repository (they should render correctly).
+      - Jupyter Lab is only available on Dardel via ThinLinc. 
+      - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
+      - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
+      - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below. The exercise prompts and their solutions are included on this page.
 
-     .. important::
+      .. important:: "General Use"
 
-        For this session, you could load
+         For this session, you could load
 
-        .. code-block:: console
+         .. code-block:: console
         
-           ml cray-python/3.11.7
+            ml cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12
      
-     On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using ``ml PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12``, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.
+     On Dardel, all cray-python versions include NumPy, SciPy, Pandas, and Dask, and do not have any prerequisites, but Seaborn is part of ``matplotlib/3.8.2-cpeGNU-23.12``, which has ``PDCOLD/23.12`` as a prerequisite. The versions available for cray-python and Matplotlib are limited because Dardel users are typically expected to build their own environments, but for this course, the installed versions are fine.
+
+     .. admonition:: "Interactive use with Thinlinc (If Available)"
+         :collapsible:
+
+        - Start Jupyter from the menu and it will work
+   
+             - Default Anaconda3 has all packages needed for this lesson
+   
+        - Or use Spyder:
+
+             First start interactive session
+   
+             .. code-block:: console 
+   
+                salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934
+                salloc: Pending job allocation 9102757
+                salloc: job 9102757 queued and waiting for resources
+                salloc: job 9102757 has been allocated resources
+                salloc: Granted job allocation 9102757
+                salloc: Waiting for resource configuration
+                salloc: Nodes nid001057 are ready for job
+   
+             Then ssh to the specific node, like
+   
+             .. code-block:: console 
+   
+                ssh nid001057
+   
+             Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+   
+             .. code-block:: console
+   
+                ml PDC/23.12
+                ml miniconda3/24.7.1-0-cpeGNU-23.12
+                export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+                export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+                source activate spyder-env
+                # If needed, install the packages here by: "conda install matplotlib pandas seaborn"
+                spyder &
 
 
-     - ALTERNATIVE IF THINLINC IS AVAILABLE
-     - Start Jupyter from the Menu and it will work! 
+In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is ``sns``, but for those of us who never watched The West Wing, any sensible abbrevation will do. Here we use ``sb``.
 
-          - Default Anaconda 3 has all packages needed for this lesson
+.. attention::
 
-     - OR USE SPYDER:
-          - start interactive session
+   Remember: if you write Python scripts to be executed from the command line and you want any figures to open in a GUI window at runtime (as opposed to merely saving a figure to file), then your Python script will need to include ``matplotlib.use('Tkinter')``.
 
-          .. code-block:: console 
-
-             salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934
-             salloc: Pending job allocation 9102757
-             salloc: job 9102757 queued and waiting for resources
-             salloc: job 9102757 has been allocated resources
-             salloc: Granted job allocation 9102757
-             salloc: Waiting for resource configuration
-             salloc: Nodes nid001057 are ready for job
-
-          We need to ssh to the specific node, like
-
-          .. code-block:: console 
-
-             ssh nid001057
-
-          Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
-
-          .. code-block:: console
-
-             ml PDC/23.12
-             ml miniconda3/24.7.1-0-cpeGNU-23.12
-             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
-             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
-             source activate spyder-env
-             # If needed, install the packages here by: "conda install matplotlib pandas seaborn"
-             spyder &
-
-In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is ``sns``, but for those of us who never watched The West Wing, ``sb`` is fine and is what will be used in this tutorial.
+   If you run these code snippets in Jupyter, you will need to include ``%% matplotlib inline``
 
 
 Common Features
@@ -190,27 +179,24 @@ Common Features
 Sample Datasets
 ^^^^^^^^^^^^^^^^
 
-This tutorial will make use of some of the free test data sets that Seaborn provides with the ``.load_dataset()`` function. These are also handy for playing with Pandas and a variety of machine learning packages (TensorFlow, PyTorch, etc.). The full list of datasets can be viewed with ``sb.get_dataset_names()``, and for more details, you can `visit the GitHub repository <https://github.com/mwaskom/seaborn-data>`_ and follow the links in the ReadMe under "Data Sources". A few of the more popular data sets include...
+This tutorial will make use of some of the free test data sets that Seaborn provides with the ``sb.load_dataset()`` function. These are also handy for playing with Pandas and a variety of machine learning packages (TensorFlow, PyTorch, etc.). The full list of datasets can be viewed with ``sb.get_dataset_names()`` (requires internet), and for more details, you can `visit the GitHub repository <https://github.com/mwaskom/seaborn-data>`_ and follow the links in the ReadMe under "Data Sources". A few of the more popular data sets include...
 
 * ``'penguins'``, sex-segregated measurements of the beaks, flippers, and body masses of 3 species of penguins that live on the Antarctic Peninsula.
 * ``'iris'``, measurements of the petal and sepal dimensions of three species of iris flower.
 * ``'titanic'``, records of the ticket class, demographics, and survival status of passengers on the Titanic
 * ``'mpg'``, information about the model, year, physical characteristics, engine specifications, and fuel economy of a variety of cars.
-* ``'planets'``, a much older, smaller sample of the exoplanets data we used in the Matplotlib seminar, with fewer physical and orbital parameters. Hopefully it will be updated soon. 
+* ``'planets'``, a much older, smaller sample of the exoplanets data we used in the Pandas seminar, with fewer physical and orbital parameters. Hopefully it will be updated soon.
 
-For most of this tutorial, we will use the ``'mpg'`` dataset. 
+For most of this tutorial, we will use the ``'mpg'`` dataset. For one of the exercises, you will use the `'penguins'`` dataset.
 
 Commonalities in Plotting
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Seaborn plotting functions are designed to take Pandas DataFrames (or sometimes Series) as inputs. As such, different plot types share many of the same kwargs (there are no args). The following are the most important:
+Seaborn plotting functions are designed to take Pandas DataFrames (or sometimes Series) as inputs. As such, different plot types share many of the same kwargs (there are no mandatory positional args). The following are the most important:
 
-* ``data``---the DataFrame in which to search for the remaining kwargs. You can pass it as either the first positional arg or as a kwarg, but it's mandatory either way.
+* ``data``---the DataFrame in which to search for the remaining kwargs. You can pass it as either the first positional arg or as a kwarg, but it is mandatory either way.
 * ``x`` and ``y``---the names of two columns in your DataFrame to plot against each other. These are usually necessary, but not if you're plotting every possible pairing of numerical data columns against each other all at once, as in ``pairplot`` or ``heatmap``.
-* ``hue``---this kwarg accepts a categorical variable (e.g. species, sex, brand, etc.) column name, groups the data by those categories, and plots them all on the same plot in a different color. 
-
-   - The default colors are usually fine if you have <5 categories, but if you want to change them, you can set your code under `with sb.color_palette("<palette>")` where `<palette>` can be any of the options described `in the official documentation <https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette>`_. You can also set your own palette for the whole session with ``sb.set_palette(your_color_list)``.
-
+* ``hue``---this kwarg accepts a categorical variable (e.g. species, sex, brand, etc.) column name, groups the data by those categories, and plots them all on the same plot in a different color.
 * ``ax``---this kwarg takes the name of an axis object if you want to add your Seaborn plot(s) as subplots on an existing figure.
 
 .. admonition:: "Figure vs. Axis-level interfaces."
@@ -219,9 +205,9 @@ Seaborn plotting functions are designed to take Pandas DataFrames (or sometimes 
 
 .. caution::
 
-   Seaborn typically titles axes by the variable names as they appear in the DataFrame, underscores and all. It's easy enough to override the labels for a simple pairwise plot, but correcting the typesetting can get tedious and tricky when there are many subplots. Since proper typesetting is necessary for figures to be published, an upcoming example will demonstrate one possible way to fix the axis label formatting.
+   Seaborn typically titles axes by the variable names as they appear in the DataFrame, underscores and all. It's easy enough to override the labels for a simple pairwise plot, but correcting the typesetting can get tedious and tricky when there are many subplots. An upcoming example will demonstrate one possible way to fix the axis label formatting.
 
-Another common feature of Seaborn is that many of the high-level functions that you would ordinarily use are wrappers for more flexible base classes with methods that let you layer different plot types on top of each other. We only cover one case here, but keep in mind that if you need more customisation, there are methods and extensive documentation to help.
+Another common feature of Seaborn is that many of the high-level functions that you would ordinarily use are wrappers for more flexible base classes with methods that let you layer different plot types on top of each other. We only cover one case here, but keep in mind that if you need more customisation, check the documentation---almost everything is tunable.
 
 
 Plotting with Seaborn
@@ -229,54 +215,20 @@ Plotting with Seaborn
 
 Here we will explore a few of the plot types Seaborn offers that are difficult to replicate in Matplotlib:
 
-#. ``sb.jointplot()``
-#. ``sb.pairplot()`` and the underlying ``sb.PairGrid()`` function
+#. ``sb.pairplot()`` (and the underlying ``sb.PairGrid()`` function)
+#. ``sb.jointplot()`` (the bivariate special case of pair plot)
 #. ``sb.heatmap()`` and ``sb.clustermap()``
 
 In the interest of time, we will not go into box-and-whisker or violin plots, but be aware that compared to the Matplotlib implementations, the Seaborn versions of those plotting functions produce much nicer results with far less work. 
-   
-Joint Plots
-^^^^^^^^^^^
-
-A joint plot is a plot of 2 variables against each other with small histograms of each variable along the top and right sides of the plot. If you participated in the Matplotlib tutorial, you saw how tedious this is to make in pure Matplotlib. But what takes at least a dozen lines of code in pure Matplotlib can be done in 1 line with Seaborn. 
-
-To demonstrate with the ``'mpg'`` dataset, let's plot the fuel economy in mpg against vehicle weight. As a bonus, let's color the data by region of origin.
-
-.. jupyter-execute::
-
-   import seaborn as sb
-   mpg = sb.load_dataset('mpg')
-   jp = sb.jointplot(data=mpg, x='weight', y='mpg', hue='origin', marginal_ticks=True)
-   #fix the labels to make them presentable
-   from matplotlib import pyplot as plt
-   plt.xlabel('Weight [lbs]')
-   plt.ylabel('Fuel Economy [mpg]')
-
-The only kwarg shown that we didn't cover already is `marginal_tick`, which shows the y-axis ticks for the marginal probability distributions (the smoothed histograms along the sides). Normally they are off (``False``) to avoid overlap with the main axis ticks.
-
-By default the main plot is a scatter plot, and the marginal plots are either histograms if the data are not shaded by a categorical variable, or kernel density estimations (KDEs, which are basically histograms smoothed by convolution with a usually Gaussian kernel) if the ``hue`` kwarg is used. The type of central plot can be changed with the ``kind`` kwarg, which also accepts 
-
-- ``'scatter'``, 
-- ``'hist'``, 
-- ``'hex'`` (for hexbin), 
-- ``'kde'`` (which plots contours of the smoothed bivariate distribution), 
-- ``'reg'`` (which does linear regression internally and plots the trendline over a scatter plot), and
-- ``'resid'`` (which does linear regression internally and makes a scatter plot of the data minus the trend).
-
-The options that involve linear regression cannot be used with ``hue``, and many of the other options change the appearance of the marginal distributions.
-
-That's all well and good, but what if you have a lot of variables that you need to do this kind of analysis with?
-
 
 Pairplot and PairGrid
 ^^^^^^^^^^^^^^^^^^^^^
 
-When confronted with a multivariate dataset, you often need to plot many numeric variables against each other in every unique combination, and also look at the probability distributions of each individual variable. With only a handful of variables, this is typically done on a Corner Plot, a set of plots with histograms on the diagonal and bivariate distributions on the lower off-diagonal. Seaborn makes this kind of plot easy to make and customize, and you don't even need to tell it to ignore non-numeric columns---it automatically ignores any categorical column not specified with ``hue``.
+When first starting analysis, it is often necessary to view bivariate distributions of many combinations of numeric variables.
 
-For a typical dataset and typical display settings, it is enough to use Seaborn's ``pairplot()`` function, a wrapper around the underlying, more customizable ``PairGrid()``. We'll again use the the ``'mpg'`` data set to demonstrate.
+For a typical dataset and typical display settings, it is enough to use Seaborn's ``pairplot()`` function, a wrapper around the underlying, more customizable ``PairGrid()``.  Any categorical column not specified with ``hue`` is ignored automatically. If you need more flexibility in what is displayed on, above, and below the diagonal, see `the Seaborn documentation on PairGrid <https://seaborn.pydata.org/generated/seaborn.PairGrid.html>`__.
 
-First, let's see how many variables there are and whether any of them take a small number of discrete values. If there are more than about 5-6 numeric variables, a pairplot featuring all of them can become hard to read if constrained to the size of a journal page, so it's better to plot only as many as necessary.
-
+Let's use the ``'mpg'`` dataset for demonstration. First, we need to see how many variables there are and whether any of them take a small number of discrete values. If there are more than about 5-6 numeric variables, a pairplot featuring all of them can become hard to read if constrained to the size of a journal page, so it's best to plot only as many as necessary.
 
 .. jupyter-execute::
 
@@ -292,8 +244,9 @@ Let's drop 'cylinders', 'model_year', and 'name', and keep 'origin' for the ``hu
    import seaborn as sb
    mpg = sb.load_dataset('mpg')
    temp = mpg.drop(['model_year','cylinders', 'name'], axis='columns')
-   g = sb.pairplot(data=temp, diag_kind='kde', corner=True, hue='origin')
-
+   g = sb.pairplot(data=temp, corner=True, hue='origin')
+   ### corner=True just turns off the redundant upper off-diagonal plots
+   ### everything from here down is just fixing the axis labels
    import string
    for i in range(5):
        for j in range(5):
@@ -316,73 +269,88 @@ Let's drop 'cylinders', 'model_year', and 'name', and keep 'origin' for the ``hu
            except AttributeError:
                pass
 
-As you can see, most of the code was spent fixing the labels. The actual plot was a breeze.
+As you can see, most of the code was spent fixing the labels. The plot itself required only 1 line.
 
-The kwargs shown that we haven't seen before are ``diag_kind`` and ``corner``. Technically ``diag_kind='kde'`` wasn't necessary because, as with ``jointplot()``, setting the ``hue`` kwarg automatically tells Seaborn to smooth the marginal distributions along the diagonal so they can be plotted with a lines instead of bars, which makes it easier to see multiple data sets layered on top of each other. Without ``hue``, however, the default is ``diag_kind='hist'``, which doesn't look nearly as nice. The other kwarg ``corner`` is a boolean switch that, when True, tells Seaborn not to mirror the bivariate distributions below the diagonal to the space above the diagonal. The default is ``corner=False``, which is usually not what you want.
+By default the off-diagonals are scatter plots, and the marginal distributions on the diagonal are either histograms if the data are not shaded by a categorical variable, or kernel density estimations (KDEs, basically histograms smoothed by convolution with a usually Gaussian kernel) if the ``hue`` kwarg is used. These options can be modified without resorting to ``PairGrid()``, as detailed `in the documentation <https://seaborn.pydata.org/generated/seaborn.pairplot.html#seaborn.pairplot>`__.
 
-That said, sometimes it's nice to mirror the bivariate data above the diagonal but display it in a different form. That's not doable with just ``sb.pairplot()``, but it is with the underlying ``sb.PairGrid()`` function, which has many more methods and some different kwargs. The way we change the format of different parts of the grid is to use the ``.map_<position>(sb.<plotkind>)`` series of methods of ``PairGrid`` objects:
+.. challenge:: 
 
-* ``.map_diag()`` which handles data on the diagonal,
-* ``.map_upper()`` which handles data above the diagonal, and
-* ``.map_lower()`` which handles data below the diagonal.
+   Load the dataset ``'penguins'`` and make a pairplot where the data are colored by ``'species'``. You do not need to do anything to format the axis labels.
 
-Each of these takes Seaborn's version of a standard pairwise plot type and casts the variables to their respective subplots in the form of that plot. Some of the plot options include ``scatterplot``, ``histplot``, ``kdeplot``, and ``ecdfplot``.
+.. solution::
+   :collapsible:
 
-Legends also have to be added manually, but that's a small price to pay for the extra flexibility. Let's redo the previous pairplot, but this time plot the lower off-diagonal plots as scatter plots, the upper off-diagonals as KDEs (which render as contours in 2D), and the diagonals as stacked histograms just to show off. (We'll skip the axis typesetting this time.)
-
-.. jupyter-execute::
-
-   import seaborn as sb
-   mpg = sb.load_dataset('mpg')
-   temp = mpg.drop(['model_year','cylinders', 'name'], axis='columns')
-   g = sb.PairGrid(data=temp, despine=False, hue='origin', diag_sharey=False)
-   g.map_diag(sb.histplot, multiple="stack", element="step")
-   g.map_upper(sb.kdeplot)
-   g.map_lower(sb.scatterplot)
-   g.add_legend()
-   plt.show()
-
-``PairGrid()`` does accept the ``corner`` and ``hue`` kwargs, but not ``diag_kind``, for reasons that are hopefully obvious. That ``despine`` and ``diag_sharey`` kwargs are unique to ``PairGrid()``. When ``despine=False`` (default is ``True`` for aesthetic reasons), the entire bounding box of each set of axes is drawn, instead of just the bottom and left edges. When ``diag_sharey=False`` (default is ``True``), Seaborn does not attempt to match the scale of the marginal distributions on the diagonal to the y-axes of the off diagonals, which allows the plots on the diagonals to fill their space instead of potentially getting squished.
-
-For the ``map_`` commands, the kwargs depend on the type of plot that was passed. Where ``histplot`` was passed, the ``multiple`` and ``element`` kwargs offer nice ways to adjust the appearance of the histograms so that they would display well as layers. Setting ``multiple="stack"`` insured that the smallest histograms were drawn in front of the largest, and setting ``element="step"`` erased the sides of the histogram bins where they touched adjacent bins, which made the layered plot less cluttered. ``kdeplot`` and ``scatterplot`` have their own kwargs to control things like linestyles and markers.
+   .. jupyter-execute::
+   
+      import seaborn as sb
+      dat = sb.load_dataset('penguins')
+      g = sb.pairplot(data=dat, corner=True, hue='species')
+      plt.show()
 
 .. note::
 
    Unlike most other plots demonstrated here, ``pairplot()`` and ``PairGrid()`` do **not** have an ``ax`` kwarg because they are already plotting multiple subplots. They will and must occupy an entire figure.
 
 
+Joint Plots
+^^^^^^^^^^^
+
+A joint plot is a special case of a pair plot with just 2 variables. The 1-line Seaborn ``.jointplot()`` command replaces roughly a dozen lines of pure Matplotlib commands.
+
+To demonstrate with the ``'mpg'`` dataset, let's plot the fuel economy in mpg against vehicle weight, and color the data by region of origin.
+
+.. jupyter-execute::
+
+   import seaborn as sb
+   mpg = sb.load_dataset('mpg')
+   jp = sb.jointplot(data=mpg, x='weight', y='mpg', hue='origin', marginal_ticks=True)
+   #fix the labels to make them presentable
+   from matplotlib import pyplot as plt
+   plt.xlabel('Weight [lbs]')
+   plt.ylabel('Fuel Economy [mpg]')
+   plt.show()
+
+The only kwarg shown that we didn't cover already is `marginal_tick`, which shows the y-axis ticks for the marginal probability distributions (the smoothed histograms along the sides). Normally they are off (``False``) to avoid overlap with the main axis ticks.
+
+By default the main plot is a scatter plot, and the marginal plots are either histograms if the data are not shaded by a categorical variable, or KDEs if the ``hue`` kwarg is used. The type of central plot can be changed with the ``kind`` kwarg, (see `the documentation on joint plots for options <https://seaborn.pydata.org/generated/seaborn.jointplot.html>__). Some options change the appearance of the marginal distributions.
+
 Heatmap and Clustermap
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Sometimes you have too many variables to look at with pairplots or corner plots, and the best you can do is map the correlation coeffcients between different parameters. Alternatively, you might have a DataFrame with a comparable number of numeric rows and columns, and you want to see how the rows and columns correlate. Either way, the DataFrame must be able to be coerced to ``ndarray``. 
+Sometimes you have too many variables to look at with pair plots/corner plots, and the best you can do is map the correlation coeffcients between different parameters. Alternatively, you might have a DataFrame with a comparable number of numeric rows and columns, and you want to see how the rows and columns correlate. Either way, the DataFrame must be able to be coerced to ``ndarray``.
 
-Once again, this type of plot is extremely tedious to make in pure Matplotlib, but in Seaborn, it can require as little as one line of code. There are two functions that do this: ``sb.heatmap()`` and ``sb.clustermap()``. The main difference between the two is that the latter attempts to rearrange variables such that those that are correlated are positioned next to each other on the plot, while the former simply lists the variables in the order they appear in the DataFrame.
+Once again, making this type of plot is extremely tedious in pure Matplotlib, but can require as little as one line of code with Seaborn. There are two functions that do this: ``sb.heatmap()`` and ``sb.clustermap()``. The main difference between the two is that ``clustermap()`` attempts to rearrange variables so those that are correlated are positioned next to each other and connected by a tree diagram.
 
-The ``mpg`` DataFrame can't be used directly, but the correlation matrix of it can be. Fortunately, ``.corr()`` is a DataFrame method. Let's see what ``heatmap()`` and ``clustermap()`` look like for the numeric columns of ``mpg``.
-
-.. jupyter-execute::
-
-   import seaborn as sb
-   mpg = sb.load_dataset('mpg')
-   sb.heatmap(mpg.corr(numeric_only=True), annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label':'Correlation Coefficients'})
+The ``mpg`` DataFrame can't be used directly, but the correlation matrix of it can be. Fortunately, ``.corr()`` is a DataFrame method. Let's see what ``heatmap()`` looks like for the numeric columns of ``mpg``.
 
 .. jupyter-execute::
 
    import seaborn as sb
    mpg = sb.load_dataset('mpg')
-   sb.clustermap(mpg.corr(numeric_only=True), annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label':'Correlation Coefficients'})
+   sb.heatmap(mpg.corr(numeric_only=True), annot=True, fmt=".2f", cbar_kws={'label':'Correlation Coefficients'})
 
-The most handy kwargs for these two functions is ``annot``, which prints the values of the squares  is ``True`` or accepts an alternative annotation array, and ``cbar_kws``, which accepts formatting kwargs for Matplotlib's ``fig.colorbar()`` as a dictionary. Also shown are ``fmt``, which tells ``annot`` how to render the numbers and uses the same form as the expressions in the curly braces of ``{:}.format()`` after the colon, and ``cmap``, used here to choose a standard Matplotlib colormap instead of Seaborn's default. There are also ``vmin`` and ``vmax`` kwargs to adjust the limits of the colormap, and a ``mask`` kwarg to mask specific squares, among many other kwargs.
+.. challenge::
+
+   Reformat the code above to run on your own system in your choice of interface, but use ``clustermap`` instead of ``heatmap``.
+
+.. solution::
+   :collapsible:
+
+   .. jupyter-execute::
+   
+      import seaborn as sb
+      mpg = sb.load_dataset('mpg')
+      sb.clustermap(mpg.corr(numeric_only=True), annot=True, fmt=".2f", cbar_kws={'label':'Correlation Coefficients'})
+
+The most handy kwargs for these two functions is ``annot``, which prints the values of the squares  is ``True`` or accepts an alternative annotation array, and ``cbar_kws``, which accepts formatting kwargs for Matplotlib's ``fig.colorbar()`` as a dictionary. Also shown are ``fmt``, which tells ``annot`` how to render the numbers and uses the same form as the expressions in the curly braces of ``{:}.format()`` after the colon. For other kwargs, see `the heatmap() documentation here <https://seaborn.pydata.org/generated/seaborn.heatmap.html#seaborn.heatmap>`__.
 
 .. warning::
 
    There is a bug in Seaborn/0.12.2 that causes ``heatmap()`` and ``clustermap()`` with ``annot=True`` to only label the top row. This is fixed in later versions.
 
+.. keypoints::
 
-Key Points
-----------
-
-- Seaborn makes statistical plots easy and good-looking!
-- Seaborn plotting functions take in a Pandas DataFrame, sometimes the names of variables in the DataFrame to extract as ``x`` and ``y``, and often a ``hue`` that makes different subsets of the data appear in different colors depending on the value of the given categorical variable.
-- Seaborn also offers datasets to play with.
-- Typesetting axes labels can be an issue, though.
+   - Seaborn makes statistical plots easy and good-looking!
+   - Seaborn plotting functions take in a Pandas DataFrame, sometimes the names of variables in the DataFrame to extract as ``x`` and ``y``, and often a ``hue`` that makes different subsets of the data appear in different colors depending on the value of the given categorical variable.
+   - Seaborn also offers datasets to play with.
+   - Typesetting axes labels can be tedious, though.
