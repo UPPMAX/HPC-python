@@ -1,3 +1,6 @@
+.. _ides-cmd:
+
+
 Starting IDEs from command line
 ===============================
 
@@ -6,8 +9,8 @@ Starting IDEs from command line
    - Be able to start IDEs from the command-line
 
       - Jupyter
+      - Spyder
       - VScode
-      - spyder
 
 Introduction
 ------------
@@ -22,8 +25,8 @@ Next session from OnDemand.
 The IDEs
 
 - Jupyter
-- VScode
 - Spyder
+- VScode
 
 Jupyter
 -------
