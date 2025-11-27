@@ -5,7 +5,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs.
-MYPATH=/proj/hpc-python-uppmax/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/hpc-python-uppmax/<mydir-name>/Exercises/day2/programs/
 
 # Load any modules you need, here Python 3.12.3 and a compatible SciPy-bundle for numpy
 module load Python/3.12.3-GCCcore-13.3.0 

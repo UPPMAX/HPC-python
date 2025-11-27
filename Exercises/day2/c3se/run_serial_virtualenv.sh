@@ -12,12 +12,14 @@
 module purge  > /dev/null 2>&1
 module load Python/3.11.3-GCCcore-12.3.0 OpenMPI/4.1.5-GCC-12.3.0 SciPy-bundle/2023.07-gfbf-2023a
 
+MYPATH=/mimer/NOBACKUP/groups/courses-fall-2025/<mydir>/Exercises/day2/pro
+grams
+
 # Activate your virtual environment.
 # CHANGE <path-to-virt-env> to the full path where you installed your
-# virtual environment. For instance, the vpyenv created in the course
-# would work with this example
-# Example: /path/to/proj/<mydir-name>/pythonHPC2N
+# virtual environment. 
+# Example: /path/to/proj/<mydir-name>/pythonvenv
 source <path-to-virt-env>/bin/activate
 
 # Run your Python script
-python virt-example.py
+python $MYPATH/virt-example.py

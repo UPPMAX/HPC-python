@@ -8,9 +8,11 @@
 #SBATCH --gpus-per-node=T4:1
 #SBATCH -n 1 -c 1 # Asking for 1 core    # one core per task
 
+MYPATH=/mimer/NOBACKUP/groups/courses-fall-2025/<mydir>/Exercises/day2/programs
+
 # Load any modules you need, here for Python 3.11.3 and compatible SciPy-bundle
 module purge  > /dev/null 2>&1
 module load Python/3.11.3-GCCcore-12.3.0 OpenMPI/4.1.5-GCC-12.3.0 SciPy-bundle/2023.07-gfbf-2023a
 
 # Run your Python script
-python mmmult.py
+python $MYPATH/mmmult.py

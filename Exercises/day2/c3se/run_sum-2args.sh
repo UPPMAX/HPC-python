@@ -12,5 +12,8 @@
 module purge  > /dev/null 2>&1
 module load Python/3.11.3-GCCcore-12.3.0 OpenMPI/4.1.5-GCC-12.3.0 SciPy-bundle/2023.07-gfbf-2023a
 
+MYPATH=/mimer/NOBACKUP/groups/courses-fall-2025/<mydir>/Exercises/day2/pro
+grams
+
 # Run your Python script
 python $MYPATH/sum-2args.py 2 3 
