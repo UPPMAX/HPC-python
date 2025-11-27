@@ -293,16 +293,18 @@ Make a requirements file:
 .. admonition:: How does it look like?
    :class: dropdown
 
-   contourpy==1.3.3
-   cycler==0.12.1
-   fonttools==4.60.1
-   kiwisolver==1.4.9
-   matplotlib==3.10.7
-   numpy==2.3.5
-   pillow==12.0.0
-   pyparsing==3.2.5
-   python-dateutil==2.9.0.post0
-   six==1.17.0
+   .. code-block:: text
+
+      contourpy==1.3.3
+      cycler==0.12.1
+      fonttools==4.60.1
+      kiwisolver==1.4.9
+      matplotlib==3.10.7
+      numpy==2.3.5
+      pillow==12.0.0
+      pyparsing==3.2.5
+      python-dateutil==2.9.0.post0
+      six==1.17.0
 
 Install packages from a file 
 
@@ -322,42 +324,44 @@ Make environment file:
 .. admonition:: How does it look like?
    :class: dropdown
 
-   name: /lunarc/nobackup/projects/lu2025-17-52/bjornc/example
-   channels:
-     - conda-forge
-   dependencies:
-     - _libgcc_mutex=0.1=conda_forge
-     - _openmp_mutex=4.5=2_gnu
-     - alsa-lib=1.2.14=hb9d3cd8_0
-     - brotli=1.2.0=hed03a55_1
-     - brotli-bin=1.2.0=hb03c661_1
-     - bzip2=1.0.8=hda65f42_8
-     - ca-certificates=2025.11.12=hbd8a1cb_0
-     - cairo=1.18.4=h3394656_0
-     - contourpy=1.3.3=py312hd9148b4_3
-     - cycler=0.12.1=pyhd8ed1ab_1
-     - cyrus-sasl=2.1.28=hd9c7081_0
-     - dbus=1.16.2=h3c4dab8_0
-     - double-conversion=3.3.1=h5888daf_0
-     - font-ttf-dejavu-sans-mono=2.37=hab24e00_0
-     - font-ttf-inconsolata=3.000=h77eed37_0
-     - font-ttf-source-code-pro=2.038=h77eed37_0
-     - font-ttf-ubuntu=0.83=h77eed37_3
-     - fontconfig=2.15.0=h7e30c49_1
-     - fonts-conda-ecosystem=1=0
-     - fonts-conda-forge=1=hc364b38_1
-     - fonttools=4.60.1=py312h8a5da7c_0
-     - freetype=2.14.1=ha770c72_0
-     - graphite2=1.3.14=hecca717_2
-     - harfbuzz=12.2.0=h15599e2_0
-     - icu=75.1=he02047a_0
-     - keyutils=1.6.3=hb9d3cd8_0
-     - kiwisolver=1.4.9=py312h0a2e395_2
-     - krb5=1.21.3=h659f571_0
-     - lcms2=2.17=h717163a_0
-     - ld_impl_linux-64=2.45=default_hbd61a6d_104
-     - lerc=4.0.0=h0aef613_1
-     - libblas=3.11.0=2_h4a7cf45_openblas
+   .. code-block:: yaml
+
+      name: /lunarc/nobackup/projects/lu2025-17-52/bjornc/example
+      channels:
+        - conda-forge
+      dependencies:
+        - _libgcc_mutex=0.1=conda_forge
+        - _openmp_mutex=4.5=2_gnu
+        - alsa-lib=1.2.14=hb9d3cd8_0
+        - brotli=1.2.0=hed03a55_1
+        - brotli-bin=1.2.0=hb03c661_1
+        - bzip2=1.0.8=hda65f42_8
+        - ca-certificates=2025.11.12=hbd8a1cb_0
+        - cairo=1.18.4=h3394656_0
+        - contourpy=1.3.3=py312hd9148b4_3
+        - cycler=0.12.1=pyhd8ed1ab_1
+        - cyrus-sasl=2.1.28=hd9c7081_0
+        - dbus=1.16.2=h3c4dab8_0
+        - double-conversion=3.3.1=h5888daf_0
+        - font-ttf-dejavu-sans-mono=2.37=hab24e00_0
+        - font-ttf-inconsolata=3.000=h77eed37_0
+        - font-ttf-source-code-pro=2.038=h77eed37_0
+        - font-ttf-ubuntu=0.83=h77eed37_3
+        - fontconfig=2.15.0=h7e30c49_1
+        - fonts-conda-ecosystem=1=0
+        - fonts-conda-forge=1=hc364b38_1
+        - fonttools=4.60.1=py312h8a5da7c_0
+        - freetype=2.14.1=ha770c72_0
+        - graphite2=1.3.14=hecca717_2
+        - harfbuzz=12.2.0=h15599e2_0
+        - icu=75.1=he02047a_0
+        - keyutils=1.6.3=hb9d3cd8_0
+        - kiwisolver=1.4.9=py312h0a2e395_2
+        - krb5=1.21.3=h659f571_0
+        - lcms2=2.17=h717163a_0
+        - ld_impl_linux-64=2.45=default_hbd61a6d_104
+        - lerc=4.0.0=h0aef613_1
+        - libblas=3.11.0=2_h4a7cf45_openblas
 
 Create an environment from a file. Do this on another computer or rename.
 
