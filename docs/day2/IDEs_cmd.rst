@@ -124,6 +124,8 @@ Local notes
 
                jupyter-notebook --ip 0.0.0.0 --no-browser
 
+            - This will start a jupyter server session so leave this terminal open. The terminal will also display multiple URLs.
+            - Copy the URL containing ``sensXXXXXXX``
  
       **4. Connect to the running Jupyter server**
 
@@ -143,27 +145,27 @@ Local notes
          .. tab:: Bianca (NEEDS UPDATE)
 
             * start ``firefox`` on the ThinLinc.
-            * browse to the URLs, which will be similar to ``http://b[xxx].uppmax.uu.se:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4``
+            * browse to the URLs, which will be similar to ``http://sens2017625-b9.uppmax.uu.se:8888/treer``
                * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Snowy.
 
       *On own computer* Only Pelle
 
       If you want to connect to the Jupyter server running on Rackham/Snowy from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.
 
-      * On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
+      * On Linux or Mac this is done by running in another terminal. Replace ``p115`` with the actual node number you got in step 3. Make sure you have the ports changed if they are not at the default ``8888``.
 
       .. code-block:: sh
 
-         $ ssh -L 8888:r486:8888 username@rackham.uppmax.uu.se
+         $ ssh -L 8888:p115:8888 <username>@pelle.uppmax.uu.se
 
       * If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
       * If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
 
-      * On your computer open the URL you got from step 3. on your webbrowser but replace r486 with localhost i.e. you get something like this
+      * On your computer open the URL you got from step 3. on your webbrowser but replace p115 with localhost i.e. you get something like this
 
-      ``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+      ``http://localhost:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
       or
-      ``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+      ``http://127.0.0.1:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
 
       * This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.
 
