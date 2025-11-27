@@ -15,5 +15,7 @@ Python documentations at the different HPC centres
 - PDC
   - `Python <https://support.pdc.kth.se/doc/software-docs/python/>`_
 - UPPMAX
-  - `Python <https://docs.uppmax.uu.se/software/python/>`_
+  - `Python on Pelle <https://docs.uppmax.uu.se/software/python_pelle/>`_
+  - `Python on Bianca <https://docs.uppmax.uu.se/software/python/>`_
   - `Jupyter <https://docs.uppmax.uu.se/software/jupyter/>`_
+  - `Jupyter on Bianca <https://docs.uppmax.uu.se/software/jupyter_on_bianca/>`_
