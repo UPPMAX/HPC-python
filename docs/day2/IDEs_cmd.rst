@@ -49,19 +49,19 @@ Local notes
 
    .. tab:: NSC
 
-      - For NSC, you can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster. 
+      - You can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster. 
 
    .. tab:: HPC2N
         
-      - For HPC2N, as JupyterLab it is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
+      - JupyterLab is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
 
    .. tab:: UPPMAX
 
-        - For UPPMAX, one can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX `documentation on ThinLinc <https://docs.uppmax.uu.se/software/thinlinc/>`_ on how to install the ThinLinc client locally
+      - One can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX `documentation on ThinLinc <https://docs.uppmax.uu.se/software/thinlinc/>`_ on how to install the ThinLinc client locally
 
    .. tab:: LUNARC
 
-      - For LUNARC, you can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. 
+      - You can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. 
       - There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_. 
 
 .. tabs::
@@ -70,83 +70,109 @@ Local notes
 
       **1. Login to a remote desktop**
 
-         Alt1. Login to the remote desktop website at ``rackham-gui.uppmax.uu.se``
-         Alt2. Login to your local ThinLinc client
+      .. tabs::
+
+         .. tab:: Pelle
+            
+            - Alt1. Login to the remote desktop website at ``pelle-gui.uppmax.uu.se``
+            - Alt2. Login to your local ThinLinc client  at ``pelle-gui.uppmax.uu.se``
+
+         .. tab:: Bianca
+
+            - Login to the remote desktop website at ``bianca.uppmax.uu.se``
 
       **2. start an interactive session**
 
-         Start a terminal. Within that terminal, start an interactive session from the login node (change to the correct NAISS project ID)
+      Start a terminal on the remote desktop. Within that terminal, start an interactive session from the login node (change to the correct NAISS project ID)
 
-         .. tabs::
+      .. tabs::
 
-            .. tab:: Pelle
+         .. tab:: Pelle
             
-               .. code-block:: sh
+            .. code-block:: sh
 
-                  $ interactive -A uppmax2025-2-393 -t 4:00:00
+               $ interactive -A uppmax2025-2-393 -t 1:00:00
+
+         .. tab:: Bianca
+            
+            .. code-block:: sh
+
+               $ interactive -A <proj> -t 1:00:00
 
       **3. start Jupyter in the interactive session**
 
-         Within your terminal with the interactive session, load a modern Python module:
+      Within your terminal with the interactive session, load a modern Python module:
 
-         .. code-block:: sh
+      .. tabs::
 
-            module load python/3.11.8
+         .. tab:: Pelle
+            
+            .. code-block:: sh
 
-         Then, start ``jupyter-notebook`` (or ``jupyter-lab``):
+               $ ml JupyterLab/4.2.5-GCCcore-13.3.0
 
-         .. code-block:: sh
+            Then, start ``jupyter-lab`` :
 
-            jupyter-notebook --ip 0.0.0.0 --no-browser
+            .. code-block:: sh
 
-         This will start a jupyter server session so leave this terminal open. The terminal will also display multiple URLs.
+               jupyter-lab --ip 0.0.0.0 --no-browser
 
+            - This will start a jupyter server session so leave this terminal open. The terminal will also display multiple URLs.
+            - Copy the URL containing ``pXXX``
+
+         .. tab:: Bianca
+            
+            .. code-block:: sh
+
+               module load python/3.11.8
+
+            Then, start ``jupyter-notebook`` (or ``jupyter-lab``):
+
+            .. code-block:: sh
+
+               jupyter-notebook --ip 0.0.0.0 --no-browser
+
+            - This will start a jupyter server session so leave this terminal open. The terminal will also display multiple URLs.
+            - Copy the URL containing ``sensXXXXXXX``
+ 
       **4. Connect to the running Jupyter server**
 
       *On ThinLinc*
 
-         If you use the ThinLinc, depending on which Jupyter server (Rackham or Snowy) you want to launch on web browser
+      - Start ``firefox`` from menu of ThinLinc.
 
+      .. tabs::
 
-         .. tabs::
+         .. tab:: Pelle
 
-            .. tab:: Pelle (NEEDS UPDATE)
+            * browse to the URLs, which will be similar to ``http://p115.uppmax.uu.se:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
+            * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Pelle.
+            
+         .. tab:: Bianca 
 
-               * start ``firefox`` on the ThinLinc.
-               * browse to the URLs, which will be similar to ``http://r[xxx]:8888/?token=5c3aeee9fbfc7a11c4a64b2b549622231388241c2``
-               * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Rackham.
+            * Browse to the URLs, which will be similar to ``http://sens2017625-b9.uppmax.uu.se:8888/tree?token=002be4f71fe1b8dd95c0024de24af08b700cdefdf4b977c4``
+            * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Bianca.
 
-            .. tab:: Bianca (NEEDS UPDATE)
+      *On own computer* Only Pelle
 
-               * start ``firefox`` on the ThinLinc.
-               * browse to the URLs, which will be similar to ``http://s[xxx].uppmax.uu.se:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4``
-               * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Snowy.
+      If you want to connect to the Jupyter server running on Pelle from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.
 
-      *On own computer*
+      * On Linux or Mac this is done by running in another terminal. Replace ``p115`` with the actual node number you got in step 3. Make sure you have the ports changed if they are not at the default ``8888``.
 
-         If you want to connect to the Jupyter server running on Rackham/Snowy from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.
+      .. code-block:: sh
 
-         .. tabs::
+         $ ssh -L 8888:p115:8888 <username>@pelle.uppmax.uu.se
 
-            .. tab:: Pelle (NEEDS UPDATE)
+      * If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
+      * If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
 
-               * On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
+      * On your computer open the URL you got from step 3. on your webbrowser but replace p115 with localhost i.e. you get something like this
 
-               .. code-block:: sh
+      ``http://localhost:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
+      or
+      ``http://127.0.0.1:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
 
-                  $ ssh -L 8888:r486:8888 username@rackham.uppmax.uu.se
-
-               * If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
-               * If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
-
-
-               * On your computer open the URL you got from step 3. on your webbrowser but replace r486 with localhost i.e. you get something like this
-
-               ``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
-               or
-               ``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
-
-               * This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.
+      * This should bring the jupyter interface on your computer and all calculations and files will be on Pelle.
 
       .. warning::
 
@@ -486,15 +512,13 @@ Spyder
 
 Spyder is a powerful and flexible IDE originally developed to be the main scripting environment for scientific Anaconda users. It is designed to enable quick and easily repeatable experimentation, with automatic syntax checking, auto-complete suggestions, a runtime variable browser, and a graphics window that makes plots easy to manipulate after creation without additional code.
 
-Spyder is available independent of Anaconda, but conda is still the recommended installer. Packages from the ``conda-forge`` source repo are still open-source, so conda is still usable on some facilities despite the recent changes in licensing. It is also possible to `build a pip environment with Spyder <https://docs.spyder-ide.org/current/installation.html#using-pip>`_, although this is only recommended for experienced Python users running on Linux operating systems.
-
 To use Spyder on one of the HPC center resources, you must have a Thinlinc window open and logged into your choice of HPC resource. For personal use, it is relatively easy to `install as a standalone package on Windows or Mac <https://docs.spyder-ide.org/current/installation.html>`_, and there is also the option of `using Spyder online via Binder <https://mybinder.org/v2/gh/spyder-ide/binder-environments/spyder-stable?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fspyder-ide%252FSpyder-Workshop%26urlpath%3Ddesktop%252F%26branch%3Dmaster>`_.
 
 Principles
 ##########
 
 - start an interactive session
-- load a Python or module
+- load a Python or Spyder module
 - load your Spyder environment
 - start Spyder
 
@@ -504,7 +528,7 @@ Principles
 
       Spyder is not available on Tetralith. 
 
-      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
+      - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
 
       .. code-block:: console
 
