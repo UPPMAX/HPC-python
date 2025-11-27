@@ -12,6 +12,18 @@ Big data with Python
    - can use data-chunking as technique
    - know where to learn more
     
+.. admonition:: "For teacher"
+
+   Preliminary timings
+
+   - Intro 10 min
+   - Files 5
+   - Exercise files 10
+   - Memory 5
+   - Exercise Allocation 10
+   - Dask 10
+   - Exercise Dask 30
+
 High-Performance Data Analytics (HPDA)
 --------------------------------------
 
