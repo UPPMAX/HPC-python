@@ -70,8 +70,16 @@ Local notes
 
       **1. Login to a remote desktop**
 
-      - Alt1. Login to the remote desktop website at rackham-gui.uppmax.uu.se 
-      - Alt2. Login to your local ThinLinc client
+      .. tabs::
+
+         .. tab:: Pelle
+            
+            - Alt1. Login to the remote desktop website at ``pelle-gui.uppmax.uu.se``
+            - Alt2. Login to your local ThinLinc client  at ``pelle-gui.uppmax.uu.se``
+
+         .. tab:: Bianca
+
+            - Login to the remote desktop website at ``bianca.uppmax.uu.se``
 
       **2. start an interactive session**
 
@@ -110,7 +118,7 @@ Local notes
                jupyter-lab --ip 0.0.0.0 --no-browser
 
             - This will start a jupyter server session so leave this terminal open. The terminal will also display multiple URLs.
-            - Copy the URL containing pXXX
+            - Copy the URL containing ``pXXX``
 
          .. tab:: Bianca
             
@@ -131,22 +139,19 @@ Local notes
 
       *On ThinLinc*
 
-      If you use the ThinLinc, depending on which Jupyter server (Pelle or Bianca) you want to launch in a web browser
-
+      - Start ``firefox`` from menu of ThinLinc.
 
       .. tabs::
 
-         .. tab:: Pelle (NEEDS UPDATE)
+         .. tab:: Pelle
 
-            * start ``firefox`` from menu of ThinLinc.
-            * browse to the URLs, which will be similar to `` http://p115.uppmax.uu.se:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
+            * browse to the URLs, which will be similar to ``http://p115.uppmax.uu.se:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
             * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Rackham.
             
-         .. tab:: Bianca (NEEDS UPDATE)
+         .. tab:: Bianca 
 
-            * start ``firefox`` on the ThinLinc.
-            * browse to the URLs, which will be similar to ``http://sens2017625-b9.uppmax.uu.se:8888/treer``
-               * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Snowy.
+            * Browse to the URLs, which will be similar to ``http://sens2017625-b9.uppmax.uu.se:8888/tree?token=002be4f71fe1b8dd95c0024de24af08b700cdefdf4b977c4``
+            * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Snowy.
 
       *On own computer* Only Pelle
 
