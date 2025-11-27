@@ -500,118 +500,116 @@ Jupyter Notebook is a sibling to other notebook authoring applications under the
 * **Exporting notebooks** 📤 to different formats (HTML, PDF, Markdown, etc.) can be done via "File" > "Download as" or "Export Notebook As".
 * **Using magic commands** ✨ like ``%timeit``, ``%matplotlib inline``, ``%load``, and ``%%writefile`` can enhance your workflow significantly.
 
-.. tip::
+.. admonition:: Keyboard shortcuts
    :class: dropdown
 
-   .. admonition:: Keyboard shortcuts
-      :class: dropdown
+   - ``Shift + Enter``: Run the current cell and move to the next one
+   - ``Ctrl + Enter``: Run the current cell and stay in it
+   - ``Alt + Enter``: Run the current cell and insert a new one below
+   - ``Esc``: Enter command mode
+   - ``Enter``: Enter edit mode
+   - In command mode:
+      - ``A``: Insert cell above
+      - ``B``: Insert cell below
+      - ``DD``: Delete current cell
+      - ``M``: Change cell to Markdown
+      - ``Y``: Change cell to Code
+      - ``Shift + Up/Down``: Select multiple cells
 
-      - ``Shift + Enter``: Run the current cell and move to the next one
-      - ``Ctrl + Enter``: Run the current cell and stay in it
-      - ``Alt + Enter``: Run the current cell and insert a new one below
-      - ``Esc``: Enter command mode
-      - ``Enter``: Enter edit mode
-      - In command mode:
-         - ``A``: Insert cell above
-         - ``B``: Insert cell below
-         - ``DD``: Delete current cell
-         - ``M``: Change cell to Markdown
-         - ``Y``: Change cell to Code
-         - ``Shift + Up/Down``: Select multiple cells
+.. admonition:: Magic commands
+   :class: dropdown
 
-   .. admonition:: Magic commands
-      :class: dropdown
-   
-      Use these to speed up development, debugging, and exploration inside notebooks:
+   Use these to speed up development, debugging, and exploration inside notebooks:
 
-      - ``%lsmagic`` — list available line and cell magics.
-         .. code-block:: python
+   - ``%lsmagic`` — list available line and cell magics.
+      .. code-block:: python
 
-             %lsmagic
+            %lsmagic
 
-      - Timing snippets
-         - ``%time`` — time a single statement.
-         .. code-block:: python
+   - Timing snippets
+      - ``%time`` — time a single statement.
+      .. code-block:: python
 
-             %time sum(range(100000))
+            %time sum(range(100000))
 
-         - ``%timeit`` / ``%%timeit`` — run repeated timings for more robust measurements.
-         .. code-block:: python
+      - ``%timeit`` / ``%%timeit`` — run repeated timings for more robust measurements.
+      .. code-block:: python
 
-             %timeit sum(range(1000))
+            %timeit sum(range(1000))
 
-             %%timeit
-             a = [i*i for i in range(1000)]
-             sum(a)
+            %%timeit
+            a = [i*i for i in range(1000)]
+            sum(a)
 
-      - ``%run`` — run a Python script and load its variables into the notebook namespace.
-         .. code-block:: python
+   - ``%run`` — run a Python script and load its variables into the notebook namespace.
+      .. code-block:: python
 
-             %run scripts/my_analysis.py
+            %run scripts/my_analysis.py
 
-      - ``%load`` — load a script or URL into the current cell (useful for editing before execution).
-         .. code-block:: python
+   - ``%load`` — load a script or URL into the current cell (useful for editing before execution).
+      .. code-block:: python
 
-             %load scripts/snippet.py
+            %load scripts/snippet.py
 
-      - Auto-reload for iterative development
-         .. code-block:: python
+   - Auto-reload for iterative development
+      .. code-block:: python
 
-             %load_ext autoreload
-             %autoreload 2
-             # Now imported modules are reloaded automatically when changed.
+            %load_ext autoreload
+            %autoreload 2
+            # Now imported modules are reloaded automatically when changed.
 
-      - Variable inspection and namespace control
-         .. code-block:: python
+   - Variable inspection and namespace control
+      .. code-block:: python
 
-             %who           # names only
-             %whos          # detailed table of variables
-             %reset -f      # clear user namespace
+            %who           # names only
+            %whos          # detailed table of variables
+            %reset -f      # clear user namespace
 
-      - Interactive debugger on exceptions
-         .. code-block:: python
+   - Interactive debugger on exceptions
+      .. code-block:: python
 
-             %pdb on
-             # Raises into the interactive debugger when exceptions occur
+            %pdb on
+            # Raises into the interactive debugger when exceptions occur
 
-      - Persist variables between sessions
-         .. code-block:: python
+   - Persist variables between sessions
+      .. code-block:: python
 
-             mydata = {"a": 1}
-             %store mydata
-             # In a later session: %store -r mydata
+            mydata = {"a": 1}
+            %store mydata
+            # In a later session: %store -r mydata
 
-      - Installing packages from within the notebook (preferred over !pip)
-         .. code-block:: python
+   - Installing packages from within the notebook (preferred over !pip)
+      .. code-block:: python
 
-             %pip install matplotlib seaborn
+            %pip install matplotlib seaborn
 
-      - Run shell blocks or single shell commands
-         .. code-block:: bash
+   - Run shell blocks or single shell commands
+      .. code-block:: bash
 
-             %%bash
-             echo "This runs in a bash subshell"
-             ls -l
+            %%bash
+            echo "This runs in a bash subshell"
+            ls -l
 
-             # single-line shell:
-             !pwd
+            # single-line shell:
+            !pwd
 
-      - IPython profiling and line profiling (if extensions are installed)
-         .. code-block:: python
+   - IPython profiling and line profiling (if extensions are installed)
+      .. code-block:: python
 
-             %prun my_function()   # run profiler
-             %lprun -f my_function my_function()  # requires line_profiler extension
+            %prun my_function()   # run profiler
+            %lprun -f my_function my_function()  # requires line_profiler extension
 
-      - Show available magics and help
-         .. code-block:: python
+   - Show available magics and help
+      .. code-block:: python
 
-             %magic         # detailed magic help
-             %timeit?       # doc for a specific magic
+            %magic         # detailed magic help
+            %timeit?       # doc for a specific magic
 
 
 .. challenge::
 
    * Try Jupyter interface with the following Notebook Code.
+   * Start an interactive session with 4-8 cores and 1-2 hr walltime.
    * `cd` into your project directory and start `Jupyter Notebook` or `JupyterLab` as described in previous sections.
    * Create a new Python 3 notebook.
 
@@ -665,6 +663,7 @@ Jupyter Notebook is a sibling to other notebook authoring applications under the
 .. admonition:: Resources
    :class: dropdown
 
+   - Official Jupyter documentation: `Jupyter Documentation <https://jupyter-notebook.readthedocs.io/en/latest/notebook.html>`_
    - Jupyter notebook `examples from original documentation <https://nbviewer.org/github/jupyter/notebook/tree/main/docs/source/examples/Notebook/>`_
    - You can also check the lesson about `Jupyter on compute nodes <https://uppmax.github.io/R-python-julia-matlab-HPC/python/jupyter.html>`_ in our "Introduction to running R, Python and Julia in HPC workshop"
    - Documentation about `Jupyter on HPC2N <https://docs.hpc2n.umu.se/tutorials/jupyter/>`_
@@ -751,53 +750,79 @@ Spyder
 Features
 ########
 
-When you open Spyder, you should see something like the figure below. There should be a large pane on the left for code, and two smaller panes on the right. Each of the 3 panes have their own button with 3 horizontal lines (the menu button or "burger icon") in the top right, each with additional configuration options for those panes.
+When you open Spyder you will see a three-pane layout similar to other scientific IDEs: a large Editor on the left, and one or more utility panes on the right and bottom. The exact arrangement can be customised and saved as a layout.
 
 .. admonition:: Spyder interface
    :class: dropdown
 
    .. figure:: ../img/cosmos-on-demand-spyder.png
 
+Main panes and useful tabs
 
-The top right pane has several useful tabs.
+* Editor (left) 📝
+   * Edit multiple files in tabs : use the Run toolbar (green ▶️) to run the current file or selection.  
+   * You can mark cells with ``# %%`` (or ``# %%%`` for multi level cells) and run cells interactively.  
+   * Use the burger menu on the editor pane to split, undock or save layout.
 
-* **Help** displays information about commands and starts up with a message instructing you on how to use it.
-* **Variable explorer** shows a table of currently defined variables, their datatypes, and their current values at runtime. It updates every time you either run a script file or run a command in the IPython console.
-* **Files** shows the file tree for your current working directory
-* Depending on the version , there may also be a **Plots** tab for displaying and adjusting graphics produced with, e.g. Matplotlib. 
+* Utility pane (Top-right) 🧰
+   * Help 🔍: documentation and contextual help for the symbol under the cursor.  
+   * Variable explorer 🧾 : table view of in-memory variables with types and values; inspect, edit or remove variables.  
+   * Files 📂 : file browser for the current working directory. 
+   * Plots 📈 : interactive plots panel (may be a tab in recent versions); can be undocked to a separate window for better interaction. 
 
-You can move any of these tabs into separate windows by clicking the menu (burger) button and selecting "Undock". This is especially helpful for the plotting tab.
+* Console and History (Bottom-right) 🖥️
+   * IPython console(s) : interactive Python connected to the currently selected kernel/environment.  
+   * History log : previously executed commands from the console.  
 
-The bottom right pane shows the IPython console and a history tab. The IPython console is your Python command line, and runs in your current working directory unless changed with ``os.chdir()``. The default path is whatever directory you were in when you launched Spyder, but that can be changed in Preferences. If you run a script file that you've saved to a different directory using the green arrow icon on the menu ribbon, the IPython console will switch your working directory to the one containing that script. The history tab stores the last 500 lines of code excuted in the IPython console.
+.. admonition:: Quick Tips
+   :class: dropdown
+      
+      * Run workflow
+         * Save your script and click the Run button to execute it in the IPython console. Running a saved file will switch the console working directory to the file's location (configurable in Preferences).
+         * Run selection or a cell from the editor to test snippets without running the whole file.
+      * Debugging
+         * Set breakpoints in the editor gutter and launch the debugger from the Run menu or toolbar to step through code and inspect variables.
+      * Plotting
+         * Undock the Plots tab or set the IPython console graphics backend to "Automatic" or a GUI backend in Preferences so figures open in separate windows and remain interactive.
+      * Multiple consoles/kernels
+         * You can open multiple IPython consoles and assign each a different interpreter or conda environment. This is useful for testing code against different environments.
 
-Most of the icons along the top menu bar under the verbal menu are running and debugging commands. You can hover over any of them to see what they do.
+      * Notes
+         * Undock panels (burger menu → Undock) for a multi-monitor workflow or to resize plots independently.
+         * If Spyder appears too small on ThinLinc or high-DPI screens, enable "Set custom high-DPI scaling" in Preferences → General → Interface.
+         * Prefer launching Spyder from a graphical session (ThinLinc / On-demand desktop). Running it on a login node without a desktop may not work or be unsupported.
 
-
-Configuring Spyder
-##################
-
-**Font and icon sizes.** If you are on Thinlinc and/or on a Linux machine, Spyder may be uncomfortably small the first time you open it. To fix this,
-
-#. Click the icon shaped like a wrench (Preferences) or click "Tools" and then "Preferences". A popup should open with a menu down the left side, and the "General" menu option should already be selected (if not, select it now).
-#. You should see a tab titled "Interface" that has options that mention "high-DPI scaling". Select "Set custom high-DPI scaling" and enter the factor by which you'd like the text and icons to be magnified (recommend a number from 1.5 to 2).
-#. Click "Apply". If the popup in the next step doesn't appear immediately, then click "OK".
-#. A pop-up will appear that says you need to restart to view the changes and asks if you want to restart now. Click "Yes" and wait. The terminal may flash some messages like ``QProcess: Destroyed while process ("/hpc2n/eb/software/Python/3.8.2-GCCcore-9.3.0/bin/python") is still running."``, but it should restart within a minute or so. Don't interrupt it or you'll have to start over.
-
-The text and icons should be rescaled when it reopens, and should stay rescaled even if you close and reopen Spyder, as long as you're working in the same session.
-
-**(Optional but recommended) Configure plots to open in separate windows.** In some versions of Spyder, there is a separate Plotting Pane that you can click and drag out of its dock so you can resize figures as needed, but if you don't see that, you will probably want to change your graphics backend. The default is usually "Inline", which is usually too small and not interactive. To change that,
-
-#. Click the icon shaped like a wrench (Preferences) or click "Tools" and then "Preferences" to open the Preferences popup.
-#. In the menu sidebar to the left, click "IPython console". The box to the right should then have 4 tabs, of which the second from the left is "Graphics" (see figure below).
-#. Click "Graphics" and find the "Graphics backend" box below. In that box, next to "Backend" there will be a dropdown menu that probably says "Inline". Click the dropdown and select "Automatic".
-#. Click "Apply" and then "OK" to exit.
-
-.. admonition:: Spyder interface
+.. admonition:: Configuring Spyder
    :class: dropdown
 
-   .. figure:: ../img/cosmos-on-demand-spyder-preferences.png
+   **Font and icon sizes.** If you are on Thinlinc and/or on a Linux machine, Spyder may be uncomfortably small the first time you open it. To fix this,
 
-Now, graphics should appear in their own popup that has menu options to edit and save the content.
+   #. Click the icon shaped like a wrench (Preferences) or click "Tools" and then "Preferences". A popup should open with a menu down the left side, and the "General" menu option should already be selected (if not, select it now).
+   #. You should see a tab titled "Interface" that has options that mention "high-DPI scaling". Select "Set custom high-DPI scaling" and enter the factor by which you'd like the text and icons to be magnified (recommend a number from 1.5 to 2).
+   #. Click "Apply". If the popup in the next step doesn't appear immediately, then click "OK".
+   #. A pop-up will appear that says you need to restart to view the changes and asks if you want to restart now. Click "Yes" and wait. The terminal may flash some messages like ``QProcess: Destroyed while process ("/hpc2n/eb/software/Python/3.8.2-GCCcore-9.3.0/bin/python") is still running."``, but it should restart within a minute or so. Don't interrupt it or you'll have to start over.
+
+   The text and icons should be rescaled when it reopens, and should stay rescaled even if you close and reopen Spyder, as long as you're working in the same session.
+
+   **(Optional but recommended) Configure plots to open in separate windows.** In some versions of Spyder, there is a separate Plotting Pane that you can click and drag out of its dock so you can resize figures as needed, but if you don't see that, you will probably want to change your graphics backend. The default is usually "Inline", which is usually too small and not interactive. To change that,
+
+   #. Click the icon shaped like a wrench (Preferences) or click "Tools" and then "Preferences" to open the Preferences popup.
+   #. In the menu sidebar to the left, click "IPython console". The box to the right should then have 4 tabs, of which the second from the left is "Graphics" (see figure below).
+   #. Click "Graphics" and find the "Graphics backend" box below. In that box, next to "Backend" there will be a dropdown menu that probably says "Inline". Click the dropdown and select "Automatic".
+   #. Click "Apply" and then "OK" to exit.
+
+   .. admonition:: Spyder interface
+      :class: dropdown
+
+      .. figure:: ../img/cosmos-on-demand-spyder-preferences.png
+
+   Now, graphics should appear in their own popup that has menu options to edit and save the content.
+
+.. admonition:: Resources
+   :class: dropdown
+
+   - Official Spyder documentation: `Spyder Documentation <https://docs.spyder-ide.org/current/panes/index.html>`_
+
 
 VS Code
 --------
