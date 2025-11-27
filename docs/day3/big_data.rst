@@ -41,6 +41,11 @@ High-Performance Data Analytics (HPDA)
 Why we need to take special actions
 -----------------------------------
 
+Remember this one?
+
+.. image:: ../img/when-to-use-pandas.png
+      :width: 600 px
+
 .. discussion:: 
 
    - What can limit us?
@@ -59,14 +64,6 @@ scenario
 - use dataset (10 GB)
 - fails in pandas or is slow
 - Load with dask + xarray
-
-.. admonition:: A picture
-   :class: drop-down
-
-   .. image:: ../img/when-to-use-pandas.png
-      :width: 600 px
-
-
 
 What the constraints are
 ------------------------
