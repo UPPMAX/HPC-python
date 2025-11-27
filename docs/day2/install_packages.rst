@@ -138,9 +138,9 @@ Check your own installed packages (and dependencies)
 
    - You can install Python packages as a user with the ``pip install --user <package>[==<version>]``.
    - The ``pip`` command will look after available *valid* dependencies already seen or install them on the fly.
-   - You can load package modules to help minimizing new instalaltions of dependencies.
+   - You can load package modules to help minimizing new installations of dependencies.
 
-      - Then you need to load that package module eggverytime you need the "main" package.
+      - Then you need to load that package module everytime you need the "main" package.
 
 Exercise
 --------
