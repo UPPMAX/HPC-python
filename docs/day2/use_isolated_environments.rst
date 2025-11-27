@@ -227,10 +227,12 @@ Conda
       export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
       export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
       mamba create --prefix=$CONDA_ENVS_PATH/numpy-proj-39 python=3.9.5 -c conda-forge
-      mamba activate spyder-env
-      mamba install numpy
+      mamba activate nsc-example
+      # A prompt "(/path-to/nsc-example/)" should show up
+      # double-check we are using python from the Conda environment!
       which python  # should point to the conda environment!
       python -V     # should give python version 3.9.5
+      mamba install numpy
 
    .. code-block:: python
 
@@ -384,6 +386,10 @@ Breakout room according to grouping
             export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
             mamba create --prefix=$CONDA_ENVS_PATH/spyder-env python=3.12 spyder 
             mamba activate spyder-env
+            # A prompt "(/path-to/spyder-env/)" should show up
+            # double-check we are using python from the Conda environment!
+            which python  # should point to the conda environment!
+            python -V     # should give python version 3.12.X
 
          - Let's install packages that we need. 
 
@@ -413,6 +419,10 @@ Breakout room according to grouping
             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.11.7 spyder 
             source activate spyder-env
+            # A prompt "(/path-to/spyder-env/)" should show up
+            # double-check we are using python from the Conda environment!
+            which python  # should point to the conda environment!
+            python -V     # should give python version 3.12.X
 
          - Let's install packages that we need. 
 
@@ -432,6 +442,15 @@ Breakout room according to grouping
             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/jupyter-env python=3.11.7 jupyter
             conda activate jupyter-env
+            # A prompt "(/path-to/jupyter-env/)" should show up
+            # double-check we are using python from the Conda environment!
+            which python  # should point to the conda environment!
+            python -V     # should give python version 3.11.7
+
+         - Let's install packages that we need. 
+
+         .. code-block:: 
+         
             conda install matplotlib pandas seaborn xarray dask numba
 
          - Check that the above packages are there by ``conda list``.
@@ -460,6 +479,17 @@ Breakout room according to grouping
             export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
             conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
             source activate spyder-env
+            # A prompt "(/path-to/spyder-env/)" should show up
+            # double-check we are using python from the Conda environment!
+            which python  # should point to the conda environment!
+            python -V     # should give python version 3.12.X
+
+
+         - Let's install packages that we need. 
+
+         .. code-block:: 
+         
+            conda install matplotlib pandas seaborn xarray dask numba
 
             - Check that the above packages are there by ``conda list``.
 
@@ -560,7 +590,8 @@ Breakout room according to grouping
 
 .. challenge:: (optional) Exercise 4: like 3, but for Conda
 
-   - Create environment in your user's folder in the course project
+    Let's make an installation with the latest bug fix version of ``Python 3.12`` and compatible ``numpy`` and ``matplotlib`` in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
+
    - Activate environment
    - Confirm package is absent
    - Install package in isolated environment: ``numpy`` + ``matplotlib
@@ -572,29 +603,33 @@ Breakout room according to grouping
 
       .. tab:: NSC
 
-         1. Let's make a  installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
-         
          .. code-block:: 
          
             module load Miniforge/24.7.1-2-hpc1
             export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
             export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
-            mamba create --prefix=$CONDA_ENVS_PATH/spyder-env python=3.12 example 
+            mamba create --prefix=$CONDA_ENVS_PATH/examplepython=3.12 example 
             mamba activate example
+            # A prompt "(/path-to/example)" should show up
+            # double-check we are using python from the Conda environment!
+            which python  # should point to the conda environment!
+            python -V     # should give python version 3.12.X
 
       .. tab:: PDC 
 
-         1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
-        
          .. code-block:: 
          
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
-            conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.11.7 example 
+            conda create --prefix $CONDA_ENVS_PATH/example python=3.12  
             source activate example
-     
+            # A prompt "(/path-to/example)" should show up
+            # double-check we are using python from the Conda environment!
+            which python  # should point to the conda environment!
+            python -V     # should give python version 3.12.X
+    
       .. tab:: LUNARC 
 
          .. code-block:: console
@@ -602,27 +637,33 @@ Breakout room according to grouping
             ml Miniforge3/24.1.2-0
             export CONDA_ENVS_PATH="/lunarc/nobackup/projects/lu2025-17-52/$USER/" #only needed once per session
             export CONDA_PKG_DIRS="/lunarc/nobackup/projects/lu2025-17-52/$USER/" #only needed once per session
-            conda create --prefix $CONDA_ENVS_PATH/jupyter-env python=3.11.7 example
+            conda create --prefix $CONDA_ENVS_PATH/example python=3.12 
             conda activate example
+            # A prompt "(/path-to/example)" should show up
+            # double-check we are using python from the Conda environment!
+            which python  # should point to the conda environment!
+            python -V     # should give python version 3.12.X
     
-      .. tab:: UPPMAX
+      .. tab:: UPPMAX: Pelle
 
-         1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
          
-         .. code-block:: 
+         .. code-block:: console
          
             ml conda
-            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
-            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
-            conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
+            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER  #only needed once per session
+            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER  #only needed once per session
+            conda create --prefix $CONDA_ENVS_PATH/example python=3.12 -c conda-forge
             source activate example
-
+            # A prompt "(/path-to/example)" should show up
+            # double-check we are using python from the Conda environment!
+            which python  # should point to the conda environment!
+            python -V     # should give python version 3.12.X
 
       .. tab:: HPC2N
 
-         Not available
-
-   - Let's install packages that we need. 
+         Skip this exercise
+ 
+- Let's install packages that we need. 
 
    .. code-block:: 
          
