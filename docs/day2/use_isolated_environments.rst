@@ -313,7 +313,7 @@ Install packages from a file
    pip install -r requirements.txt
 
 conda/forge
-.....
+...........
 
 Make environment file:
 
@@ -362,6 +362,8 @@ Make environment file:
         - ld_impl_linux-64=2.45=default_hbd61a6d_104
         - lerc=4.0.0=h0aef613_1
         - libblas=3.11.0=2_h4a7cf45_openblas
+        ...
+        this was just like 30%
 
 Create an environment from a file. Do this on another computer or rename.
 
@@ -371,12 +373,10 @@ Create an environment from a file. Do this on another computer or rename.
    # if renaming is necessary
    conda env create -f environment.yml -p /path/renamed
 
-
 .. discussion::
 
    - Did you note the difference in file length?
    - What does it mean?
-
 
 Exercises
 ---------
@@ -559,18 +559,35 @@ Breakout room according to grouping
 
          1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
          
-         .. code-block:: 
-         
-            ml conda
-            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
-            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
-            conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
-            source activate spyder-env
-            # A prompt "(/path-to/spyder-env/)" should show up
-            # double-check we are using python from the Conda environment!
-            which python  # should point to the conda environment!
-            python -V     # should give python version 3.12.X
+         .. tabs:::
 
+            .. tab:: Bianca
+
+               .. code-block:: 
+         
+                  ml conda
+                  export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+                  export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+                  conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
+                  source activate spyder-env
+                  # A prompt "(/path-to/spyder-env/)" should show up
+                  # double-check we are using python from the Conda environment!
+                  which python  # should point to the conda environment!
+                  python -V     # should give python version 3.12.X
+
+           .. tab:: Pelle
+
+               .. code-block:: 
+         
+                  ml Miniforge3/24.11.3-0
+                  export CONDA_PKG_DIRS=/proj/<proj-dir>/$USER
+                  export CONDA_ENVS_PATH=/proj/<proj-dir>/$USER
+                  conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
+                  source activate spyder-env
+                  # A prompt "(/path-to/spyder-env/)" should show up
+                  # double-check we are using python from the Conda environment!
+                  which python  # should point to the conda environment!
+                  python -V     # should give python version 3.12.X
 
          - Let's install packages that we need. 
 
@@ -733,10 +750,9 @@ Breakout room according to grouping
     
       .. tab:: UPPMAX: Pelle
 
-         
          .. code-block:: console
          
-            ml conda
+            ml Miniforge3/24.11.3-0
             export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER  #only needed once per session
             export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER  #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/example python=3.12 -c conda-forge
@@ -883,7 +899,7 @@ Breakout room according to grouping
 
 
 Summary
-.......
+-------
 
 
 .. keypoints::
