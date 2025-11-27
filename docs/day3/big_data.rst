@@ -60,6 +60,14 @@ scenario
 - fails in pandas or is slow
 - Load with dask + xarray
 
+.. admonition:: A picture
+   :class: drop-down
+
+   .. image:: ../img/when-to-use-pandas.png
+      :width: 600 px
+
+
+
 What the constraints are
 ------------------------
 
@@ -382,6 +390,100 @@ Go over file formats and see if some are more relevant for your work.
 
    - Would you look at other file formats and why?
 
+Allocating RAM
+--------------
+
+- Mention memory per core considerations.
+- Show SLURM options for memory and time.
+- Briefly explain what happens when a Dask job runs on multiple cores.
+
+
+
+.. admonition:: Keywords
+
+   OOM
+
+- Storing the data in an efficient way is one thing!
+
+- Using the data in a program is another. 
+- How much is actually loaded into the working memory (RAM)
+- Is more data in variables created during the run or work?
+
+.. important::
+
+   - Allocate many cores or a full node!
+   - You do not have to explicitely run threads or other parallelism.
+
+- Note that shared memory among the cores works within node only.
+
+
+.. discussion::
+
+   - Take some time to find out the answers on the questions below, using the table of hardware
+   - I'll ask around in a few minutes
+
+.. admonition:: Table of hardware
+   :class: dropdown
+
+   .. list-table:: Hardware
+      :widths: 25 25 25 25 25 25 25 25
+      :header-rows: 1
+
+      * - Technology
+        - Kebnekaise
+        - Pelle
+        - Bianca
+        - Cosmos  
+        - Tetralith   
+        - Dardel
+      * - Cores/compute node
+        - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
+        - 48 (96 with hyperthreading/SMT)
+        - 16
+        - 16
+        - 48  
+        - 32  
+        - 128
+      * - Memory/compute node
+        - 128-3072 GB 
+        - 768-3072 GB
+        - 128-512 GB
+        - 256-512 GB  
+        - 96-384 GB   
+        - 256-2048 GB
+      * - GPU
+        - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
+        - NVidia L40s, H100, T4, A2)
+        - NVidia A100
+        - NVidia A100 
+        - NVidia T4   
+        - 4 AMD Instinct™ MI250X á 2 GCDs
+
+.. admonition:: How much memory do I get per core?
+   :class: dropdown
+
+   - Divide GB RAM of the booked node with number of cores.
+
+   - Example: 128 GB node with 20 cores
+       - ~6.4 GB per core
+
+.. admonition:: How much memory do I get with 5 cores?
+   :class: dropdown
+
+   - Multiply the RAM per core with number of allocated cores..
+
+   - Example: 6.4 GB per core 
+       - ~32 GB 
+
+.. admonition:: Do you remember how to allocate several cores?
+   :class: dropdown
+
+   - Slurm flag ``-n <number of cores>``
+
+- Choose, if necessary a node with more RAM
+   - See local HPC center documentation in how to do so!
+
+
 Dask
 ----
 
@@ -470,18 +572,7 @@ Exercise DASK
 
 
 
-Allocating RAM
---------------
 
-- Mention memory per core considerations.
-- Show SLURM options for memory and time.
-- Briefly explain what happens when a Dask job runs on multiple cores.
-
-
-
-.. admonition:: Keywords
-
-   OOM
 
 
 
