@@ -447,6 +447,7 @@ Breakout room according to grouping
             UPPMAX
 
             - https://docs.uppmax.uu.se/software/conda/
+            - `Bianca <https://uppmax.github.io/bianca_workshops/extra/conda/>`_ 
 
             LUMI
 
