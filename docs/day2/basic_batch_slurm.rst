@@ -236,7 +236,8 @@ This first example shows how to run a short, serial script. The batch script (na
             #SBATCH -A naiss2025-22-934 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
-            
+            #SBATCH -p shared 
+
             # Load any modules you need, here for cray-python/3.11.7.
             module load cray-python/3.11.7
             
@@ -404,6 +405,7 @@ Exercises
             #SBATCH -A naiss2025-22-934 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
+            #SBATCH -p shared 
 
             # Load any modules you need, here for Python 3.11.x
             module load cray-python/3.11.7

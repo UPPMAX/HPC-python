@@ -166,7 +166,8 @@ Serial code + self-installed package in virt. env.
             #SBATCH -A naiss2025-22-934 # Change to your own 
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
-            
+            #SBATCH -p shared
+
             # Load any modules you need, here for Python/3.11.x 
             module load cray-python/3.11.7 
             
@@ -523,6 +524,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
             #SBATCH -A naiss2025-22-934 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
+            #SBATCH -p shared
 
             # Load any modules you need, here for Python 3.11.x
             module load cray-python/3.11.7
