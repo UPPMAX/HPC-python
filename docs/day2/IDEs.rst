@@ -479,13 +479,198 @@ Jupyter
 
                      .. figure:: ../img/pdc_reconnect_to_jupyter.png      
 
+JupyterLab 🚀
+############
 
-More information
-################
+JupyterLab is the next-generation web-based user interface for Project Jupyter. It provides an interactive development environment for working with notebooks, code, and data. JupyterLab offers a more flexible and powerful interface compared to the classic Jupyter Notebook, allowing users to arrange multiple documents and activities side by side in tabs or split screens.
 
-- You can also check the lesson about `Jupyter on compute nodes <https://uppmax.github.io/R-python-julia-matlab-HPC/python/jupyter.html>`_ in our **Introduction to running R, Python and Julia in HPC workshop**)
-- Documentation about `Jupyter on HPC2N <https://docs.hpc2n.umu.se/tutorials/jupyter/>`_
-- Documentation about `Jupyter on UPPMAX <http://docs.uppmax.uu.se/software/jupyter/>`_
+Jupyter Notebook 📝
+#################
+
+Jupyter Notebook is a sibling to other notebook authoring applications under the Project Jupyter umbrella, like JupyterLab. Jupyter Notebook offers a lightweight, simplified experience compared to JupyterLab.
+
+* Running python requires a kernel to be started. **IPython** is the default kernel for Jupyter if you want to run python code. You can also install other kernels to run other programming languages.
+* A Jupyter Notebook is made up of **cells**. There are two main types of cells: Code cells and Markdown cells.
+* **Code cells** 🧩 allow you to write and execute Python code. When you run a code cell, the output is displayed directly below the cell.
+* **Markdown cells** 📝 allow you to write formatted text using Markdown syntax. This is useful for adding explanations, headings, lists, links, and even LaTeX equations to your notebook.
+* You can **run a cell** by selecting it and pressing ``Shift + Enter`` or by clicking the "Run" button in the toolbar ▶️.
+* **Cell execution order** matters - Jupyter allows cells to be run in any order, but the execution number in square brackets shows the order in which cells were actually run.
+* **Restarting the kernel** 🔄 is useful when you want to clear all variables and start fresh. Go to "Kernel" > "Restart".
+* **Clearing all outputs** 🧹 can be done by selecting "Cell" > "All Output" > "Clear" from the menu.
+* **Exporting notebooks** 📤 to different formats (HTML, PDF, Markdown, etc.) can be done via "File" > "Download as" or "Export Notebook As".
+* **Using magic commands** ✨ like ``%timeit``, ``%matplotlib inline``, ``%load``, and ``%%writefile`` can enhance your workflow significantly.
+
+.. tip::
+   :class: dropdown
+
+   .. admonition:: Keyboard shortcuts
+      :class: dropdown
+
+      - ``Shift + Enter``: Run the current cell and move to the next one
+      - ``Ctrl + Enter``: Run the current cell and stay in it
+      - ``Alt + Enter``: Run the current cell and insert a new one below
+      - ``Esc``: Enter command mode
+      - ``Enter``: Enter edit mode
+      - In command mode:
+         - ``A``: Insert cell above
+         - ``B``: Insert cell below
+         - ``DD``: Delete current cell
+         - ``M``: Change cell to Markdown
+         - ``Y``: Change cell to Code
+         - ``Shift + Up/Down``: Select multiple cells
+
+   .. admonition:: Magic commands
+      :class: dropdown
+   
+      Use these to speed up development, debugging, and exploration inside notebooks:
+
+      - ``%lsmagic`` — list available line and cell magics.
+         .. code-block:: python
+
+             %lsmagic
+
+      - Timing snippets
+         - ``%time`` — time a single statement.
+         .. code-block:: python
+
+             %time sum(range(100000))
+
+         - ``%timeit`` / ``%%timeit`` — run repeated timings for more robust measurements.
+         .. code-block:: python
+
+             %timeit sum(range(1000))
+
+             %%timeit
+             a = [i*i for i in range(1000)]
+             sum(a)
+
+      - ``%run`` — run a Python script and load its variables into the notebook namespace.
+         .. code-block:: python
+
+             %run scripts/my_analysis.py
+
+      - ``%load`` — load a script or URL into the current cell (useful for editing before execution).
+         .. code-block:: python
+
+             %load scripts/snippet.py
+
+      - Auto-reload for iterative development
+         .. code-block:: python
+
+             %load_ext autoreload
+             %autoreload 2
+             # Now imported modules are reloaded automatically when changed.
+
+      - Variable inspection and namespace control
+         .. code-block:: python
+
+             %who           # names only
+             %whos          # detailed table of variables
+             %reset -f      # clear user namespace
+
+      - Interactive debugger on exceptions
+         .. code-block:: python
+
+             %pdb on
+             # Raises into the interactive debugger when exceptions occur
+
+      - Persist variables between sessions
+         .. code-block:: python
+
+             mydata = {"a": 1}
+             %store mydata
+             # In a later session: %store -r mydata
+
+      - Installing packages from within the notebook (preferred over !pip)
+         .. code-block:: python
+
+             %pip install matplotlib seaborn
+
+      - Run shell blocks or single shell commands
+         .. code-block:: bash
+
+             %%bash
+             echo "This runs in a bash subshell"
+             ls -l
+
+             # single-line shell:
+             !pwd
+
+      - IPython profiling and line profiling (if extensions are installed)
+         .. code-block:: python
+
+             %prun my_function()   # run profiler
+             %lprun -f my_function my_function()  # requires line_profiler extension
+
+      - Show available magics and help
+         .. code-block:: python
+
+             %magic         # detailed magic help
+             %timeit?       # doc for a specific magic
+
+
+.. challenge::
+
+   * Try Jupyter interface with the following Notebook Code.
+   * `cd` into your project directory and start `Jupyter Notebook` or `JupyterLab` as described in previous sections.
+   * Create a new Python 3 notebook.
+
+   .. admonition:: Notebook Code
+      :class: dropdown
+
+      * Copy the following code snippets (Cell 1, Cell 2,...) into different cells in a Jupyter Notebook and run them to see the results.
+      * If there is a missing package while running the following examples, dont worry, those will be covered in later sessions.
+
+      .. code-block:: python
+         :caption: jupyter_basics.ipynb
+
+            # Cell 1: Basic arithmetic and print
+            a = 10
+            b = 20
+            result = a + b
+            print(f"The sum of {a} and {b} is: {result}")
+
+            # Cell 2: Markdown example
+            # Run this in markdown mode:
+            ## This is a heading
+            This is **bold** text and this is *italic* text.
+            - List item 1
+            - List item 2
+              
+            # LaTeX math equation:
+            $$E = mc^2$$
+            or inline: $a^2 + b^2 = c^2$
+
+            # Cell 3: Using magic commands
+            # Check execution time
+            %timeit sum(range(1000))
+            
+            # Cell 4: List all variables
+            %whos
+            
+            # Cell 5: Run system commands
+            !pwd
+            !ls -l
+            
+            # Cell 6: Display plot inline
+            %matplotlib inline
+            import matplotlib.pyplot as plt
+            x = [1, 2, 3, 4, 5]
+            y = [1, 4, 9, 16, 25]
+            plt.plot(x, y)
+            plt.title("Simple Plot")
+            plt.show()
+
+
+.. admonition:: Resources
+   :class: dropdown
+
+   - Jupyter notebook `examples from original documentation <https://nbviewer.org/github/jupyter/notebook/tree/main/docs/source/examples/Notebook/>`_
+   - You can also check the lesson about `Jupyter on compute nodes <https://uppmax.github.io/R-python-julia-matlab-HPC/python/jupyter.html>`_ in our "Introduction to running R, Python and Julia in HPC workshop"
+   - Documentation about `Jupyter on HPC2N <https://docs.hpc2n.umu.se/tutorials/jupyter/>`_
+   - Documentation about `Jupyter on UPPMAX <http://docs.uppmax.uu.se/software/jupyter/>`_
+   - Documentation about `Jupyter on C3SE <https://www.c3se.chalmers.se/documentation/software/development/jupyter/#jupyterlmod>`_
+   - Documentation about `Jupyter on LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab-via-interactive-terminal>`_
 
 Spyder
 ------
@@ -771,4 +956,5 @@ Exercises
 
    Learning outcomes:
       * How to use IDE on any system
-      * How to install packages in the environment 
+      * How to run code on IDE
+      * How to install and manage extensions on remote VSCode server
