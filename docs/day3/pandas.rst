@@ -589,8 +589,8 @@ Chunking for Large Datasets
 
 When a data file is larger than memory, your first instinct should be to load only the columns and rows that you need. We already discussed the ``usecols`` and ``nrows`` kwargs when we went over the most common reader functions. But what if the data you need to load is still larger than memory?
 
-* Several of the most common Pandas data reader functions, like ``read_csv()``, also have a **``chunksize`` kwarg** that allow you to read in and work on out-of-memory datasets in batches of rows that fit in memory.
-* Similarly, common writer functions also let you append chunks to file rather than overwriting them to write to files that are larger than memory, using the kwarg **``mode='a'``**. Be aware that you will have to set up the chunk iteration so that ``header=False`` for every chunk after the first, or else it will try to inject header rows before every chunk.
+* Several of the most common Pandas data reader functions, like ``read_csv()``, also have a ``chunksize`` kwarg that allow you to read in and work on out-of-memory datasets in batches of rows that fit in memory.
+* Similarly, common writer functions also let you append chunks to file rather than overwriting them to write to files that are larger than memory, using the kwarg ``mode='a'``. Be aware that you will have to set up the chunk iteration so that ``header=False`` for every chunk after the first, or else it will try to inject header rows before every chunk.
 
 While loaded, chunks can be indexed and manipulated like full-sized DataFrames. 
 
@@ -598,7 +598,7 @@ Workflows that can be applied to chunks can also be used to aggregate over multi
 
 The following example and later exercise use the table ``global_disaster_response_2018-2024.csv``, which is not out-of-memory for a typical HPC cluster but is large enough that the additional overhead of chunking does not significantly change the computation time. It contains 50000 rows of data that do not seem to be sorted by date, country, disaster type, cost, response time, or any other included column.
 
-This example demonstrates both reading and writing in chunks by simulating bootstrapping (randomly sampling with replacement, which this example only approximates) a dataset that technically fits in memory to a create a much larger dataset:
+This example demonstrates both reading and writing in chunks by simulating bootstrapping (randomly sampling with replacement, which this example only approximates) a dataset that technically fits in memory to a create a new dataset 5 times larger:
 
 .. code-block:: python
 
@@ -611,7 +611,9 @@ This example demonstrates both reading and writing in chunks by simulating boots
 
 .. caution::
 
-   Chunking with Pandas works best when no coordination is required between chunks. Some aggregate statistics can be calculated if care is taken to make sure that either all chunks are of identical size or that different-sized chunks are reweighted appropriately. However, if your data have natural groupings where group membership is not known by position a priori, or where each group is itself larger than memory, you may be better off using Dask or other libraries. Windowed operations will also not work because there will be no overlap between chunks.
+   Chunking with Pandas works best when no coordination is required between chunks. Operations that handle each row independently can easily be incorporated into chunking routines. Some aggregate statistics can also be calculated if care is taken to make sure that either all chunks are of identical size or that different-sized chunks are reweighted appropriately.
+
+   However, if your data have natural groupings where group membership is not known by position a priori, and/or where each group is itself larger than memory, you may be better off using Dask or other libraries. Windowed operations also do not work because there is no overlap between chunks.
 
 .. challenge
 
