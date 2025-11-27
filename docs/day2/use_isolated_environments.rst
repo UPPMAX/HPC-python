@@ -483,7 +483,7 @@ Breakout room according to grouping
 .. challenge:: (Optional) Exercise 3: Install package with venv
 
    - Choose a track below 
-   - Bianca users are not recommended today 
+   - Bianca users could follow
        - (attend or cover the `Bianca intermediate course <https://docs.uppmax.uu.se/courses_workshops/bianca_intermediate/>`__ yourself)
 
    - Confirm package is absent
@@ -568,6 +568,120 @@ Breakout room according to grouping
    - Deactivate environment
    - Confirm package is now absent again
 
+   .. tabs::
+
+      .. tab:: NSC
+
+         1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
+         
+         .. code-block:: 
+         
+            module load Miniforge/24.7.1-2-hpc1
+            export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
+            export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
+            mamba create --prefix=$CONDA_ENVS_PATH/spyder-env python=3.12 spyder 
+            mamba activate spyder-env
+
+         - Let's install packages that we need. 
+
+         .. code-block:: 
+         
+            conda install matplotlib pandas seaborn xarray dask numba        
+
+         - Check that the above packages are there by ``conda list``. 
+
+         We will put requirements files in the course project folder that you can build from in latter lessons.
+
+         - These will cover 
+
+             - TensorFlow
+             - PyTorch
+             - numba
+
+      .. tab:: PDC 
+
+         1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
+        
+         .. code-block:: 
+         
+            ml PDC/24.11
+            ml miniconda3/25.3.1-1-cpeGNU-24.11
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.11.7 spyder 
+            source activate spyder-env
+
+         - Let's install packages that we need. 
+
+         .. code-block:: 
+         
+            conda install matplotlib pandas seaborn xarray dask numba        
+
+         - Check that the above packages are there by ``conda list``. 
+
+        2. Let's make a Jupyter installation based on Python 3.11.7
+
+         .. code-block:: console
+
+            ml PDC/24.11
+            ml miniconda3/25.3.1-1-cpeGNU-24.11
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            conda create --prefix $CONDA_ENVS_PATH/jupyter-env python=3.11.7 jupyter
+            conda activate jupyter-env
+            conda install matplotlib pandas seaborn xarray dask numba
+
+         - Check that the above packages are there by ``conda list``.
+     
+         We will put requirements files in the course project folder that you can build from in latter lessons
+
+         - These will cover 
+
+             - TensorFlow
+             - PyTorch
+             - numba
+            
+      .. tab:: LUNARC 
+
+         .. code-block:: console
+
+            ml Miniforge3/24.1.2-0
+            export CONDA_ENVS_PATH="/lunarc/nobackup/projects/lu2025-17-52/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/lunarc/nobackup/projects/lu2025-17-52/$USER/" #only needed once per session
+            conda create --prefix $CONDA_ENVS_PATH/jupyter-env python=3.11.7 jupyter
+            conda activate jupyter-env
+            conda install matplotlib pandas seaborn xarray dask numba
+
+      .. tab:: UPPMAX
+
+         1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
+         
+         .. code-block:: 
+         
+            ml conda
+            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+            conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
+            source activate spyder-env
+
+            - Check that the above packages are there by ``conda list``.
+
+         We will put requirements files in the course project folder that you can build from in latter lessons
+
+         - These will cover 
+
+             - TensorFlow
+             - PyTorch
+
+      .. tab:: HPC2N
+
+         We will put requirements files in the course project folder that you can build from in latter lessons
+
+         - These will cover 
+
+             - TensorFlow
+             - PyTorch
+             - numba
 
 
 
