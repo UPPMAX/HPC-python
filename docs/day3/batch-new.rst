@@ -425,7 +425,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
 
 .. challenge:: Simple example of option 1 
 
-    Run the serial example script from Friday (<a href="https://uppmax.github.io/HPC-python/day2/basic_batch_slurm.html#simple-example-batch-script" target="_blank">the one that was used to run mmmult.py</a>) but with this code (sum-2args.py) instead 
+    Run the serial example script from Friday (https://uppmax.github.io/HPC-python/day2/basic_batch_slurm.html#simple-example-batch-script - the one that was used to run mmmult.py) but with this code (sum-2args.py) instead 
     
     .. code-block:: python
     
@@ -560,8 +560,10 @@ In both cases the codes need to be rewritten (more or less), depending on what i
 
     **Let us first see how you might do it interactively, from the command line** 
 
+    You need to open a terminal window either in ThinLinc, on a DesktopOnDemand, or with regular ``ssh -Y <username|domain>`` first! 
+
     1. Load Python and prerequisites (and activate any needed virtual environments)
-        - UPPMAX: ml 
+        - UPPMAX: ml Python/3.12.3-GCCcore-13.3.0 SciPy-bundle/2024.05-gfbf-2024a Python-bundle-PyPI/2024.06-GCCcore-13.3.0 matplotlib/3.9.2-gfbf-2024a 
         - HPC2N: ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 
         - LUNARC: ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
         - NSC: ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4  
@@ -570,12 +572,12 @@ In both cases the codes need to be rewritten (more or less), depending on what i
             - python -m venv --system-site-packages mymatplotlib
             - source mymatplotlib/bin/activate
             - pip install matplotlib
-        - C3SE: 
+        - C3SE: matplotlib/3.10.5-gfbf-2025b (Loads Python/3.13.5, SciPy-buncle, Python-bundle-PyPi, Tkinter, etc.) 
             
    2. Start Python (``python``) in the ``<path-to>/Exercises/examples/programs`` directory
    3. Run these lines: 
 
-       - At UPPMAX and PDC  
+       - At PDC  
 
        .. code-block:: python
 
@@ -587,7 +589,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           plt.scatter(x, y)
           plt.show()
 
-       - At HPC2N, LUNARC, and NSC 
+       - At UPPMAX, HPC2N, LUNARC, NSC, and C3SE 
 
        .. code-block:: python 
          
@@ -611,13 +613,12 @@ In both cases the codes need to be rewritten (more or less), depending on what i
 
    Submit with ``sbatch <batch-script.sh>``.
 
-   The batch scripts can be found in the directories for hpc2n, uppmax, lunarc, nsc, and pdc under ``Exercises/examples/``, and is named ``pandas_matplotlib-batch.sh`` .
+   The batch scripts can be found in the exercises directories for day3 for hpc2n, uppmax, lunarc, nsc, pdc, and c3se, and is named ``pandas_matplotlib-batch.sh`` .
 
 .. keypoints::
 
-   - The SLURM scheduler handles allocations to the calculation nodes
-   - Batch jobs runs without interaction with user
-   - A batch script consists of a part with SLURM parameters describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
-   
-      - Remember to include possible input arguments to the Python script in the batch script.
+    - Remember to include possible input arguments to the Python script in the batch script.
+    - We saw an example of a batch script where we activated a virtual environment and used our own installed packages 
+    - We saw a brief example of a parallel batch job 
+    - We saw something about how to tweak interactive jobs to run them as batch jobs 
 
