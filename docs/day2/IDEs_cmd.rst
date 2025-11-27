@@ -146,16 +146,16 @@ Local notes
          .. tab:: Pelle
 
             * browse to the URLs, which will be similar to ``http://p115.uppmax.uu.se:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
-            * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Rackham.
+            * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Pelle.
             
          .. tab:: Bianca 
 
             * Browse to the URLs, which will be similar to ``http://sens2017625-b9.uppmax.uu.se:8888/tree?token=002be4f71fe1b8dd95c0024de24af08b700cdefdf4b977c4``
-            * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Snowy.
+            * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Bianca.
 
       *On own computer* Only Pelle
 
-      If you want to connect to the Jupyter server running on Rackham/Snowy from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.
+      If you want to connect to the Jupyter server running on Pelle from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.
 
       * On Linux or Mac this is done by running in another terminal. Replace ``p115`` with the actual node number you got in step 3. Make sure you have the ports changed if they are not at the default ``8888``.
 
@@ -172,7 +172,7 @@ Local notes
       or
       ``http://127.0.0.1:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
 
-      * This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.
+      * This should bring the jupyter interface on your computer and all calculations and files will be on Pelle.
 
       .. warning::
 
