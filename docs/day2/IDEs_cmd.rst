@@ -599,7 +599,6 @@ Principles
 
 - Keep open for next session!
 
-
 VS Code
 --------
 
@@ -613,6 +612,23 @@ At UPPMAX(Rackham) load it using ``module load VSCodium``, this is an open sourc
 However, VS Code is best used on your local machine, as it is a resource-intensive application that can slow down the ThinLinc interface. The VS Code Server can be installed on all the HPCs that give your the ability to run your code on the HPCs but edit it on your local machine.
 Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.
 
+**Installed on HPC clusters**
+
+- Tetralith: ``VSCode/latest-bdist``
+    - Start with ``code``
+- Bianca:``VSCode/latest-bdist``
+    - Start with ``code``
+- Pelle: ``VScode``
+    - Start with ``code``
+- Cosmos: system-installed (no module needed)
+    - Start with ``code``
+
+For the HPC slusters below you need to connect from a local VSCode client (works also for all clusters)
+
+- Dardel
+- Kebnekaise
+
+
 On your own computer through SSH tunneling 
 ############################################
 
@@ -623,9 +639,23 @@ Install VS Code on your local machine and follow the steps below to connect to t
 
    .. figure:: ../img/vscode_remote_tunnels_before_install.png
    
+   Since most clusters now has added the TOTP feature you have to make another setting as well.  
+
+   - Go to settings (the lower-left corner wheel):
+
+   .. figure:: ../img/VSCode_settings.png
+
+   .. figure:: ../img/VSCode_ssh_login.png
+
+   Search for the right setting and enable it.
+
+   Find and click the "Remote explorer" button in the left-hand side menu.
+
+   First time connection
+
    .. figure:: ../img/vscode_add_new_remote.png
    
-   Type ssh [username]@rackham.uppmax.uu.se where [username] is your UPPMAX username, for example, ssh sven@rackham.uppmax.uu.se. 
+   Type ssh [username]@<cluster address> where [username] is your cluster username, for example, ssh sven@tetralith.uppmax.uu.se. 
    This will change as per the HPC center you are using:  
    
    .. figure:: ../img/vscode_ssh_to_rackham.png
@@ -633,14 +663,14 @@ Install VS Code on your local machine and follow the steps below to connect to t
    Use the ~/.ssh/config file:  
    
    .. figure:: ../img/vscode_remote_tunnels_use_ssh_config_in_home.png
-   
-   Click on 'Connect':  
-   
+
+   Click on "Connect"
+      
    .. figure:: ../img/vscode_connect_to_rackham.png
    
    .. figure:: ../img/vscode_connected_to_rackham.png
 
-When you first establish the ssh connection to Rackham, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
+When you first establish the ssh connection to the cluster, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
 This also where VS Code will install all your extentions that can quickly fill up your home directory.
 
 Exercises with step-by-step instructions
