@@ -21,192 +21,46 @@ Running Python in batch mode
 Running your programs and scripts on UPPMAX, HPC2N, LUNARC, C3SE, NSC, and PDC 
 ------------------------------------------------------------------------------
 
-As mentioned yesterday, in the introduction to Slurm and batch jobs: 
+As mentioned Friday, in the introduction to Slurm and batch jobs: 
 
 - Any longer, resource-intensive, or parallel jobs must be run through a **batch script** or in an interactive session on allocated compute nodes.
 - A batch job is **not** interactive, so you cannot make changes to the job while it is running. 
 - In order to run a batch job, you need to create and submit a SLURM submit file (also called a batch submit file, a batch script, or a job script).
 
-Workflow
-########
+.. admonition:: "Recap: Useful commands to the batch system" 
 
-- Write a batch script
-
-  - Inside the batch script you need to load the modules you need (Python, Python packages, any prerequisites, ... )
-  - Possibly activate an isolated/virtual environment to access own-installed packages
-  - Ask for resources depending on if it is a parallel job or a serial job, if you need GPUs or not, etc.
-  - Give the command(s) to your Python script
-
-- Submit batch script with ``sbatch <my-python-script.sh>`` 
-
-Common file extensions for batch scripts are ``.sh`` or ``.batch``, but they are not necessary. You can choose any name that makes sense to you. 
-
-Useful commands to the batch system
------------------------------------
-
-- Submit job: ``sbatch <jobscript.sh>``
-- Get list of your jobs: ``squeue -u <username>``
-- Check on a specific job: ``scontrol show job <job-id>``
-- Delete a specific job: ``scancel <job-id>``
-- Useful info about a job: ``sacct -l -j <job-id> | less -S``
-- Url to a page with info about the job (Kebnekaise only): ``job-usage <job-id>``
+   - Submit job: ``sbatch <jobscript.sh>``
+   - Get list of your jobs: ``squeue -u <username>`` or ``squeue --me``
+   - Check on a specific job: ``scontrol show job <job-id>``
+   - Delete a specific job: ``scancel <job-id>``
+   - Useful info about a job: ``sacct -l -j <job-id> | less -S``
          
 Example Python batch scripts
 ---------------------------- 
-
-Serial code
-###########
-
-.. hint:: 
-
-   Type along!
-
-This first example shows how to run a short, serial script. The batch script (named ``run_mmmult.sh``) can be found in the directory: 
-- If you did ``git clone https://github.com/UPPMAX/HPC-python.git``
-    - HPC-Python/Exercises/examples/<center>, where <center> is hpc2n, uppmax, lunarc, nsc, or pdc. 
-    - The Python script is in HPC-Python/Exercises/examples/programs and is named ``mmmult.py``. 
-- If you did ``wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz`` and then ``tar -xvzf exercises.tar.gz`` 
-    - exercises/examples/<center>, where <center> is hpc2n, uppmax, lunarc, nsc, or pdc.
-    - The Python script is in exercises/examples/programs and is named ``mmmult.py``.  
-
-1. The batch script is run with ``sbatch run_mmmult.sh``. 
-2. Try type ``squeue -u <username>`` to see if it is pending or running. 
-3. When it has run, look at the output with ``nano slurm-<jobid>.out``. 
-
-.. tabs::
-
-   .. tab:: UPPMAX
-
-        Short serial example script for Rackham. Loading Python 3.11.8. Numpy is preinstalled and does not need to be loaded. 
-
-        .. code-block:: bash
-
-            #!/bin/bash -l 
-            #SBATCH -A uppmax2025-2-393 # Change to your own after the course
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
-            #SBATCH -n 1 # Asking for 1 core
-            
-            # Load any modules you need, here Python 3.11.8. 
-            module load python/3.11.8 
-            
-            # Run your Python script 
-            python mmmult.py   
-            
-
-   .. tab:: HPC2N
-
-        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2023.07 and Python/3.11.3  
        
-        .. code-block:: bash
+Friday we looked at a simple Python serial code run as a batch script. There are many other situations: 
 
-            #!/bin/bash
-            #SBATCH -A hpc2n2025-151 # Change to your own
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
-            #SBATCH -n 1 # Asking for 1 core
-            
-            # Load any modules you need, here for Python/3.11.3 and compatible SciPy-bundle
-            module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07
-            
-            # Run your Python script 
-            python mmmult.py    
-            
-   .. tab:: LUNARC
+- Python code needing self-installed packages in virtual environment
+- Python code requiring tweaking before running as a batch job
+- Python code that is parallel
+- Python code that needs GPUs 
 
-        Short serial example for running on Cosmos. Loading SciPy-bundle/2023.11 and Python/3.11.5  
-       
-        .. code-block:: bash
+Today we will look at some of these situations. The GPU example will be covered tomorrow where we will also talk about parallelism (today that will only be shown with a small batch script template).   
 
-            #!/bin/bash
-            #SBATCH -A lu2025-7-106 # Change to your own
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
-            #SBATCH -n 1 # Asking for 1 core
-            
-            # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
-            module load GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11
-            
-            # Run your Python script 
-            python mmmult.py    
-            
-   .. tab:: NSC
-
-        Short serial example for running on Tetralith. Loading SciPy-bundle/2022.05 and Python/3.10.4 
-       
-        .. code-block:: bash
-
-            #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
-            #SBATCH -n 1 # Asking for 1 core
-            
-            # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
-            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05
-            
-            # Run your Python script 
-            python mmmult.py                
-
-   .. tab:: PDC
-
-        Short serial example for running on Dardel. Loading cray-python/3.11.7
-       
-        .. code-block:: bash
-
-            #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
-            #SBATCH -n 1 # Asking for 1 core
-            
-            # Load any modules you need, here for cray-python/3.11.7.
-            module load cray-python/3.11.7
-            
-            # Run your Python script 
-            python mmmult.py                
-
-   .. tab:: mmmult.py 
-   
-        Python example code
-   
-        .. code-block:: python
-        
-            import timeit
-            import numpy as np
-            
-            starttime = timeit.default_timer()
-            
-            np.random.seed(1701)
-            
-            A = np.random.randint(-1000, 1000, size=(8,4))
-            B = np.random.randint(-1000, 1000, size =(4,4))
-            
-            print("This is matrix A:\n", A)
-            print("The shape of matrix A is ", A.shape)
-            print()
-            print("This is matrix B:\n", B)
-            print("The shape of matrix B is ", B.shape)
-            print()
-            print("Doing matrix-matrix multiplication...")
-            print()
-            
-            C = np.matmul(A, B)
-            
-            print("The product of matrices A and B is:\n", C)
-            print("The shape of the resulting matrix is ", C.shape)
-            print()
-            print("Time elapsed for generating matrices and multiplying them is ", timeit.default_timer() - starttime)
-
-            
-        
 Serial code + self-installed package in virt. env.
 ##################################################
 
 .. hint::
 
-   Don't type along! There are other examples like this with your self-installed virtual environment. 
+   Don't type along! This just shows how you would activate and use a virtual environment in a batch script. 
 
 .. tabs::
 
    .. tab:: UPPMAX
 
-        Short serial example for running on Rackham. Loading python/3.11.8 + using any Python packages you have installed yourself with venv.  
+        Short serial example for running on Pelle. We are loading Python 3.11.5 and a compatible SciPy-bundle and Python-bundle-PyPi. This gives us access to packages like scipy, numpy, pandas, seaborn. PyTorch and matplotlib are their own modules and only available for Python 3.12.3. 
+        
+        The important thing is to load the SAME modules you used in the virtual environment you have installed the needed packages in.   
 
         .. code-block:: bash
         
@@ -215,10 +69,12 @@ Serial code + self-installed package in virt. env.
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for python 3.11.8 
-            module load python/3.11.8
+            # Load any modules you need, here for Python 3.11.5 and a compatible SciPy-bundle and a compatible Python-bundle-PyPi. 
+            module load Python/3.11.5-GCCcore-13.2.0
+            module load SciPy-bundle/2023.11-gfbf-2023b 
+            module load Python-bundle-PyPI/2023.10-GCCcore-13.2.0
             
-            # Activate your virtual environment. 
+            # Activate your virtual environment, which you previously created with the above modules loaded. 
             source /proj/hpc-python-uppmax/<user-dir>/<path-to-virtenv>/<virtenv>/bin/activate  
             
             # Run your Python script (remember to add the path to it 
@@ -228,7 +84,9 @@ Serial code + self-installed package in virt. env.
 
    .. tab:: HPC2N
 
-        Short serial example for running on Kebnekaise. Loading SciPy-bundle/2023.07, Python/3.11.3, matplotlib/3.7.2 + using any Python packages you have installed yourself with virtual environment.  
+        Short serial example for running on Kebnekaise. We are loading Python 3.11.5 and a compatible SciPy-bundle and Python-bundle-PyPi. This gives us access to packages like scipy, numpy, pandas, seaborn. PyTorch and matplotlib are their own modules and are available for most Python versions. PyTorch requires you to also load OpenMPI. 
+        
+        The important thing is to load the SAME modules you used in the virtual environment you have installed the needed packages in.
        
         .. code-block:: bash
 
@@ -237,10 +95,12 @@ Serial code + self-installed package in virt. env.
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             
-            # Load any modules you need, here for Python/3.11.3 and compatible SciPy-bundle
-            module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
+            # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle and Python-bundle-PyPi
+            module load GCC/13.2.0 Python/3.11.5 
+            module load SciPy-bundle/2023.11
+            module load Python-bundle-PyPI/2023.10
             
-            # Activate your virtual environment. 
+            # Activate your virtual environment, which you previously created with the above modules loaded. 
             source /proj/nobackup/fall-courses/<user-dir>/<path-to-virt-env>/bin/activate
             
             # Run your Python script  (remember to add the path to it 

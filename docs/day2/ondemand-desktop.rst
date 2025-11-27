@@ -301,14 +301,14 @@ Most settings are the same, with exception of the "Resource" or "Node Type"/"Cor
       
       Click "Launch"
 
-      .. figure:: ../img/alvis-jup-starting.png
+      .. figure:: ../img/alvis-OOD-jup-starting.png
          :width: 1200
          :align: center
          :alt: Alvis Open On-Demand Jupyter starting
       
       When it is ready, click "Connect to Jupyter". Here I have started a terminal inside Jupyter, changed to my exercises directory and checked I can run a Python program (with PyTorch). I also check I have GPUs. 
 
-      .. figure:: ../img/alvis-jup-ok.png
+      .. figure:: ../img/alvis-OOD-jup-ok.png
          :width: 1200
          :align: center
          :alt: Alvis Open On-Demand Jupyter
@@ -319,4 +319,3 @@ Most settings are the same, with exception of the "Resource" or "Node Type"/"Cor
 - Regardless, there are many situations where submitting a batch job is the best option instead, including when you want to run jobs that need many resources (time, memory, multiple cores, multiple GPUs) or when you run multiple jobs concurrently or in a specified succession, without need for manual intervention. Batch jobs are often also preferred for automation (scripts) and reproducibility. Many types of application software fall into this category.
 - At centres that have ThinLinc you can usually submit MATLAB jobs to compute resources from within MATLAB.
 
-~
