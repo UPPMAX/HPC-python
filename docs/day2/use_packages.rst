@@ -49,12 +49,13 @@ Exercises
     +-----------+---------------------------------------+
     |LUMI       |`Here <https://youtu.be/a7MEhsfMEIY>`__|
     +-----------+---------------------------------------+
-    |Pelle      |TODO                                   |
+    |Pelle      |`Here <https://youtu.be/eyee2tZgL8k>`__|
     +-----------+---------------------------------------+
     |Rackham    |`Here <https://youtu.be/NzjjNxsek54>`__|
     +-----------+---------------------------------------+
     |Tetralith  |`Here <https://youtu.be/TRnt07p1J94>`__|
     +-----------+---------------------------------------+
+
 
 
 Exercise 0: pick a Zoom room
