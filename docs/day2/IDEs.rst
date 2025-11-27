@@ -875,24 +875,32 @@ Install and manage Extensions on remote VSCode server
 Manage Extensions
 ^^^^^^^^^^^^^^^^^
 
-Go to Command Palette Ctrl+Shift+P or F1. Search for Remote-SSH: Settings and then go to Remote.SSH: Server Install Path. Add Item as remote host rackham.uppmax.uu.se and Value as project folder in which you want to install all your data and extensions ``/proj/uppmax202x-x-xx/nobackup`` (without a trailing slash /).
+* By default, VSCode server installs all extensions in your home directory on the remote server. Which is not recommended as home directories have limited space. You can change this behavior by changing the remote server install path to a project folder with sufficient space.
+* Go to Command Palette ``Ctrl+Shift+P`` or ``F1``. Search for ``Remote-SSH: Settings`` and then go to ``Remote.SSH: Server Install Path``. 
+* Add ``Item`` as remote host (say, rackham.uppmax.uu.se) and ``Value`` as project folder in which you want to install all your data and extensions (say ``/proj/uppmax202x-x-xx/nobackup``) (without a trailing slash /).
 
-If you already had your vscode-server running and storing extensions in home directory. Make sure to kill the server by selecting Remote-SSH: KIll VS Code Server on Host on Command Palette and deleting the .vscode-server directory in your home folder.
+If you already had your vscode-server running and storing extensions in home directory. Make sure to kill the server by selecting ``Remote-SSH: KIll VS Code Server on Host`` on Command Palette and deleting the ``.vscode-server`` directory in your home folder.
 
 Install Extensions
 ^^^^^^^^^^^^^^^^^^^
 
-You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for Remote: Install Local Extensions in 'SSH: rackham.uppmax.uu.se' in Command Palette. You can alternatively, go to Extensions tab and select each individually.
+* You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for ``Remote: Install Local Extensions`` in ``SSH: rackham.uppmax.uu.se`` (or other HPC name) in Command Palette. 
+* You can alternatively, go to Extensions tab and select each individually.
 
 Selecting Kernels
 ^^^^^^^^^^^^^^^^^^^
 
-Request allocation in either HPC compute node depending on your need, for that use interactive (or salloc) slurm command. Load the correct module on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Rackham/Snowy, do module load python_ML_packages. Check the file path for python interpreter by checking ``which python`` and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for "interpreter" for python, then paste the path of your interpreter/kernel.
+* Establish an SSH connection to the login node of the HPC resource using VSCode remote-SSH extension as described in previous session.
+* Request allocation in either HPC compute node depending on your need, for that use interactive (or salloc) slurm command. 
+* Load the correct module (or virtual env) on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Rackham/Snowy, do module load python_ML_packages. Check the file path for python interpreter by checking ``which python`` and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for "interpreter" for python, then paste the path of your interpreter/kernel.
+* venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server. 
 
-venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server. 
+For Jupyter Notebooks:
 
-For jupyter, you need to start the server on the HPC resource first, check `Jupyter`_ section on how to do that. Copy the jupyter server URL which goes something like ``http://s193.uppmax.uu.se:8888/tree?token=xxx`` (in case of Snowy), click on **Select Kernel** on VSCode and select **Existing Jupyter Server**. Past the URL here and confirm your choice.
-The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser.
+* You need to start the server on the HPC resource first, preferrably on a compute node. 
+* Copy the jupyter server URL which goes something like ``http://s193.uppmax.uu.se:8888/tree?token=xxx`` (where s193 is Snowy node. Other HPCs will have similar URLs), click on ``Select Kernel`` on VSCode and select ``Existing Jupyter Server``. Past the URL here and confirm your choice.
+* This only works if you have the jupyter extension installed on your local VSCode.
+* The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser.
 NOTE: Selecting kernels/interpreter does not work currently on HPC2N.
 
 Exercises
