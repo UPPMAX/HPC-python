@@ -65,7 +65,16 @@ run their code that needs either (1) massive computation,
 Exercises
 ---------
 
-Exercise 1: the learning outcomes of today
+Exercise 1: add your HPC cluster to your name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Change your Zoom name, to include your HPC cluster and favorite
+programming language, e.g. make `Sven` into `Sven [Alvis]`.
+
+You can do so by right-click on the video of yourself,
+then click 'Rename' to change your Zoom name.
+
+Exercise 2: the learning outcomes of today
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The goal of this exercise is to find out
@@ -101,7 +110,7 @@ what you will learn today.
     - I can use the compute nodes interactively
     - I can use a Python IDE
 
-Exercise 2: downloading and extracting the exercises
+Exercise 3: downloading and extracting the exercises
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The goal of this exercise is to download a file
@@ -116,7 +125,7 @@ on your favorite HPC cluster and extract the exercises.
     You can easily navigate there by pressing the 'Next' arrow
     at the bottom of this page, at the right-hand side
 
-(optional) Exercise 3: where is what?
+(optional) Exercise 4: where is what?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Explore the website of the course. Where you can you find
