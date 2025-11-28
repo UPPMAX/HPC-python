@@ -434,26 +434,30 @@ in Python rather than learning to write those codes.
    Optional flags for ``srun`` for writing output and error files are ``-o output_%j.out -e error_%j.err`` instead 
    of writing on the terminal screen.
 
-   **Data dependencies**
+   .. warning::
 
-   In general, one cannot parallelize a serial algorithm; let's take the case of:
+      **Data dependencies**
 
+      In general, one cannot parallelize a serial algorithm; let's take the case of:
 
-   .. code-block:: python
+      .. code-block:: python
 
-      a[0] = 0
-      for i in range(1, N):
-         a[i] = a[i-1] + i
+         a[0] = 0
+         for i in range(1, N):
+            a[i] = a[i-1] + i
 
-   Let's say we have the elements :code:`a[0], a[1],..., a[5]`
+      Let's say we have the elements :code:`a[0], a[1],..., a[5]` and only two processes. Process number one
+      takes the elements :code:`a[0], a[1], a[2]` and process number two :code:`a[3], a[4], a[5]`.
+      Because in the loop the iteration ``i`` depends on the previous iteration ``i-1``, process two will have
+      conflicts computing :code:`a[3]` because it depends on :code:`a[2]` which is owned by process one.
+      
+      One can avoid data dependencies by transforming the initial algorithm to a more suitable algorithm for
+      parallelization:
 
+      .. code-block:: python
 
-   Here, the iteration ``i`` depends on the previous iteration ``i-1``. One needs to transform this algorithm:
-
-   .. code-block:: python
-
-      for i in range(N):
-         a[i] = 0.5 * i * (i + 1)
+         for i in range(N):
+            a[i] = 0.5 * i * (i + 1)
 
 
 
