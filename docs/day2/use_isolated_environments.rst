@@ -430,7 +430,7 @@ Breakout room according to grouping
             - `Venv <https://docs.hpc2n.umu.se/software/userinstalls/#venv>`_
             - `Video by Richel <https://www.youtube.com/watch?v=_ev3g5Zvn9g>`_
              
-         .. tab: conda
+         .. tab:: conda
 
             NSC:
 
