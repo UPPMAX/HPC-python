@@ -88,12 +88,14 @@ Local notes
    .. tab:: HPC2N
         
       - JupyterLab is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
+      - **Better use OnDemand!**
 
    .. tab:: LUNARC
 
-      - You can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. 
+      - You can run Jupyter either in compute nodes through Anaconda or through the **LUNARC HPC desktop**. The latter is recommended. 
+      - Spyder as well!
       - There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_. 
-
+      
 .. tabs::
 
    .. tab:: NSC
