@@ -1,4 +1,3 @@
-20 lines (17 loc) · 757 Bytes
 #!/bin/bash
 # Remember to change this to your own project ID!
 #SBATCH -A lu2025-7-106 
