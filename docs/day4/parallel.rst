@@ -434,9 +434,9 @@ in Python rather than learning to write those codes.
    Optional flags for ``srun`` for writing output and error files are ``-o output_%j.out -e error_%j.err`` instead 
    of writing on the terminal screen.
 
-   **Data dependencied**
+   **Data dependencies**
 
-   In general, one cannot parallelize an serial algorithm; let's take the case of:
+   In general, one cannot parallelize a serial algorithm; let's take the case of:
 
 
    .. code-block:: python
@@ -445,7 +445,10 @@ in Python rather than learning to write those codes.
       for i in range(1, N):
          a[i] = a[i-1] + i
 
-   Here, the iteration *i* depends on the previous iteration *i-1*. One needs to transform this algorithm:
+   Let's say we have the elements :code:`a[0], a[1],..., a[5]`
+
+
+   Here, the iteration ``i`` depends on the previous iteration ``i-1``. One needs to transform this algorithm:
 
    .. code-block:: python
 
