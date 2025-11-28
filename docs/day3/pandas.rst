@@ -481,11 +481,8 @@ Efficient Data Types
        df = pd.read_csv('./docs/day3/exoplanets_5250_EarthUnits_fixed.csv',index_col=0)    
        print("Before:\n", df['planet_type'].memory_usage(deep=True))
        # Convert planet_type to Categorical
-       ptypes=df['planet_type'].astype('category')
-       print("After:\n", ptypes.memory_usage(deep=True))
-       # assert order (coincidentally alphabetical order is also reverse mass-order)
-       ptypes = ptypes.cat.reorder_categories(ptypes.cat.categories[::-1], ordered=True)
-       print(ptypes)
+       df['planet_type']=df['planet_type'].astype('category')
+       print("After:\n", df['planet_type'].memory_usage(deep=True))
 
 Numerical data can be recast as categorical by binning it with ``pd.cut()`` or ``pd.qcut()``, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order. However, some mathematical operations may no longer work on the results.
 
