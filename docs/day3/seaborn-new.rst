@@ -209,6 +209,23 @@ Seaborn plotting functions are designed to take Pandas DataFrames (or sometimes 
 
 Another common feature of Seaborn is that many of the high-level functions that you would ordinarily use are wrappers for more flexible base classes with methods that let you layer different plot types on top of each other. We only cover one case here, but keep in mind that if you need more customisation, check the documentation---almost everything is tunable.
 
+Showing and Saving Figures
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The easiest way to show and save figures produced with Seaborn is to ``import matplotlib.pyplot as plt`` and use the standard ``plt.show()`` and ``plt.savefig()`` commands. However, it is possible to get this functionality with Seaborn alone using the ``.figure`` accessor, though producing an interactive display can be very unintuitive when executing scripts directly from the command line.
+
+Showing your figure
+"""""""""""""""""""
+
+* In an IDE, this is trivial: just assign your plotting command to a variable, and call ``.figure.show()`` off of that variable name.
+* In a script to be executed from the command line, you may as well use ``plt.show()`` because you still have to do ``import matplotlib`` and set ``matplotlib.use('TkAgg')`` or another backend to make the display open. Moreover, while ``plt.show()`` keeps the script from terminating until the user closes the graphic, for some reason ``.figure.show()`` does not, so the figure closes almost immediately after opening UNLESS you do one of the following:
+   - After the line containing ``.figure.show()``, add an ``input()`` command, something like ``input("Press any key to exit")``.
+   - Run the script with the interactive ``-i`` option between ``python`` and the name of the script. Note that with this method, you will step into a Python shell after closing the figure.
+
+Saving your figure
+""""""""""""""""""
+
+This is easier: you can assign your plotting command to a variable, and call ``.figure.savefig(fname)`` off of that variable name. Since ``.figure.savefig()`` is just a wrapper for the ``pyplot`` method of the same name, all the args and kwargs are the same. The main difference is that there is no default filename, so you must at minimum pass a file name string or path as the first arg.
 
 Plotting with Seaborn
 ---------------------
@@ -219,7 +236,7 @@ Here we will explore a few of the plot types Seaborn offers that are difficult t
 #. ``sb.jointplot()`` (the bivariate special case of pair plot)
 #. ``sb.heatmap()`` and ``sb.clustermap()``
 
-In the interest of time, we will not go into box-and-whisker or violin plots, but be aware that compared to the Matplotlib implementations, the Seaborn versions of those plotting functions produce much nicer results with far less work. 
+In the interest of time, we will not go into box-and-whisker or violin plots, but be aware that compared to the Matplotlib implementations, the Seaborn versions of those plotting functions produce much nicer results with far less work.
 
 Pairplot and PairGrid
 ^^^^^^^^^^^^^^^^^^^^^
@@ -295,7 +312,7 @@ By default the off-diagonals are scatter plots, and the marginal distributions o
 Joint Plots
 ^^^^^^^^^^^
 
-A joint plot is a special case of a pair plot with just 2 variables. The 1-line Seaborn ``.jointplot()`` command replaces roughly a dozen lines of pure Matplotlib commands.
+A joint plot is a special case of a pair plot with just 2 variables. The 1-line Seaborn ``.jointplot()`` command replaces roughly a dozen lines of pure Matplotlib commands. There is also an underlying, more tunable ``.JointGrid()`` function, similar to how ``.pairplot()`` wraps ``.PairGrid()``.
 
 To demonstrate with the ``'mpg'`` dataset, let's plot the fuel economy in mpg against vehicle weight, and color the data by region of origin.
 
@@ -310,9 +327,7 @@ To demonstrate with the ``'mpg'`` dataset, let's plot the fuel economy in mpg ag
    plt.ylabel('Fuel Economy [mpg]')
    plt.show()
 
-The only kwarg shown that we didn't cover already is `marginal_tick`, which shows the y-axis ticks for the marginal probability distributions (the smoothed histograms along the sides). Normally they are off (``False``) to avoid overlap with the main axis ticks.
-
-By default the main plot is a scatter plot, and the marginal plots are either histograms if the data are not shaded by a categorical variable, or KDEs if the ``hue`` kwarg is used. The type of central plot can be changed with the ``kind`` kwarg, (see `the documentation on joint plots for options <https://seaborn.pydata.org/generated/seaborn.jointplot.html>__). Some options change the appearance of the marginal distributions.
+By default the main plot is a scatter plot, and the marginal plots are either histograms if the data are not shaded by a categorical variable, or KDEs if the ``hue`` kwarg is used. The type of central plot can be changed with the ``kind`` kwarg, (see `the documentation on joint plots for options and other kwargs <https://seaborn.pydata.org/generated/seaborn.jointplot.html>__). Some options change the appearance of the marginal distributions.
 
 Heatmap and Clustermap
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -354,3 +369,4 @@ The most handy kwargs for these two functions is ``annot``, which prints the val
    - Seaborn plotting functions take in a Pandas DataFrame, sometimes the names of variables in the DataFrame to extract as ``x`` and ``y``, and often a ``hue`` that makes different subsets of the data appear in different colors depending on the value of the given categorical variable.
    - Seaborn also offers datasets to play with.
    - Typesetting axes labels can be tedious, though.
+   - Saving and showing figures are best done with the standard ``pyplot`` functions. 
