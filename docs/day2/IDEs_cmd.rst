@@ -69,6 +69,120 @@ Local notes
 
 .. tabs::
 
+   .. tab:: NSC
+
+      **Through ThinLinc**
+
+         1. Login with ThinLinc (https://www.nsc.liu.se/support/graphics/) 
+
+            - Download the client matching your local computer's OS and install it.
+            - Start the ThinLinc client.
+            - Change the “Server” setting to ``tetralith.nsc.liu.se``.
+            - Change the “Name” setting to your Tetralith username (e.g x_abcde).
+            - Enter your cluster Tetralith password in the “Password” box.
+            - Press the “Connect” button.
+            - If you connect for the first time, you will see the “The server’s host key is not cached …” dialog. 
+
+         2. Load a JupyterLab module
+
+            - Open a terminal    
+            - This is an example for JupyterLab 4.2.0
+
+            .. code-block:: console
+
+               $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+         3. Start JupyterLab
+
+            - Type ``jupyter-lab`` in the terminal 
+            - It will show some text, including telling you to open a url in a browser (inside ThinLinc/on Tetralith). If you just wait, it will open a browser with Jupyter.   
+
+            - It will look similar to this:
+
+            .. admonition:: Webbrowser view
+                  :class: dropdown
+
+                  .. figure:: ../img/jupyter-thinlinc-nsc.png
+
+
+      **On your own computer through SSH tunneling**
+
+         1. Either do a regular SSH or use ThinLinc to connect to tetralith (change to your own username): 
+
+            ``ssh x_abcde@tetralith.nsc.liu.se``
+
+         2. Change to your working directory
+
+            ``cd <my-workdir>``
+
+         3. Load a module with JupyterLab in (here JupyterLab 4.2.0) 
+
+            .. code-block:: console
+
+               $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+         4. Start jupyter with the no-browser flag
+
+            - ``jupyter-lab --no-browser``
+
+            - You get something that looks like this: 
+
+            .. admonition:: Terminal view
+               :class: dropdown
+
+               .. figure:: ../img/jupyter-no-browser-nsc.png
+
+         Where I have marked a line with relevant info. Note that the port will change. 
+
+         5. Open a second terminal, on your home computer. Input this: 
+
+            - ``ssh -N -L localhost:88XX:localhost:88XX x_abcde@tetralith1.nsc.liu.se``
+
+            where you change 88XX to the actual port you got, and the name to your username. In my example it would be: 
+
+            - ``ssh -N -L localhost:8867:localhost:8867 x_birbr@tetralith1.nsc.liu.se``
+
+            .. admonition:: Terminal view
+                  :class: dropdown
+
+                  .. figure:: ../img/local-ssh-to-nsc.png
+            
+         6. Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5. 
+
+            - Input that line (url with token) in a browser on your local machine. You wil get something similar to this: 
+
+            .. admonition:: Webbrowser view
+                  :class: dropdown
+
+                  .. figure:: ../img/local-jupyter-lab.png
+
+
+   .. tab:: PDC
+
+      You can interactively launch Jupyter Lab and Notebook on Dardel by following the steps as below. Hopefully the ThinLinc licenses are sufficient!
+      
+
+         1. Click on Applications -> PDC-Jupyter -> Jupyter Lab or Jupyter Notebook
+
+            .. admonition:: Desktop view
+                  :class: dropdown
+
+                  .. figure:: ../img/pdc_start_jupyter.png
+
+         2. Configure your job parameters in the dialog box.
+
+            .. admonition:: GfxLauncher view
+                  :class: dropdown
+
+                  .. figure:: ../img/pdc_jupyter_configure_job.png
+
+         3. Click Start, wait for the job to start and in few seconds a firefox browser will open with Jupyter Lab or Notebook session. If you close the firefox browser, you can connect to same Jupyter session again by clicking ‘Reconnect to Lab’.
+
+            .. admonition:: GfxLauncher view
+                  :class: dropdown
+
+                  .. figure:: ../img/pdc_reconnect_to_jupyter.png      
+
    .. tab:: UPPMAX
 
       **1. Login to a remote desktop**
@@ -395,120 +509,6 @@ Local notes
                   :class: dropdown
 
                   .. figure:: ../img/cosmos-on-demand-job-settings.png
-
-   .. tab:: NSC
-
-      **Through ThinLinc**
-
-         1. Login with ThinLinc (https://www.nsc.liu.se/support/graphics/) 
-
-            - Download the client matching your local computer's OS and install it.
-            - Start the ThinLinc client.
-            - Change the “Server” setting to ``tetralith.nsc.liu.se``.
-            - Change the “Name” setting to your Tetralith username (e.g x_abcde).
-            - Enter your cluster Tetralith password in the “Password” box.
-            - Press the “Connect” button.
-            - If you connect for the first time, you will see the “The server’s host key is not cached …” dialog. 
-
-         2. Load a JupyterLab module
-
-            - Open a terminal    
-            - This is an example for JupyterLab 4.2.0
-
-            .. code-block:: console
-
-               $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
-
-         3. Start JupyterLab
-
-            - Type ``jupyter-lab`` in the terminal 
-            - It will show some text, including telling you to open a url in a browser (inside ThinLinc/on Tetralith). If you just wait, it will open a browser with Jupyter.   
-
-            - It will look similar to this:
-
-            .. admonition:: Webbrowser view
-                  :class: dropdown
-
-                  .. figure:: ../img/jupyter-thinlinc-nsc.png
-
-
-      **On your own computer through SSH tunneling**
-
-         1. Either do a regular SSH or use ThinLinc to connect to tetralith (change to your own username): 
-
-            ``ssh x_abcde@tetralith.nsc.liu.se``
-
-         2. Change to your working directory
-
-            ``cd <my-workdir>``
-
-         3. Load a module with JupyterLab in (here JupyterLab 4.2.0) 
-
-            .. code-block:: console
-
-               $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
-
-         4. Start jupyter with the no-browser flag
-
-            - ``jupyter-lab --no-browser``
-
-            - You get something that looks like this: 
-
-            .. admonition:: Terminal view
-               :class: dropdown
-
-               .. figure:: ../img/jupyter-no-browser-nsc.png
-
-         Where I have marked a line with relevant info. Note that the port will change. 
-
-         5. Open a second terminal, on your home computer. Input this: 
-
-            - ``ssh -N -L localhost:88XX:localhost:88XX x_abcde@tetralith1.nsc.liu.se``
-
-            where you change 88XX to the actual port you got, and the name to your username. In my example it would be: 
-
-            - ``ssh -N -L localhost:8867:localhost:8867 x_birbr@tetralith1.nsc.liu.se``
-
-            .. admonition:: Terminal view
-                  :class: dropdown
-
-                  .. figure:: ../img/local-ssh-to-nsc.png
-            
-         6. Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5. 
-
-            - Input that line (url with token) in a browser on your local machine. You wil get something similar to this: 
-
-            .. admonition:: Webbrowser view
-                  :class: dropdown
-
-                  .. figure:: ../img/local-jupyter-lab.png
-
-
-   .. tab:: PDC
-
-      You can interactively launch Jupyter Lab and Notebook on Dardel by following the steps as below. Hopefully the ThinLinc licenses are sufficient!
-      
-
-         1. Click on Applications -> PDC-Jupyter -> Jupyter Lab or Jupyter Notebook
-
-            .. admonition:: Desktop view
-                  :class: dropdown
-
-                  .. figure:: ../img/pdc_start_jupyter.png
-
-         2. Configure your job parameters in the dialog box.
-
-            .. admonition:: GfxLauncher view
-                  :class: dropdown
-
-                  .. figure:: ../img/pdc_jupyter_configure_job.png
-
-         3. Click Start, wait for the job to start and in few seconds a firefox browser will open with Jupyter Lab or Notebook session. If you close the firefox browser, you can connect to same Jupyter session again by clicking ‘Reconnect to Lab’.
-
-            .. admonition:: GfxLauncher view
-                  :class: dropdown
-
-                  .. figure:: ../img/pdc_reconnect_to_jupyter.png      
 
 Spyder
 ------
