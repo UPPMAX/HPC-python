@@ -6,7 +6,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/lunarc/nobackup/projects/lu2025-17-522024-17-44/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/lunarc/nobackup/projects/lu2025-17-52/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Purge any loaded modules
 ml purge > /dev/null 2>&1
