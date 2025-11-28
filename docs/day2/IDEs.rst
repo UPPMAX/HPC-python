@@ -609,14 +609,14 @@ Jupyter Notebook is a sibling to other notebook authoring applications under the
 .. challenge::
 
    * Try Jupyter interface with the following Notebook Code.
-   * Start an interactive session with 4-8 cores and 1-2 hr walltime.
-   * `cd` into your project directory and start `Jupyter Notebook` or `JupyterLab` as described in previous sections.
+   * Either start an interactive session with 4-8 cores and 1-2 hr walltime or stay on the login node.
+   * `cd` into your project directory and start `Jupyter Notebook` or `JupyterLab` as described in previous sections. (Optional: load matplotlib module by searching it with `module spider matplotlib` and then loading it.)
    * Create a new Python 3 notebook.
 
    .. admonition:: Notebook Code
       :class: dropdown
 
-      * Copy the following code snippets (Cell 1, Cell 2,...) into different cells in a Jupyter Notebook and run them to see the results.
+      * Type out (or copy) the following code snippets (Cell 1, Cell 2,...) into different cells in a Jupyter Notebook and run them to see the results.
       * If there is a missing package while running the following examples, dont worry, those will be covered in later sessions.
 
       .. code-block:: python
@@ -818,6 +818,60 @@ Main panes and useful tabs
 
    Now, graphics should appear in their own popup that has menu options to edit and save the content.
 
+.. challenge::
+
+   * Try Spyder interface with the following code.
+   * Either start an interactive session with 4-8 cores and 1-2 hr walltime or stay on the login node.
+   * `cd` into your project directory.
+   * Start Spyder from your python env that you created in previous session.
+   * Type out (or copy) the following code into the IDE editor and run it to see the results. 
+
+   .. admonition:: spyder_basics.py
+      :class: dropdown
+
+      .. code-block:: python
+         :caption: spyder_basics.py
+
+         # %% Basic variables — explore these in the Variable Explorer
+         a = 10
+         b = 3.5
+         c = a * b
+         message = "Hello Spyder"
+         data = list(range(10))
+         matrix = [[i * j for j in range(5)] for i in range(3)]
+         print(message)
+
+         # %% Class and state — inspect and modify instances from the Variable Explorer
+         class Counter:
+            """Simple counter object to experiment with the Variable Explorer."""
+            def __init__(self, start=0):
+               self.value = start
+
+            def inc(self, n=1):
+               self.value += n
+
+            def reset(self):
+               self.value = 0
+
+            def __repr__(self):
+               return f"Counter({self.value})"
+
+         ctr = Counter(5)
+         ctr.inc(2)
+
+
+         # A small dict to glance at many variable types in the Variable Explorer
+         __all_vars__ = dict(
+            a=a, b=b, c=c, message=message, data=data,
+            matrix=matrix, ctr=ctr
+         )
+
+         # %% Run-as-script quick checks
+         if __name__ == "__main__":
+            print("Variables available:", list(__all_vars__.keys()))
+            print("Matrix row 1:", matrix[1])
+            print("Counter value:", ctr.value)
+
 .. admonition:: Resources
    :class: dropdown
 
@@ -869,39 +923,102 @@ VS Code
    When you first establish the ssh connection to Rackham, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
    This also where VS Code will install all your extentions that can quickly fill up your home directory.
 
-Install and manage Extensions on remote VSCode server
-#####################################################
+Features
+########
 
-Manage Extensions
-^^^^^^^^^^^^^^^^^
+VS Code provides a flexible, extensible interface that is well suited for editing, debugging, and remote development. Below are the main panes, useful workflows, and configuration tips to get the most out of VS Code when working locally or connected to an HPC resource.
 
-* By default, VSCode server installs all extensions in your home directory on the remote server. Which is not recommended as home directories have limited space. You can change this behavior by changing the remote server install path to a project folder with sufficient space.
-* Go to Command Palette ``Ctrl+Shift+P`` or ``F1``. Search for ``Remote-SSH: Settings`` and then go to ``Remote.SSH: Server Install Path``. 
-* Add ``Item`` as remote host (say, rackham.uppmax.uu.se) and ``Value`` as project folder in which you want to install all your data and extensions (say ``/proj/uppmax202x-x-xx/nobackup``) (without a trailing slash /).
+Main panes and useful panels
+* Explorer (left) 📁
+   * File tree and quick file operations.
+   * Right-click to open terminals, reveal in OS file manager, or run commands.
 
-If you already had your vscode-server running and storing extensions in home directory. Make sure to kill the server by selecting ``Remote-SSH: KIll VS Code Server on Host`` on Command Palette and deleting the ``.vscode-server`` directory in your home folder.
+* Editor (center) ✍️
+   * Supports tabs, split editors, and editor groups.
+   * Rich file-type support (syntax, linting, formatting).
+   * Notebook editor for .ipynb files when Jupyter extension is installed.
 
-Install Extensions
-^^^^^^^^^^^^^^^^^^^
+* Side bar (left) 🔧
+   * Run & Debug, Source Control, Extensions, Search, Remote Explorer.
 
-* You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for ``Remote: Install Local Extensions`` in ``SSH: rackham.uppmax.uu.se`` (or other HPC name) in Command Palette. 
-* You can alternatively, go to Extensions tab and select each individually.
+* Panel (bottom) 🖥️
+   * Integrated Terminal(s): run jobs, activate envs, and submit sbatch scripts.
+   * Output, Problems, Debug Console, and Tests.
 
-Selecting Kernels
-^^^^^^^^^^^^^^^^^^^
+* Status bar (bottom) ℹ️
+   * Shows current interpreter, Git branch, line endings, and active extensions.
+   * Click the interpreter area to switch Python interpreters or kernels.
 
-* Establish an SSH connection to the login node of the HPC resource using VSCode remote-SSH extension as described in previous session.
-* Request allocation in either HPC compute node depending on your need, for that use interactive (or salloc) slurm command. 
-* Load the correct module (or virtual env) on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Rackham/Snowy, do module load python_ML_packages. Check the file path for python interpreter by checking ``which python`` and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for "interpreter" for python, then paste the path of your interpreter/kernel.
-* venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server. 
+.. admonition:: Quick Tips
+   :class: dropdown
 
-For Jupyter Notebooks:
+   * Use the Command Palette (``Ctrl+Shift+P`` / ``F1``) to find commands quickly (interpreter selection, remote commands, setting server install path).
+   * Open the integrated terminal (``Ctrl+` ``) to run modules, activate conda/venv, or submit batch jobs.
+   * Use the Python: Select Interpreter command to point VS Code at the exact Python executable on the remote host (useful after module load or activate).
+   * For notebooks, choose "Existing Jupyter Server" to connect VS Code to a Jupyter server running on a compute node.
+   * Split the editor (``Ctrl+\``) to compare files or keep docs and code side-by-side.
 
-* You need to start the server on the HPC resource first, preferrably on a compute node. 
-* Copy the jupyter server URL which goes something like ``http://s193.uppmax.uu.se:8888/tree?token=xxx`` (where s193 is Snowy node. Other HPCs will have similar URLs), click on ``Select Kernel`` on VSCode and select ``Existing Jupyter Server``. Past the URL here and confirm your choice.
-* This only works if you have the jupyter extension installed on your local VSCode.
-* The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser.
-NOTE: Selecting kernels/interpreter does not work currently on HPC2N.
+   Recommended extensions
+
+   * Python : language server, linting, testing, formatter hooks.
+   * Jupyter : native notebook support and remote server attachment.
+   * Remote-SSH : connect to HPC login nodes and work against remote files.
+
+   Keyboard shortcuts
+
+   * ``Ctrl+P`` : Quick file open
+   * ``Ctrl+Shift+P`` : Command Palette
+   * ``Ctrl+` `` : Toggle integrated terminal
+   * ``Ctrl+Shift+D`` : Open Run and Debug
+   * ``F5`` : Start debugging
+   * ``Ctrl+K Z`` : Zen Mode (distraction-free)
+
+.. admonition:: Configuring for remote development
+   :class: dropdown
+
+   * Remote server install path: ``change Remote.SSH: Server Install Path`` to keep .vscode-server and extensions in a project directory with adequate space.
+   * Interpreter path: after loading modules or activating an environment on the remote host, run ``Python: Select Interpreter`` and paste the full path from ``which python``.
+   * Port forwarding: when attaching to remote Jupyter or web UIs, check the Remote Explorer → Ports or Terminal → Ports view. VS Code can forward ports automatically.
+   * Keep heavy extensions minimal on remote servers to save space and startup time. Prefer installing large language servers locally where possible.
+
+
+   **Manage Extensions** 🔧
+
+   * By default, VSCode server installs all extensions in your home directory on the remote server. Which is not recommended as home directories have limited space. You can change this behavior by changing the remote server install path to a project folder with sufficient space.
+   * Go to Command Palette ``Ctrl+Shift+P`` or ``F1``. Search for ``Remote-SSH: Settings`` and then go to ``Remote.SSH: Server Install Path``. 
+   * Add ``Item`` as remote host (say, rackham.uppmax.uu.se) and ``Value`` as project folder in which you want to install all your data and extensions (say ``/proj/uppmax202x-x-xx/nobackup``) (without a trailing slash /).
+
+   ⚠️ If you already had your vscode-server running and storing extensions in home directory. Make sure to kill the server by selecting ``Remote-SSH: KIll VS Code Server on Host`` on Command Palette and deleting the ``.vscode-server`` directory in your home folder.
+
+   **Install Extensions** 📦
+
+   * You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for ``Remote: Install Local Extensions`` in ``SSH: rackham.uppmax.uu.se`` (or other HPC name) in Command Palette. 
+   * You can alternatively, go to Extensions tab and select each individually.
+
+   **Selecting Kernels** 🧠
+
+   * Establish an SSH connection to the login node of the HPC resource using VSCode remote-SSH extension as described in previous session.
+   * You may request an allocation on a compute node BUT VSCode server does not connect to it automatically and your code will still be executed on login node.
+   * Load the correct module (or virtual env) on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Rackham/Snowy, do module load python_ML_packages. Check the file path for python interpreter by checking ``which python`` and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for "interpreter" for python, then paste the path of your interpreter/kernel.
+   * venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server. 
+   **NOTE**: Fetching python interpreters from a compute node may or may not work depending on the HPC resource. Develop your code on login node and run it on compute nodes using sbatch scripts.
+
+   **For Jupyter Notebooks (and a much safer option)** 🧪
+
+   * You need to start the server on the HPC resource first, preferrably on a compute node. 
+   * Copy the jupyter server URL which goes something like ``http://s193.uppmax.uu.se:8888/tree?token=xxx`` (where s193 is Snowy node. Other HPCs will have similar URLs), click on ``Select Kernel`` on VSCode and select ``Existing Jupyter Server``. Past the URL here and confirm your choice.
+   * This only works if you have the jupyter extension installed on your local VSCode.
+   * The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser.
+   **NOTE**: Selecting kernels/interpreter does not work currently on HPC2N.
+
+.. admonition:: Resources
+   :class: dropdown
+
+   - VS Code `documentation <https://code.visualstudio.com/docs>`_
+   - `User interface overview <https://code.visualstudio.com/docs/getstarted/userinterface>`_
+   - `Remote - SSH docs <https://code.visualstudio.com/docs/remote/ssh>`_
+   - `Python in VS Code <https://code.visualstudio.com/docs/python/python-tutorial>`_
+
 
 Exercises
 ----------
