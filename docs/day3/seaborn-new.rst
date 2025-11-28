@@ -21,11 +21,11 @@ Load and Run Seaborn
 
    .. tab:: HPC2N (Kebnekaise)
 
-      .. important:: "Interactive use (Recommended)"
+      .. important:: **Interactive use (Recommended)**
 
          Go to the Open On-Demand web portal and start Jupyter Notebook (or VSCode) as described `here in the Kebnekaise documentation <https://docs.hpc2n.umu.se/tutorials/connections/#interactive__apps__-__jupyter__notebook>`__ and discussed on day 2 in the On-Demand lecture session. Available Spyder versions are old and generally not recommended.
 
-      .. admonition:: "Non-Interactive Use"
+      .. admonition:: Non-Interactive Use
 
          To use Seaborn in a batch script, you can load
 
@@ -37,11 +37,11 @@ Load and Run Seaborn
 
    .. tab:: LUNARC (Cosmos)
 
-      .. important:: "Interactive Use (Recommended)"
+      .. important:: **Interactive Use (Recommended)**
       
          Start a Thinlinc session and open one of Spyder, Jupyter Lab, or VSCode from the On-Demand applications menu as discussed in the `On-Demand lesson <../day2/ondemand-desktop.rst>`__ from Day 2. Spyder and Jupyter Lab are configured to load Seaborn and all its dependencies automatically via the latest version of Anaconda, whereas VSCode requires modules to be selected to load as part of the additional job settings.
 
-      .. admonition:: "Non-Interactive Use"
+      .. admonition:: Non-Interactive Use
 
          To use Seaborn in a batch script, you can either load
 
@@ -59,7 +59,7 @@ Load and Run Seaborn
 
    .. tab:: UPPMAX (Pelle)
 
-      .. important:: "General Use"
+      .. important:: **General Use**
 
          On Pelle, the only available Seaborn module right now is ``Seaborn/0.13.2-gfbf-2024a``, and it can be loaded directly, as shown below:
 
@@ -79,7 +79,7 @@ Load and Run Seaborn
 
    .. tab:: NSC (Tetralith)
      
-      .. important:: "General Use"
+      .. important:: **General Use**
 
          You should for this session load
 
@@ -114,7 +114,7 @@ Load and Run Seaborn
       - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
       - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below. The exercise prompts and their solutions are included on this page.
 
-      .. important:: "General Use"
+      .. important:: **General Use**
 
          For this session, you could load
 
@@ -124,7 +124,7 @@ Load and Run Seaborn
      
      On Dardel, all cray-python versions include NumPy, SciPy, Pandas, and Dask, and do not have any prerequisites, but Seaborn is part of ``matplotlib/3.8.2-cpeGNU-23.12``, which has ``PDCOLD/23.12`` as a prerequisite. The versions available for cray-python and Matplotlib are limited because Dardel users are typically expected to build their own environments, but for this course, the installed versions are fine.
 
-     .. admonition:: "Interactive use with Thinlinc (If Available)"
+     .. admonition:: Interactive use with Thinlinc (If Available)
          :collapsible:
 
         - Start Jupyter from the menu and it will work
