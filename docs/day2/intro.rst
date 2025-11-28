@@ -134,3 +134,4 @@ the things below?
 - The schedule
 - How to use a text editor
 - The evaluation of this day
+- The NAISS project overview
