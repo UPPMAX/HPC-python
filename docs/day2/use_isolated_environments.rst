@@ -567,8 +567,8 @@ Breakout room according to grouping
                .. code-block:: 
          
                   ml conda
-                  export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
-                  export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+                  export CONDA_PKG_DIRS=/proj/<proj-dir>/$USER
+                  export CONDA_ENVS_PATH=/proj/<proj-dir>/$USER
                   conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
                   source activate spyder-env
                   # A prompt "(/path-to/spyder-env/)" should show up
@@ -581,8 +581,8 @@ Breakout room according to grouping
                .. code-block:: 
          
                   ml Miniforge3/24.11.3-0
-                  export CONDA_PKG_DIRS=/proj/<proj-dir>/$USER
-                  export CONDA_ENVS_PATH=/proj/<proj-dir>/$USER
+                  export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+                  export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
                   conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
                   source activate spyder-env
                   # A prompt "(/path-to/spyder-env/)" should show up
@@ -596,7 +596,7 @@ Breakout room according to grouping
          
             conda install matplotlib pandas seaborn xarray dask numba
 
-            - Check that the above packages are there by ``conda list``.
+         - Check that the above packages are there by ``conda list``.
 
          We will put requirements files in the course project folder that you can build from in latter lessons
 
