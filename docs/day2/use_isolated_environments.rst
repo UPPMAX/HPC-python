@@ -749,39 +749,35 @@ Breakout room according to grouping
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
     
-      .. tab:: UPPMAX
+      .. tab:: UPPMAX: Bianca
 
-         .. tabs::
-
-            .. tab:: Bianca
-
-               .. code-block:: 
+          .. code-block:: 
          
-                  ml conda
-                  export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
-                  export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
-                  conda create --prefix $CONDA_ENVS_PATH/example python=3.12 -c conda-forge
-                  source activate example
-                  # A prompt "(/path-to/example/)" should show up
-                  # double-check we are using python from the Conda environment!
-                  which python  # should point to the conda environment!
-                  python -V     # should give python version 3.12.X
+             ml conda
+             export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+             export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+             conda create --prefix $CONDA_ENVS_PATH/example python=3.12 -c conda-forge
+             source activate example
+             # A prompt "(/path-to/example/)" should show up
+             # double-check we are using python from the Conda environment!
+             which python  # should point to the conda environment!
+             python -V     # should give python version 3.12.X
    
-            .. tab:: Pelle
+      .. tab:: UPPMAX: Pelle
    
-               .. code-block:: 
+         .. code-block:: 
             
-                  ml Miniforge3/24.11.3-0
-                  export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER  #only needed once per session
-                  export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER  #only needed once per session
-                  conda create --prefix $CONDA_ENVS_PATH/example python=3.12 -c conda-forge
-                  source activate example
-                  # A prompt "(/path-to/example)" should show up
-                  # double-check we are using python from the Conda environment!
-                  which python  # should point to the conda environment!
-                  python -V     # should give python version 3.12.X
+            ml Miniforge3/24.11.3-0
+            export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER  #only needed once per session
+            export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER  #only needed once per session
+            conda create --prefix $CONDA_ENVS_PATH/example python=3.12 -c conda-forge
+            source activate example
+            # A prompt "(/path-to/example)" should show up
+            # double-check we are using python from the Conda environment!
+            which python  # should point to the conda environment!
+            python -V     # should give python version 3.12.X
    
-   .. tab:: HPC2N
+      .. tab:: HPC2N
 
          Skip this exercise
  
