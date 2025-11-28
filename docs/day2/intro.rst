@@ -100,7 +100,6 @@ what you will learn today.
     - I can write and submit batch job scripts
     - I can use the compute nodes interactively
     - I can use a Python IDE
-    - I can create plots in ``matplotlib``
 
 Exercise 2: downloading and extracting the exercises
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
