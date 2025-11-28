@@ -71,7 +71,7 @@ Exercise 1: the learning outcomes of today
 The goal of this exercise is to find out
 what you will learn today.
 
-- Go to `this form <https://docs.google.com/forms/d/e/1FAIpQLSeWUw99NWVgMzUwNOOitUCRx308fdqrM3bb2yMT6vvaa0s-1Q/viewform?usp=header>`__
+- Go to `this form <https://docs.google.com/forms/d/e/1FAIpQLSfg9jH5RjSAEV_YzxBWcNA0Nd1Oi4--uED0NSnZTDmFAh4CYw/viewform?usp=publish-editor>`__
   and fill it in
 
 .. admonition:: **For teachers: What is in that form**
