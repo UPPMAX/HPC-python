@@ -420,7 +420,7 @@ Breakout room according to grouping
 
             - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
             
-            UPPMAX
+            UPPMAX (only Pelle)
 
             - `Python venv <https://docs.uppmax.uu.se/software/python_venv/>`_
             - `Video By Richel <https://www.youtube.com/watch?v=lj_Q-5l0BqU>`_
@@ -430,7 +430,7 @@ Breakout room according to grouping
             - `Venv <https://docs.hpc2n.umu.se/software/userinstalls/#venv>`_
             - `Video by Richel <https://www.youtube.com/watch?v=_ev3g5Zvn9g>`_
              
-         .. tab: conda
+         .. tab:: conda
 
             NSC:
 
@@ -520,7 +520,7 @@ Breakout room according to grouping
 
          - Check that the above packages are there by ``conda list``. 
 
-        2. Let's make a Jupyter installation based on Python 3.11.7
+         2. Let's make a Jupyter installation based on Python 3.11.7
 
          .. code-block:: console
 
@@ -558,9 +558,9 @@ Breakout room according to grouping
 
       .. tab:: UPPMAX
 
-         1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
+         Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_ 
          
-         .. tabs:::
+         .. tabs::
 
             .. tab:: Bianca
 
@@ -576,7 +576,7 @@ Breakout room according to grouping
                   which python  # should point to the conda environment!
                   python -V     # should give python version 3.12.X
 
-           .. tab:: Pelle
+            .. tab:: Pelle
 
                .. code-block:: 
          
@@ -749,10 +749,24 @@ Breakout room according to grouping
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
     
-      .. tab:: UPPMAX: Pelle
+      .. tab:: UPPMAX: Bianca
 
-         .. code-block:: console
+          .. code-block:: 
          
+             ml conda
+             export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+             export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+             conda create --prefix $CONDA_ENVS_PATH/example python=3.12 -c conda-forge
+             source activate example
+             # A prompt "(/path-to/example/)" should show up
+             # double-check we are using python from the Conda environment!
+             which python  # should point to the conda environment!
+             python -V     # should give python version 3.12.X
+   
+      .. tab:: UPPMAX: Pelle
+   
+         .. code-block:: 
+            
             ml Miniforge3/24.11.3-0
             export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER  #only needed once per session
             export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER  #only needed once per session
@@ -762,7 +776,7 @@ Breakout room according to grouping
             # double-check we are using python from the Conda environment!
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
-
+   
       .. tab:: HPC2N
 
          Skip this exercise
@@ -774,6 +788,9 @@ Breakout room according to grouping
       conda install matplotlib numpy       
 
    - Check that the above packages are there by ``conda list``. 
+
+
+
 
 
 
