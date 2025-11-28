@@ -5,15 +5,14 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/lunarc/nobackup/projects/lu2025-17-52/<your-projecct-storage>/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/lunarc/nobackup/projects/lu2025-17-52/<mydir-name>/Exercises/day3/programs/
 
 # Load any modules you need, here for Python 3.11.5 and compatible SciPy-bundle, matplotlib 
 module load GCC/13.2.0 SciPy-bundle/2023.11 matplotlib/3.8.2
 
 # Activate your virtual environment. 
 # CHANGE <path-to-virt-env> to the full path where you installed your 
-# virtual environment. For instance, the vpyenv created in the course 
-# would work with this example 
+# virtual environment. 
 # Example: /lunarc/nobackup/projects/lu20YY-XX-ZZ/<mydir-name>/<myvirtenv>
 source <path-to-virt-env>/bin/activate
 

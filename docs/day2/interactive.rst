@@ -33,8 +33,8 @@ Interactive work on the compute nodes
    - Kebnekaise: ``/proj/nobackup/fall-courses``
    - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
    - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
-   - Tetralith: ``/proj/courses-fall-courses``
-   - Dardel: ``/cfs/klemming/projects/supr/courses-fall-courses``
+   - Tetralith: ``/proj/courses-fall-2025``
+   - Dardel: ``/cfs/klemming/projects/supr/courses-fall-2005``
 
 Introduction
 ------------

@@ -14,7 +14,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/nobackup/fall-courses/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/mimer/NOBACKUP/groups/courses-fall-2025/<mydir-name>/Exercises/day3/programs/
 
 ml purge > /dev/null 2>&1
 ml Python/3.13.5-GCCcore-14.3.0

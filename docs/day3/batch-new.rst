@@ -571,7 +571,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
             - python -m venv --system-site-packages mymatplotlib
             - source mymatplotlib/bin/activate
             - pip install matplotlib
-        - C3SE: matplotlib/3.10.5-gfbf-2025b (Loads Python/3.13.5, SciPy-buncle, Python-bundle-PyPi, Tkinter, etc.) 
+        - C3SE: module load matplotlib/3.10.5-gfbf-2025b (Loads Python/3.13.5, SciPy-buncle, Python-bundle-PyPi, Tkinter, etc.) 
             
    2. Start Python (``python``) in the ``<path-to>/Exercises/examples/programs`` directory
    3. Run these lines: 
