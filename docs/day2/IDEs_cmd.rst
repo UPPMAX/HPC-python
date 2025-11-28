@@ -28,6 +28,33 @@ The IDEs
 - Spyder
 - VScode
 
+Prepare environment!
+--------------------
+
+1. Log in to a desktop (ThinLinc or OnDemand)
+2. Start interactive session with 6 cores
+
+.. admonition:: Compute allocations in this workshop 
+   :class: dropdown   
+
+   - Pelle: ``uppmax2025-2-393``
+   - Kebnekaise: ``hpc2n2025-151``
+   - Cosmos: ``lu2025-7-106``
+   - Alvis: ``naiss2025-22-934``
+   - Tetralith: ``naiss2025-22-934``  
+   - Dardel: ``naiss2025-22-934``
+
+.. admonition:: Storage space for this workshop 
+   :class: dropdown
+
+   - Pelle: ``/proj/hpc-python-uppmax``
+   - Kebnekaise: ``/proj/nobackup/fall-courses``
+   - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
+   - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
+   - Tetralith: ``/proj/courses-fall-courses``
+   - Dardel: ``/cfs/klemming/projects/supr/courses-fall-courses``
+
+
 Jupyter
 -------
 
@@ -54,13 +81,13 @@ Local notes
 
       - You can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster. 
 
-   .. tab:: HPC2N
-        
-      - JupyterLab is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
-
    .. tab:: UPPMAX
 
       - One can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX `documentation on ThinLinc <https://docs.uppmax.uu.se/software/thinlinc/>`_ on how to install the ThinLinc client locally
+
+   .. tab:: HPC2N
+        
+      - JupyterLab is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
 
    .. tab:: LUNARC
 
@@ -679,38 +706,18 @@ This also where VS Code will install all your extentions that can quickly fill u
 Exercises with step-by-step instructions
 ----------------------------------------
 
-.. admonition:: Compute allocations in this workshop 
-   :class: dropdown   
-
-   - Pelle: ``uppmax2025-2-393``
-   - Kebnekaise: ``hpc2n2025-151``
-   - Cosmos: ``lu2025-7-106``
-   - Alvis: ``naiss2025-22-934``
-   - Tetralith: ``naiss2025-22-934``  
-   - Dardel: ``naiss2025-22-934``
-
-.. admonition:: Storage space for this workshop 
-   :class: dropdown
-
-   - Pelle: ``/proj/hpc-python-uppmax``
-   - Kebnekaise: ``/proj/nobackup/fall-courses``
-   - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
-   - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
-   - Tetralith: ``/proj/courses-fall-courses``
-   - Dardel: ``/cfs/klemming/projects/supr/courses-fall-courses``
-
+Use the instructions above.
 
 Exercise 1: Start Jupyter on a compute node
 ###########################################
 
-
-
 Exercise 2: Start Spyder on a compute node
 ##########################################
-
 
 Exercise 3: Run VScode locally with a connection to a compute node
 ##################################################################
 
+Exercise 3: Run VScode locally with a connection to a compute node
+##################################################################
 
 
