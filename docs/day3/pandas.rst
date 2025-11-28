@@ -540,7 +540,7 @@ Here is a (somewhat scientifically nonsensical) example using a DataFrame of var
 
    Alternatively to JIT, the Cython package lets Python code be compiled into C with minimal additional code. The compiled code can then run markedly faster depending on the application and whether or not variables are declared with static data types. The `Pandas documentation on Cython shows an example in Jupyter using IPython magic commands, <https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#cython-writing-c-extensions-for-pandas>`__ (see also `this article on IPython Magics <https://www.python4data.science/en/latest/workspace/ipython/magics.html>`__).
 
-   However, the more typical use case requires writing a ``.pyx`` file, compiling it with a ``setup.py`` script, and executing the compiled file from a Slurm script or the bash shell. Since this approach requires somewhat more C experience, it is outside the scope of this course. Interested users can `view the official Cython documentation here. <https://cython.readthedocs.io/en/stable/src/tutorial/cython_tutorial.html>__
+   However, the more typical use case requires writing a ``.pyx`` file, compiling it with a ``setup.py`` script, and executing the compiled file from a Slurm script or the bash shell. Since this approach requires somewhat more C experience, it is outside the scope of this course. Interested users can `view the official Cython documentation here. <https://cython.readthedocs.io/en/stable/src/tutorial/cython_tutorial.html>`__
 
 
 Getting Dummy Variables for Machine Learning
@@ -557,15 +557,15 @@ The Pandas function that does this is ``pd.get_dummies(data, dtype=bool, drop_fi
 * ``prefix`` is just a set of strings you can add to dummy column names to make clear which ones are related.
 * If nothing is passed to ``columns``, Pandas will try to convert the entire DataFrame to dummy variables, which is usually a bad idea. *Always pass the subset of columns you want to convert to the ``columns`` kwarg.*
 
-Let's say you did an experiment where you tested 100 people to see if their preference for Coke or Pepsi correlated with whether the container it came in was made of aluminum, plastic, or glass, and whether it was served with or without ice.
+Let's say you did an experiment where you surveyed 10000 people to see if their preference for Coke or Pepsi correlated with whether the container it came in was made of aluminum, plastic, or glass, and whether it was served with or without ice.
 
 .. jupyter-execute::
 
     from random import choices
     import pandas as pd
-    sodas = choices(['Coke','Pepsi'],k=100)
-    containers = choices(['aluminum','glass','plastic'],k=100)
-    ices = choices([1, 0],k=100) ###already boolean
+    sodas = choices(['Coke','Pepsi'],k=10000)
+    containers = choices(['aluminum','glass','plastic'],k=10000)
+    ices = choices([1, 0],k=10000) ###already boolean
     soda_df = pd.DataFrame(list(zip(sodas,containers,ices)),
                            columns=['brand','container_material','with_ice'])
     print(soda_df.head())
