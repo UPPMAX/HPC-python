@@ -5,7 +5,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/lunarc/nobackup/projects/lu2025-17-522024-17-44/<your-projecct-storage>/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/lunarc/nobackup/projects/lu2025-17-52/<your-projecct-storage>/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 # Load any modules you need, here for Python 3.11.3 and compatible SciPy-bundle, matplotlib 
 module load GCC/12.3.0  Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2
