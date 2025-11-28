@@ -281,9 +281,6 @@ We will talk more about parallel code in the session "Parallel computing with Py
            # Number of tasks - default is 1 core per task. Here 4 
            #SBATCH -n 4
 
-           # Time in HHH:MM:SS - at most 168 hours. 
-           #SBATCH --time=00:05:00
-
            # It is always a good idea to do ml purge before loading other modules 
            ml purge > /dev/null 2>&1
            # Load a suitable Python module 

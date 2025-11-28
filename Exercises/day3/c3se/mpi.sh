@@ -1,7 +1,13 @@
 #!/bin/bash
 # Change to your own project id! 
-#SBATCH -A hpc2n2025-151
-#SBATCH -t 00:05:00
+#SBATCH -A naiss2025-22-934
+#SBATCH -t 00:10:00
+#SBATCH -p alvis
+# You need to ask for a GPU to run on alvis.
+# This is a CPU job. Do not do things like this normally!
+# Only use for GPU jobs!
+#SBATCH -N 1 --gpus-per-node=T4:1
+# Number of tasks - default is 1 core per task. Here 4
 #SBATCH -n 4
 #SBATCH -o output_%j.out   # output file
 #SBATCH -e error_%j.err    # error messages
@@ -11,12 +17,8 @@
 MYPATH=/proj/nobackup/fall-courses/<mydir-name>/HPC-python/Exercises/examples/programs/
 
 ml purge > /dev/null 2>&1
-ml GCC/12.3.0 Python/3.11.3
-ml OpenMPI/4.1.5
-ml SciPy-bundle/2023.07 mpi4py/3.1.4 
-#ml Julia/1.7.1-linux-x86_64  # if Julia is needed
+ml Python/3.13.5-GCCcore-14.3.0
+ml SciPy-bundle/2025.07-gfbf-2025b Python-bundle-PyPI/2025.07-GCCcore-14.3.0
+ml mpi4py/4.1.0-gompi-2025b
 
-# CHANGE THE PATH BELOW TO YOUR OWN PATH if you need a virtual environment 
-#source /proj/nobackup/<your-proj-id>/<mydir-name>/<path-to-vpyenv-python-course>/bin/activate
-
-mpirun -np 4 python $MYPATH/integration2d_mpi.py
+srun python $MYPATH/integration2d_mpi.py
