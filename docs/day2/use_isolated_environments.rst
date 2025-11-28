@@ -520,7 +520,7 @@ Breakout room according to grouping
 
          - Check that the above packages are there by ``conda list``. 
 
-        2. Let's make a Jupyter installation based on Python 3.11.7
+         2. Let's make a Jupyter installation based on Python 3.11.7
 
          .. code-block:: console
 
@@ -576,7 +576,7 @@ Breakout room according to grouping
                   which python  # should point to the conda environment!
                   python -V     # should give python version 3.12.X
 
-           .. tab:: Pelle
+            .. tab:: Pelle
 
                .. code-block:: 
          
