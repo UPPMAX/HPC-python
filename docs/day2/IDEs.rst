@@ -1,3 +1,5 @@
+.. _use_ides:
+
 Using IDEs
 ============
 
