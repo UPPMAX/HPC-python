@@ -218,7 +218,7 @@ Showing your figure
 """""""""""""""""""
 
 * In an IDE, this is trivial: just assign your plotting command to a variable, and call ``.figure.show()`` off of that variable name.
-* In a script to be executed from the command line, you may as well use ``plt.show()`` because you still have to do ``import matplotlib`` and set ``matplotlib.use('TkAgg')`` or another backend to make the display open. Moreover, while ``plt.show()`` keeps the script from terminating until the user closes the graphic, for some reason ``.figure.show()`` does not, so the figure closes almost immediately after opening UNLESS you do one of the following:
+* In a script to be executed from the command line, you may as well use ``plt.show()`` because you typically still have to do ``import matplotlib`` and set ``matplotlib.use('TkAgg')`` or another backend to make the display open. Moreover, while ``plt.show()`` keeps the script from terminating until the user closes the graphic, for some reason ``.figure.show()`` does not, so the figure closes almost immediately after opening UNLESS you do one of the following:
    - After the line containing ``.figure.show()``, add an ``input()`` command, something like ``input("Press any key to exit")``.
    - Run the script with the interactive ``-i`` option between ``python`` and the name of the script. Note that with this method, you will step into a Python shell after closing the figure.
 
