@@ -12,7 +12,7 @@ was the videos for Pelle.
 
 The session went well: all learners were able to achieve the session
 goals before the end of the session, which was (1) download
-and untar the tarbal, (2) load a Python package from a software module
+and untar the tarball, (2) load a Python package from a software module
 and verify it works.
 
 Because 6 out of 7 learners got to know me from the day before, I cut
