@@ -191,7 +191,7 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
 
      .. code-block:: console
         
-        module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+        module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 JupyterLab/4.2.0
 
   .. tab:: PDC (Dardel)
 
