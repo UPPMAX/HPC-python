@@ -5,7 +5,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/nobackup/fall-courses/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/nobackup/fall-courses/<mydir-name>/Exercises/day2/programs/
 
 # Load any modules you need, here for Python 3.11.3
 module purge > /dev/null 2>&1

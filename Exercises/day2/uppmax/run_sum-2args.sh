@@ -5,10 +5,10 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/hpc-python-uppmax/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/hpc-python-uppmax/<mydir-name>/Exercises/day2/programs/
 
-# Load any modules you need, here for Python 3.11.8
-ml python/3.12.3-GCCcore-13.3.0
+# Load any modules you need, here for Python 3.12.3
+ml Python/3.12.3-GCCcore-13.3.0 SciPy-bundle/2024.05-gfbf-2024a 
 
 # Run your Python script
 python $MYPATH/sum-2args.py 2 3

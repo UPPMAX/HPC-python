@@ -5,11 +5,11 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/courses-fall-2025/users/<mydir-name>/Exercises/day2/programs/
 
 # Load any modules you need
 module purge > /dev/null 2>&1
-module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0  
+module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 
 
 # Run your Python script
 python $MYPATH/sum-2args.py 2 3 

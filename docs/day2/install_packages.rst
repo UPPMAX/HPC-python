@@ -8,9 +8,10 @@ Install packages
     - Understand limitations of this way, e.g. use cases/best practices
 
 .. admonition:: For the teacher
+   :class: drop-down
 
     - Dialogue with users during class 15 min
-    - Exercise about 10 min
+    - Exercise about 5 min
 
 Introduction
 ------------
@@ -25,7 +26,7 @@ There are 2 ways to install missing python packages at a HPC cluster.
 
 Normally you want reproducibility and the safe way to go is with isolated environments specific to your different projects.
 
-.. admonition:: Use cases of local _general_ packages
+.. admonition:: Use cases of local *general* packages
 
    - Packages, missing in the loaded Python module, that would not be specific for a research project.
    - Comment: You can include the package in a virtual environment as well.
@@ -40,7 +41,7 @@ Typical workflow
     - Double check the version ``python3 -V`` or ``python -V``
 
 3. Install with: ``pip install --user <package-name [version]>`` 
-   - Bit more secure (using really the loaded Python): ``python -m pip install --user <package-name [version]>``
+    - Bit more secure (using really the loaded Python): ``python -m pip install --user <package-name [version]>``
 
 Package versions
 ................
@@ -136,13 +137,16 @@ Check your own installed packages (and dependencies)
 .. keypoints::
 
    - You can install Python packages as a user with the ``pip install --user <package>[==<version>]``.
-   - The ``pip`` command will look after available _valid_ dependencies already seen or install them on the fly.
-   - You can load package modules to help minimizing new instalaltions of dependencies.
+   - The ``pip`` command will look after available *valid* dependencies already seen or install them on the fly.
+   - You can load package modules to help minimizing new installations of dependencies.
 
-      - Then you need to load that package module eggverytime you need the "main" package.
+      - Then you need to load that package module everytime you need the "main" package.
 
 Exercise
 --------
+
+- If there is time!
+- You'll practice ``pip`` in isolated environments in next session!
 
 .. challenge:: (optional) Exercise 1: Install a python package you know of for an old version of Python
 

@@ -137,6 +137,11 @@ In the terminal, in your personal folder, type the following command:
 
     wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz
 
+NOTE! Friday/2nd day - use this: 
+
+.. code-block:: console 
+
+   wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.bz2
 
 Step 5/6: Uncompress the tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,10 +152,16 @@ In the terminal, in your personal folder, type the following command:
 
     tar -xvzf exercises.tar.gz
 
+NOTE: Friday/2nd day - use this: 
+
+.. code-block:: console 
+
+   tar -xvjf exercises.tar.bz2
+    
 Step 6/6: Navigate in the folder of that day
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After decompressing, there is a folder called  ``day2``, or ``day3`` or ``day4``
+After decompressing, there is a folder called  ``Exercises`` and under that ``day2``, or ``day3`` or ``day4``
 that contains the exercises. Navigate into that folder.
 
 .. admonition:: Answer
