@@ -8,11 +8,11 @@
 
 # Change to the directory where the data files and program are located
 # Change the below to your own path to where you placed the example programs
-cd /proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
+cd /proj/courses-fall-2025/users/<mydir-name>/Exercises/day3/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 Python/3.10.4 SciPy-bundle/2022.05 matplotlib/3.5.2 Tkinter/3.10.4
+module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4
 
 # Run your Python script
-python pandas_matplotlib-batch-tetralith.py
+python pandas_matplotlib-batch.py
