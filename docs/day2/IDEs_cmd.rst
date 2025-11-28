@@ -31,6 +31,11 @@ The IDEs
 Prepare environment!
 --------------------
 
+.. admonition:: 
+
+   - We recommend a desktop environment for speed of the graphics.
+   - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
+
 1. Log in to a desktop (ThinLinc or OnDemand)
 2. Start interactive session with 6 cores
 
@@ -43,17 +48,6 @@ Prepare environment!
    - Alvis: ``naiss2025-22-934``
    - Tetralith: ``naiss2025-22-934``  
    - Dardel: ``naiss2025-22-934``
-
-.. admonition:: Storage space for this workshop 
-   :class: dropdown
-
-   - Pelle: ``/proj/hpc-python-uppmax``
-   - Kebnekaise: ``/proj/nobackup/fall-courses``
-   - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
-   - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
-   - Tetralith: ``/proj/courses-fall-courses``
-   - Dardel: ``/cfs/klemming/projects/supr/courses-fall-courses``
-
 
 Jupyter
 -------
