@@ -11,6 +11,6 @@
 
 ![Average initial confidences per question](average_confidences_per_question_pre.png)
 
-!Initial confidences per question as a boxplot](confidences_per_question_boxplot_pre.png)
+![Initial confidences per question as a boxplot](confidences_per_question_boxplot_pre.png)
 
 ![Initial confidences per question](confidences_per_question_pre.png)
