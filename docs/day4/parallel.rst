@@ -434,6 +434,24 @@ in Python rather than learning to write those codes.
    Optional flags for ``srun`` for writing output and error files are ``-o output_%j.out -e error_%j.err`` instead 
    of writing on the terminal screen.
 
+   **Data dependencied**
+
+   In general, one cannot parallelize an serial algorithm; let's take the case of:
+
+
+   .. code-block:: python
+
+      a[0] = 0
+      for i in range(1, N):
+         a[i] = a[i-1] + i
+
+   Here, the iteration *i* depends on the previous iteration *i-1*. One needs to transform this algorithm:
+
+   .. code-block:: python
+
+      for i in range(N):
+         a[i] = 0.5 * i * (i + 1)
+
 
 
 2D integration
