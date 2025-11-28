@@ -929,6 +929,7 @@ Features
 VS Code provides a flexible, extensible interface that is well suited for editing, debugging, and remote development. Below are the main panes, useful workflows, and configuration tips to get the most out of VS Code when working locally or connected to an HPC resource.
 
 Main panes and useful panels
+
 * Explorer (left) 📁
    * File tree and quick file operations.
    * Right-click to open terminals, reveal in OS file manager, or run commands.
