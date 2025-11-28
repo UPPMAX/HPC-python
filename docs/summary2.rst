@@ -42,13 +42,12 @@ Summary day 2
    - IDEs
        - Jupyter-lab/notebook
            - Available in all clusters
+           - OnDemand at Dardel, Alvis, Cosmos and Kebnekaise
        - Spyder
-           - Best available at LUNARC
+           - Best available at LUNARC (from OnDemand as well)
            - Possible at the others through virtual environments (pip) or Conda (not HPC2N)
-       - VScode: perhaps shown tomorrow
-
-   - Matplotlib
-       - Matplotlib is the essential Python data visualization package, with nearly 40 different plot types to choose from depending on the shape of your data and which qualities you want to highlight.
-       - Almost every plot will start by instantiating the figure, ``fig`` (the blank canvas), and 1 or more ``axes`` objects, ``ax``, with ``fig, ax = plt.subplots(*args, **kwargs)``.
-       - Most of the plotting and formatting commands you will use are methods of Axes objects, but a few, like colorbar are methods of the Figure, and some commands are methods both.
+       - VScode
+           - Always available (except for Bianca) from local computer (if you have VS Code)
+           - available as modules or 
+           - from onDemand at Cosmos and Kebnekaise
 
