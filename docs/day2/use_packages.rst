@@ -26,6 +26,18 @@ Software modules allows users of any HPC cluster
 to activate their favorite software of any version.
 This helps to assure reproducible research.
 
+How to see which Python packages are installed
+----------------------------------------------
+
+There are two ways to determine which Python packages are installed:
+
++-------------------------+------------------------------------------------+--------------------------------+
+|Where                    |Command to run                                  |The package is present when ... |
++=========================+================================================+================================+
+|On the command-line      |``pip list``                                    |It shows up in the list         |
+|In the Python interpreter|``import [package_name]``, e.g. ``import scipy``|There is no error               |
++-------------------------+------------------------------------------------+--------------------------------+
+
 Exercises
 ---------
 

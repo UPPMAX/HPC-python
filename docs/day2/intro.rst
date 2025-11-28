@@ -116,3 +116,12 @@ on your favorite HPC cluster and extract the exercises.
     You can easily navigate there by pressing the 'Next' arrow
     at the bottom of this page, at the right-hand side
 
+(optional) Exercise 3: where is what?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Explore the website of the course. Where you can you find
+the things below?
+
+- The schedule
+- How to use a text editor
+- The evaluation of this day
