@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="introduction, day 2" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using packages" href="use_packages.html" />
+    <link rel="prev" title="Link to Day 1 (Intro to Python)" href="../common/day1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-is-this-course-important">Why is this course important?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-1-add-your-hpc-cluster-to-your-name">Exercise 1: add your HPC cluster to your name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-2-the-learning-outcomes-of-today">Exercise 2: the learning outcomes of today</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-3-downloading-and-extracting-the-exercises">Exercise 3: downloading and extracting the exercises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-exercise-4-where-is-what">(optional) Exercise 4: where is what?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day2/intro.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<span id="day2-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<div class="dropdown admonition">
+<p class="admonition-title">Want to see this session as a video?</p>
+<p>To see this session as a video, view <a class="reference external" href="https://youtu.be/874BDWNCYWg">this YouTube video</a>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title"><strong>For teachers: Learning outcomes for this day</strong></p>
+<ul class="simple">
+<li><p>You can find and load a Python package module</p></li>
+<li><p>You can determine if a Python package is installed</p></li>
+<li><p>You can use an isolated environment</p></li>
+<li><p>You can install Python packages</p></li>
+<li><p>You can write and submit batch job scripts</p></li>
+<li><p>You can use the compute nodes interactively</p></li>
+<li><p>You can use a Python IDE</p></li>
+<li><p>You can create plots in <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+</ul>
+</div>
+<div class="admonition-learning-outcomes-of-this-session admonition">
+<p class="admonition-title"><strong>Learning outcomes of this session</strong></p>
+<ul class="simple">
+<li><p>Learners have read what they will learn</p></li>
+<li><p>Learners can find how to download and extract the exercises</p></li>
+<li><p>Learners understand how this day is organized</p></li>
+<li><p>Learners can find their NAISS project</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title"><strong>For teachers: Lesson plan</strong></p>
+<p>Prior questions:
+- What is Pyton?</p>
+</div>
+<section id="why-is-this-course-important">
+<h2>Why is this course important?<a class="headerlink" href="#why-is-this-course-important" title="Link to this heading"></a></h2>
+<p>Python, according to <a class="reference external" href="https://www.tiobe.com/tiobe-index/">the TIOBE index</a>,
+is one of the most used programming languages used today.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">What is Python again?</p>
+<p>Python …</p>
+<ul class="simple">
+<li><p>is a high-level programming language.</p></li>
+<li><p>is a general-purpose programming language.</p></li>
+<li><p>emphasizes code readability</p></li>
+<li><p>uses indentation to indicate structure</p></li>
+<li><p>is dynamically type-checked</p></li>
+<li><p>supports multiple programming paradigms</p></li>
+<li><p>has a comprehensive standard library</p></li>
+<li><p>has thousands of packages (pieces of re-usable code)</p></li>
+<li><p>has <a class="reference external" href="https://www.python.org/doc/">official documentation</a></p></li>
+<li><p>has <a class="reference external" href="https://python-forum.io/">a forum</a></p></li>
+</ul>
+</div>
+<p>Running Python on an HPC cluster allows scientists to
+run their code that needs either (1) massive computation,
+(2) massive storage space, and/or (3) storage of sensitive data.</p>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<section id="exercise-1-add-your-hpc-cluster-to-your-name">
+<h3>Exercise 1: add your HPC cluster to your name<a class="headerlink" href="#exercise-1-add-your-hpc-cluster-to-your-name" title="Link to this heading"></a></h3>
+<p>Change your Zoom name, to include your HPC cluster and favorite
+programming language, e.g. make <cite>Sven</cite> into <cite>Sven [Alvis]</cite>.</p>
+<p>You can do so by right-click on the video of yourself,
+then click ‘Rename’ to change your Zoom name.</p>
+</section>
+<section id="exercise-2-the-learning-outcomes-of-today">
+<h3>Exercise 2: the learning outcomes of today<a class="headerlink" href="#exercise-2-the-learning-outcomes-of-today" title="Link to this heading"></a></h3>
+<p>The goal of this exercise is to find out
+what you will learn today.</p>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSfg9jH5RjSAEV_YzxBWcNA0Nd1Oi4--uED0NSnZTDmFAh4CYw/viewform?usp=publish-editor">this form</a>
+and fill it in</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title"><strong>For teachers: What is in that form</strong></p>
+<p id="day2-initial-learning-outcomes">With this exercise, we’ll discover what we’ll learn today.</p>
+<p>Give you confidence levels of the following statements,
+using this scale:</p>
+<ul class="simple">
+<li><p>0: I don’t know even what this is about …?</p></li>
+<li><p>1: I have no confidence I can do this</p></li>
+<li><p>2: I have low confidence I can do this</p></li>
+<li><p>3: I have some confidence I can do this</p></li>
+<li><p>4: I have good confidence I can do this</p></li>
+<li><p>5: I absolutely can do this!</p></li>
+</ul>
+<p>Give you confidence levels of the following statements below:</p>
+<ul class="simple">
+<li><p>I can find and load a Python package module</p></li>
+<li><p>I can determine if a Python package is installed</p></li>
+<li><p>I can use an isolated environment</p></li>
+<li><p>I can install Python packages</p></li>
+<li><p>I can write and submit batch job scripts</p></li>
+<li><p>I can use the compute nodes interactively</p></li>
+<li><p>I can use a Python IDE</p></li>
+</ul>
+</div>
+</section>
+<section id="exercise-3-downloading-and-extracting-the-exercises">
+<h3>Exercise 3: downloading and extracting the exercises<a class="headerlink" href="#exercise-3-downloading-and-extracting-the-exercises" title="Link to this heading"></a></h3>
+<p>The goal of this exercise is to download a file
+on your favorite HPC cluster and extract the exercises.</p>
+<ul class="simple">
+<li><p>Go to <a class="reference internal" href="../common/use_tarball.html#common-use-tarball"><span class="std std-ref">Use the tarball with exercises</span></a> and do the procedure.</p></li>
+</ul>
+<div class="admonition-done admonition">
+<p class="admonition-title"><strong>Done?</strong></p>
+<p>When done, go to the next session and read up on it.</p>
+<p>You can easily navigate there by pressing the ‘Next’ arrow
+at the bottom of this page, at the right-hand side</p>
+</div>
+</section>
+<section id="optional-exercise-4-where-is-what">
+<h3>(optional) Exercise 4: where is what?<a class="headerlink" href="#optional-exercise-4-where-is-what" title="Link to this heading"></a></h3>
+<p>Explore the website of the course. Where you can you find
+the things below?</p>
+<ul class="simple">
+<li><p>The schedule</p></li>
+<li><p>How to use a text editor</p></li>
+<li><p>The evaluation of this day</p></li>
+<li><p>The NAISS project overview</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../common/day1.html" class="btn btn-neutral float-left" title="Link to Day 1 (Intro to Python)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="use_packages.html" class="btn btn-neutral float-right" title="Using packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
