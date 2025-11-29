@@ -211,9 +211,16 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
 
           Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
-         .. code-block:: 
-
+         .. code-block:: console
+   
+            ml PDC/24.11
+            ml miniconda3/25.3.1-1-cpeGNU-24.11
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+            source activate spyder-env
+            # If needed, install the packages here by: "conda install matplotlib pandas seaborn"
             spyder &
+
 
    .. tab:: Alvis (C3SE)
      
