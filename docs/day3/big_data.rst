@@ -362,10 +362,19 @@ An overview of common data formats
 Exercise file formats (10 minutes)
 ---------------------------------
 
-Go over file formats and see if some are more relevant for your work.
+.. challenge:: Reading NetCDF files
 
-.. discussion::
+   - Read: https://stackoverflow.com/questions/49854065/python-netcdf4-library-ram-usage
+   - What about using NETCDF files and memory?
 
+.. challenge::
+
+   - Start Jupyter or just a Python shell and
+   - Go though and test the lines at the page at https://docs.scipy.org/doc/scipy-1.13.1/reference/generated/scipy.io.netcdf_file.html
+
+.. challenge:: 
+
+   - Go over file formats and see if some are more relevant for your work.
    - Would you look at other file formats and why?
 
 
@@ -390,15 +399,14 @@ XARRAY Package
 ..............
 
 - ``xarray`` is a Python package that builds on NumPy but adds labels to **multi-dimensional arrays**. 
-- It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. 
+    -  introduces labels in the form of dimensions, coordinates and attributes on top of raw NumPy-like multidimensional arrays, which allows for a more intuitive, more concise, and less error-prone developer experience.
+
+    - It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. 
+
 - Xarray is particularly tailored to working with NetCDF files. 
 - It reads and writes to NetCDF file using
-
-    - ``open_dataset()`` function
-    - ``open_dataarray()`` function
-    - ``to_netcdf()`` method. 
-
-- Explore these in the exercise below!
+ 
+- Explore it a bit in the (optional) exercise below!
 
 Allocating RAM
 --------------
@@ -579,6 +587,9 @@ Big file → split into chunks → parallel workers → results combined.
    - Store temporary data in local scratch ($SNIC_TMP).
    - Check job memory usage with sacct or sstat.
 
+
+
+
 Exercise DASK
 -------------
 
@@ -608,11 +619,19 @@ Start interactive session with 4 cores
    - Tetralith: ``naiss2025-22-934``  
    - Dardel: ``naiss2025-22-934``
 
+.. challenge:: Xarray
 
+   - https://stackoverflow.com/questions/72155514/when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data
 
-- Pandas 
-- xarray
-- dask
+   - Browse: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html# or change to more applicabe version in drop-down menu to lower right.
+       - find something interesting for you! Test some lines if you want to!
+       - tips: 
+           - Pandas: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough
+           - gallery: https://docs.xarray.dev/en/v2024.11.0/gallery.html
+           - ecosystems: https://docs.xarray.dev/en/v2024.11.0/ecosystem.html
+           - Quick overview: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/quick-overview.html
+
+.. challenge:: Dask
 
 Summary
 
