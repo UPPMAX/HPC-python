@@ -147,9 +147,11 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
 
          .. code-block:: console
         
-            module load SciPy-bundle/2024.05-gfbf-2024a
+            module load SciPy-bundle/2024.05-gfbf-2024a 
 
          That module includes Pandas, NumPy, SciPy, etc. If you want to plot any of the data used in the examples and exercises, you will need to load ``matplotlib/3.9.2-gfbf-2024a`` separately.
+
+         - Want to use Jupyter? Follow: https://uppmax.github.io/HPC-python/day2/IDEs_cmd.html#principles
 
 
    .. tab:: Tetralith (NSC)
@@ -207,26 +209,19 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
 
              ssh nid001057
 
+          Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
-          Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+         .. code-block:: 
 
-          .. code-block:: console
-
-             ml PDC/23.12
-             ml miniconda3/24.7.1-0-cpeGNU-23.12
-             export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
-             export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
-             source activate spyder-env
-             conda install matplotlib pandas seaborn
-             spyder %
+            spyder &
 
    .. tab:: Alvis (C3SE)
      
       .. important::
 
-         - For this session, you should use the Alvis portal: <https://alvis.c3se.chalmers.se/public/root/>
+         - For this session, you should use the Alvis portal: https://alvis.c3se.chalmers.se/public/root/
          - Log in
-         - Ask for Desktop (Compute) in left-hand side menu. Do not choose Jupyter, since it gives you a TensorFlow environment with Python 3.8.
+         - Ask for Desktop (Compute) in left-hand side menu. Do not choose "Jupyter", since it gives you a TensorFlow environment with Python 3.8.
          - Open a Terminal and load the following software modules
 
          .. code-block:: console
