@@ -245,6 +245,7 @@ In real scientific applications, data is complex and structured and usually cont
       - NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.
       - The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.
 
+
 An overview of common data formats
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -381,6 +382,7 @@ Python is an interpreted language, and many features that make development rapid
     - `SciPy <https://docs.scipy.org/doc/scipy/reference/>`_ is a library that builds on top of NumPy. 
    
         - It contains a lot of interfaces to battle-tested numerical routines written in Fortran or C, as well as Python implementations of many common algorithms.
+        - Reads NETCDF!
    
     - `ENCCS course material <https://enccs.github.io/hpda-python/stack/#scipy>`_
 
