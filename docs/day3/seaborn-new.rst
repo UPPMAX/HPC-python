@@ -155,8 +155,8 @@ Load and Run Seaborn
    
              .. code-block:: console
    
-                ml PDC/23.12
-                ml miniconda3/24.7.1-0-cpeGNU-23.12
+                ml PDC/24.11
+                ml miniconda3/25.3.1-1-cpeGNU-24.11
                 export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
                 export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
                 source activate spyder-env
