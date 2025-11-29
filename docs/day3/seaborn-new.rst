@@ -163,16 +163,7 @@ Load and Run Seaborn
                 # If needed, install the packages here by: "conda install matplotlib pandas seaborn"
                 spyder &
 
-
-In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is ``sns``, but for those of us who never watched The West Wing, any sensible abbrevation will do. Here we use ``sb``.
-
-.. attention::
-
-   Remember: if you write Python scripts to be executed from the command line and you want any figures to open in a GUI window at runtime (as opposed to merely saving a figure to file), then your Python script will need to include ``matplotlib.use('Tkinter')``.
-
-   If you run these code snippets in Jupyter, you will need to include ``%% matplotlib inline``
-
-  .. tab:: Alvis (C3SE)
+   .. tab:: Alvis (C3SE)
 
       .. important::
 
@@ -195,6 +186,15 @@ In all cases, once Seaborn or the module that provides it is loaded, it can be i
 
             jupyter-lab
 
+
+
+In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is ``sns``, but for those of us who never watched The West Wing, any sensible abbrevation will do. Here we use ``sb``.
+
+.. attention::
+
+   Remember: if you write Python scripts to be executed from the command line and you want any figures to open in a GUI window at runtime (as opposed to merely saving a figure to file), then your Python script will need to include ``matplotlib.use('Tkinter')``.
+
+   If you run these code snippets in Jupyter, you will need to include ``%% matplotlib inline``
 
 
 Common Features
