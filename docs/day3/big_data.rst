@@ -14,7 +14,7 @@ Big data with Python
     
 .. admonition:: "For teacher"
 
-   Preliminary timings
+   Preliminary timings. Starting at 13.00
 
    - Intro 10 min
    - Files 5
@@ -22,7 +22,23 @@ Big data with Python
    - Memory 5
    - Exercise Allocation 10
    - Dask 10
+   - BREAK 15min 13.50-14.05
    - Exercise Dask 30
+
+Prepare environment!
+--------------------
+
+.. admonition:: 
+
+   - We recommend a desktop environment for speed of the graphics.
+   - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
+
+1. Log in to a desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
+
+- Tetralith ThinLinc
+- Dardel (ThinLinc)
+- Alvis (
+
 
 High-Performance Data Analytics (HPDA)
 --------------------------------------
@@ -38,6 +54,10 @@ High-Performance Data Analytics (HPDA)
 
          - Big data analysis challenges include capturing data, data storage, data analysis, search, sharing, transfer, visualization, querying, updating, information privacy, and data source.” (from Wikipedia)
 
+.. discussion:: 
+
+   Do you already work with large data sets?
+
 Why we need to take special actions
 -----------------------------------
 
@@ -50,47 +70,37 @@ Remember this one?
 
    - What can limit us?
 
-.. admonition:: What do we need to cover??
-   :class: dropdown
-
-   - File formats
-   - Methods
-   - RAM allocation 
-      - chunking 
-
-scenario
-::::::::
-
-- use dataset (10 GB)
-- fails in pandas or is slow
-- Load with dask + xarray
-
 What the constraints are
 ------------------------
 
 - storage
-- reading into memory
+- memory
 
+.. admonition:: What do we need to cover??
+   :class: dropdown
 
-Memory, nodes
+   - storage --> make more effective files
+   - reading into memory
+       - --> read just parts of files into memory
+       - --> chunking
+   - allocate more memory
 
 Solutions and tools
 -------------------
 
 - Choose file format for reading and writing
 - Allocate enough RAM
-- Choose the Python package
+- Choose the right Python package
 - Is chunking suitable?
 
 File formats
 ------------
 
-Bit and Byte
-............
+.. admonition:: Bits and Bytes
 
-- The smallest building block of storage and memory (RAM) in the computer is a bit, which stores either a 0 or 1. 
-- Normally a number of 8 bits are combined in a group to make a byte. 
-- One byte (8 bits) can represent/hold at most 2^8 distinct values. Organising bytes in different ways can represent different types of information, i.e. data.
+   - The smallest building block of storage and memory (RAM) in the computer is a bit, which stores either a 0 or 1. 
+   - Normally a number of 8 bits are combined in a group to make a byte. 
+   - One byte (8 bits) can represent/hold at most 2^8 distinct values. Organising bytes in different ways can represent different types of information, i.e. data.
 
 .. admonition:: Numerical data
    :class: dropdown
@@ -341,11 +351,21 @@ An overview of common data formats
     - 🟨 : Ok / depends on a case
     - ❌ : Bad
 
-    Adapted from Aalto university's `Python for scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/#what-is-a-data-format>`__... seealso::
+    Adapted from Aalto university's `Python for scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/#what-is-a-data-format>`__
+
+... seealso::
 
    - ENCCS course "HPDA-Python": `Scientific data <https://enccs.github.io/hpda-python/scientific-data/>`_
    - Aalto Scientific Computing course "Python for Scientific Computing": `Xarray <https://aaltoscicomp.github.io/python-for-scicomp/xarray/>`_
 
+Exercise file formats (10 minutes)
+---------------------------------
+
+Go over file formats and see if some are more relevant for your work.
+
+.. discussion::
+
+   - Would you look at other file formats and why?
 
 
 Computing efficiency with Python
@@ -378,27 +398,8 @@ XARRAY Package
 
 - Explore these in the exercise below!
 
-Exercise file formats
----------------------
-
-Go over file formats and see if some are more relevant for your work.
-
-.. discussion::
-
-   - Would you look at other file formats and why?
-
 Allocating RAM
 --------------
-
-- Mention memory per core considerations.
-- Show SLURM options for memory and time.
-- Briefly explain what happens when a Dask job runs on multiple cores.
-
-
-
-.. admonition:: Keywords
-
-   OOM
 
 - Storing the data in an efficient way is one thing!
 
@@ -412,6 +413,18 @@ Allocating RAM
    - You do not have to explicitely run threads or other parallelism.
 
 - Note that shared memory among the cores works within node only.
+
+
+.. admonition:: To cover
+
+   - Mention memory per core considerations.
+   - Show SLURM options for memory and time.
+   - Briefly explain what happens when a Dask job runs on multiple cores.
+
+.. admonition:: Keywords
+
+   OOM
+
 
 
 .. discussion::
@@ -580,6 +593,20 @@ Data source → Format choice → Load/Chunk → Process → Write
 
 Exercises
 ---------
+
+Start interactive session with 4 cores
+
+.. admonition:: Compute allocations in this workshop 
+   :class: dropdown   
+
+   - Pelle: ``uppmax2025-2-393``
+   - Kebnekaise: ``hpc2n2025-151``
+   - Cosmos: ``lu2025-7-106``
+   - Alvis: ``naiss2025-22-934``
+   - Tetralith: ``naiss2025-22-934``  
+   - Dardel: ``naiss2025-22-934``
+
+
 
 - Pandas 
 - xarray
