@@ -220,6 +220,30 @@ Some facilities also have Anaconda, which typically includes Pandas, JupyterLab,
              conda install matplotlib pandas seaborn
              spyder %
 
+   .. tab:: Alvis (C3SE)
+     
+      .. important::
+
+         - For this session, you should use the Alvis portal: <https://alvis.c3se.chalmers.se/public/root/>
+         - Log in
+         - Ask for Desktop (Compute) in left-hand side menu. Do not choose Jupyter, since it gives you a TensorFlow environment with Python 3.8.
+         - Open a Terminal and load the following software modules
+
+         .. code-block:: console
+        
+            ml matplotlib/3.9.2-gfbf-2024a 
+            ml Jupyter-bundle/20250530-GCCcore-13.3.0   
+
+         - This will load SciPy-bundle on the fly!
+         - Pandas, like NumPy, has typically been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
+
+         - Then start jupyter-lab and a web browser will automatically open
+
+         .. code-block:: console
+      
+            jupyter-lab 
+        
+
 .. note::
 
    2025 versions of SciPy-bundle are not widely installed or recommended, because numerical stability tests are failing during installation.
