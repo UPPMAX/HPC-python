@@ -417,21 +417,26 @@ Polars package
 
 **Blazingly Fast DataFrame Library**
 
-- Polars is an open-source library for data manipulation, 
-    - known for being one of the fastest data processing solutions on a single machine. 
-- It features a well-structured, typed API that is both expressive and easy to use. 
+.. admonition:: Goals 
+
+   The goal of Polars is to provide a lightning fast DataFrame library that:
+
+   - Utilizes all available cores on your machine.
+   - Optimizes queries to reduce unneeded work/memory allocations.
+   - Handles datasets much larger than your available RAM.
+   - A consistent and predictable API.
+   - Adheres to a strict schema (data-types should be known before running the query).
 
 .. admonition:: Key features
+   :class: drop-down
 
    - Fast: Written from scratch in Rust
    - I/O: First class support for all common data storage layers: 
    - Intuitive API: Write your queries the way they were intended. Internally, there is a query optimizer.
    - Out of Core: streaming without requiring all your data to be in memory at the same time.
    - Parallel: dividing the workload among the available CPU cores without any additional configuration.
-  -  GPU Support: Optionally run queries on NVIDIA GPUs
-  -  Apache Arrow support: 
-
-.. seealso::
+   - GPU Support: Optionally run queries on NVIDIA GPUs
+   - Apache Arrow support
 
    https://pola.rs/
 
@@ -659,6 +664,48 @@ Start interactive session with 4 cores
            - Quick overview: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/quick-overview.html
 
 .. challenge:: Dask
+
+.. challenge:: (Optional) Polars
+
+   - Browse: https://docs.pola.rs/.
+       - find something interesting for you! Test some lines if you want to!
+       - tips: 
+
+   - Check if your cluster has Polars!
+
+   .. solution::
+
+      - Check with ``ml spider polars``
+      - If it is installed it will show up as 
+
+      .. code-block:: console
+
+         --------------------------------------------------------------------
+           polars:
+         --------------------------------------------------------------------
+             Description:
+               Polars is a blazingly fast DataFrame library for manipulating
+               structured data. The core is written in Rust and this module
+               provides its interface for Python.
+         
+              Versions:
+                 polars/1.28.1-gfbf-2024a
+                 polars/1.29.0-gfbf-2024a
+         
+         --------------------------------------------------------------------
+           For detailed information about a specific "polars" package (including
+         how to load the modules) use the module's full name.
+           Note that names that have a trailing (E) are extensions provided by ot
+         her modules.
+           For example:
+         
+              $ module spider polars/1.29.0-gfbf-2024a
+         --------------------------------------------------------------------
+
+      - Load the module or install it in your present ``conda`` or ``venv`` environment
+
+      - Try the most interesting examples: https://docs.pola.rs/user-guide/getting-started/#reading-writing
+
 
 Summary
 
