@@ -35,9 +35,13 @@ Prepare environment!
 
 1. Log in to a desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
 
-- Tetralith ThinLinc
-- Dardel (ThinLinc)
-- Alvis (
+- Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
+- Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
+- Alvis (https://alvis.c3se.chalmers.se/)
+- Bianca (https://bianca.uppmax.uu.se/)
+- Pelle (https://pelle-gui.uppmax.uu.se/)
+- Cosmos (ThinLinc client: ``cosmos-dt.lunarc.lu.se``)
+- Kebnekaise(https://portal.hpc2n.umu.se/public/landing_page.html)
 
 
 High-Performance Data Analytics (HPDA)
