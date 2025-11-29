@@ -399,7 +399,7 @@ Python is an interpreted language, and many features that make development rapid
    
     - `ENCCS course material <https://enccs.github.io/hpda-python/stack/#scipy>`_
 
-XARRAY Package
+Xarray package
 ..............
 
 - ``xarray`` is a Python package that builds on NumPy but adds labels to **multi-dimensional arrays**. 
@@ -411,6 +411,29 @@ XARRAY Package
 - It reads and writes to NetCDF file using
  
 - Explore it a bit in the (optional) exercise below!
+
+Polars package
+..............
+
+**Blazingly Fast DataFrame Library**
+
+- Polars is an open-source library for data manipulation, 
+    - known for being one of the fastest data processing solutions on a single machine. 
+- It features a well-structured, typed API that is both expressive and easy to use. 
+
+.. admonition:: Key features
+
+   - Fast: Written from scratch in Rust
+   - I/O: First class support for all common data storage layers: 
+   - Intuitive API: Write your queries the way they were intended. Internally, there is a query optimizer.
+   - Out of Core: streaming without requiring all your data to be in memory at the same time.
+   - Parallel: dividing the workload among the available CPU cores without any additional configuration.
+  -  GPU Support: Optionally run queries on NVIDIA GPUs
+  -  Apache Arrow support: 
+
+.. seealso::
+
+   https://pola.rs/
 
 Allocating RAM
 --------------
