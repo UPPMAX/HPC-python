@@ -116,9 +116,9 @@ Use the Slurm options for either "BATCH", "INTERACTIVE" from command line or fro
    - ``-n <number>``
 - Request the memory needed and choose number of cores 
    - ``--mem=<size>[K|M|G|T]``
-   - Example: ``--mem=1T|``
+   - Example: ``--mem=150G``
 - Request the memory-per-core needed and choose number of cores 
-   - ``--mem-core=<size>[K|M|G]
+   - ``--mem-core=<size>[K|M|G]``
    - Example: ``--mem-per-cpu=16G``
 - Request a "FAT" node.
    - Typically you can only allocate a full node here, no core parts.
@@ -190,7 +190,7 @@ Exercise: Memory allocation (10 min)
         - 4 AMD Instinct™ MI250X á 2 GCDs
         - many different
 
-.. admonition:: How much memory do I get per core?
+.. challenge:: How much memory do I get per core?
    :class: dropdown
 
    - Divide GB RAM of the booked node with number of cores.
@@ -201,7 +201,7 @@ Exercise: Memory allocation (10 min)
        - Example: On Bianca you may get 7 GB instead of 8 GB.
 
 
-.. admonition:: How much memory do I get with 5 cores?
+.. challenge:: How much memory do I get with 5 cores?
    :class: dropdown
 
    - Multiply the RAM per core with number of allocated cores..
@@ -209,18 +209,18 @@ Exercise: Memory allocation (10 min)
    - Example: 8 GB per core 
        - ~40 GB 
 
-.. admonition:: Do you remember how to allocate several cores?
+.. challenge:: Do you remember how to allocate several cores?
    :class: dropdown
 
    - Slurm flag ``-n <number of cores>``
 
-.. admonition:: Actually start an interactive sesion with 4 cores for 3 hours. 
+.. challenge:: Actually start an interactive sesion with 4 cores for 3 hours. 
 
    - We will use it for the exercises later.
    - Since it may take some time to get the allocation we do it now already!
    - Follow the best procedure for your cluster, e.g. from **command-line** or **OnDemand**.
 
-.. admonition:: How?
+.. challenge:: How?
    :class: drop-down
 
    The following Slurm options needs to be set
@@ -229,6 +229,7 @@ Exercise: Memory allocation (10 min)
    - ``-n 4``
    - ``-A <proj>``
    - ``-p <partition>`` may be needed in some clusters
+       - Dardel: ``-p shared``
 
 .. admonition:: Compute allocations in this workshop 
    :class: dropdown   
@@ -240,11 +241,12 @@ Exercise: Memory allocation (10 min)
    - Tetralith: ``naiss2025-22-934``  
    - Dardel: ``naiss2025-22-934``
 
-.. admonition:: How to get a node with more RAM
+.. challenge:: How to get a node with more RAM?
 
    - See local HPC center documentation in how to do so!
+   - Try first to search or navigate the pages
 
-.. solution::
+.. solution:: Documentation links
 
    .. tabs::
 
@@ -279,7 +281,7 @@ Exercise: Memory allocation (10 min)
          - https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#requesting__specific__features__ie__setting__contraints__on__the__job
          - https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#for__selecting__large__memory__nodes
 
-.. solution::
+.. solution:: Commands
 
    .. tabs::
 
