@@ -5,15 +5,15 @@ Using GPUs with Python
 
    - What is GPU acceleration?
    - How to enable GPUs (for instance with CUDA) in Python code?
-   - How to deploy GPUs at HPC2N, UPPMAX, LUNARC, NSC, and PDC?
+   - How to deploy GPUs at HPC2N, UPPMAX, LUNARC, NSC, PDC and C3SE?
    
    
 
 .. objectives::
 
    - Get an intro to common schemes for GPU code acceleration
-   - Learn about the GPU nodes at HPC2N, UPPMAX, LUNARC, NSC, PDC
-   - Learn how to make a batch script asking for GPU nodes at HPC2N, UPPMAX, LUNARC, NSC, PDC 
+   - Learn about the GPU nodes at HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE
+   - Learn how to make a batch script asking for GPU nodes at HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE 
 
 Introduction
 ------------ 
@@ -33,7 +33,7 @@ As for the GPU architecture, a GPU card of type Ada Lovelace (like the L40s) loo
 
    Note: The AD102 GPU also includes 288 FP64 Cores (2 per SM) which are not depicted in the above diagram. The FP64 TFLOP rate is 1/64th the TFLOP rate of FP32 operations. The small number of FP64 Cores are included to ensure any programs with FP64 code operate correctly, including FP64 Tensor Core code. 
    This is a single GPU engine of a L40s card. There are 12 Graphics Processing Clusters (GPCs), 72 Texture Processing Clusters (TPCs), 144 Streaming Multiprocessors (SMs), and a 384-bit memory interface with 12 32-bit memory controllers).
-   On the diagram, each green dot represents a CUDA core (single precision), while the yellow are RT cores and blue Tensor cores. The cores are arranged in the slots called SMs in the figure. Cores in the same SM share some local and fast cache memory.
+   On the diagram, each green dot represents a CUDA core (single precision), while the yellow are RT cores and the blue Tensor cores. The cores are arranged in the slots called SMs in the figure. Cores in the same SM share some local and fast cache memory.
 
 .. figure:: ../img/GPC-with-raster-engine.png
    :align: center
@@ -70,12 +70,12 @@ In the case of GPUs, the latency is high and the throughput is also high. We can
 Not every Python program is suitable for GPU acceleration. GPUs process simple functions rapidly, and are best suited for repetitive and highly-parallel computing tasks. GPUs were originally designed to render high-resolution images and video concurrently and fast, but since they can perform parallel operations on multiple sets of data, they are also often used for other, non-graphical tasks. Common uses are machine learning and scientific computation were the GPUs can take advantage of massive parallelism. 
 
 Many Python packages are not CUDA aware, but some have been written specifically with GPUs in mind. 
-If you are usually working with for instance NumPy and SciPy, you could optimize your code for GPU computing by using CuPy which mimics most of the NumPy functions. Another option is using Numba, which has bindings to CUDA and lets you write CUDA kernels in Python yourself. This means you can use custom algorithms. 
+If you are usually working with for instance NumPy and SciPy, you could optimize your code for GPU computing by using CuPy which mimics most of the NumPy functions. Another option is using Numba, which has bindings to CUDA and lets you write CUDA kernels in Python yourself. This means you can use custom algorithms. This is for NVidia GPUs. On AMD GPUs you would use HIP. 
 
 One of the most common use of GPUs with Python is for machine learning or deep learning. For these cases you would use something like Tensorflow or PyTorch libraries which can handle CPU and GPU processing internally without the programmer needing to do so. We will talk more about that later in the course. 
 
-GPUs on UPPMAX, HPC2N, LUNARC, NSC, and PDC systems
----------------------------------------------------
+GPUs on UPPMAX, HPC2N, LUNARC, NSC, PDC, and C3SE systems
+---------------------------------------------------------
 
 There are generally either not GPUs on the login nodes or they cannot be accessed for computations.
 To use them you need to either launch an interactive job or submit a batch job.
@@ -83,16 +83,23 @@ To use them you need to either launch an interactive job or submit a batch job.
 UPPMAX
 ######
 
-Rackham's compute nodes do not have GPUs. You need to use Snowy for that. A useful module on Snowy is ``python_ML_packages/3.11.8-gpu``.
+The new cluster Pelle has GPUs. L40s GPUs (up to 10 GPU cards) and H100 GPUs (up to 2 GPU cards).
 
-Snowy has Nvidia T4's. 
+You need to use this batch command (number of cards is depending on type):
 
-You need to use this batch command (for x being the number of cards, 1):
+- for L40s GPUs (up to 10 GPU cards): 
 
 .. code-block::
+ 
+   #SBATCH -p gpu 
+   #SBATCH --gpus:l40s:<number of GPUs>
 
-   #SBATCH -M snowy
-   #SBATCH --gres=gpu:x
+- for H100 GPUs (up to 2 GPU cards): 
+
+.. code-block:: 
+
+   #SBATCH -p gpu
+   #SBATCH --gpus=h100:<number of GPUs>
 
 HPC2N
 #####
@@ -182,6 +189,34 @@ You need to add this to your batch script or interactive job in order to access 
    #SBATCH -N 1
    #SBATCH --ntasks-per-node=1
    #SBATCH -p gpu
+
+C3SE
+#### 
+
+Alvis is meant for GPU jobs. There is no node-sharing on multi-node jobs (--exclusive is automatic).
+
+NOTE: Requesting ``-N 1`` does not mean 1 full node
+
+You would need to add this to your batch script:
+
+.. code-block::
+
+   #SBATCH -p alvis
+   #SBATCH -N <nodes>
+   #SBATCH --gpus-per-node=<type>:x
+
+where <type> is one of
+
+- V100
+- T4
+- A100
+
+and x is number of GPU cards
+
+- 1-4 for V100
+- 1-8 for T4
+- 1-4 for A100
+
 
 Numba example
 -------------
