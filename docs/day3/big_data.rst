@@ -459,7 +459,7 @@ In real scientific applications, data is complex and structured and usually cont
    - Key features
 
        - Type: Binary format
-       - Packages needed: Pandas, netCDF4/h5netcdf, xarray
+       - Packages needed: Pandas, SciPy, netCDF4/h5netcdf, xarray
        - Space efficiency: Good for numeric data.
        - Good for sharing/archival: Yes.
 
@@ -476,7 +476,6 @@ In real scientific applications, data is complex and structured and usually cont
 
       - NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.
       - The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.
-
 
 An overview of common data formats
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -640,8 +639,6 @@ Xarray package
  
 - Explore it a bit in the (optional) exercise below!
 
-
-
 Dask
 ----
 
@@ -667,14 +664,19 @@ Dask Collections
 
 - Dask provides dynamic parallel task scheduling and three main high-level collections:
   
-    - ``dask.array``: Parallel NumPy arrays
+    - ``dask.array``: Parallel **NumPy** arrays
         - scales NumPy (see also xarray)
-    - ``dask.dataframe``: Parallel Pandas DataFrames
+    - ``dask.dataframe``: Parallel **Pandas** DataFrames
         - scales Pandas workflows
-    - ``dask.bag``: Parallel Python Lists 
+    - ``dask.bag``: Parallel Python **List** 
         - https://enccs.github.io/hpda-python/dask/#dask-bag
 
-Dask Arrays
+.. seealso::
+
+   - `dask_ml package <https://ml.dask.org/>`_: Dask-ML provides scalable machine learning in Python using Dask alongside popular machine learning libraries like Scikit-Learn, XGBoost, and others.
+   - `Dask.distributed <https://distributed.dask.org/en/stable/>`_: Dask.distributed is a lightweight library for distributed computing in Python. It extends both the concurrent.futures and dask APIs to moderate sized clusters.
+
+dask.arrays
 ^^^^^^^^^^^
 
 - A Dask array looks and feels a lot like a NumPy array. 
@@ -682,11 +684,15 @@ Dask Arrays
     - build up complex, large calculations symbolically 
     - before turning them over the scheduler for execution. 
 
-- Dask divides arrays into many small pieces (chunks), as small as necessary to 
+.. admonition:: Chunks
+
+   - Dask divides arrays into many small pieces (chunks), as small as necessary to 
   fit it into memory. 
-- Operations are delayed (lazy computing) e.g. tasks are queue and no computation 
-  is performed until you actually ask values to be computed (for instance print mean values). 
-- Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
+   - Operations are delayed (**lazy computing**) e.g. 
+
+       - tasks are queue and no computation is performed until you actually ask values to be computed (for instance print mean values). 
+   - Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
+   - and data is gathered in the end.
 
 .. discussion:: Example from dask.org
 
@@ -697,33 +703,20 @@ Dask Arrays
       x = da.random.random(size=(10000, 10000),
                            chunks=(1000, 1000))
       x + x.T - x.mean(axis=0)
-      # It runs using multiple threads on your machine.
-      # It could also be distributed to multiple machines
-
-.. seealso::
-
-   - `dask_ml package <https://ml.dask.org/>`_: Dask-ML provides scalable machine learning in Python using Dask alongside popular machine learning libraries like Scikit-Learn, XGBoost, and others.
-   - `Dask.distributed <https://distributed.dask.org/en/stable/>`_: Dask.distributed is a lightweight library for distributed computing in Python. It extends both the concurrent.futures and dask APIs to moderate sized clusters.
+      # It runs using multiple threads on one node.
+      # It could also be distributed to multiple nodes
 
 Chunking
 ::::::::
 
-Tools like Dask and xarray handle chunking 
-automatically. Add one short diagram showing:
 Big file → split into chunks → parallel workers → results combined.
 
-.. admonition:: Keywords
+- Tools like Dask and xarray handle "chunking" automatically. 
+- Note that number of chunks does not need to be equal to number of cores.
+
+.. admonition:: To think of
  
-   - chunk size
-   - lazy execution
-   - meta-data-rich arrays
-
-.. admonition:: Sum up
-
-   - Load Python modules and activate virtual environments.
-   - Request appropriate memory and runtime in SLURM.
-   - Store temporary data in local scratch ($SNIC_TMP).
-   - Check job memory usage with sacct or sstat.
+   - chunk size and number of them affect the performance due to overhad/administration of the chunking and combination.
 
    - Briefly explain what happens when a Dask job runs on multiple cores.
 
@@ -879,7 +872,14 @@ Summary
    - Useful file formats
    - Resources sufficient to data size
    - Data-chunking as technique if not enough RAM
-   - Is xarray useful for you?
+   - Is Xarray/Polars/Dask useful for you?
+
+.. admonition:: Sum up
+
+   - Load Python modules and activate virtual environments.
+   - Request appropriate memory and runtime in SLURM.
+   - Store temporary data in local scratch ($SNIC_TMP).
+   - Check job memory usage with sacct or sstat.
 
 .. keypoints::
 
