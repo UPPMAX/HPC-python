@@ -107,16 +107,22 @@ Allocating RAM
 Principles
 ..........
 
+Use the Slurm options for either "BATCH", "INTERACTIVE" from command line or from OnDemand GUIs.
+
 - Allocate RAM using the **full node RAM divided by number of course principle**
    - Ex: 128 GB with 20 cores --> 6.4 GB per core
    - Allocate number of cores to cover your needs.
    - ``-n <number>``
 - Request the memory needed and choose number of cores 
-   - ``--mem=<size>[K|M|G]
-   - Example: ``--mem=500G``
+   - ``--mem=<size>[K|M|G|T]``
+   - Example: ``--mem=1T|``
 - Request the memory-per-core needed and choose number of cores 
    - ``--mem-core=<size>[K|M|G]
    - Example: ``--mem-per-cpu=16G``
+- Request a "FAT" node.
+   - Typically you can only allocate a full node here, no core parts.
+   - You ask here for a non-default partition.
+   - How to do this, search your cluster documentation, see exercise below.
 
 .. note::
 
@@ -126,7 +132,7 @@ Principles
 Exercise: Memory allocation
 ---------------------------
 
-1. Log in to a desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
+1. Log in to a Desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
 
 - Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
 - Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
@@ -168,7 +174,7 @@ Exercise: Memory allocation
         - 128-512 GB
         - 256-512 GB  
         - 96-384 GB   
-        - 256-2048 GB
+        - 256-1760 GB
       * - GPU
         - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
         - NVidia L40s, H100, T4, A2)
@@ -201,16 +207,13 @@ Exercise: Memory allocation
 
    - Slurm flag ``-n <number of cores>``
 
-- Choose, if necessary a node with more RAM
+.. admonition:: Actually start an interactive sesion with 4 cores.
+
+   - Follow the best procedure for your cluster, e.g. from command-line or OnDemand.
+
+.. admonition:: How to get a node with more RAM
+
    - See local HPC center documentation in how to do so!
-
-.. admonition:: 
-
-   - We recommend a desktop environment for speed of the graphics.
-   - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
-
-
-2. You want 200 GB RAM. What would you do on you cluster?
 
 .. solution::
 
@@ -218,11 +221,19 @@ Exercise: Memory allocation
 
       .. tab:: Tetralith
 
+         Scroll down a bit at https://www.nsc.liu.se/systems/tetralith/
+
       .. tab:: Dardel
+
+         https://support.pdc.kth.se/doc/run_jobs/job_scheduling/#dardel-compute-nodes
 
       .. tab:: Alvis
 
+         To be added
+
       .. tab:: Bianca
+
+         - https://docs.uppmax.uu.se/cluster_guides/slurm/#need-more-resources-or-gpu
 
       .. tab:: Pelle
 
@@ -230,6 +241,38 @@ Exercise: Memory allocation
 
       .. tab:: Kebnekaise
 
+.. solution::
+
+   .. tabs::
+
+      .. tab:: Tetralith
+
+         ``-C fat --exclusive`` (384 GiB)
+
+      .. tab:: Dardel
+
+         - ``-p memory --mem=440GB``
+         - ``-p memory --mem=880GB``
+         - ``-p memory --mem=1760GB``
+
+      .. tab:: Alvis
+
+      .. tab:: Bianca
+
+         - ``-C mem256GB``
+         - ``-C mem512GB``
+
+      .. tab:: Pelle
+
+      .. tab:: Cosmos
+
+      .. tab:: Kebnekaise
+
+
+.. admonition:: 
+
+   - We recommend a desktop environment for speed of the graphics.
+   - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
 
 File formats
 ------------
