@@ -220,8 +220,9 @@ Exercise: Memory allocation (10 min)
    - Since it may take some time to get the allocation we do it now already!
    - Follow the best procedure for your cluster, e.g. from **command-line** or **OnDemand**.
 
-.. challenge:: How?
-   :class: drop-down
+.. admonition:: How?
+   :class: dropdown
+
 
    The following Slurm options needs to be set
 
@@ -330,6 +331,7 @@ File formats
 ------------
 
 .. admonition:: Bits and Bytes
+   :class: dropdown
 
    - The smallest building block of storage and memory (RAM) in the computer is a bit, which stores either a 0 or 1. 
    - Normally a number of 8 bits are combined in a group to make a byte. 
@@ -584,7 +586,7 @@ An overview of common data formats
 
     Adapted from Aalto university's `Python for scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/#what-is-a-data-format>`__
 
-... seealso::
+.. seealso::
 
    - ENCCS course "HPDA-Python": `Scientific data <https://enccs.github.io/hpda-python/scientific-data/>`_
    - Aalto Scientific Computing course "Python for Scientific Computing": `Xarray <https://aaltoscicomp.github.io/python-for-scicomp/xarray/>`_
@@ -597,15 +599,15 @@ Exercise file formats (10 minutes)
    - Read: https://stackoverflow.com/questions/49854065/python-netcdf4-library-ram-usage
    - What about using NETCDF files and memory?
 
-.. challenge::
-
-   - Start Jupyter or just a Python shell and
-   - Go though and test the lines at the page at https://docs.scipy.org/doc/scipy-1.13.1/reference/generated/scipy.io.netcdf_file.html
-
-.. challenge:: 
+.. challenge:: View file formats
 
    - Go over file formats and see if some are more relevant for your work.
    - Would you look at other file formats and why?
+
+.. challenge:: (optional) 
+
+   - Start Jupyter or just a Python shell and
+   - Go though and test the lines at the page at https://docs.scipy.org/doc/scipy-1.13.1/reference/generated/scipy.io.netcdf_file.html
 
 
 Computing efficiency with Python
@@ -629,42 +631,16 @@ Xarray package
 ..............
 
 - ``xarray`` is a Python package that builds on NumPy but adds labels to **multi-dimensional arrays**. 
-    -  introduces labels in the form of dimensions, coordinates and attributes on top of raw NumPy-like multidimensional arrays, which allows for a more intuitive, more concise, and less error-prone developer experience.
 
-    - It also borrows heavily from the Pandas package for labelled tabular data and integrates tightly with dask for parallel computing. 
+    -  introduces **labels in the form of dimensions, coordinates and attributes** on top of raw NumPy-like multidimensional arrays, which allows for a more intuitive, more concise, and less error-prone developer experience.
+    - It also **borrows heavily from the Pandas package for labelled tabular data** and integrates tightly with dask for parallel computing. 
 
-- Xarray is particularly tailored to working with NetCDF files. 
-- It reads and writes to NetCDF file using
+- Xarray is particularly tailored to working with NetCDF files.
+- But work for aother files as well
  
 - Explore it a bit in the (optional) exercise below!
 
-Polars package
-..............
 
-**Blazingly Fast DataFrame Library**
-
-.. admonition:: Goals 
-
-   The goal of Polars is to provide a lightning fast DataFrame library that:
-
-   - Utilizes all available cores on your machine.
-   - Optimizes queries to reduce unneeded work/memory allocations.
-   - Handles datasets much larger than your available RAM.
-   - A consistent and predictable API.
-   - Adheres to a strict schema (data-types should be known before running the query).
-
-.. admonition:: Key features
-   :class: drop-down
-
-   - Fast: Written from scratch in Rust
-   - I/O: First class support for all common data storage layers: 
-   - Intuitive API: Write your queries the way they were intended. Internally, there is a query optimizer.
-   - Out of Core: streaming without requiring all your data to be in memory at the same time.
-   - Parallel: dividing the workload among the available CPU cores without any additional configuration.
-   - GPU Support: Optionally run queries on NVIDIA GPUs
-   - Apache Arrow support
-
-   https://pola.rs/
 
 Dask
 ----
@@ -751,16 +727,28 @@ Big file → split into chunks → parallel workers → results combined.
 
    - Briefly explain what happens when a Dask job runs on multiple cores.
 
+Polars package
+..............
 
+- ``polars`` is a Python package that presnts itself as **Blazingly Fast DataFrame Library**
+    - Utilizes all available cores on your machine.
+    - Optimizes queries to reduce unneeded work/memory allocations.
+    - Handles datasets much larger than your available RAM.
+    - A consistent and predictable API.
+    - Adheres to a strict schema (data-types should be known before running the query).
 
-Exercise DASK
--------------
+.. admonition:: Key features
+   :class: dropdown
 
+   - Fast: Written from scratch in **Rust**
+   - I/O: First class **support for all common data storage** layers
+   - **Intuitive API**: Write your queries the way they were intended. Internally, there is a query optimizer.
+   - Out of Core: **streaming** without requiring all your data to be in memory at the same time. I.e. **chunking**
+   - **Parallel**: dividing the workload among the available CPU cores without any additional configuration.
+   - GPU Support: Optionally run queries on **NVIDIA GPUs**
+   - `Apache Arrow <https://arrow.apache.org/overview/>`_ support
 
-
-
-
-
+   https://pola.rs/
 
 Workflow
 --------
