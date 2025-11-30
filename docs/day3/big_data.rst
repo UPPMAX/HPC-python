@@ -237,9 +237,17 @@ Exercise: Memory allocation
 
       .. tab:: Pelle
 
+         - https://docs.uppmax.uu.se/cluster_guides/slurm_on_pelle/#the-fat-partition
+
       .. tab:: Cosmos
 
+         - https://lunarc-documentation.readthedocs.io/en/latest/manual/submitting_jobs/manual_specifying_requirements/#specifying-a-project-allocation-and-partition
+
       .. tab:: Kebnekaise
+
+         - https://docs.hpc2n.umu.se/documentation/batchsystem/resources/
+         - https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#requesting__specific__features__ie__setting__contraints__on__the__job
+         - https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#for__selecting__large__memory__nodes
 
 .. solution::
 
@@ -264,9 +272,17 @@ Exercise: Memory allocation
 
       .. tab:: Pelle
 
+         - ``-p fat -C 2TB``
+         - ``-p fat -C 3TB``
+
       .. tab:: Cosmos
 
+         - Part of GPU partition
+         - ``-p gpua100``
+
       .. tab:: Kebnekaise
+
+         ``-C largemem``
 
 
 .. admonition:: 
