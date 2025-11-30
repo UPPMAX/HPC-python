@@ -93,7 +93,7 @@ To use them you need to either launch an interactive job or submit a batch job.
       .. code-block::
  
          #SBATCH -p gpu 
-         #SBATCH --gpus:l40s:<number of GPUs>
+         #SBATCH --gpus=l40s:<number of GPUs>
 
       - for H100 GPUs (up to 2 GPU cards): 
 
@@ -278,36 +278,39 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
    .. tab:: UPPMAX
 
-      Running a GPU Python code interactively. 
+      Running a GPU Python code interactively on Pelle. Note that his is not currently working fully-cuntional. 
 
       .. code-block:: console
       
-         $ interactive -A uppmax2025-2-393 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 --gres=gpu:1  -t 1:00:01 
-         You receive the high interactive priority.
-
-         Please, use no more than 8 GB of RAM.
-
-         salloc: Pending job allocation 9697978
-         salloc: job 9697978 queued and waiting for resources
-         salloc: job 9697978 has been allocated resources
-         salloc: Granted job allocation 9697978
+         $[bbrydsoe@pelle2 ~] salloc -A uppmax2025-2-393 -t 00:30:00 -n 2 -p gpu --gpus=l40s:1
+         salloc: Pending job allocation 406444
+         salloc: job 406444 queued and waiting for resources
+         salloc: job 406444 has been allocated resources
+         salloc: Granted job allocation 406444
          salloc: Waiting for resource configuration
-         salloc: Nodes s195 are ready for job
-          _   _ ____  ____  __  __    _    __  __
-         | | | |  _ \|  _ \|  \/  |  / \   \ \/ /   | System:    s195
-         | | | | |_) | |_) | |\/| | / _ \   \  /    | User:      bbrydsoe
-         | |_| |  __/|  __/| |  | |/ ___ \  /  \    | 
-          \___/|_|   |_|   |_|  |_/_/   \_\/_/\_\   | 
-          ###############################################################################
+         salloc: Nodes p202 are ready for job
+         [bbrydsoe@p202 ~]$ module load numba/0.60.0-foss-2024a
+         [bbrydsoe@p202 ~]$ python add-list.py
+         
 
-                 User Guides: https://docs.uppmax.uu.se/
+   .. tab:: UPPMAX: batch
 
-                 Write to support@uppmax.uu.se, if you have questions or comments.
+      Running a GPU Python code on Pelle.  
 
-         [bbrydsoe@s195 python]$ ml uppmax python/3.11.8 python_ML_packages/3.11.8-gpu
-         [bbrydsoe@s195 python]$ python add-list.py 
-         CPU function took 35.272032 seconds.
-         GPU function took 1.324215 seconds.
+      .. code-block:: console
+      
+         #!/bin/bash
+         # Remember to change this to your own project ID after the course!
+         #SBATCH -A uppmax2025-2-393 
+         # We are asking for 5 minutes
+         #SBATCH --time=00:05:00
+         # Asking for one L40s GPU
+         #SBATCH -p gpu
+         #SBATCH --gpus=l40s:1
+
+         module load numba/0.60.0-foss-2024a
+         
+         python add-list.py
 
    .. tab:: HPC2N
    
@@ -340,13 +343,15 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
           #SBATCH -A hpc2n2025-151     # HPC2N ID - change to your own
           # We are asking for 5 minutes
           #SBATCH --time=00:05:00
+          #SBATCH -n 1 
           # Asking for one L40s GPU
           #SBATCH --gpus=1    
           #SBATCH -C l40s 
 
           # Remove any loaded modules and load the ones we need
           module purge  > /dev/null 2>&1
-          module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 numba/0.58.1 CUDA/12.1.1 
+          module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 numba/0.58.1 
+          module load CUDA/12.1.1 
 
           # Run your Python script
           python add-list.py
