@@ -608,7 +608,6 @@ Exercise file formats (10 minutes)
    - Start Jupyter or just a Python shell and
    - Go though and test the lines at the page at https://docs.scipy.org/doc/scipy-1.13.1/reference/generated/scipy.io.netcdf_file.html
 
-
 Computing efficiency with Python
 --------------------------------
 
@@ -743,11 +742,6 @@ Polars package
 
    https://pola.rs/
 
-Workflow
---------
-
-Data source → Format choice → Load/Chunk → Process → Write
-
 Exercises
 ---------
 
@@ -866,6 +860,9 @@ Exercises
 Summary
 -------
 
+Workflow
+........
+
 .. discussion:: Follow-up discussion
 
    - New learnings?
@@ -879,7 +876,9 @@ Summary
    - Load Python modules and activate virtual environments.
    - Request appropriate memory and runtime in SLURM.
    - Store temporary data in local scratch ($SNIC_TMP).
-   - Check job memory usage with sacct or sstat.
+   - Check job memory usage with ``sacct`` or ``sstat``.
+
+Data source → Format choice → Load/Chunk → Process → Write
 
 .. keypoints::
 
