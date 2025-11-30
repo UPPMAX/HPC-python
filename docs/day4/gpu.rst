@@ -217,7 +217,13 @@ Numba example
 
 Numba is installed on some of the centers as a module (HPC2N, LUNARC, C3SE, and UPPMAX (only for Python 3.12.3, numba/0.60.0-foss-2024a), but not on NSC except in a very old version. Because of this we will use a virtual environment for NSC. 
 
-**NOTE**: PDC/Dardel has AMD GPUs and numba after version 0.53.1 only has compatibility with CUDA. The numba 0.53.1 version is too old to work with anything else installed. Thus, no numba example for PDC. You can try and play around with the hip example (marked with hip in the name) in the Exercises/examples/programs folder. There is also an example batch scripts for GPUs on Dardel in the Exercises/examples/pdc folder, which you can try with. Note that you need to install ``hip-python`` in a virtual environment to get any of it to work. 
+.. admonition NOTE
+
+   PDC/Dardel has AMD GPUs and numba after version 0.53.1 only has compatibility with CUDA. The numba 0.53.1 version is too old to work with anything else installed. 
+   
+   Thus, no numba example for PDC. You can try and play around with the hip example (marked with hip in the name) in the Exercises/examples/programs folder. There is also an example batch scripts for GPUs on Dardel in the Exercises/examples/pdc folder, which you can try with. 
+   
+   Note that you need to install ``hip-python`` in a virtual environment to get any of it to work. 
 
 We are going to use the following program for testing on the machines (minus Dardel). It was taken from a (now absent) linuxhint.com exercise but there are also many great examples at 
 https://numba.readthedocs.io/en/stable/cuda/examples.html): 
@@ -293,7 +299,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          [bbrydsoe@p202 ~]$ python add-list.py
          CORE DUMP!!!!          
 
-   .. tab:: UPPMAX: batch
+   .. tab:: UPPMAX (batch)
 
       Running a GPU Python code on Pelle.  
 
@@ -312,6 +318,8 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          
          python add-list.py
 
+      CORE DUMP!!! 
+         
    .. tab:: HPC2N
    
       Running a GPU Python code interactively. 
@@ -330,7 +338,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          CPU function took 14.216318 seconds.
          GPU function took 0.390335 seconds.
 
-   .. tab:: HPC2N: batch
+   .. tab:: HPC2N (batch)
 
       Batch script, ``add-list.sh``, to run the same GPU Python script (the numba code, ``add-list.py``) at Kebnekaise. 
       As before, submit with ``sbatch add-list.sh`` (assuming you called the batch script thus - change to fit your own naming style). 
@@ -354,7 +362,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
           # Run your Python script
           python add-list.py
 
-   .. tab:: LUNARC: batch 
+   .. tab:: LUNARC (batch)
 
       Batch script, "add-list.sh", to run the same GPU Python script (the numba code, "add-list.py") at Cosmos. As before, submit with "sbatch add-list.sh" (assuming you called the batch script thus - change to fit your own naming style).
 
@@ -377,11 +385,11 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          # Run your Python script
          python add-list.py
 
-   .. tab:: C3SE: batch 
+   .. tab:: C3SE (batch)
 
       Batch script, "add-list.sh", to run the same GPU Python script (the numba code, "add-list.py") at Alvis. As before, submit with "sbatch add-list.sh" (assuming you called the batch script thus - change to fit your own naming style). 
 
-      .. code::block:: 
+      .. code-block:: 
 
          #!/bin/bash
          # Remember to change this to your own project ID after the course!
@@ -430,6 +438,8 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          # Run your Python script 
          python add-list.py 
+
+         ERROR! 
 
 Exercises
 ---------
@@ -585,15 +595,10 @@ Exercises
             #SBATCH -C l40s 
             #SBATCH --exclusive 
     
-            # Set a path where the example programs are installed.
-            # Change the below to your own path to where you placed the example programs
-            MYPATH=/proj/hpc-python-spring/<mydir-name>/HPC-python/Exercises/examples/programs/
-
-
             ml purge > /dev/null 2>&1
             ml GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 CUDA/12.1.1 numba/0.58.1  
-            python $MYPATH/integration2d_gpu.py
-            python $MYPATH/integration2d_gpu_shared.py
+            python integration2d_gpu.py
+            python integration2d_gpu_shared.py
 
      For the ``integration2d_gpu.py`` implementation, the time for executing the kernel and doing some postprocessing to the outputs (copying the C array and doing a reduction) was 4.35 sec. which is a much smaller value than the time for the serial numba code of 152 sec obtained previously. 
 
@@ -612,27 +617,17 @@ Exercises
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
             #SBATCH -A uppmax2025-2-393
-            # We want to run on Snowy
-            #SBATCH -M snowy
             # We are asking for 10 minutes
             #SBATCH --time=00:10:00
             # Asking for one GPU
-            #SBATCH --gres=gpu:1
+            #SBATCH -p gpu
+            #SBATCH --gpus=l40s:1
             #SBATCH -o output_%j.out   # output file
             #SBATCH -e error_%j.err    # error messages
 
-            # Set a path where the example programs are installed.
-            # Change the below to your own path to where you placed the example programs
-            MYPATH=/proj/hpc-python-uppmax/<mydir-name>/HPC-python/Exercises/examples/programs/
-
             # Remove any loaded modules and load the ones we need
-            # CHANGE if you used 3.9.5 and a virtual environment instead!
-            module purge  > /dev/null 2>&1
-            module load uppmax
-            module load python_ML_packages/3.11.8-gpu python/3.11.8
-
-            # Activate the virtual environment if you used Python 3.9.5!
-            # source /proj/hpc-python/<mydir-name>/vpyenv/bin/activate
+            ml purge > /dev/null 2>&1
+            numba/0.60.0-foss-2024a CUDA/13.0.2 
 
             # Run your Python script
 
@@ -688,16 +683,16 @@ Exercises
             #SBATCH --exclusive
 
             ml purge > /dev/null 2>&1
-            ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
-            ml load Python/3.11.5
+            ml load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0
+            ml load Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
             # Load a virtual environment where numba is installed
-            # Use the one you created previously 
             # or you can create it with the following steps:
             # ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
             # python -m venv mynumba
             # source mynumba/bin/activate
             # pip install numba
+            # pip install tensorflow
             #
             source <path-to>/mynumba/bin/activate
 
@@ -705,6 +700,30 @@ Exercises
             python integration2d_gpu_shared.py
 
 
+.. solution:: Solution for C3SE
+    :class: dropdown
+
+     A template for running the python codes at C3SE is here:
+
+     .. admonition:: ``job-gpu.sh``
+        :class: dropdown
+      
+         .. code-block:: bash 
+
+            #!/bin/bash
+            # Remember to change this to your own project ID!
+            #SBATCH -A naiss2025-22-934
+            #SBATCH -t 00:15:00
+            #SBATCH -p alvis
+            #SBATCH -N 1 --gpus-per-node=T4:4
+            #SBATCH -o output_%j.out   # output file
+            #SBATCH -e error_%j.err    # error messages
+
+            ml purge > /dev/null 2>&1
+            ml numba-cuda/0.20.0-foss-2025b-CUDA-12.9.1
+
+            python integration2d_gpu.py
+            python integration2d_gpu_shared.py
 
 .. keypoints::
 
@@ -713,7 +732,7 @@ Exercises
   
 .. important::
 
-   - Of course, interactive mode could also be from inside Jupyter, VScode, spyder ... 
+   - Of course, interactive mode could also be from inside Desktop on Demand, Jupyter, VScode, spyder ... 
    - CUDA does not work directly on AMD GPUs, there hip is used instead. 
    - We will use GPUs more in the ML/DL section! 
 
