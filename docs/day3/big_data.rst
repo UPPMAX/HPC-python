@@ -25,25 +25,6 @@ Big data with Python
    - BREAK 15min 13.50-14.05
    - Exercise Dask 30
 
-Prepare environment!
---------------------
-
-.. admonition:: 
-
-   - We recommend a desktop environment for speed of the graphics.
-   - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
-
-1. Log in to a desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
-
-- Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
-- Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
-- Alvis (https://alvis.c3se.chalmers.se/)
-- Bianca (https://bianca.uppmax.uu.se/)
-- Pelle (https://pelle-gui.uppmax.uu.se/)
-- Cosmos (ThinLinc client: ``cosmos-dt.lunarc.lu.se``)
-- Kebnekaise(https://portal.hpc2n.umu.se/public/landing_page.html)
-
-
 High-Performance Data Analytics (HPDA)
 --------------------------------------
 
@@ -92,10 +73,150 @@ What the constraints are
 Solutions and tools
 -------------------
 
-- Choose file format for reading and writing
 - Allocate enough RAM
+    - If you are running ready tools
+    - or cannot update code or use other packages
+- Choose file format for reading and writing
 - Choose the right Python package
 - Is chunking suitable?
+
+Allocating RAM
+--------------
+
+- How much is actually loaded into the working memory (RAM)
+- Is more data in variables created during the run or work?
+
+.. discusioon::
+
+   Have you seen the Out-of-memory (OOM) error? 
+
+.. admonition:: What to do!
+
+   - By allocating **many cores** on a node will give you more available memory
+   - If the order 128 GB is not enough there are so-called **fat nodes** with at least 512 GB and up to 3 TB.
+   - On some clusters you do not have to request additional CPUs to get additional memory.
+       - You can use one core and the Slurm options:
+           - ``--mem`` or
+           - ``--mem-per-cpu``
+
+.. important::
+
+   - You do not have to explicitely run threads or other parallelism.
+   - Allocating several nodes for one one big problem is not useful.
+      - Note that shared memory among the cores works within node only.
+
+.. admonition:: To cover
+
+   - Mention memory per core considerations.
+   - Show SLURM options for memory and time.
+
+
+
+
+
+.. discussion::
+
+   - Take some time to find out the answers on the questions below, using the table of hardware
+   - I'll ask around in a few minutes
+
+.. admonition:: Table of hardware
+   :class: dropdown
+
+   .. list-table:: Hardware
+      :widths: 25 25 25 25 25 25 25 25
+      :header-rows: 1
+
+      * - Technology
+        - Kebnekaise
+        - Pelle
+        - Bianca
+        - Cosmos  
+        - Tetralith   
+        - Dardel
+      * - Cores/compute node
+        - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
+        - 48 (96 with hyperthreading/SMT)
+        - 16
+        - 16
+        - 48  
+        - 32  
+        - 128
+      * - Memory/compute node
+        - 128-3072 GB 
+        - 768-3072 GB
+        - 128-512 GB
+        - 256-512 GB  
+        - 96-384 GB   
+        - 256-2048 GB
+      * - GPU
+        - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
+        - NVidia L40s, H100, T4, A2)
+        - NVidia A100
+        - NVidia A100 
+        - NVidia T4   
+        - 4 AMD Instinct™ MI250X á 2 GCDs
+
+.. admonition:: How much memory do I get per core?
+   :class: dropdown
+
+   - Divide GB RAM of the booked node with number of cores.
+
+   - Example: 128 GB node with 20 cores
+       - ~6.4 GB per core
+
+.. admonition:: How much memory do I get with 5 cores?
+   :class: dropdown
+
+   - Multiply the RAM per core with number of allocated cores..
+
+   - Example: 6.4 GB per core 
+       - ~32 GB 
+
+.. admonition:: Do you remember how to allocate several cores?
+   :class: dropdown
+
+   - Slurm flag ``-n <number of cores>``
+
+- Choose, if necessary a node with more RAM
+   - See local HPC center documentation in how to do so!
+
+.. admonition:: 
+
+   - We recommend a desktop environment for speed of the graphics.
+   - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
+
+Exercise: memory allocation
+
+1. Log in to a desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
+
+- Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
+- Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
+- Alvis (https://alvis.c3se.chalmers.se/)
+- Bianca (https://bianca.uppmax.uu.se/)
+- Pelle (https://pelle-gui.uppmax.uu.se/)
+- Cosmos (ThinLinc client: ``cosmos-dt.lunarc.lu.se``)
+- Kebnekaise(https://portal.hpc2n.umu.se/public/landing_page.html)
+
+2. You want 200 GB RAM. What would you do on you cluster?
+
+.. solution::
+
+   .. tabs::
+
+      .. tab:: Tetralith
+
+      .. tab:: Dardel
+
+      .. tab:: Alvis
+
+      .. tab:: Bianca
+
+      .. tab:: Pelle
+
+      .. tab:: Cosmos
+
+      .. tab:: Kebnekaise
+
 
 File formats
 ------------
@@ -440,102 +561,6 @@ Polars package
 
    https://pola.rs/
 
-Allocating RAM
---------------
-
-- Storing the data in an efficient way is one thing!
-
-- Using the data in a program is another. 
-- How much is actually loaded into the working memory (RAM)
-- Is more data in variables created during the run or work?
-
-.. important::
-
-   - Allocate many cores or a full node!
-   - You do not have to explicitely run threads or other parallelism.
-
-- Note that shared memory among the cores works within node only.
-
-
-.. admonition:: To cover
-
-   - Mention memory per core considerations.
-   - Show SLURM options for memory and time.
-   - Briefly explain what happens when a Dask job runs on multiple cores.
-
-.. admonition:: Keywords
-
-   OOM
-
-
-
-.. discussion::
-
-   - Take some time to find out the answers on the questions below, using the table of hardware
-   - I'll ask around in a few minutes
-
-.. admonition:: Table of hardware
-   :class: dropdown
-
-   .. list-table:: Hardware
-      :widths: 25 25 25 25 25 25 25 25
-      :header-rows: 1
-
-      * - Technology
-        - Kebnekaise
-        - Pelle
-        - Bianca
-        - Cosmos  
-        - Tetralith   
-        - Dardel
-      * - Cores/compute node
-        - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
-        - 48 (96 with hyperthreading/SMT)
-        - 16
-        - 16
-        - 48  
-        - 32  
-        - 128
-      * - Memory/compute node
-        - 128-3072 GB 
-        - 768-3072 GB
-        - 128-512 GB
-        - 256-512 GB  
-        - 96-384 GB   
-        - 256-2048 GB
-      * - GPU
-        - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
-        - NVidia L40s, H100, T4, A2)
-        - NVidia A100
-        - NVidia A100 
-        - NVidia T4   
-        - 4 AMD Instinct™ MI250X á 2 GCDs
-
-.. admonition:: How much memory do I get per core?
-   :class: dropdown
-
-   - Divide GB RAM of the booked node with number of cores.
-
-   - Example: 128 GB node with 20 cores
-       - ~6.4 GB per core
-
-.. admonition:: How much memory do I get with 5 cores?
-   :class: dropdown
-
-   - Multiply the RAM per core with number of allocated cores..
-
-   - Example: 6.4 GB per core 
-       - ~32 GB 
-
-.. admonition:: Do you remember how to allocate several cores?
-   :class: dropdown
-
-   - Slurm flag ``-n <number of cores>``
-
-- Choose, if necessary a node with more RAM
-   - See local HPC center documentation in how to do so!
-
-
 Dask
 ----
 
@@ -619,6 +644,7 @@ Big file → split into chunks → parallel workers → results combined.
    - Store temporary data in local scratch ($SNIC_TMP).
    - Check job memory usage with sacct or sstat.
 
+   - Briefly explain what happens when a Dask job runs on multiple cores.
 
 
 
