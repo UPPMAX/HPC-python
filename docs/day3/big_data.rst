@@ -129,8 +129,10 @@ Use the Slurm options for either "BATCH", "INTERACTIVE" from command line or fro
    - "core-hours" drawn from your project may be set to the maximum of "number of cores" and "memory part of node" requested. 
    - So there is no win to ask for one core but much memory! 
 
-Exercise: Memory allocation
----------------------------
+Exercise: Memory allocation (10 min)
+------------------------------------
+
+.. info:: Break-out rooms per Cluster or Cluster Type (OnDemand vs terminal)
 
 1. Log in to a Desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
 
@@ -211,9 +213,31 @@ Exercise: Memory allocation
 
    - Slurm flag ``-n <number of cores>``
 
-.. admonition:: Actually start an interactive sesion with 4 cores.
+.. admonition:: Actually start an interactive sesion with 4 cores for 3 hours. 
 
-   - Follow the best procedure for your cluster, e.g. from command-line or OnDemand.
+   - We will use it for the exercises later.
+   - Since it may take some time to get the allocation we do it now already!
+   - Follow the best procedure for your cluster, e.g. from **command-line** or **OnDemand**.
+
+.. admonition:: How?
+   :class: drop-down
+
+   The following Slurm options needs to be set
+
+   - ``-t 3:0:0``
+   - ``-n 4``
+   - ``-A <proj>``
+   - ``-p <partition>`` may be needed in some clusters
+
+.. admonition:: Compute allocations in this workshop 
+   :class: dropdown   
+
+   - Pelle: ``uppmax2025-2-393``
+   - Kebnekaise: ``hpc2n2025-151``
+   - Cosmos: ``lu2025-7-106``
+   - Alvis: ``naiss2025-22-934``
+   - Tetralith: ``naiss2025-22-934``  
+   - Dardel: ``naiss2025-22-934``
 
 .. admonition:: How to get a node with more RAM
 
@@ -356,11 +380,8 @@ In real scientific applications, data is complex and structured and usually cont
       :class: dropdown
 
       - Hierarchical Data Format (HDF5) - Container for many arrays
-
       - Network Common Data Form (NetCDF) - Container for many arrays which conform to the NetCDF data model
-
       - Zarr - New cloud-optimized format for array storage
-
 
 .. admonition:: Meta data
    :class: dropdown
@@ -746,19 +767,63 @@ Data source → Format choice → Load/Chunk → Process → Write
 Exercises
 ---------
 
-Start interactive session with 4 cores
 
-.. admonition:: Compute allocations in this workshop 
-   :class: dropdown   
+.. challenge:: Chunk sizes in Dask
 
-   - Pelle: ``uppmax2025-2-393``
-   - Kebnekaise: ``hpc2n2025-151``
-   - Cosmos: ``lu2025-7-106``
-   - Alvis: ``naiss2025-22-934``
-   - Tetralith: ``naiss2025-22-934``  
-   - Dardel: ``naiss2025-22-934``
+   - The following example calculate the mean value of a random generated array. 
+   - Run the 2 examples and see the performance improvement by using dask.
 
-.. challenge:: Xarray
+   .. tabs::
+
+      .. tab:: NumPy
+
+         .. code-block:: python
+           
+            import numpy as np
+
+         .. code-block:: python
+           
+            %%time
+            x = np.random.random((20000, 20000))
+            y = x.mean(axis=0)
+
+      .. tab:: Dask
+
+         .. code-block:: python
+           
+            import dask
+            import dask.array as da
+
+         .. code-block:: python
+           
+            %%time
+            x = da.random.random((20000, 20000), chunks=(1000, 1000))
+            y = x.mean(axis=0)
+            y.compute() 
+
+   But what happens if we use different chunk sizes?
+   Try out with different chunk sizes:
+   
+   - What happens if the dask chunks=(20000,20000)
+   
+   - What happens if the dask chunks=(250,250)
+
+
+   .. solution:: Choice of chunk size
+
+      The choice is problem dependent, but here are a few things to consider:
+
+      Each chunk of data should be small enough so that it fits comforably in each worker's available memory. 
+      Chunk sizes between 10MB-1GB are common, depending on the availability of RAM. Dask will likely 
+      manipulate as many chunks in parallel on one machine as you have cores on that machine. 
+      So if you have a machine with 10 cores and you choose chunks in the 1GB range, Dask is likely to use at least 
+      10 GB of memory. Additionally, there should be enough chunks available so that each worker always has something to work on.
+
+      On the otherhand, you also want to avoid chunk sizes that are too small as we see in the exercise.
+      Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs 
+      with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.
+
+.. challenge:: (Optional) Xarray
 
    - https://stackoverflow.com/questions/72155514/when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data
 
@@ -770,7 +835,7 @@ Start interactive session with 4 cores
            - ecosystems: https://docs.xarray.dev/en/v2024.11.0/ecosystem.html
            - Quick overview: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/quick-overview.html
 
-.. challenge:: Dask
+
 
 .. challenge:: (Optional) Polars
 
@@ -815,6 +880,7 @@ Start interactive session with 4 cores
 
 
 Summary
+-------
 
 .. discussion:: Follow-up discussion
 
