@@ -17,11 +17,12 @@ Big data with Python
    Preliminary timings. Starting at 13.00
 
    - Intro 10 min
-   - Files 5
-   - Exercise files 10
    - Memory 5
    - Exercise Allocation 10
-   - Dask 10
+   - Files 5
+   - Exercise files 10
+   - Packages 5
+   - Dask 5
    - BREAK 15min 13.50-14.05
    - Exercise Dask 30
 
