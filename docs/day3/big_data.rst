@@ -160,6 +160,7 @@ Exercise: Memory allocation
         - Cosmos  
         - Tetralith   
         - Dardel
+        - Alvis
       * - Cores/compute node
         - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
         - 48 (96 with hyperthreading/SMT)
@@ -168,6 +169,7 @@ Exercise: Memory allocation
         - 48  
         - 32  
         - 128
+        - many different (updated soon)
       * - Memory/compute node
         - 128-3072 GB 
         - 768-3072 GB
@@ -175,6 +177,7 @@ Exercise: Memory allocation
         - 256-512 GB  
         - 96-384 GB   
         - 256-1760 GB
+        - many different
       * - GPU
         - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
         - NVidia L40s, H100, T4, A2)
@@ -182,6 +185,7 @@ Exercise: Memory allocation
         - NVidia A100 
         - NVidia T4   
         - 4 AMD Instinct™ MI250X á 2 GCDs
+        - many different
 
 .. admonition:: How much memory do I get per core?
    :class: dropdown
@@ -229,7 +233,7 @@ Exercise: Memory allocation
 
       .. tab:: Alvis
 
-         To be added
+         https://www.c3se.chalmers.se/documentation/submitting_jobs/running_jobs/#memory-and-other-node-features
 
       .. tab:: Bianca
 
@@ -242,6 +246,7 @@ Exercise: Memory allocation
       .. tab:: Cosmos
 
          - https://lunarc-documentation.readthedocs.io/en/latest/manual/submitting_jobs/manual_specifying_requirements/#specifying-a-project-allocation-and-partition
+         - https://www.lunarc.lu.se/systems/cosmos 
 
       .. tab:: Kebnekaise
 
@@ -265,6 +270,9 @@ Exercise: Memory allocation
 
       .. tab:: Alvis
 
+         - ``-C MEM512``
+         - ``-C MEM1536``
+
       .. tab:: Bianca
 
          - ``-C mem256GB``
@@ -277,8 +285,9 @@ Exercise: Memory allocation
 
       .. tab:: Cosmos
 
-         - Part of GPU partition
-         - ``-p gpua100``
+         - Part of GPU partitions
+         - INTEL CPUs+A100 GPUs (384 GB): ``-p gpua100``
+         - AMD CPUs+A100 GPUs (512 GB): ``-p gpua100``
 
       .. tab:: Kebnekaise
 
