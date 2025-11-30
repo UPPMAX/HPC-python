@@ -80,153 +80,146 @@ GPUs on UPPMAX, HPC2N, LUNARC, NSC, PDC, and C3SE systems
 There are generally either not GPUs on the login nodes or they cannot be accessed for computations.
 To use them you need to either launch an interactive job or submit a batch job.
 
-UPPMAX
-######
+.. tabs::
 
-The new cluster Pelle has GPUs. L40s GPUs (up to 10 GPU cards) and H100 GPUs (up to 2 GPU cards).
+   .. tab:: UPPMAX
 
-You need to use this batch command (number of cards is depending on type):
+      The new cluster Pelle has GPUs. L40s GPUs (up to 10 GPU cards) and H100 GPUs (up to 2 GPU cards).
 
-- for L40s GPUs (up to 10 GPU cards): 
+      You need to use this batch command (number of cards is depending on type):
 
-.. code-block::
+      - for L40s GPUs (up to 10 GPU cards): 
+
+      .. code-block::
  
-   #SBATCH -p gpu 
-   #SBATCH --gpus:l40s:<number of GPUs>
+         #SBATCH -p gpu 
+         #SBATCH --gpus:l40s:<number of GPUs>
 
-- for H100 GPUs (up to 2 GPU cards): 
+      - for H100 GPUs (up to 2 GPU cards): 
 
-.. code-block:: 
+      .. code-block:: 
 
-   #SBATCH -p gpu
-   #SBATCH --gpus=h100:<number of GPUs>
+         #SBATCH -p gpu
+         #SBATCH --gpus=h100:<number of GPUs>
 
-HPC2N
-#####
+   .. tab:: HPC2N
 
-Kebnekaise's GPU nodes are considered a separate resource, and the regular compute nodes do not have GPUs.
+      Kebnekaise's GPU nodes are considered a separate resource, and the regular compute nodes do not have GPUs.
 
-Kebnekaise has a great many different types of GPUs:
+      Kebnekaise has a great many different types of GPUs:
 
-- V100 (2 cards/node)
-- A40 (8 cards/node)
-- A6000 (2 cards/node)
-- L40s (2 or 6 cards/node)
-- A100 (2 cards/node)
-- H100 (4 cards/node)
-- MI100 (2 cards/node)
+      - V100 (2 cards/node)
+      - A40 (8 cards/node)
+      - A6000 (2 cards/node)
+      - L40s (2 or 6 cards/node)
+      - A100 (2 cards/node)
+      - H100 (4 cards/node)
+      - MI100 (2 cards/node)
 
-To access them, you need to use this to the batch system:
+      To access them, you need to use this to use the batch system:
 
-``#SBATCH --gpus=x``
+      ``#SBATCH --gpus=x``
 
-where x is the number of GPU cards you want. Above are given how many are on each type, so you can ask for up to that number.
+      where x is the number of GPU cards you want. Above are given how many are on each type, so you can ask for up to that number.
 
-In addition, you need to add this to the batch system:
+      In addition, you need to add this to use the batch system:
 
-``#SBATCH -C <type>``
+      ``#SBATCH -C <type>``
 
-where type is
+      where type is
 
-- v100
-- a40
-- a6000
-- l40s
-- a100
-- h100
-- mi100
+      - v100
+      - a40
+      - a6000
+      - l40s
+      - a100
+      - h100
+      - mi100
 
-For more information, see HPC2N's guide to the different parts of the batch system: https://docs.hpc2n.umu.se/documentation/batchsystem/resources/
+      For more information, see HPC2N's guide to the different parts of the batch system: https://docs.hpc2n.umu.se/documentation/batchsystem/resources/
 
-LUNARC
-######
+   .. tab:: LUNARC 
 
-LUNARC has Nvidia A100 GPUs and Nvidia A40 GPUs, but the latter ones are reserved for interactive graphics work on the on-demand system, and Slurm jobs should not be submitted to them.
+      LUNARC has Nvidia A100 GPUs and Nvidia A40 GPUs, but the latter ones are reserved for interactive graphics work on the on-demand system, and Slurm jobs should not be submitted to them.
 
-Thus in order to use the A100 GPUs on Cosmos, add this to your batch script:
+      Thus in order to use the A100 GPUs on Cosmos, add this to your batch script:
 
-A100 GPUs on AMD nodes:
+      A100 GPUs on AMD nodes:
 
-.. code-block::
+      .. code-block::
   
-   #SBATCH -p gpua100
-   #SBATCH --gres=gpu:1
+         #SBATCH -p gpua100
+         #SBATCH --gres=gpu:1
 
-These nodes are configured as exclusive access and will not be shared between users. User projects will be charged for the entire node (48 cores). A job on a node will also have access to all memory on the node.
+      These nodes are configured as exclusive access and will not be shared between users. User projects will be charged for the entire node (48 cores). A job on a node will also have access to all memory on the node.
 
-A100 GPUs on Intel nodes:
+      A100 GPUs on Intel nodes:
 
-.. code-block::
+      .. code-block::
 
-   #SBATCH -p gpua100i
-   #SBATCH --gres=gpu:<number>
+         #SBATCH -p gpua100i
+         #SBATCH --gres=gpu:<number>
 
-where ``<number>`` is 1 or 2 (Two of the nodes have 1 GPU and two have 2 GPUs).
+      where ``<number>`` is 1 or 2 (Two of the nodes have 1 GPU and two have 2 GPUs).
 
+   .. tab:: NSC
 
+      Tetralith has Nvidia T4 GPUs. In order to access them, add this to your batch script or interactive job: 
 
+      .. code-block:: 
 
-NSC
-###
+         #SBATCH -n 1 
+         #SBATCH -c 32 
+         #SBATCH --gpus-per-task=1
 
-Tetralith has Nvidia T4 GPUs. In order to access them, add this to your batch script or interactive job: 
+   .. tab:: PDC 
 
-.. code-block:: 
+      Dardel has 4 AMD Instinct™ MI250X á 2 GCDs per node. 
 
-   #SBATCH -n 1 
-   #SBATCH -c 32 
-   #SBATCH --gpus-per-task=1
+      You need to add this to your batch script or interactive job in order to access them: 
 
-PDC 
-### 
+      .. code-block:: 
 
-Dardel has 4 AMD Instinct™ MI250X á 2 GCDs per node. 
+         #SBATCH -N 1
+         #SBATCH --ntasks-per-node=1
+         #SBATCH -p gpu
 
-You need to add this to your batch script or interactive job in order to access them: 
+   .. tab:: C3SE
 
-.. code-block:: 
+      Alvis is meant for GPU jobs. 
+      There is no node-sharing on multi-node jobs (``--exclusive`` is automatic).
 
-   #SBATCH -N 1
-   #SBATCH --ntasks-per-node=1
-   #SBATCH -p gpu
+      NOTE: Requesting ``-N 1`` does not mean 1 full node
 
-C3SE
-#### 
+      You would need to add this to your batch script:
 
-Alvis is meant for GPU jobs. There is no node-sharing on multi-node jobs (--exclusive is automatic).
+      .. code-block:: 
 
-NOTE: Requesting ``-N 1`` does not mean 1 full node
+         #SBATCH -p alvis
+         #SBATCH -N <nodes>
+         #SBATCH --gpus-per-node=<type>:x
 
-You would need to add this to your batch script:
+      where <type> is one of
 
-.. code-block::
+      - V100
+      - T4
+      - A100
 
-   #SBATCH -p alvis
-   #SBATCH -N <nodes>
-   #SBATCH --gpus-per-node=<type>:x
+      and x is number of GPU cards
 
-where <type> is one of
-
-- V100
-- T4
-- A100
-
-and x is number of GPU cards
-
-- 1-4 for V100
-- 1-8 for T4
-- 1-4 for A100
+      - 1-4 for V100
+      - 1-8 for T4
+      - 1-4 for A100
 
 
 Numba example
 -------------
 
-Numba is installed on some of the centers as a module (HPC2N and LUNARC), on UPPMAX in python_ML_packages-gpu, but not on NSC except in a very old version. because of this we will use the virtual environment created earlier today at NSC. 
+Numba is installed on some of the centers as a module (HPC2N, LUNARC, C3SE, and UPPMAX (only for Python 3.12.3, numba/0.60.0-foss-2024a), but not on NSC except in a very old version. Because of this we will use a virtual environment for NSC. 
 
-**NOTE**: PDC/Dardel has AMD GPUs and numba after version 0.53.1 only has compatibility with CUDA. The numba 0.53.1 version is too old to work with anything else installed. Thus, no numba example for PDC. You can try and play around with the hip examples (marked with hip in the name) in the Exercises/examples/programs folder. There are also some example batch scripts for GPUs on Dardel in the Exercises/examples/pdc folder, which you can try with. Note that you need to install ``hip-python`` in a virtual environment to get any of it to work. 
+**NOTE**: PDC/Dardel has AMD GPUs and numba after version 0.53.1 only has compatibility with CUDA. The numba 0.53.1 version is too old to work with anything else installed. Thus, no numba example for PDC. You can try and play around with the hip example (marked with hip in the name) in the Exercises/examples/programs folder. There is also an example batch scripts for GPUs on Dardel in the Exercises/examples/pdc folder, which you can try with. Note that you need to install ``hip-python`` in a virtual environment to get any of it to work. 
 
-We are going to use the following program for testing (it was taken from 
-a (now absent) linuxhint.com exercise but there are also many great examples at 
+We are going to use the following program for testing on the machines (minus Dardel). It was taken from a (now absent) linuxhint.com exercise but there are also many great examples at 
 https://numba.readthedocs.io/en/stable/cuda/examples.html): 
 
 .. admonition:: Python example ``add-list.py`` using Numba 
@@ -277,7 +270,7 @@ https://numba.readthedocs.io/en/stable/cuda/examples.html):
              if __name__ == "__main__":
                main()
                  
-As before, we need a batch script to run the code. There are no GPUs on the login node. 
+As before, we need a batch script to run the code. There are no GPUs on the login node and even if there were we should not run long/heavy jobs there. 
 
 **Note** Type along! 
 
@@ -285,7 +278,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
    .. tab:: UPPMAX
 
-      Running a GPU Python code interactively - on Snowy. 
+      Running a GPU Python code interactively. 
 
       .. code-block:: console
       
