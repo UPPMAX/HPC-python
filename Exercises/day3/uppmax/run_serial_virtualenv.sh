@@ -5,16 +5,16 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/hpc-python-uppmax/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/hpc-python-uppmax/<mydir-name>/Exercises/day3/programs/
 
-# Load any modules you need, here for Python 3.11.8
-module load uppmax
-module load python_ML_packages/3.11.8-cpu
-module load python/3.11.8
+# Load any modules you need, here for Python 3.12.3
+module load Python/3.12.3-GCCcore-13.3.0
+module load SciPy-bundle/2024.05-gfbf-2024a
+module load Python-bundle-PyPI/2024.06-GCCcore-13.3.0 
 
-# Activate your virtual environment. 
+# Activate your virtual environment which you have created with the above modules. 
 # CHANGE <path-to-virt-env> to the full path where you installed your virtual environment
-# Example: /proj/hpc-python/mrspock/pythonUPPMAX 
+# Example: /proj/hpc-python-uppmax/mrspock/pythonUPPMAX 
 source <path-to-virt-env>/bin/activate
 
 # Run your Python script

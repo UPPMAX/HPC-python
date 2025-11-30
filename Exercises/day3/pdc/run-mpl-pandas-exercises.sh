@@ -8,7 +8,7 @@
 
 # Change to the directory where the data files and program are located
 # Change the below to your own path to where you placed the example programs
-cd /cfs/klemming/projects/snic/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
+cd cfs/klemming/projects/supr/courses-fall-2025/<mydir-name>/Exercises/day3/programs/
 
 # Load the modules we need
 module load cray-python/3.11.7

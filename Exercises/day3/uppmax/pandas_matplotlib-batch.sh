@@ -8,11 +8,11 @@
 
 # Change to the directory where the data files and program are located
 # Change the below to your own path to where you placed the example programs
-cd /proj/hpc-python-uppmax/<mydir-name>/HPC-python/Exercises/examples/programs/
+cd /proj/hpc-python-uppmax/<mydir-name>/Exercises/day3/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load python/3.11.8   
+module load Python/3.12.3-GCCcore-13.3.0 SciPy-bundle/2024.05-gfbf-2024a Python-bundle-PyPI/2024.06-GCCcore-13.3.0 matplotlib/3.9.2-gfbf-2024a   
 
 # Run your Python script
-python pandas_matplotlib-batch-rackham.py
+python pandas_matplotlib-batch.py

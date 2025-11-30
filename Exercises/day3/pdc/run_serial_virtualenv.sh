@@ -5,7 +5,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/cfs/klemming/projects/snic/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/cfs/klemming/projects/supr/courses-fall-2025/<mydir-name>/Exercises/day3/programs/
 
 # Load any modules you need. This is an example 
 ml cray-python/3.11.7 
@@ -17,4 +17,4 @@ ml cray-python/3.11.7
 source <path-to-virt-env>/bin/activate
 
 # Run your Python script - remember to add the name of your script
-python $MYPATH/seaborn-example.py
+python $MYPATH/virt-example.py
