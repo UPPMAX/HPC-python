@@ -7,8 +7,8 @@ Big data with Python
 
    Learners 
 
-   - can decide on useful file formats
    - can allocate resources sufficient to data size
+   - can decide on useful file formats
    - can use data-chunking as technique
    - know where to learn more
     
@@ -90,14 +90,13 @@ Allocating RAM
 
    Have you seen the Out-of-memory (OOM) error? 
 
-.. admonition:: What to do!
+.. admonition:: What to do
 
    - By allocating **many cores** on a node will give you more available memory
    - If the order 128 GB is not enough there are so-called **fat nodes** with at least 512 GB and up to 3 TB.
-   - On some clusters you do not have to request additional CPUs to get additional memory.
-       - You can use one core and the Slurm options:
-           - ``--mem`` or
-           - ``--mem-per-cpu``
+   - On some clusters you do not have to request additional CPUs to get additional memory. Use the ``slurm`` options
+       - ``--mem`` or
+       - ``--mem-per-cpu``
 
 .. important::
 
@@ -105,19 +104,41 @@ Allocating RAM
    - Allocating several nodes for one one big problem is not useful.
       - Note that shared memory among the cores works within node only.
 
-.. admonition:: To cover
+Principles
+..........
 
-   - Mention memory per core considerations.
-   - Show SLURM options for memory and time.
+- Allocate RAM using the **full node RAM divided by number of course principle**
+   - Ex: 128 GB with 20 cores --> 6.4 GB per core
+   - Allocate number of cores to cover your needs.
+   - ``-n <number>``
+- Request the memory needed and choose number of cores 
+   - ``--mem=<size>[K|M|G]
+   - Example: ``--mem=500G``
+- Request the memory-per-core needed and choose number of cores 
+   - ``--mem-core=<size>[K|M|G]
+   - Example: ``--mem-per-cpu=16G``
 
+.. note::
 
+   - "core-hours" drawn from your project may be set to the maximum of "number of cores" and "memory part of node" requested. 
+   - So there is no win to ask for one core but much memory! 
 
+Exercise: Memory allocation
+---------------------------
 
+1. Log in to a desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
+
+- Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
+- Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
+- Alvis (https://alvis.c3se.chalmers.se/)
+- Bianca (https://bianca.uppmax.uu.se/)
+- Pelle (https://pelle-gui.uppmax.uu.se/)
+- Cosmos (ThinLinc client: ``cosmos-dt.lunarc.lu.se``)
+- Kebnekaise(https://portal.hpc2n.umu.se/public/landing_page.html)
 
 .. discussion::
 
-   - Take some time to find out the answers on the questions below, using the table of hardware
-   - I'll ask around in a few minutes
+   - Take some time to find out the answers for your specific cluster for the questions below, using the table of hardware below.
 
 .. admonition:: Table of hardware
    :class: dropdown
@@ -161,16 +182,19 @@ Allocating RAM
 
    - Divide GB RAM of the booked node with number of cores.
 
-   - Example: 128 GB node with 20 cores
-       - ~6.4 GB per core
+   - Example: 128 GB node with 16 cores
+       - ~8 GB per core
+   - NOTE: You may get less due to background system threads running in the background.
+       - Example: On Bianca you may get 7 GB instead of 8 GB.
+
 
 .. admonition:: How much memory do I get with 5 cores?
    :class: dropdown
 
    - Multiply the RAM per core with number of allocated cores..
 
-   - Example: 6.4 GB per core 
-       - ~32 GB 
+   - Example: 8 GB per core 
+       - ~40 GB 
 
 .. admonition:: Do you remember how to allocate several cores?
    :class: dropdown
@@ -185,17 +209,6 @@ Allocating RAM
    - We recommend a desktop environment for speed of the graphics.
    - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
 
-Exercise: memory allocation
-
-1. Log in to a desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
-
-- Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
-- Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
-- Alvis (https://alvis.c3se.chalmers.se/)
-- Bianca (https://bianca.uppmax.uu.se/)
-- Pelle (https://pelle-gui.uppmax.uu.se/)
-- Cosmos (ThinLinc client: ``cosmos-dt.lunarc.lu.se``)
-- Kebnekaise(https://portal.hpc2n.umu.se/public/landing_page.html)
 
 2. You want 200 GB RAM. What would you do on you cluster?
 
