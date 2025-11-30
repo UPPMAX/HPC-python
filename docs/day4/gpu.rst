@@ -289,9 +289,9 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          salloc: Granted job allocation 406444
          salloc: Waiting for resource configuration
          salloc: Nodes p202 are ready for job
-         [bbrydsoe@p202 ~]$ module load numba/0.60.0-foss-2024a
+         [bbrydsoe@p202 ~]$ module load numba/0.60.0-foss-2024a CUDA/13.0.2
          [bbrydsoe@p202 ~]$ python add-list.py
-         
+         CORE DUMP!!!!          
 
    .. tab:: UPPMAX: batch
 
@@ -377,6 +377,28 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          # Run your Python script
          python add-list.py
 
+   .. tab:: C3SE: batch 
+
+      Batch script, "add-list.sh", to run the same GPU Python script (the numba code, "add-list.py") at Alvis. As before, submit with "sbatch add-list.sh" (assuming you called the batch script thus - change to fit your own naming style). 
+
+      .. code::block:: 
+
+         #!/bin/bash
+         # Remember to change this to your own project ID after the course!
+         #SBATCH -A naiss2025-22-934
+         # We are asking for 10 minutes
+         #SBATCH -t 00:10:00
+         #SBATCH -p alvis
+         #SBATCH -N 1 --gpus-per-node=T4:2
+         # Writing output and error files
+         #SBATCH --output=output%J.out
+         #SBATCH --error=error%J.error
+   
+         # Load any needed GPU modules and any prerequisites - on Alvis this module loads all 
+         ml purge > /dev/null 2>&1
+         module load numba-cuda/0.20.0-foss-2025b-CUDA-12.9.1
+         python add-list.py 
+
    .. tab:: NSC: batch 
 
       Batch script, "add-list.sh", to run the same GPU Python script (the numba code, "add-list.py") at Tetralith. As before, submit with "sbatch add-list.sh" (assuming you called the batch script thus - change to fit your own naming style). 
@@ -394,17 +416,17 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
       
          # Remove any loaded modules and load the ones we need
          module purge  > /dev/null 2>&1
-         module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+         module load buildenv-gcccuda/12.9.1-gcc11-hpc1 Python/3.11.5-env-hpc1-gcc-2023b-eb
 
-         # Load a virtual environment where numba is installed
-         # Use the one you created previously under "Install packages"
-         # or you can create it with the following steps:
-         # ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+         # The above modules should have numba. If it does not work, install numba yourself
+         # or load a virtual environment where numba is installed
+         # This is the steps to create it and then load:
+         # ml buildenv-gcccuda/12.9.1-gcc11-hpc1 Python/3.11.5-bare-hpc1-gcc-2023b-eb
          # python -m venv mynumba
          # source mynumba/bin/activate
          # pip install numba
          #
-         source <path-to>/mynumba/bin/activate
+         # source <path-to>/mynumba/bin/activate
 
          # Run your Python script 
          python add-list.py 
