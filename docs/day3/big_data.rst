@@ -789,11 +789,9 @@ Set up the environment
 
       .. important:: **General Use**
 
-         On Pelle, the only available Seaborn module right now is ``Seaborn/0.13.2-gfbf-2024a``, and it can be loaded directly, as shown below:
-
          .. code-block:: console
         
-            module load Seaborn/0.13.2-gfbf-2024a
+            module load dask/2024.9.1-gfbf-2024a xarray/2024.11.0-gfbf-2024a JupyterLab/4.2.5-GCCcore-13.3.0 polars/1.29.0-gfbf-2024a
      
          This command also loads ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, but not any IDEs.
 
@@ -1058,15 +1056,13 @@ Summary
 
 .. seealso::
 
+   - `Battle of the DataFrames: Pandas vs. Dask vs. Polars <https://statusneo.com/battle-of-the-dataframes-pandas-vs-dask-vs-polars>`_
+
    - `Dask documentation <https://docs.dask.org/en/stable/>`_
 
-   Working with data
-
-   - https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/
+   - Working with data (Python for Scientific computing course)<https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/>`_
    
-   Tidy data
-
-   - https://coderefinery.github.io/data-visualization-python/tidy-data/
+   - Tidy data (by CodeRefinery)<https://coderefinery.github.io/data-visualization-python/tidy-data/>`_
    
    ENCCS
  
