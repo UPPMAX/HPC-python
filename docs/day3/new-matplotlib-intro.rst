@@ -354,7 +354,7 @@ The outputs look the same for both of these examples because the plot type was c
 
 
 .. admonition:: Subplots and Subplot Mosaics
-   :collapsible: open
+   :class: dropdown
 
    A prime example of a feature only available through the explicit API is subplots, which support and format 2 or more separate sets of axes on the same figure. The `Matplotlib documentation on subplots and subplot mosaics <https://matplotlib.org/stable/users/explain/axes/arranging_axes.html>`__ is extensive and fairly straightforward, so this topic will not be covered in depth here. The table below summarizes all the available subplot creation methods that you may see and their capabilities so you can compare them:
    
@@ -374,7 +374,7 @@ The outputs look the same for both of these examples because the plot type was c
 
 
 .. admonition:: Mathtext and String Insertion (Not covered by Matplotlib documentation)
-   :collapsible:
+   :class: dropdown
       
    Most journals expect that you typeset all variables and math scripts so they appear the same in your plots as in your main text, whether those symbols appear in the `axes labels, function labels, plot titles, or annotations. <https://matplotlib.org/stable/users/explain/text/text_intro.html>`__ Matplotlib now `supports most LaTeX math commands, <https://matplotlib.org/stable/users/explain/text/mathtext.html#mathtext>`__ but you need to know some basic LaTeX syntax, some of which is covered in that link. For more information, you can refer to `the WikiBooks documentation on LaTeX math <https://en.wikibooks.org/wiki/LaTeX/Mathematics>`__, starting with the Symbols section.
    
