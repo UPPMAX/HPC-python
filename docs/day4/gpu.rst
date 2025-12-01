@@ -321,9 +321,6 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          
          python add-list.py
 
-         CPU function took 17.475140 seconds.
-         GPU function took 0.134774 seconds.
- 
          
    .. tab:: HPC2N
    
