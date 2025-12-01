@@ -743,6 +743,179 @@ Polars package
 Exercises: Packages
 -------------------
 
+Set up the environment
+
+.. tabs::
+
+   .. tab:: HPC2N (Kebnekaise)
+
+      .. important:: **Interactive use (Recommended)**
+
+         Go to the Open On-Demand web portal and start Jupyter Notebook (or VSCode) as described `here in the Kebnekaise documentation <https://docs.hpc2n.umu.se/tutorials/connections/#interactive__apps__-__jupyter__notebook>`__ and discussed on day 2 in the On-Demand lecture session. Available Spyder versions are old and generally not recommended.
+
+      .. admonition:: Non-Interactive Use
+
+         To use Seaborn in a batch script, you can load
+
+         .. code-block:: console
+        
+            ml GCC/13.2.0 Seaborn/0.13.2
+
+         As usual, ``ml spider Seaborn`` shows the available versions and how to load them. These Seaborn modules are built to load their Matplotlib, Tkinter, and SciPy-bundle dependencies internally.           
+
+   .. tab:: LUNARC (Cosmos)
+
+      .. important:: **Interactive Use (Recommended)**
+      
+         Start a Thinlinc session and open one of Spyder, Jupyter Lab, or VSCode from the On-Demand applications menu as discussed in the `On-Demand lesson <../day2/ondemand-desktop.rst>`__ from Day 2. Spyder and Jupyter Lab are configured to load Seaborn and all its dependencies automatically via the latest version of Anaconda, whereas VSCode requires modules to be selected to load as part of the additional job settings.
+
+      .. admonition:: Non-Interactive Use
+
+         To use Seaborn in a batch script, you can either load
+
+         .. code-block:: console
+        
+            ml GCC/13.2.0 Seaborn/0.13.2
+
+         if you prefer pip-installed Python packages, or you can load
+
+         .. code-block:: console
+        
+            ml Anaconda3/2024.06-1
+
+         if you have a conda environment or otherwise prefer Anaconda. As usual, ``ml spider Seaborn`` shows the available versions and how to load them.
+
+   .. tab:: UPPMAX (Pelle)
+
+      .. important:: **General Use**
+
+         On Pelle, the only available Seaborn module right now is ``Seaborn/0.13.2-gfbf-2024a``, and it can be loaded directly, as shown below:
+
+         .. code-block:: console
+        
+            module load Seaborn/0.13.2-gfbf-2024a
+     
+         This command also loads ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, but not any IDEs.
+
+      .. admonition:: Interactive Use
+
+         In a Thinlinc session, open a terminal and start 
+
+         ``interactive -A [project_name] -t HHH:MM:SS``
+
+         as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. Once transferred to a compute node, load ``Seaborn/0.13.2-gfbf-2024a`` and then load and run your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__.
+
+   .. tab:: NSC (Tetralith)
+     
+      .. important:: **General Use**
+
+         You should for this session load
+
+         .. code-block:: console
+        
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11
+
+         and then install ``seaborn`` to ``~/.local/`` if you don't already have it.
+
+         .. code-block:: console
+        
+            pip install seaborn
+
+      .. admonition:: Interactive Use
+
+         In a Thinlinc session, open a terminal and start 
+
+         ``interactive -A [project_name] -t HHH:MM:SS``
+
+         as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. Once transferred to a compute node, do
+
+         .. code-block:: console
+        
+            module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
+
+         or swap JupyterLab for your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__. Seaborn should not have to be loaded as a module since it would be installed in your home directory, which is always in ``$PATH``.
+
+   .. tab:: Dardel (PDC)
+
+      - Jupyter Lab is only available on Dardel via ThinLinc. 
+      - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
+      - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
+      - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below. The exercise prompts and their solutions are included on this page.
+
+      .. important:: **General Use**
+
+         For this session, you could load
+
+         .. code-block:: console
+        
+            ml cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12
+     
+     On Dardel, all cray-python versions include NumPy, SciPy, Pandas, and Dask, and do not have any prerequisites, but Seaborn is part of ``matplotlib/3.8.2-cpeGNU-23.12``, which has ``PDCOLD/23.12`` as a prerequisite. The versions available for cray-python and Matplotlib are limited because Dardel users are typically expected to build their own environments, but for this course, the installed versions are fine.
+
+     .. admonition:: Interactive use with Thinlinc (If Available)
+         :collapsible:
+
+        - Start Jupyter from the menu and it will work
+   
+             - Default Anaconda3 has all packages needed for this lesson
+   
+        - Or use Spyder:
+
+             First start interactive session
+   
+             .. code-block:: console 
+   
+                salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934
+                salloc: Pending job allocation 9102757
+                salloc: job 9102757 queued and waiting for resources
+                salloc: job 9102757 has been allocated resources
+                salloc: Granted job allocation 9102757
+                salloc: Waiting for resource configuration
+                salloc: Nodes nid001057 are ready for job
+   
+             Then ssh to the specific node, like
+   
+             .. code-block:: console 
+   
+                ssh nid001057
+   
+             Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+   
+             .. code-block:: console
+   
+                ml PDC/24.11
+                ml miniconda3/25.3.1-1-cpeGNU-24.11
+                export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+                export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+                source activate spyder-env
+                # If needed, install the packages here by: "conda install matplotlib pandas seaborn"
+                spyder &
+
+   .. tab:: Alvis (C3SE)
+
+      .. important::
+
+         - For this session, you should use the Alvis portal: https://alvis.c3se.chalmers.se/public/root/
+         - Log in
+         - Ask for Desktop (Compute) in left-hand side menu. Do not choose "Jupyter", since it gives you a TensorFlow environment with Python 3.8.
+         - Open a Terminal and load the following software modules
+
+         .. code-block:: console
+
+            ml Seaborn/0.13.2-gfbf-2024a
+            ml Jupyter-bundle/20250530-GCCcore-13.3.0
+
+         - This will load matplotlib & SciPy-bundle on the fly!
+         - Pandas, like NumPy, has typically been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
+
+         - Then start jupyter-lab and a web browser will automatically open
+
+         .. code-block:: console
+
+            jupyter-lab
+
+
+
 .. challenge:: Chunk sizes in Dask
 
    - The following example calculate the mean value of a random generated array. 
