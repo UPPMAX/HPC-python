@@ -280,7 +280,7 @@ The main object classes of Pandas are ``Series`` and ``DataFrame``. There is als
 For the rest of this lesson, example DataFrames will be abbreviated as ``df`` in code snippets (and example Series, if they appear, will be abbreviated as ``ser``).
 
 .. admonition:: **Important Attributes Cheatsheet**
-   :collapsible: closed
+   :class: dropdown
 
    The API reference in the `official Pandas documentation <https://pandas.pydata.org/docs/user_guide/index.html>`_ shows hundreds of methods and attributes for Series and DataFrames. The following is a very brief list of the most important attributes and what they output.
    
@@ -403,7 +403,7 @@ The main data inspection functions for DataFrames (and Series) are as follows:
     print('\n Compare: \n',df.memory_usage(deep=True))
 
 .. admonition:: "Data Selection and Preprocessing Cheatsheet"
-   :collapsible:
+   :class: dropdown
    
    Below is a table of the syntax for how to select or assign different subsets or cross-sections of a DataFrame. `The complete guide, including how to select data by conditions, can be found at this link. <https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html>`__
    
