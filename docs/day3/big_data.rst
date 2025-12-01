@@ -657,7 +657,7 @@ Python libraries:
         - `ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-clusters>`_
     - **“Big Data” Collections**
         - Like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to **larger-than-memory** or distributed environments. These parallel collections run on top of dynamic task schedulers.
-        -`ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-collections>`_
+        - `ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-collections>`_
 
 Dask Collections
 ::::::::::::::::
@@ -1075,7 +1075,7 @@ Summary
 
    - `Dask documentation <https://docs.dask.org/en/stable/>`_
 
-   - Working with data (Python for Scientific computing course)<https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/>`_
+   - `Working with data (Python for Scientific computing course)<https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/>`_
    
    - Tidy data (by CodeRefinery)<https://coderefinery.github.io/data-visualization-python/tidy-data/>`_
    
