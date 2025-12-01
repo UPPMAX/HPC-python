@@ -7,7 +7,7 @@
 
 # Set a path where the example programs are installed.
 # Change the below to your own path to where you placed the example programs
-MYPATH=/cfs/klemming/projects/snic/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/cfs/klemming/projects/supr/courses-fall-2025/<mydir-name>/Exercises/day4/programs/
 
 # Load the modules we need
 module load cray-python/3.11.7  

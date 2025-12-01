@@ -9,12 +9,12 @@
 #SBATCH --exclusive
 
 ml purge > /dev/null 2>&1
-ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
+ml load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0
 ml load Python/3.11.5
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/courses-fall-2025/<mydir-name>/Exercises/day4/programs/
 
 # Load a virtual environment where numba and TensorFlow is installed
 # Use the one you created previously 

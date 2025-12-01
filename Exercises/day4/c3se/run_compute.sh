@@ -1,22 +1,18 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A naiss2025-22-934
+#SBATCH -A hpc2n2025-151
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
-#SBATCH -n 1
-#SBATCH -c 32
-#SBATCH --gpus-per-task=1
+#SBATCH -p alvis
+#SBATCH -N 1 --gpus-per-node=T4:4
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/courses-fall-2025/<mydir-name>/Exercises/day4/programs/
+MYPATH=/mimer/NOBACKUP/groups/courses-fall-2025/<mydir-name>/Exercises/day4/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load buildenv-gcccuda/12.2.2-gcc11-hpc1 Python/3.10.4-env-hpc2-gcc-2022a-eb
-
-# Activate the virtual environment we created earlier
-source /proj/hpc-python-spring-naiss/venvNSC-numba/bin/activate
+ml numba-cuda/0.20.0-foss-2025b-CUDA-12.9.1
 
 # Run your Python script
 python $MYPATH/compute.py

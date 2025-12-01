@@ -7,7 +7,7 @@
 
 # Set a path where the example programs are installed.
 # Change the below to your own path to where you placed the example programs
-MYPATH=/cfs/klemming/projects/snic/hpc-python-spring-naiss/<your-dir>/HPC-python/Exercises/examples/programs/
+MYPATH=/cfs/klemming/projects/supr/fall-courses-2025/<your-dir>/Exercises/day4/programs/
 
 # Load the module we need
 module load PDC/23.12
