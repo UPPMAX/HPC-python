@@ -322,7 +322,6 @@ Exercise: Memory allocation (10 min)
 
          ``-C largemem``
 
-
 .. admonition:: 
 
    - We recommend a desktop environment for speed of the graphics.
@@ -920,7 +919,11 @@ Set up the environment
 
             jupyter-lab
 
+        - And install (in Jupyter) ``polars`` to ``~/.local/`` if you don't already have it
 
+         .. code-block:: console
+
+            ! pip install --user polars
 
 .. challenge:: Chunk sizes in Dask
 
