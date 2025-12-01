@@ -215,7 +215,7 @@ To use them you need to either launch an interactive job or submit a batch job.
 Numba example
 -------------
 
-Numba is installed on some of the centers as a module (HPC2N, LUNARC, C3SE, and UPPMAX (only for Python 3.12.3, numba/0.60.0-foss-2024a), but not on NSC except in a very old version. Because of this we will use a virtual environment for NSC. 
+Numba is installed on some of the centers as a module (HPC2N, LUNARC, and C3SE). For UPPMAX and NSC we'll use virtual environments. 
 
 .. admonition NOTE
 
@@ -295,9 +295,11 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          salloc: Granted job allocation 406444
          salloc: Waiting for resource configuration
          salloc: Nodes p202 are ready for job
-         [bbrydsoe@p202 ~]$ module load numba/0.60.0-foss-2024a CUDA/13.0.2
+         [bbrydsoe@p202 ~]$ module load Python/3.13.5 foss/2025b CUDA/13.0.2
+         [bbrydsoe@p202 ~]$ source /sw/arch/local/software/python/venvs/numba-gpu/bin/activate
          [bbrydsoe@p202 ~]$ python add-list.py
-         CORE DUMP!!!!          
+         CPU function took 17.475140 seconds.
+         GPU function took 0.134774 seconds.          
 
    .. tab:: UPPMAX (batch)
 
@@ -314,11 +316,14 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
          #SBATCH -p gpu
          #SBATCH --gpus=l40s:1
 
-         module load numba/0.60.0-foss-2024a
+         module load Python/3.13.5 foss/2025b CUDA/13.0.2
+         source /sw/arch/local/software/python/venvs/numba-gpu/bin/activate
          
          python add-list.py
 
-      CORE DUMP!!! 
+         CPU function took 17.475140 seconds.
+         GPU function took 0.134774 seconds.
+ 
          
    .. tab:: HPC2N
    
@@ -627,7 +632,8 @@ Exercises
 
             # Remove any loaded modules and load the ones we need
             ml purge > /dev/null 2>&1
-            numba/0.60.0-foss-2024a CUDA/13.0.2 
+            module load Python/3.13.5 foss/2025b CUDA/13.0.2 
+            source /sw/arch/local/software/python/venvs/numba-gpu/bin/activate 
 
             # Run your Python script
 
