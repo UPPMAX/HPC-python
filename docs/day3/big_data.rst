@@ -760,7 +760,7 @@ Set up the environment
             module load SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
 
          - Continue and start Jupyter
-         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
+         - And install ``polars``, ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
 
          .. code-block:: console
 
@@ -774,13 +774,18 @@ Set up the environment
       
          Start a Thinlinc session and open one of Spyder, Jupyter Lab, or VSCode from the On-Demand applications menu as discussed in the `On-Demand lesson <../day2/ondemand-desktop.rst>`__ from Day 2. Spyder and Jupyter Lab are configured to load Seaborn and all its dependencies automatically via the latest version of Anaconda, whereas VSCode requires modules to be selected to load as part of the additional job settings.
 
-      .. admonition:: Non-Interactive Use
-
-         To use Seaborn in a batch script, you can either load
+         - Continue and start Jupyter
+         - And install ``polars`` to ``~/.local/`` if you don't already have it
 
          .. code-block:: console
+
+            ! pip install --user polars
+    
+     .. admonition:: Non-Interactive Use
+
+           .. code-block:: console
         
-            ml GCC/13.2.0 Seaborn/0.13.2
+            ml GCC/12.3.0 OpenMPI/4.1.5 xarray/2023.9.0 dask/2023.9.2 
 
          if you prefer pip-installed Python packages, or you can load
 
@@ -797,9 +802,7 @@ Set up the environment
             module load dask/2024.9.1-gfbf-2024a xarray/2024.11.0-gfbf-2024a JupyterLab/4.2.5-GCCcore-13.3.0 polars/1.29.0-gfbf-2024a
      
          This command also loads ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, but not any IDEs.
-
-
-         as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. Once transferred to a compute node, load ``Seaborn/0.13.2-gfbf-2024a`` and then load and run your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__.
+         - Continue and start Jupyter as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. 
 
    .. tab:: NSC (Tetralith)
      
