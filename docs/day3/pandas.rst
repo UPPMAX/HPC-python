@@ -639,7 +639,7 @@ This example demonstrates both reading and writing in chunks by simulating boots
 
    However, if your data have natural groupings where group membership is not known by position a priori, and/or where each group is itself larger than memory, you may be better off using Dask or other libraries. Windowed operations also do not work because there is no overlap between chunks.
 
-.. challenge
+.. challenge::
 
    Load ``global_disaster_response_2018-2024.csv`` in chunks of 10000, and accumulate the sum of the ``'economic_loss_usd'`` column (hint: remember that DataFrames and Series have a ``.sum()`` method). Print the final sum. The result should be around $253 billion USD.
 
