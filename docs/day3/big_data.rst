@@ -88,7 +88,7 @@ Allocating RAM
 - How much is actually loaded into the working memory (RAM)
 - Is more data in variables created during the run or work?
 
-.. discusioon::
+.. discussion::
 
    Have you seen the Out-of-memory (OOM) error? 
 
@@ -134,7 +134,7 @@ Use the Slurm options for either "BATCH", "INTERACTIVE" from command line or fro
 Exercise: Memory allocation (10 min)
 ------------------------------------
 
-.. info:: Break-out rooms per Cluster or Cluster Type (OnDemand vs terminal)
+.. admonition:: Break-out rooms per Cluster or Cluster Type (OnDemand vs terminal)
 
 1. Log in to a Desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
 
@@ -154,7 +154,7 @@ Exercise: Memory allocation (10 min)
    :class: dropdown
 
    .. list-table:: Hardware
-      :widths: 25 25 25 25 25 25 25 25
+      :widths: 25 25 25 25 25 25 25 25 25
       :header-rows: 1
 
       * - Technology
