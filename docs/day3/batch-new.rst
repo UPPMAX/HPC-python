@@ -565,7 +565,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
         - UPPMAX: ml Python/3.12.3-GCCcore-13.3.0 SciPy-bundle/2024.05-gfbf-2024a Python-bundle-PyPI/2024.06-GCCcore-13.3.0 matplotlib/3.9.2-gfbf-2024a 
         - HPC2N: ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 
         - LUNARC: ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Tkinter/3.11.5 
-        - NSC: ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/11.3.0  OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4  
+        - NSC: buildtool-easybuild/4.9.4-hpc71cbb0050 GCC/13.2.0 matplotlib/3.8.2 SciPy-bundle/2023.11 Tkinter/3.11.5  
         - PDC: 
             - ml cray-python/3.11.7  
             - python -m venv --system-site-packages mymatplotlib
@@ -588,7 +588,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           plt.scatter(x, y)
           plt.show()
 
-       - At UPPMAX, HPC2N, LUNARC, NSC, and C3SE 
+       - At UPPMAX, HPC2N, LUNARC, and C3SE 
 
        .. code-block:: python 
          
@@ -601,6 +601,23 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           y = dataframe.Latitude
           plt.scatter(x, y)
           plt.show()
+
+      - At NSC 
+
+        There is a problem with the Tkinter and matplotlib version causing the backend not to work for GUI so you cannot do graphics except saving it to a file and opening it afterwards (with ``eog`` for instance, if you have logged in with ``-X`` or ``-Y``). You can use this script to save it to a file: 
+
+      .. code-block:: python
+
+         import pandas as pd
+         import matplotlib
+         import matplotlib.pyplot as plt
+         matplotlib.use('Agg')
+         dataframe = pd.read_csv("scottish_hills.csv")
+         x = dataframe.Height
+         y = dataframe.Latitude
+         plt.scatter(x, y)
+         plt.savefig("myplot.png")
+
 
    **CHALLENGE: How would you do it so you could run as a batch script?** 
    

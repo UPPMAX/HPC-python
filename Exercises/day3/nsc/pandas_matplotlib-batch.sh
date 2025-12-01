@@ -12,7 +12,7 @@ cd /proj/courses-fall-2025/users/<mydir-name>/Exercises/day3/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
-module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/11.3.0 OpenMPI/4.1.4 matplotlib/3.5.2 SciPy-bundle/2022.05 Tkinter/3.10.4
+module load buildtool-easybuild/4.9.4-hpc71cbb0050 GCC/13.2.0 matplotlib/3.8.2 SciPy-bundle/2023.11 Tkinter/3.11.5
 
 # Run your Python script
-python pandas_matplotlib-batch.py
+python pandas_matplotlib-batch-tetralith.py
