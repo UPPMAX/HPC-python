@@ -359,8 +359,6 @@ The outputs look the same for both of these examples because the plot type was c
    A prime example of a feature only available through the explicit API is subplots, which support and format 2 or more separate sets of axes on the same figure. The `Matplotlib documentation on subplots and subplot mosaics <https://matplotlib.org/stable/users/explain/axes/arranging_axes.html>`__ is extensive and fairly straightforward, so this topic will not be covered in depth here. The table below summarizes all the available subplot creation methods that you may see and their capabilities so you can compare them:
    
    ======================== =============== ======================== ================================ ========================
-                              Supported features
-   ------------------------ --------------------------------------------------------------------------------------------------
     Method                   Iterable Axes   Coordinate projections   Row-/column-spanning subplots    Max number of subplots
    ======================== =============== ======================== ================================ ========================
    ``plt.subplots()``        Yes             one for all subplots     requires ``fig.add_gridspec()`` arbitrary
