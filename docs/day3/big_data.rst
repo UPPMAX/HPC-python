@@ -3,9 +3,6 @@
 Big data with Python
 ====================
 
-
-dfiifdio djfoidj oid mjisjfsdfiasdf
-
 .. admonition:: "Learning outcomes"
 
    Learners 
@@ -16,6 +13,7 @@ dfiifdio djfoidj oid mjisjfsdfiasdf
    - know where to learn more
     
 .. admonition:: "For teacher"
+   :class: dropdown
 
    Preliminary timings. Starting at 13.00
 
@@ -688,13 +686,22 @@ dask.arrays
 
 .. admonition:: Chunks
 
-   - Dask divides arrays into many small pieces (chunks), as small as necessary to 
-  fit it into memory. 
+   - Dask divides arrays into many small pieces (chunks), as small as necessary to fit it into memory. 
    - Operations are delayed (**lazy computing**) e.g. 
 
-       - tasks are queue and no computation is performed until you actually ask values to be computed (for instance print mean values). 
+       - tasks are queued and no computation is performed until you actually ask values to be computed (for instance print mean values). 
    - Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
-   - and data is gathered in the end.
+   - And data is gathered in the end.
+   - Tools like Dask and xarray handle "chunking" automatically. 
+   - Note that number of chunks does not need to be equal to number of cores.
+
+Big file → split into chunks → parallel workers → results combined.
+
+.. admonition:: To think of
+ 
+   - Chunk size and number of them affect the performance due to overhad/administration of the chunking and combination.
+   - Briefly explain what happens when a Dask job runs on multiple cores.
+
 
 .. discussion:: Example from dask.org
 
@@ -708,19 +715,7 @@ dask.arrays
       # It runs using multiple threads on one node.
       # It could also be distributed to multiple nodes
 
-Chunking
-::::::::
 
-Big file → split into chunks → parallel workers → results combined.
-
-- Tools like Dask and xarray handle "chunking" automatically. 
-- Note that number of chunks does not need to be equal to number of cores.
-
-.. admonition:: To think of
- 
-   - chunk size and number of them affect the performance due to overhad/administration of the chunking and combination.
-
-   - Briefly explain what happens when a Dask job runs on multiple cores.
 
 Polars package
 ..............
@@ -745,9 +740,8 @@ Polars package
 
    https://pola.rs/
 
-Exercises
----------
-
+Exercises: Packages
+-------------------
 
 .. challenge:: Chunk sizes in Dask
 
@@ -863,9 +857,6 @@ Exercises
 Summary
 -------
 
-Workflow
-........
-
 .. discussion:: Follow-up discussion
 
    - New learnings?
@@ -874,30 +865,23 @@ Workflow
    - Data-chunking as technique if not enough RAM
    - Is Xarray/Polars/Dask useful for you?
 
-.. admonition:: Sum up
-
-   - Load Python modules and activate virtual environments.
-   - Request appropriate memory and runtime in SLURM.
-   - Store temporary data in local scratch ($SNIC_TMP).
-   - Check job memory usage with ``sacct`` or ``sstat``.
-
-Data source → Format choice → Load/Chunk → Process → Write
-
 .. keypoints::
 
+   - Allocate more RAM by asking for
+       - Several cores
+       - Nodes will more RAM
+       - Check job memory usage with ``sacct`` or ``sstat``. Check you documentation!
    - File formats
        - No format fits all requirements
-       - HDF5 and NetCDF good for Big data
+       - HDF5 and NetCDF good for Big data since it allows loading parts of the file into memory
+   - Store temporary data in local scratch ($SNIC_TMP).
    - Packages
        - xarray
           - can deal with 3D-data and higher dimensions
        - Dask 
            - uses lazy execution
            - Only use for processing very large amount of data
-   - Allocate more RAM by asking for
-       - Several cores
-       - Nodes will more RAM
-   
+       - Chunking: Data source → Format choice → Load/Chunk → Process → Write
 
 .. seealso::
 
