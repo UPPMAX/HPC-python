@@ -640,7 +640,7 @@ Xarray package
 - Explore it a bit in the (optional) exercise below!
 
 Dask
-----
+....
 
 How to use more resources than available?
 
@@ -660,7 +660,7 @@ Python libraries:
         -`ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-collections>`_
 
 Dask Collections
-................
+::::::::::::::::
 
 - Dask provides dynamic parallel task scheduling and three main high-level collections:
   
