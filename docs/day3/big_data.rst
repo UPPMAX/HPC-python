@@ -784,9 +784,9 @@ Set up the environment
 
          - You may have to restart the Jupyter kernel (or even Jupyter session) to be able to be able to load the just instaleld package(s).
     
-     .. admonition:: Non-Interactive Use
+      .. admonition:: Non-Interactive Use
 
-           .. code-block:: console
+         .. code-block:: console
         
             ml GCC/12.3.0 OpenMPI/4.1.5 xarray/2023.9.0 dask/2023.9.2 
 
@@ -796,7 +796,7 @@ Set up the environment
         
             ml Anaconda3/2024.06-1
 
-    .. tab:: UPPMAX (Pelle)
+   .. tab:: UPPMAX (Pelle)
 
       .. important:: **General Use**
 
@@ -840,7 +840,7 @@ Set up the environment
 
          or swap JupyterLab for your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__. 
 
-   .. tab:: Dardel (PDC)
+   .. tab:: Dardel (PDC) To be fixed
 
       - Jupyter Lab is only available on Dardel via ThinLinc. 
       - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
@@ -857,7 +857,7 @@ Set up the environment
      
      On Dardel, all cray-python versions include NumPy, SciPy, Pandas, and Dask, and do not have any prerequisites, but Seaborn is part of ``matplotlib/3.8.2-cpeGNU-23.12``, which has ``PDCOLD/23.12`` as a prerequisite. The versions available for cray-python and Matplotlib are limited because Dardel users are typically expected to build their own environments, but for this course, the installed versions are fine.
 
-     .. admonition:: Interactive use with Thinlinc (If Available)
+      .. admonition:: Interactive use with Thinlinc (If Available)
          :collapsible:
 
         - Start Jupyter from the menu and it will work
