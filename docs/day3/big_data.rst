@@ -909,6 +909,7 @@ Set up the environment
 
             ml xarray/2024.11.0-gfbf-2024a dask/2024.9.1-gfbf-2024a
             ml Jupyter-bundle/20250530-GCCcore-13.3.0
+            
 
          - This will load matplotlib & SciPy-bundle on the fly!
          - Pandas, like NumPy, has typically been part of the SciPy-bundle module since 2020. Use ``ml spider SciPy-bundle`` to see which versions are available and how to load them.
@@ -919,11 +920,7 @@ Set up the environment
 
             jupyter-lab
 
-        - And install (in Jupyter) ``polars`` to ``~/.local/`` if you don't already have it
-
-         .. code-block:: console
-
-            ! pip install --user polars
+        - Installing ``polars`` has not worked yet by instructor. May update this if I manage!
 
 .. challenge:: Chunk sizes in Dask
 
