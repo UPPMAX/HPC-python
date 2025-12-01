@@ -3,7 +3,8 @@ Intro to Pandas on HPC
 
 .. objectives::
 
-   You will learn how to 
+   You will learn how to
+
    - Find and load Pandas on your local HPC resource
    - Load data into DataFrames in whole or in part
    - Estimate the size of your data in memory
