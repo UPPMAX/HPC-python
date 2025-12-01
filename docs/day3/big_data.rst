@@ -153,8 +153,10 @@ Exercise: Memory allocation (10 min)
 .. admonition:: Table of hardware
    :class: dropdown
 
+   Hardware
+
    .. list-table:: Hardware
-      :widths: 25 25 25 25 25 25 25 25 25
+      :widths: 25 25 25 25 25 25 25 25
       :header-rows: 1
 
       * - Technology
@@ -168,7 +170,6 @@ Exercise: Memory allocation (10 min)
       * - Cores/compute node
         - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
         - 48 (96 with hyperthreading/SMT)
-        - 16
         - 16
         - 48  
         - 32  
@@ -805,6 +806,7 @@ Set up the environment
             module load dask/2024.9.1-gfbf-2024a xarray/2024.11.0-gfbf-2024a JupyterLab/4.2.5-GCCcore-13.3.0 polars/1.29.0-gfbf-2024a
      
          This command also loads ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, but not any IDEs.
+         
          - Continue and start Jupyter as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. 
 
    .. tab:: NSC (Tetralith)
