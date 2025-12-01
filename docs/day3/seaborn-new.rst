@@ -324,6 +324,7 @@ By default the off-diagonals are scatter plots, and the marginal distributions o
    .. jupyter-execute::
    
       import seaborn as sb
+      from matplotlib import pyplot as plt
       dat = sb.load_dataset('penguins')
       g = sb.pairplot(data=dat, corner=True, hue='species')
       plt.show()
