@@ -769,7 +769,7 @@ Set up the environment
            
          - You may have to restart the Jupyter kernel (or even Jupyter session) to be able to be able to load the just instaleld package(s).
 
-.. tab:: LUNARC (Cosmos)
+   .. tab:: LUNARC (Cosmos)
 
       .. important:: **Interactive Use (Recommended)**
       
