@@ -322,7 +322,7 @@ Exercise: Memory allocation (10 min)
 
          ``-C largemem``
 
-.. admonition:: 
+.. note:: 
 
    - We recommend a desktop environment for speed of the graphics.
    - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
@@ -591,7 +591,7 @@ An overview of common data formats
    - Aalto Scientific Computing course "Python for Scientific Computing": `Xarray <https://aaltoscicomp.github.io/python-for-scicomp/xarray/>`_
 
 Exercise file formats (10 minutes)
----------------------------------
+----------------------------------
 
 .. challenge:: Reading NetCDF files
 
