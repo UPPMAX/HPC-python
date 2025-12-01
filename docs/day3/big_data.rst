@@ -768,11 +768,13 @@ Set up the environment
             ! pip install --user dask
             ! pip install --user polars
            
-   .. tab:: LUNARC (Cosmos)
+         - You may have to restart the Jupyter kernel (or even Jupyter session) to be able to be able to load the just instaleld package(s).
+
+.. tab:: LUNARC (Cosmos)
 
       .. important:: **Interactive Use (Recommended)**
       
-         Start a Thinlinc session and open one of Spyder, Jupyter Lab, or VSCode from the On-Demand applications menu as discussed in the `On-Demand lesson <../day2/ondemand-desktop.rst>`__ from Day 2. Spyder and Jupyter Lab are configured to load Seaborn and all its dependencies automatically via the latest version of Anaconda, whereas VSCode requires modules to be selected to load as part of the additional job settings.
+         Start a Thinlinc session and open one of Spyder, Jupyter Lab, or VSCode from the On-Demand applications menu as discussed in the `On-Demand lesson <../day2/ondemand-desktop.rst>`__ from Day 2. Spyder and Jupyter Lab are configured to load Xarray and Dask and all their dependencies automatically via the latest version of Anaconda, whereas VSCode requires modules to be selected to load as part of the additional job settings.
 
          - Continue and start Jupyter
          - And install ``polars`` to ``~/.local/`` if you don't already have it
@@ -780,6 +782,8 @@ Set up the environment
          .. code-block:: console
 
             ! pip install --user polars
+
+         - You may have to restart the Jupyter kernel (or even Jupyter session) to be able to be able to load the just instaleld package(s).
     
      .. admonition:: Non-Interactive Use
 
@@ -835,7 +839,7 @@ Set up the environment
         
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
-         or swap JupyterLab for your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__. Seaborn should not have to be loaded as a module since it would be installed in your home directory, which is always in ``$PATH``.
+         or swap JupyterLab for your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__. 
 
    .. tab:: Dardel (PDC)
 
@@ -904,7 +908,7 @@ Set up the environment
 
          .. code-block:: console
 
-            ml Seaborn/0.13.2-gfbf-2024a
+            ml xarray/2024.11.0-gfbf-2024a dask/2024.9.1-gfbf-2024a
             ml Jupyter-bundle/20250530-GCCcore-13.3.0
 
          - This will load matplotlib & SciPy-bundle on the fly!
