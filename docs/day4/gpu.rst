@@ -284,7 +284,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
    .. tab:: UPPMAX
 
-      Running a GPU Python code interactively on Pelle. Note that his is not currently working fully-cuntional. 
+      Running a GPU Python code interactively on Pelle. 
 
       .. code-block:: console
       
