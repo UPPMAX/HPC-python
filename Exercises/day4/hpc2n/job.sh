@@ -8,7 +8,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/nobackup/fall-courses/<mydir-name>/Exercises/day3/programs/
+MYPATH=/proj/nobackup/fall-courses/<mydir-name>/Exercises/day4/programs/
 
 # Do a purge and load any modules you need, here for Python
 ml purge > /dev/null 2>&1

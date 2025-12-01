@@ -9,14 +9,14 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/hpc-python-spring-naiss/<mydir-name>/HPC-python/Exercises/examples/programs/
+MYPATH=/proj/courses-fall-2025/<mydir-name>/Exercises/day4/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1
 module load buildenv-gcccuda/12.2.2-gcc11-hpc1 Python/3.10.4-env-hpc2-gcc-2022a-eb
 
-# Activate the virtual environment we created earlier today
-source /proj/hpc-python-spring-naiss/venvNSC-numba/bin/activate
+# Activate the virtual environment we created earlier
+source /proj/courses-fall-2025/venvNSC-numba/bin/activate
 
 # Run your Python script
 python $MYPATH/add-list.py
