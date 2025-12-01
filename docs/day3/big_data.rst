@@ -751,18 +751,23 @@ Set up the environment
 
       .. important:: **Interactive use (Recommended)**
 
-         Go to the Open On-Demand web portal and start Jupyter Notebook (or VSCode) as described `here in the Kebnekaise documentation <https://docs.hpc2n.umu.se/tutorials/connections/#interactive__apps__-__jupyter__notebook>`__ and discussed on day 2 in the On-Demand lecture session. Available Spyder versions are old and generally not recommended.
-
-      .. admonition:: Non-Interactive Use
-
-         To use Seaborn in a batch script, you can load
+         Follow the instructions here: https://docs.hpc2n.umu.se/tutorials/connections/#example__-__jupyter__with__extra__modules.
+   
+         - Add these lines in the batch script
 
          .. code-block:: console
         
-            ml GCC/13.2.0 Seaborn/0.13.2
+            module load SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
 
-         As usual, ``ml spider Seaborn`` shows the available versions and how to load them. These Seaborn modules are built to load their Matplotlib, Tkinter, and SciPy-bundle dependencies internally.           
+         - Continue and start Jupyter
+         - And install ``dask`` & ``xarray`` to ``~/.local/`` if you don't already have it
 
+         .. code-block:: console
+
+            ! pip install --user xarray
+            ! pip install --user dask
+            ! pip install --user polars
+           
    .. tab:: LUNARC (Cosmos)
 
       .. important:: **Interactive Use (Recommended)**
@@ -783,9 +788,7 @@ Set up the environment
         
             ml Anaconda3/2024.06-1
 
-         if you have a conda environment or otherwise prefer Anaconda. As usual, ``ml spider Seaborn`` shows the available versions and how to load them.
-
-   .. tab:: UPPMAX (Pelle)
+    .. tab:: UPPMAX (Pelle)
 
       .. important:: **General Use**
 
@@ -795,11 +798,6 @@ Set up the environment
      
          This command also loads ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, but not any IDEs.
 
-      .. admonition:: Interactive Use
-
-         In a Thinlinc session, open a terminal and start 
-
-         ``interactive -A [project_name] -t HHH:MM:SS``
 
          as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. Once transferred to a compute node, load ``Seaborn/0.13.2-gfbf-2024a`` and then load and run your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__.
 
@@ -813,11 +811,14 @@ Set up the environment
         
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11
 
-         and then install ``seaborn`` to ``~/.local/`` if you don't already have it.
+         - Continue and start Jupyter
+         - And install ``dask`` & ``xarray`` (and polars) to ``~/.local/`` if you don't already have it
 
          .. code-block:: console
-        
-            pip install seaborn
+
+            ! pip install --user xarray
+            ! pip install --user dask
+            ! pip install --user polars
 
       .. admonition:: Interactive Use
 
