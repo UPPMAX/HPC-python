@@ -19,7 +19,7 @@ module purge  > /dev/null 2>&1
 ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
 ml load Python/3.11.5
 
-#Activate a previously created virtual environment
+#Activate a previously created virtual environment - you may have to create it first 
 source torch_env/bin/activate
 
 srun python $MYPATH/pytorch_fitting_gpu.py
