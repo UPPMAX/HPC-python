@@ -319,7 +319,7 @@ By default the off-diagonals are scatter plots, and the marginal distributions o
    Load the dataset ``'penguins'`` and make a pairplot where the data are colored by ``'species'``. You do not need to do anything to format the axis labels.
 
 .. solution::
-   :collapsible:
+   :class: dropdown
 
    .. jupyter-execute::
    
@@ -373,7 +373,7 @@ The ``mpg`` DataFrame can't be used directly, but the correlation matrix of it c
    Reformat the code above to run on your own system in your choice of interface, but use ``clustermap`` instead of ``heatmap``.
 
 .. solution::
-   :collapsible:
+   :class: dropdown
 
    .. jupyter-execute::
    
