@@ -17,4 +17,4 @@ MYPATH=/mimer/NOBACKUP/groups/courses-fall-2025/<mydir-name>/Exercises/day4/prog
 ml purge > /dev/null 2>&1
 module load numba-cuda/0.20.0-foss-2025b-CUDA-12.9.1
 
-python add-list.py
+python $MYPATH/add-list.py

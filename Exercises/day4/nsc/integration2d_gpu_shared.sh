@@ -14,7 +14,7 @@ ml load buildenv-gcccuda/12.9.1-gcc11-hpc1
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/courses-fall-2025/<mydir-name>/Exercises/day4/programs/
+MYPATH=/proj/courses-fall-2025/users/<mydir-name>/Exercises/day4/programs/
 
 # Load a virtual environment where numba is installed
 # Use the one we created for you if during the course

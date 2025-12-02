@@ -14,5 +14,5 @@ MYPATH=/mimer/NOBACKUP/groups/courses-fall-2025/<mydir-name>/Exercises/day4/prog
 ml purge > /dev/null 2>&1
 ml numba-cuda/0.20.0-foss-2025b-CUDA-12.9.1
 
-python integration2d_gpu.py
-python integration2d_gpu_shared.py
+python $MYPATH/integration2d_gpu.py
+python $MYPATH/integration2d_gpu_shared.py

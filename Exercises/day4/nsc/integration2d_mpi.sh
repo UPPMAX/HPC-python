@@ -8,7 +8,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/courses-fall-2025/<mydir-name>/Exercises/day4/programs/
+MYPATH=/proj/courses-fall-2025/users/<mydir-name>/Exercises/day4/programs/
 
 ml purge > /dev/null 2>&1
 ml buildtool-easybuild/4.8.0-hpce082752a2  GCC/13.2.0  OpenMPI/4.1.6 mpi4py/3.1.5
