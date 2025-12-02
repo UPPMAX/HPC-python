@@ -170,30 +170,50 @@ Face Recognition (FR) Use case
 .. admonition:: InfraVis slides on FR
     :class: dropdown
 
-    .. figure:: ../img/face_recognition/fr_1.jpg
-        :align: center
-    .. figure:: ../img/face_recognition/fr_2.jpg
-        :align: center
-    .. figure:: ../img/face_recognition/fr_3.jpg
-        :align: center
-    .. figure:: ../img/face_recognition/fr_4.jpg
-        :align: center
-    .. figure:: ../img/face_recognition/fr_5.jpg
-        :align: center
-    .. figure:: ../img/face_recognition/fr_6.jpg
-        :align: center
-    .. figure:: ../img/face_recognition/fr_7.jpg
-        :align: center
-    .. figure:: ../img/face_recognition/fr_8.jpg
-        :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0012.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0013.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0014.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0015.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0016.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0017.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0018.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0019.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0020.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0021.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0022.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0023.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0024.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0025.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0026.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0027.jpg
+            :align: center
+        .. figure:: ../img/face_recognition/Visualise_your_Research_NAISS_page-0028.jpg
+            :align: center
+
 
 .. keypoints::
 
-  * Dimensionality reduction techniques are useful to be able to **explore** your high dimensional data!
-  * But not only nice pictures
-        * Make **discoveries**!
-        * New **results**!
-        * Use visualisation and clustering for classification
+    * We looked at several dimensionality reduction techniques
+    * They are useful to be able to explore your high dimensional data!
+    * But not only nice pictures
+        * Make discoveries!
+        * New results!
+
 
 Exercise
 ---------
@@ -203,6 +223,6 @@ Exercise
     You will find a jupyter notebook in the tarball called ``DimRed.ipynb`` (``Exercises/day4/Dim_reduction``), which works upon a face recognition dataset kept in the ``dataset`` folder. 
     Try running the notebook and give the correct dataset path wherever required.
     
-    The env required for this notebook is ``pip install numpy matplotlib scikit-learn scipy pillow plotly umap-learn``
+    The env required for this notebook is ``pip install numpy matplotlib scikit-learn scipy pillow plotly umap-learn jupyter``
 
     Sample examples from documentations: https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_iris.html#sphx-glr-auto-examples-decomposition-plot-pca-iris-py , https://plotly.com/python/t-sne-and-umap-projections/
