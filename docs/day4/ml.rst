@@ -11,7 +11,7 @@ Machine Learning and Deep Learning
 
    - Get a general overview of ML/DL with Python. 
    - Get a general overview of installed ML/DL tools at HPCs.
-   - Get started with ML/DL in Python.
+   - Good practices for running ML/DL code at HPCs.
    - Code along and demos.
    - We will not learn about:
       - How to write and optimize ML/DL code.
@@ -59,21 +59,30 @@ Comparison of ML/DL Libraries
    * - Community and Support
      - Large, extensive documentation
      - Large, growing rapidly
-     - Large, extensive documentation and community support
+     - Large, extensive documentation but community support fading away
 
 
 In this course we will look at examples for these, and show how you run them at our centres. 
 
 The loading are slightly different at the clusters
-   - UPPMAX: All tools are available from the module ``python_ML_packages/3.11.8``
+   - C3SE: 
+      - For TensorFlow: ``module load TensorFlow/2.15.1-foss-2023a-CUDA-12.1.1``
+      - For Pytorch: ``PyTorch-bundle/2.1.2-foss-2023a-CUDA-12.1.1``
+      - Datasets and models: `Many <https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/>`_ 
+   - UPPMAX:
+      - For TensorFlow: install yourself
+      - For Pytorch: ``PyTorch/2.6.0-foss-2024a``
+      - Bianca has all tools in : ``python_ML_packages/3.9.5``
    - HPC2N: 
       - For TensorFlow ``ml GCC/12.3.0  OpenMPI/4.1.5 TensorFlow/2.15.1-CUDA-12.1.1 scikit-learn/1.4.2 Tkinter/3.11.3 matplotlib/3.7.2``
       - For the Pytorch: ``ml GCC/12.3.0  OpenMPI/4.1.5 PyTorch/2.1.2-CUDA-12.1.1 scikit-learn/1.4.2 Tkinter/3.11.3 matplotlib/3.7.2``
    - LUNARC:
       - For TensorFlow ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2``
       - For Pytorch ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 PyTorch/1.12.1-CUDA-11.7.0 scikit-learn/1.1.2``
-   - NSC: For Tetralith, use virtual environment. Pytorch and TensorFlow might coming soon to the cluster!
-   - PDC: For both TensorFlow and Pytorch : ``module load PDC singularity/4.1.1-cpeGNU-23.12``
+   - NSC: 
+      - For Tetralith, use virtual environment. Pytorch and TensorFlow might coming soon to the cluster!
+   - PDC: 
+      - For both TensorFlow and Pytorch : ``module load PDC singularity/4.1.1-cpeGNU-23.12``
 
 .. admonition:: Learning Material
    :class: dropdown
@@ -101,87 +110,93 @@ There are minor differences depending on the version of python.
 The list is not exhaustive, but lists the more popular ML/DL libraries. I encourage you to `module spider` them to see the exact versions before loading them.
 
 .. list-table::
-   :widths: 15 30 30 15 10 15
+   :widths: 15 20 15 15 10 10 15
    :header-rows: 1
 
    * - Tool
-     - UPPMAX (Python 3.11.8)
-     - HPC2N (Python 3.11.3/3.11.5)
-     - LUNARC (Python 3.11.3/3.11.5)
-     - NSC (Python 3.11.3/3.11.5)
-     - PDC (Python 3.11.7)
+     - Pelle (Python 3.12.3)
+     - Kebnekaise (Python 3.11.3/3.11.5)
+     - Cosmos (Python 3.11.3/3.11.5)
+     - Tetralith (Python 3.11.3/3.11.5)
+     - Dardel (Python 3.11.7)
+     - Alvis  (Python 3.11.3)
    * - NumPy
-     - python
+     - SciPy-bundle
      - SciPy-bundle
      - SciPy-bundle
      - N.A.
      - cray-python
+     - SciPy-bundle
    * - SciPy
-     - python
+     - SciPy-bundle
      - SciPy-bundle
      - SciPy-bundle
      - N.A.
      - cray-python
+     - SciPy-bundle
    * - Scikit-Learn (sklearn)
-     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu) 
-     - scikit-learn (no newer than for GCC/12.3.0 and Python 3.11.3)  
+     - scikit-learn 
+     - scikit-learn   
      - scikit-learn 
      - N.A.
      - N.A.
-   * - Theano
-     - N.A.
-     - Theano (only for some older Python versions)
-     - N.A.
-     - N.A. 
-     - N.A.
+     - scikit-learn
    * - TensorFlow
-     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
-     - TensorFlow (newest version is for Python 3.11.3)
-     - TensorFlow (up to Python 3.10.4) 
      - N.A.
-     - PDC singularity/4.1.1-cpeGNU-23.12 (v2.13)
+     - TensorFlow 
+     - TensorFlow 
+     - N.A.
+     - PDC singularity/4.1.1-cpeGNU-23.12 
+     - TensorFlow
    * - Keras
-     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
+     - N.A.
      - Keras (up to Python 3.8.6), TensorFlow (Python 3.11.3)
-     - TensorFlow (up to Python 3.10.4)
+     - TensorFlow 
      - N.A.
-     - PDC singularity/4.1.1-cpeGNU-23.12 (v2.13)
+     - PDC singularity/4.1.1-cpeGNU-23.12 
+     - TensorFlow
    * - PyTorch (torch)
-     - python_ML_packages (Python 3.11.8-cpu)
-     - PyTorch (up to Python 3.11.3) 
-     - PyTorch (up to Python 3.10.4) 
+     - PyTorch
+     - PyTorch
+     - PyTorch
      - N.A.
-     - PDC singularity/4.1.1-cpeGNU-23.12 (v2.4)
+     - PDC singularity/4.1.1-cpeGNU-23.12
+     - PyTorch
    * - Pandas
-     - python
      - SciPy-bundle
      - SciPy-bundle
-     - N.A.
+     - SciPy-bundle
+     - SciPy-bundle
      - cray-python
+     - SciPy-bundle
    * - Matplotlib
-     - python
      - matplotlib
      - matplotlib
-     - N.A.
+     - matplotlib
+     - buildtool-easybuild GCC matplotlib
      - PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12
+     - matplotlib
    * - Beautiful Soup (beautifulsoup4)
-     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
+     - BeautifulSoup
+     - BeautifulSoup
      - BeautifulSoup
      - BeautifulSoup
      - N.A.
-     - N.A.
+     - BeautifulSoup
    * - Seaborn
-     - python_ML_packages (Python 3.9.5-gpu and Python 3.11.8-cpu)
+     - Seaborn
      - Seaborn
      - Seaborn 
      - N.A.
      - N.A.
+     - Seaborn
    * - Horovod 
      - N.A.
-     - Horovod (up to Python 3.11.3)
+     - Horovod
      - N.A.
      - N.A.    
      - N.A.
+     - Horovod
 
 Scikit-Learn
 -------------
@@ -407,61 +422,72 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
    * - 
        .. code-block:: python
 
-          import torch
-          import torch.nn as nn
-          import torch.optim as optim
+         import torch
+         import torch.nn as nn
+         import torch.optim as optim
 
-          # Tensor creation with gradients enabled
-          x = torch.tensor([[1, 2], [3, 4]], dtype=torch.float32, requires_grad=True)
+         # Make behaviour reproducible
+         torch.manual_seed(0)
 
-          # Automatic differentiation
-          y = x.sum()
-          y.backward()
-          print("Gradient of x:", x.grad)
+         # Tensor with gradients
+         x = torch.tensor([[1.0, 2.0], [3.0, 4.0]], requires_grad=True)
+         y = x.sum()
+         y.backward()
+         print("Gradient of x:\n", x.grad)
 
-          # Creating and using a neural network layer
-          layer = nn.Linear(2, 2)
-          input_tensor = torch.tensor([[1.0, 2.0]], dtype=torch.float32)
-          output = layer(input_tensor)
-          print("Layer output:", output)
+         # Simple linear layer and forward pass
+         layer = nn.Linear(2, 2)
+         inp = torch.tensor([[1.0, 2.0]])
+         out = layer(inp)
+         print("Layer output:", out)
 
-          # Optimizer usage
-          optimizer = optim.SGD(layer.parameters(), lr=0.01)
-          loss = output.sum()
-          optimizer.zero_grad()  # Clear gradients
-          loss.backward()        # Compute gradients
-          optimizer.step()       # Update weights
-          print("Updated weights:", layer.weight)
+         # Single optimization step (minimize sum of squares of output)
+         opt = optim.SGD(layer.parameters(), lr=0.1)
+         loss = out.pow(2).sum()
+         opt.zero_grad() # Clear gradients
+         loss.backward() # Compute gradients
+         opt.step() # Update weights
+
+         with torch.no_grad():
+            print("Updated weights:\n", layer.weight)
+            print("Updated bias:\n", layer.bias)
 
      - 
        .. code-block:: python
 
-          import tensorflow as tf
-          from tensorflow.keras.layers import Dense
-          from tensorflow.keras.optimizers import SGD
+         import tensorflow as tf
+         import numpy as np
 
-          # Tensor creation with gradients enabled
-          x = tf.Variable([[1.0, 2.0], [3.0, 4.0]])
+         # Make behaviour reproducible
+         tf.random.set_seed(0)
 
-          # Automatic differentiation
-          with tf.GradientTape() as tape:
-              y = tf.reduce_sum(x)
-          grads = tape.gradient(y, x)
-          print("Gradient of x:", grads)
+         # Tensor with gradients (tf.Variable acts like torch.tensor(..., requires_grad=True))
+         x = tf.Variable([[1.0, 2.0], [3.0, 4.0]])
+         with tf.GradientTape() as tape:
+            y = tf.reduce_sum(x)
+         grads_x = tape.gradient(y, x)
+         print("Gradient of x:\n", grads_x.numpy())
 
-          # Creating and using a neural network layer
-          layer = Dense(2, input_shape=(2,))
-          input_tensor = tf.constant([[1.0, 2.0]], dtype=tf.float32)
-          output = layer(input_tensor)
-          print("Layer output:", output)
+         # Simple linear layer and forward pass (like torch.nn.Linear)
+         layer = tf.keras.layers.Dense(2, kernel_initializer='glorot_uniform', bias_initializer='zeros')
+         inp = tf.constant([[1.0, 2.0]], dtype=tf.float32)
+         out = layer(inp)
+         print("Layer output:", out.numpy())
 
-          # Optimizer usage
-          optimizer = SGD(learning_rate=0.01)
-          with tf.GradientTape() as tape:
-              loss = tf.reduce_sum(output)
-          gradients = tape.gradient(loss, layer.trainable_variables)
-          optimizer.apply_gradients(zip(gradients, layer.trainable_variables))
-          print("Updated weights:", layer.weights)
+         # Single optimization step (minimize sum of squares of output) using SGD
+         optimizer = tf.keras.optimizers.SGD(learning_rate=0.1)
+
+         with tf.GradientTape() as tape2:
+            pred = layer(inp)                     # forward
+            loss = tf.reduce_sum(tf.square(pred)) # loss = out.pow(2).sum()
+
+         grads = tape2.gradient(loss, layer.trainable_variables)         # compute gradients
+         optimizer.apply_gradients(zip(grads, layer.trainable_variables)) # update weights
+
+         # Print updated weights and bias
+         weights, bias = layer.get_weights()
+         print("Updated weights:\n", weights)
+         print("Updated bias:\n", bias)
 
 
 We now learn by submitting a batch job which consists of loading python module, activating python environment and running DNN code for image classification.
@@ -733,18 +759,17 @@ We now learn by submitting a batch job which consists of loading python module, 
             #!/bin/bash -l
             #SBATCH -A uppmax2025-2-393 # Change to your own after the course
             #SBATCH --time=00:10:00 # Asking for 10 minutes
-            #SBATCH -p node
-            #SBATCH -n 1 # Asking for 1 node
-            #SBATCH -M snowy
-            #SBATCH --gres=gpu:1 # Asking for 1 GPU
+            #SBATCH -p gpu
+            #SBATCH -n 2 # Asking for 2 cores
+            #SBATCH --gpus=l40s:1 # Asking for 1 GPU
 
-            # Load any modules you need, here Python 3.11.8.
-            module load python/3.11.8
+            # Load any modules you need, here Python 3.13.5.
+            load Python/3.13.5-GCCcore-14.3.0
 
             source ../my_env/bin/activate 
 
             # Run your Python script
-            python test_pytorch_nn.py
+            python fashion_mnist.py
 
       .. tab:: HPC2N
 
@@ -825,6 +850,23 @@ We now learn by submitting a batch job which consists of loading python module, 
                source ../my_env/bin/activate
 
                python fashion_mnist.py
+
+      .. tab:: C3SE   
+            
+            .. code-block:: bash 
+   
+               #!/usr/bin/env bash
+               #SBATCH -A naiss2025-22-934 # Change to your own
+               #SBATCH --time=00:10:00  # Asking for 10 minutes
+               #SBATCH -n 2
+               #SBATCH --gpus-per-node=T4:1
+
+               module load Python/3.11.3-GCCcore-12.3.0
+
+               source ../my_env/bin/activate
+
+               python fashion_mnist.py
+
 
 Tips and Tricks (Lessons Learned):
 ----------------------------------
@@ -927,7 +969,7 @@ Miscellaneous examples
 
          .. tab:: UPPMAX
 
-            Example batch script for Snowy, TensorFlow version 2.15 and Python version 3.11.8. 
+            Example batch script for Pelle, TensorFlow  and Python version 3.13.5. 
             
             .. code-block:: bash 
 
@@ -936,14 +978,14 @@ Miscellaneous examples
                #SBATCH -A uppmax2025-2-393
                # We are asking for at least 1 hour
                #SBATCH --time=01:00:01
-               #SBATCH -M snowy
-               #SBATCH --gres=gpu:1
+               #SBATCH --gpus=l40s:1
                #SBATCH --mail-type=begin        # send email when job begins
                #SBATCH --mail-type=end          # send email when job ends
                # Remove any loaded modules and load the ones we need
                module purge  > /dev/null 2>&1
-               module load uppmax
-               module load python_ML_packages/3.11.8-gpu
+               module load Python/3.13.5-GCCcore-14.3.0
+
+               source ../my_env/bin/activate
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python tf_program.py 1 2 > myoutput1 2>&1
@@ -982,7 +1024,7 @@ Miscellaneous examples
 
          .. tab:: LUNARC
 
-            Example batch script for Cosmos, TensorFlow version 2.15 and Python version 3.11.8. 
+            Example batch script for Cosmos, TensorFlow version 2.15 and Python version 3.11.5. 
             
             .. code-block:: bash 
 
@@ -1029,6 +1071,36 @@ Miscellaneous examples
 
                source ../my_env/bin/activate
                
+               # Output to file - not needed if your job creates output in a file directly
+               # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
+               python tf_program.py 1 2 > myoutput1 2>&1
+               cp myoutput1 mydatadir
+               python tf_program.py 3 4 > myoutput2 2>&1
+               cp myoutput2 mydatadir
+               python tf_program.py 5 6 > myoutput3 2>&1
+               cp myoutput3 mydatadir
+
+         .. tab:: C3SE
+
+            Example batch script for Alvis, TensorFlow  and Python version 3.13.5. 
+            
+            .. code-block:: bash 
+
+               #!/bin/bash -l
+               # Remember to change this to your own project ID after the course!
+               #SBATCH -A naiss2025-22-934
+               # We are asking for at least 1 hour
+               #SBATCH --time=01:00:01
+               #SBATCH --gpus=T4:1
+               #SBATCH -n 2
+               #SBATCH --mail-type=begin        # send email when job begins
+               #SBATCH --mail-type=end          # send email when job ends
+               # Remove any loaded modules and load the ones we need
+               module purge  > /dev/null 2>&1
+               module load Python/3.13.5-GCCcore-14.3.0
+               module load TensorFlow/2.18.0-CUDA-11.8-1
+
+               #optionally: source ../my_env/bin/activate
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python tf_program.py 1 2 > myoutput1 2>&1
@@ -1104,6 +1176,7 @@ Miscellaneous examples
                   # Remove any loaded modules and load the ones we need
                   module purge  > /dev/null 2>&1
                   module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 scikit-learn/1.4.2
+                  module load TensorFlow
 
                   # Run your Python script 
                   python example-tf.py 
@@ -1115,16 +1188,15 @@ Miscellaneous examples
                   #!/bin/bash -l  
                   # Remember to change this to your own project ID after the course! 
                   #SBATCH -A uppmax2025-2-393
-                  # We want to run on Snowy
-                  #SBATCH -M snowy
                   # We are asking for 15 minutes
                   #SBATCH --time=00:15:00
-                  #SBATCH --gres=gpu:1
+                  #SBATCH --gpus=l40s:1
                   
                   # Remove any loaded modules and load the ones we need
                   module purge  > /dev/null 2>&1
-                  module load uppmax
-                  module load python_ML_packages/3.11.8-gpu 
+                  module load Python/3.13.5-GCCcore-14.3.0
+
+                  source ../my_env/bin/activate
                   
                   # Run your Python script 
                   python example-tf.py 
@@ -1189,6 +1261,24 @@ Miscellaneous examples
                module load PDC singularity/4.1.1-cpeGNU-23.12
 
                singularity exec --rocm -B /cfs/klemming /pdc/software/resources/sing_hub/rocm5.7-tf2.13-dev python3 example-tf.py 
+
+         .. tab:: C3SE
+         
+            .. code-block:: bash 
+            
+                  #!/usr/bin/env bash
+                  #SBATCH -A naiss2025-22-934 # Change to your own
+                  #SBATCH --time=00:15:00  # Asking for 15 minutes
+                  #SBATCH -n 2
+                  #SBATCH --gpus-per-node=T4:1
+                  
+                  # Remove any loaded modules and load the ones we need
+                  module purge  > /dev/null 2>&1
+                  module load Python/3.13.5-GCCcore-14.3.0
+                  module load TensorFlow/2.18.0-CUDA-11.8-1
+                  
+                  # Run your Python script 
+                  python example-tf.py 
 
 
 Exercises
