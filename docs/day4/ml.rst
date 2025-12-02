@@ -892,18 +892,24 @@ Tips and Tricks (Lessons Learned):
    - Be aware of I/O bottlenecks: many small files can hit IOPS limits.
    - Large but few files may cause slower data loading.
    - Consider using data formats designed for ML (like HDF5).
+   - Use HPC scratch storage or `/tmp` for temporary data storage during training.
 
 * Storage management:
    - Monitor directory quotas carefully (both size and IOPS limits)
    - Consider using compressed formats for datasets
+   - Set `HF_HOME`, `CONDA_PKGS_DIRS` to point to locations outside your HOME directory if possible.
+   - Clean up temporary files and datasets after use. `pip cache purge`, `conda clean --all`, etc.
 
 * GPU memory management:
    - Monitor CPU and GPU memory usage with tools like `htop`, `nvidia-smi`, `https://pytorch.org/memory_viz`, `nvidia nsight`, `tensorboard profiler`.
    - Start with smaller batches to avoid Out-Of-Memory (OOM) errors
    - Use gradient accumulation for training with limited memory
    - Consider mixed precision training to reduce memory footprint. `autocast()` in PyTorch and `tf.keras.mixed_precision` in TensorFlow.
+   - For LLM inference, consider VRAM required = N params x N bytes per param x 1.5 Overhead factor
+   - For LLM training, consider VRAM required = LLM inference VRAM x 2.5-3.5 Overhead factor (due to gradients, optimizer states, etc.)
 
 * Job monitoring:
+   - Use `tmux` for long-running interactive jobs to avoid losing progress on disconnections.
    - Log all experiments thoroughly - jobs may be terminated by administrators
    - Use checkpointing to resume interrupted training
    - Include timestamps and run parameters in log files
