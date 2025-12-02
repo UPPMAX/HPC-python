@@ -22,8 +22,15 @@ Guest Lecture by Professor **Anders Hast**
     - We will look at tools for visualising what cannot easily be seen, i.e. high dimensionality reduction  
     - Share insights and experience from Anders's own research
 
-The Essence of Machine Learning: Classification
--------------------------------------------------
+visualisation <--> Science
+--------------------------
+
+.. figure:: ../img/varanoi.png
+    :width: 300px
+    :align: right
+    :alt: varanoi_regions
+
+    Clustering
 
 .. figure:: ../img/ml_classification.png
     :width: 300px
@@ -34,24 +41,33 @@ The Essence of Machine Learning: Classification
 
     
 
-How can a model separate the "blue" from the "red"?
+* We will look at tools for visualising what cannot easily be seen, i.e. high dimensionality reduction
+* We will also see that you can make discoveries in your visualisations!
 
-Which model is the best, the green curve or the black?
+What is a typical machine learning task?
+--------------------------------------
 
-Classification challenges:
 
-* **Black curve**: The model will guess "wrong" sometimes for new data
-* **Green curve**: The model will make even more wrong guesses? Why?
-    "Outliers" or special cases have too much impact on the classification boundaries.
+* Differ between different classes of features
+* Features usually have more than 3 dimensions, hundreds or even thousands!
+* The idea is to find a separating curve in high dimensional space
+* Usually we visualise this in 2D since it is easier to understand!
+* We will look at several techniques to do this!
+* If we can separate in 2D it can often be done in High dimensional space and vice versa!
+
 
 **Dimensionality reduction:**  
 
-Project from several dimensions to fewer, often 2D or 3D.  
-
-*Remember*: we get a distorted picture of the high dimensional space!
+* Project from several dimensions to fewer, often 2D or 3D
+* Remember: we get a distorted picture of the high dimensional space!
+* Some techniques
+    * SOM
+    * PCA
+    * t-SNE
+    * UMAP
 
 .. figure:: ../img/dim_reduction_bunny.png
-    :width: 300px
+    :width: 500px
     :align: center
     :alt: dim_reduction_bunny
 
@@ -66,9 +82,16 @@ Some Dimensionality Reduction Techniques:
 PCA (on Iris Data)
 ^^^^^^^^^^^^^^^^^^^
 
-* Fisher's iris data consists of measurements on the sepal length, sepal width, petal length, and petal width for 150 iris specimens. There are 50 specimens from each of three species.
-* Pretty good separation of classes
-* However PCA often fails for high dimensional data as the clusters will overlap!
+* PCA = “find the directions where the data varies the most.”
+* PCA finds a new coordinate system that fits the data:
+* The first axis (1st principal component) points where the data spreads out the most.
+* The second axis (2nd principal component) is perpendicular to the first and captures the next largest spread.
+* The eigenvectors are the directions of those new axes — the principal components.
+* The eigenvalues tell you how much variance (spread) each component captures.
+* Fisher's iris data consists of measurements on the sepal length, sepal width, petal length, and petal width for 150 iris specimens.
+* There are 50 specimens from each of three species.
+* One axis per data element (which ones are discriminant?)
+* Follow each individual using the lines
 
 .. admonition:: Iris and its PCA
     :class: dropdown
@@ -85,18 +108,25 @@ PCA (on Iris Data)
         :align: center
         :alt: iris_pca
 
+    .. raw:: html
+
+        <div style="height: 20px;"></div>
+     
+    .. figure:: ../img/iris_lines.png
+        :align: center
+        :alt: iris_lines
         
 
 t-SNE
 ^^^^^^
 
+* A dimensionality-reduction method for visualising high- dimensional data in 2D or 3D
+* It keeps similar points close together and dissimilar ones far apart
+* Works by turning distances between points into probabilities of being neighbours, both in the original space and in the low-dimensional map
+* Then it moves points to make those probabilities match (minimizing KL divergence)
+* Uses a Student's t-distribution in 2D to keep clusters separated and avoid crowding
 
-* t-distributed stochastic neighbor embedding (t-SNE) is a `statistical <https://en.wikipedia.org/wiki/Statistics>`_ method for visualising high-dimensional data by giving each datapoint a location in a two or three-dimensional map.
-* The t-SNE algorithm comprises two main stages.
-* First, t-SNE constructs a `probability distribution <https://en.wikipedia.org/wiki/Probability_distribution>`_ over pairs of high-dimensional objects in such a way that similar objects are assigned a higher probability while dissimilar points are assigned a lower probability.
-* Second, t-SNE de nes a similar probability distribution over the points in the low-dimensional map, and it minimises the `Kullback–Leibler divergence <https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence>`_ between the two distributions with respect to the locations of the points in the map.
-
-.. admonition:: PCA vs t-SNE vs HOG
+.. admonition:: PCA vs t-SNE vs UMAP
     :class: dropdown
 
     .. figure:: ../img/pca_example.png
@@ -119,21 +149,20 @@ t-SNE
 
         <div style="height: 20px;"></div>
 
-    .. figure:: ../img/hog_tnse_example.png
+    .. figure:: ../img/umap.png
         :align: center
-        :alt: pca_exhog_tnse_exampleample
+        :alt: umap_example
 
-        HOG & t-SNE
+        UMAP
 
 
 
 UMAP
 ^^^^^^
 
-* Uniform manifold approximation and projection (UMAP) is a nonlinear dimensionality reduction technique.
-* Visually, it is similar to t-SNE, but it assumes that the data is uniformly distributed on a `locally connected Riemannian manifold <https://en.wikipedia.org/wiki/Riemannian_manifold>`_ and that the `Riemannian metric <https://en.wikipedia.org/wiki/Riemannian_manifold#Riemannian_metrics_and_Riemannian_manifolds>`_ is locally constant or approximately locally constant.
-* UMAP is newer and therefore preferred by many.
-* However tends to separate clusters better! But is that always better?
+* A nonlinear dimensionality-reduction method, like t-SNE, used to visualize high-dimensional data in 2D or 3D
+* Based on manifold theory — it assumes your data lies on a curved surface within a high-dimensional space
+* Builds a graph of local relationships (who's close to whom) in the original space, then finds a low-dimensional layout that preserves those relationships
 
 Face Recognition (FR) Use case
 --------------------------------
@@ -175,3 +204,5 @@ Exercise
     Try running the notebook and give the correct dataset path wherever required.
     
     The env required for this notebook is ``pip install numpy matplotlib scikit-learn scipy pillow plotly umap-learn``
+
+    Sample examples from documentations: https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_iris.html#sphx-glr-auto-examples-decomposition-plot-pca-iris-py , https://plotly.com/python/t-sne-and-umap-projections/
