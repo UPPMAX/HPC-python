@@ -554,7 +554,7 @@ Principles
 
       Spyder is not available on Tetralith. 
 
-      - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
+      - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
       .. code-block:: console
 
@@ -585,7 +585,7 @@ Principles
 
       Spyder is not available centrally on Rackham. 
 
-      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>``_
+      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
       .. code-block:: console
 
@@ -599,13 +599,16 @@ Principles
    .. tab:: LUNARC
 
       - On COSMOS, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under ``Applications - Python``. 
-      - All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes.         - Refer to `the Desktop On Demand documentation <https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html>`_ to help you fill in GfxLauncher prompt.
+      - All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes. 
+      - Refer to `the Desktop On Demand documentation <https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html>`_ to help you fill in GfxLauncher prompt.
 
       Avoid launching Spyder from the command line on the login node.
 
    .. tab:: HPC2N
 
-      The only available version of Spyder on Kebnekaise is Spyder/4.1.5 for Python-3.8.2 (the latest release of Spyder available for users to install in their own environments is 6.0.2). Python 3.8.2 is associated with compatible versions of Matplotlib and Pandas, but not Seaborn or any of the ML packages to be covered later. To run the available version of Spyder, run the following commands:
+      - The only available version of Spyder on Kebnekaise is Spyder/4.1.5 for Python-3.8.2 (the latest release of Spyder available for users to install in their own environments is 6.0.2). 
+      - Python 3.8.2 is associated with compatible versions of Matplotlib and Pandas, but not Seaborn or any of the ML packages to be covered later. 
+      - To run the available version of Spyder, run the following commands:
 
       .. code-block:: console
 
@@ -632,9 +635,6 @@ VS Code is a powerful and flexible IDE that is popular among developers for its 
 
 VS Code can be downloaded and installed on your local machine from the `VS Code website <https://code.visualstudio.com/>`_. It is also available on the HPC center resources, but the installation process is different for each center.
 
-VS Code is available on ThinLinc on UPPMAX and LUNARC only. On HPC2N and NSC, you will have to install it on your own laptop. 
-At UPPMAX(Rackham) load it using ``module load VSCodium``, this is an open source version of VS Code. At LUNARC(Cosmos) you can find it under Applications->Programming->Visual Studio Code.
-
 However, VS Code is best used on your local machine, as it is a resource-intensive application that can slow down the ThinLinc interface. The VS Code Server can be installed on all the HPCs that give your the ability to run your code on the HPCs but edit it on your local machine.
 Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.
 
@@ -642,9 +642,9 @@ Similarly, you can also install your faviroute extensions on the HPCs and use th
 
 - Tetralith: ``VSCode/latest-bdist``
     - Start with ``code``
-- Bianca:``VSCode/latest-bdist``
+- `Bianca <https://docs.uppmax.uu.se/software/vscodium_on_bianca/>`_:``VSCodium``
     - Start with ``code``
-- Pelle: ``VScode``
+- `Pelle <https://docs.uppmax.uu.se/software/vscode_on_rackham/>`_: ``VScode``
     - Start with ``code``
 - Cosmos: system-installed (no module needed)
     - Start with ``code``
@@ -710,10 +710,10 @@ Exercise 1: Start Jupyter on a compute node
 Exercise 2: Start Spyder on a compute node
 ##########################################
 
-Exercise 3: Run VScode locally with a connection to a compute node
-##################################################################
+Exercise 3: Run VScode on a compute node (if it is there)
+#########################################################
 
-Exercise 3: Run VScode locally with a connection to a compute node
+Exercise 4: Run VScode locally with a connection to a compute node
 ##################################################################
 
 
