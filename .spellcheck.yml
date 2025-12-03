@@ -19,5 +19,6 @@ matrix:
       - 'pre'
       - 'blockquote'
   sources:
-  - '**/*.md'
+  - '**/*.md/'
+  - '**/*.rst/'
   default_encoding: utf-8
