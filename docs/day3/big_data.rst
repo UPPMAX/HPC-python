@@ -988,7 +988,7 @@ Set up the environment
 
    - https://stackoverflow.com/questions/72155514/when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data
 
-   - Browse: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html# or change to more applicabe version in drop-down menu to lower right.
+   - Browse: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html or change to more applicabe version in drop-down menu to lower right.
        - find something interesting for you! Test some lines if you want to!
        - tips: 
            - Pandas: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough
@@ -1075,9 +1075,9 @@ Summary
 
    - `Dask documentation <https://docs.dask.org/en/stable/>`_
 
-   - `Working with data (Python for Scientific computing course)<https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/>`_
+   - `Working with data (Python for Scientific computing course) <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/>`_
    
-   - Tidy data (by CodeRefinery)<https://coderefinery.github.io/data-visualization-python/tidy-data/>`_
+   - `Tidy data (by CodeRefinery) <https://coderefinery.github.io/data-visualization-python/tidy-data/>`_
    
    ENCCS
  
