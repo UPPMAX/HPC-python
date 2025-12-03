@@ -141,7 +141,8 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
       python -V
       cd /proj/courses-fall-2025/users/<username>
       python -m venv env-matplotlib
-      source activate  env-matplotlib
+      source env-matplotlib/bin/activate
+      #note that the prompt has ``(env-matplotlib)``
       pip install matplotlib
       python
 
@@ -152,7 +153,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 .. note::
 
    - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
-   - Some packaegs may be inhereted from the moduels yopu have loaded
+   - Some packages may be inhereted from the moduels yopu have loaded
    - You can do ``pip list --local`` to see what is installed by you in the environment.
    - Some IDE:s like Spyder may only find those "local" packages
 
@@ -196,7 +197,7 @@ Conda
 
    - The conda environemnts inclusing many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
    - Move your ``.conda`` directory to your project folder and make a soft link to it from ``$HOME``
-   - Do the following (``mkdir -p`` ignores error output and will not recfreate anothe folder if it already exists):
+   - Do the following (``mkdir -p`` ignores error output and will not recreate another folder if it already exists):
         - (replace what is inside ``<>`` with relevant path)
 
    - Solution 1
