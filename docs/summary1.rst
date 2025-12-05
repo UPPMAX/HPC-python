@@ -17,7 +17,7 @@ Summary
    - Install packages and use isolated environments 
       - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
       - Make it for each project you have for reproducibility.
-      - There are different tools to create virtual environemnts.
+      - There are different tools to create virtual environments.
          - ``virtualenv`` and ``venv``
             - install packages with ``pip``.
             - the flag ``--system-site-packages`` includes preinstalled packages as well
@@ -47,7 +47,7 @@ Summary
        - Spyder
            - Best available at LUNARC
            - Possible at the others through virtual environments (pip) or Conda (not HPC2N)
-       - VScode: perhaps shown tomorrow
+       - VSCode: perhaps shown tomorrow
 
    - Matplotlib
        - Matplotlib is the essential Python data visualization package, with nearly 40 different plot types to choose from depending on the shape of your data and which qualities you want to highlight.
