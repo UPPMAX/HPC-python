@@ -135,8 +135,8 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - These are almost completely interchangeable
    - The difference being that **virtualenv supports older python versions** and has a few more minor unique features, while **venv is in the standard library**.
    - Step 1:
-       - Virtualenv: ``virtualenv --system-site-packages Example``
-       - venv: ``python -m venv --system-site-packages Example2``
+       - Virtualenv: ``virtualenv Example``
+       - venv: ``python -m venv Example2``
    - Next steps are identical and involves "activating" and ``pip install``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
 
@@ -175,9 +175,14 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 .. note::
 
    - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
-   - Some packages may be inhereted from the moduels yopu have loaded
+   - Some packages may be inhereted from the modules you have loaded
    - You can do ``pip list --local`` to see what is installed by you in the environment.
    - Some IDE:s like Spyder may only find those "local" packages
+   - To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
+       -   ``--system-site-packages`` includes the packages already installed in the loaded python module.
+   - The ``--no-cache-dir"`` option is required to **avoid it from reusing earlier installations from the same user in a different environment**. 
+   - The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when **building any Cython libraries**.
+
 
 Conda
 -----
