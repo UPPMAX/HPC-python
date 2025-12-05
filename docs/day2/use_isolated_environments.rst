@@ -104,7 +104,15 @@ What happens at activation?
    - If very troublesome, try with ``conda``
 
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course. 
-   - To see which Python packages you, yourself, have installed, you can use ``pip list --user`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``. 
+   - To see which Python packages you, yourself, have installed, you can use ``pip list --local`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``. 
+       - Note that ``--user`` must be omitted: else the package will be installed in the global user folder.
+
+.. admonition:: ``pip list`` documentation
+
+   - ``--local``: If in a virtualenv that has global access, do not list globally-installed packages.
+   - ``--user``: Only output packages installed in user-site.
+
+   https://pip.pypa.io/en/stable/cli/pip_list/
 
 .. admonition:: Other tools perhaps covered in the future
    :class: dropdown
