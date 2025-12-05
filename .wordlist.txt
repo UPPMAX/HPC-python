@@ -819,6 +819,7 @@ lumi
 LUMI
 miniforge
 Miniforge
-
+Ns
+TMP
 
 
