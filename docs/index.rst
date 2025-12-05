@@ -120,7 +120,7 @@ Schedule Autumn 2025
        - The Zoom main room is used for most lectures
        - Some sessions use breakout rooms for exercises, some of which use a silent room
 
-.. admonition:: Q/A collabration document
+.. admonition:: Q/A collaboration document
 
    - Use the Q/A page for the workshop with your questions.
        - `https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/IQDToLTHrvKHQ7PSkxBv9v_lAfFXgfgLZVMLRDzQ_jOrfDw <https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/IQDToLTHrvKHQ7PSkxBv9v_lAfFXgfgLZVMLRDzQ_jOrfDw>`_
