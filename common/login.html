@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log in and other preparations &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Use the tarball with exercises" href="use_tarball.html" />
+    <link rel="prev" title="Schedule" href="../schedule.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Log in and other preparations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-log-in">Step 1: Log in!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-make-a-work-directory">Step 2: Make a work directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-an-editor">Test an editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-and-extract-the-tarball-with-exercises">Download and extract the tarball with exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Log in and other preparations</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/common/login.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="log-in-and-other-preparations">
+<span id="common-login"></span><h1>Log in and other preparations<a class="headerlink" href="#log-in-and-other-preparations" title="Link to this heading"></a></h1>
+<div class="admonition-goal admonition">
+<p class="admonition-title">Goal</p>
+<ul>
+<li><p>The goal of this optional sessions is to make sure that you have fulledfilled the</p>
+<blockquote>
+<div><ul>
+<li><p><a class="reference external" href="https://uppmax.github.io/HPC-python/prereqs.html">Prerequisites</a></p></li>
+<li><p><a class="reference external" href="https://uppmax.github.io/HPC-python/preparations.html">Preparations of environment</a> to follow this course:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>you can log in</p></li>
+<li><p>you have have a folder to work in</p></li>
+<li><p>you can start a text editor</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>We will also download exercise snippets and solutions that you can work with. <a class="reference external" href="https://uppmax.github.io/HPC-python/common/use_tarball.html">Use the tarball with exercises</a></p></li>
+</ul>
+</div>
+<div class="admonition-learning-outcomes admonition">
+<p class="admonition-title"><strong>Learning outcomes</strong></p>
+<ul class="simple">
+<li><p>Be able to login, where you are</p></li>
+</ul>
+</div>
+<div class="admonition-cluster-specific-approaches admonition">
+<p class="admonition-title">Cluster-specific approaches</p>
+<ul>
+<li><p>The course is a cooperation between the NAISS branches <strong>UPPMAX</strong> (Pelle, Maya, Rackham, Snowy, Bianca), <strong>HPC2N</strong> (Kebnekaise), and <strong>LUNARC</strong> (Cosmos) and will focus on the compute systems at all these centres, as well as select resources at NSC (Tetralith) and PDC (Dardel).</p></li>
+<li><p>Although there are differences we will only have <strong>few separate sessions</strong>.</p></li>
+<li><p>Most participants will use NSC’s or Dardel’s systems for the course, as Pelle, Rackham, Kebnekaise and Cosmos are only for local (UU, UmU, IRF, MIUN, SLU, LTU, LU) users.</p></li>
+<li><p>The general information given in the course will be true for all/most HPC centres in Sweden.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres.</p></li>
+<li><p>When present, links to the Python documentation at other NAISS centres are given in the corresponding session.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You were invited to be part of the course project.</p></li>
+<li><p>If you already have research projects in any of the clusters you can use them. The CPU-hours required during the course will be low!</p></li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>If you have user account and <em>research</em> project on Kebnekaise, follow the <strong>HPC2N</strong> track below.</p></li>
+<li><p>If you have user account and <em>research</em> project on Cosmos, follow the <strong>LUNARC</strong> track below.</p></li>
+<li><p>If you have user account and course/research project on Rackham, follow the <strong>UPPMAX</strong> track below.</p></li>
+<li><p>If you have user account and course/research project on Tetralith, follow the <strong>NSC</strong> track below.</p></li>
+<li><p>If you have user account and course/research project on Dardel, follow the <strong>PDC</strong> track below.</p></li>
+</ul>
+</div>
+<div class="admonition-to-be-done-before admonition">
+<p class="admonition-title">To be done before</p>
+<ul class="simple">
+<li><p>Follow the steps in the emailed instructions.</p></li>
+<li><p>First time you need to use a terminal to set password</p></li>
+<li><p>When password is set you can begin to use ThinLinc as well.</p></li>
+</ul>
+</div>
+<section id="step-1-log-in">
+<span id="login"></span><h2>Step 1: Log in!<a class="headerlink" href="#step-1-log-in" title="Link to this heading"></a></h2>
+<p>For beginners: use the <strong>bold</strong> login method.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HPC cluster</p></th>
+<th class="head"><p>Login method [*]</p></th>
+<th class="head"><p>Documentation</p></th>
+<th class="head"><p>Video</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ALVIS</p></td>
+<td><p>SSH client</p></td>
+<td><p><cite>ssh &lt;user&gt;&#64;alvis1.c3se.chalmers.se</cite> or <cite>ssh &lt;user&gt;&#64;alvis2.c3se.chalmers.se</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ALVIS</p></td>
+<td><p>Remote Desktop Protocol (RDP)</p></td>
+<td><p>Server: <cite>alvis1.c3se.chalmers.se</cite> or <cite>alvis2.c3se.chalmers.se</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ALVIS</p></td>
+<td><p>OpenOndemand portal</p></td>
+<td><p><a class="reference external" href="https://alvis.c3se.chalmers.se">here</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>COSMOS</p></td>
+<td><p>SSH client</p></td>
+<td><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/sMsenzWERTg">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>COSMOS</p></td>
+<td><p><strong>Local ThinLinc client</strong></p></td>
+<td><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/getting_started/using_hpc_desktop/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/wn7TgElj_Ng">here</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Dardel</p></td>
+<td><p><strong>SSH client</strong></p></td>
+<td><p><a class="reference external" href="hhttps://support.pdc.kth.se/doc/login/ssh_login/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/I8cNqiYuA-4?si=MDKS4wEB1nQODvxj">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Dardel</p></td>
+<td><p>Local ThinLinc client</p></td>
+<td><p><a class="reference external" href="https://support.pdc.kth.se/doc/login/interactive_hpc/#authentication-in-thinlinc-client">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/0Rm-HmyzDfs">here</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Kebnekaise</p></td>
+<td><p>SSH client</p></td>
+<td><p><a class="reference external" href="https://docs.hpc2n.umu.se/documentation/access/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/pIiKOKBHIeY?si=2MVHoFeAI_wQmrtN">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Kebnekaise</p></td>
+<td><p>Local ThinLinc client</p></td>
+<td><p><a class="reference external" href="https://docs.hpc2n.umu.se/documentation/access/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/_jpj0GW9ASc?si=1k0ZnXABbhUm0px6">here</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Kebnekaise</p></td>
+<td><p><strong>Remote desktop website</strong></p></td>
+<td><p><a class="reference external" href="https://docs.hpc2n.umu.se/documentation/access/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/_O4dQn8zPaw?si=z32av8XY81WmfMAW">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Kebnekaise</p></td>
+<td><p>Open OnDemand</p></td>
+<td><p><a class="reference external" href="https://portal.hpc2n.umu.se">here</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>LUMI</p></td>
+<td><p>SSH client</p></td>
+<td><p><a class="reference external" href="https://docs.lumi-supercomputer.eu/firststeps/loggingin/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/bPdvn2gajgU">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Pelle</p></td>
+<td><p>SSH client</p></td>
+<td><p><a class="reference external" href="https://docs.uppmax.uu.se/getting_started/login_pelle/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/TSVGSKyt2bQ">here</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Pelle</p></td>
+<td><p>ThinLinc from web</p></td>
+<td><p><a class="reference external" href="https://docs.uppmax.uu.se/getting_started/login_pelle_remote_desktop_website/">here</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Pelle</p></td>
+<td><p>Local ThinLinc client</p></td>
+<td><p><a class="reference external" href="https://docs.uppmax.uu.se/getting_started/login_pelle/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/PqEpsn74l0g">here</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tetralith</p></td>
+<td><p>SSH client</p></td>
+<td><p><a class="reference external" href="https://www.nsc.liu.se/support/getting-started/">here</a></p></td>
+<td><p><a class="reference external" href="https://youtu.be/wtGIzSBiulY?si=ejx1QEcYXI_bMSoM">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Tetralith</p></td>
+<td><p><strong>Local ThinLinc client</strong></p></td>
+<td><p><a class="reference external" href="https://www.nsc.liu.se/support/graphics/">here</a>. Scroll down to ThinLinc</p></td>
+<td><p><a class="reference external" href="https://youtu.be/JsHzQSFNGxY?si=gLI0GEiFiUZ-F__T">here</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="dropdown admonition">
+<p class="admonition-title">What are the differences between these login methods?</p>
+<p>These are the ways to access your HPC cluster and some of their features:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>How to access your HPC cluster</p></th>
+<th class="head"><p>Features</p></th>
+<th class="head"><p>How it looks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OpenOnDemand portal*</p></td>
+<td><p>Familiar desktop or service, no need to install software, easy to use, not available at all centers</p></td>
+<td><figure class="align-default">
+<img alt="https://docs.hpc2n.umu.se/images/open-ondemand-portal.png" src="https://docs.hpc2n.umu.se/images/open-ondemand-portal.png" />
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Remote desktop via a website</p></td>
+<td><p>Familiar remote desktop, no need to install software, not available at all centers</p></td>
+<td><figure class="align-default">
+<img alt="../_images/rackham_remote_desktop_via_website_480_x_270.png" src="../_images/rackham_remote_desktop_via_website_480_x_270.png" />
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Remote desktop via a local ThinLinc client</p></td>
+<td><p>Familiar remote desktop, clumsy, need to install ThinLinc</p></td>
+<td><figure class="align-default">
+<img alt="../_images/thinlinc_local_rackham_zoom.png" src="../_images/thinlinc_local_rackham_zoom.png" />
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Console environment using an SSH client</p></td>
+<td><p>A console environment, powerful, need to install an SSH client</p></td>
+<td><figure class="align-default">
+<img alt="../_images/login_rackham_via_terminal_terminal_409_x_290.png" src="../_images/login_rackham_via_terminal_terminal_409_x_290.png" />
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>* Open On-Demand is similar to GfxLauncher but from a website instead of from inside ThinLinc</p>
+<p>We recommend using ThinLinc.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Which remote desktop should I choose?</p>
+<p>Some HPC clusters have multiple remote desktops. We recommend:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HPC cluster</p></th>
+<th class="head"><p>Recommended desktop environment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alvis</p></td>
+<td><p>The only one</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bianca</p></td>
+<td><p>XFCE</p></td>
+</tr>
+<tr class="row-even"><td><p>COSMOS</p></td>
+<td><p>GNOME</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dardel</p></td>
+<td><p>XFCE</p></td>
+</tr>
+<tr class="row-even"><td><p>Kebnekaise</p></td>
+<td><p>MATE</p></td>
+</tr>
+<tr class="row-odd"><td><p>LUMI</p></td>
+<td><p>The only one</p></td>
+</tr>
+<tr class="row-even"><td><p>Pelle</p></td>
+<td><p>XFCE</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tetralith</p></td>
+<td><p>The only one</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li><p>When you login to Cosmos, whether through ThinLinc or regular SSH client, you need 2FA</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/">https://lunarc-documentation.readthedocs.io/en/latest/getting_started/login_howto/</a></p></li>
+<li><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/getting_started/authenticator_howto/">https://lunarc-documentation.readthedocs.io/en/latest/getting_started/authenticator_howto/</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li><p>When you login to Tetralith, whether through ThinLinc or regular SSH client, you need 2FA</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://www.nsc.liu.se/support/2fa/">https://www.nsc.liu.se/support/2fa/</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>Please log in to the cluster that you are using.</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">C3SE</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">NSC</button><button aria-controls="panel-0-0-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-5" name="0-5" role="tab" tabindex="-1">PDC</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><ol class="arabic simple">
+<li><p>Log in to Pelle!</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Terminal: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">&lt;user&gt;&#64;pelle.uppmax.uu.se</span></code></p></li>
+<li><p>ThinLinc app: <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;&#64;pelle-gui.uppmax.uu.se</span></code></p></li>
+<li><p>ThinLinc in web browser: <code class="docutils literal notranslate"><span class="pre">https://rackham-gui.uppmax.uu.se</span></code></p></li>
+</ul>
+</div></blockquote>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Kebnekaise through terminal: <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;&#64;kebnekaise.hpc2n.umu.se</span></code></p></li>
+<li><p>Kebnekaise through ThinLinc, use: <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;&#64;kebnekaise-tl.hpc2n.umu.se</span></code></p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Cosmos through terminal: <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;&#64;cosmos.lunarc.lu.se</span></code></p></li>
+<li><p>Cosmos through ThinLinc, use: <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;&#64;cosmos-dt.lunarc.lu.se</span></code></p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Pelle through terminal: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">&lt;user&gt;&#64;pelle.uppmax.uu.se</span></code></p></li>
+<li><p>Pelle through ThinLinc: <code class="docutils literal notranslate"><span class="pre">pelle-gui.uppmax.uu.se</span></code> and UPPMAX username and password</p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Tetralith through terminal or Thinlinc: <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;&#64;tetralith.nsc.liu.se</span></code></p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-5" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-5" name="0-5" role="tabpanel" tabindex="0"><ul>
+<li><p>Dardel through terminal: <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;&#64;dardel.pdc.kth.se</span></code></p></li>
+<li><p>Dardel through ThinLinc: <code class="docutils literal notranslate"><span class="pre">&lt;user&gt;&#64;dardel-vnc.pdc.kth.se</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Warning!</strong> Only 30 Dardel users at a time can use ThinLinc. Do not count on it being available.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>When you log in from your local computer you will always arrive at a login node with limited resources.</dt><dd><ul>
+<li><p>You reach the calculations nodes from within the login node (See  Submitting jobs section)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>You reach UPPMAX/HPC2N/LUNARC/NSC clusters either using a terminal client or Thinlinc</p></li>
+<li><p>Graphics are included in Thinlinc and from terminal if you have enabled X11.</p></li>
+<li><dl class="simple">
+<dt>Which client to use?</dt><dd><ul>
+<li><p>Graphics and easy to use</p></li>
+<li><p>ThinLinc</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Best integrated systems</dt><dd><ul>
+<li><p>Visual Studio Code has several extensions (remote, SCP, programming IDE:s)</p></li>
+<li><p>Windows: MobaXterm is somewhat easier to use.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</section>
+<section id="step-2-make-a-work-directory">
+<span id="work-directory"></span><h2>Step 2: Make a work directory<a class="headerlink" href="#step-2-make-a-work-directory" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Directory names OK?</strong></p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-1-1-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-3" name="1-3" role="tab" tabindex="-1">NSC</button><button aria-controls="panel-1-1-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-4" name="1-4" role="tab" tabindex="-1">PDC</button><button aria-controls="panel-1-1-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-5" name="1-5" role="tab" tabindex="-1">C3SE</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><ol class="arabic simple">
+<li><p>If not already: <strong>create a working directory</strong> where you can code along.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>We recommend creating it under the course project storage directory</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><p>Example. If your username is “mrspock” and you are at UPPMAX, then we recommend you create this folder:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>/proj/hpc-python-uppmax/mrspock/
+</pre></div>
+</div>
+</li>
+</ol>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><ul>
+<li><p>Create a working directory where you can code along.</p>
+<ul class="simple">
+<li><p>Example. If your username is bbrydsoe and you are at HPC2N, then we recommend you create this folder:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>/proj/nobackup/fall-courses/bbrydsoe/
+</pre></div>
+</div>
+</li>
+</ul>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><ul>
+<li><p>Create a working directory in your home space where you can code along.</p>
+<ul class="simple">
+<li><p>Example. Create this folder:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span><span class="nv">$HOME</span>/hpc-python
+</pre></div>
+</div>
+</li>
+<li><p>Or use the project storage:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>/lunarc/nobackup/projects/lu2025-17-52/&lt;yourdir&gt;
+</pre></div>
+</div>
+</li>
+</ul>
+</div><div aria-labelledby="tab-1-1-3" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-3" name="1-3" role="tabpanel" tabindex="0"><ul>
+<li><p>Create a working directory where you can code along.</p>
+<ul class="simple">
+<li><p>Example. If your username is jlpicard and you are at NSC, then we recommend you create this folder:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>/proj/courses-fall-2025/users/jlpicard
+</pre></div>
+</div>
+</li>
+</ul>
+</div><div aria-labelledby="tab-1-1-4" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-4" name="1-4" role="tabpanel" tabindex="0"><ul>
+<li><p>Create a working directory where you can code along.</p>
+<ul class="simple">
+<li><p>Example. If your username is sevenof9 and you are at PDC, then we recommend you create this folder:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>/cfs/klemming/projects/supr/courses-fall-2025/sevenof9/
+</pre></div>
+</div>
+</li>
+</ul>
+</div><div aria-labelledby="tab-1-1-5" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-5" name="1-5" role="tabpanel" tabindex="0"><ul>
+<li><p>Create a working directory where you can code along.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Example. If your username is sisko and you are at C3SE, then we recommend you create this folder:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>/mimer/NOBACKUP/groups/courses-fall-2025/sisko
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></div>
+</section>
+<section id="test-an-editor">
+<h2>Test an editor<a class="headerlink" href="#test-an-editor" title="Link to this heading"></a></h2>
+<p>Learn how to use an text editor at <a class="reference internal" href="use_text_editor.html#common-use-text-editor"><span class="std std-ref">Use a text editor</span></a>.</p>
+</section>
+<section id="download-and-extract-the-tarball-with-exercises">
+<h2>Download and extract the tarball with exercises<a class="headerlink" href="#download-and-extract-the-tarball-with-exercises" title="Link to this heading"></a></h2>
+<p>Learn how to download and extract the tarball with exercises
+at <a class="reference internal" href="use_tarball.html#common-use-tarball"><span class="std std-ref">Use the tarball with exercises</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../schedule.html" class="btn btn-neutral float-left" title="Schedule" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="use_tarball.html" class="btn btn-neutral float-right" title="Use the tarball with exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

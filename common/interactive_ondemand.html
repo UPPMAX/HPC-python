@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive sessions and Desktop On-Demand &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Interactive sessions and Desktop On-Demand</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/common/interactive_ondemand.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="interactive-sessions-and-desktop-on-demand">
+<h1>Interactive sessions and Desktop On-Demand<a class="headerlink" href="#interactive-sessions-and-desktop-on-demand" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Demanding work (CPU or Memory intensive) should be done on the compute nodes.</p></li>
+<li><p>If you need live interaction you should start an “interactive session”</p></li>
+<li><p>On Cosmos (LUNARC) and Dardel (PDC) it can be done graphically with the Desktop-On-Demand tool <code class="docutils literal notranslate"><span class="pre">GfxLauncher</span></code> which is started inside ThinLinc.</p></li>
+<li><p>On Kebnekaise (HPC2N) and Alvis (C3SE) it can be done graphically with the Desktop-on-Demand portal.</p></li>
+<li><p>Otherwise the terminal approach will work in all centers.</p></li>
+</ul>
+</div>
+<p>The command to request an interactive node differs per HPC cluster:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Cluster</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">interactive</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">salloc</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">srun</span></code></p></th>
+<th class="head"><p>GfxLauncher / Desktop-On-Demand Portal</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HPC2N</p></td>
+<td><p>N/A</p></td>
+<td><p>Recommended</p></td>
+<td><p>N/A</p></td>
+<td><p>Recommended</p></td>
+</tr>
+<tr class="row-odd"><td><p>UPPMAX</p></td>
+<td><p>Recommended</p></td>
+<td><p>Works</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>LUNARC</p></td>
+<td><p>Works</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Recommended</p></td>
+</tr>
+<tr class="row-odd"><td><p>NSC</p></td>
+<td><p>Recommended</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>PDC</p></td>
+<td><p>N/A</p></td>
+<td><p>Recommended</p></td>
+<td><p>N/A</p></td>
+<td><p>Possible</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3SE</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Works</p></td>
+<td><p>Recommended</p></td>
+</tr>
+</tbody>
+</table>
+<section id="start-an-interactive-session-from-ondemand">
+<h2>Start an interactive session from OnDemand<a class="headerlink" href="#start-an-interactive-session-from-ondemand" title="Link to this heading"></a></h2>
+<section id="thinlinc-gfxlauncher">
+<h3>ThinLinc + GfxLauncher<a class="headerlink" href="#thinlinc-gfxlauncher" title="Link to this heading"></a></h3>
+<p>For most programs, the start-up process is roughly the same:</p>
+<ol class="arabic">
+<li><p>Log into COSMOS/(Dardel) via Thinlinc to start a HPC Desktop session.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Applications</span></code> in the top left corner and hover over the items prefixed with <code class="docutils literal notranslate"><span class="pre">Applications</span> <span class="pre">-</span></code> until you find your desired application.</p></li>
+<li><dl class="simple">
+<dt>Upon clicking your chosen application, a pop-up, the Gfx Launcher interface, will appear and let you set the following options:</dt><dd><ol class="arabic simple">
+<li><p><strong>Wall time</strong> - how long your interactive session will remain open. When it ends, the whole window closes immediately and any unsaved work is lost. You can select the time from a drop-down menu, or type in the time manually. CPU-only applications can run for up to 168 hours (7 days), but the rest are limited to 48 hours. Default is 30 minutes.</p></li>
+<li><p><strong>Requirements</strong> - how many tasks per node you need. The default is usually 1 or 4 tasks per node. There is also a <strong>gear icon</strong> to the right of this box that can pull up a second menu where you can set the name of your job, the number of tasks per node, the amount of memory per CPU core, and/or toggle whether or not to use a full node.</p></li>
+<li><p><strong>Resource</strong> - which kind of node you want in terms of the architecture (AMD or Intel) and number of cores in the CPU (or GPU). Options and defaults vary by program, but it is recommended that you leave the default node type in place.</p></li>
+<li><p><strong>Project</strong> - choose from a drop-down menu the project with which your work is associated. This is mainly to keep your usage in line with your licenses and permissions, and to send any applicable invoices to the correct PI. Licensed software will only work for projects whose group members are covered by the license.</p></li>
+</ol>
+</dd>
+</dl>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/cosmos-on-demand-resource-specs.png"><img alt="../_images/cosmos-on-demand-resource-specs.png" src="../_images/cosmos-on-demand-resource-specs.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The GfxLauncher GUI (here used to launch Spyder). The box on the left is the basic menu and the box on the right is what pops up when the gear icon next to <code class="docutils literal notranslate"><span class="pre">Requirements</span></code> is clicked.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>When you’re happy with your settings, click “Start”. The Gfx Launcher menu will stay open in the background so that you can monitor your remaining time and resources with the <code class="docutils literal notranslate"><span class="pre">Usage</span></code> bar.</p></li>
+</ol>
+<p>If you want, you can also look at the associated SLURM scripts by clicking the “More” button at the bottom of the Gfx Launcher menu and clicking the “Script” tab (example below), or view the logs under the “Logg” tab.</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/cosmos-on-demand-more.png"><img alt="../_images/cosmos-on-demand-more.png" src="../_images/cosmos-on-demand-more.png" style="width: 400px;" />
+</a>
+</figure>
+</div></blockquote>
+<p>For a few applications (e.g. Jupyter Lab), GfxLauncher will also offer an additional menu item titled <code class="docutils literal notranslate"><span class="pre">Job</span> <span class="pre">settings...</span></code>. This is where you can load custom environments or additional modules if absolutely necessary. However, this feature is still a work in progress; any module already in the module box when you first open <code class="docutils literal notranslate"><span class="pre">Job</span> <span class="pre">settings</span></code> is likely necessary to run the program, and searching for additional modules (Select modules button) tends to erase any listed previously. For now, additional modules must be entered by hand (not always including the version number) in a comma-separated list. Moreover, incompatible and redundant modules tend to make the application shut down as soon as it is queued, raising a spurious alert that the requested walltime has expired.</p>
+<blockquote>
+<div><figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/cosmos-on-demand-job-settings.png"><img alt="../_images/cosmos-on-demand-job-settings.png" src="../_images/cosmos-on-demand-job-settings.png" style="width: 550px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The Job Properties menu (right) pops up when the box titled <code class="docutils literal notranslate"><span class="pre">Job</span> <span class="pre">settings...</span></code> in the main GfxLauncher window (left) is clicked. Only use it if you know what you’re doing!</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="open-on-demand-portal">
+<h3>Open-On-Demand Portal<a class="headerlink" href="#open-on-demand-portal" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Kebnekaise:</dt><dd><ul>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">https://portal.hpc2n.umu.se/</span></code> and login.</p></li>
+<li><p>Documentation here: <code class="docutils literal notranslate"><span class="pre">https://docs.hpc2n.umu.se/tutorials/connections/#open__ondemand</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Alvis:</dt><dd><ul>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">https://alvis.c3se.chalmers.se/</span></code></p></li>
+<li><p>There is some documentation here: <code class="docutils literal notranslate"><span class="pre">https://uppmax.github.io/HPC-python/common/interactive_ondemand.html#start-an-interactive-session-from-ondemand</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+<section id="start-an-interactive-session-from-the-terminal">
+<h2>Start an interactive session from the terminal<a class="headerlink" href="#start-an-interactive-session-from-the-terminal" title="Link to this heading"></a></h2>
+<p>To start an interactive session in the simplest way, is shown here:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">NSC</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">PDC (salloc)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>Use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">interactive -A [project_name]</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">[project_name]</span></code> is the UPPMAX project name,
+for example <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">-A</span> <span class="pre">uppmax2025-2-393</span></code>.</p>
+<p>The output will look similar to this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[richel@rackham4 ~]$ </span>interactive<span class="w"> </span>-A<span class="w"> </span>uppmax2025-2-393
+<span class="go">You receive the high interactive priority.</span>
+<span class="go">You may run for at most one hour.</span>
+<span class="go">Your job has been put into the devcore partition and is expected to start at once.</span>
+<span class="gp gp-VirtualEnv">(Please remember, you may not simultaneously have more than one devel/devcore job, running or queued, in the batch system.)</span>
+
+<span class="go">Please, use no more than 8 GB of RAM.</span>
+
+<span class="go">salloc: Pending job allocation 9093699</span>
+<span class="go">salloc: job 9093699 queued and waiting for resources</span>
+<span class="go">salloc: job 9093699 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 9093699</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes r314 are ready for job</span>
+<span class="go"> _   _ ____  ____  __  __    _    __  __</span>
+<span class="go">| | | |  _ \|  _ \|  \/  |  / \   \ \/ /   | System:    r314</span>
+<span class="go">| | | | |_) | |_) | |\/| | / _ \   \  /    | User:      richel</span>
+<span class="go">| |_| |  __/|  __/| |  | |/ ___ \  /  \    |</span>
+<span class="go"> \___/|_|   |_|   |_|  |_/_/   \_\/_/\_\   |</span>
+
+<span class="gp">#</span><span class="c1">##############################################################################</span>
+
+<span class="go">              User Guides: https://docs.uppmax.uu.se/</span>
+
+<span class="go">              Write to support@uppmax.uu.se, if you have questions or comments.</span>
+
+
+<span class="gp">[richel@r314 ~]$</span>
+</pre></div>
+</div>
+<p>Note that the prompt has changed to show that one is on an interactive node.</p>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc -A [project_name]</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">[project_name]</span></code> is the HPC2N project name,
+for example <code class="docutils literal notranslate"><span class="pre">salloc</span> <span class="pre">-A</span> <span class="pre">hpc2n2025-151</span></code>.</p>
+<p>This will look similar to this (including asking for resources - time is required):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">b-an01 [~]$ salloc -n 4 --time=00:10:00 -A hpc2n2025-151</span>
+<span class="go">salloc: Pending job allocation 20174806</span>
+<span class="go">salloc: job 20174806 queued and waiting for resources</span>
+<span class="go">salloc: job 20174806 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 20174806</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes b-cn0241 are ready for job</span>
+<span class="go">b-an01 [~]$ module load GCC/12.3.0 Python/3.11.3</span>
+<span class="go">b-an01 [~]$</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">interactive -A [project_name]</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">[project_name]</span></code> is the LUNARC project name,
+for example <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">-A</span> <span class="pre">lu2025-7-106</span></code>.</p>
+<p>This will look similar to this (including asking for resources - time is required):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[bbrydsoe@cosmos3 ~]$ </span>interactive<span class="w"> </span>-A<span class="w"> </span>lu2025-7-106<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:10:00
+<span class="go">Cluster name: COSMOS</span>
+<span class="go">Waiting for JOBID 988025 to start</span>
+</pre></div>
+</div>
+<p>The terminal will refresh for the new connection:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[bbrydsoe@cn137 ~]$ </span>module<span class="w"> </span>load<span class="w"> </span>GCC/13.2.0<span class="w"> </span>Python/3.11.5
+<span class="gp">[bbrydsoe@cn137 ~]$</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">interactive -A [project_name]</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">[project_name]</span></code> is the NSC project name,
+for example <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">-A</span> <span class="pre">naiss2025-22-934</span></code>.</p>
+<p>This will look similar to this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[x_birbr@tetralith1 ~]$ </span>interactive<span class="w"> </span>-A<span class="w"> </span>naiss2025-22-934
+<span class="go">salloc: Pending job allocation 40137281</span>
+<span class="go">salloc: job 40137281 queued and waiting for resources</span>
+<span class="go">salloc: job 40137281 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 40137281</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes n302 are ready for job</span>
+<span class="gp">[x_birbr@n302 ~]$ </span>module<span class="w"> </span>load<span class="w"> </span>buildtool-easybuild/4.8.0-hpce082752a2<span class="w"> </span>GCC/13.2.0<span class="w"> </span>Python/3.11.5
+<span class="gp">[x_birbr@n302 ~]$</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc -A [project_name]</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">[project_name]</span></code> is the PDC project name,
+for example <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">-A</span> <span class="pre">naiss2025-22-934</span></code>.</p>
+<p>This will look similar to this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">claremar@login1:~&gt; salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934</span>
+<span class="go">salloc: Pending job allocation 9102757</span>
+<span class="go">salloc: job 9102757 queued and waiting for resources</span>
+<span class="go">salloc: job 9102757 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 9102757</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes nid001057 are ready for job</span>
+</pre></div>
+</div>
+<p>We need to ssh to the specific node</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ssh nid001057</span>
+</pre></div>
+</div>
+</div></div>
+<p>However, this simplest way may have some defaults settings that do not fit you.</p>
+<ul class="simple">
+<li><p>session duration is too short</p></li>
+<li><p>the session has too few cores available</p></li>
+</ul>
+<p>You can add more resources the same way as for batch jobs.</p>
+<section id="end-an-interactive-session">
+<h3>End an interactive session<a class="headerlink" href="#end-an-interactive-session" title="Link to this heading"></a></h3>
+<p>You leave interactive mode with <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
+</section>
+<section id="check-to-be-in-an-interactive-session">
+<h3>Check to be in an interactive session<a class="headerlink" href="#check-to-be-in-an-interactive-session" title="Link to this heading"></a></h3>
+<div class="admonition-for-uppmax-lunarc-pdc-and-nsc admonition">
+<p class="admonition-title">For UPPMAX, LUNARC, PDC and NSC</p>
+<p>You check if you are in an interactive session with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hostname</span>
+</pre></div>
+</div>
+<p>If the output contains the words <code class="docutils literal notranslate"><span class="pre">rackham</span></code>, <code class="docutils literal notranslate"><span class="pre">cosmos</span></code>, or <code class="docutils literal notranslate"><span class="pre">tetralith</span></code> you are on the login node.</p>
+<p>If the output contains:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r[number].uppmax.uu.se</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are on a compute node at UPPMAX (rackham).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cn[number]</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are on a compute node at LUNARC (cosmos).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n[number]</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are on a compute node at NSC (tetralith).</p></li>
+</ul>
+</div>
+<div class="admonition-for-hpc2n admonition">
+<p class="admonition-title">For HPC2N</p>
+<p>You check if you are in an interactive session with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">srun hostname</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If the output is <code class="docutils literal notranslate"><span class="pre">b-cn[number].hpc2n.umu.se</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are more-or-less on a compute node.</p></li>
+<li><p>If the output is <code class="docutils literal notranslate"><span class="pre">b-an[number]</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are still on a login node.</p></li>
+</ul>
+<p>Do NOT do</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hostname</span>
+</pre></div>
+</div>
+<p>for HPC2N as it will always show that you are on a login node</p>
+</div>
+</section>
+<section id="check-that-the-number-of-cores-booked-is-correct">
+<h3>Check that the number of cores booked is correct<a class="headerlink" href="#check-that-the-number-of-cores-booked-is-correct" title="Link to this heading"></a></h3>
+<p>You can do this on all clusters, except for Dardel and Cosmos, with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ srun hostname
+</pre></div>
+</div>
+<p>And then you will get one line of output per core booked.</p>
+<p>On Dardel instead test</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">claremar@nid001027:~&gt; srun -n 4 hostname</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+</pre></div>
+</div>
+<p>Now, it seems that Dardel allows for “hyperthreading”, that is 2 threads per core.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">claremar@nid001027:~&gt; srun -n 8 hostname</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+<span class="go">nid001027</span>
+<span class="go">claremar@nid001027:~&gt; srun -n 9 hostname</span>
+<span class="go">srun: error: Unable to create step for job 9702490: More processors requested than permitted</span>
+</pre></div>
+</div>
+<p>On Cosmos instead do:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[bjornc@cn050 ~]$ </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$SLURM_CPUS_ON_NODE</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
