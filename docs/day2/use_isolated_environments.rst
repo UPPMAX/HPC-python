@@ -31,7 +31,7 @@ Isolated environments
 
 - Another example is when a reviewer want you to remake a figure. 
     - You have already started to use a newer Python version or newer packages and 
-    - realise that your earlier script does not work anymore. 
+    - realize that your earlier script does not work anymore. 
 - Having freezed the environment would have solved you from this issue!
 
 .. note::
@@ -59,12 +59,12 @@ What happens at activation?
     - Check with ``which python``, should show at path to the environment.
     - In conda you can define python version as well
     - Since ``venv`` is part of Python you will get the python version used when running the ``venv`` command.
-- Packages are defined by the environent.
+- Packages are defined by the environment.
     - Check with ``pip list``
     - Conda can only see what you installed for it.
     - ``venv`` and ``virtualenv`` also see other packages if you allowed for that when creating the environment (``--system-site-packages``). 
 - You can work in a Python shell or IDE (coming session)
-- You can run scripts dependent on packages now instaleld in your environment.
+- You can run scripts dependent on packages now installed in your environment.
 
 .. warning::
 
@@ -143,7 +143,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 .. admonition:: Tip for Tetralith
 
    - load a "bare" python, like ``Python/3.10.4-bare-hpc1-gcc-2022a-eb``
-   - in en environment install setuptools and weel: ``pip3 install --upgrade pip setuptools wheel``
+   - in en environment install setuptools and wheel: ``pip3 install --upgrade pip setuptools wheel``
 
 .. admonition:: Example NSC
 
@@ -166,7 +166,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 
       >>> import matplotlib
 
-- When work is done, decativate the environment with
+- When work is done, deactivate the environment with
 
 .. code-block:: console
 
@@ -175,7 +175,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 .. note::
 
    - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
-   - Some packages may be inhereted from the modules you have loaded
+   - Some packages may be inherited from the modules you have loaded
    - You can do ``pip list --local`` to see what is installed by you in the environment.
    - Some IDE:s like Spyder may only find those "local" packages
    - To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked! 
@@ -201,7 +201,7 @@ Conda
    - conda-forge
    - dranew
    - free
-   - ~main~ # not avalible at the HPC-clusters
+   - ~main~ # not available at the HPC-clusters
    - pro
    - qiime2
    - r
@@ -216,20 +216,20 @@ Conda
    Drawbacks
     
    - Conda cannot use already install packages from the Python modules and libraries already installed, and hence installs them anyway
-   - Conda is therefore known for creating **many** *small* files. Your diskspace is not only limited in GB, but also in number of files (typically ``300000`` in $HOME). 
+   - Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in $HOME). 
    - Check your disk usage and quota limit
        - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
 
 .. tip::
 
-   - The conda environemnts inclusing many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
+   - The conda environments including many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
    - Move your ``.conda`` directory to your project folder and make a soft link to it from ``$HOME``
    - Do the following (``mkdir -p`` ignores error output and will not recreate another folder if it already exists):
         - (replace what is inside ``<>`` with relevant path)
 
    - Solution 1
 
-      This works nicely if you have several projects. Then you can change these varables according to what you are currently working with.
+      This works nicely if you have several projects. Then you can change these variables according to what you are currently working with.
 
       .. code-block:: bash
    
@@ -715,7 +715,7 @@ Breakout room according to grouping
 
       (Example) $ deactivate
 
-   - Everytime you need the tools available in the virtual environment you activate it as above (after also loading the modules).
+   - Every time you need the tools available in the virtual environment you activate it as above (after also loading the modules).
 
    .. prompt:: console
 
