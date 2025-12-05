@@ -140,6 +140,11 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - Next steps are identical and involves "activating" and ``pip install``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
 
+.. admonition:: Tip for Tetralith
+
+   - load a "bare" python, like ``Python/3.10.4-bare-hpc1-gcc-2022a-eb``
+   - in en environment install setuptools and weel: ``pip3 install --upgrade pip setuptools wheel``
+
 .. admonition:: Example NSC
 
    .. code-block:: console
@@ -151,12 +156,21 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
       python -m venv env-matplotlib
       source env-matplotlib/bin/activate
       #note that the prompt has ``(env-matplotlib)``
+      #install some extra pip related tools
+      #pip3 install --upgrade pip setuptools wheel
       pip install matplotlib
+      # do some work
       python
 
    .. code-block:: python
 
       >>> import matplotlib
+
+- When work is done, decativate the environment with
+
+.. code-block:: console
+
+   deactivate
 
 .. note::
 
@@ -182,7 +196,7 @@ Conda
    - conda-forge
    - dranew
    - free
-   - main
+   - ~main~ # not avalible at the HPC-clusters
    - pro
    - qiime2
    - r
