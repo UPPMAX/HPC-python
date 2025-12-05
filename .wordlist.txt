@@ -806,7 +806,6 @@ qiime
 setuptools
 
 Alvis
-att
 bioconda
 biocore
 chalmers
@@ -821,5 +820,6 @@ miniforge
 Miniforge
 Ns
 TMP
-
-
+pypa
+dranew
+userinstalls
