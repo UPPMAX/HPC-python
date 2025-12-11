@@ -1,0 +1,3 @@
+Me personally I want more about COSMOS-SENS but that is mainly as there is very little documantation at Lunarc about it
+NO
+More andvanced practical management of Conda/virtual environments on HPC, Workflow systems like Nextflow or Snakemake
