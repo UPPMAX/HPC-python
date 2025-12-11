@@ -1,0 +1,9 @@
+question,mean
+I can create plots in matplotlib,4
+I can decide on useful file formats for big data,3.6
+I can make a plot with Seaborn,2.8
+I can submit a script to the job scheduler,3.8
+"I can use Pandas (basic operations - statistics, binary operators, vectorized math, string methods)",2.8
+I can use Pandas (input/output Pandas data),3.2
+"I can use Pandas (inspect, clean, and sort data for later operations)",2.8
+I can write a batch script,3.4
