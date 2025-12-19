@@ -22,3 +22,4 @@ fi
 
 find ./ -iname "*.rst" -type f -exec sh -c 'pandoc "${0}" -o "${0%.rst}.md"' {} \;
 
+
