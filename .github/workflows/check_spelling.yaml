@@ -24,4 +24,8 @@ jobs:
           rm -rf docs/old
           rm -rf meeting_notes
 
+      # There are no RST spellcheckers, hence use MD spellchecker
+      - name: Convert RST to Markdown
+        run: ./scripts/convert_rst_to_mk.sh
+
       - uses: igsekor/pyspelling-any@v1.0.4
