@@ -75,7 +75,7 @@ Any longer, resource-intensive, or parallel jobs must be run through a **batch s
 
    - Demanding work (CPU or Memory intensive) should be done on the compute nodes.
    - If you need live interaction you should start an "interactive session"
-   - On Cosmos (LUNARC), Dardel (PDC), Alvis (C3SE), and Kebnekaise (HPC2N) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher`` or portal.
+   - On Cosmos (LUNARC), Dardel (PDC), Alvis (C3SE), and Kebnekaise (HPC2N) it can be done ly with the Desktop-On-Demand tool ``GfxLauncher`` or portal.
    - Otherwise the terminal approach will work in all centers.
 
 The different way HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE provide for an interactive session

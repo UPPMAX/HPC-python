@@ -29,7 +29,7 @@ As an example, maybe you have been using TensorFlow 1.x.x for your project and n
 - Isolated environments lets you create separate workspaces for different versions of Python and/or different versions of packages.
 - You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
 
-There are different tools for creating an isolated environement, but they all have some things in common.
+There are different tools for creating an isolated environment, but they all have some things in common.
 
 At UPPMAX, HPC2N, and LUNARC (and most other Swedish HPC centers that use modules) the workflow is:
 

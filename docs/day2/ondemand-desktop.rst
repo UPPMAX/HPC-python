@@ -315,7 +315,7 @@ Most settings are the same, with exception of the "Resource" or "Node Type"/"Cor
 
 
 - At centres that have OpenOnDemand installed, you do not have to submit a batch job, but can run directly on the already allocated resources
-- OpenOnDemand is a good option for interactive tasks, graphical applications/visualization, and simpler job submittions. It can also be more user-friendly.
+- OpenOnDemand is a good option for interactive tasks, graphical applications/visualization, and simpler job submissions. It can also be more user-friendly.
 - Regardless, there are many situations where submitting a batch job is the best option instead, including when you want to run jobs that need many resources (time, memory, multiple cores, multiple GPUs) or when you run multiple jobs concurrently or in a specified succession, without need for manual intervention. Batch jobs are often also preferred for automation (scripts) and reproducibility. Many types of application software fall into this category.
 - At centres that have ThinLinc you can usually submit MATLAB jobs to compute resources from within MATLAB.
 

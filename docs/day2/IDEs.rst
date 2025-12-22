@@ -1008,7 +1008,7 @@ Main panes and useful panels
 
    **For Jupyter Notebooks (and a much safer option)** 🧪
 
-   * You need to start the server on the HPC resource first, preferrably on a compute node. 
+   * You need to start the server on the HPC resource first, preferably on a compute node. 
    * Copy the jupyter server URL which goes something like ``http://s193.uppmax.uu.se:8888/tree?token=xxx`` (where s193 is Snowy node. Other HPCs will have similar URLs), click on ``Select Kernel`` on VSCode and select ``Existing Jupyter Server``. Past the URL here and confirm your choice.
    * This only works if you have the jupyter extension installed on your local VSCode.
    * The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser.
@@ -1032,7 +1032,7 @@ Exercises
    * Create a Virtual env using your faviroute package manager and install the packages.  
    * For an extra challenge: Run the same code in .ipynb format in your IDE. This requires you to install jupyter notebook in your virtual environment.
    
-   .. admonition:: Solving linear system of equations and optimiztion task using Scipy
+   .. admonition:: Solving linear system of equations and optimization task using Scipy
       :class: dropdown
 
       Install ``Scipy`` for the following example.

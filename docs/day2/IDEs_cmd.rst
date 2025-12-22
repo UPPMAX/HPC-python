@@ -638,7 +638,7 @@ VS Code can be downloaded and installed on your local machine from the `VS Code 
 However, VS Code is best used on your local machine, as it is a resource-intensive application that can slow down the ThinLinc interface. The VS Code Server can be installed on all the HPCs that give your the ability to run your code on the HPCs but edit it on your local machine.
 Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.
 
-**Installed on HPC clusters**
+**Installed on HPC **
 
 - Tetralith: ``VSCode/latest-bdist``
     - Start with ``code``
@@ -649,7 +649,7 @@ Similarly, you can also install your faviroute extensions on the HPCs and use th
 - Cosmos: system-installed (no module needed)
     - Start with ``code``
 
-For the HPC slusters below you need to connect from a local VSCode client (works also for all clusters)
+For the HPC slusters below you need to connect from a local VSCode client (works also for all )
 
 - Dardel
 - Kebnekaise
@@ -665,7 +665,7 @@ Install VS Code on your local machine and follow the steps below to connect to t
 
    .. figure:: ../img/vscode_remote_tunnels_before_install.png
    
-   Since most clusters now has added the TOTP feature you have to make another setting as well.  
+   Since most  now has added the TOTP feature you have to make another setting as well.  
 
    - Go to settings (the lower-left corner wheel):
 
