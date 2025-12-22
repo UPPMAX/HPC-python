@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Brief Intro to Matplotlib &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Intro to Pandas on HPC" href="pandas.html" />
+    <link rel="prev" title="Python documentations at the different HPC centres" href="../day2/python_at_hpc_centers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">A Brief Intro to Matplotlib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#load-and-run">Load and Run</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#controlling-the-display">Controlling the Display</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-terms-and-application-programming-interface-api">Basic Terms and Application Programming Interface (API)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fig-ax-what-are-those"><code class="docutils literal notranslate"><span class="pre">fig</span></code>? <code class="docutils literal notranslate"><span class="pre">ax</span></code>? What are those?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-your-data">Saving your Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-available-plot-types">Standard Available Plot Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">A Brief Intro to Matplotlib</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/new-matplotlib-intro.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="a-brief-intro-to-matplotlib">
+<h1>A Brief Intro to Matplotlib<a class="headerlink" href="#a-brief-intro-to-matplotlib" title="Link to this heading"></a></h1>
+<p>Matplotlib is one of the most popular and flexible function libraries
+for data visualization in use today. This crash course is meant to
+summarize and compliment the official documentation, but you are
+encouraged to refer to the original documentation for fuller
+explanations of function arguments.</p>
+<div class="admonition-prerequisites admonition">
+<p class="admonition-title"><strong>Prerequisites</strong></p>
+<p>In order to follow this course, you will need to be familiar with:</p>
+<ul class="simple">
+<li><p>The Python 3.X language, data structures (e.g. dictionaries), and built-in functions (e.g. string manipulation functions)</p></li>
+<li><p>NumPy: array I/O and manipulation</p></li>
+</ul>
+<p>It will also help to have experience with:</p>
+<ul class="simple">
+<li><p>SciPy</p></li>
+<li><p>Pandas</p></li>
+<li><p>LaTeX math typesetting</p></li>
+</ul>
+<p>You should be familiar with the meanings of the terms <code class="docutils literal notranslate"><span class="pre">args</span></code> and <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>, since they will appear frequently:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> refer to <em>positional arguments</em>, which are usually mandatory, but not always. These always come before the <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kwargs</span></code> are short for <em>keyword arguments</em>. These are usually optional, but it’s fairly common for some python functions to require a variable subset of all available kwargs dependent on previous inputs. These always come after <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p></li>
+</ul>
+</div>
+<section id="load-and-run">
+<h2>Load and Run<a class="headerlink" href="#load-and-run" title="Link to this heading"></a></h2>
+<p>In most cases, you will need to load a compatible version of SciPy-bundle to use NumPy, which you will need to create or prepare data for plotting.</p>
+<div class="admonition-from-matplotlib-import-pyplot-as-plt admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">matplotlib</span> <span class="pre">import</span> <span class="pre">pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code></p>
+<p>In all cases, once you have reached the stage where you are at a Python command prompt or in a script file, the first thing you will have to do to use any plotting commands is import <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>. Usually the command is written as it is in the title of this info box, but you can also just write <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> for short. If you work in a development environment like Spyder, that will often be the only package that you need out of Matplotlib.</p>
+</div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">HPC2N (Kebnekaise)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">LUNARC (Cosmos)</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">UPPMAX (Pelle)</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">NSC (Tetralith)</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">PDC (Dardel)</button><button aria-controls="panel-0-0-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-5" name="0-5" role="tab" tabindex="-1">Alvis (C3SE)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>If you use Matplotlib at the command line, you will need to load the module <code class="docutils literal notranslate"><span class="pre">Tkinter</span></code> and then, after importing matplotlib, set <code class="docutils literal notranslate"><span class="pre">matplotlib.use('TkAgg')</span></code> in your script or at the Python prompt in order to view your plots.</p>
+<p>Alternatively, you can use a GUI, either JupyterLab or Spyder, but you will still have to pre-load Matplotlib and any other modules you want to use (if you forget any, you’ll have to close the GUI and reopen it after loading the missing modules) before loading either of them. The command to start Jupyter Lab after you load it is <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code>, and the Spyder launch command is <code class="docutils literal notranslate"><span class="pre">spyder3</span></code>. The only version of Spyder available is pretty old, but the backend should work as-is.</p>
+<p>As of 27-11-2024, <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">matplotlib</span></code> outputs the following versions:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  matplotlib:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">     Versions:</span>
+<span class="go">        matplotlib/2.2.4-Python-2.7.15</span>
+<span class="go">        matplotlib/2.2.4-Python-2.7.16</span>
+<span class="go">        matplotlib/2.2.4 (E)</span>
+<span class="go">        matplotlib/2.2.5-Python-2.7.18</span>
+<span class="go">        matplotlib/2.2.5 (E)</span>
+<span class="go">        matplotlib/3.1.1-Python-3.7.4</span>
+<span class="go">        matplotlib/3.1.1 (E)</span>
+<span class="go">        matplotlib/3.2.1-Python-3.8.2</span>
+<span class="go">        matplotlib/3.2.1 (E)</span>
+<span class="go">        matplotlib/3.3.3</span>
+<span class="go">        matplotlib/3.3.3 (E)</span>
+<span class="go">        matplotlib/3.4.2</span>
+<span class="go">        matplotlib/3.4.2 (E)</span>
+<span class="go">        matplotlib/3.4.3</span>
+<span class="go">        matplotlib/3.4.3 (E)</span>
+<span class="go">        matplotlib/3.5.2-Python-3.8.6</span>
+<span class="go">        matplotlib/3.5.2</span>
+<span class="go">        matplotlib/3.5.2 (E)</span>
+<span class="go">        matplotlib/3.7.0</span>
+<span class="go">        matplotlib/3.7.0 (E)</span>
+<span class="go">        matplotlib/3.7.2</span>
+<span class="go">        matplotlib/3.7.2 (E)</span>
+<span class="go">        matplotlib/3.8.2</span>
+<span class="go">        matplotlib/3.8.2 (E)</span>
+
+<span class="go">Names marked by a trailing (E) are extensions provided by another module.</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>On Cosmos, it is recommended that you use the On-Demand Spyder or Jupyter applications to use Matplotlib. Some Matplotlib scripts will be demonstrated on Cosmos with Spyder.</p>
+<p>If you must work on the command line, then you will need to load matplotlib separately, along with all the prerequisite modules (don’t forget the SciPy-bundle if you plan to use NumPy, SciPy, or Pandas!). The module <code class="docutils literal notranslate"><span class="pre">Tkinter</span></code> loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set <code class="docutils literal notranslate"><span class="pre">matplotlib.use('TkAgg')</span></code> in your script or at the Python prompt in order to view your plots.</p>
+<p>As of 27-11-2024, <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">matplotlib</span></code> outputs the following versions:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  matplotlib:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      matplotlib is a python 2D plotting library which produces publication</span>
+<span class="go">      quality figures in a variety of hardcopy formats and interactive</span>
+<span class="go">      environments across platforms. matplotlib can be used in python</span>
+<span class="go">      scripts, the python and ipython shell, web application servers, and</span>
+<span class="go">      six graphical user interface toolkits.</span>
+
+<span class="go">     Versions:</span>
+<span class="go">        matplotlib/2.2.5-Python-2.7.18</span>
+<span class="go">        matplotlib/3.3.3</span>
+<span class="go">        matplotlib/3.4.2</span>
+<span class="go">        matplotlib/3.4.3</span>
+<span class="go">        matplotlib/3.5.2</span>
+<span class="go">        matplotlib/3.7.0</span>
+<span class="go">        matplotlib/3.7.2</span>
+<span class="go">        matplotlib/3.8.2</span>
+<span class="go">        matplotlib/3.9.2</span>
+
+<span class="go">----------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+<p>There is a bug in matplotlib/3.9.2, so for now that version should be avoided.</p>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>On Pelle, there is currently only 1 version of Matplotlib, <code class="docutils literal notranslate"><span class="pre">matplotlib/3.9.2-gfbf-2024a</span></code>, and it can be loaded directly. The following shows the output of <code class="docutils literal notranslate"><span class="pre">ml</span></code> (module list) after loading <code class="docutils literal notranslate"><span class="pre">matplotlib/3.9.2-gfbf-2024a</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go"> Currently Loaded Modules:</span>
+<span class="go"> 1) GCCcore/13.3.0                             25) freetype/2.13.2-GCCcore-13.3.0</span>
+<span class="go"> 2) zlib/1.3.1-GCCcore-13.3.0                  26) expat/2.6.2-GCCcore-13.3.0</span>
+<span class="go"> 3) binutils/2.42-GCCcore-13.3.0               27) util-linux/2.40-GCCcore-13.3.0</span>
+<span class="go"> 4) GCC/13.3.0                                 28) fontconfig/2.15.0-GCCcore-13.3.0</span>
+<span class="go"> 5) OpenBLAS/0.3.27-GCC-13.3.0                 29) xorg-macros/1.20.1-GCCcore-13.3.0</span>
+<span class="go"> 6) FlexiBLAS/3.4.4-GCC-13.3.0                 30) libpciaccess/0.18.1-GCCcore-13.3.0</span>
+<span class="go"> 7) FFTW/3.3.10-GCC-13.3.0                     31) X11/20240607-GCCcore-13.3.0</span>
+<span class="go"> 8) gfbf/2024a                                 32) Tk/8.6.14-GCCcore-13.3.0</span>
+<span class="go"> 9) bzip2/1.0.8-GCCcore-13.3.0                 33) Tkinter/3.12.3-GCCcore-13.3.0</span>
+<span class="go">10) ncurses/6.5-GCCcore-13.3.0                 34) NASM/2.16.03-GCCcore-13.3.0</span>
+<span class="go">11) libreadline/8.2-GCCcore-13.3.0             35) libjpeg-turbo/3.0.1-GCCcore-13.3.0</span>
+<span class="go">12) Tcl/8.6.14-GCCcore-13.3.0                  36) jbigkit/2.1-GCCcore-13.3.0</span>
+<span class="go">13) SQLite/3.45.3-GCCcore-13.3.0               37) gzip/1.13-GCCcore-13.3.0</span>
+<span class="go">14) XZ/5.4.5-GCCcore-13.3.0                    38) lz4/1.9.4-GCCcore-13.3.0</span>
+<span class="go">15) libffi/3.4.5-GCCcore-13.3.0                39) zstd/1.5.6-GCCcore-13.3.0</span>
+<span class="go">16) OpenSSL/3                                  40) libdeflate/1.20-GCCcore-13.3.0</span>
+<span class="go">17) Python/3.12.3-GCCcore-13.3.0               41) LibTIFF/4.6.0-GCCcore-13.3.0</span>
+<span class="go">18) cffi/1.16.0-GCCcore-13.3.0                 42) giflib/5.2.1-GCCcore-13.3.0</span>
+<span class="go">19) cryptography/42.0.8-GCCcore-13.3.0         43) libwebp/1.4.0-GCCcore-13.3.0</span>
+<span class="go">20) virtualenv/20.26.2-GCCcore-13.3.0          44) OpenJPEG/2.5.2-GCCcore-13.3.0</span>
+<span class="go">21) Python-bundle-PyPI/2024.06-GCCcore-13.3.0  45) LittleCMS/2.16-GCCcore-13.3.0</span>
+<span class="go">22) SciPy-bundle/2024.05-gfbf-2024a            46) Pillow-SIMD/10.4.0-GCCcore-13.3.0</span>
+<span class="go">23) libpng/1.6.43-GCCcore-13.3.0               47) Qhull/2020.2-GCCcore-13.3.0</span>
+<span class="go">24) Brotli/1.1.0-GCCcore-13.3.0                48) matplotlib/3.9.2-gfbf-2024a</span>
+</pre></div>
+</div>
+<p>Take note of the <code class="docutils literal notranslate"><span class="pre">-gfbf-2024a</span></code> suffix on some Python modules and the <code class="docutils literal notranslate"><span class="pre">-GCCcore-13.3.0</span></code> suffix on most other modules. You should stick to these for the duration of this course to ensure compatibility.</p>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><p>Matplotlib on Tetralith depends not just on <code class="docutils literal notranslate"><span class="pre">GCC</span></code>, but on <code class="docutils literal notranslate"><span class="pre">buildtool-easybuild/4.X.X-hpcXXXXXXXXX</span></code> where the X’s are alphanumeric. Loading it also does <strong>not</strong> load Python or any of its other packages automatically, so you will need to either pick a Matplotlib version and check <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">avail</span> <span class="pre">Python</span></code> for which Python and SciPy-bundle versions to load with it, or, choose your preferred Python and/or SciPy-bundle version(s) and see which if any Matplotlib modules are made available.</p>
+<p>As of 15-04-2025, <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">matplotlib</span></code> outputs the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  matplotlib:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      matplotlib is a python 2D plotting library which produces publication</span>
+<span class="go">      quality figures in a variety of hardcopy formats and interactive</span>
+<span class="go">      environments across platforms. matplotlib can be used in python</span>
+<span class="go">      scripts, the python and ipython shell, web application servers, and</span>
+<span class="go">      six graphical user interface toolkits.</span>
+
+<span class="go">     Versions:</span>
+<span class="go">        matplotlib/3.5.2</span>
+<span class="go">        matplotlib/3.8.2</span>
+
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  For detailed information about a specific &quot;matplotlib&quot; package (including how to load the modules) use the module&#39;s full name.</span>
+<span class="go">  Note that names that have a trailing (E) are extensions provided by other modules.</span>
+<span class="go">  For example:</span>
+
+<span class="gp">     $ </span>module<span class="w"> </span>spider<span class="w"> </span>matplotlib/3.8.2
+<span class="go">----------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+<p>The module <code class="docutils literal notranslate"><span class="pre">Tkinter</span></code> loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set <code class="docutils literal notranslate"><span class="pre">matplotlib.use('TkAgg')</span></code> in your script or at the Python prompt in order to view your plots, and call <code class="docutils literal notranslate"><span class="pre">plot.show()</span></code> explicitly to make the display window appear.</p>
+<p>We will be using Python/3.11.5, which works with matplotlib/3.8.2.</p>
+<p>If you want to use Jupyter in this session the easiest way is this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 JupyterLab/4.2.0</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Due to the limited number of Thinlinc licenses, it is assumed that you will be using SSH with X-forwarding.</p></li>
+<li><p>Note that at PDC, almost all modules require you to load a module starting with PDC (e.g. PDC/23.12, PDCOLD/XX.XX, PDCTEST/XX.XX) before loading anything else.</p></li>
+<li><p>Also, unlike at other centers, if you load the wrong module you should either only use the <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">unload</span> <span class="pre">&lt;module&gt;</span></code> command, or save a module collection to restore after using <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">purge</span></code>, because 13 modules are loaded when you first log in and only one of them is sticky (i.e. not removed by an ordinary purge command).</p></li>
+</ul>
+<p>Dardel documentation generally assumes that you will need to build your own environment with conda or pip because the options available natively are fairly limited.</p>
+<p>As of 15-04-2025, <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">matplotlib</span></code> outputs the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  matplotlib:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">     Versions:</span>
+<span class="go">        matplotlib/3.8.2-cpeGNU-23.12</span>
+<span class="go">        matplotlib/3.8.2 (E)</span>
+<span class="go">     Other possible modules matches:</span>
+<span class="go">        py-matplotlib</span>
+
+<span class="go">Names marked by a trailing (E) are extensions provided by another module.</span>
+</pre></div>
+</div>
+<p>The output is misleading in that matplotlib/3.8.2-cpeGNU-23.12 is the module that provides matplotlib/3.8.2 as an extension, so there is really only that one option. This version requires Python 3.11.x, which on Dardel is best provided by <code class="docutils literal notranslate"><span class="pre">cray-python/3.11.5</span></code> and <code class="docutils literal notranslate"><span class="pre">cray-python/3.11.7</span></code> (both of which include NumPy, SciPy, and mpi4py). This matplotlib version also requires preloading PDC/23.12.</p>
+<p>After importing matplotlib, you will need to set <code class="docutils literal notranslate"><span class="pre">matplotlib.use('TkAgg')</span></code> in your script or at the Python prompt in order to view your plots, and call <code class="docutils literal notranslate"><span class="pre">plot.show()</span></code> explicitly to make the display window appear.</p>
+</div><div aria-labelledby="tab-0-0-5" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-5" name="0-5" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>For this session, you should use the Alvis portal: <a class="reference external" href="https://alvis.c3se.chalmers.se/public/root/">https://alvis.c3se.chalmers.se/public/root/</a></p></li>
+<li><p>Log in</p></li>
+<li><p>Ask for Desktop (Compute) in left-hand side menu. Do not choose “Jupyter”, since it gives you a TensorFlow environment with Python 3.8.</p></li>
+<li><p>Open a Terminal and load the following software modules</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml matplotlib/3.9.2-gfbf-2024a</span>
+<span class="go">ml Jupyter-bundle/20250530-GCCcore-13.3.0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This will load SciPy-bundle on the fly!</p></li>
+<li><p>Pandas, like NumPy, has typically been part of the SciPy-bundle module since 2020. Use <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> to see which versions are available and how to load them.</p></li>
+<li><p>Then start jupyter-lab and a web browser will automatically open</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jupyter-lab</span>
+</pre></div>
+</div>
+</div>
+</div></div>
+<section id="controlling-the-display">
+<h3>Controlling the Display<a class="headerlink" href="#controlling-the-display" title="Link to this heading"></a></h3>
+<p><strong>Command Line.</strong> For Python 3.11.x, a Tkinter-based backend is typically required to generate figure popups when you type <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> at the command line (on Dardel this is preset). <em>Backends</em> are engines for either displaying figures or writing them to image files (see <a class="reference external" href="https://matplotlib.org/stable/users/explain/figure/backends.html">the matplotlib docs page on backends for more detail</a> for more info). To set the appropriate backend:</p>
+<ol class="arabic simple">
+<li><p>import the top-level <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> package,</p></li>
+<li><p>run <code class="docutils literal notranslate"><span class="pre">matplotlib.use('TkAgg')</span></code> before doing any plotting (if you forget, you can set it at any time). If for some reason that backend or the default backend doesn’t work, you can also try <code class="docutils literal notranslate"><span class="pre">matplotlib.use('Qt5Agg')</span></code>.</p></li>
+</ol>
+<p><strong>Jupyter.</strong> In Jupyter, after importing matplotlib or any of its sub-modules, you typically need to add <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">matplotlib</span> <span class="pre">inline</span></code> before you make any plots. You should not need to use <code class="docutils literal notranslate"><span class="pre">matplotlib.use(...)</span></code>.</p>
+<p><strong>Spyder.</strong> In Spyder, the default setting is for figures to be displayed either in-line at the IPython console or in a “Graphics” tab in the upper right, depending on the version. In either case, the graphic will be small and not the best use of the resources Spyder makes available. To make figures appear in an interactive popup:</p>
+<ul class="simple">
+<li><p>go to “Preferences”, then “IPython console”, and click the “Graphics” tab</p></li>
+<li><p>toggle the drop-down menu to the right of “Backend” and select “Automatic”.</p></li>
+</ul>
+<p>These settings should be retained from session to session, so you only have to do it the first time you run Spyder. The interactive popup for Spyder offers extensive editing and saving options.</p>
+<p>Matplotlib uses a default resolution of 100 dpi and a default figure size of 6.4” x 4.8” (16.26 x 12.19 cm) in GUIs and with the default backend. The inline backend in Jupyter (what the <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">matplotlib</span> <span class="pre">inline</span></code> command sets) uses an even lower-res default of 80 dpi.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dpi</span></code> kwarg in <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> (not a valid kwarg in <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> singular) lets you change the figure resolution at runtime. For on-screen display, 100-150 dpi is fine as long as you don’t set <code class="docutils literal notranslate"><span class="pre">figsize</span></code> too big, but publications often request 300 DPI.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">figsize</span> <span class="pre">=</span> <span class="pre">(i,j)</span></code> kwarg in <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> and <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> also lets you adjust the figure size and aspect ratio. The default unit is inches.</p></li>
+</ul>
+<div class="admonition-follow-the-preceding-sections-to-get-to-the-stage-of-importing-matplotlib-pyplot-and-numpy-in-your-choice-of-interface-on-your-local-computing-resource exercise important admonition-no-content admonition" id="exercise-0">
+<p class="admonition-title">Follow the preceding sections to get to the stage of importing <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> in your choice of interface, on your local computing resource.</p>
+</div>
+</section>
+</section>
+<section id="basic-terms-and-application-programming-interface-api">
+<h2>Basic Terms and Application Programming Interface (API)<a class="headerlink" href="#basic-terms-and-application-programming-interface-api" title="Link to this heading"></a></h2>
+<p>The Matplotlib documentation has a nicely standardized vocabulary for the different components of its output graphics. For all but the simplest plots, you will need to know what the different components are called and what they do so that you know how to access and manipulate them.</p>
+<ul class="simple">
+<li><p><strong>Figure</strong>: the first thing you do when you create a plot is make a <code class="docutils literal notranslate"><span class="pre">Figure</span></code> instance. It’s essentially the canvas, and it contains all other components.</p></li>
+<li><p><strong>Axes</strong>: most plots have 1 or more sets of <code class="docutils literal notranslate"><span class="pre">Axes</span></code>, which are the grids on which the plots are drawn, plus all text that labels the axes and their increments.</p></li>
+<li><p><strong>Axis</strong>: each individual axis is its own object. This lets you control the labels, increments, scaling, text format, and more.</p></li>
+<li><p><strong>Artist</strong>: In Python, almost everything is an object. In Matplotlib, the figure and everything on it are customizable objects, and every object is an <code class="docutils literal notranslate"><span class="pre">Artist</span></code>–every axis, data set, annotation, legend, etc. This word typically only comes up in the context of functions that create more complicated plot elements, like polygons or color bars.</p></li>
+</ul>
+<p>For everything else on a typical plot, there’s this handy graphic:</p>
+<a class="reference internal image-reference" href="https://matplotlib.org/stable/_images/anatomy.png"><img alt="anatomy" src="https://matplotlib.org/stable/_images/anatomy.png" style="width: 600px;" />
+</a>
+<section id="fig-ax-what-are-those">
+<h3><code class="docutils literal notranslate"><span class="pre">fig</span></code>? <code class="docutils literal notranslate"><span class="pre">ax</span></code>? What are those?<a class="headerlink" href="#fig-ax-what-are-those" title="Link to this heading"></a></h3>
+<p>There are 2 choices of application programming interface (API, basically a standardized coding style) in Matplotlib:</p>
+<ol class="arabic simple">
+<li><p><strong>Implicit API</strong>: the quick and dirty way to visualize isolated data sets if you don’t need to fiddle with the formatting.</p></li>
+<li><p><strong>Explicit API (recommended)</strong>: the method that gives you handles to the figure and axes objects (typically denoted <code class="docutils literal notranslate"><span class="pre">fig</span></code> and <code class="docutils literal notranslate"><span class="pre">ax</span></code>/<code class="docutils literal notranslate"><span class="pre">axes</span></code>, respectively) so you can adjust the formatting and/or accommodate multiple subplots.</p></li>
+</ol>
+<p>Most people’s first attempt to plot something in matplotlib looks like the following example of the implicit API. The user simply imports <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> (usually as <code class="docutils literal notranslate"><span class="pre">plt</span></code>) and then plugs their data into their choice of plotting function, <code class="docutils literal notranslate"><span class="pre">plt.&lt;function&gt;(*args,**kwargs)</span></code>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># this code block uses Jupyter to execute</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>   <span class="c1"># fake some data</span>
+<span class="c1"># Minimum working example with 2 functions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span>
+         <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;r-.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x [rads]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Demo Plot - Implicit API&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/new-matplotlib-intro_0_0.png" src="../_images/new-matplotlib-intro_0_0.png" />
+</div>
+</div>
+<p>The <em>explicit</em> API looks more like the following example.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># this code block uses Jupyter to execute</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="c1"># Better way for later formatting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;r-.&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [rads]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Demo Plot - Explicit API&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/new-matplotlib-intro_1_0.png" src="../_images/new-matplotlib-intro_1_0.png" />
+</div>
+</div>
+<p>A figure and a set of axes objects are created explicitly, usually with <code class="docutils literal notranslate"><span class="pre">fig,axes</span> <span class="pre">=</span> <span class="pre">plt.subplots(nrows=nrows,</span> <span class="pre">ncols=ncols)</span></code>, even if there will be only 1 set of axes (in which case the <code class="docutils literal notranslate"><span class="pre">nrows</span></code> and <code class="docutils literal notranslate"><span class="pre">ncols</span></code> kwargs are omitted). Then the vast majority of the plotting and formatting commands are called as methods of the axes object (with the most oft-encountered exception being <code class="docutils literal notranslate"><span class="pre">fig.colorbar()</span></code>; see <a class="reference external" href="https://matplotlib.org/stable/users/explain/axes/colorbar_placement.html">this article on colorbar placement for details</a>). Notice that most of the formatting methods now start with <code class="docutils literal notranslate"><span class="pre">set_</span></code> when called upon an <code class="docutils literal notranslate"><span class="pre">axes</span></code> object.</p>
+<p>The outputs look the same for both of these examples because the plot type was chosen to work with both APIs, but the explicit API offers a much wider range of plot types and customizations.</p>
+<div class="admonition-let-x-be-an-array-of-50-values-from-5-to-5-write-a-script-to-plot-y-1-1-exp-x-that-will-run-from-the-command-line-hint-refer-to-the-section-above-on-controlling-the-display exercise important admonition-no-content admonition" id="exercise-1">
+<p class="admonition-title">Let x be an array of 50 values from -5 to 5. Write a script to plot y = 1/(1+exp(-x)) that will run from the command line. (Hint: Refer to the section above on <em>Controlling the Display</em>.)</p>
+</div>
+<div class="dropdown solution important admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<blockquote>
+<div><p>The code block below uses Jupyter to render the output, which requires <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>. At the command line, you would have had to import matplotlib and set <code class="docutils literal notranslate"><span class="pre">matplotlib.use('TkAgg')</span></code> or the recommended backend from the section on controlling the display.</p>
+<blockquote>
+<div><div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/new-matplotlib-intro_2_0.png" src="../_images/new-matplotlib-intro_2_0.png" />
+</div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Subplots and Subplot Mosaics</p>
+<p>A prime example of a feature only available through the explicit API is subplots, which support and format 2 or more separate sets of axes on the same figure. The <a class="reference external" href="https://matplotlib.org/stable/users/explain/axes/arranging_axes.html">Matplotlib documentation on subplots and subplot mosaics</a> is extensive and fairly straightforward, so this topic will not be covered in depth here. The table below summarizes all the available subplot creation methods that you may see and their capabilities so you can compare them:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Iterable Axes</p></th>
+<th class="head"><p>Coordinate projections</p></th>
+<th class="head"><p>Row-/column-spanning subplots</p></th>
+<th class="head"><p>Max number of subplots</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>one for all subplots</p></td>
+<td><p>requires <code class="docutils literal notranslate"><span class="pre">fig.add_gridspec()</span></code></p></td>
+<td><p>arbitrary</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code></p></td>
+<td><p>No</p></td>
+<td><p>can vary per subplot</p></td>
+<td><p>requires <code class="docutils literal notranslate"><span class="pre">fig.add_gridspec()</span></code></p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fig.add_subplot()</span></code></p></td>
+<td><p>No</p></td>
+<td><p>can vary per subplot</p></td>
+<td><p>requires <code class="docutils literal notranslate"><span class="pre">fig.add_gridspec()</span></code></p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">plt.subplot_mosaic()</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>can vary per subplot</p></td>
+<td><p>Yes</p></td>
+<td><p>arbitrary</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">plt.subplot2grid()</span></code>*</p></td>
+<td><p>Yes</p></td>
+<td><p>one for all subplots</p></td>
+<td><p>Yes</p></td>
+<td><p>arbitrary</p></td>
+</tr>
+</tbody>
+</table>
+<p>*Note: <code class="docutils literal notranslate"><span class="pre">plt.subplot_mosaic()</span></code> is recommended over <code class="docutils literal notranslate"><span class="pre">plt.subplot2grid()</span></code>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Mathtext and String Insertion (Not covered by Matplotlib documentation)</p>
+<p>Most journals expect that you typeset all variables and math scripts so they appear the same in your plots as in your main text, whether those symbols appear in the <a class="reference external" href="https://matplotlib.org/stable/users/explain/text/text_intro.html">axes labels, function labels, plot titles, or annotations.</a> Matplotlib now <a class="reference external" href="https://matplotlib.org/stable/users/explain/text/mathtext.html#mathtext">supports most LaTeX math commands,</a> but you need to know some basic LaTeX syntax, some of which is covered in that link. For more information, you can refer to <a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">the WikiBooks documentation on LaTeX math</a>, starting with the Symbols section.</p>
+<ul class="simple">
+<li><p>LaTeX may need to be installed separately for Matplotlib versions earlier than 3.7, or for exceptionally obscure symbols or odd-sized delimiters.</p></li>
+</ul>
+<p>Unfortunately, Python and LaTeX both use curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) as parts of different functions, so some awkward adjustments had to be made to resolve the collision. <em>Matplotlib documentation does not cover this.</em></p>
+<ul class="simple">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">str.format()</span></code>, <strong>all</strong> curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) associated with LaTeX commands must be doubled (<code class="docutils literal notranslate"><span class="pre">{{}}</span></code>), including nested braces. <em>An odd-numbered set of nested curly brace pairs will be interpreted as a site for string insertion.</em></p></li>
+<li><p>Many characters also require the whole string to have an <code class="docutils literal notranslate"><span class="pre">r</span></code> (for raw input) in front of the first single- or double-quote, like <span class="math notranslate nohighlight">\(\times\)</span> (rendered as <code class="docutils literal notranslate"><span class="pre">'$\times$'</span></code>), <span class="math notranslate nohighlight">\(\pm\)</span> or <span class="math notranslate nohighlight">\(\mp\)</span>(rendered as <code class="docutils literal notranslate"><span class="pre">'$\pm$'</span></code> and <code class="docutils literal notranslate"><span class="pre">'$\mp$'</span></code> respectively), or some less-used Greek letters.</p></li>
+<li><p>Most basic operator symbols (+, -, /, &gt;, &lt;, !, :, |, [], ()) can be used as-is, but some that have functional meanings in LaTeX, Python, or both (e.g. <code class="docutils literal notranslate"><span class="pre">$</span></code> and <code class="docutils literal notranslate"><span class="pre">%</span></code>) must be preceded by a single- (LaTeX command symbols only) or double-backslash (<code class="docutils literal notranslate"><span class="pre">\\</span></code>) to escape their typical usage.</p></li>
+<li><p>Spaces within any character sequence between two <code class="docutils literal notranslate"><span class="pre">$</span></code> signs are not rendered; they only exist to separate alphabetic characters from commands. You can insert a space with <code class="docutils literal notranslate"><span class="pre">\;</span></code> if you don’t want to split up the LaTeX sequence to add spaces.</p></li>
+</ul>
+<p>You <em>can</em> use string insertion inside of formatting operators like the super- and subscript commands, but it can require a <em>lot</em> of sequential curly braces. The following is an example demonstrating some tricky typesetting. Note that you generally <em>cannot split the string text over multiple lines</em> because the backslash has other essential uses to the typesetting.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">v_init</span><span class="o">=</span><span class="mf">15.1</span>
+<span class="n">error_arr</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.3</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span> <span class="c1">#arrowheads look ugly if axes are not equal</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">10.68</span><span class="p">,</span> <span class="mf">10.68</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+         <span class="n">head_width</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$|\vec{{v}}_{{\mathrm{{init}}}}|$ = $</span><span class="si">{:.1f}</span><span class="s2">_{{</span><span class="si">{:.1}</span><span class="s2">}}^{{+</span><span class="si">{:.1}</span><span class="s2">}}\;\mathrm{{m\cdot s}}^{{-1}}$&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v_init</span><span class="p">,</span><span class="o">*</span><span class="n">error_arr</span><span class="p">),</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mf">45.</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/new-matplotlib-intro_3_0.png" src="../_images/new-matplotlib-intro_3_0.png" />
+</div>
+</div>
+</div>
+</section>
+<section id="saving-your-data">
+<h3>Saving your Data<a class="headerlink" href="#saving-your-data" title="Link to this heading"></a></h3>
+<p>The Matplotlib GUI has a typical save menu option (indicated by the usual floppy disc icon) that lets you set the name, file type, and location. To save from your code or at the command line, there are 2 options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.savefig(fname,</span> <span class="pre">*,</span> <span class="pre">transparent=None,</span> <span class="pre">dpi='figure',</span> <span class="pre">format=None)</span></code> is the general-purpose save function. There are other kwargs not shown here, but these are the most important. The file type can be given <code class="docutils literal notranslate"><span class="pre">format</span></code> or inferred from an extension given in <code class="docutils literal notranslate"><span class="pre">fname</span></code>. The default <code class="docutils literal notranslate"><span class="pre">dpi</span></code> is inherited from <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code>. If <code class="docutils literal notranslate"><span class="pre">transparent=True</span></code>, the white background of a typical figure is removed so the figure can be displayed on top of other content.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.imsave(fname,</span> <span class="pre">arr,</span> <span class="pre">**kwargs)</span></code> is specifically for saving arrays to images. It accepts a 2D (single-channel) array with a specified colormap and normalization, or an RGB(A) array (a stack of images in 3 color channels, or 3 color channels and an opacity array). Generally you also have to set <code class="docutils literal notranslate"><span class="pre">origin='lower'</span></code> for the image to be rendered right-side up.</p></li>
+</ul>
+<p>A few common formats that Matplotlib supports include PDF, PS, EPS, PNG, and JPG/JPEG. Other desirable formats like TIFF and SVG are not supported natively in interactive display backends, but can be used with static backends (used for saving figures without displaying them) or with the installation of the <code class="docutils literal notranslate"><span class="pre">Pillow</span></code> module. At most facilities, Pillow is loaded with Matplotlib, so you will see SVG as a save-format option in the GUI, and it should be allowed in the format kwarg of <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code>. <a class="reference external" href="https://matplotlib.org/stable/tutorials/images.html">Matplotlib has a tutorial here</a>  on importing images into arrays for use with <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code>.</p>
+<div class="admonition-reformat-the-earlier-example-to-save-a-file-in-the-format-svg-without-going-through-the-gui-as-you-would-have-to-do-to-create-plots-with-code-that-runs-via-batch-script exercise important admonition-no-content admonition" id="exercise-2">
+<p class="admonition-title">Reformat the earlier example to save a file in the format <code class="docutils literal notranslate"><span class="pre">'svg'</span></code> without going through the GUI, as you would have to do to create plots with code that runs via batch script.</p>
+</div>
+<div class="dropdown solution important admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p>If your previous code already runs at the command line, all you had to do was replace <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> with something like <code class="docutils literal notranslate"><span class="pre">plt.savefig('my_fig',</span> <span class="pre">format='svg')</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="standard-available-plot-types">
+<h2>Standard Available Plot Types<a class="headerlink" href="#standard-available-plot-types" title="Link to this heading"></a></h2>
+<p>These are the categories of plots that come standard with any Matplotlib distribution:</p>
+<ol class="arabic simple">
+<li><p>Pairwise plots (which accept 1D arrays of x and y data to plot against each other),</p></li>
+<li><p>Statistical plots (which can be pairwise or other array-like data),</p></li>
+<li><p>Gridded data plots (for image-like data, vector fields, and contours),</p></li>
+<li><p>Irregularly gridded data plots (which rely on some kind of triangulation)*, and</p></li>
+<li><p>Volumetric data plots.</p></li>
+</ol>
+<p><a class="reference external" href="https://matplotlib.org/stable/plot_types/index">Almost all available plot types are visually indexed and easy to find in the Matplotlib official documentation.</a></p>
+<p>* <strong>Quick note on contouring functions on irregular grids:</strong> these functions contour by the values Z at triangulation vertices (X,Y), <strong>not</strong> by spatial point density, and so should not be used if Z values are not spatially correlated. If you want to contour by data point density in parameter-space, you still have to interpolate your data to a regular (X,Y) grid.</p>
+<p>Volumetric, polar, and other data that rely on 3D or non-cartesian grids typically require you to specify a projection before you can choose the right plot type. For example, for a polar plot, you could</p>
+<ul class="simple">
+<li><p>set <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots(subplot_kw</span> <span class="pre">=</span> <span class="pre">{&quot;projection&quot;:</span> <span class="pre">&quot;polar&quot;})</span></code> to set all subplots to the same projection,</p></li>
+<li><p>set <code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplot(nrows,</span> <span class="pre">ncols,</span> <span class="pre">index,</span> <span class="pre">projection='polar')</span></code> to add one polar subplot to a group of subplots with different coordinate systems or projections, or</p></li>
+<li><p>set <code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.figure().add_subplot(projection='polar')</span></code> if you only need 1 set of axes in total.</p></li>
+</ul>
+<p>For volumetric data, the options are similar:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots(subplot_kw</span> <span class="pre">=</span> <span class="pre">{&quot;projection&quot;:</span> <span class="pre">&quot;3d&quot;})</span></code> for multiple subplots with the same projection,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplot(nrows,</span> <span class="pre">ncols,</span> <span class="pre">index,</span> <span class="pre">projection='3d')</span></code> for one 3D subplot among several with varying projections or coordinate systems, or</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.figure().add_subplot(projection='3d')</span></code> for a singular plot.</p></li>
+</ul>
+<p><strong>Colors and colormaps.</strong> Every plotting method accepts either a single color (the kwarg for which may be <code class="docutils literal notranslate"><span class="pre">c</span></code> or <code class="docutils literal notranslate"><span class="pre">color</span></code>) or a colormap (which is usually <code class="docutils literal notranslate"><span class="pre">cmap</span></code> in kwargs) depending on the shape of the data. Matplotlib has an excellent series of pages on <a class="reference external" href="https://matplotlib.org/stable/users/explain/colors/colors.html">how to specify colors and transparency</a>, <a class="reference external" href="https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#sphx-glr-users-explain-colors-colormapnorms-py">how to adjust colormap normalizations</a>, and <a class="reference external" href="https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py">which colormaps to choose based on the types of data and your audience</a>.</p>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Matplotlib is the essential Python data visualization package, with nearly 40 different plot types to choose from depending on the shape of your data and which qualities you want to highlight.</p></li>
+<li><p>Almost every plot will start by instantiating the figure, <code class="docutils literal notranslate"><span class="pre">fig</span></code> (the blank canvas), and 1 or more axes objects, <code class="docutils literal notranslate"><span class="pre">ax</span></code>, with <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots(*args,</span> <span class="pre">**kwargs)</span></code>.</p></li>
+<li><p>There are several ways to tile subplots depending on how many there are, how they are shaped, and whether they require non-Cartesian coordinate systems.</p></li>
+<li><p>Most of the plotting and formatting commands you will use are methods of <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects. (A few, like <code class="docutils literal notranslate"><span class="pre">colorbar</span></code> are methods of the <code class="docutils literal notranslate"><span class="pre">Figure</span></code>, and some commands are methods both.)</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../day2/python_at_hpc_centers.html" class="btn btn-neutral float-left" title="Python documentations at the different HPC centres" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pandas.html" class="btn btn-neutral float-right" title="Intro to Pandas on HPC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

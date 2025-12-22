@@ -1,0 +1,1548 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big data with Python &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running Python in batch mode" href="batch-new.html" />
+    <link rel="prev" title="A Brief Introduction to the Seaborn Statistical Plotting Library" href="seaborn-new.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Big data with Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#high-performance-data-analytics-hpda">High-Performance Data Analytics (HPDA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-we-need-to-take-special-actions">Why we need to take special actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-the-constraints-are">What the constraints are</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solutions-and-tools">Solutions and tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#allocating-ram">Allocating RAM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#principles">Principles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-memory-allocation-10-min">Exercise: Memory allocation (10 min)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-formats">File formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-and-storage-format">Data and storage format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#an-overview-of-common-data-formats">An overview of common data formats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-file-formats-10-minutes">Exercise file formats (10 minutes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computing-efficiency-with-python">Computing efficiency with Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#xarray-package">Xarray package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dask">Dask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polars-package">Polars package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises-packages">Exercises: Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Big data with Python</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/big_data.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="big-data-with-python">
+<span id="big-data"></span><h1>Big data with Python<a class="headerlink" href="#big-data-with-python" title="Link to this heading"></a></h1>
+<div class="admonition-learning-outcomes admonition">
+<p class="admonition-title">“Learning outcomes”</p>
+<p>Learners</p>
+<ul class="simple">
+<li><p>can allocate resources sufficient to data size</p></li>
+<li><p>can decide on useful file formats</p></li>
+<li><p>can use data-chunking as technique</p></li>
+<li><p>know where to learn more</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">“For teacher”</p>
+<p>Preliminary timings. Starting at 13.00</p>
+<ul class="simple">
+<li><p>Intro 10 min</p></li>
+<li><p>Memory 5</p></li>
+<li><p>Exercise Allocation 10</p></li>
+<li><p>Files 5</p></li>
+<li><p>Exercise files 10</p></li>
+<li><p>Packages 5</p></li>
+<li><p>Dask 5</p></li>
+<li><p>BREAK 15min 13.50-14.05</p></li>
+<li><p>Exercise Dask 30</p></li>
+</ul>
+</div>
+<section id="high-performance-data-analytics-hpda">
+<h2>High-Performance Data Analytics (HPDA)<a class="headerlink" href="#high-performance-data-analytics-hpda" title="Link to this heading"></a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">What is it?</p>
+<ul>
+<li><p><strong>High-performance data analytics (HPDA)</strong>, a subset of high-performance computing which focuses on working with <strong>large data</strong>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The data can come from either computer models and simulations or from experiments and observations, and the goal is to preprocess, analyse and visualise it to generate scientific results.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>“<strong>Big data</strong> refers to data sets that are too large or complex to be dealt with by traditional data-processing application software. […]</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Big data analysis challenges include capturing data, data storage, data analysis, search, sharing, transfer, visualization, querying, updating, information privacy, and data source.” (from Wikipedia)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<p>Do you already work with large data sets?</p>
+</div>
+</section>
+<section id="why-we-need-to-take-special-actions">
+<h2>Why we need to take special actions<a class="headerlink" href="#why-we-need-to-take-special-actions" title="Link to this heading"></a></h2>
+<p>Remember this one?</p>
+<a class="reference internal image-reference" href="../_images/when-to-use-pandas.png"><img alt="../_images/when-to-use-pandas.png" src="../_images/when-to-use-pandas.png" style="width: 600px;" />
+</a>
+<div class="admonition-discussion discussion important admonition" id="discussion-1">
+<p class="admonition-title">Discussion</p>
+<ul class="simple">
+<li><p>What can limit us?</p></li>
+</ul>
+</div>
+</section>
+<section id="what-the-constraints-are">
+<h2>What the constraints are<a class="headerlink" href="#what-the-constraints-are" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>storage</p></li>
+<li><p>memory</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">What do we need to cover??</p>
+<ul class="simple">
+<li><p>storage –&gt; make more effective files</p></li>
+<li><dl class="simple">
+<dt>reading into memory</dt><dd><ul>
+<li><p>–&gt; read just parts of files into memory</p></li>
+<li><p>–&gt; chunking</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>allocate more memory</p></li>
+</ul>
+</div>
+</section>
+<section id="solutions-and-tools">
+<h2>Solutions and tools<a class="headerlink" href="#solutions-and-tools" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Allocate enough RAM</dt><dd><ul>
+<li><p>If you are running ready tools</p></li>
+<li><p>or cannot update code or use other packages</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Choose file format for reading and writing</p></li>
+<li><p>Choose the right Python package</p></li>
+<li><p>Is chunking suitable?</p></li>
+</ul>
+</section>
+<section id="allocating-ram">
+<h2>Allocating RAM<a class="headerlink" href="#allocating-ram" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>How much is actually loaded into the working memory (RAM)</p></li>
+<li><p>Is more data in variables created during the run or work?</p></li>
+</ul>
+<div class="admonition-discussion discussion important admonition" id="discussion-2">
+<p class="admonition-title">Discussion</p>
+<p>Have you seen the Out-of-memory (OOM) error?</p>
+</div>
+<div class="admonition-what-to-do admonition">
+<p class="admonition-title">What to do</p>
+<ul class="simple">
+<li><p>By allocating <strong>many cores</strong> on a node will give you more available memory</p></li>
+<li><p>If the order 128 GB is not enough there are so-called <strong>fat nodes</strong> with at least 512 GB and up to 3 TB.</p></li>
+<li><dl class="simple">
+<dt>On some clusters you do not have to request additional CPUs to get additional memory. Use the <code class="docutils literal notranslate"><span class="pre">slurm</span></code> options</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--mem</span></code> or</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--mem-per-cpu</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>You do not have to explicitly run threads or other parallelism.</p></li>
+<li><dl class="simple">
+<dt>Allocating several nodes for one one big problem is not useful.</dt><dd><ul>
+<li><p>Note that shared memory among the cores works within node only.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<section id="principles">
+<h3>Principles<a class="headerlink" href="#principles" title="Link to this heading"></a></h3>
+<p>Use the Slurm options for either “BATCH”, “INTERACTIVE” from command line or from OnDemand GUIs.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Allocate RAM using the <strong>full node RAM divided by number of course principle</strong></dt><dd><ul>
+<li><p>Ex: 128 GB with 20 cores –&gt; 6.4 GB per core</p></li>
+<li><p>Allocate number of cores to cover your needs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">&lt;number&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Request the memory needed and choose number of cores</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--mem=&lt;size&gt;[K|M|G|T]</span></code></p></li>
+<li><p>Example: <code class="docutils literal notranslate"><span class="pre">--mem=150G</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Request the memory-per-core needed and choose number of cores</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--mem-core=&lt;size&gt;[K|M|G]</span></code></p></li>
+<li><p>Example: <code class="docutils literal notranslate"><span class="pre">--mem-per-cpu=16G</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Request a “FAT” node.</dt><dd><ul>
+<li><p>Typically you can only allocate a full node here, no core parts.</p></li>
+<li><p>You ask here for a non-default partition.</p></li>
+<li><p>How to do this, search your cluster documentation, see exercise below.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>“core-hours” drawn from your project may be set to the maximum of “number of cores” and “memory part of node” requested.</p></li>
+<li><p>So there is no win to ask for one core but much memory!</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="exercise-memory-allocation-10-min">
+<h2>Exercise: Memory allocation (10 min)<a class="headerlink" href="#exercise-memory-allocation-10-min" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Log in to a Desktop (ThinLinc or OnDemand) (see <a class="reference internal" href="../common/login.html#common-login"><span class="std std-ref">Log in and other preparations</span></a>)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Tetralith (ThinLinc client: <code class="docutils literal notranslate"><span class="pre">tetralith.nsc.liu.se</span></code>)</p></li>
+<li><p>Dardel (ThinLinc client: <code class="docutils literal notranslate"><span class="pre">dardel-vnc.pdc.kth.se</span></code>)</p></li>
+<li><p>Alvis (<a class="reference external" href="https://alvis.c3se.chalmers.se/">https://alvis.c3se.chalmers.se/</a>)</p></li>
+<li><p>Bianca (<a class="reference external" href="https://bianca.uppmax.uu.se/">https://bianca.uppmax.uu.se/</a>)</p></li>
+<li><p>Pelle (<a class="reference external" href="https://pelle-gui.uppmax.uu.se/">https://pelle-gui.uppmax.uu.se/</a>)</p></li>
+<li><p>Cosmos (ThinLinc client: <code class="docutils literal notranslate"><span class="pre">cosmos-dt.lunarc.lu.se</span></code>)</p></li>
+<li><p>Kebnekaise(<a class="reference external" href="https://portal.hpc2n.umu.se/public/landing_page.html">https://portal.hpc2n.umu.se/public/landing_page.html</a>)</p></li>
+</ul>
+<div class="admonition-discussion discussion important admonition" id="discussion-3">
+<p class="admonition-title">Discussion</p>
+<ul class="simple">
+<li><p>Take some time to find out the answers for your specific cluster for the questions below, using the table of hardware below.</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Table of hardware</p>
+<p>Hardware</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Hardware</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Technology</p></th>
+<th class="head"><p>Kebnekaise</p></th>
+<th class="head"><p>Pelle</p></th>
+<th class="head"><p>Bianca</p></th>
+<th class="head"><p>Cosmos</p></th>
+<th class="head"><p>Tetralith</p></th>
+<th class="head"><p>Dardel</p></th>
+<th class="head"><p>Alvis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cores/compute node</p></td>
+<td><p>28 (72 for largemem, 128/256 for AMD Zen3/Zen4)</p></td>
+<td><p>48 (96 with hyperthreading/SMT)</p></td>
+<td><p>16</p></td>
+<td><p>48</p></td>
+<td><p>32</p></td>
+<td><p>128</p></td>
+<td><p>many different (updated soon)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory/compute node</p></td>
+<td><p>128-3072 GB</p></td>
+<td><p>768-3072 GB</p></td>
+<td><p>128-512 GB</p></td>
+<td><p>256-512 GB</p></td>
+<td><p>96-384 GB</p></td>
+<td><p>256-1760 GB</p></td>
+<td><p>many different</p></td>
+</tr>
+<tr class="row-even"><td><p>GPU</p></td>
+<td><p>NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100</p></td>
+<td><p>NVidia L40s, H100, T4, A2)</p></td>
+<td><p>NVidia A100</p></td>
+<td><p>NVidia A100</p></td>
+<td><p>NVidia T4</p></td>
+<td><p>4 AMD Instinct™ MI250X á 2 GCDs</p></td>
+<td><p>many different</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="dropdown exercise important admonition" id="exercise-0">
+<p class="admonition-title">How much memory do I get per core?</p>
+<ul class="simple">
+<li><p>Divide GB RAM of the booked node with number of cores.</p></li>
+<li><dl class="simple">
+<dt>Example: 128 GB node with 16 cores</dt><dd><ul>
+<li><p>~8 GB per core</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>NOTE: You may get less due to background system threads running in the background.</dt><dd><ul>
+<li><p>Example: On Bianca you may get 7 GB instead of 8 GB.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="dropdown exercise important admonition" id="exercise-1">
+<p class="admonition-title">How much memory do I get with 5 cores?</p>
+<ul class="simple">
+<li><p>Multiply the RAM per core with number of allocated cores..</p></li>
+<li><dl class="simple">
+<dt>Example: 8 GB per core</dt><dd><ul>
+<li><p>~40 GB</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="dropdown exercise important admonition" id="exercise-2">
+<p class="admonition-title">Do you remember how to allocate several cores?</p>
+<ul class="simple">
+<li><p>Slurm flag <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">&lt;number</span> <span class="pre">of</span> <span class="pre">cores&gt;</span></code></p></li>
+</ul>
+</div>
+<div class="admonition-actually-start-an-interactive-session-with-4-cores-for-3-hours exercise important admonition" id="exercise-3">
+<p class="admonition-title">Actually start an interactive session with 4 cores for 3 hours.</p>
+<ul class="simple">
+<li><p>We will use it for the exercises later.</p></li>
+<li><p>Since it may take some time to get the allocation we do it now already!</p></li>
+<li><p>Follow the best procedure for your cluster, e.g. from <strong>command-line</strong> or <strong>OnDemand</strong>.</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">How?</p>
+<p>The following Slurm options needs to be set</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">3:0:0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-A</span> <span class="pre">&lt;proj&gt;</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">&lt;partition&gt;</span></code> may be needed in some clusters</dt><dd><ul>
+<li><p>Dardel: <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">shared</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Compute allocations in this workshop</p>
+<ul class="simple">
+<li><p>Pelle: <code class="docutils literal notranslate"><span class="pre">uppmax2025-2-393</span></code></p></li>
+<li><p>Kebnekaise: <code class="docutils literal notranslate"><span class="pre">hpc2n2025-151</span></code></p></li>
+<li><p>Cosmos: <code class="docutils literal notranslate"><span class="pre">lu2025-7-106</span></code></p></li>
+<li><p>Alvis: <code class="docutils literal notranslate"><span class="pre">naiss2025-22-934</span></code></p></li>
+<li><p>Tetralith: <code class="docutils literal notranslate"><span class="pre">naiss2025-22-934</span></code></p></li>
+<li><p>Dardel: <code class="docutils literal notranslate"><span class="pre">naiss2025-22-934</span></code></p></li>
+</ul>
+</div>
+<div class="admonition-how-to-get-a-node-with-more-ram exercise important admonition" id="exercise-4">
+<p class="admonition-title">How to get a node with more RAM?</p>
+<ul class="simple">
+<li><p>See local HPC center documentation in how to do so!</p></li>
+<li><p>Try first to search or navigate the pages</p></li>
+</ul>
+</div>
+<div class="admonition-documentation-links solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Documentation links</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Tetralith</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Dardel</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Alvis</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Bianca</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">Pelle</button><button aria-controls="panel-0-0-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-5" name="0-5" role="tab" tabindex="-1">Cosmos</button><button aria-controls="panel-0-0-6" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-6" name="0-6" role="tab" tabindex="-1">Kebnekaise</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>Scroll down a bit at <a class="reference external" href="https://www.nsc.liu.se/systems/tetralith/">https://www.nsc.liu.se/systems/tetralith/</a></p>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p><a class="reference external" href="https://support.pdc.kth.se/doc/run_jobs/job_scheduling/#dardel-compute-nodes">https://support.pdc.kth.se/doc/run_jobs/job_scheduling/#dardel-compute-nodes</a></p>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p><a class="reference external" href="https://www.c3se.chalmers.se/documentation/submitting_jobs/running_jobs/#memory-and-other-node-features">https://www.c3se.chalmers.se/documentation/submitting_jobs/running_jobs/#memory-and-other-node-features</a></p>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.uppmax.uu.se/cluster_guides/slurm/#need-more-resources-or-gpu">https://docs.uppmax.uu.se/cluster_guides/slurm/#need-more-resources-or-gpu</a></p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.uppmax.uu.se/cluster_guides/slurm_on_pelle/#the-fat-partition">https://docs.uppmax.uu.se/cluster_guides/slurm_on_pelle/#the-fat-partition</a></p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-5" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-5" name="0-5" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/manual/submitting_jobs/manual_specifying_requirements/#specifying-a-project-allocation-and-partition">https://lunarc-documentation.readthedocs.io/en/latest/manual/submitting_jobs/manual_specifying_requirements/#specifying-a-project-allocation-and-partition</a></p></li>
+<li><p><a class="reference external" href="https://www.lunarc.lu.se/systems/cosmos">https://www.lunarc.lu.se/systems/cosmos</a></p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-6" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-6" name="0-6" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.hpc2n.umu.se/documentation/batchsystem/resources/">https://docs.hpc2n.umu.se/documentation/batchsystem/resources/</a></p></li>
+<li><p><a class="reference external" href="https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#requesting__specific__features__ie__setting__contraints__on__the__job">https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#requesting__specific__features__ie__setting__contraints__on__the__job</a></p></li>
+<li><p><a class="reference external" href="https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#for__selecting__large__memory__nodes">https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#for__selecting__large__memory__nodes</a></p></li>
+</ul>
+</div></div>
+</div>
+<div class="admonition-commands solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Commands</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Tetralith</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Dardel</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Alvis</button><button aria-controls="panel-1-1-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-3" name="1-3" role="tab" tabindex="-1">Bianca</button><button aria-controls="panel-1-1-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-4" name="1-4" role="tab" tabindex="-1">Pelle</button><button aria-controls="panel-1-1-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-5" name="1-5" role="tab" tabindex="-1">Cosmos</button><button aria-controls="panel-1-1-6" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-6" name="1-6" role="tab" tabindex="-1">Kebnekaise</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p><code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">fat</span> <span class="pre">--exclusive</span></code> (384 GiB)</p>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">memory</span> <span class="pre">--mem=440GB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">memory</span> <span class="pre">--mem=880GB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">memory</span> <span class="pre">--mem=1760GB</span></code></p></li>
+</ul>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">MEM512</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">MEM1536</span></code></p></li>
+</ul>
+</div><div aria-labelledby="tab-1-1-3" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-3" name="1-3" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">mem256GB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">mem512GB</span></code></p></li>
+</ul>
+</div><div aria-labelledby="tab-1-1-4" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-4" name="1-4" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">fat</span> <span class="pre">-C</span> <span class="pre">2TB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">fat</span> <span class="pre">-C</span> <span class="pre">3TB</span></code></p></li>
+</ul>
+</div><div aria-labelledby="tab-1-1-5" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-5" name="1-5" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Part of GPU partitions</p></li>
+<li><p>INTEL CPUs+A100 GPUs (384 GB): <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">gpua100</span></code></p></li>
+<li><p>AMD CPUs+A100 GPUs (512 GB): <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">gpua100</span></code></p></li>
+</ul>
+</div><div aria-labelledby="tab-1-1-6" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-6" name="1-6" role="tabpanel" tabindex="0"><p><code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">largemem</span></code></p>
+</div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>We recommend a desktop environment for speed of the graphics.</p></li>
+<li><p>connecting from local terminal with “ssh -X” (X11 forwarding) can be be used but is slower.</p></li>
+</ul>
+</div>
+</section>
+<section id="file-formats">
+<h2>File formats<a class="headerlink" href="#file-formats" title="Link to this heading"></a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Bits and Bytes</p>
+<ul class="simple">
+<li><p>The smallest building block of storage and memory (RAM) in the computer is a bit, which stores either a 0 or 1.</p></li>
+<li><p>Normally a number of 8 bits are combined in a group to make a byte.</p></li>
+<li><p>One byte (8 bits) can represent/hold at most 2^8 distinct values. Organising bytes in different ways can represent different types of information, i.e. data.</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Numerical data</p>
+<p>Different numerical data types (e.g. integer and floating-point numbers) can be represented by bytes. The more bytes we use for each value, the larger is the range or precision we get, but more bytes require more memory.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>DataTypes</dt><dd><ul>
+<li><p>16-bit: short (integer)</p></li>
+<li><p>32-bit: Int (integer)</p></li>
+<li><p>32-bit: Single (floating point)</p></li>
+<li><p>64-bit: Double (floating point)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>For some use cases, the precision is not that important, 1% error, or so, is not that crucial. Faster and less data storage!</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Text data</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>DataTypes</dt><dd><ul>
+<li><p>8-bit: char</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><p>When it comes to text data, the simplest character encoding is ASCII (American Standard Code for Information Interchange) and was the most common character encodings until 2008 when UTF-8 took over.</p></li>
+<li><p>The original ASCII uses only 7 bits for representing each character and therefore encodes only 128 specified characters. Later it became common to use an 8-bit byte to store each character in memory, providing an extended ASCII.</p></li>
+<li><p>As computers became more powerful and the need for including more characters from other languages like Chinese, Greek and Arabic became more pressing, UTF-8 became the most common encoding. UTF-8 uses a minimum of one byte and up to four bytes per character.</p></li>
+</ul>
+</div>
+</div>
+<section id="data-and-storage-format">
+<h3>Data and storage format<a class="headerlink" href="#data-and-storage-format" title="Link to this heading"></a></h3>
+<p>In real scientific applications, data is complex and structured and usually contains both numerical and text data. Here we list a few of the data and file storage formats commonly used.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Tabular data</p>
+<ul class="simple">
+<li><p>A very common type of data is “tabular data”.</p></li>
+<li><p>Tabular data is structured into <strong>rows and columns</strong>.</p></li>
+<li><p>Each column usually has a name and a specific data type while each row is a distinct sample which provides data according to each column (including missing values).</p></li>
+<li><p>The simplest and most common way to save tabular data is via the so-called CSV (comma-separated values) file.</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Gridded data</p>
+<ul class="simple">
+<li><p>Gridded data is another very common data type in which numerical data is normally saved in a multi-dimensional rectangular grid. Most probably it is saved in one of the following formats:</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><p>Hierarchical Data Format (HDF5) - Container for many arrays</p></li>
+<li><p>Network Common Data Form (NetCDF) - Container for many arrays which conform to the NetCDF data model</p></li>
+<li><p>Zarr - New cloud-optimized format for array storage</p></li>
+</ul>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Meta data</p>
+<p>Metadata consists of various information about the data. Different types of data may have different metadata conventions.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><p>In Earth and Environmental science, there are widespread robust practices around metadata. For NetCDF files, metadata can be embedded directly into the data files. The most common metadata convention is Climate and Forecast (CF) Conventions, commonly used with NetCDF data.</p></li>
+<li><p>When it comes to data storage, there are many types of storage formats used in scientific computing and data analysis. There isn’t one data storage format that works in all cases, so choose a file format that best suits your data.</p></li>
+</ul>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">CSV (comma-separated values)</p>
+<p><strong>Best use cases</strong>: Sharing data. Small data. Data that needs to be human-readable.</p>
+<ul>
+<li><p>Key features</p>
+<blockquote>
+<div><p>Type: Text format
+Packages needed: NumPy, Pandas
+Space efficiency: Bad
+Good for sharing/archival: Yes</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Tidy data:</dt><dd><p>Speed: Bad
+Ease of use: Great</p>
+</dd>
+<dt>Array data:</dt><dd><p>Speed: Bad
+Ease of use: OK for one or two dimensional data. Bad for anything higher.</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">HDF5 (Hierarchical Data Format version 5)</p>
+<ul>
+<li><p>HDF5 is a high performance storage format for storing large amounts of data in multiple datasets in a single file.</p></li>
+<li><p>It is especially popular in fields where you need to store big multidimensional arrays such as physical sciences.</p></li>
+<li><p><strong>Best use cases</strong>: Working with big datasets in array data format.</p></li>
+<li><p>Key features</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type: Binary format</p></li>
+<li><p>Packages needed: Pandas, PyTables, h5py</p></li>
+<li><p>Space efficiency: Good for numeric data.</p></li>
+<li><p>Good for sharing/archival: Yes, if datasets are named well.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Tidy data:</dt><dd><ul>
+<li><p>Speed: Ok</p></li>
+<li><p>Ease of use: Good</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Array data:</dt><dd><ul>
+<li><p>Speed: Great</p></li>
+<li><p>Ease of use: Good</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">NETCDF4 (Network Common Data Form version 4)</p>
+<ul>
+<li><p>NetCDF4 is a data format that uses HDF5 as its file format, but it has standardized structure of datasets and metadata related to these datasets.</p></li>
+<li><p>This makes it possible to be read from various different programs.</p>
+<p><strong>Best use cases</strong>: Working with big datasets in array data format. Especially useful if the dataset contains spatial or temporal dimensions. Archiving or sharing those datasets.</p>
+</li>
+<li><p>Key features</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type: Binary format</p></li>
+<li><p>Packages needed: Pandas, SciPy, netCDF4/h5netcdf, xarray</p></li>
+<li><p>Space efficiency: Good for numeric data.</p></li>
+<li><p>Good for sharing/archival: Yes.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">more</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Tidy data:</dt><dd><ul>
+<li><p>Speed: Ok</p></li>
+<li><p>Ease of use: Good</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Array data:</dt><dd><ul>
+<li><p>Speed: Good</p></li>
+<li><p>Ease of use: Great</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.</p></li>
+<li><p>The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.</p></li>
+</ul>
+</div>
+</div>
+<section id="an-overview-of-common-data-formats">
+<h4>An overview of common data formats<a class="headerlink" href="#an-overview-of-common-data-formats" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">Name:</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Human</div>
+<div class="line">readable:</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Space</div>
+<div class="line">efficiency:</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Arbitrary</div>
+<div class="line">data:</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Tidy</div>
+<div class="line">data:</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Array</div>
+<div class="line">data:</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">Long term</div>
+<div class="line">storage/sharing:</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="xref std std-ref">Pickle</span></p></td>
+<td><p>❌</p></td>
+<td><p>🟨</p></td>
+<td><p>✅</p></td>
+<td><p>🟨</p></td>
+<td><p>🟨</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">CSV</span></p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>🟨</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="xref std std-ref">Feather</span></p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">Parquet</span></p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>🟨</p></td>
+<td><p>✅</p></td>
+<td><p>🟨</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="xref std std-ref">npy</span></p></td>
+<td><p>❌</p></td>
+<td><p>🟨</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">HDF5</span></p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="xref std std-ref">NetCDF4</span></p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">JSON</span></p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>🟨</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="xref std std-ref">Excel</span></p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>🟨</p></td>
+<td><p>❌</p></td>
+<td><p>🟨</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">Graph formats</span></p></td>
+<td><p>🟨</p></td>
+<td><p>🟨</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Legend</p>
+<ul class="simple">
+<li><p>✅ : Good</p></li>
+<li><p>🟨 : Ok / depends on a case</p></li>
+<li><p>❌ : Bad</p></li>
+</ul>
+<p>Adapted from Aalto university’s <a class="reference external" href="https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/#what-is-a-data-format">Python for scientific computing</a></p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p>ENCCS course “HPDA-Python”: <a class="reference external" href="https://enccs.github.io/hpda-python/scientific-data/">Scientific data</a></p></li>
+<li><p>Aalto Scientific Computing course “Python for Scientific Computing”: <a class="reference external" href="https://aaltoscicomp.github.io/python-for-scicomp/xarray/">Xarray</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section id="exercise-file-formats-10-minutes">
+<h2>Exercise file formats (10 minutes)<a class="headerlink" href="#exercise-file-formats-10-minutes" title="Link to this heading"></a></h2>
+<div class="admonition-reading-netcdf-files exercise important admonition" id="exercise-5">
+<p class="admonition-title">Reading NetCDF files</p>
+<ul class="simple">
+<li><p>Read: <a class="reference external" href="https://stackoverflow.com/questions/49854065/python-netcdf4-library-ram-usage">https://stackoverflow.com/questions/49854065/python-netcdf4-library-ram-usage</a></p></li>
+<li><p>What about using NETCDF files and memory?</p></li>
+</ul>
+</div>
+<div class="admonition-view-file-formats exercise important admonition" id="exercise-6">
+<p class="admonition-title">View file formats</p>
+<ul class="simple">
+<li><p>Go over file formats and see if some are more relevant for your work.</p></li>
+<li><p>Would you look at other file formats and why?</p></li>
+</ul>
+</div>
+<div class="admonition-optional exercise important admonition" id="exercise-7">
+<p class="admonition-title">(optional)</p>
+<ul class="simple">
+<li><p>Start Jupyter or just a Python shell and</p></li>
+<li><p>Go though and test the lines at the page at <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.13.1/reference/generated/scipy.io.netcdf_file.html">https://docs.scipy.org/doc/scipy-1.13.1/reference/generated/scipy.io.netcdf_file.html</a></p></li>
+</ul>
+</div>
+</section>
+<section id="computing-efficiency-with-python">
+<h2>Computing efficiency with Python<a class="headerlink" href="#computing-efficiency-with-python" title="Link to this heading"></a></h2>
+<p>Python is an interpreted language, and many features that make development rapid with Python are a result of that, with the price of reduced performance in many cases.</p>
+<ul>
+<li><p>Dynamic typing</p></li>
+<li><p>Flexible data structures</p></li>
+<li><p>There are some packages that are more efficient than Numpy and Pandas.</p>
+<blockquote>
+<div><ul>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/">SciPy</a> is a library that builds on top of NumPy.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>It contains a lot of interfaces to battle-tested numerical routines written in Fortran or C, as well as Python implementations of many common algorithms.</p></li>
+<li><p>Reads NETCDF!</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://enccs.github.io/hpda-python/stack/#scipy">ENCCS course material</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<section id="xarray-package">
+<h3>Xarray package<a class="headerlink" href="#xarray-package" title="Link to this heading"></a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">xarray</span></code> is a Python package that builds on NumPy but adds labels to <strong>multi-dimensional arrays</strong>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>introduces <strong>labels in the form of dimensions, coordinates and attributes</strong> on top of raw NumPy-like multidimensional arrays, which allows for a more intuitive, more concise, and less error-prone developer experience.</p></li>
+<li><p>It also <strong>borrows heavily from the Pandas package for labelled tabular data</strong> and integrates tightly with dask for parallel computing.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Xarray is particularly tailored to working with NetCDF files.</p></li>
+<li><p>But work for another files as well</p></li>
+<li><p>Explore it a bit in the (optional) exercise below!</p></li>
+</ul>
+</section>
+<section id="dask">
+<h3>Dask<a class="headerlink" href="#dask" title="Link to this heading"></a></h3>
+<p>How to use more resources than available?</p>
+<a class="reference internal image-reference" href="../_images/when-to-use-pandas.png"><img alt="../_images/when-to-use-pandas.png" src="../_images/when-to-use-pandas.png" style="width: 600px;" />
+</a>
+<p>Dask is very popular for data analysis and is used by a number of high-level
+Python libraries:</p>
+<ul>
+<li><p>Dask is composed of two parts:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Dask Clusters</strong></dt><dd><ul>
+<li><p>Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.</p></li>
+<li><p><a class="reference external" href="https://enccs.github.io/hpda-python/dask/#dask-clusters">ENCCS course</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>“Big Data” Collections</strong></dt><dd><ul>
+<li><p>Like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to <strong>larger-than-memory</strong> or distributed environments. These parallel collections run on top of dynamic task schedulers.</p></li>
+<li><p><a class="reference external" href="https://enccs.github.io/hpda-python/dask/#dask-collections">ENCCS course</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Dask provides dynamic parallel task scheduling and three main high-level collections:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">dask.array</span></code>: Parallel <strong>NumPy</strong> arrays</dt><dd><ul>
+<li><p>scales NumPy (see also xarray)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">dask.dataframe</span></code>: Parallel <strong>Pandas</strong> DataFrames</dt><dd><ul>
+<li><p>scales Pandas workflows</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">dask.bag</span></code>: Parallel Python <strong>List</strong></dt><dd><ul>
+<li><p><a class="reference external" href="https://enccs.github.io/hpda-python/dask/#dask-bag">https://enccs.github.io/hpda-python/dask/#dask-bag</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ml.dask.org/">dask_ml package</a>: Dask-ML provides scalable machine learning in Python using Dask alongside popular machine learning libraries like Scikit-Learn, XGBoost, and others.</p></li>
+<li><p><a class="reference external" href="https://distributed.dask.org/en/stable/">Dask.distributed</a>: Dask.distributed is a lightweight library for distributed computing in Python. It extends both the concurrent.futures and dask APIs to moderate sized clusters.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>A Dask array looks and feels a lot like a NumPy array.</p></li>
+<li><dl class="simple">
+<dt>However, a Dask array uses the so-called “lazy” execution mode, which allows one to</dt><dd><ul>
+<li><p>build up complex, large calculations symbolically</p></li>
+<li><p>before turning them over the scheduler for execution.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition-chunks admonition">
+<p class="admonition-title">Chunks</p>
+<ul>
+<li><p>Dask divides arrays into many small pieces (chunks), as small as necessary to fit it into memory.</p></li>
+<li><p>Operations are delayed (<strong>lazy computing</strong>) e.g.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>tasks are queued and no computation is performed until you actually ask values to be computed (for instance print mean values).</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.</p></li>
+<li><p>And data is gathered in the end.</p></li>
+<li><p>Tools like Dask and xarray handle “chunking” automatically.</p></li>
+<li><p>Note that number of chunks does not need to be equal to number of cores.</p></li>
+</ul>
+</div>
+<p>Big file → split into chunks → parallel workers → results combined.</p>
+<div class="admonition-to-think-of admonition">
+<p class="admonition-title">To think of</p>
+<ul class="simple">
+<li><p>Chunk size and number of them affect the performance due to overhead/administration of the chunking and combination.</p></li>
+<li><p>Briefly explain what happens when a Dask job runs on multiple cores.</p></li>
+</ul>
+</div>
+<div class="admonition-example-from-dask-org discussion important admonition" id="discussion-4">
+<p class="admonition-title">Example from dask.org</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Arrays implement the Numpy API</span>
+<span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">),</span>
+                     <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># It runs using multiple threads on one node.</span>
+<span class="c1"># It could also be distributed to multiple nodes</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="polars-package">
+<h3>Polars package<a class="headerlink" href="#polars-package" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">polars</span></code> is a Python package that presents itself as <strong>Blazingly Fast DataFrame Library</strong></dt><dd><ul>
+<li><p>Utilizes all available cores on your machine.</p></li>
+<li><p>Optimizes queries to reduce unneeded work/memory allocations.</p></li>
+<li><p>Handles datasets much larger than your available RAM.</p></li>
+<li><p>A consistent and predictable API.</p></li>
+<li><p>Adheres to a strict schema (data-types should be known before running the query).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Key features</p>
+<ul class="simple">
+<li><p>Fast: Written from scratch in <strong>Rust</strong></p></li>
+<li><p>I/O: First class <strong>support for all common data storage</strong> layers</p></li>
+<li><p><strong>Intuitive API</strong>: Write your queries the way they were intended. Internally, there is a query optimizer.</p></li>
+<li><p>Out of Core: <strong>streaming</strong> without requiring all your data to be in memory at the same time. I.e. <strong>chunking</strong></p></li>
+<li><p><strong>Parallel</strong>: dividing the workload among the available CPU cores without any additional configuration.</p></li>
+<li><p>GPU Support: Optionally run queries on <strong>NVIDIA GPUs</strong></p></li>
+<li><p><a class="reference external" href="https://arrow.apache.org/overview/">Apache Arrow</a> support</p></li>
+</ul>
+<p>[<cite>https://pola.rs/</cite>](<a class="reference external" href="https://pola.rs/">https://pola.rs/</a>)</p>
+</div>
+</section>
+</section>
+<section id="exercises-packages">
+<h2>Exercises: Packages<a class="headerlink" href="#exercises-packages" title="Link to this heading"></a></h2>
+<p>Set up the environment</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">HPC2N (Kebnekaise)</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">LUNARC (Cosmos)</button><button aria-controls="panel-2-2-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-2" name="2-2" role="tab" tabindex="-1">UPPMAX (Pelle)</button><button aria-controls="panel-2-2-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-3" name="2-3" role="tab" tabindex="-1">NSC (Tetralith)</button><button aria-controls="panel-2-2-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-4" name="2-4" role="tab" tabindex="-1">Dardel (PDC) To be fixed</button><button aria-controls="panel-2-2-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-5" name="2-5" role="tab" tabindex="-1">Alvis (C3SE)</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Interactive use (Recommended)</strong></p>
+<p>Follow the instructions here: <a class="reference external" href="https://docs.hpc2n.umu.se/tutorials/connections/#example__-__jupyter__with__extra__modules">https://docs.hpc2n.umu.se/tutorials/connections/#example__-__jupyter__with__extra__modules</a>.</p>
+<ul class="simple">
+<li><p>Add these lines in the batch script</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Continue and start Jupyter</p></li>
+<li><p>And install <code class="docutils literal notranslate"><span class="pre">polars</span></code>, <code class="docutils literal notranslate"><span class="pre">dask</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">xarray</span></code> to <code class="docutils literal notranslate"><span class="pre">~/.local/</span></code> if you don’t already have it</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">! pip install --user xarray</span>
+<span class="go">! pip install --user dask</span>
+<span class="go">! pip install --user polars</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>You may have to restart the Jupyter kernel (or even Jupyter session) to be able to be able to load the just instaleld package(s).</p></li>
+</ul>
+</div>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Interactive Use (Recommended)</strong></p>
+<p>Start a Thinlinc session and open one of Spyder, Jupyter Lab, or VSCode from the On-Demand applications menu as discussed in the <a class="reference external" href="../day2/ondemand-desktop.rst">On-Demand lesson</a> from Day 2. Spyder and Jupyter Lab are configured to load Xarray and Dask and all their dependencies automatically via the latest version of Anaconda, whereas VSCode requires modules to be selected to load as part of the additional job settings.</p>
+<ul class="simple">
+<li><p>Continue and start Jupyter</p></li>
+<li><p>And install <code class="docutils literal notranslate"><span class="pre">polars</span></code> to <code class="docutils literal notranslate"><span class="pre">~/.local/</span></code> if you don’t already have it</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">! pip install --user polars</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>You may have to restart the Jupyter kernel (or even Jupyter session) to be able to be able to load the just instaleld package(s).</p></li>
+</ul>
+</div>
+<div class="admonition-non-interactive-use admonition">
+<p class="admonition-title">Non-Interactive Use</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/12.3.0 OpenMPI/4.1.5 xarray/2023.9.0 dask/2023.9.2</span>
+</pre></div>
+</div>
+<p>if you prefer pip-installed Python packages, or you can load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml Anaconda3/2024.06-1</span>
+</pre></div>
+</div>
+</div>
+</div><div aria-labelledby="tab-2-2-2" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-2" name="2-2" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>General Use</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load dask/2024.9.1-gfbf-2024a xarray/2024.11.0-gfbf-2024a JupyterLab/4.2.5-GCCcore-13.3.0 polars/1.29.0-gfbf-2024a</span>
+</pre></div>
+</div>
+<p>This command also loads <code class="docutils literal notranslate"><span class="pre">SciPy-bundle/2024.05-gfbf-2024a</span></code> (which includes Numpy and Pandas) and <code class="docutils literal notranslate"><span class="pre">matplotlib/3.9.2-gfbf-2024a</span></code>, but not any IDEs.</p>
+<ul class="simple">
+<li><p>Continue and start Jupyter as discussed in the <a class="reference external" href="../day2/interactive.rst">interactive usage lesson</a> on Day 2.</p></li>
+</ul>
+</div>
+</div><div aria-labelledby="tab-2-2-3" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-3" name="2-3" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>General Use</strong></p>
+<p>You should for this session load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Continue and start Jupyter</p></li>
+<li><p>And install <code class="docutils literal notranslate"><span class="pre">dask</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">xarray</span></code> (and polars) to <code class="docutils literal notranslate"><span class="pre">~/.local/</span></code> if you don’t already have it</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">! pip install --user xarray</span>
+<span class="go">! pip install --user dask</span>
+<span class="go">! pip install --user polars</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-interactive-use admonition">
+<p class="admonition-title">Interactive Use</p>
+<p>In a Thinlinc session, open a terminal and start</p>
+<p><code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">-A</span> <span class="pre">[project_name]</span> <span class="pre">-t</span> <span class="pre">HHH:MM:SS</span></code></p>
+<p>as discussed in the <a class="reference external" href="../day2/interactive.rst">interactive usage lesson</a> on Day 2. Once transferred to a compute node, do</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0</span>
+</pre></div>
+</div>
+<p>or swap JupyterLab for your preferred IDE following the <a class="reference external" href="../day2/IDEs_cmd.rst">IDEs lesson from Day 2</a>.</p>
+</div>
+</div><div aria-labelledby="tab-2-2-4" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-4" name="2-4" role="tabpanel" tabindex="0"><blockquote>
+<div><ul class="simple">
+<li><p>Jupyter Lab is only available on Dardel via ThinLinc.</p></li>
+<li><p>As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer.</p></li>
+<li><p>Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime).</p></li>
+<li><p>The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below. The exercise prompts and their solutions are included on this page.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>General Use</strong></p>
+<p>For this session, you could load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+<p>On Dardel, all cray-python versions include NumPy, SciPy, Pandas, and Dask, and do not have any prerequisites, but Seaborn is part of <code class="docutils literal notranslate"><span class="pre">matplotlib/3.8.2-cpeGNU-23.12</span></code>, which has <code class="docutils literal notranslate"><span class="pre">PDCOLD/23.12</span></code> as a prerequisite. The versions available for cray-python and Matplotlib are limited because Dardel users are typically expected to build their own environments, but for this course, the installed versions are fine.</p>
+<blockquote>
+<div><div class="admonition-interactive-use-with-thinlinc-if-available-collapsible admonition">
+<p class="admonition-title">Interactive use with Thinlinc (If Available)
+ :collapsible:</p>
+<ul>
+<li><p>Start Jupyter from the menu and it will work</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Default Anaconda3 has all packages needed for this lesson</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Or use Spyder:</p>
+<blockquote>
+<div><p>First start interactive session</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934</span>
+<span class="go">salloc: Pending job allocation 9102757</span>
+<span class="go">salloc: job 9102757 queued and waiting for resources</span>
+<span class="go">salloc: job 9102757 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 9102757</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes nid001057 are ready for job</span>
+</pre></div>
+</div>
+<p>Then ssh to the specific node, like</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ssh nid001057</span>
+</pre></div>
+</div>
+<p>Use the conda env you created in Exercise 2 in <a class="reference external" href="https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises">Use isolated environments</a></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml PDC/24.11</span>
+<span class="go">ml miniconda3/25.3.1-1-cpeGNU-24.11</span>
+<span class="go">export CONDA_ENVS_PATH=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot;</span>
+<span class="go">export CONDA_PKG_DIRS=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot;</span>
+<span class="go">source activate spyder-env</span>
+<span class="gp"># </span>If<span class="w"> </span>needed,<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>packages<span class="w"> </span>here<span class="w"> </span>by:<span class="w"> </span><span class="s2">&quot;conda install matplotlib pandas seaborn&quot;</span>
+<span class="go">spyder &amp;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div></blockquote>
+</div><div aria-labelledby="tab-2-2-5" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-5" name="2-5" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>For this session, you should use the Alvis portal: <a class="reference external" href="https://alvis.c3se.chalmers.se/public/root/">https://alvis.c3se.chalmers.se/public/root/</a></p></li>
+<li><p>Log in</p></li>
+<li><p>Ask for Desktop (Compute) in left-hand side menu. Do not choose “Jupyter”, since it gives you a TensorFlow environment with Python 3.8.</p></li>
+<li><p>Open a Terminal and load the following software modules</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml xarray/2024.11.0-gfbf-2024a dask/2024.9.1-gfbf-2024a</span>
+<span class="go">ml Jupyter-bundle/20250530-GCCcore-13.3.0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This will load matplotlib &amp; SciPy-bundle on the fly!</p></li>
+<li><p>Make a virtual environment</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">virtualenv polarsvenv --system-site-packages</span>
+<span class="go">. polarsvenv/bin/activate</span>
+<span class="go">pip install polars</span>
+<span class="go">python -m ipykernel install --user --name=polarsvenv --display-name=&quot;Test&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Then start jupyter-lab and a web browser will automatically open</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jupyter-lab</span>
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="admonition-chunk-sizes-in-dask exercise important admonition" id="exercise-8">
+<p class="admonition-title">Chunk sizes in Dask</p>
+<ul class="simple">
+<li><p>The following example calculate the mean value of a random generated array.</p></li>
+<li><p>Run the 2 examples and see the performance improvement by using dask.</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">NumPy</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">Dask</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">),</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></div>
+<p>But what happens if we use different chunk sizes?
+Try out with different chunk sizes:</p>
+<ul class="simple">
+<li><p>What happens if the dask chunks=(20000,20000)</p></li>
+<li><p>What happens if the dask chunks=(250,250)</p></li>
+</ul>
+<div class="admonition-choice-of-chunk-size solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Choice of chunk size</p>
+<p>The choice is problem dependent, but here are a few things to consider:</p>
+<p>Each chunk of data should be small enough so that it fits comforably in each worker’s available memory.
+Chunk sizes between 10MB-1GB are common, depending on the availability of RAM. Dask will likely
+manipulate as many chunks in parallel on one machine as you have cores on that machine.
+So if you have a machine with 10 cores and you choose chunks in the 1GB range, Dask is likely to use at least
+10 GB of memory. Additionally, there should be enough chunks available so that each worker always has something to work on.</p>
+<p>On the otherhand, you also want to avoid chunk sizes that are too small as we see in the exercise.
+Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs
+with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.</p>
+</div>
+</div>
+<div class="admonition-optional-xarray exercise important admonition" id="exercise-9">
+<p class="admonition-title">(Optional) Xarray</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/72155514/when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data">https://stackoverflow.com/questions/72155514/when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data</a></p></li>
+<li><dl class="simple">
+<dt>Browse: <a class="reference external" href="https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html">https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html</a> or change to more applicable version in drop-down menu to lower right.</dt><dd><ul>
+<li><p>find something interesting for you! Test some lines if you want to!</p></li>
+<li><dl class="simple">
+<dt>tips:</dt><dd><ul>
+<li><p>Pandas: <a class="reference external" href="https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough">https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough</a></p></li>
+<li><p>gallery: <a class="reference external" href="https://docs.xarray.dev/en/v2024.11.0/gallery.html">https://docs.xarray.dev/en/v2024.11.0/gallery.html</a></p></li>
+<li><p>ecosystems: <a class="reference external" href="https://docs.xarray.dev/en/v2024.11.0/ecosystem.html">https://docs.xarray.dev/en/v2024.11.0/ecosystem.html</a></p></li>
+<li><p>Quick overview: <a class="reference external" href="https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/quick-overview.html">https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/quick-overview.html</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition-optional-polars exercise important admonition" id="exercise-10">
+<p class="admonition-title">(Optional) Polars</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Browse: <a class="reference external" href="https://docs.pola.rs/">https://docs.pola.rs/</a>.</dt><dd><ul>
+<li><p>find something interesting for you! Test some lines if you want to!</p></li>
+<li><p>tips:</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Check if your cluster has Polars!</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-3">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>Check with <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">polars</span></code></p></li>
+<li><p>If it is installed it will show up as</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">--------------------------------------------------------------------</span>
+<span class="go">  polars:</span>
+<span class="go">--------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      Polars is a blazingly fast DataFrame library for manipulating</span>
+<span class="go">      structured data. The core is written in Rust and this module</span>
+<span class="go">      provides its interface for Python.</span>
+
+<span class="go">     Versions:</span>
+<span class="go">        polars/1.28.1-gfbf-2024a</span>
+<span class="go">        polars/1.29.0-gfbf-2024a</span>
+
+<span class="go">--------------------------------------------------------------------</span>
+<span class="go">  For detailed information about a specific &quot;polars&quot; package (including</span>
+<span class="go">how to load the modules) use the module&#39;s full name.</span>
+<span class="go">  Note that names that have a trailing (E) are extensions provided by ot</span>
+<span class="go">her modules.</span>
+<span class="go">  For example:</span>
+
+<span class="gp">     $ </span>module<span class="w"> </span>spider<span class="w"> </span>polars/1.29.0-gfbf-2024a
+<span class="go">--------------------------------------------------------------------</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Load the module or install it in your present <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">venv</span></code> environment</p></li>
+<li><p>Try the most interesting examples: <a class="reference external" href="https://docs.pola.rs/user-guide/getting-started/#reading-writing">https://docs.pola.rs/user-guide/getting-started/#reading-writing</a></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<div class="admonition-follow-up-discussion discussion important admonition" id="discussion-5">
+<p class="admonition-title">Follow-up discussion</p>
+<ul class="simple">
+<li><p>New learnings?</p></li>
+<li><p>Useful file formats</p></li>
+<li><p>Resources sufficient to data size</p></li>
+<li><p>Data-chunking as technique if not enough RAM</p></li>
+<li><p>Is Xarray/Polars/Dask useful for you?</p></li>
+</ul>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Allocate more RAM by asking for</dt><dd><ul>
+<li><p>Several cores</p></li>
+<li><p>Nodes will more RAM</p></li>
+<li><p>Check job memory usage with <code class="docutils literal notranslate"><span class="pre">sacct</span></code> or <code class="docutils literal notranslate"><span class="pre">sstat</span></code>. Check you documentation!</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>File formats</dt><dd><ul>
+<li><p>No format fits all requirements</p></li>
+<li><p>HDF5 and NetCDF good for Big data since it allows loading parts of the file into memory</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Store temporary data in local scratch ($SNIC_TMP).</p></li>
+<li><dl class="simple">
+<dt>Packages</dt><dd><ul>
+<li><dl class="simple">
+<dt>xarray</dt><dd><ul>
+<li><p>can deal with 3D-data and higher dimensions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Dask</dt><dd><ul>
+<li><p>uses lazy execution</p></li>
+<li><p>Only use for processing very large amount of data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Chunking: Data source → Format choice → Load/Chunk → Process → Write</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://statusneo.com/battle-of-the-dataframes-pandas-vs-dask-vs-polars">Battle of the DataFrames: Pandas vs. Dask vs. Polars</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/en/stable/">Dask documentation</a></p></li>
+<li><p><a class="reference external" href="https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/">Working with data (Python for Scientific computing course)</a></p></li>
+<li><p><a class="reference external" href="https://coderefinery.github.io/data-visualization-python/tidy-data/">Tidy data (by CodeRefinery)</a></p></li>
+</ul>
+<p>ENCCS</p>
+<ul>
+<li><p>Dask for scalable analysis</p></li>
+<li><p><a class="reference external" href="https://enccs.github.io/hpda-python/stack/">https://enccs.github.io/hpda-python/stack/</a></p></li>
+<li><p><a class="reference external" href="https://enccs.github.io/hpda-python/dask/">https://enccs.github.io/hpda-python/dask/</a></p></li>
+<li><p>Too be included in the future?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://jobqueue.dask.org/en/latest/">Dask jobqueue</a></p></li>
+<li><p><a class="reference external" href="http://mpi.dask.org/en/latest/index.html">Dask-MPI</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="seaborn-new.html" class="btn btn-neutral float-left" title="A Brief Introduction to the Seaborn Statistical Plotting Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="batch-new.html" class="btn btn-neutral float-right" title="Running Python in batch mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

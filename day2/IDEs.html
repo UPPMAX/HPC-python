@@ -1,0 +1,828 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using IDEs &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Summary day 2" href="../summary2.html" />
+    <link rel="prev" title="Starting IDEs from command line" href="IDEs_cmd.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using IDEs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter">Jupyter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jupyterlab">JupyterLab 🚀</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook">Jupyter Notebook 📝</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spyder">Spyder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vs-code">VS Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using IDEs</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day2/IDEs.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-ides">
+<span id="use-ides"></span><h1>Using IDEs<a class="headerlink" href="#using-ides" title="Link to this heading"></a></h1>
+<p>There are several popular IDEs that are commonly used for interactive work with Python. Here we will show how to load <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code>, <code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code>, and <code class="docutils literal notranslate"><span class="pre">Spyder</span></code>.</p>
+<section id="jupyter">
+<h2>Jupyter<a class="headerlink" href="#jupyter" title="Link to this heading"></a></h2>
+<section id="jupyterlab">
+<h3>JupyterLab 🚀<a class="headerlink" href="#jupyterlab" title="Link to this heading"></a></h3>
+<p>JupyterLab is the next-generation web-based user interface for Project Jupyter. It provides an interactive development environment for working with notebooks, code, and data. JupyterLab offers a more flexible and powerful interface compared to the classic Jupyter Notebook, allowing users to arrange multiple documents and activities side by side in tabs or split screens.</p>
+</section>
+<section id="jupyter-notebook">
+<h3>Jupyter Notebook 📝<a class="headerlink" href="#jupyter-notebook" title="Link to this heading"></a></h3>
+<p>Jupyter Notebook is a sibling to other notebook authoring applications under the Project Jupyter umbrella, like JupyterLab. Jupyter Notebook offers a lightweight, simplified experience compared to JupyterLab.</p>
+<ul class="simple">
+<li><p>Running python requires a kernel to be started. <strong>IPython</strong> is the default kernel for Jupyter if you want to run python code. You can also install other kernels to run other programming languages.</p></li>
+<li><p>A Jupyter Notebook is made up of <strong>cells</strong>. There are two main types of cells: Code cells and Markdown cells.</p></li>
+<li><p><strong>Code cells</strong> 🧩 allow you to write and execute Python code. When you run a code cell, the output is displayed directly below the cell.</p></li>
+<li><p><strong>Markdown cells</strong> 📝 allow you to write formatted text using Markdown syntax. This is useful for adding explanations, headings, lists, links, and even LaTeX equations to your notebook.</p></li>
+<li><p>You can <strong>run a cell</strong> by selecting it and pressing <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> or by clicking the “Run” button in the toolbar ▶️.</p></li>
+<li><p><strong>Cell execution order</strong> matters - Jupyter allows cells to be run in any order, but the execution number in square brackets shows the order in which cells were actually run.</p></li>
+<li><p><strong>Restarting the kernel</strong> 🔄 is useful when you want to clear all variables and start fresh. Go to “Kernel” &gt; “Restart”.</p></li>
+<li><p><strong>Clearing all outputs</strong> 🧹 can be done by selecting “Cell” &gt; “All Output” &gt; “Clear” from the menu.</p></li>
+<li><p><strong>Exporting notebooks</strong> 📤 to different formats (HTML, PDF, Markdown, etc.) can be done via “File” &gt; “Download as” or “Export Notebook As”.</p></li>
+<li><p><strong>Using magic commands</strong> ✨ like <code class="docutils literal notranslate"><span class="pre">%timeit</span></code>, <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>, <code class="docutils literal notranslate"><span class="pre">%load</span></code>, and <code class="docutils literal notranslate"><span class="pre">%%writefile</span></code> can enhance your workflow significantly.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Keyboard shortcuts</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code>: Run the current cell and move to the next one</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Enter</span></code>: Run the current cell and stay in it</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Alt</span> <span class="pre">+</span> <span class="pre">Enter</span></code>: Run the current cell and insert a new one below</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Esc</span></code>: Enter command mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Enter</span></code>: Enter edit mode</p></li>
+<li><dl class="simple">
+<dt>In command mode:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code>: Insert cell above</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">B</span></code>: Insert cell below</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DD</span></code>: Delete current cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">M</span></code>: Change cell to Markdown</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>: Change cell to Code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Up/Down</span></code>: Select multiple cells</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Magic commands</p>
+<p>Use these to speed up development, debugging, and exploration inside notebooks:</p>
+<ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">%lsmagic</span></code> — list available line and cell magics.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">lsmagic</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Timing snippets</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%time</span></code> — time a single statement.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">time</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%timeit</span></code> / <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code> — run repeated timings for more robust measurements.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">timeit</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+
+<span class="o">%%</span><span class="n">timeit</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">%run</span></code> — run a Python script and load its variables into the notebook namespace.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">run</span> <span class="n">scripts</span><span class="o">/</span><span class="n">my_analysis</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">%load</span></code> — load a script or URL into the current cell (useful for editing before execution).</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load</span> <span class="n">scripts</span><span class="o">/</span><span class="n">snippet</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Auto-reload for iterative development</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
+<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
+<span class="c1"># Now imported modules are reloaded automatically when changed.</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Variable inspection and namespace control</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">who</span>           <span class="c1"># names only</span>
+<span class="o">%</span><span class="n">whos</span>          <span class="c1"># detailed table of variables</span>
+<span class="o">%</span><span class="n">reset</span> <span class="o">-</span><span class="n">f</span>      <span class="c1"># clear user namespace</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Interactive debugger on exceptions</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pdb</span> <span class="n">on</span>
+<span class="c1"># Raises into the interactive debugger when exceptions occur</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Persist variables between sessions</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mydata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="o">%</span><span class="n">store</span> <span class="n">mydata</span>
+<span class="c1"># In a later session: %store -r mydata</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Installing packages from within the notebook (preferred over !pip)</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span> <span class="n">seaborn</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Run shell blocks or single shell commands</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This runs in a bash subshell&quot;</span>
+ls<span class="w"> </span>-l
+
+<span class="c1"># single-line shell:</span>
+!pwd
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>IPython profiling and line profiling (if extensions are installed)</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">prun</span> <span class="n">my_function</span><span class="p">()</span>   <span class="c1"># run profiler</span>
+<span class="o">%</span><span class="n">lprun</span> <span class="o">-</span><span class="n">f</span> <span class="n">my_function</span> <span class="n">my_function</span><span class="p">()</span>  <span class="c1"># requires line_profiler extension</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Show available magics and help</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">magic</span>         <span class="c1"># detailed magic help</span>
+<span class="o">%</span><span class="n">timeit</span><span class="err">?</span>       <span class="c1"># doc for a specific magic</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<ul class="simple">
+<li><p>Try Jupyter interface with the following Notebook Code.</p></li>
+<li><p>Either start an interactive session with 4-8 cores and 1-2 hr walltime or stay on the login node.</p></li>
+<li><p><cite>cd</cite> into your project directory and start <cite>Jupyter Notebook</cite> or <cite>JupyterLab</cite> as described in previous sections. (Optional: load matplotlib module by searching it with <cite>module spider matplotlib</cite> and then loading it.)</p></li>
+<li><p>Create a new Python 3 notebook.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Notebook Code</p>
+<ul class="simple">
+<li><p>Type out (or copy) the following code snippets (Cell 1, Cell 2,…) into different cells in a Jupyter Notebook and run them to see the results.</p></li>
+<li><p>If there is a missing package while running the following examples, dont worry, those will be covered in later sessions.</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">jupyter_basics.ipynb</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>   <span class="c1"># Cell 1: Basic arithmetic and print</span>
+   <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+   <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+   <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> is: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+   <span class="c1"># Cell 2: Markdown example</span>
+   <span class="c1"># Run this in markdown mode:</span>
+   <span class="c1">## This is a heading</span>
+   <span class="n">This</span> <span class="ow">is</span> <span class="o">**</span><span class="n">bold</span><span class="o">**</span> <span class="n">text</span> <span class="ow">and</span> <span class="n">this</span> <span class="ow">is</span> <span class="o">*</span><span class="n">italic</span><span class="o">*</span> <span class="n">text</span><span class="o">.</span>
+   <span class="o">-</span> <span class="n">List</span> <span class="n">item</span> <span class="mi">1</span>
+   <span class="o">-</span> <span class="n">List</span> <span class="n">item</span> <span class="mi">2</span>
+
+   <span class="c1"># LaTeX math equation:</span>
+   <span class="err">$$</span><span class="n">E</span> <span class="o">=</span> <span class="n">mc</span><span class="o">^</span><span class="mi">2</span><span class="err">$$</span>
+   <span class="ow">or</span> <span class="n">inline</span><span class="p">:</span> <span class="err">$</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="o">=</span> <span class="n">c</span><span class="o">^</span><span class="mi">2</span><span class="err">$</span>
+
+   <span class="c1"># Cell 3: Using magic commands</span>
+   <span class="c1"># Check execution time</span>
+   <span class="o">%</span><span class="n">timeit</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+
+   <span class="c1"># Cell 4: List all variables</span>
+   <span class="o">%</span><span class="n">whos</span>
+
+   <span class="c1"># Cell 5: Run system commands</span>
+   <span class="err">!</span><span class="n">pwd</span>
+   <span class="err">!</span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span>
+
+   <span class="c1"># Cell 6: Display plot inline</span>
+   <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+   <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+   <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+   <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+   <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+   <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simple Plot&quot;</span><span class="p">)</span>
+   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Resources</p>
+<ul class="simple">
+<li><p>Official Jupyter documentation: <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/latest/notebook.html">Jupyter Documentation</a></p></li>
+<li><p>Jupyter notebook <a class="reference external" href="https://nbviewer.org/github/jupyter/notebook/tree/main/docs/source/examples/Notebook/">examples from original documentation</a></p></li>
+<li><p>You can also check the lesson about <a class="reference external" href="https://uppmax.github.io/R-python-julia-matlab-HPC/python/jupyter.html">Jupyter on compute nodes</a> in our “Introduction to running R, Python and Julia in HPC workshop”</p></li>
+<li><p>Documentation about <a class="reference external" href="https://docs.hpc2n.umu.se/tutorials/jupyter/">Jupyter on HPC2N</a></p></li>
+<li><p>Documentation about <a class="reference external" href="http://docs.uppmax.uu.se/software/jupyter/">Jupyter on UPPMAX</a></p></li>
+<li><p>Documentation about <a class="reference external" href="https://www.c3se.chalmers.se/documentation/software/development/jupyter/#jupyterlmod">Jupyter on C3SE</a></p></li>
+<li><p>Documentation about <a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab-via-interactive-terminal">Jupyter on LUNARC</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="spyder">
+<h2>Spyder<a class="headerlink" href="#spyder" title="Link to this heading"></a></h2>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h3>
+<p>When you open Spyder you will see a three-pane layout similar to other scientific IDEs: a large Editor on the left, and one or more utility panes on the right and bottom. The exact arrangement can be customised and saved as a layout.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Spyder interface</p>
+<figure class="align-default">
+<img alt="../_images/cosmos-on-demand-spyder.png" src="../_images/cosmos-on-demand-spyder.png" />
+</figure>
+</div>
+<p>Main panes and useful tabs</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Editor (left) 📝</dt><dd><ul>
+<li><p>Edit multiple files in tabs : use the Run toolbar (green ▶️) to run the current file or selection.</p></li>
+<li><p>You can mark cells with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">%%</span></code> (or <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">%%%</span></code> for multi level cells) and run cells interactively.</p></li>
+<li><p>Use the burger menu on the editor pane to split, undock or save layout.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Utility pane (Top-right) 🧰</dt><dd><ul>
+<li><p>Help 🔍: documentation and contextual help for the symbol under the cursor.</p></li>
+<li><p>Variable explorer 🧾 : table view of in-memory variables with types and values; inspect, edit or remove variables.</p></li>
+<li><p>Files 📂 : file browser for the current working directory.</p></li>
+<li><p>Plots 📈 : interactive plots panel (may be a tab in recent versions); can be undocked to a separate window for better interaction.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Console and History (Bottom-right) 🖥️</dt><dd><ul>
+<li><p>IPython console(s) : interactive Python connected to the currently selected kernel/environment.</p></li>
+<li><p>History log : previously executed commands from the console.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Quick Tips</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Run workflow</dt><dd><ul>
+<li><p>Save your script and click the Run button to execute it in the IPython console. Running a saved file will switch the console working directory to the file’s location (configurable in Preferences).</p></li>
+<li><p>Run selection or a cell from the editor to test snippets without running the whole file.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Debugging</dt><dd><ul>
+<li><p>Set breakpoints in the editor gutter and launch the debugger from the Run menu or toolbar to step through code and inspect variables.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Plotting</dt><dd><ul>
+<li><p>Undock the Plots tab or set the IPython console graphics backend to “Automatic” or a GUI backend in Preferences so figures open in separate windows and remain interactive.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Multiple consoles/kernels</dt><dd><ul>
+<li><p>You can open multiple IPython consoles and assign each a different interpreter or conda environment. This is useful for testing code against different environments.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Notes</dt><dd><ul>
+<li><p>Undock panels (burger menu → Undock) for a multi-monitor workflow or to resize plots independently.</p></li>
+<li><p>If Spyder appears too small on ThinLinc or high-DPI screens, enable “Set custom high-DPI scaling” in Preferences → General → Interface.</p></li>
+<li><p>Prefer launching Spyder from a graphical session (ThinLinc / On-demand desktop). Running it on a login node without a desktop may not work or be unsupported.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Configuring Spyder</p>
+<p><strong>Font and icon sizes.</strong> If you are on Thinlinc and/or on a Linux machine, Spyder may be uncomfortably small the first time you open it. To fix this,</p>
+<ol class="arabic simple">
+<li><p>Click the icon shaped like a wrench (Preferences) or click “Tools” and then “Preferences”. A popup should open with a menu down the left side, and the “General” menu option should already be selected (if not, select it now).</p></li>
+<li><p>You should see a tab titled “Interface” that has options that mention “high-DPI scaling”. Select “Set custom high-DPI scaling” and enter the factor by which you’d like the text and icons to be magnified (recommend a number from 1.5 to 2).</p></li>
+<li><p>Click “Apply”. If the popup in the next step doesn’t appear immediately, then click “OK”.</p></li>
+<li><p>A pop-up will appear that says you need to restart to view the changes and asks if you want to restart now. Click “Yes” and wait. The terminal may flash some messages like <code class="docutils literal notranslate"><span class="pre">QProcess:</span> <span class="pre">Destroyed</span> <span class="pre">while</span> <span class="pre">process</span> <span class="pre">(&quot;/hpc2n/eb/software/Python/3.8.2-GCCcore-9.3.0/bin/python&quot;)</span> <span class="pre">is</span> <span class="pre">still</span> <span class="pre">running.&quot;</span></code>, but it should restart within a minute or so. Don’t interrupt it or you’ll have to start over.</p></li>
+</ol>
+<p>The text and icons should be rescaled when it reopens, and should stay rescaled even if you close and reopen Spyder, as long as you’re working in the same session.</p>
+<p><strong>(Optional but recommended) Configure plots to open in separate windows.</strong> In some versions of Spyder, there is a separate Plotting Pane that you can click and drag out of its dock so you can resize figures as needed, but if you don’t see that, you will probably want to change your graphics backend. The default is usually “Inline”, which is usually too small and not interactive. To change that,</p>
+<ol class="arabic simple">
+<li><p>Click the icon shaped like a wrench (Preferences) or click “Tools” and then “Preferences” to open the Preferences popup.</p></li>
+<li><p>In the menu sidebar to the left, click “IPython console”. The box to the right should then have 4 tabs, of which the second from the left is “Graphics” (see figure below).</p></li>
+<li><p>Click “Graphics” and find the “Graphics backend” box below. In that box, next to “Backend” there will be a dropdown menu that probably says “Inline”. Click the dropdown and select “Automatic”.</p></li>
+<li><p>Click “Apply” and then “OK” to exit.</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">Spyder interface</p>
+<figure class="align-default">
+<img alt="../_images/cosmos-on-demand-spyder-preferences.png" src="../_images/cosmos-on-demand-spyder-preferences.png" />
+</figure>
+</div>
+<p>Now, graphics should appear in their own popup that has menu options to edit and save the content.</p>
+</div>
+<div class="admonition-exercise exercise important admonition" id="exercise-1">
+<p class="admonition-title">Exercise</p>
+<ul class="simple">
+<li><p>Try Spyder interface with the following code.</p></li>
+<li><p>Either start an interactive session with 4-8 cores and 1-2 hr walltime or stay on the login node.</p></li>
+<li><p><cite>cd</cite> into your project directory.</p></li>
+<li><p>Start Spyder from your python env that you created in previous session.</p></li>
+<li><p>Type out (or copy) the following code into the IDE editor and run it to see the results.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">spyder_basics.py</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">spyder_basics.py</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Basic variables — explore these in the Variable Explorer</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">3.5</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello Spyder&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="n">i</span> <span class="o">*</span> <span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="c1"># %% Class and state — inspect and modify instances from the Variable Explorer</span>
+<span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;Simple counter object to experiment with the Variable Explorer.&quot;&quot;&quot;</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">start</span>
+
+   <span class="k">def</span> <span class="nf">inc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="n">n</span>
+
+   <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+
+   <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Counter(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">ctr</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ctr</span><span class="o">.</span><span class="n">inc</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="c1"># A small dict to glance at many variable types in the Variable Explorer</span>
+<span class="n">__all_vars__</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+   <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+   <span class="n">matrix</span><span class="o">=</span><span class="n">matrix</span><span class="p">,</span> <span class="n">ctr</span><span class="o">=</span><span class="n">ctr</span>
+<span class="p">)</span>
+
+<span class="c1"># %% Run-as-script quick checks</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variables available:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">__all_vars__</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matrix row 1:&quot;</span><span class="p">,</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Counter value:&quot;</span><span class="p">,</span> <span class="n">ctr</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Resources</p>
+<ul class="simple">
+<li><p>Official Spyder documentation: <a class="reference external" href="https://docs.spyder-ide.org/current/panes/index.html">Spyder Documentation</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="vs-code">
+<h2>VS Code<a class="headerlink" href="#vs-code" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Features<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>VS Code provides a flexible, extensible interface that is well suited for editing, debugging, and remote development. Below are the main panes, useful workflows, and configuration tips to get the most out of VS Code when working locally or connected to an HPC resource.</p>
+<p>Main panes and useful panels</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Explorer (left) 📁</dt><dd><ul>
+<li><p>File tree and quick file operations.</p></li>
+<li><p>Right-click to open terminals, reveal in OS file manager, or run commands.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Editor (center) ✍️</dt><dd><ul>
+<li><p>Supports tabs, split editors, and editor groups.</p></li>
+<li><p>Rich file-type support (syntax, linting, formatting).</p></li>
+<li><p>Notebook editor for .ipynb files when Jupyter extension is installed.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Side bar (left) 🔧</dt><dd><ul>
+<li><p>Run &amp; Debug, Source Control, Extensions, Search, Remote Explorer.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Panel (bottom) 🖥️</dt><dd><ul>
+<li><p>Integrated Terminal(s): run jobs, activate envs, and submit sbatch scripts.</p></li>
+<li><p>Output, Problems, Debug Console, and Tests.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Status bar (bottom) ℹ️</dt><dd><ul>
+<li><p>Shows current interpreter, Git branch, line endings, and active extensions.</p></li>
+<li><p>Click the interpreter area to switch Python interpreters or kernels.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Quick Tips</p>
+<ul class="simple">
+<li><p>Use the Command Palette (<code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> / <code class="docutils literal notranslate"><span class="pre">F1</span></code>) to find commands quickly (interpreter selection, remote commands, setting server install path).</p></li>
+<li><p>Open the integrated terminal (<a href="#id2"><span class="problematic" id="id3">``</span></a>Ctrl+` <a href="#id4"><span class="problematic" id="id5">``</span></a>) to run modules, activate conda/venv, or submit batch jobs.</p></li>
+<li><p>Use the Python: Select Interpreter command to point VS Code at the exact Python executable on the remote host (useful after module load or activate).</p></li>
+<li><p>For notebooks, choose “Existing Jupyter Server” to connect VS Code to a Jupyter server running on a compute node.</p></li>
+<li><p>Split the editor (<code class="docutils literal notranslate"><span class="pre">Ctrl+\</span></code>) to compare files or keep docs and code side-by-side.</p></li>
+</ul>
+<p>Recommended extensions</p>
+<ul class="simple">
+<li><p>Python : language server, linting, testing, formatter hooks.</p></li>
+<li><p>Jupyter : native notebook support and remote server attachment.</p></li>
+<li><p>Remote-SSH : connect to HPC login nodes and work against remote files.</p></li>
+</ul>
+<p>Keyboard shortcuts</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+P</span></code> : Quick file open</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> : Command Palette</p></li>
+<li><p><a href="#id6"><span class="problematic" id="id7">``</span></a>Ctrl+` `` : Toggle integrated terminal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+D</span></code> : Open Run and Debug</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">F5</span></code> : Start debugging</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+K</span> <span class="pre">Z</span></code> : Zen Mode (distraction-free)</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Configuring for remote development</p>
+<ul class="simple">
+<li><p>Remote server install path: <code class="docutils literal notranslate"><span class="pre">change</span> <span class="pre">Remote.SSH:</span> <span class="pre">Server</span> <span class="pre">Install</span> <span class="pre">Path</span></code> to keep .vscode-server and extensions in a project directory with adequate space.</p></li>
+<li><p>Interpreter path: after loading modules or activating an environment on the remote host, run <code class="docutils literal notranslate"><span class="pre">Python:</span> <span class="pre">Select</span> <span class="pre">Interpreter</span></code> and paste the full path from <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code>.</p></li>
+<li><p>Port forwarding: when attaching to remote Jupyter or web UIs, check the Remote Explorer → Ports or Terminal → Ports view. VS Code can forward ports automatically.</p></li>
+<li><p>Keep heavy extensions minimal on remote servers to save space and startup time. Prefer installing large language servers locally where possible.</p></li>
+</ul>
+<p><strong>Manage Extensions</strong> 🔧</p>
+<ul class="simple">
+<li><p>By default, VSCode server installs all extensions in your home directory on the remote server. Which is not recommended as home directories have limited space. You can change this behavior by changing the remote server install path to a project folder with sufficient space.</p></li>
+<li><p>Go to Command Palette <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> or <code class="docutils literal notranslate"><span class="pre">F1</span></code>. Search for <code class="docutils literal notranslate"><span class="pre">Remote-SSH:</span> <span class="pre">Settings</span></code> and then go to <code class="docutils literal notranslate"><span class="pre">Remote.SSH:</span> <span class="pre">Server</span> <span class="pre">Install</span> <span class="pre">Path</span></code>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Item</span></code> as remote host (say, rackham.uppmax.uu.se) and <code class="docutils literal notranslate"><span class="pre">Value</span></code> as project folder in which you want to install all your data and extensions (say <code class="docutils literal notranslate"><span class="pre">/proj/uppmax202x-x-xx/nobackup</span></code>) (without a trailing slash /).</p></li>
+</ul>
+<p>⚠️ If you already had your vscode-server running and storing extensions in home directory. Make sure to kill the server by selecting <code class="docutils literal notranslate"><span class="pre">Remote-SSH:</span> <span class="pre">KIll</span> <span class="pre">VS</span> <span class="pre">Code</span> <span class="pre">Server</span> <span class="pre">on</span> <span class="pre">Host</span></code> on Command Palette and deleting the <code class="docutils literal notranslate"><span class="pre">.vscode-server</span></code> directory in your home folder.</p>
+<p><strong>Install Extensions</strong> 📦</p>
+<ul class="simple">
+<li><p>You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for <code class="docutils literal notranslate"><span class="pre">Remote:</span> <span class="pre">Install</span> <span class="pre">Local</span> <span class="pre">Extensions</span></code> in <code class="docutils literal notranslate"><span class="pre">SSH:</span> <span class="pre">rackham.uppmax.uu.se</span></code> (or other HPC name) in Command Palette.</p></li>
+<li><p>You can alternatively, go to Extensions tab and select each individually.</p></li>
+</ul>
+<p><strong>Selecting Kernels</strong> 🧠</p>
+<ul class="simple">
+<li><p>Establish an SSH connection to the login node of the HPC resource using VSCode remote-SSH extension as described in previous session.</p></li>
+<li><p>You may request an allocation on a compute node BUT VSCode server does not connect to it automatically and your code will still be executed on login node.</p></li>
+<li><p>Load the correct module (or virtual env) on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Rackham/Snowy, do module load python_ML_packages. Check the file path for python interpreter by checking <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code> and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for “interpreter” for python, then paste the path of your interpreter/kernel.</p></li>
+<li><p>venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server.</p></li>
+</ul>
+<p><strong>NOTE</strong>: Fetching python interpreters from a compute node may or may not work depending on the HPC resource. Develop your code on login node and run it on compute nodes using sbatch scripts.</p>
+<p><strong>For Jupyter Notebooks (and a much safer option)</strong> 🧪</p>
+<ul class="simple">
+<li><p>You need to start the server on the HPC resource first, preferably on a compute node.</p></li>
+<li><p>Copy the jupyter server URL which goes something like <code class="docutils literal notranslate"><span class="pre">http://s193.uppmax.uu.se:8888/tree?token=xxx</span></code> (where s193 is Snowy node. Other HPCs will have similar URLs), click on <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Kernel</span></code> on VSCode and select <code class="docutils literal notranslate"><span class="pre">Existing</span> <span class="pre">Jupyter</span> <span class="pre">Server</span></code>. Past the URL here and confirm your choice.</p></li>
+<li><p>This only works if you have the jupyter extension installed on your local VSCode.</p></li>
+<li><p>The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal-&gt;Ports tab to see the correct url to open in your browser.</p></li>
+</ul>
+<p><strong>NOTE</strong>: Selecting kernels/interpreter does not work currently on HPC2N.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Resources</p>
+<ul class="simple">
+<li><p>VS Code <a class="reference external" href="https://code.visualstudio.com/docs">documentation</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/getstarted/userinterface">User interface overview</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/remote/ssh">Remote - SSH docs</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/python/python-tutorial">Python in VS Code</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<div class="admonition-exercise exercise important admonition" id="exercise-2">
+<p class="admonition-title">Exercise</p>
+<ul class="simple">
+<li><p>Try running a Scipy and a Pytorch example in your favorite IDE.</p></li>
+<li><p>Create a Virtual env using your faviroute package manager and install the packages.</p></li>
+<li><p>For an extra challenge: Run the same code in .ipynb format in your IDE. This requires you to install jupyter notebook in your virtual environment.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Solving linear system of equations and optimization task using Scipy</p>
+<p>Install <code class="docutils literal notranslate"><span class="pre">Scipy</span></code> for the following example.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">solve</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+
+<span class="c1"># Test 1: Solve a linear system of equations</span>
+<span class="c1"># Ax = b</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+
+<span class="c1"># Solve for x</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solution to the linear system Ax = b:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Test 2: Minimize a simple quadratic function</span>
+<span class="c1"># f(x) = (x - 3)^2</span>
+<span class="k">def</span> <span class="nf">quadratic_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+   <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c1"># Initial guess</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Minimize the function</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">quadratic_function</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Optimization result:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minimum value of f(x):&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">fun</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of x at minimum:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Loading transformers model with pytorch backend and performing tokenization</p>
+<p>Install <code class="docutils literal notranslate"><span class="pre">transformers[torch]</span></code> for the following example. Can be performed either on GPU or CPU node.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModel</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="c1"># Check if GPU is available</span>
+<span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+   <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GPU is available. Using:&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+   <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GPU is not available. Using CPU.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load a pre-trained tokenizer and model</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;bert-base-uncased&quot;</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+
+<span class="c1"># Move the model to GPU (if available)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Check where the model is loaded</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model is loaded on: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tokenize a sample text</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Transformers library is amazing!&quot;</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># Move inputs to GPU if available</span>
+
+<span class="c1"># Perform a forward pass to ensure everything works</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="c1"># Detokenize the input IDs back to text</span>
+<span class="n">detokenized_text</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;input_ids&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detokenized text:&quot;</span><span class="p">,</span> <span class="n">detokenized_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="simple">
+<dt>Learning outcomes:</dt><dd><ul class="simple">
+<li><p>How to use IDE on any system</p></li>
+<li><p>How to run code on IDE</p></li>
+<li><p>How to install and manage extensions on remote VSCode server</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="IDEs_cmd.html" class="btn btn-neutral float-left" title="Starting IDEs from command line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../summary2.html" class="btn btn-neutral float-right" title="Summary day 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

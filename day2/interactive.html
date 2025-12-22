@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive work on the compute nodes &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Desktop On Demand" href="ondemand-desktop.html" />
+    <link rel="prev" title="Basic batch and Slurm" href="basic_batch_slurm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Interactive work on the compute nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-different-way-hpc2n-uppmax-lunarc-nsc-pdc-and-c3se-provide-for-an-interactive-session">The different way HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE provide for an interactive session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-an-interactive-session">Start an interactive session</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-an-interactive-session-in-the-simplest-way-command-line">Start an interactive session in the simplest way (command line)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#end-an-interactive-session">End an interactive session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-to-be-in-an-interactive-session">Check to be in an interactive session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-that-the-number-of-cores-booked-is-correct">Check that the number of cores booked is correct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-a-python-script-in-an-interactive-session">Running a Python script in an interactive session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Interactive work on the compute nodes</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day2/interactive.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="interactive-work-on-the-compute-nodes">
+<h1>Interactive work on the compute nodes<a class="headerlink" href="#interactive-work-on-the-compute-nodes" title="Link to this heading"></a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning objectives</p>
+<ul class="simple">
+<li><p>Understand what an interactive session is</p></li>
+<li><p>Understand why one may need an interactive session</p></li>
+<li><p>How to work with an interactive session (single + multiple cores)</p></li>
+<li><p>Run an interactive-friendly Python script</p></li>
+<li><p>Run an interactive-unfriendly Python script</p></li>
+<li><p>Gfx Launcher and On-demand desktop</p></li>
+</ul>
+</div>
+<div class="admonition-questions questions admonition" id="questions-0">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Imagine you are developing a Python script in a line-by-line fashion. How to do so best?</dt><dd><ul>
+<li><p>Why not do so on the login node?</p></li>
+<li><p>Why not do so by using <code class="docutils literal notranslate"><span class="pre">sbatch</span></code>?</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>What is the drawback of using an interactive node?</p></li>
+</ul>
+</div>
+<div class="admonition-compute-allocations-in-this-workshop admonition">
+<p class="admonition-title">Compute allocations in this workshop</p>
+<ul class="simple">
+<li><p>Pelle: <code class="docutils literal notranslate"><span class="pre">uppmax2025-2-393</span></code></p></li>
+<li><p>Kebnekaise: <code class="docutils literal notranslate"><span class="pre">hpc2n2025-151</span></code></p></li>
+<li><p>Cosmos: <code class="docutils literal notranslate"><span class="pre">lu2025-7-106</span></code></p></li>
+<li><p>Alvis: <code class="docutils literal notranslate"><span class="pre">naiss2025-22-934</span></code></p></li>
+<li><p>Tetralith: <code class="docutils literal notranslate"><span class="pre">naiss2025-22-934</span></code></p></li>
+<li><p>Dardel: <code class="docutils literal notranslate"><span class="pre">naiss2025-22-934</span></code></p></li>
+</ul>
+</div>
+<div class="admonition-storage-space-for-this-workshop admonition">
+<p class="admonition-title">Storage space for this workshop</p>
+<ul class="simple">
+<li><p>Pelle: <code class="docutils literal notranslate"><span class="pre">/proj/hpc-python-uppmax</span></code></p></li>
+<li><p>Kebnekaise: <code class="docutils literal notranslate"><span class="pre">/proj/nobackup/fall-courses</span></code></p></li>
+<li><p>Cosmos: <code class="docutils literal notranslate"><span class="pre">/lunarc/nobackup/projects/lu2025-17-52</span></code></p></li>
+<li><p>Alvis: <code class="docutils literal notranslate"><span class="pre">/mimer/NOBACKUP/groups/courses-fall-2025</span></code></p></li>
+<li><p>Tetralith: <code class="docutils literal notranslate"><span class="pre">/proj/courses-fall-2025</span></code></p></li>
+<li><p>Dardel: <code class="docutils literal notranslate"><span class="pre">/cfs/klemming/projects/supr/courses-fall-2005</span></code></p></li>
+</ul>
+</div>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>Some users develop Python code in a line-by-line fashion.</p>
+<ul class="simple">
+<li><p>These users typically want to run a (calculation-heavy) script frequently, to test if the code works.</p></li>
+<li><p>However, scheduling each new line is too slow, as it can take minutes (or sometimes hours) before the new code is run through the batch system.</p></li>
+<li><p>Instead, there is a way to directly work with such code: use an interactive session.</p></li>
+</ul>
+<p>Some other users want to run programs that (1) use a lot of CPU and memory, and (2) need to be persistent/available.
+One good example is Jupyter.</p>
+<ul class="simple">
+<li><p>Running such a program on a login nodes would harm all other users on the login node.</p></li>
+<li><p>Running such a program on a computer node using <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> would not allow a user to connect to it.</p></li>
+<li><p>In such a case: use an interactive session.</p></li>
+</ul>
+<div class="admonition-about-jupyter admonition">
+<p class="admonition-title">About Jupyter</p>
+<ul class="simple">
+<li><p>For HPC2N, using Jupyter on HPC2N is possible, and can be done either from the OpenOnDemand portal (easy) or through a batch job and ThinLinc (harder).</p></li>
+<li><p>For UPPMAX, using Jupyter is easy.</p></li>
+<li><p>For LUNARC, using Jupyter (<a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab">https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab</a>) works best using the LUNARC HPC Desktop. Go to the Applications menu, hover over Applications - Python, and select Jupyter Lab from the menu that pops up to the right.</p></li>
+<li><p>For NSC, using Jupyter is easiest done through ThinLinc, but can also be used via an SSH tunnel.</p></li>
+<li><p>For PDC, you can use Jupyter easiest through the GfxLauncher in ThinLinc: <a class="reference external" href="https://support.pdc.kth.se/doc/login/interactive_hpc/">https://support.pdc.kth.se/doc/login/interactive_hpc/</a></p></li>
+<li><p>For C3SE, you can easiest use Jupyter through the OpenOnDemand portal.</p></li>
+</ul>
+</div>
+<div class="admonition-in-this-session-we-will-talk-about admonition">
+<p class="admonition-title">In this session we will talk about</p>
+<ul class="simple">
+<li><p>interactive/salloc/srun</p></li>
+<li><p>Running a Python script interactively</p></li>
+<li><p>Open-on-demand desktop</p></li>
+</ul>
+</div>
+<p>An interactive session is a session with direct access to a compute node. Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.</p>
+<p>You can find information about the cluster hardware in the Common section: <a class="reference external" href="https://uppmax.github.io/HPC-python/common/understanding_clusters.html">https://uppmax.github.io/HPC-python/common/understanding_clusters.html</a></p>
+<p>Any longer, resource-intensive, or parallel jobs must be run through a <strong>batch script</strong> or an <strong>interactive session</strong>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Demanding work (CPU or Memory intensive) should be done on the compute nodes.</p></li>
+<li><p>If you need live interaction you should start an “interactive session”</p></li>
+<li><p>On Cosmos (LUNARC), Dardel (PDC), Alvis (C3SE), and Kebnekaise (HPC2N) it can be done with the Desktop-On-Demand tool <code class="docutils literal notranslate"><span class="pre">GfxLauncher</span></code> or portal.</p></li>
+<li><p>Otherwise the terminal approach will work in all centers.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="the-different-way-hpc2n-uppmax-lunarc-nsc-pdc-and-c3se-provide-for-an-interactive-session">
+<h2>The different way HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE provide for an interactive session<a class="headerlink" href="#the-different-way-hpc2n-uppmax-lunarc-nsc-pdc-and-c3se-provide-for-an-interactive-session" title="Link to this heading"></a></h2>
+<p>Here we define an interactive session as a session with direct access to a compute node.
+Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.</p>
+<p>Some centers only offer command line interactive sessions, and some also have ways of providing graphical interactive sessions.</p>
+<p>The way this differs between the centers (command line):</p>
+<ul class="simple">
+<li><p>HPC2N: the user remains on a login node.
+All commands can be sent directly to the compute node using <code class="docutils literal notranslate"><span class="pre">srun</span></code></p></li>
+<li><p>UPPMAX: the user is actually on a computer node.
+Whatever command is done, it is run on the compute node</p></li>
+<li><p>LUNARC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node</p></li>
+<li><p>NSC: the user is actually on a computer node if the correct menu option is chosen. Whatever command is done, it is run on the compute node</p></li>
+<li><p>PDC: the user remains on a login node and can submit jobs to the compute node with <code class="docutils literal notranslate"><span class="pre">srun</span></code> <em>or</em> (recommended) the user login to the compute node with ssh after the job is allocated. Any commands are then run directly on the compute node.</p></li>
+<li><p>C3SE: the user runs a shell on a compute node.</p></li>
+</ul>
+</section>
+<section id="start-an-interactive-session">
+<h2>Start an interactive session<a class="headerlink" href="#start-an-interactive-session" title="Link to this heading"></a></h2>
+<p>To start an interactive session, one needs to allocate resources on the cluster first.</p>
+<p>The command to request an interactive node differs per HPC cluster:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Cluster</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">interactive</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">salloc</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">srun</span></code></p></th>
+<th class="head"><p>GfxLauncher/OpenOnDemand portal</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tetralith (NSC)</p></td>
+<td><p>Recommended</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dardel (PDC)</p></td>
+<td><p>N/A</p></td>
+<td><p>Recommended</p></td>
+<td><p>N/A</p></td>
+<td><p>Possible (GfxLauncher)</p></td>
+</tr>
+<tr class="row-even"><td><p>Alvis (C3SE)</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Works</p></td>
+<td><p>Recommended (OOD)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kebnekaise (HPC2N)</p></td>
+<td><p>N/A</p></td>
+<td><p>Recommended</p></td>
+<td><p>N/A</p></td>
+<td><p>Recommended (OOD)</p></td>
+</tr>
+<tr class="row-even"><td><p>Pelle (UPPMAX)</p></td>
+<td><p>Recommended</p></td>
+<td><p>Works</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cosmos (LUNARC)</p></td>
+<td><p>Works</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>Recommended (GfxLauncher)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="start-an-interactive-session-in-the-simplest-way-command-line">
+<h3>Start an interactive session in the simplest way (command line)<a class="headerlink" href="#start-an-interactive-session-in-the-simplest-way-command-line" title="Link to this heading"></a></h3>
+<p>To start an interactive session in the simplest way, as shown here:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Tetralith</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Dardel</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Alvis</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Kebnekaise</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">Pelle</button><button aria-controls="panel-0-0-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-5" name="0-5" role="tab" tabindex="-1">Cosmos</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>The command <code class="docutils literal notranslate"><span class="pre">interactive</span></code> is recommended at NSC.</p>
+<p>Use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">interactive -A [project_name] -t HHH:MM:SS</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">[project_name]</span></code> is the NAISS project name,
+for example <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">-A</span> <span class="pre">naiss2025-22-934</span></code>.</p>
+<p>If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU.</p>
+<p>The output will look similar to this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[x_birbr@tetralith3 ~]$ </span>interactive<span class="w"> </span>-A<span class="w"> </span>naiss2025-22-403
+<span class="go">salloc: Pending job allocation 44252533</span>
+<span class="go">salloc: job 44252533 queued and waiting for resources</span>
+<span class="go">salloc: job 44252533 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 44252533</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes n340 are ready for job</span>
+<span class="gp">[x_birbr@n340 ~]$</span>
+</pre></div>
+</div>
+<p>Note that the prompt has changed to show that one is on an interactive node.</p>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>The command <code class="docutils literal notranslate"><span class="pre">salloc</span></code> (or OpenOnDemand through Gfx launcher) is recommended at PDC.</p>
+<p>Remember that Dardel requires you to provide the <strong>partition</strong> as well.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc -A [project_name] -t HHH:MM:SS -p main</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">[project_name]</span></code> is the NAISS project name,
+for example <code class="docutils literal notranslate"><span class="pre">salloc</span> <span class="pre">-A</span> <span class="pre">naiss2025-22-934</span> <span class="pre">-t</span> <span class="pre">00:10:00</span> <span class="pre">-p</span> <span class="pre">main</span></code>.</p>
+<p>This will look similar to this (including asking for resources - time is required):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">bbrydsoe@login1:~&gt; salloc --time=00:10:00 -A naiss2025-22-934 -p main</span>
+<span class="go">salloc: Pending job allocation 9722449</span>
+<span class="go">salloc: job 9722449 queued and waiting for resources</span>
+<span class="go">salloc: job 9722449 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 9722449</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes nid001134 are ready for job</span>
+<span class="go">bbrydsoe@login1:~&gt;</span>
+</pre></div>
+</div>
+<p>Again, you are on the login node, and anything you want to run in the allocation must be preface with srun.</p>
+<p>However, you have another option; you can ssh to the allocated compute node and then it will be true interactivity:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">bbrydsoe@login1:~&gt; ssh nid001134</span>
+<span class="go">bbrydsoe@nid001134:~</span>
+</pre></div>
+</div>
+<p>It is also possible to use OpenOnDemand through Gfx launcher.</p>
+<p>To do this, login with ThinLinc and start the Gfxlauncher application. There is some documentation here: &lt;a href=”<a class="reference external" href="https://support.pdc.kth.se/doc/login/interactive_hpc/">https://support.pdc.kth.se/doc/login/interactive_hpc/</a>” target=”_blank”&gt;Interactive HPC at PDC&lt;/a&gt;.</p>
+<p>Please be aware that the number of ThinLinc licenses are limited.</p>
+<p>We will look more at OpenOnDemand/GfxLauncher in a short while.</p>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>The command <code class="docutils literal notranslate"><span class="pre">srun</span></code> from command line works at C3SE. It is not recommended as when the login node is restarted the interactive job is also terminated.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go"> [brydso@alvis2 ~]$ srun --account=NAISS2025-22-395 --gpus-per-node=T4:1 --time=01:00:00 --pty=/bin/bash</span>
+<span class="gp">[brydso@alvis2-12 ~]$</span>
+</pre></div>
+</div>
+<p>The recommended way to do interactive jobs at Alvis is with OpenOnDemand.</p>
+<p>You access the Open OnDemand service through <a class="reference external" href="https://alvis.c3se.chalmers.se">https://alvis.c3se.chalmers.se</a>.</p>
+<p>NOTE that you need to connect from a network on SUNET.</p>
+<p>More information about C3SE’s Open OnDemand service can be found here: <a class="reference external" href="https://www.c3se.chalmers.se/documentation/connecting/ondemand/">https://www.c3se.chalmers.se/documentation/connecting/ondemand/</a>.</p>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><p>The command <code class="docutils literal notranslate"><span class="pre">salloc</span></code> (or OpenOnDemand) is recommended at HPC2N.</p>
+<p>Usage: <code class="docutils literal notranslate"><span class="pre">salloc</span> <span class="pre">-A</span> <span class="pre">[project_name]</span> <span class="pre">-t</span> <span class="pre">HHH:MM:SS</span></code></p>
+<p>You have to give project ID and walltime. If you need more CPUs (1 is default) or GPUs, you have to ask for that as well.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">b-an01 [~]$ salloc -A hpc2n2025-151 -t 00:10:00</span>
+<span class="go">salloc: Pending job allocation 34624444</span>
+<span class="go">salloc: job 34624444 queued and waiting for resources</span>
+<span class="go">salloc: job 34624444 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 34624444</span>
+<span class="go">salloc: Nodes b-cn1403 are ready for job</span>
+<span class="go">b-an01 [~]$</span>
+</pre></div>
+</div>
+<p>WARNING! This is not true interactivity! Note that we are still on the login node!</p>
+<p>In order to run anything in the allocation, you need to preface with <code class="docutils literal notranslate"><span class="pre">srun</span></code> like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">b-an01 [~]$ srun /bin/hostname</span>
+<span class="go">b-cn1403.hpc2n.umu.se</span>
+<span class="go">b-an01 [~]$</span>
+</pre></div>
+</div>
+<p>Otherwise anything will run on the login node! Also, interactive sessions (for instance a program that asks for input) will not work correctly as that dialogoue happens on the compute node which you do not have real access to!</p>
+<p><strong>OpenOnDemand</strong></p>
+<p>This is the recommended way to do interactive jobs at HPC2N.</p>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="https://portal.hpc2n.umu.se/">https://portal.hpc2n.umu.se/</a> and login.</p></li>
+<li><p>Documentation here: <a class="reference external" href="https://docs.hpc2n.umu.se/tutorials/connections/#open__ondemand">https://docs.hpc2n.umu.se/tutorials/connections/#open__ondemand</a></p></li>
+</ul>
+<p>More about OpenOnDemand desktop in a short while.</p>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><p>At UPPMAX, <code class="docutils literal notranslate"><span class="pre">interactive</span></code> is recommended.</p>
+<p>Usage: <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">-A</span> <span class="pre">[project_name]</span> <span class="pre">-t</span> <span class="pre">HHH:MM:SS</span></code></p>
+<p>If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">  [bbrydsoe@pelle1 ~]$ interactive -A uppmax2025-2-393 -t 00:15:00</span>
+<span class="go">  This is a temporary version of interactive-script for Pelle</span>
+<span class="go">  Most interactive-script functionality is removed</span>
+<span class="go">  salloc: Pending job allocation 205612</span>
+<span class="go">  salloc: job 205612 queued and waiting for resources</span>
+<span class="go">  salloc: job 205612 has been allocated resources</span>
+<span class="go">  salloc: Granted job allocation 205612</span>
+<span class="go">  salloc: Waiting for resource configuration</span>
+<span class="go">  salloc: Nodes p115 are ready for job</span>
+<span class="go">  [bbrydsoe@p115 ~]$</span>
+
+<span class="go">**``salloc`` also works**</span>
+
+<span class="go">Usage: ``salloc -A [project_name] -t HHH:MM:SS``</span>
+
+<span class="go">You have to give project ID and walltime. If you need more CPUs (1 is default) or GPUs, you have to ask for that as well.</span>
+
+<span class="go">.. code-block:: console</span>
+
+<span class="go">   [bbrydsoe@pelle1 ~]$ salloc -A uppmax2025-2-393 -t 00:15:00</span>
+<span class="go">   salloc: Pending job allocation 205613</span>
+<span class="go">   salloc: job 205613 queued and waiting for resources</span>
+<span class="go">   salloc: job 205613 has been allocated resources</span>
+<span class="go">   salloc: Granted job allocation 205613</span>
+<span class="go">   salloc: Nodes p115 are ready for job</span>
+<span class="go">   [bbrydsoe@p115 ~]$</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-5" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-5" name="0-5" role="tabpanel" tabindex="0"><p>The command <code class="docutils literal notranslate"><span class="pre">interactive</span></code> works at LUNARC. It is not the recommended way to do interactive work.</p>
+<p>Usage: <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">-A</span> <span class="pre">[project_name]</span> <span class="pre">-t</span> <span class="pre">HHH:MM:SS</span></code></p>
+<p>If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[bbrydsoe@cosmos2 ~]$ </span>interactive<span class="w"> </span>-A<span class="w"> </span>lu2025-7-76<span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:15:00
+<span class="go">Cluster name: COSMOS</span>
+<span class="go">Waiting for JOBID 1724396 to start</span>
+</pre></div>
+</div>
+<p>After a short wait, you get something like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[bbrydsoe@cn094 ~]$</span>
+</pre></div>
+</div>
+<p><strong>GfxLauncher</strong></p>
+<p>This is the recommended wait to work interactively at LUNARC.</p>
+<ul class="simple">
+<li><p>Login with ThinLinc: <a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/getting_started/using_hpc_desktop/">https://lunarc-documentation.readthedocs.io/en/latest/getting_started/using_hpc_desktop/</a></p></li>
+<li><p>Follow the documentation for starting the GfxLauncher for OpenOnDemand: <a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/getting_started/gfxlauncher/">https://lunarc-documentation.readthedocs.io/en/latest/getting_started/gfxlauncher/</a></p></li>
+</ul>
+<p>More about GfxLauncher and OpenOnDemand in a short while!</p>
+</div></div>
+<p>Indeed, all you need at most of the centers, for command line interactivity, is the project name, as well as time - and also partition for PDC.</p>
+<p>However, this simplest way may have some default settings that do not fit you.</p>
+<ul class="simple">
+<li><p>session duration is too short</p></li>
+<li><p>the session has too few cores available (default is usually 1)</p></li>
+<li><p>or if you need GPUs</p></li>
+</ul>
+<p>You can add more resources the same way as for batch jobs.</p>
+<p>There is some information here: &lt;<a class="reference external" href="https://uppmax.github.io/R-python-julia-matlab-HPC/python/interactivePython.html#start-an-interactive-session-in-a-more-elaborate-way">https://uppmax.github.io/R-python-julia-matlab-HPC/python/interactivePython.html#start-an-interactive-session-in-a-more-elaborate-way</a>&gt;.</p>
+</section>
+</section>
+<section id="end-an-interactive-session">
+<h2>End an interactive session<a class="headerlink" href="#end-an-interactive-session" title="Link to this heading"></a></h2>
+<p>You leave interactive mode with <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
+</section>
+<section id="check-to-be-in-an-interactive-session">
+<h2>Check to be in an interactive session<a class="headerlink" href="#check-to-be-in-an-interactive-session" title="Link to this heading"></a></h2>
+<div class="admonition-for-uppmax-lunarc-c3se-and-nsc-and-in-some-cases-pdc admonition">
+<p class="admonition-title">For UPPMAX, LUNARC, C3SE, and NSC (and in some cases PDC)</p>
+<p>You check if you are in an interactive session with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hostname</span>
+</pre></div>
+</div>
+<p>If the output contains the words <code class="docutils literal notranslate"><span class="pre">pelle</span></code>, <code class="docutils literal notranslate"><span class="pre">cosmos</span></code>, <code class="docutils literal notranslate"><span class="pre">tetralith</span></code>, <code class="docutils literal notranslate"><span class="pre">alvis</span></code> or <code class="docutils literal notranslate"><span class="pre">login</span></code> you are on the login node.</p>
+<p>If the output contains:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p[number].uppmax.uu.se</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are on a compute node at UPPMAX (pelle).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cn[number]</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are on a compute node at LUNARC (cosmos).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n[number]</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are on a compute node at NSC (tetralith).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nid[number]</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are on a compute node at PDC (dardel).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alvis[number]-[other-number]</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is the login node you logged into (usually 2 or 3) and <code class="docutils literal notranslate"><span class="pre">othernumber</span></code> is a number, you are on a compute node at C3SE (alvis).</p></li>
+</ul>
+</div>
+<div class="admonition-for-hpc2n-and-sometimes-pdc admonition">
+<p class="admonition-title">For HPC2N (and sometimes PDC)</p>
+<p>You check if you are in an interactive session with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">srun hostname</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If the output is <code class="docutils literal notranslate"><span class="pre">b-cn[number].hpc2n.umu.se</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are more-or-less on a compute node at Kebnekaise.</p></li>
+<li><p>If the output is <code class="docutils literal notranslate"><span class="pre">b-an[number]</span></code>, where <code class="docutils literal notranslate"><span class="pre">[number]</span></code> is a number, you are still on a login node on Kebnekaise.</p></li>
+</ul>
+<p>Do NOT do</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hostname</span>
+</pre></div>
+</div>
+<p>for HPC2N as it will always show that you are on a login node</p>
+</div>
+</section>
+<section id="check-that-the-number-of-cores-booked-is-correct">
+<h2>Check that the number of cores booked is correct<a class="headerlink" href="#check-that-the-number-of-cores-booked-is-correct" title="Link to this heading"></a></h2>
+<p>You can do this with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ srun hostname
+</pre></div>
+</div>
+<p>And then you will get one line of output per core booked.</p>
+</section>
+<section id="running-a-python-script-in-an-interactive-session">
+<h2>Running a Python script in an interactive session<a class="headerlink" href="#running-a-python-script-in-an-interactive-session" title="Link to this heading"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">UPPMAX/LUNARC/C3SE/NSC/PDC (when SSH’ed to a compute node)</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">HPC2N</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>To run a Python script in an interactive session, first load the Python modules:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load [python/version + any prerequisites]</span>
+</pre></div>
+</div>
+<p>Suggested versions (and prerequisites):</p>
+<ul class="simple">
+<li><p>UPPMAX/pelle: Python/3.12.3-GCCcore-13.3.0</p></li>
+<li><p>LUNARC/cosmos: GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11</p></li>
+<li><p>C3SE/Alvis: Python/3.11.3-GCCcore-12.3.0 OpenMPI/4.1.5-GCC-12.3.0 SciPy-bundle/2023.07-gfbf-2023a</p></li>
+<li><p>NSC/tetralith: buildtool-easybuild/4.9.4-hpc71cbb0050 GCC/13.2.0 Python/3.11.5</p></li>
+<li><p>PDC/dardel: cray-python/3.11.7</p></li>
+</ul>
+<p>To run a Python script on 1 core, do:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python [my_script.py]</span>
+</pre></div>
+</div>
+<p>where <cite>[my_script.py]</cite> is the Python script (including the path if it is ot in the current directory), for example <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">python</span> <span class="pre">~/my_script.py</span></code>.</p>
+<p>To run a Python script on each of the requested cores, do:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">srun python [my_script.py]</span>
+</pre></div>
+</div>
+<p>where <cite>[my_script.py]</cite> is the Python script (including the path if it is noth in the current directory), for example <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">python</span> <span class="pre">~/my_script.py</span></code>.</p>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>To run a Python script in an interactive session, first load the Python modules + prerequisites:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load GCC/12.3.0 Python/3.11.3</span>
+</pre></div>
+</div>
+<p>To run a Python script on each of the requested cores, do:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">srun python [my_script.py]</span>
+</pre></div>
+</div>
+<p>where <cite>[my_script.py]</cite> is the Python script (including the path if it is noth in the current directory), for example <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">python</span> <span class="pre">~/my_script.py</span></code>.</p>
+</div></div>
+<p>Not all Python scripts are suitable for an interactive session.
+This will be demonstrated by two Python example scripts.</p>
+<p>Our first example Python script is called <a class="reference external" href="https://raw.githubusercontent.com/UPPMAX/HPC-python/refs/heads/main/Exercises/examples/programs/sum-2args.py">sum-2args.py</a>:
+it is a simple script that adds two numbers from command-line arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of the two numbers is: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Our second example Python script is called <a class="reference external" href="https://raw.githubusercontent.com/UPPMAX/HPC-python/refs/heads/main/Exercises/examples/programs/add2.py">add2.py</a>:
+it is a simple script that adds two numbers from user input:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This program will add two numbers that are provided by the user</span>
+
+<span class="c1"># Get the numbers</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the first number: &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the second number: &quot;</span><span class="p">))</span>
+
+<span class="c1"># Add the two numbers together</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="c1"># Output the sum</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of </span><span class="si">{0}</span><span class="s2"> and </span><span class="si">{1}</span><span class="s2"> is </span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="nb">sum</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<ul class="simple">
+<li><p>Why is/is it not a good script for interactive?</p></li>
+<li><p>Try start an interactive session and run the scripts.</p></li>
+</ul>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<p>You have:</p>
+<ul class="simple">
+<li><p>learned a little about login nodes and compute nodes</p></li>
+<li><p>seen how to use a compute node interactively,
+which differs between HPC2N, UPPMAX, LUNARC, C3SE, NSC, and PDC (particularly between HPC2N (and PDC) and the others)</p></li>
+<li><p>checked if we are in an interactive session</p></li>
+<li><p>checked if we have booked the right number of cores</p></li>
+<li><p>run Python scripts in an interactive session,
+which differs between HPC2N and the others</p></li>
+<li><p>seen that not all Python scripts
+can be run interactively on multiples cores</p></li>
+<li><p>exited an interactive session</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="basic_batch_slurm.html" class="btn btn-neutral float-left" title="Basic batch and Slurm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ondemand-desktop.html" class="btn btn-neutral float-right" title="Desktop On Demand" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

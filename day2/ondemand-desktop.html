@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desktop On Demand &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Starting IDEs from command line" href="IDEs_cmd.html" />
+    <link rel="prev" title="Interactive work on the compute nodes" href="interactive.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Desktop On Demand</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-desktop-on-demand-is-it-right-for-my-job">What is Desktop On Demand? Is it right for my job?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#starting-the-on-demand-interface">Starting the On-Demand Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-job-parameters">Setting Job Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job-parameters-gpus">Job Parameters - GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Desktop On Demand</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day2/ondemand-desktop.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="desktop-on-demand">
+<h1>Desktop On Demand<a class="headerlink" href="#desktop-on-demand" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<p>You will learn:</p>
+<ul class="simple">
+<li><p>What is On-Demand and when to use it</p></li>
+<li><p>Which interface to use on each resource and how to start them</p></li>
+<li><p>How to set the job parameters for your application</p></li>
+</ul>
+</div>
+<section id="what-is-desktop-on-demand-is-it-right-for-my-job">
+<h2>What is Desktop On Demand? Is it right for my job?<a class="headerlink" href="#what-is-desktop-on-demand-is-it-right-for-my-job" title="Link to this heading"></a></h2>
+<p>On Cosmos (LUNARC), Kebnekaise (HPC2N), Alvis (C3SE), and Dardel (PDC), some applications are available through one of a couple of On Demand services. On Demand applications provide an interactive environment to schedule jobs on compute nodes using a graphic user interface (GUI) instead of the typical batch submission script. How you reach this interface is dependent on the system you use and their choice of On Demand client.</p>
+<ul class="simple">
+<li><p><strong>Cosmos</strong> and <strong>Dardel</strong> use the On-Demand Desktop developed at LUNARC, which is accessible via Thinlinc.</p></li>
+<li><p><strong>Kebnekaise</strong> and <strong>Alvis</strong> uses Open OnDemand[#f1]_ via a <a class="reference external" href="https://portal.hpc2n.umu.se">dedicated web portal, https://portal.hpc2n.umu.se</a> and <a class="reference external" href="https://alvis.c3se.chalmers.se/">for alvis, https://alvis.c3se.chalmers.se/</a></p></li>
+</ul>
+<p>Desktop On-Demand is most appropriate for <em>interactive</em> work requiring small-to-medium amounts of computing resources. Non-interactive jobs and jobs that take more than a day or so should generally be submitted as batch jobs. If you have a longer job that requires an interactive interface to submit, make sure you keep track of the wall time limits for your facility. Some of the Desktop On Demand’s only allow at most 12 hours of allocation at a time.</p>
+<p>On-Demand applications are <em>not</em> accessible via SSH; you must use either Thinlinc (Cosmos and Dardel) or the dedicated web portal (Kebnekaise and Alvis).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>“On-Demand App Availability for this Course”</p>
+<ul class="simple">
+<li><p>Jupyter (Lab and/or Notebook) is available as an On-Demand application at all 4 facilities covered on this page. For Cosmos specifically, it can also load custom conda environments (but NOT pip environments).</p></li>
+<li><p>On Alvis, Cosmos and Kebnekaise, VSCode can also be run via On-Demand.</p></li>
+<li><p>Spyder can be run via On-Demand on Cosmos only. It also supports custom conda environments.</p></li>
+<li><p>On Cosmos, there are also interactive On-Demand command lines (for CPUs and GPUs) under <cite>Applications - General</cite> that can be used to start Jupyter or Spyder with a custom pip-based environment.</p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Dardel also has On-Demand applications located in the equivalent place on its remote desktop, but only 30 ThinLinc licenses are available for the whole facility. Talks are ongoing about whether and by how much to increase the number of licenses, but until the changes are implemented, we advise using SSH with -X forwarding instead. In our experience, ThinLinc access to Dardel is not reliably available, and even when connection succeeds, queue times for On-Demand applications can be very long.</p>
+</div>
+</section>
+<section id="starting-the-on-demand-interface">
+<h2>Starting the On-Demand Interface<a class="headerlink" href="#starting-the-on-demand-interface" title="Link to this heading"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">“COSMOS (and Dardel)”</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">“Kebnekaise”</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">“Alvis”</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>For most programs, the start-up process is roughly the same:</p>
+<ol class="arabic simple">
+<li><p>Log into COSMOS (or Dardel) via your usual Thinlinc client or browser interface to start an HPC Desktop session.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Applications</span></code> in the top left corner, hover over the items prefixed with <code class="docutils literal notranslate"><span class="pre">Applications</span> <span class="pre">-</span></code> until you find your desired application (on Dardel, On-Demand applications are prefixed with <code class="docutils literal notranslate"><span class="pre">PDC-</span></code>), and click it. The top-level Applications menu on Cosmos looks like this:</p></li>
+</ol>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/Cosmos-AppMenu.png"><img alt="../_images/Cosmos-AppMenu.png" src="../_images/Cosmos-AppMenu.png" style="width: 400px;" />
+</a>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you start a terminal session or another application from <code class="docutils literal notranslate"><span class="pre">Favorites</span></code>, <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Tools</span></code>, or other menu headings not prefixed with <code class="docutils literal notranslate"><span class="pre">Applications</span> <span class="pre">-</span></code> or <code class="docutils literal notranslate"><span class="pre">PDC-</span></code>, and launch an interactive program from that, it will run on a login node. Do not run intensive programs this way!</p>
+</div>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p>What if On-Demand Applications are missing from the menu?</p>
+<p>On rare occasions, a user may find that the Applications menu is missing all <code class="docutils literal notranslate"><span class="pre">Applications</span> <span class="pre">-</span> <span class="pre">&lt;App_group&gt;</span></code> options. This usually indicates that your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file is either missing or has had problematic changes made to it, especially if LMOD commands like <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">&lt;package&gt;</span></code> are also not recognized. If you are a new user on your very first session on COSMOS, the problem should resolve itself if you start a new ThinLinc session with “End existing session” selected. If you are not a new user and module commands are recognized, running <code class="docutils literal notranslate"><span class="pre">gfxmenu</span> <span class="pre">--force</span></code> in a terminal session may resolve the issue; otherwise, you will probably have to submit a support ticket.</p>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>To start an Open OnDemand session on Kebnekaise,</p>
+<ol class="arabic simple">
+<li><p>Open <a class="reference external" href="https://portal.hpc2n.umu.se">https://portal.hpc2n.umu.se</a> in your browser. The page looks like this:</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="https://docs.hpc2n.umu.se/images/open-ondemand-portal.png"><img alt="HPC2N Open On-Demand Portal" src="https://docs.hpc2n.umu.se/images/open-ondemand-portal.png" style="width: 1200px;" />
+</a>
+</figure>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Click the blue button labeled “Login to HPC2N OnDemand”.</p></li>
+<li><p>A login window should open with boxes for your login credentials. Enter your HPC2N username and password, then click “Sign In”.</p></li>
+<li><p>You will now be on the HPC2N Open OnDemand dashboard. The top of it looks like this:</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="https://docs.hpc2n.umu.se/images/open-ondemand-dashboard.png"><img alt="HPC2N Open On-Demand Dashboard" src="https://docs.hpc2n.umu.se/images/open-ondemand-dashboard.png" style="width: 1200px;" />
+</a>
+</figure>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Find the <code class="docutils literal notranslate"><span class="pre">Interactive</span> <span class="pre">Apps</span></code> tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="https://docs.hpc2n.umu.se/images/open-ondemand-apps.png"><img alt="HPC2N Open On-Demand Apps" src="https://docs.hpc2n.umu.se/images/open-ondemand-apps.png" style="width: 1200px;" />
+</a>
+</figure>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike on Cosmos and Dardel, On-Demand applications on Kebnekaise are <strong>not</strong> reachable through Thinlinc, regardless of whether you use the desktop client or a browser! If you find similar-looking applications in the Thinlinc interface, be aware that they all run on login nodes!</p>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>To start an Open OnDemand session on Alvis,</p>
+<ol class="arabic simple">
+<li><p>Open <a class="reference external" href="https://alvis.c3se.chalmers.se/">https://alvis.c3se.chalmers.se/</a> in your browser. The page looks like this:</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-OOD.png"><img alt="Alvis Open On-Demand Portal" src="../_images/alvis-OOD.png" style="width: 1200px;" />
+</a>
+</figure>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Click the blue button labeled “Login using SUPR”.</p></li>
+<li><p>A login window should open to let you authenticate with your SUPR credentials. Fill them in if you are not logged in. Click “Sign In”.</p></li>
+<li><p>You will now be on the C3SE Open OnDemand dashboard. The top of it looks like this:</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-OOD-logged-in.png"><img alt="Alvis Open On-Demand Dashboard" src="../_images/alvis-OOD-logged-in.png" style="width: 1200px;" />
+</a>
+</figure>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Find the <code class="docutils literal notranslate"><span class="pre">Interactive</span> <span class="pre">Apps</span></code> tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-OOD-apps.png"><img alt="Alvis Open On-Demand Apps" src="../_images/alvis-OOD-apps.png" style="width: 1200px;" />
+</a>
+</figure>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike on Cosmos and Dardel, On-Demand applications on Alvis are <strong>not</strong> reachable through Thinlinc, regardless of whether you use the desktop client or a browser! If you find similar-looking applications in the Thinlinc interface, be aware that they all run on login nodes!</p>
+</div>
+</div></div>
+</section>
+<section id="setting-job-parameters">
+<h2>Setting Job Parameters<a class="headerlink" href="#setting-job-parameters" title="Link to this heading"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">“COSMOS (and Dardel)”</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">“Kebnekaise”</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">“Alvis”</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>Upon clicking your chosen application, a pop-up interface called the <strong>GfxLauncher</strong> will appear and let you set the following options:</p>
+<ol class="arabic simple">
+<li><p><strong>Wall time</strong> - how long your interactive session will remain open. <em>When it ends, the whole window closes immediately and any unsaved work is lost.</em> You can select the time from a drop-down menu, or type in the time manually. On Cosmos, CPU-only applications (indicated with “(CPU)” in the name) can run for up to 168 hours (7 days), but the rest are limited to 48 hours. Default is 30 minutes.</p></li>
+<li><p><strong>Requirements</strong> - how many tasks per node you need. The default is usually 1 or 4 tasks per node. There is also a <strong>gear icon</strong> to the right of this box that can pull up a second menu (see figure below) where you can set</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>the name of your job,</p></li>
+<li><p>the number of tasks per node,</p></li>
+<li><p>the amount of memory per CPU core, and/or</p></li>
+<li><p>whether or not to use a full node.</p></li>
+</ul>
+</div></blockquote>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/cosmos-on-demand-job-settings.png"><img alt="../_images/cosmos-on-demand-job-settings.png" src="../_images/cosmos-on-demand-job-settings.png" style="width: 800px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The GfxLauncher GUI (here used to launch Jupyter Lab). The box on the left is the basic menu and the box on the right is what pops up when the gear/cog icon next to <code class="docutils literal notranslate"><span class="pre">Requirements</span></code> is clicked.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p><strong>Resource</strong> - which kind of node you want in terms of the architecture (AMD or Intel) and number of cores in the CPU (or GPU). Options and defaults vary by program, and the option to change this is not always available.</p></li>
+<li><p><strong>Project</strong> - choose from a drop-down menu the project with which your work is associated. This is mainly to keep your usage in line with your allocations and permissions, and to send any applicable invoices to the correct PI.</p></li>
+</ol>
+<p>When you’re happy with your settings, click “Start”. The GfxLauncher menu will stay open in the background so that you can monitor your wall time usage with the <cite>Usage</cite> bar. Leave this window open—your application depends on it!</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Closing the GfxLauncher popup after your application starts will kill the application immediately!</p>
+</div>
+<p>If you want, you can also look at the associated SLURM scripts by clicking the “More” button at the bottom of the GfxLauncher menu and clicking the “Script” tab (example below), or view the logs under the “Logg” tab.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/cosmos-on-demand-jupyter-more.png"><img alt="../_images/cosmos-on-demand-jupyter-more.png" src="../_images/cosmos-on-demand-jupyter-more.png" style="width: 600px;" />
+</a>
+</figure>
+<p>If an app fails to start, the first step of troubleshooting will always be to check the “Logg” tab.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Terminals on Compute nodes.</strong> If you don’t see the program you want to run interactively listed under any other <code class="docutils literal notranslate"><span class="pre">Applications</span></code> sub-menus, or if the usual menu item fails to launch the application, you may still be able to launch it via one of the terminals under <code class="docutils literal notranslate"><span class="pre">Applications</span> <span class="pre">-</span> <span class="pre">General</span></code>, or the GPU Accelerated Terminal under <code class="docutils literal notranslate"><span class="pre">Applications</span> <span class="pre">-</span> <span class="pre">Visualization</span></code>.</p>
+<p>The CPU terminal allows for a wall time of up to 168 hours (7 days), while the two GPU terminals can only run for 48 hours (2 days) at most. For more on the specifications of the different nodes these terminals can run on, see <a class="reference external" href="https://www.lunarc.lu.se/systems/cosmos/">LUNARC’s webpage on COSMOS</a>.</p>
+</div>
+<p>If you finish before your wall time is up and close the app, the app should stop in the GfxLauncher window within a couple of minutes, but you can always force it to stop by clicking the “Stop” button. This may be necessary for Jupyter Lab.</p>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>If you go to “Interactive apps” and select Jupyter Notebook, or any of the other options, a page will open that looks like this:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://docs.hpc2n.umu.se/images/open-ondemand-jupyter.png"><img alt="HPC2N Open On-Demand Jupyter" src="https://docs.hpc2n.umu.se/images/open-ondemand-jupyter.png" style="width: 1200px;" />
+</a>
+</figure>
+<p>Most of the options you have to set will be the same whether you choose Jupyter Notebook, VSCode, or even the Kebnekaise desktop. The parameters required for all apps include:</p>
+<ul class="simple">
+<li><p><strong>Compute Project</strong> - Dropdown menu where you can choose (one of) your compute projects to launch with.</p></li>
+<li><p><strong>Number of Hours</strong> - Wall time. The maximum is 12 hours, but you should avoid using more than you need to conserve your allocation and minimize queuing time.</p></li>
+<li><p><strong>Node type</strong> - Choose from options described below the dropdown menu. If you pick “any GPU”, leave “Number of Cores” empty.</p></li>
+<li><p><strong>Number of Cores</strong> - Choose any number up to 28. Each core has 4GB of memory. This is only a valid field if you pick “any” or “Large memory” for the “Node type” selection.</p></li>
+<li><p><strong>Working directory</strong> - Default is <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>. You can either type a full path manually or click “Select Path” to open a file browser if you are unsure of the full path.</p></li>
+<li><p><strong>“I would like to receive an email when my job starts”</strong> - Check box if you agree.</p></li>
+</ul>
+<p>For some apps, like Jupyter Notebook, you will also see an option to choose a <strong>Runtime environment.</strong> Choices include “System provided”, “Project provided”, or “User provided”. If you or your project do not have a custom environment, then use “System provided”.</p>
+<p>Once you enter your desired parameters, click <strong>Launch</strong>. If the parameters are all valid, the page will reload and looks something like this for as long as your job is in the queue:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-starting.png"><img alt="HPC2N Open On-Demand Jupyter waiting" src="https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-starting.png" style="width: 1200px;" />
+</a>
+</figure>
+<p>When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from “Queued” to “Running”, and the number of nodes and cores with appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-ready.png"><img alt="HPC2N Open On-Demand Jupyter waiting" src="https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-ready.png" style="width: 1200px;" />
+</a>
+</figure>
+<p>For all apps, the equivalent of a start button will be a bright blue rectangle near the bottom of the job box, usually with “Connect to” and the app name on it. When you click this button, your app should launch in a new window.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Closing the GUI window for your app before time runs out (e.g. the browser for Jupyter Notebook) does not stop your job or release the resources associated with it! If you want to stop your job and avoid spending any more of your resource budget on it, you must click the red “Delete” button near the top right of your interactive job listing. Otherwise, you can reopen any closed app as long as time remains in the job allocated for it.</p>
+</div>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><p>If you go to “Interactive Apps” and select Jupyter, or any of the other options, a page will open that looks like this:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-jup.png"><img alt="Alvis Open On-Demand Jupyter" src="../_images/alvis-jup.png" style="width: 1200px;" />
+</a>
+</figure>
+<p>Most of the options you have to set will be the same whether you choose Jupyter Notebook, VSCode, or even the Desktop. The parameters required for all apps include:</p>
+<ul class="simple">
+<li><p><strong>Account</strong> - Dropdown menu where you can choose (one of) your compute project accounts to launch with.</p></li>
+<li><p><strong>Number of Hours</strong> - Wall time. You should avoid using too much, to conserve your allocation and minimize queuing time.</p></li>
+<li><p><strong>Resource</strong> - Choose from options described below the dropdown menu. CPUs: 1, 2, 4. GPUs: here you pick <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;:&lt;number&gt;</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code> is the type of GPU and number is 1-4. pty.</p></li>
+<li><p><strong>Runtime</strong> - for when you are creating your own Jupyter runtime environment. See <code class="docutils literal notranslate"><span class="pre">/apps/portal/jupyter/</span></code> for examples.</p></li>
+<li><p><strong>Working directory</strong> - Default is <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>. You can either type a full path manually or click “Select Path” to open a file browser if you are unsure of the full path.</p></li>
+<li><p><strong>“I would like to receive an email when my job starts”</strong> - Check box if you agree.</p></li>
+</ul>
+<p>For some apps, like Jupyter Notebook, you will also see an option to choose a <strong>Runtime environment.</strong> Choices include “System provided”, “Project provided”, or “User provided”. If you or your project do not have a custom environment, then use “System provided”.</p>
+<p>Once you enter your desired parameters, click <strong>Launch</strong>. If the parameters are all valid, the page will reload and looks something like this for as long as your job is in the queue:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-jup-wait.png"><img alt="Alvis Open On-Demand Jupyter waiting" src="../_images/alvis-jup-wait.png" style="width: 1200px;" />
+</a>
+</figure>
+<p>When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from “Queued” and then “Starting” to “Running”, and the number of nodes and cores will appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-jup-running.png"><img alt="Alvis Open On-Demand Jupyter running" src="../_images/alvis-jup-running.png" style="width: 1200px;" />
+</a>
+</figure>
+<p>For all apps, the equivalent of a start button will be a bright blue rectangle near the bottom of the job box, usually with “Connect to” and the app name on it. When you click this button, your app should launch in a new window.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Closing the GUI window for your app before time runs out (e.g. the browser for Jupyter Notebook) does not stop your job or release the resources associated with it! If you want to stop your job and avoid spending any more of your resource budget on it, you must click the red “Delete” button near the top right of your interactive job listing. Otherwise, you can reopen any closed app as long as time remains in the job allocated for it.</p>
+</div>
+</div></div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>Open OnDemand is a web service that allows HPC users to schedule jobs, run notebooks and work interactively on a remote cluster from any device that supports a modern browser. The Open OnDemand project was funded by NSF and is currently maintained by the Ohio SuperComputing Centre. Read more about <a class="reference external" href="https://openondemand.org/">OpenOndemand.org</a>.</p>
+</aside>
+</aside>
+</section>
+<section id="job-parameters-gpus">
+<h2>Job Parameters - GPUs<a class="headerlink" href="#job-parameters-gpus" title="Link to this heading"></a></h2>
+<p>Most settings are the same, with exception of the “Resource” or “Node Type”/”Core Number” settings. Here is shown how it would look:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">“COSMOS (and Dardel)”</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">“Kebnekaise and Alvis”</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><p>This is how it looks in Dardel, which has a GfXLauncher setup very similar to Cosmos.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/dardel-thinlinc.png"><img alt="../_images/dardel-thinlinc.png" src="../_images/dardel-thinlinc.png" style="width: 800px;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/dardel-thinlinc-gfx.png"><img alt="../_images/dardel-thinlinc-gfx.png" src="../_images/dardel-thinlinc-gfx.png" style="width: 600px;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/dardel-thinlinc-gfx-settings.png"><img alt="../_images/dardel-thinlinc-gfx-settings.png" src="../_images/dardel-thinlinc-gfx-settings.png" style="width: 600px;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/dardel-thinlinc-gfx-starting.png"><img alt="../_images/dardel-thinlinc-gfx-starting.png" src="../_images/dardel-thinlinc-gfx-starting.png" style="width: 600px;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/dardel-thinlinc-gfx-jupyterlab.png"><img alt="../_images/dardel-thinlinc-gfx-jupyterlab.png" src="../_images/dardel-thinlinc-gfx-jupyterlab.png" style="width: 600px;" />
+</a>
+</figure>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><p>Since these are similar, I am only showing how it looks in Alvis.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-OOD-loggedin.png"><img alt="Alvis Open On-Demand" src="../_images/alvis-OOD-loggedin.png" style="width: 1200px;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-OOD-jup-settings.png"><img alt="Alvis Open On-Demand Jupyter settings" src="../_images/alvis-OOD-jup-settings.png" style="width: 1200px;" />
+</a>
+</figure>
+<p>Click “Launch”</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-OOD-jup-starting.png"><img alt="Alvis Open On-Demand Jupyter starting" src="../_images/alvis-OOD-jup-starting.png" style="width: 1200px;" />
+</a>
+</figure>
+<p>When it is ready, click “Connect to Jupyter”. Here I have started a terminal inside Jupyter, changed to my exercises directory and checked I can run a Python program (with PyTorch). I also check I have GPUs.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/alvis-OOD-jup-ok.png"><img alt="Alvis Open On-Demand Jupyter" src="../_images/alvis-OOD-jup-ok.png" style="width: 1200px;" />
+</a>
+</figure>
+</div></div>
+<ul class="simple">
+<li><p>At centres that have OpenOnDemand installed, you do not have to submit a batch job, but can run directly on the already allocated resources</p></li>
+<li><p>OpenOnDemand is a good option for interactive tasks, graphical applications/visualization, and simpler job submissions. It can also be more user-friendly.</p></li>
+<li><p>Regardless, there are many situations where submitting a batch job is the best option instead, including when you want to run jobs that need many resources (time, memory, multiple cores, multiple GPUs) or when you run multiple jobs concurrently or in a specified succession, without need for manual intervention. Batch jobs are often also preferred for automation (scripts) and reproducibility. Many types of application software fall into this category.</p></li>
+<li><p>At centres that have ThinLinc you can usually submit MATLAB jobs to compute resources from within MATLAB.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="interactive.html" class="btn btn-neutral float-left" title="Interactive work on the compute nodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="IDEs_cmd.html" class="btn btn-neutral float-right" title="Starting IDEs from command line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
