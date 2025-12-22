@@ -738,7 +738,7 @@ Polars package
    - GPU Support: Optionally run queries on **NVIDIA GPUs**
    - `Apache Arrow <https://arrow.apache.org/overview/>`_ support
 
-   https://pola.rs/
+   [`https://pola.rs/`](https://pola.rs/)
 
 Exercises: Packages
 -------------------

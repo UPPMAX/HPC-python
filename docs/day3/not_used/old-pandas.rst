@@ -778,7 +778,7 @@ For demonstration, here is an example based loosely on the climate of your teach
 
 .. important:: Speed-up with Numba
 
-   If you have Numba installed, setting ``engine=numba`` in functions like ``.transform()``, ``.apply()``, and NumPy-like statistics functions calculated over rolling windows, can boost performance if the function has to be run multiple times over several columns, particularly if you can set ``engine_kwargs={"parallel": True}``. **Parellelization occurs column-wise, so performance will be boosted if and only if the function is repeated many times over many columns.**
+   If you have Numba installed, setting ``engine=numba`` in functions like ``.transform()``, ``.apply()``, and NumPy-like statistics functions calculated over rolling windows, can boost performance if the function has to be run multiple times over several columns, particularly if you can set ``engine_kwargs={"parallel": True}``. **Parallelization occurs column-wise, so performance will be boosted if and only if the function is repeated many times over many columns.**
 
    Here is a (somewhat scientifically nonsensical) example using the exoplanets DataFrame to show the speed-up for 5 columns.
 

@@ -24,5 +24,6 @@ jobs:
           rm -rf docs/old
           rm -rf meeting_notes
           rm $(find . | grep "_old\\.")
+          rm $(find . | grep "not_used")
 
       - uses: igsekor/pyspelling-any@v1.0.4
