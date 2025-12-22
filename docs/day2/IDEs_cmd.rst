@@ -649,7 +649,7 @@ Similarly, you can also install your faviroute extensions on the HPCs and use th
 - Cosmos: system-installed (no module needed)
     - Start with ``code``
 
-For the HPC slusters below you need to connect from a local VSCode client (works also for all )
+For the HPC clusters below you need to connect from a local VSCode client (works also for all )
 
 - Dardel
 - Kebnekaise

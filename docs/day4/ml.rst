@@ -924,7 +924,7 @@ Tips and Tricks (Lessons Learned):
 
 .. challenge::
 
-   Try and run the either pytorch or tensorflow code for Fasion MNIST dataset by submitting a batch job.
+   Try and run the either pytorch or tensorflow code for Fashion MNIST dataset by submitting a batch job.
    The dataset is stored in ``datasets/pytorch`` or ``datasets/tf`` directory.
    In order to run this at any HPC resource you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
 
