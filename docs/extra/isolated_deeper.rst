@@ -67,7 +67,7 @@ User
 ....
 
 - Create an environment based on dependencies given in an environment file
-- This can be done in new virtual environment or as a genera installtion locally (not activating any environment
+- This can be done in new virtual environment or as a genera installation locally (not activating any environment
   
 .. code-block:: console
 

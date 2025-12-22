@@ -397,7 +397,7 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
 
    Try running ``titanic_sklearn.ipynb`` that can be found in ``Exercises/day4/MLDL`` directory, on an interactive CPU node. Also note that datasets are kept in ``Exercises/day4/MLDL/datasets`` directory. Give the **full path** to these datasets for this and subsequent Exercises.
 
-   Run it on a jupyter notebook on an interactive CPU node. An interative GPU node will also do. 
+   Run it on a jupyter notebook on an interactive CPU node. An interactive GPU node will also do. 
 
    Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC and PDC can build their own venvs.
    Use ``%matplotlib inline`` in jupyter to see the plots inline.
@@ -1398,6 +1398,6 @@ Exercises
 
   - At all clusters you will find PyTorch, TensorFlow, Scikit-learn under different modules, except Tetralith (NSC). 
   - When in doubt, search your modules and its correct version using ``module spider``.  If you still wished to have the correct versions for each cluster, check the `summary page <https://uppmax.github.io/HPC-python/summary2.html#summary-day2>`_.
-  - If you plan to use mutiple libraries with complex dependencies, it is recommended to use a virtual environment and pip install your libraries.
+  - If you plan to use multiple libraries with complex dependencies, it is recommended to use a virtual environment and pip install your libraries.
   - Always run heavy ML/DL jobs on compute nodes and not on login nodes. For development purpose, you can use an interactive session on a compute node.
 

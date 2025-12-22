@@ -18,7 +18,7 @@ Using GPUs with Python
 Introduction
 ------------ 
    
-In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU architecture with a GPU based architecture. Here, there is a schemematics of the former:
+In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU architecture with a GPU based architecture. Here, there is a schematics of the former:
 
 .. figure:: ../img/AMD-Zen4-CPU-b-cn1701.png
    :align: center
@@ -51,7 +51,7 @@ One possible layout (Kebnekaise, AMD Zen4 node with L40s GPU) is as follows:
 
    Schematics of a hybrid CPU-GPU architecture. A GPU L40s card is attached to a NUMA island which in turn contains 24 cores (AMD Zen4 CPU node with 48 cores total). The NUMA island and the GPUs are connected through a PCI-E interconnect which makes the data transfer between both components rather slow.
 
-We can characterize the CPU and GPU performance with two quantities: the **latency** and the **througput**.
+We can characterize the CPU and GPU performance with two quantities: the **latency** and the **throughput**.
 
 - **Latency** refers to the time spent in a sole computation. 
 - **Throughput** denotes the number of computations that can be performed in parallel. Then, we can say that a CPU has low latency (able to do fast computations) but low throughput (only a few computations simultaneously).
