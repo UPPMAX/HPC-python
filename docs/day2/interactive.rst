@@ -84,7 +84,7 @@ The different way HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE provide for an inter
 Here we define an interactive session as a session with direct access to a compute node.
 Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
 
-Some centers only offer command line interactive sessions, and some also have ways of providing graphicsal interactive sessions. 
+Some centers only offer command line interactive sessions, and some also have ways of providing graphical interactive sessions. 
 
 The way this differs between the centers (command line):
 
