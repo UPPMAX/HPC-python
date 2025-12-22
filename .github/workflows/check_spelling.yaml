@@ -18,10 +18,11 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v4.2.0
 
-      - name: Remove folders that do not care about spelling
+      - name: Remove files that do not care about spelling
         run: |
           rm -rf LICENSE.md
           rm -rf docs/old
           rm -rf meeting_notes
+          rm $(find . | grep "_old\\.")
 
       - uses: igsekor/pyspelling-any@v1.0.4
