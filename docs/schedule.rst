@@ -24,14 +24,14 @@ Next course dates:
 
 .. _schedule-day-1:
 
-Day 1: Log in and use Basic Python in a cluster environment
+Day 1: Log in and use basic Python in a cluster environment
 -----------------------------------------------------------
 
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
 
     Course starts at 9:00 sharp and ends at 16:00
 
-See schedule at `NAISS 'Intro to Python' <https://uppmax.github.io/naiss_intro_python/schedule/>`_.
+See schedule at `NAISS 'Intro to Python for HPC' <https://uppmax.github.io/naiss_intro_python/schedule/>`_.
 
 .. _schedule-day-2:
 
