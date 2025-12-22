@@ -1,0 +1,36 @@
+learning_outcomes,average_confidence,day
+I can determine which ML and DL modules are installed at a center,2,4
+I can run a Python code that uses PyTorch,2.25,4
+I can run a Python code that uses TensorFlow,2.5,4
+I am comfortable using a Python book,2.6666666666666665,1
+I can write a batch script that uses GPUs,2.75,4
+I know the basics of using the different parallelization tools in Python,2.75,4
+I can make a plot with Seaborn,2.8,3
+"I can use Pandas (basic operations - statistics, binary operators, vectorized math, string methods)",2.8,3
+"I can use Pandas (inspect, clean, and sort data for later operations)",2.8,3
+I can load a Python (machine learning) module,3,4
+I know how a simple for loop can be parallelized with Multiprocessing and how it can run on multiple cores,3,4
+I can use Pandas (input/output Pandas data),3.2,3
+I can write a batch script,3.4,3
+I can check that I am in an interactive session,3.5,2
+I can decide on useful file formats for big data,3.6,3
+I can use a text editor on my HPC cluster,3.6666666666666665,1
+I can use the compute nodes interactively,3.75,2
+I can submit a script to the job scheduler,3.8,3
+I am comfortable using the documentation of my HPC center,4,1
+"I can work (create, activate, work, deactivate) with a venv virtual environment",4,2
+I can create plots in matplotlib,4,3
+I can determine if a Python package is installed,4.25,2
+I can use a Python IDE,4.25,2
+I can describe what the Python interpreter is,4.333333333333333,1
+I can run a Python script that uses a graphical library on an HPC cluster,4.333333333333333,1
+I can find and load a Python package module,4.5,2
+I can install Python packages,4.5,2
+I can read and write to/from a file in Python,4.666666666666667,1
+I am comfortable learning Python,5,1
+I can convert a simple equation to Python code,5,1
+I can convert a simple text question to Python code,5,1
+I can create a Python script,5,1
+I can create and use a variable in Python,5,1
+I can load a Python version on my HPC cluster,5,1
+I can run a Python script,5,1
