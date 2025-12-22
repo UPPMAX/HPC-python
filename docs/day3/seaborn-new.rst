@@ -188,7 +188,7 @@ Load and Run Seaborn
 
 
 
-In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is ``sns``, but for those of us who never watched The West Wing, any sensible abbrevation will do. Here we use ``sb``.
+In all cases, once Seaborn or the module that provides it is loaded, it can be imported directly in Python. The typical abbreviation in online documentation is ``sns``, but for those of us who never watched The West Wing, any sensible abbreviation will do. Here we use ``sb``.
 
 .. attention::
 
@@ -357,7 +357,7 @@ By default the main plot is a scatter plot, and the marginal plots are either hi
 Heatmap and Clustermap
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Sometimes you have too many variables to look at with pair plots/corner plots, and the best you can do is map the correlation coeffcients between different parameters. Alternatively, you might have a DataFrame with a comparable number of numeric rows and columns, and you want to see how the rows and columns correlate. Either way, the DataFrame must be able to be coerced to ``ndarray``.
+Sometimes you have too many variables to look at with pair plots/corner plots, and the best you can do is map the correlation coefficients between different parameters. Alternatively, you might have a DataFrame with a comparable number of numeric rows and columns, and you want to see how the rows and columns correlate. Either way, the DataFrame must be able to be coerced to ``ndarray``.
 
 Once again, making this type of plot is extremely tedious in pure Matplotlib, but can require as little as one line of code with Seaborn. There are two functions that do this: ``sb.heatmap()`` and ``sb.clustermap()``. The main difference between the two is that ``clustermap()`` attempts to rearrange variables so those that are correlated are positioned next to each other and connected by a tree diagram.
 

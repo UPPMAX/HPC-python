@@ -623,7 +623,7 @@ More info
 
    - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
    - Make it for each project you have for reproducibility.
-   - There are different tools to create virtual environemnts.
+   - There are different tools to create virtual environments.
 
       - UPPMAX has ``conda`` and ``venv`` and ``virtualenv``
       - HPC2N has ``venv`` and ``virtualenv``

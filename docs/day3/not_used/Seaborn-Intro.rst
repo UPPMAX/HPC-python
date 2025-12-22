@@ -353,7 +353,7 @@ For the ``map_`` commands, the kwargs depend on the type of plot that was passed
 Heatmap and Clustermap
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Sometimes you have too many variables to look at with pairplots or corner plots, and the best you can do is map the correlation coeffcients between different parameters. Alternatively, you might have a DataFrame with a comparable number of numeric rows and columns, and you want to see how the rows and columns correlate. Either way, the DataFrame must be able to be coerced to ``ndarray``. 
+Sometimes you have too many variables to look at with pairplots or corner plots, and the best you can do is map the correlation coefficients between different parameters. Alternatively, you might have a DataFrame with a comparable number of numeric rows and columns, and you want to see how the rows and columns correlate. Either way, the DataFrame must be able to be coerced to ``ndarray``. 
 
 Once again, this type of plot is extremely tedious to make in pure Matplotlib, but in Seaborn, it can require as little as one line of code. There are two functions that do this: ``sb.heatmap()`` and ``sb.clustermap()``. The main difference between the two is that the latter attempts to rearrange variables such that those that are correlated are positioned next to each other on the plot, while the former simply lists the variables in the order they were given in the DataFrame.
 

@@ -569,7 +569,7 @@ Principles
 
       Spyder is not available on Dardel.
 
-      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+      - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
       .. code-block:: console
 
@@ -585,7 +585,7 @@ Principles
 
       Spyder is not available centrally on Rackham. 
 
-      - Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+      - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
       .. code-block:: console
 
@@ -697,7 +697,7 @@ Install VS Code on your local machine and follow the steps below to connect to t
    .. figure:: ../img/vscode_connected_to_rackham.png
 
 When you first establish the ssh connection to the cluster, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
-This also where VS Code will install all your extentions that can quickly fill up your home directory.
+This also where VS Code will install all your extensions that can quickly fill up your home directory.
 
 Exercises with step-by-step instructions
 ----------------------------------------

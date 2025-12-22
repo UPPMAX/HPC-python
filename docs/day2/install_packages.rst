@@ -21,7 +21,7 @@ There are 2 ways to install missing python packages at a HPC cluster.
 - Local installation, always available for the version of Python you had active when doing the installation
     - ``pip install --user [package name]``
 - Isolated environment. See next session.
-    - virtual environents provided by python
+    - virtual environments provided by python
     - conda
 
 Normally you want reproducibility and the safe way to go is with isolated environments specific to your different projects.

@@ -34,13 +34,13 @@
 - It was very informative and fun
 - a little bit tight
 - The time allocated isolated environments and launching IDEs from the command line did not seem adequate
-- no time for excercise so a bit to fast
+- no time for exercise so a bit to fast
 
 ### [Future topics](future_topics.txt)
 
-- Me personally I want more about COSMOS-SENS but that is mainly as there is very little documantation at Lunarc about it
+- Me personally I want more about COSMOS-SENS but that is mainly as there is very little documentation at Lunarc about it
 - NO
-- More andvanced practical management of Conda/virtual environments on HPC, Workflow systems like Nextflow or Snakemake
+- More advanced practical management of Conda/virtual environments on HPC, Workflow systems like Nextflow or Snakemake
 
 ### [Other comments](comments.txt)
 

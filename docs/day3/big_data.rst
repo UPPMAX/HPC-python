@@ -33,7 +33,7 @@ High-Performance Data Analytics (HPDA)
 .. admonition:: What is it?
    :class: dropdown
 
-   - **High-performace data analytics (HPDA)**, a subset of high-performance computing which focuses on working with **large data**.
+   - **High-performance data analytics (HPDA)**, a subset of high-performance computing which focuses on working with **large data**.
 
          - The data can come from either computer models and simulations or from experiments and observations, and the goal is to preprocess, analyse and visualise it to generate scientific results.
 
@@ -102,7 +102,7 @@ Allocating RAM
 
 .. important::
 
-   - You do not have to explicitely run threads or other parallelism.
+   - You do not have to explicitly run threads or other parallelism.
    - Allocating several nodes for one one big problem is not useful.
       - Note that shared memory among the cores works within node only.
 
@@ -216,7 +216,7 @@ Exercise: Memory allocation (10 min)
 
    - Slurm flag ``-n <number of cores>``
 
-.. challenge:: Actually start an interactive sesion with 4 cores for 3 hours. 
+.. challenge:: Actually start an interactive session with 4 cores for 3 hours. 
 
    - We will use it for the exercises later.
    - Since it may take some time to get the allocation we do it now already!
@@ -635,7 +635,7 @@ Xarray package
     - It also **borrows heavily from the Pandas package for labelled tabular data** and integrates tightly with dask for parallel computing. 
 
 - Xarray is particularly tailored to working with NetCDF files.
-- But work for aother files as well
+- But work for another files as well
  
 - Explore it a bit in the (optional) exercise below!
 
@@ -699,7 +699,7 @@ Big file → split into chunks → parallel workers → results combined.
 
 .. admonition:: To think of
  
-   - Chunk size and number of them affect the performance due to overhad/administration of the chunking and combination.
+   - Chunk size and number of them affect the performance due to overhead/administration of the chunking and combination.
    - Briefly explain what happens when a Dask job runs on multiple cores.
 
 
@@ -720,7 +720,7 @@ Big file → split into chunks → parallel workers → results combined.
 Polars package
 ..............
 
-- ``polars`` is a Python package that presnts itself as **Blazingly Fast DataFrame Library**
+- ``polars`` is a Python package that presents itself as **Blazingly Fast DataFrame Library**
     - Utilizes all available cores on your machine.
     - Optimizes queries to reduce unneeded work/memory allocations.
     - Handles datasets much larger than your available RAM.
@@ -988,7 +988,7 @@ Set up the environment
 
    - https://stackoverflow.com/questions/72155514/when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data
 
-   - Browse: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html or change to more applicabe version in drop-down menu to lower right.
+   - Browse: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html or change to more applicable version in drop-down menu to lower right.
        - find something interesting for you! Test some lines if you want to!
        - tips: 
            - Pandas: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough

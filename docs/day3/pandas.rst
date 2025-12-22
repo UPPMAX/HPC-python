@@ -28,7 +28,7 @@ It is recommended that you do exercises and other code experimentation for this 
 * A simple interface with the Seaborn plotting library, and increasingly also Matplotlib.
 * Easy multi-threading with Numba.
 
-**Limitations.** Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like ``dask`` and ``polars`` that can help with large data sets. In partcular, ``dask`` will be covered tomorrow in the Parallel Computing section of this course. There is also the ``xarray`` package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.
+**Limitations.** Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like ``dask`` and ``polars`` that can help with large data sets. In particular, ``dask`` will be covered tomorrow in the Parallel Computing section of this course. There is also the ``xarray`` package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.
 
 Load and Run
 ------------

@@ -17,7 +17,7 @@ High-Performance Data Analytics (HPDA)
 .. admonition:: What is it?
    :class: dropdown
 
-   - **High-performace data analytics (HPDA)**, a subset of high-performance computing which focuses on working with large data.
+   - **High-performance data analytics (HPDA)**, a subset of high-performance computing which focuses on working with large data.
 
          - The data can come from either computer models and simulations or from experiments and observations, and the goal is to preprocess, analyse and visualise it to generate scientific results.
 
@@ -351,7 +351,7 @@ Allocating RAM
 .. important::
 
    - Allocate many cores or a full node!
-   - You do not have to explicitely run threads or other parallelism.
+   - You do not have to explicitly run threads or other parallelism.
 
 - Note that shared memory among the cores works within node only.
 
@@ -622,7 +622,7 @@ Exercises
              ssh nid001057
 
 
-          Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+          Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
           .. code-block:: console
 

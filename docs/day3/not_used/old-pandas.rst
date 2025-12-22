@@ -12,7 +12,7 @@ Intro to Pandas
 * A simple interface with the Seaborn plotting library, and increasingly also Matplotlib.
 * Easy multi-threading with Numba.
 
-**Limitations.** Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like ``dask`` and ``polars`` that can help. In partcular, ``dask`` will be covered in a later lecture in this workshop. There is also the ``xarray`` package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.
+**Limitations.** Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like ``dask`` and ``polars`` that can help. In particular, ``dask`` will be covered in a later lecture in this workshop. There is also the ``xarray`` package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.
 
 .. admonition:: Get today's tarball!
 
@@ -197,7 +197,7 @@ Load and Run
              ssh nid001057
 
 
-          Use the conda env you created in Exercise 2 in `Use isolated environemnts <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+          Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
           .. code-block:: console
 
@@ -579,7 +579,7 @@ Iteration over DataFrames, Series, and GroupBy objects is slow and should be avo
 * ``.str.upper()``/``.lower()``
 * ``.str.<r>strip()``
 * ``.str.<r>split(' ', n=None, expand=False)`` can return outputs of several different shapes depending on ``expand`` (bool, whether to return split strings as lists in 1 column or substrings in multiple columns) and ``n`` (maximum number of columns to return).
-* Unlike for regular strings, ``df.str.replace()`` does not accept dict-type input where keys are existing substrings and values are replacements. For multiple simulataneous replacements via dictionary input, use ``df.replace()`` without the ``.str``.
+* Unlike for regular strings, ``df.str.replace()`` does not accept dict-type input where keys are existing substrings and values are replacements. For multiple simultaneous replacements via dictionary input, use ``df.replace()`` without the ``.str``.
 
 **Statistics.** Nearly all NumPy statistical functions and a few ``scipy.mstats`` functions can be called as aggregate methods of DataFrames, Series, any subsets thereof, or GroupBy objects. All of them ignore NaNs by default. For DataFrames and GroupBy objects, you must set ``numeric_only=True`` to exclude non-numeric data, and specify whether to aggregate along rows (``axis=0``) or columns (``axis=1``) .
 

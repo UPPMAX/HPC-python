@@ -923,7 +923,7 @@ VS Code
       .. figure:: ../img/vscode_connected_to_rackham.png
 
    When you first establish the ssh connection to Rackham, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
-   This also where VS Code will install all your extentions that can quickly fill up your home directory.
+   This also where VS Code will install all your extensions that can quickly fill up your home directory.
 
 Features
 ########

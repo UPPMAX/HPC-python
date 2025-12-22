@@ -20,7 +20,7 @@
 ### [Pace](pace.txt)
 
 - NA
-- a bit to fast for me to really learn by following examples, to uncertain with setting up environments, connectin et c
+- a bit to fast for me to really learn by following examples, to uncertain with setting up environments, connecting et c
 - good
 - NA
 

@@ -52,7 +52,7 @@ What happens at activation?
     - Check with ``which python``, should show at path to the environment.
     - In conda you can define python version as well
     - Since ``venv`` is part of Python you will get the python version used when running the ``venv`` command.
-- Packages are defined by the environent.
+- Packages are defined by the environment.
     - Check with ``pip list``
     - Conda can only see what you installed for it.
     - venv and virtualenv also see other packages if you allowed for that when creating the environment (``--system-site-packages``). 
@@ -196,7 +196,7 @@ The next points will be the same for all clusters
 .. note::
 
    - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions. 
-   - Some packaegs may be inhereted from the moduels yopu have loaded
+   - Some packages may be inherited from the modules yopu have loaded
    - You can do ``pip list --local`` to see what is installed by you in the environment.
    - Some IDE:s like Spyder may only find those "local" packages
 
@@ -238,7 +238,7 @@ Conda
 
 .. tip::
 
-   - The conda environemnts inclusing many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
+   - The conda environments including many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
    - Move your ``.conda`` directory to your project folder and make a soft link to it from ``$HOME``
    - Do the following (``mkdir -p`` ignores error output and will not recfreate anothe folder if it already exists):
         - (replace what is inside ``<>`` with relevant path)
