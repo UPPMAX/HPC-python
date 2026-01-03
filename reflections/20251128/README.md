@@ -30,3 +30,63 @@ Hence, the duration of the session is perfect!
 
 I had a one-on-one with most learners. Most had at least one extra question
 and there was enough time to discuss this.
+
+
+## Survey at end
+
+- [Evaluation results (csv)](survey_end.csv)
+- [Evaluation results (xlsx)](survey_end.xlsx)
+- [Analysis script](analyse.R)
+- [Average confidence per question (.csv)](average_confidences.csv)
+- [Success score](success_score.txt): 82%
+
+![Course ratings](course_rating.png)
+![All confidences](all_confidences.png)
+![Average confidence per question](average_confidences_per_question.png)
+![Confidences per question](confidences_per_question.png)
+![Course recommend](recommend.png)
+
+## Evaluation results
+
+### Pace
+
+- It was very informative and fun
+
+Unsure if this applies to me.
+
+- a little bit tight
+
+I assume this does not apply to me.
+
+- The time allocated isolated environments and launching IDEs
+  from the command line did not seem adequate
+
+Does not apply to me.
+
+- no time for exercise so a bit to fast
+
+I assume this does not apply to me.
+
+### [Future topics](future_topics.txt)
+
+- Me personally I want more about COSMOS-SENS but that is mainly as there
+  is very little documentation at Lunarc about it
+
+I agree.
+
+- NO
+- More advanced practical management of Conda/virtual environments on HPC,
+  Workflow systems like Nextflow or Snakemake
+
+I assume the Conda and venv teachers pick this up.
+
+Unlike Nextflow, Snakemake seems a good fit, as it is intended
+to be Python-like.
+
+
+### [Other comments](comments.txt)
+
+- Exercises were a bit less clear today, which ones we should do and when was a little confusing. Content was very good though :)
+- NO
+- Because each hpc has different setup it is a bit uninteresting to walk through them all when I'm only concerned with the one I'm using
+
