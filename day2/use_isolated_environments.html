@@ -1,0 +1,1435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Use isolated environments &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Basic batch and Slurm" href="basic_batch_slurm.html" />
+    <link rel="prev" title="Install packages" href="install_packages.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Use isolated environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#isolated-environments">Isolated environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-happens-at-activation">What happens at activation?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-environment-venv-virtualenv">Virtual environment - venv &amp; virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conda">Conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-from-file">Install from file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#venv">venv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conda-forge">conda/forge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">Summary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-venv">Workflow <code class="docutils literal notranslate"><span class="pre">venv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#typical-workflow-conda">Typical workflow Conda</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Use isolated environments</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day2/use_isolated_environments.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="use-isolated-environments">
+<span id="id1"></span><h1>Use isolated environments<a class="headerlink" href="#use-isolated-environments" title="Link to this heading"></a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning objectives</p>
+<ul class="simple">
+<li><p>Practice using the documentation of your HPC cluster</p></li>
+<li><p>Find out which isolated environment tool to use on your HPC cluster</p></li>
+<li><p>Work (create, activate, work, deactivate) with isolated environments
+in the way recommended by your HPC cluster</p></li>
+<li><p>(optional) work (create, activate, work, deactivate) with isolated environments
+in the other way (if any) possible on your HPC cluster</p></li>
+<li><p>(optional) export and import a virtual
+environment</p></li>
+</ul>
+</div>
+<div class="admonition-for-teachers admonition">
+<p class="admonition-title">For teachers</p>
+<ul class="simple">
+<li><p>Introduction 5 m</p></li>
+<li><p>venv 5 m</p></li>
+<li><p>Conda 5</p></li>
+<li><p>Exercises 30 m</p></li>
+</ul>
+</div>
+<section id="isolated-environments">
+<h2>Isolated environments<a class="headerlink" href="#isolated-environments" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>As an example, maybe you have been using TensorFlow 1.x.x for your project and</dt><dd><ul>
+<li><p>now you need to install a package that requires TensorFlow 2.x.x</p></li>
+<li><p>but you will still be needing the old version of TensorFlow.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>This is easily solved with isolated environments.</p></li>
+<li><dl class="simple">
+<dt>Another example is when a reviewer want you to remake a figure.</dt><dd><ul>
+<li><p>You have already started to use a newer Python version or newer packages and</p></li>
+<li><p>realize that your earlier script does not work anymore.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Having freezed the environment would have solved you from this issue!</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Isolated/virtual environments solve a couple of problems:</p>
+<ul class="simple">
+<li><p>You can install specific, also older, package versions into them.</p></li>
+<li><p>You can create one for each project and no problem if the two projects require different versions.</p></li>
+<li><p>You can remove the environment and create a new one, if not needed or with errors.</p></li>
+<li><p>Good for reproducibility!</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>Isolated environments let you create separate workspaces for different versions of Python and/or different versions of packages.</p></li>
+<li><p>You can activate and deactivate them one at a time, and work as if the other workspace does not exist.</p></li>
+</ul>
+<p><strong>The tools</strong></p>
+<ul class="simple">
+<li><p>Python’s built-in <code class="docutils literal notranslate"><span class="pre">venv</span></code> module: uses pip</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> (can be installed): uses pip</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span></code>/<code class="docutils literal notranslate"><span class="pre">forge</span></code>: uses <code class="docutils literal notranslate"><span class="pre">conda</span></code>/<code class="docutils literal notranslate"><span class="pre">mamba</span></code></p></li>
+</ul>
+<section id="what-happens-at-activation">
+<h3>What happens at activation?<a class="headerlink" href="#what-happens-at-activation" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Python version is defined by the environment.</dt><dd><ul>
+<li><p>Check with <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code>, should show at path to the environment.</p></li>
+<li><p>In conda you can define python version as well</p></li>
+<li><p>Since <code class="docutils literal notranslate"><span class="pre">venv</span></code> is part of Python you will get the python version used when running the <code class="docutils literal notranslate"><span class="pre">venv</span></code> command.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Packages are defined by the environment.</dt><dd><ul>
+<li><p>Check with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code></p></li>
+<li><p>Conda can only see what you installed for it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venv</span></code> and <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> also see other packages if you allowed for that when creating the environment (<code class="docutils literal notranslate"><span class="pre">--system-site-packages</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>You can work in a Python shell or IDE (coming session)</p></li>
+<li><p>You can run scripts dependent on packages now installed in your environment.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>About Conda on HPC systems</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Conda is good in many ways but can interact negatively when</dt><dd><ul>
+<li><p>using the python modules (module load) at the same time</p></li>
+<li><p>having base environment always active</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Not recommended at HPC2N</p></li>
+<li><p>At the other clusters, handle with care!</p></li>
+</ul>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HPC cluster</p></th>
+<th class="head"><p>Conda vs venv</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alvis</p></td>
+<td><p>venv, conda in container</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bianca</p></td>
+<td><p>conda/latest, venv via wharf</p></td>
+</tr>
+<tr class="row-even"><td><p>COSMOS</p></td>
+<td><p>Anaconda3/2024.02-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dardel</p></td>
+<td><p>miniconda3/24.7.1-0-cpeGNU-23.12</p></td>
+</tr>
+<tr class="row-even"><td><p>Kebnekaise</p></td>
+<td><p>venv <strong>only</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>LUMI</p></td>
+<td><p>venv, conda in container</p></td>
+</tr>
+<tr class="row-even"><td><p>Pelle</p></td>
+<td><p>venv, Miniforge3/24.11.3-0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tetralith</p></td>
+<td><p>Anaconda3/2024.02-1</p></td>
+</tr>
+<tr class="row-even"><td><p>LUMI</p></td>
+<td><p>conda-containerize</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>Try with <code class="docutils literal notranslate"><span class="pre">venv</span></code> first</p></li>
+<li><p>If very troublesome, try with <code class="docutils literal notranslate"><span class="pre">conda</span></code></p></li>
+<li><p>To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course.</p></li>
+<li><dl class="simple">
+<dt>To see which Python packages you, yourself, have installed, you can use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span> <span class="pre">--local</span></code> while the environment you have installed the packages in is active. To see all packages, use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code>.</dt><dd><ul>
+<li><p>Note that <code class="docutils literal notranslate"><span class="pre">--user</span></code> must be omitted: else the package will be installed in the global user folder.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition-pip-list-documentation admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code> documentation</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--local</span></code>: If in a virtualenv that has global access, do not list globally-installed packages.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--user</span></code>: Only output packages installed in user-site.</p></li>
+</ul>
+<p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_list/">https://pip.pypa.io/en/stable/cli/pip_list/</a></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Other tools perhaps covered in the future</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference external" href="https://pixi.sh/latest/">pixi</a>: package management tool for developers</dt><dd><ul>
+<li><p>It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.</p></li>
+<li><p>could replace conda/mamba</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://docs.astral.sh/uv/">uv</a>: An extremely fast Python package and project manager, written in Rust.</dt><dd><ul>
+<li><p>A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="virtual-environment-venv-virtualenv">
+<h2>Virtual environment - venv &amp; virtualenv<a class="headerlink" href="#virtual-environment-venv-virtualenv" title="Link to this heading"></a></h2>
+<p>With this tool you can download and install with <code class="docutils literal notranslate"><span class="pre">pip</span></code> from the <a class="reference external" href="https://pypi.org/">PyPI repository</a></p>
+<div class="dropdown admonition">
+<p class="admonition-title">venv vs. virtualenv</p>
+<ul class="simple">
+<li><p>These are almost completely interchangeable</p></li>
+<li><p>The difference being that <strong>virtualenv supports older python versions</strong> and has a few more minor unique features, while <strong>venv is in the standard library</strong>.</p></li>
+<li><dl class="simple">
+<dt>Step 1:</dt><dd><ul>
+<li><p>Virtualenv: <code class="docutils literal notranslate"><span class="pre">virtualenv</span> <span class="pre">Example</span></code></p></li>
+<li><p>venv: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">Example2</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Next steps are identical and involves “activating” and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code></p></li>
+<li><p>We recommend <code class="docutils literal notranslate"><span class="pre">venv</span></code> in the course. Then we are just needing the Python module itself!</p></li>
+</ul>
+</div>
+<div class="admonition-tip-for-tetralith admonition">
+<p class="admonition-title">Tip for Tetralith</p>
+<ul class="simple">
+<li><p>load a “bare” python, like <code class="docutils literal notranslate"><span class="pre">Python/3.10.4-bare-hpc1-gcc-2022a-eb</span></code></p></li>
+<li><p>in en environment install setuptools and wheel: <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pip</span> <span class="pre">setuptools</span> <span class="pre">wheel</span></code></p></li>
+</ul>
+</div>
+<div class="admonition-example-nsc admonition">
+<p class="admonition-title">Example NSC</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5</span>
+<span class="go">which python</span>
+<span class="go">python -V</span>
+<span class="go">cd /proj/courses-fall-2025/users/&lt;username&gt;</span>
+<span class="go">python -m venv env-matplotlib</span>
+<span class="go">source env-matplotlib/bin/activate</span>
+<span class="gp">#</span>note<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>prompt<span class="w"> </span>has<span class="w"> </span><span class="sb">``</span><span class="o">(</span>env-matplotlib<span class="o">)</span><span class="sb">``</span>
+<span class="gp">#</span>install<span class="w"> </span>some<span class="w"> </span>extra<span class="w"> </span>pip<span class="w"> </span>related<span class="w"> </span>tools
+<span class="gp">#</span>pip3<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel
+<span class="go">pip install matplotlib</span>
+<span class="gp"># </span><span class="k">do</span><span class="w"> </span>some<span class="w"> </span>work
+<span class="go">python</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>When work is done, deactivate the environment with</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">deactivate</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You can use “pip list” on the command line (after loading the python module) to see which packages are available and which versions.</p></li>
+<li><p>Some packages may be inherited from the modules you have loaded</p></li>
+<li><p>You can do <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span> <span class="pre">--local</span></code> to see what is installed by you in the environment.</p></li>
+<li><p>Some IDE:s like Spyder may only find those “local” packages</p></li>
+<li><dl class="simple">
+<dt>To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--system-site-packages</span></code> includes the packages already installed in the loaded python module.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">--no-cache-dir&quot;</span></code> option is required to <strong>avoid it from reusing earlier installations from the same user in a different environment</strong>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">--no-build-isolation</span></code> is to make sure that it uses the loaded modules from the module system when <strong>building any Cython libraries</strong>.</p></li>
+</ul>
+</div>
+</section>
+<section id="conda">
+<h2>Conda<a class="headerlink" href="#conda" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://anaconda.org/anaconda/conda">Conda</a> is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.</p></li>
+<li><p>Conda creates isolated environments not clashing with other installations of python and other versions of packages.</p></li>
+<li><dl class="simple">
+<dt>Conda environment requires that you install all packages needed by yourself.</dt><dd><ul>
+<li><p>That is,  you cannot load the python module and use the packages therein inside you Conda environment.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Conda channels</p>
+<ul class="simple">
+<li><p>bioconda</p></li>
+<li><p>biocore</p></li>
+<li><p>conda-forge</p></li>
+<li><p>dranew</p></li>
+<li><p>free</p></li>
+<li><p>~main~ # not available at the HPC-clusters</p></li>
+<li><p>pro</p></li>
+<li><p>qiime2</p></li>
+<li><p>r</p></li>
+<li><p>r2018.11</p></li>
+<li><p>scilifelab-lts</p></li>
+</ul>
+<blockquote>
+<div><p>You reach them all by loading the conda module. You don’t have to state the specific channel when using UPPMAX. Otherwise you do with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">-c</span> <span class="pre">&lt;channel&gt;</span> <span class="pre">...</span></code></p>
+</div></blockquote>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Drawbacks</p>
+<ul class="simple">
+<li><p>Conda cannot use already install packages from the Python modules and libraries already installed, and hence installs them anyway</p></li>
+<li><p>Conda is therefore known for creating <strong>many</strong> <em>small</em> files. Your disk space is not only limited in GB, but also in number of files (typically <code class="docutils literal notranslate"><span class="pre">300000</span></code> in $HOME).</p></li>
+<li><dl class="simple">
+<dt>Check your disk usage and quota limit</dt><dd><ul>
+<li><p>Do a <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">clean</span> <span class="pre">-a</span></code> once in a while to remove unused and unnecessary files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li><p>The conda environments including many small files are by default stored in <code class="docutils literal notranslate"><span class="pre">~/.conda</span></code> folder that is in your $HOME directory with limited storage.</p></li>
+<li><p>Move your <code class="docutils literal notranslate"><span class="pre">.conda</span></code> directory to your project folder and make a soft link to it from <code class="docutils literal notranslate"><span class="pre">$HOME</span></code></p></li>
+<li><dl class="simple">
+<dt>Do the following (<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span></code> ignores error output and will not recreate another folder if it already exists):</dt><dd><ul class="simple">
+<li><p>(replace what is inside <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> with relevant path)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Solution 1</p>
+<blockquote>
+<div><p>This works nicely if you have several projects. Then you can change these variables according to what you are currently working with.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_ENVS_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/your/project/(subdir)&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_PKG_DIRS</span><span class="o">=</span><span class="s2">&quot;path/to/your/project/(subdir)&quot;</span>
+mamba<span class="w"> </span>create<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$CONDA_ENVS_PATH</span>/&lt;conda<span class="w"> </span>env<span class="w"> </span>name&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Solution 2</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>This may not be a good idea if you have several projects.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.conda
+$<span class="w"> </span>mv<span class="w"> </span>~/.conda<span class="w"> </span>/&lt;path-to-project-folder&gt;/&lt;username&gt;/
+$<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/&lt;path-to-project-folder&gt;/&lt;username&gt;/.conda<span class="w"> </span>~/.conda
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="admonition-example-nsc admonition">
+<p class="admonition-title">Example NSC</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load Miniforge/24.7.1-2-hpc1</span>
+<span class="go">export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER</span>
+<span class="go">export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER</span>
+<span class="go">mamba create --prefix=$CONDA_ENVS_PATH/numpy-proj-39 python=3.9.5 -c conda-forge</span>
+<span class="go">mamba activate nsc-example</span>
+<span class="gp"># </span>A<span class="w"> </span>prompt<span class="w"> </span><span class="s2">&quot;(/path-to/nsc-example/)&quot;</span><span class="w"> </span>should<span class="w"> </span>show<span class="w"> </span>up
+<span class="gp"># </span>double-check<span class="w"> </span>we<span class="w"> </span>are<span class="w"> </span>using<span class="w"> </span>python<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>Conda<span class="w"> </span>environment!
+<span class="go">which python  # should point to the conda environment!</span>
+<span class="go">python -V     # should give python version 3.9.5</span>
+<span class="go">mamba install numpy</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+</pre></div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Comments</p>
+<ul class="simple">
+<li><p>When pinning with Conda, use single <code class="docutils literal notranslate"><span class="pre">=</span></code> instead of double (as used by pip)</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Conda base env</p>
+<ul class="simple">
+<li><p>When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments.</p></li>
+<li><p>It includes a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.</p></li>
+</ul>
+</div>
+<div class="admonition-conda-cheat-sheet admonition">
+<p class="admonition-title">Conda cheat sheet</p>
+<ul class="simple">
+<li><p>List packages in present environment:               <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code></p></li>
+<li><p>List all environments:                                      <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">-e</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code></p></li>
+<li><p>Install a package:                              <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">somepackage</span></code></p></li>
+<li><p>Install from certain channel (conda-forge):     <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">somepackage</span></code></p></li>
+<li><p>Install a specific version:                     <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">somepackage=1.2.3</span></code></p></li>
+<li><p>Create a new environment:                       <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">myenvironment</span></code></p></li>
+<li><p>Create a new environment from requirements.txt: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">myenvironment</span> <span class="pre">--file</span> <span class="pre">requirements.txt</span></code></p></li>
+<li><p>On e.g. HPC systems where you don’t have write access to central installation directory: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--prefix</span> <span class="pre">/some/path/to/env</span></code></p></li>
+<li><p>Activate a specific environment:                <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">myenvironment</span></code></p></li>
+<li><p>Deactivate current environment:                 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Conda vs mamba etc…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip">what-is-the-difference-with-conda-mamba-poetry-pip</a></p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">What to do when a problem arises?</p>
+<ul class="simple">
+<li><p>If you experience unexpected problems with the conda provided by the module system on Rackham or anaconda3 on Dardel, you can easily install your own and maintain it yourself.</p></li>
+<li><p>Read more at <a class="reference external" href="https://hackmd.io/&#64;pmitev/conda_on_Rackham">Pavlin Mitev’s page about conda on Rackham/Dardel</a> and change paths to relevant one for your system.</p></li>
+<li><p>Or <a class="reference external" href="https://hackmd.io/&#64;pmitev/module_conda_Rackham">Conda - “best practices” - UPPMAX</a></p></li>
+</ul>
+</div>
+</section>
+<section id="install-from-file">
+<h2>Install from file<a class="headerlink" href="#install-from-file" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>All centers has had different approaches in what is included in the module system and not.</p></li>
+<li><p>Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.</p></li>
+<li><p>This is left as exercise for you, see Exercise 4 and 5.</p></li>
+</ul>
+<section id="venv">
+<h3>venv<a class="headerlink" href="#venv" title="Link to this heading"></a></h3>
+<p>Make a requirements file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">freeze</span> <span class="o">--</span><span class="n">local</span> <span class="o">&gt;</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">How does it look like?</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.60.1
+kiwisolver==1.4.9
+matplotlib==3.10.7
+numpy==2.3.5
+pillow==12.0.0
+pyparsing==3.2.5
+python-dateutil==2.9.0.post0
+six==1.17.0
+</pre></div>
+</div>
+</div>
+<p>Install packages from a file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="conda-forge">
+<h3>conda/forge<a class="headerlink" href="#conda-forge" title="Link to this heading"></a></h3>
+<p>Make environment file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">&gt;</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">How does it look like?</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/lunarc/nobackup/projects/lu2025-17-52/bjornc/example</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_libgcc_mutex=0.1=conda_forge</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_openmp_mutex=4.5=2_gnu</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alsa-lib=1.2.14=hb9d3cd8_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brotli=1.2.0=hed03a55_1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brotli-bin=1.2.0=hb03c661_1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bzip2=1.0.8=hda65f42_8</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ca-certificates=2025.11.12=hbd8a1cb_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cairo=1.18.4=h3394656_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contourpy=1.3.3=py312hd9148b4_3</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cycler=0.12.1=pyhd8ed1ab_1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cyrus-sasl=2.1.28=hd9c7081_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dbus=1.16.2=h3c4dab8_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">double-conversion=3.3.1=h5888daf_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">font-ttf-dejavu-sans-mono=2.37=hab24e00_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">font-ttf-inconsolata=3.000=h77eed37_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">font-ttf-source-code-pro=2.038=h77eed37_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">font-ttf-ubuntu=0.83=h77eed37_3</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fontconfig=2.15.0=h7e30c49_1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fonts-conda-ecosystem=1=0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fonts-conda-forge=1=hc364b38_1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fonttools=4.60.1=py312h8a5da7c_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">freetype=2.14.1=ha770c72_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">graphite2=1.3.14=hecca717_2</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">harfbuzz=12.2.0=h15599e2_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icu=75.1=he02047a_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyutils=1.6.3=hb9d3cd8_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kiwisolver=1.4.9=py312h0a2e395_2</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">krb5=1.21.3=h659f571_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lcms2=2.17=h717163a_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ld_impl_linux-64=2.45=default_hbd61a6d_104</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lerc=4.0.0=h0aef613_1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libblas=3.11.0=2_h4a7cf45_openblas</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">this was just like 30%</span>
+</pre></div>
+</div>
+</div>
+<p>Create an environment from a file. Do this on another computer or rename.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+<span class="c1"># if renaming is necessary</span>
+<span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">renamed</span>
+</pre></div>
+</div>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<ul class="simple">
+<li><p>Did you note the difference in file length?</p></li>
+<li><p>What does it mean?</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<div class="admonition-exercise-0-make-a-decision-between-venv-or-conda exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise 0: Make a decision between <code class="docutils literal notranslate"><span class="pre">venv</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<ul class="simple">
+<li><p>We recommend <cite>conda</cite> for LUNARC.</p></li>
+<li><p>We recommend <code class="docutils literal notranslate"><span class="pre">venv</span></code> for HPC2N</p></li>
+<li><p>Otherwise there are some kind of documentation at all sites.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venv</span></code> “should” work everywhere but has not been fully tested</p></li>
+</ul>
+</div>
+<p>Breakout room according to grouping</p>
+<div class="admonition-exercise-1-cover-the-documentation-for-venvs-or-conda exercise important admonition" id="exercise-1">
+<p class="admonition-title">Exercise 1: Cover the documentation for venvs or conda</p>
+<p>First try to find it by navigating.</p>
+<ul class="simple">
+<li><p>Alvis: <a class="reference external" href="https://www.c3se.chalmers.se/documentation/first_time_users/">https://www.c3se.chalmers.se/documentation/first_time_users/</a></p></li>
+<li><p>NSC: <a class="reference external" href="https://www.nsc.liu.se">https://www.nsc.liu.se</a></p></li>
+<li><p>PDC: <a class="reference external" href="https://support.pdc.kth.se/doc/">https://support.pdc.kth.se/doc/</a></p></li>
+<li><p>LUNARC: <a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/">https://lunarc-documentation.readthedocs.io/en/latest/</a></p></li>
+<li><p>UPPMAX: <a class="reference external" href="https://docs.uppmax.uu.se/">https://docs.uppmax.uu.se/</a></p></li>
+<li><p>HPC2N: <a class="reference external" href="https://docs.hpc2n.umu.se/">https://docs.hpc2n.umu.se/</a></p></li>
+<li><p>LUMI: <a class="reference external" href="https://docs.lumi-supercomputer.eu/software">https://docs.lumi-supercomputer.eu/software</a></p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">venv</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">conda</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>NSC:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nsc.liu.se/software/python/">Python</a></p></li>
+</ul>
+<p>PDC:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pdc-support.github.io/pdc-intro/#165">Virtual environment with venv</a></p></li>
+</ul>
+<p>LUNARC</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/">Python</a></p></li>
+</ul>
+<p>UPPMAX (only Pelle)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.uppmax.uu.se/software/python_venv/">Python venv</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=lj_Q-5l0BqU">Video By Richel</a></p></li>
+</ul>
+<p>HPC2N</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.hpc2n.umu.se/software/userinstalls/#venv">Venv</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=_ev3g5Zvn9g">Video by Richel</a></p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>NSC:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nsc.liu.se/software/anaconda/">https://www.nsc.liu.se/software/anaconda/</a></p></li>
+</ul>
+<p>PDC:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.pdc.kth.se/doc/applications/python/">https://support.pdc.kth.se/doc/applications/python/</a></p></li>
+</ul>
+<p>LUNARC</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions">https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions</a></p></li>
+</ul>
+<p>UPPMAX</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.uppmax.uu.se/software/conda/">https://docs.uppmax.uu.se/software/conda/</a></p></li>
+<li><p><a class="reference external" href="https://uppmax.github.io/bianca_workshops/extra/conda/">Bianca</a></p></li>
+</ul>
+<p>LUMI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper">https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper</a></p></li>
+</ul>
+<p>HPC2N:</p>
+<ul class="simple">
+<li><p>Not recommended</p></li>
+</ul>
+</div></div>
+</div>
+</div>
+<div class="admonition-exercise-2-prepare-the-course-environment exercise important admonition" id="exercise-2">
+<p class="admonition-title">Exercise 2: Prepare the course environment</p>
+<p>There will be a mix of conda and venv att all clusters except for HPC2N where all is <code class="docutils literal notranslate"><span class="pre">venv</span></code></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">NSC</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">PDC</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-1-1-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-3" name="1-3" role="tab" tabindex="-1">UPPMAX</button><button aria-controls="panel-1-1-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-4" name="1-4" role="tab" tabindex="-1">HPC2N</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><ol class="arabic simple">
+<li><p>Let’s make a Spyder installation in a <a class="reference external" href="https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment">conda environment</a></p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module load Miniforge/24.7.1-2-hpc1
+export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
+export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
+mamba create --prefix=$CONDA_ENVS_PATH/spyder-env python=3.12 spyder
+mamba activate spyder-env
+# A prompt &quot;(/path-to/spyder-env/)&quot; should show up
+# double-check we are using python from the Conda environment!
+which python  # should point to the conda environment!
+python -V     # should give python version 3.12.X
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Let’s install packages that we need.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">matplotlib</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">xarray</span> <span class="n">dask</span> <span class="n">numba</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Check that the above packages are there by <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code>.</p></li>
+</ul>
+<p>We will put requirements files in the course project folder that you can build from in latter lessons.</p>
+<ul>
+<li><p>These will cover</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>TensorFlow</p></li>
+<li><p>PyTorch</p></li>
+<li><p>numba</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><ol class="arabic simple">
+<li><p>Let’s make a Spyder installation in a <a class="reference external" href="https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment">conda environment</a></p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ml PDC/24.11
+ml miniconda3/25.3.1-1-cpeGNU-24.11
+export CONDA_ENVS_PATH=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot; #only needed once per session
+export CONDA_PKG_DIRS=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot; #only needed once per session
+conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.11.7 spyder
+source activate spyder-env
+# A prompt &quot;(/path-to/spyder-env/)&quot; should show up
+# double-check we are using python from the Conda environment!
+which python  # should point to the conda environment!
+python -V     # should give python version 3.12.X
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Let’s install packages that we need.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">matplotlib</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">xarray</span> <span class="n">dask</span> <span class="n">numba</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Check that the above packages are there by <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code>.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Let’s make a Jupyter installation based on Python 3.11.7</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml PDC/24.11</span>
+<span class="go">ml miniconda3/25.3.1-1-cpeGNU-24.11</span>
+<span class="go">export CONDA_ENVS_PATH=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot; #only needed once per session</span>
+<span class="go">export CONDA_PKG_DIRS=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot; #only needed once per session</span>
+<span class="go">conda create --prefix $CONDA_ENVS_PATH/jupyter-env python=3.11.7 jupyter</span>
+<span class="go">conda activate jupyter-env</span>
+<span class="gp"># </span>A<span class="w"> </span>prompt<span class="w"> </span><span class="s2">&quot;(/path-to/jupyter-env/)&quot;</span><span class="w"> </span>should<span class="w"> </span>show<span class="w"> </span>up
+<span class="gp"># </span>double-check<span class="w"> </span>we<span class="w"> </span>are<span class="w"> </span>using<span class="w"> </span>python<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>Conda<span class="w"> </span>environment!
+<span class="go">which python  # should point to the conda environment!</span>
+<span class="go">python -V     # should give python version 3.11.7</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Let’s install packages that we need.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">matplotlib</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">xarray</span> <span class="n">dask</span> <span class="n">numba</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Check that the above packages are there by <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code>.</p></li>
+</ul>
+<p>We will put requirements files in the course project folder that you can build from in latter lessons</p>
+<ul>
+<li><p>These will cover</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>TensorFlow</p></li>
+<li><p>PyTorch</p></li>
+<li><p>numba</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Everything will work by just loading modules.</p></li>
+<li><p>Go down to the other exercises!</p></li>
+</ul>
+</div><div aria-labelledby="tab-1-1-3" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-3" name="1-3" role="tabpanel" tabindex="0"><p>Let’s make a Spyder installation in a <a class="reference external" href="https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment">conda environment</a></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">Bianca</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">Pelle</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ml conda
+export CONDA_PKG_DIRS=/proj/&lt;proj-dir&gt;/$USER
+export CONDA_ENVS_PATH=/proj/&lt;proj-dir&gt;/$USER
+conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
+source activate spyder-env
+# A prompt &quot;(/path-to/spyder-env/)&quot; should show up
+# double-check we are using python from the Conda environment!
+which python  # should point to the conda environment!
+python -V     # should give python version 3.12.X
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ml Miniforge3/24.11.3-0
+export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.12 spyder -c conda-forge
+source activate spyder-env
+# A prompt &quot;(/path-to/spyder-env/)&quot; should show up
+# double-check we are using python from the Conda environment!
+which python  # should point to the conda environment!
+python -V     # should give python version 3.12.X
+</pre></div>
+</div>
+</div></div>
+<ul class="simple">
+<li><p>Let’s install packages that we need.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">matplotlib</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">xarray</span> <span class="n">dask</span> <span class="n">numba</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Check that the above packages are there by <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code>.</p></li>
+</ul>
+<p>We will put requirements files in the course project folder that you can build from in latter lessons</p>
+<ul>
+<li><p>These will cover</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>TensorFlow</p></li>
+<li><p>PyTorch</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div><div aria-labelledby="tab-1-1-4" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-4" name="1-4" role="tabpanel" tabindex="0"><p>We will put requirements files in the course project folder that you can build from in latter lessons</p>
+<ul>
+<li><p>These will cover</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>TensorFlow</p></li>
+<li><p>PyTorch</p></li>
+<li><p>numba</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></div>
+</div>
+<div class="admonition-optional-exercise-3-install-package-with-venv exercise important admonition" id="exercise-3">
+<p class="admonition-title">(Optional) Exercise 3: Install package with venv</p>
+<ul class="simple">
+<li><p>Choose a track below</p></li>
+<li><dl class="simple">
+<dt>Bianca users could follow</dt><dd><ul>
+<li><p>(attend or cover the <a class="reference external" href="https://docs.uppmax.uu.se/courses_workshops/bianca_intermediate/">Bianca intermediate course</a> yourself)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Confirm package is absent</p></li>
+<li><p>Create environment in your user’s folder in the course project</p></li>
+<li><p>Activate environment</p></li>
+<li><p>Confirm package is absent</p></li>
+<li><p>Install package in isolated environment</p></li>
+<li><p>Confirm package is now present</p></li>
+<li><p>Deactivate environment</p></li>
+<li><p>Confirm package is now absent again</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">NSC</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">PDC</button><button aria-controls="panel-3-3-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-2" name="3-2" role="tab" tabindex="-1">UPPMAX: Pelle</button><button aria-controls="panel-3-3-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-3" name="3-3" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-3-3-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-4" name="3-4" role="tab" tabindex="-1">LUNARC</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Start in folder <code class="docutils literal notranslate"><span class="pre">/proj/courses-fall-2025/$USER</span></code></p></li>
+<li><p>Follow the tutorial at <a class="reference external" href="https://www.nsc.liu.se/software/python/">Python</a>: scroll down to “More on Python virtual environments (venvs)”</p></li>
+</ul>
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Start in folder <code class="docutils literal notranslate"><span class="pre">/cfs/klemming/projects/snic/courses-fall-2025/$USER</span></code></p></li>
+<li><p>Follow the tutorial at Virtual environment with venv <a class="reference external" href="https://pdc-support.github.io/pdc-intro/#165">https://pdc-support.github.io/pdc-intro/#165</a></p></li>
+</ul>
+</div><div aria-labelledby="tab-3-3-2" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-2" name="3-2" role="tabpanel" tabindex="0"><blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>Python/3.12.3-GCCcore-13.3.0
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span>/proj/hpc-python-uppmax/<span class="nv">$USER</span>/Example
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/proj/hpc-python-uppmax/<span class="nv">$USER</span>/Example/bin/activate
+</pre></div>
+</div>
+</div></blockquote>
+<p>“Example” is the name of the virtual environment. The directory “Example” is created in the present working directory. The <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag makes sure that you use the libraries from the python version you are using.</p>
+</div><div aria-labelledby="tab-3-3-3" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-3" name="3-3" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/proj/nobackup/fall-courses/<span class="nv">$USER</span>/Example
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/proj/nobackup/fall-courses/<span class="nv">$USER</span>/Example/bin/activate
+</pre></div>
+</div>
+<p>“Example” is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.</p>
+</div><div aria-labelledby="tab-3-3-4" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-4" name="3-4" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load GCC/12.3.0 Python/3.11.3</span>
+<span class="go">python -m venv --system-site-packages /lunarc/nobackup/projects/lu2025-17-52/$USER/Example</span>
+<span class="go">source /lunarc/nobackup/projects/lu2025-17-52/&lt;user-dir&gt;/Example/bin/activate``</span>
+</pre></div>
+</div>
+<p>“Example” is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.</p>
+</div></div>
+<ul class="simple">
+<li><p>Note that your prompt is changing to start with (Example) to show that you are within an environment.</p></li>
+<li><p>Install your packages with <code class="docutils literal notranslate"><span class="pre">pip</span></code>. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(Example)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>--no-build-isolation<span class="w"> </span>numpy<span class="w"> </span>matplotlib
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Deactivate the venv.</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(Example)</span> <span class="gp">$ </span>deactivate
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Every time you need the tools available in the virtual environment you activate it as above (after also loading the modules).</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: " ";
+}
+</style><span class="prompt1">$ source /proj/&lt;your-project-id&gt;/&lt;your-dir&gt;/Example/bin/activate</span>
+</pre></div></div></div>
+<div class="admonition-optional-exercise-4-like-3-but-for-conda exercise important admonition" id="exercise-4">
+<p class="admonition-title">(optional) Exercise 4: like 3, but for Conda</p>
+<blockquote>
+<div><p>Let’s make an installation with the latest bug fix version of <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.12</span></code> and compatible <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> in a <a class="reference external" href="https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment">conda environment</a></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Activate environment</p></li>
+<li><p>Confirm package is absent</p></li>
+<li><p>Install package in isolated environment: <code class="docutils literal notranslate"><span class="pre">numpy</span></code> + <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+<li><p>Confirm package is now present</p></li>
+<li><p>Deactivate environment</p></li>
+<li><p>Confirm package is now absent again</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-4-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-4-4-0" name="4-0" role="tab" tabindex="0">NSC</button><button aria-controls="panel-4-4-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-1" name="4-1" role="tab" tabindex="-1">PDC</button><button aria-controls="panel-4-4-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-2" name="4-2" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-4-4-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-3" name="4-3" role="tab" tabindex="-1">UPPMAX: Bianca</button><button aria-controls="panel-4-4-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-4" name="4-4" role="tab" tabindex="-1">UPPMAX: Pelle</button><button aria-controls="panel-4-4-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-5" name="4-5" role="tab" tabindex="-1">HPC2N</button></div><div aria-labelledby="tab-4-4-0" class="sphinx-tabs-panel" id="panel-4-4-0" name="4-0" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module load Miniforge/24.7.1-2-hpc1
+export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
+export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
+mamba create --prefix=$CONDA_ENVS_PATH/examplepython=3.12 example
+mamba activate example
+# A prompt &quot;(/path-to/example)&quot; should show up
+# double-check we are using python from the Conda environment!
+which python  # should point to the conda environment!
+python -V     # should give python version 3.12.X
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-1" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-1" name="4-1" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ml PDC/24.11
+ml miniconda3/25.3.1-1-cpeGNU-24.11
+export CONDA_ENVS_PATH=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot; #only needed once per session
+export CONDA_PKG_DIRS=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot; #only needed once per session
+conda create --prefix $CONDA_ENVS_PATH/example python=3.12
+source activate example
+# A prompt &quot;(/path-to/example)&quot; should show up
+# double-check we are using python from the Conda environment!
+which python  # should point to the conda environment!
+python -V     # should give python version 3.12.X
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-2" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-2" name="4-2" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml Miniforge3/24.1.2-0</span>
+<span class="go">export CONDA_ENVS_PATH=&quot;/lunarc/nobackup/projects/lu2025-17-52/$USER/&quot; #only needed once per session</span>
+<span class="go">export CONDA_PKG_DIRS=&quot;/lunarc/nobackup/projects/lu2025-17-52/$USER/&quot; #only needed once per session</span>
+<span class="go">conda create --prefix $CONDA_ENVS_PATH/example python=3.12</span>
+<span class="go">conda activate example</span>
+<span class="gp"># </span>A<span class="w"> </span>prompt<span class="w"> </span><span class="s2">&quot;(/path-to/example)&quot;</span><span class="w"> </span>should<span class="w"> </span>show<span class="w"> </span>up
+<span class="gp"># </span>double-check<span class="w"> </span>we<span class="w"> </span>are<span class="w"> </span>using<span class="w"> </span>python<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>Conda<span class="w"> </span>environment!
+<span class="go">which python  # should point to the conda environment!</span>
+<span class="go">python -V     # should give python version 3.12.X</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-3" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-3" name="4-3" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ml conda
+export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+conda create --prefix $CONDA_ENVS_PATH/example python=3.12 -c conda-forge
+source activate example
+# A prompt &quot;(/path-to/example/)&quot; should show up
+# double-check we are using python from the Conda environment!
+which python  # should point to the conda environment!
+python -V     # should give python version 3.12.X
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-4" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-4" name="4-4" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ml Miniforge3/24.11.3-0
+export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER  #only needed once per session
+export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER  #only needed once per session
+conda create --prefix $CONDA_ENVS_PATH/example python=3.12 -c conda-forge
+source activate example
+# A prompt &quot;(/path-to/example)&quot; should show up
+# double-check we are using python from the Conda environment!
+which python  # should point to the conda environment!
+python -V     # should give python version 3.12.X
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-4-5" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-5" name="4-5" role="tabpanel" tabindex="0"><p>Skip this exercise</p>
+</div></div>
+<ul class="simple">
+<li><p>Let’s install packages that we need.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">matplotlib</span> <span class="n">numpy</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Check that the above packages are there by <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code>.</p></li>
+</ul>
+</div>
+<div class="admonition-optional-5-make-a-test-environment-and-spread-venv exercise important admonition" id="exercise-5">
+<p class="admonition-title">(optional) 5. Make a test environment and spread (venv)</p>
+<p>Read <a class="reference external" href="https://uppmax.github.io/HPC-python/extra/isolated_deeper.html#creator-developer">here</a></p>
+<ol class="arabic simple">
+<li><p>make a virtual environment with the name <code class="docutils literal notranslate"><span class="pre">venv1</span></code>. Do not include packages from the the loaded module(s)</p></li>
+<li><p>activate</p></li>
+<li><p>install <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+<li><p>make a requirements file of the content</p></li>
+<li><p>deactivate</p></li>
+<li><p>make another virtual environment with the name <code class="docutils literal notranslate"><span class="pre">venv2</span></code></p></li>
+<li><p>activate that</p></li>
+<li><p>install with the aid of the requirements file</p></li>
+<li><p>check the content</p></li>
+<li><p>open python shell from command line and try to import <cite>matplotlib</cite></p></li>
+<li><p>exit python</p></li>
+<li><p>deactivate</p></li>
+</ol>
+</div>
+<div class="dropdown solution important admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>First load the required Python module(s) if not already done so in earlier lessons. Remember that this steps differ between the HPC centers</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>make the first environment</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv1
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Activate it.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>venv1/bin/activate
+
+<span class="go">- Note that your prompt is changing to start with ``(venv1)`` to show that you are within an environment.</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>install <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install matplotlib</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>make a requirements file of the content</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip freeze --local &gt; requirements.txt</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>deactivate</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">deactivate</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>make another virtual environment with the name <code class="docutils literal notranslate"><span class="pre">venv2</span></code></p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python -m venv venv2</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>activate that</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source venv2/bin/activate</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>install with the aid of the requirements file</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install -r requirements-pip.txt</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>check the content</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip list</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>open python shell from command line and try to import</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="11">
+<li><p>exit python</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="12">
+<li><p>deactivate</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">deactivate</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-optional-exercise-5b-make-a-test-environment-conda exercise important admonition" id="exercise-6">
+<p class="admonition-title">(optional) Exercise 5b. Make a test environment (conda)</p>
+<p>Principle</p>
+<ul class="simple">
+<li><p>Start in an environment created above</p></li>
+<li><p>Export the settings:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda env export &gt; environment.yml</span>
+</pre></div>
+</div>
+</div>
+<ul>
+<li><p>Look at the resulting file!</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Create a copy of the environment but called another way to not overwrite the original!</dt><dd><ul>
+<li><p>Usually someone else use your file or you, yourself, on another computer.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda env create -f environment.yml -p /lunarc/nobackup/projects/lu2025-17-52/bjornc/test</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.</p></li>
+<li><p>Make it for each project you have for reproducibility.</p></li>
+<li><dl class="simple">
+<dt>There are different tools to create virtual environments.</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">venv</span></code>, most straight-forward and available at all HPC centers. <strong>Recommended</strong></dt><dd><ul>
+<li><p>only supports Python packages</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">conda</span></code>, only recommended at some clusters</dt><dd><ul>
+<li><p>supports more and is a bit more reliable</p></li>
+<li><p>do not use together with Python modules</p></li>
+<li><p>install in project folder due to many files.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Documentation at the centres</p>
+<p>NSC:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nsc.liu.se/software/python/">https://www.nsc.liu.se/software/python/</a></p></li>
+<li><p><a class="reference external" href="https://www.nsc.liu.se/software/anaconda/">https://www.nsc.liu.se/software/anaconda/</a></p></li>
+</ul>
+<p>PDC:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.pdc.kth.se/doc/applications/python/">https://support.pdc.kth.se/doc/applications/python/</a></p></li>
+<li><p><a class="reference external" href="https://pdc-support.github.io/pdc-intro/#165">https://pdc-support.github.io/pdc-intro/#165</a></p></li>
+</ul>
+<p>LUNARC</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions">https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions</a></p></li>
+</ul>
+<p>UPPMAX</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.uppmax.uu.se/software/conda/">https://docs.uppmax.uu.se/software/conda/</a></p></li>
+<li><p><a class="reference external" href="https://hackmd.io/&#64;pmitev/conda_on_Rackham">https://hackmd.io/&#64;pmitev/conda_on_Rackham</a></p></li>
+</ul>
+<p>HPC2N</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.hpc2n.umu.se/software/userinstalls/#venv">https://docs.hpc2n.umu.se/software/userinstalls/#venv</a></p></li>
+</ul>
+<p>LUMI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper">https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper</a></p></li>
+</ul>
+</div>
+</section>
+<section id="id10">
+<h2>Summary<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<section id="workflow-venv">
+<h3>Workflow <code class="docutils literal notranslate"><span class="pre">venv</span></code><a class="headerlink" href="#workflow-venv" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Start from a Python version you would like to use (load the module):</dt><dd><ul class="simple">
+<li><p>This step are different at different clusters since the naming is different</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Load the Python module you will be using, as well as any site-installed package modules (requires the <code class="docutils literal notranslate"><span class="pre">--system-site-packages</span></code> option later)</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">&lt;python</span> <span class="pre">module&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>The next points will be the same for all clusters</p>
+<ol class="arabic simple" start="3">
+<li><dl class="simple">
+<dt>Create the isolated environment with something like <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">&lt;name-of-environment&gt;</span></code></dt><dd><ul class="simple">
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">--system-site-packages</span></code> to include all “non-base” packages</p></li>
+<li><p>include the full path in the name if you want the environment to be stored other than in the “present working directory”.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Activate the environment with <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">virtual</span> <span class="pre">environment&gt;/bin</span> <span class="pre">activate</span></code></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code> can most often be replaced by <code class="docutils literal notranslate"><span class="pre">.</span></code>, like in <code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">Example/bin/activate</span></code>. Note the important &lt;space&gt; after <code class="docutils literal notranslate"><span class="pre">.</span></code></p></li>
+<li><p>For clarity we use the <code class="docutils literal notranslate"><span class="pre">source</span></code> style here.</p></li>
+</ul>
+</div>
+<ol class="arabic" start="5">
+<li><p>Install (or update) the environment with the packages you need with the <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> command</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Note that <code class="docutils literal notranslate"><span class="pre">--user</span></code> must be omitted: else the package will be installed in the global user folder.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">--no-cache-dir&quot;</span></code> option is required to avoid it from reusing earlier installations from the same user in a different environment. The <code class="docutils literal notranslate"><span class="pre">--no-build-isolation</span></code> is to make sure that it uses the loaded modules from the module system when building any Cython libraries.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Work in the isolated environment
+- When activated you can always continue to add packages!</p></li>
+<li><p>Deactivate the environment after use with <code class="docutils literal notranslate"><span class="pre">deactivate</span></code></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!</dt><dd><p><code class="docutils literal notranslate"><span class="pre">--system-site-packages</span></code> includes the packages already installed in the loaded python module.</p>
+</dd>
+</dl>
+<p>At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you on Tetralith (NSC) could create a venv (Example) with a SciPy-bundle included which is compatible with Python/3.11.5:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>buildtool-easybuild/4.8.0-hpce082752a2<span class="w"> </span>GCC/13.2.0<span class="w"> </span>Python/3.11.5<span class="w"> </span>SciPy-bundle/2023.11<span class="w"> </span><span class="c1"># for NSC</span>
+<span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span>Example
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Draw-backs</p>
+<ul class="simple">
+<li><p>Only works for Python environments</p></li>
+<li><p>Only works with Python versions already installed</p></li>
+</ul>
+</div>
+</section>
+<section id="typical-workflow-conda">
+<h3>Typical workflow Conda<a class="headerlink" href="#typical-workflow-conda" title="Link to this heading"></a></h3>
+<p>The first 2 steps are cluster dependent and will therefore be slightly different.</p>
+<ol class="arabic">
+<li><p>Make conda available from a software module, like <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">load</span> <span class="pre">conda</span></code> or similar, or use own installation of miniconda or miniforge.</p></li>
+<li><p>First time</p>
+<div class="dropdown admonition">
+<p class="admonition-title">First time</p>
+<ul class="simple">
+<li><p>The variables CONDA_ENVS_PATH and CONDA_PKG_DIRS contains the location of your environments. Set it to your project’s environments folder, if you have one, instead of the $HOME folder.</p></li>
+<li><p>Otherwise, the default is <code class="docutils literal notranslate"><span class="pre">~/.conda/envs</span></code>.</p></li>
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_ENVS_PATH</span><span class="o">=</span><span class="s2">&quot;path/to/your/project/(subdir)&quot;</span>
+<span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">CONDA_PKG_DIRS</span><span class="o">=</span><span class="s2">&quot;path/to/your/project/(subdir)&quot;</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+<p>Next steps are the same for all clusters</p>
+<ol class="arabic" start="3">
+<li><p>Create the conda environment <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">&lt;name-of-env&gt;</span></code></p></li>
+<li><p>Activate the conda environment by: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">&lt;conda-env-name&gt;</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>You can define the packages to be installed here already.</p></li>
+<li><p>If you want another Python version, you have to define it here, like: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">...</span> <span class="pre">python=3.6.8</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Install the packages with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">...</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">...</span></code></p></li>
+<li><p>Now do your work!</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>When activated you can always continue to add packages!</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Deactivate</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt2:before {
+  content: "(python-36-env) $ ";
+}
+</style><span class="prompt2">conda<span class="w"> </span>deactivate</span>
+</pre></div></div></div></blockquote>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p>want to share your work? <a class="reference internal" href="../extra/isolated_deeper.html#devel-iso"><span class="std std-ref">Developing in isolated environments</span></a></p></li>
+<li><dl class="simple">
+<dt>uploading files</dt><dd><ul>
+<li><p><a class="reference external" href="https://uppmax.github.io/naiss_file_transfer_course/sessions/intro/">NAISS transfer course</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install_packages.html" class="btn btn-neutral float-left" title="Install packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="basic_batch_slurm.html" class="btn btn-neutral float-right" title="Basic batch and Slurm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

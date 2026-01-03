@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimensionality Reduction &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Evaluation" href="evaluation.html" />
+    <link rel="prev" title="Machine Learning and Deep Learning" href="ml.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dimensionality Reduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#visualisation-science">visualisation &lt;–&gt; Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-typical-machine-learning-task">What is a typical machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#some-dimensionality-reduction-techniques">Some Dimensionality Reduction Techniques:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pca-on-iris-data">PCA (on Iris Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#t-sne">t-SNE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#umap">UMAP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#face-recognition-fr-use-case">Face Recognition (FR) Use case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Dimensionality Reduction</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day4/dim_reduction.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dimensionality-reduction">
+<h1>Dimensionality Reduction<a class="headerlink" href="#dimensionality-reduction" title="Link to this heading"></a></h1>
+<figure class="align-right">
+<img alt="infravis_logo" src="../_images/infravis_logo.png" />
+</figure>
+<p>Guest Lecture by Professor <strong>Anders Hast</strong></p>
+<ul class="simple">
+<li><p>Distinguished University Teacher, InfraVis, UU Node</p></li>
+<li><p>Research page: <a class="reference external" href="https://andershast.com">andershast.com</a></p></li>
+<li><p>email: <a class="reference external" href="mailto:anders&#46;hast&#37;&#52;&#48;it&#46;uu&#46;se">anders<span>&#46;</span>hast<span>&#64;</span>it<span>&#46;</span>uu<span>&#46;</span>se</a></p></li>
+<li><p>InfraVis: <a class="reference external" href="https://infravis.se">infravis.se</a></p></li>
+</ul>
+<div class="admonition-questions questions admonition" id="questions-0">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>How and why dimensionality reduction is an important tool?</p></li>
+</ul>
+</div>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>We will look at tools for visualising what cannot easily be seen, i.e. high dimensionality reduction</p></li>
+<li><p>Share insights and experience from Anders’s own research</p></li>
+</ul>
+</div>
+<section id="visualisation-science">
+<h2>visualisation &lt;–&gt; Science<a class="headerlink" href="#visualisation-science" title="Link to this heading"></a></h2>
+<figure class="align-right" id="id1">
+<a class="reference internal image-reference" href="../_images/varanoi.png"><img alt="varanoi_regions" src="../_images/varanoi.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Clustering</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-right" id="id2">
+<a class="reference internal image-reference" href="../_images/ml_classification.png"><img alt="ml_classification" src="../_images/ml_classification.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Decision boundary</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>We will look at tools for visualising what cannot easily be seen, i.e. high dimensionality reduction</p></li>
+<li><p>We will also see that you can make discoveries in your visualisations!</p></li>
+</ul>
+</section>
+<section id="what-is-a-typical-machine-learning-task">
+<h2>What is a typical machine learning task?<a class="headerlink" href="#what-is-a-typical-machine-learning-task" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Differ between different classes of features</p></li>
+<li><p>Features usually have more than 3 dimensions, hundreds or even thousands!</p></li>
+<li><p>The idea is to find a separating curve in high dimensional space</p></li>
+<li><p>Usually we visualise this in 2D since it is easier to understand!</p></li>
+<li><p>We will look at several techniques to do this!</p></li>
+<li><p>If we can separate in 2D it can often be done in High dimensional space and vice versa!</p></li>
+</ul>
+<p><strong>Dimensionality reduction:</strong></p>
+<ul class="simple">
+<li><p>Project from several dimensions to fewer, often 2D or 3D</p></li>
+<li><p>Remember: we get a distorted picture of the high dimensional space!</p></li>
+<li><dl class="simple">
+<dt>Some techniques</dt><dd><ul>
+<li><p>SOM</p></li>
+<li><p>PCA</p></li>
+<li><p>t-SNE</p></li>
+<li><p>UMAP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/dim_reduction_bunny.png"><img alt="dim_reduction_bunny" src="../_images/dim_reduction_bunny.png" style="width: 500px;" />
+</a>
+</figure>
+<div style="height: 100px;"></div></section>
+<section id="some-dimensionality-reduction-techniques">
+<h2>Some Dimensionality Reduction Techniques:<a class="headerlink" href="#some-dimensionality-reduction-techniques" title="Link to this heading"></a></h2>
+<section id="pca-on-iris-data">
+<h3>PCA (on Iris Data)<a class="headerlink" href="#pca-on-iris-data" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>PCA = “find the directions where the data varies the most.”</p></li>
+<li><p>PCA finds a new coordinate system that fits the data:</p></li>
+<li><p>The first axis (1st principal component) points where the data spreads out the most.</p></li>
+<li><p>The second axis (2nd principal component) is perpendicular to the first and captures the next largest spread.</p></li>
+<li><p>The eigenvectors are the directions of those new axes — the principal components.</p></li>
+<li><p>The eigenvalues tell you how much variance (spread) each component captures.</p></li>
+<li><p>Fisher’s iris data consists of measurements on the sepal length, sepal width, petal length, and petal width for 150 iris specimens.</p></li>
+<li><p>There are 50 specimens from each of three species.</p></li>
+<li><p>One axis per data element (which ones are discriminant?)</p></li>
+<li><p>Follow each individual using the lines</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Iris and its PCA</p>
+<figure class="align-center">
+<img alt="iris_data" src="../_images/iris_data.png" />
+</figure>
+<div style="height: 20px;"></div><figure class="align-center">
+<img alt="iris_pca" src="../_images/iris_pca.png" />
+</figure>
+<div style="height: 20px;"></div><figure class="align-center">
+<img alt="iris_lines" src="../_images/iris_lines.png" />
+</figure>
+</div>
+</section>
+<section id="t-sne">
+<h3>t-SNE<a class="headerlink" href="#t-sne" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>A dimensionality-reduction method for visualising high- dimensional data in 2D or 3D</p></li>
+<li><p>It keeps similar points close together and dissimilar ones far apart</p></li>
+<li><p>Works by turning distances between points into probabilities of being neighbours, both in the original space and in the low-dimensional map</p></li>
+<li><p>Then it moves points to make those probabilities match (minimizing KL divergence)</p></li>
+<li><p>Uses a Student’s t-distribution in 2D to keep clusters separated and avoid crowding</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">PCA vs t-SNE vs UMAP</p>
+<figure class="align-center" id="id3">
+<img alt="pca_example" src="../_images/pca_example.png" />
+<figcaption>
+<p><span class="caption-text">PCA</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div style="height: 20px;"></div><figure class="align-center" id="id4">
+<img alt="SNE_example" src="../_images/t-SNE_example.png" />
+<figcaption>
+<p><span class="caption-text">t-SNE</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div style="height: 20px;"></div><figure class="align-center" id="id5">
+<img alt="umap_example" src="../_images/umap.png" />
+<figcaption>
+<p><span class="caption-text">UMAP</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="umap">
+<h3>UMAP<a class="headerlink" href="#umap" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>A nonlinear dimensionality-reduction method, like t-SNE, used to visualize high-dimensional data in 2D or 3D</p></li>
+<li><p>Based on manifold theory — it assumes your data lies on a curved surface within a high-dimensional space</p></li>
+<li><p>Builds a graph of local relationships (who’s close to whom) in the original space, then finds a low-dimensional layout that preserves those relationships</p></li>
+</ul>
+</section>
+</section>
+<section id="face-recognition-fr-use-case">
+<h2>Face Recognition (FR) Use case<a class="headerlink" href="#face-recognition-fr-use-case" title="Link to this heading"></a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">InfraVis slides on FR</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0012.jpg" src="../_images/Visualise_your_Research_NAISS_page-0012.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0013.jpg" src="../_images/Visualise_your_Research_NAISS_page-0013.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0014.jpg" src="../_images/Visualise_your_Research_NAISS_page-0014.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0015.jpg" src="../_images/Visualise_your_Research_NAISS_page-0015.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0016.jpg" src="../_images/Visualise_your_Research_NAISS_page-0016.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0017.jpg" src="../_images/Visualise_your_Research_NAISS_page-0017.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0018.jpg" src="../_images/Visualise_your_Research_NAISS_page-0018.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0019.jpg" src="../_images/Visualise_your_Research_NAISS_page-0019.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0020.jpg" src="../_images/Visualise_your_Research_NAISS_page-0020.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0021.jpg" src="../_images/Visualise_your_Research_NAISS_page-0021.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0022.jpg" src="../_images/Visualise_your_Research_NAISS_page-0022.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0023.jpg" src="../_images/Visualise_your_Research_NAISS_page-0023.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0024.jpg" src="../_images/Visualise_your_Research_NAISS_page-0024.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0025.jpg" src="../_images/Visualise_your_Research_NAISS_page-0025.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0026.jpg" src="../_images/Visualise_your_Research_NAISS_page-0026.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0027.jpg" src="../_images/Visualise_your_Research_NAISS_page-0027.jpg" />
+</figure>
+<figure class="align-center">
+<img alt="../_images/Visualise_your_Research_NAISS_page-0028.jpg" src="../_images/Visualise_your_Research_NAISS_page-0028.jpg" />
+</figure>
+</div></blockquote>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>We looked at several dimensionality reduction techniques</p></li>
+<li><p>They are useful to be able to explore your high dimensional data!</p></li>
+<li><dl class="simple">
+<dt>But not only nice pictures</dt><dd><ul>
+<li><p>Make discoveries!</p></li>
+<li><p>New results!</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Link to this heading"></a></h2>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<p>You will find a jupyter notebook in the tarball called <code class="docutils literal notranslate"><span class="pre">DimRed.ipynb</span></code> (<code class="docutils literal notranslate"><span class="pre">Exercises/day4/Dim_reduction</span></code>), which works upon a face recognition dataset kept in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> folder.
+Try running the notebook and give the correct dataset path wherever required.</p>
+<p>The env required for this notebook is <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">numpy</span> <span class="pre">matplotlib</span> <span class="pre">scikit-learn</span> <span class="pre">scipy</span> <span class="pre">pillow</span> <span class="pre">plotly</span> <span class="pre">umap-learn</span> <span class="pre">jupyter</span></code></p>
+<p>Sample examples from documentations: <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_iris.html#sphx-glr-auto-examples-decomposition-plot-pca-iris-py">https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_iris.html#sphx-glr-auto-examples-decomposition-plot-pca-iris-py</a> , <a class="reference external" href="https://plotly.com/python/t-sne-and-umap-projections/">https://plotly.com/python/t-sne-and-umap-projections/</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ml.html" class="btn btn-neutral float-left" title="Machine Learning and Deep Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="evaluation.html" class="btn btn-neutral float-right" title="Evaluation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

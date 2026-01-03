@@ -1,0 +1,1031 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro to Pandas on HPC &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A Brief Introduction to the Seaborn Statistical Plotting Library" href="seaborn-new.html" />
+    <link rel="prev" title="A Brief Intro to Matplotlib" href="new-matplotlib-intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Intro to Pandas on HPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#load-and-run">Load and Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introductory-topics-review">Introductory Topics (Review)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#important-data-types-and-object-classes">Important Data Types and Object Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-creating-dataframes">Loading/Creating DataFrames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inspection-and-memory-usage">Inspection and Memory Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operations">Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hpc-specific-topics">HPC-Specific Topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#efficient-data-types">Efficient Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numba-jit-compilation">Numba (JIT Compilation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-dummy-variables-for-machine-learning">Getting Dummy Variables for Machine Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chunking-for-large-datasets">Chunking for Large Datasets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intro to Pandas on HPC</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/pandas.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intro-to-pandas-on-hpc">
+<h1>Intro to Pandas on HPC<a class="headerlink" href="#intro-to-pandas-on-hpc" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<p>You will learn how to</p>
+<ul class="simple">
+<li><p>Find and load Pandas on your local HPC resource</p></li>
+<li><p>Load data into DataFrames in whole or in part</p></li>
+<li><p>Estimate the size of your data in memory</p></li>
+<li><p>Reduce your data size by converting to appropriate memory-saving data types</p></li>
+<li><p>Run standard functions with multi-threading using Numba</p></li>
+<li><p>Load and write out-of-memory files with chunking.</p></li>
+</ul>
+</div>
+<p>It is recommended that you do exercises and other code experimentation for this session in Jupyter Lab unless otherwise advised, but it is ultimately up to you.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This course focuses on functions and workflows specific to Pandas usage on an HPC cluster. Basic functionality will only be discussed briefly. For a more in-depth introduction to the Pandas library in general, NAISS offers a different course, “An Introduction to Pandas for Data Science.”</p>
+</div>
+<p><strong>Pandas</strong>, short for PANel Data AnalysiS, is a Python data library for cleaning, organizing, and statistically analyzing moderately large (<span class="math notranslate nohighlight">\(\lesssim3\)</span> GiB) data sets. It was originally developed for analyzing and modelling financial records (panel data) over time, and has since expanded into a package rivaling SciPy in the number and complexity of available functions. Pandas offers:</p>
+<ul class="simple">
+<li><p>Explicit, automatic data alignment: all entries have corresponding row and column labels/indexes.</p></li>
+<li><p>Easy methods to add, remove, transform, compare, broadcast, and aggregate data within and across data structures.</p></li>
+<li><p>Data structures that support any mix of numerical, string, list, Boolean, and datetime datatypes.</p></li>
+<li><p>I/O interfaces that support a wide variety of text, binary, and database formats, including Excel, JSON, HDF5, NetCDF, and SQLite.</p></li>
+<li><p>Hundreds of built-in functions for cleaning, organizing, and statistical analysis, plus support for user-defined functions.</p></li>
+<li><p>A simple interface with the Seaborn plotting library, and increasingly also Matplotlib.</p></li>
+<li><p>Easy multi-threading with Numba.</p></li>
+</ul>
+<p><strong>Limitations.</strong> Pandas alone has somewhat limited support for parallelization, N-dimensional data structures, and datasets much larger than 3 GiB. Fortunately, there are packages like <code class="docutils literal notranslate"><span class="pre">dask</span></code> and <code class="docutils literal notranslate"><span class="pre">polars</span></code> that can help with large data sets. In particular, <code class="docutils literal notranslate"><span class="pre">dask</span></code> will be covered tomorrow in the Parallel Computing section of this course. There is also the <code class="docutils literal notranslate"><span class="pre">xarray</span></code> package that provides many similar functions to Pandas for higher-dimensional data structures, but that is outside the scope of this workshop.</p>
+<section id="load-and-run">
+<h2>Load and Run<a class="headerlink" href="#load-and-run" title="Link to this heading"></a></h2>
+<p>Pandas has been part of the SciPy-bundle module (which also contains NumPy) since 2020, so at most HPC resources, you should use <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> to see which versions are available and how to load them.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!</p>
+</div>
+<p>Some facilities also have Anaconda, which typically includes Pandas, JupyterLab, NumPy, SciPy, and many other popular packages. However, if there is a Python package you want that is not included, you will typically have to build your own environment to install it, and extra steps may be required to use that conda environment in a development tool like Jupyter Lab.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">HPC2N</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">UPPMAX (Pelle)</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Tetralith (NSC)</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">Dardel (PDC)</button><button aria-controls="panel-0-0-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-5" name="0-5" role="tab" tabindex="-1">Alvis (C3SE)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you should load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3</span>
+</pre></div>
+</div>
+</div>
+<p>As of 27-11-2024, the output of <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> on Kebnekaise is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  SciPy-bundle:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      Bundle of Python packages for scientific software</span>
+
+<span class="go">     Versions:</span>
+<span class="go">        SciPy-bundle/2019.03</span>
+<span class="go">        SciPy-bundle/2019.10-Python-2.7.16</span>
+<span class="go">        SciPy-bundle/2019.10-Python-3.7.4</span>
+<span class="go">        SciPy-bundle/2020.03-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2020.03-Python-3.8.2</span>
+<span class="go">        SciPy-bundle/2020.11-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2020.11</span>
+<span class="go">        SciPy-bundle/2021.05</span>
+<span class="go">        SciPy-bundle/2021.10-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2021.10</span>
+<span class="go">        SciPy-bundle/2022.05</span>
+<span class="go">        SciPy-bundle/2023.02</span>
+<span class="go">        SciPy-bundle/2023.07-Python-3.8.6</span>
+<span class="go">        SciPy-bundle/2023.07</span>
+<span class="go">        SciPy-bundle/2023.11</span>
+<span class="go">  ----------------------------------------------------------------------------</span>
+<span class="go">    For detailed information about a specific &quot;SciPy-bundle&quot; package (including how to load the modules) use the module&#39;s full name.</span>
+<span class="go">    Note that names that have a trailing (E) are extensions provided by other modules.</span>
+<span class="go">    For example:</span>
+
+<span class="gp">       $ </span>module<span class="w"> </span>spider<span class="w"> </span>SciPy-bundle/2023.11
+<span class="go">  ----------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you should load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2</span>
+</pre></div>
+</div>
+</div>
+<p>On the LUNARC HPC Desktop, all On-Demand versions of Jupyter and Spyder load Pandas, NumPy, SciPy, Matplotlib, Seaborn, and many other Python packages automatically, so you don’t need to load any modules.</p>
+<p>If you work at the command line and choose not to use Anaconda3, you will need to load a SciPy-bundle to access Pandas. Use <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> to see which versions are available, which Python versions they depend on, and how to load them.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Pandas requires Python 3.8.x and newer. Do not use SciPy-bundles for Python 2.7.x!</p>
+</div>
+<p>As of 10-11-2025, the output of <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> on Cosmos is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  SciPy-bundle:</span>
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">    Description:</span>
+<span class="go">      Bundle of Python packages for scientific software</span>
+
+<span class="go">     Versions:</span>
+<span class="go">        SciPy-bundle/2020.11-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2020.11</span>
+<span class="go">        SciPy-bundle/2021.05</span>
+<span class="go">        SciPy-bundle/2021.10-Python-2.7.18</span>
+<span class="go">        SciPy-bundle/2021.10</span>
+<span class="go">        SciPy-bundle/2022.05</span>
+<span class="go">        SciPy-bundle/2023.02</span>
+<span class="go">        SciPy-bundle/2023.07</span>
+<span class="go">        SciPy-bundle/2023.11</span>
+<span class="go">        SciPy-bundle/2024.05</span>
+
+<span class="go">----------------------------------------------------------------------------</span>
+<span class="go">  For detailed information about a specific &quot;SciPy-bundle&quot; package (including ho</span>
+<span class="go">w to load the modules) use the module&#39;s full name.</span>
+<span class="go">  Note that names that have a trailing (E) are extensions provided by other modu</span>
+<span class="go">les.</span>
+<span class="go">  For example:</span>
+
+<span class="gp">     $ </span>module<span class="w"> </span>spider<span class="w"> </span>SciPy-bundle/2024.05
+<span class="go">----------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you should load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load SciPy-bundle/2024.05-gfbf-2024a</span>
+</pre></div>
+</div>
+<p>That module includes Pandas, NumPy, SciPy, etc. If you want to plot any of the data used in the examples and exercises, you will need to load <code class="docutils literal notranslate"><span class="pre">matplotlib/3.9.2-gfbf-2024a</span></code> separately.</p>
+<ul class="simple">
+<li><p>Want to use Jupyter? Follow: <a class="reference external" href="https://uppmax.github.io/HPC-python/day2/IDEs_cmd.html#principles">https://uppmax.github.io/HPC-python/day2/IDEs_cmd.html#principles</a></p></li>
+</ul>
+</div>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you should load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0</span>
+</pre></div>
+</div>
+<p>Pandas, like NumPy, has typically been part of the SciPy-bundle module since 2020. Use <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> to see which versions are available and how to load them.</p>
+</div>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><blockquote>
+<div><ul class="simple">
+<li><p>Jupyter Lab is only available on Dardel via ThinLinc.</p></li>
+<li><p>As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer.</p></li>
+<li><p>Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime).</p></li>
+<li><p>The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb">exercises</a> and <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb">solutions</a> in the GitHub repository (they should render correctly).</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For this session, you could load</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml cray-python/3.11.7</span>
+</pre></div>
+</div>
+</div>
+<p>On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">PDC/23.12</span> <span class="pre">matplotlib/3.8.2-cpeGNU-23.12</span></code>, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.</p>
+</div></blockquote>
+<ul>
+<li><p>ALTERNATIVE IF THINLINC IS AVAILABLE</p></li>
+<li><p>Start Jupyter from the Menu and it will work!</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Default Anaconda 3 has all packages needed for this lesson</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>OR USE SPYDER:</dt><dd><blockquote>
+<div><ul class="simple">
+<li><p>start interactive session</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934</span>
+<span class="go">salloc: Pending job allocation 9102757</span>
+<span class="go">salloc: job 9102757 queued and waiting for resources</span>
+<span class="go">salloc: job 9102757 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 9102757</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes nid001057 are ready for job</span>
+</pre></div>
+</div>
+<p>We need to ssh to the specific node, like</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ssh nid001057</span>
+</pre></div>
+</div>
+<p>Use the conda env you created in Exercise 2 in <a class="reference external" href="https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises">Use isolated environments</a></p>
+</div></blockquote>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml PDC/24.11</span>
+<span class="go">ml miniconda3/25.3.1-1-cpeGNU-24.11</span>
+<span class="go">export CONDA_ENVS_PATH=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot;</span>
+<span class="go">export CONDA_PKG_DIRS=&quot;/cfs/klemming/projects/supr/courses-fall-2025/$USER/&quot;</span>
+<span class="go">source activate spyder-env</span>
+<span class="gp"># </span>If<span class="w"> </span>needed,<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>packages<span class="w"> </span>here<span class="w"> </span>by:<span class="w"> </span><span class="s2">&quot;conda install matplotlib pandas seaborn&quot;</span>
+<span class="go">spyder &amp;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div><div aria-labelledby="tab-0-0-5" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-5" name="0-5" role="tabpanel" tabindex="0"><div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>For this session, you should use the Alvis portal: <a class="reference external" href="https://alvis.c3se.chalmers.se/public/root/">https://alvis.c3se.chalmers.se/public/root/</a></p></li>
+<li><p>Log in</p></li>
+<li><p>Ask for Desktop (Compute) in left-hand side menu. Do not choose “Jupyter”, since it gives you a TensorFlow environment with Python 3.8.</p></li>
+<li><p>Open a Terminal and load the following software modules</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ml matplotlib/3.9.2-gfbf-2024a</span>
+<span class="go">ml Jupyter-bundle/20250530-GCCcore-13.3.0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This will load SciPy-bundle on the fly!</p></li>
+<li><p>Pandas, like NumPy, has typically been part of the SciPy-bundle module since 2020. Use <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">spider</span> <span class="pre">SciPy-bundle</span></code> to see which versions are available and how to load them.</p></li>
+<li><p>Then start jupyter-lab and a web browser will automatically open</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jupyter-lab</span>
+</pre></div>
+</div>
+</div>
+</div></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>2025 versions of SciPy-bundle are not widely installed or recommended, because numerical stability tests are failing during installation.</p>
+</div>
+<p>To know if Pandas is the right tool for your job, you can consult the flowchart below.</p>
+<a class="reference internal image-reference" href="../_images/when-to-use-pandas.png"><img alt="../_images/when-to-use-pandas.png" src="../_images/when-to-use-pandas.png" style="width: 600px;" />
+</a>
+<p>We will also have a short session after this on plotting with Seaborn, a package for easily making publication-ready statistical plots with Pandas data structures.</p>
+</section>
+<section id="introductory-topics-review">
+<h2>Introductory Topics (Review)<a class="headerlink" href="#introductory-topics-review" title="Link to this heading"></a></h2>
+<section id="important-data-types-and-object-classes">
+<h3>Important Data Types and Object Classes<a class="headerlink" href="#important-data-types-and-object-classes" title="Link to this heading"></a></h3>
+<p>The main object classes of Pandas are <code class="docutils literal notranslate"><span class="pre">Series</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. There is also a separate object class called <code class="docutils literal notranslate"><span class="pre">Index</span></code> for the row indexes/labels and column labels, if applicable. Data that you load from file will mainly be loaded into either Series or DataFrames. Indexes are typically extracted later if needed.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas.Series(data,</span> <span class="pre">index=None,</span> <span class="pre">name=None,</span> <span class="pre">...)</span></code> instantiates a 1D array with customizable indexes (labels) attached to every entry for easy access, and optionally a name for later addition to a DataFrame as a column.</p>
+<ul>
+<li><p>Indexes can be numbers (integer or float), strings, datetime objects, or even tuples. The default is 0-based integer indexing. Indexes are also a Pandas data type (the data type of the row and column labels)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame(data,</span> <span class="pre">columns=None,</span> <span class="pre">index=None,</span> <span class="pre">...)</span></code> instantiates a 2D array where every column is a Series. All entries are accessible by column and row labels/indexes.</p>
+<ul>
+<li><p>Any function that works with a DataFrame will work with a Series unless the function specifically requires column arguments.</p></li>
+<li><p>Column labels and row indexes/labels can be safely (re)assigned as needed.</p></li>
+</ul>
+</li>
+</ul>
+<p>For the rest of this lesson, example DataFrames will be abbreviated as <code class="docutils literal notranslate"><span class="pre">df</span></code> in code snippets (and example Series, if they appear, will be abbreviated as <code class="docutils literal notranslate"><span class="pre">ser</span></code>).</p>
+<div class="dropdown admonition">
+<p class="admonition-title"><strong>Important Attributes Cheatsheet</strong></p>
+<p>The API reference in the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/index.html">official Pandas documentation</a> shows hundreds of methods and attributes for Series and DataFrames. The following is a very brief list of the most important attributes and what they output.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.index</span></code> returns a list of <strong>row labels</strong> as an array of Pandas datatype <code class="docutils literal notranslate"><span class="pre">Index</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.columns</span></code> returns a list of <strong>column labels</strong> as an array of Pandas datatype <code class="docutils literal notranslate"><span class="pre">Index</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.dtypes</span></code> lists datatypes by column</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.shape</span></code> gives a tuple of the number of rows and columns in <code class="docutils literal notranslate"><span class="pre">df</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.values</span></code> returns <code class="docutils literal notranslate"><span class="pre">df</span></code> converted to a NumPy array (also applicable to <code class="docutils literal notranslate"><span class="pre">df.columns</span></code> and <code class="docutils literal notranslate"><span class="pre">df.index</span></code>)</p></li>
+</ul>
+</div>
+<p>Pandas assigns the data in a Series and each column of a DataFrame a datatype based on built-in or NumPy datatypes or other formatting cues. Important Pandas datatypes include the following.</p>
+<ul class="simple">
+<li><p>Numerical data are stored as <code class="docutils literal notranslate"><span class="pre">float64</span></code> or <code class="docutils literal notranslate"><span class="pre">int64</span></code>. You can convert to 32-, 16-, and even 8-bit versions of either to save memory.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">object</span></code> datatype stores any of the built-in types <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">Bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, and mixed data types. Malformed data are also often designated as <code class="docutils literal notranslate"><span class="pre">object</span></code> type.</p>
+<ul>
+<li><p>A common indication that you need to clean your data is finding a column that you expected to be numeric assigned a datatype of <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Pandas has many functions devoted to time series, so there are several datatypes—<code class="docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>, and <code class="docutils literal notranslate"><span class="pre">period</span></code>. The first two are based on <a class="reference external" href="https://numpy.org/devdocs/reference/arrays.datetime.html">NumPy data types of the same name</a> , and <code class="docutils literal notranslate"><span class="pre">period</span></code> is a time-interval type specified by a starting datetime and a recurrence rate. Unfortunately, we won’t have time to cover these at depth.</p></li>
+</ul>
+<p>There are also specialized datatypes for, e.g. saving on memory or performing windowed operations, including</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Categorical</span></code> is a set-like datatype for non-numeric data with few unique values. The unique values are stored in the attribute <code class="docutils literal notranslate"><span class="pre">.categories</span></code>, that are mapped to a number of low-bit-size integers, and those integers replace the actual values in the DataFrame as it is stored in memory, which can save a lot on memory usage.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Interval</span></code> is a datatype for tuples of bin edges, all of which must be open or closed on the same sides, usually output by Pandas discretizing functions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sparse[float64,</span> <span class="pre">&lt;omitted&gt;]</span></code> is a datatype based on the SciPy sparse matrices, where <code class="docutils literal notranslate"><span class="pre">&lt;omitted&gt;</span></code> can be NaN, 0, or any other missing value placeholder. This placeholder value is stored in the datatype, and the DataFrame itself is compressed in memory by not storing anything at the coordinates of the missing values.</p></li>
+</ul>
+<p>This is far from an exhaustive list.</p>
+</section>
+<section id="loading-creating-dataframes">
+<h3>Loading/Creating DataFrames<a class="headerlink" href="#loading-creating-dataframes" title="Link to this heading"></a></h3>
+<p>Most of the time, Series and DataFrames will be loaded from files, not made from scratch. To review, the following table lists I/O functions for a few of the most common data formats; <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">the full table with links to the documentation pages for each function can be found here.</a> Input and output functions are sometimes called readers and writers, respectively. The <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> is by far the most commonly used since it can read any text file with a specified delimiter (comma, tab, or otherwise).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Typ1e</p></th>
+<th class="head"><p>Data Description</p></th>
+<th class="head"><p>Reader</p></th>
+<th class="head"><p>Writer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>text</p></td>
+<td><p><strong>CSV / ASCII text with standard delimiter</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_csv(path_or_url,</span> <span class="pre">sep=',',</span> <span class="pre">**kwargs)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_csv(path,</span> <span class="pre">**kwargs)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>text</p></td>
+<td><p>JSON</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_json()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_json(path,</span> <span class="pre">**kwargs)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>SQL</p></td>
+<td><p>SQLite table or query</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_sql()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_sql(path,</span> <span class="pre">**kwargs)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>binary</p></td>
+<td><p><strong>MS Excel</strong>/<strong>OpenDocument</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_excel(path_or_url,</span> <span class="pre">sheet_name=0,</span> <span class="pre">**kwargs)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_excel(path,</span> <span class="pre">**kwargs)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>binary</p></td>
+<td><p>HDF5 Format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_hdf()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_hdf(path,</span> <span class="pre">**kwargs)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>binary</p></td>
+<td><p>Apache Parquet</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">read_parquet()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">to_parquet()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Most of these functions have several dozen possible kwargs. It is left to the reader to determine which kwargs are needed. <em>Most kwargs in a given reader function also appear in the corresponding writer function, and serve the same purpose.</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most of the <em>text</em> readers above, and the Excel reader, have kwargs that let you choose to load only some of the data, namely <code class="docutils literal notranslate"><span class="pre">nrows</span></code> and <code class="docutils literal notranslate"><span class="pre">usecols</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nrows</span></code> lets you read in only the first <em>n</em> rows with their column headers, where $n ge 0$. If $n=0$, only the column names will be returned. This is a very efficient way to inspect large datasets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usecols</span></code> is the same as in NumPy’s <code class="docutils literal notranslate"><span class="pre">loadtxt()</span></code> and <code class="docutils literal notranslate"><span class="pre">genfromtxt()</span></code> functions, i.e., it selects columns by position index and returns a data structure containing only those columns of data.</p></li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most of the above reader/writer functions were chosen not only because they are commonly used, but because, apart from <code class="docutils literal notranslate"><span class="pre">read_excel()</span></code>, these support <strong>chunking</strong> for data sets that are larger than memory. Chunking is the act of performing operations, including I/O, on fixed-row-count subsets of the data, assuming each row is independent. For more information see the documentation on <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/scale.html#use-chunking.">using chunking</a></p>
+</div>
+<p>In most reader functions, including <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> sets the first column as the row labels, and the first row is assumed to contain the list of column names by default. If you forget to set one of the columns as the list of row indexes during import, you can do it later with <code class="docutils literal notranslate"><span class="pre">df.set_index('column_name')</span></code>.</p>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<p>Open your preferred IDE and load the provided file <code class="docutils literal notranslate"><span class="pre">exoplanets_5250_EarthUnits_fixed.csv</span></code> into DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> (optionally, you can set the first column to be the indices). Then, save <code class="docutils literal notranslate"><span class="pre">df</span></code> to a text (.txt) file with a tab (<code class="docutils literal notranslate"><span class="pre">\t</span></code>) separator.</p>
+</div>
+<div class="admonition-solution-class-dropdown solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution
+ :class: dropdown</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Creating DataFrames in Python.</strong> Building a DataFrame or Series from scratch is also easy. Lists and arrays can be converted directly to Series and DataFrames, respectively.</p>
+<ul class="simple">
+<li><p>Both <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> have an <code class="docutils literal notranslate"><span class="pre">index</span></code> kwarg to assign a list of numbers, names, times, or other hashable keys to each row.</p></li>
+<li><p>You can use the <code class="docutils literal notranslate"><span class="pre">columns</span></code> kwarg in <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> to assign a list of names to the columns of the table. The equivalent for <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> is just <code class="docutils literal notranslate"><span class="pre">name</span></code>, which only takes a single value and doesn’t do anything unless you plan to join that Series to a larger DataFrame.</p></li>
+<li><p>Dictionaries and record arrays can be converted to DataFrames with <code class="docutils literal notranslate"><span class="pre">pd.DataFrame.from_dict(myDict)</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.DataFrame.from_records(myRecArray)</span></code>, respectively, and the keys will automatically be converted to column labels.</p></li>
+</ul>
+<div class="admonition-exercise exercise important admonition" id="exercise-1">
+<p class="admonition-title">Exercise</p>
+<p>In your preferred IDE or at the command line, create a DataFrame with 4 rows labeled <code class="docutils literal notranslate"><span class="pre">['w','x','y','z']</span></code> and 3 columns labeled <code class="docutils literal notranslate"><span class="pre">['a','b','c']</span></code>. The contents of the cells are up to you. Print the result and verify that it has the right shape.</p>
+</div>
+<div class="admonition-solution-class-dropdown solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution
+ :class: dropdown</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>    a   b   c
+w   1   2   3
+x   4   5   6
+y   7   8   9
+z  10  11  12
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>It is also possible (and occasionally necessary) to convert DataFrames and Series to NumPy arrays, dictionaries, record arrays, or strings with the methods <code class="docutils literal notranslate"><span class="pre">.to_numpy()</span></code>, <code class="docutils literal notranslate"><span class="pre">.to_dict()</span></code>, <code class="docutils literal notranslate"><span class="pre">to_records()</span></code>, and <code class="docutils literal notranslate"><span class="pre">to_string()</span></code>, respectively.</p>
+</section>
+<section id="inspection-and-memory-usage">
+<h3>Inspection and Memory Usage<a class="headerlink" href="#inspection-and-memory-usage" title="Link to this heading"></a></h3>
+<p>The main data inspection functions for DataFrames (and Series) are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.head()</span></code> (or <code class="docutils literal notranslate"><span class="pre">df.tail()</span></code>)  prints first (or last) 5 rows of data with row and column labels, or accepts an integer argument to print a different number of rows.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.info()</span></code> prints the number of rows with their first and last index values; titles, index numbers, valid data counts, and datatypes of columns; and the estimated size of <code class="docutils literal notranslate"><span class="pre">df</span></code> in memory. <strong>Note:</strong> do not rely on this memory estimate if your dataframe contains non-numeric data (see below).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> prints summary statistics for all the numerical columns in <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.nunique()</span></code> prints counts of the unique values in each column.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.value_counts()</span></code> prints each unique value and the number of of occurrences for every combination of row and column values for as many of each as are selected (usually applied to just a couple of columns at a time at most)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.memory_usage()</span></code> returns the estimated memory usage per column (see important notes below).</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">memory_usage()</span></code> Function</p>
+<p><code class="docutils literal notranslate"><span class="pre">df.memory_usage(deep=False)</span></code> returns the estimated memory usage of each column, but with the default <code class="docutils literal notranslate"><span class="pre">deep=False</span></code>, this includes the sizes of <em>pointers</em> to non-numeric data, but not the full sizes of strings and other non-numeric data. The sum of these per-column estimates is the same as what is reported by <code class="docutils literal notranslate"><span class="pre">df.info()</span></code>, which is an significant underestimate. This is because numeric columns are fixed width in memory and can be stored contiguously, but object-type columns are variable in size, so only pointers can be stored at the location of the main DataFrame in memory. The strings that those pointers refer to are kept elsewhere. With <code class="docutils literal notranslate"><span class="pre">deep=True</span></code>, the sizes of strings and other non-numeric data are factored in, giving a much better estimate of the total size of <code class="docutils literal notranslate"><span class="pre">df</span></code> in memory.</p>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Compare: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 5250 entries, 11 Comae Berenices b to YZ Ceti d
+Data columns (total 10 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   distance           5233 non-null   float64
+ 1   star_mag           5089 non-null   float64
+ 2   planet_type        5250 non-null   object 
+ 3   discovery_yr       5250 non-null   int64  
+ 4   mass_ME            5250 non-null   object 
+ 5   radius_RE          5250 non-null   object 
+ 6   orbital_radius_AU  4961 non-null   float64
+ 7   orbital_period_yr  5250 non-null   float64
+ 8   eccentricity       5250 non-null   float64
+ 9   detection_method   5250 non-null   object 
+dtypes: float64(5), int64(1), object(4)
+memory usage: 451.2+ KB
+None
+
+ Index                42000
+distance             42000
+star_mag             42000
+planet_type          42000
+discovery_yr         42000
+mass_ME              42000
+radius_RE            42000
+orbital_radius_AU    42000
+orbital_period_yr    42000
+eccentricity         42000
+detection_method     42000
+dtype: int64
+
+ Compare: 
+ Index                317502
+distance              42000
+star_mag              42000
+planet_type          313545
+discovery_yr          42000
+mass_ME              282482
+radius_RE            284294
+orbital_radius_AU     42000
+orbital_period_yr     42000
+eccentricity          42000
+detection_method     306608
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">“Data Selection and Preprocessing Cheatsheet”</p>
+<p>Below is a table of the syntax for how to select or assign different subsets or cross-sections of a DataFrame. <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">The complete guide, including how to select data by conditions, can be found at this link.</a></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>To Access/Assign…</p></th>
+<th class="head"><p>Syntax</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 cell (scalar output)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.at['row','col']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.iat[i,j]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>column(s) by name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df['col']</span></code> or <code class="docutils literal notranslate"><span class="pre">df[['col0',</span> <span class="pre">'col1',</span> <span class="pre">...]]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>row(s) by index</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.iloc[i]</span></code> or <code class="docutils literal notranslate"><span class="pre">df.iloc[i:j]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>rows and columns by name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.loc[['rowA','rowB',</span> <span class="pre">...],</span> <span class="pre">['col0',</span> <span class="pre">'col1',</span> <span class="pre">...]]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>rows and columns by index</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.iloc[i:j,</span> <span class="pre">m:n]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>columns by name, rows by index</p></td>
+<td><p>You can mix <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for selection, <strong>but NOT for assignment!</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>The following table describes basic functions for finding, removing, and replacing missing or unwanted data, which is necessary ahead of any machine learning applications. Pandas has its own functions for detecting missing data in order to detect both regular <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and the datetime equivalent, <code class="docutils literal notranslate"><span class="pre">NaT</span></code>. Any of the following functions will work on individual columns or any other subset of the DataFrame as well as the whole. <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">Click here for more information on handling missing or invalid data in Pandas.</a></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pandas Function</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.isna()</span></code></p></td>
+<td><p>locates missing/invalid data (NaN/NaT)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.notna()</span></code></p></td>
+<td><p>locates valid data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df.dropna(axis=axis,</span> <span class="pre">inplace=False)</span></code></p></td>
+<td><p>remove rows (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>) or columns (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>) containing invalid data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df.fillna()</span></code></p></td>
+<td><p>replace NaNs with a fixed value</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df.interpolate()</span></code></p></td>
+<td><p>interpolate missing data using any method of <code class="docutils literal notranslate"><span class="pre">scipy.interpolate()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df.drop_duplicates(inplace=False)</span></code></p></td>
+<td><p>remove duplicate rows or rows with duplicate values of columns in <code class="docutils literal notranslate"><span class="pre">subset</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df.drop(data,</span> <span class="pre">axis=axis)</span></code></p></td>
+<td><p>remove unneeded columns (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>) or rows (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>) by name or index</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">df.mask(condition,</span> <span class="pre">other=None)</span></code></p></td>
+<td><p>mask unwanted numeric data by condition, optionally replace from <code class="docutils literal notranslate"><span class="pre">other</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">df.replace(to_replace=old,</span> <span class="pre">value=new)</span></code></p></td>
+<td><p>replace <code class="docutils literal notranslate"><span class="pre">old</span></code> value with <code class="docutils literal notranslate"><span class="pre">new</span></code> (very flexible; see docs)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="operations">
+<h3>Operations<a class="headerlink" href="#operations" title="Link to this heading"></a></h3>
+<p>Pandas DataFrames and Series have a vast library of function methods that are evaluated vector-wise (whole columns or rows at once) automatically. In lieu of in-depth discussion (provided by a separate course, “An Introduction to Pandas for Data Science”), important groups of operations and links to official documentation on their use are provided below. Users are encouraged to refer to these links in later exercises demonstrating how to make them run more efficiently on HPC systems. <strong>Iteration through loops is costly and usually avoidable.</strong></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">String Operations</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Statistical Functions</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Binary/Comparative Methods</button><button aria-controls="panel-1-1-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-3" name="1-3" role="tab" tabindex="-1">User-Defined Functions</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>Most built-in string methods can be applied column-wise to Pandas data structures (Series, Index, or columns of DataFrames) using <code class="docutils literal notranslate"><span class="pre">.str.&lt;method&gt;()</span></code>, where <code class="docutils literal notranslate"><span class="pre">.str.</span></code> is an accessor. <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html">Click here for complete documentation about working with text data in Pandas.</a></p>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>Nearly all NumPy statistical functions (UFuncs) and a few <code class="docutils literal notranslate"><span class="pre">scipy.mstats</span></code> functions can be called as aggregate methods of DataFrames, Series, any subsets thereof, or <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">GroupBy objects (for which the statistics are calculated per group).</a></p>
+<ul class="simple">
+<li><p>NumPy-like methods: <code class="docutils literal notranslate"><span class="pre">.abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">.count()</span></code>, <code class="docutils literal notranslate"><span class="pre">.max()</span></code>, <code class="docutils literal notranslate"><span class="pre">.min()</span></code>, <code class="docutils literal notranslate"><span class="pre">.mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">.median()</span></code>, <code class="docutils literal notranslate"><span class="pre">.mode()</span></code>, <code class="docutils literal notranslate"><span class="pre">.prod()</span></code>, <code class="docutils literal notranslate"><span class="pre">.quantile()</span></code>, <code class="docutils literal notranslate"><span class="pre">.sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">.std()</span></code>, <code class="docutils literal notranslate"><span class="pre">.var()</span></code>, <code class="docutils literal notranslate"><span class="pre">.cumsum()</span></code>, <code class="docutils literal notranslate"><span class="pre">.cumprod()</span></code>, <code class="docutils literal notranslate"><span class="pre">.cummax()</span></code>* and <code class="docutils literal notranslate"><span class="pre">.cummin()</span></code>* (* Pandas-only)</p></li>
+<li><p>SciPy (m)stats-like methods: <code class="docutils literal notranslate"><span class="pre">.sem()</span></code>, <code class="docutils literal notranslate"><span class="pre">.skew()</span></code>, <code class="docutils literal notranslate"><span class="pre">.kurt()</span></code>, and <code class="docutils literal notranslate"><span class="pre">.corr()</span></code></p></li>
+</ul>
+<p>All of the above ignore NaNs by default, and can be evaluated within <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html">rolling windows.</a> For DataFrames and GroupBy objects, you must set <code class="docutils literal notranslate"><span class="pre">numeric_only=True</span></code> to exclude non-numeric data, and specify whether to aggregate along rows (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>) or columns (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>). <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#descriptive-statistics">Start at this link for more complete documentation.</a></p>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><p><strong>Binary Operations.</strong> Normal binary math operators (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, etc.) work when both data structures are the same shape or when one is a scalar. However, special Pandas versions of these operators are required when one of the data structures is a DataFrame and the other is a Series. <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#flexible-binary-operations">Click here for full documentation with examples.</a> All of these arithmetic operators require you to specify the axis along which to broadcast the operation.</p>
+<p><strong>Comparative Methods.</strong> Binary comparative operators work normally when comparing a DataFrame/Series to a scalar, but to compare any two Pandas data structures element-wise, comparison methods are required. After any comparative expression, scalar or element-wise, you can add <code class="docutils literal notranslate"><span class="pre">.any()</span></code> or <code class="docutils literal notranslate"><span class="pre">.all()</span></code> once to aggregate along the column axis, and twice to get a single value for the entire DataFrame. <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#flexible-comparisons">Click here for more complete documentation on these operators and boolean reductions thereof.</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>If 2 DataFrames (or Series) are identically indexed (identical row and column labels in the same order), <code class="docutils literal notranslate"><span class="pre">df1.compare(df2)</span></code> can be used to quickly find discrepant values, and <code class="docutils literal notranslate"><span class="pre">df1.equals(df2)</span></code> can be used to test for equality between DataFrames with missing data.</p></li>
+<li><p>To find <em>datatype</em> differences between visually identical datasets, use <code class="docutils literal notranslate"><span class="pre">pd.testing.assert_frame_equal(df1,</span> <span class="pre">df2)</span></code> or <code class="docutils literal notranslate"><span class="pre">pd.testing.assert_series_equal(df1,</span> <span class="pre">df2)</span></code> to see if an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is raised.</p></li>
+</ul>
+</div>
+</div><div aria-labelledby="tab-1-1-3" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-3" name="1-3" role="tabpanel" tabindex="0"><p>If the transformation you need to apply to your data cannot be simply constructed of the previously described functions there are several methods to help you apply more complex or user-defined functions. For more complete information <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#function-application">read all subsections of the documentation under the heading “Function Application.”</a></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.map(func)</span></code> takes a scalar function and broadcasts it to every element of the data structure. Function <code class="docutils literal notranslate"><span class="pre">func</span></code> may be passed by name or lambda function, but both input and output must be scalars (no arrays).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.agg()</span></code> applies 1 or more reducing (aggregating) functions (e.g. <code class="docutils literal notranslate"><span class="pre">.mean()</span></code>) to a Series, DataFrame, or GroupBy object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.transform()</span></code> broadcasts functions to every cell of the DataFrame, Series, or GroupBy object that calls it (aggregating functions are not allowed). Group-wise transformations can yield surprising results due to how GroupBy objects are received.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.apply()</span></code> can handle aggregating, broadcasting, and expanding* functions (*list-like output for each input cell) for Series, DataFrames, and GroupBy objects, and can evaluate the functions either row-wise or column-wise. However, its flexibility and relatively intuitive interface come at the cost of speed, and the output structure can be unpredictable when the inputs are GroupBy objects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.pipe()</span></code> is useful when you need to chain several functions that take and return whole DataFrames or GroupBy objects.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">.agg()</span></code> and <code class="docutils literal notranslate"><span class="pre">.transform()</span></code> methods in particular allow simultaneous evaluation of a different function for each column, or multiple functions per column for 1 or more columnns. If multiple functions are applied per column for &gt;1 column, however, the output will be a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html#hierarchical-indexing-multiindex">hierarchical DataFrame,</a> which can be hard to work with.</p>
+</div></div>
+</section>
+</section>
+<section id="hpc-specific-topics">
+<h2>HPC-Specific Topics<a class="headerlink" href="#hpc-specific-topics" title="Link to this heading"></a></h2>
+<section id="efficient-data-types">
+<h3>Efficient Data Types<a class="headerlink" href="#efficient-data-types" title="Link to this heading"></a></h3>
+<p><strong>Categorical data.</strong> <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> type maps all the unique values of a column to short numerical codes in the column’s place in memory, stores the codes in the smallest integer format that fits the largest-valued code, and only converts the codes to the associated strings when the data are printed. This data type is extremely efficient when the number of unique values are small relative to the size of the data set, but it is not recommended when half or more of the data values are unique.</p>
+<ul class="simple">
+<li><p>To convert a column in an existing Dataframe, simply set that column equal to itself with <code class="docutils literal notranslate"><span class="pre">.astype('category')</span></code> at the end. If defining a new Series that you want to be categorical, simply include <code class="docutils literal notranslate"><span class="pre">dtype='category'</span></code>.</p></li>
+<li><p>To get attributes or call methods of <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> data, use the <code class="docutils literal notranslate"><span class="pre">.cat</span></code> accessor followed by the attribute or method. E.g., to get the category names as an index object, use <code class="docutils literal notranslate"><span class="pre">df['cat_col'].cat.categories</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.cat</span></code> methods include operations to add, remove, rename, and even rearrange categories in a specific hierarchy.</p></li>
+<li><p>The order of categories can be asserted either in the definition of a <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> object to be used as the indexes of a series, by calling <code class="docutils literal notranslate"><span class="pre">.cat.as_ordered()</span></code> on the Series if you’re happy with the current order, or by passing a rearranged or even a completely new list of categories to either <code class="docutils literal notranslate"><span class="pre">.cat.set_categories([newcats],</span> <span class="pre">ordered=True)</span></code> or <code class="docutils literal notranslate"><span class="pre">.cat.reorder_categories([newcats],</span> <span class="pre">ordered=True)</span></code>.</p>
+<ul>
+<li><p>When an order is asserted, it becomes possible to use <code class="docutils literal notranslate"><span class="pre">.min()</span></code> and <code class="docutils literal notranslate"><span class="pre">.max()</span></code> on the categories.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition-exercise exercise important admonition" id="exercise-2">
+<p class="admonition-title">Exercise</p>
+<p>Take the exoplanets DataFrame that you loaded before and print the memory usage with <code class="docutils literal notranslate"><span class="pre">deep=True</span></code>. Then, convert the <code class="docutils literal notranslate"><span class="pre">'planet_type'</span></code> column to datatype <code class="docutils literal notranslate"><span class="pre">category</span></code>. Print the memory usage again and compare the changed column’s estimated size in memory to the original.</p>
+</div>
+<div class="admonition-solution-class-dropdown solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution
+ :class: dropdown</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/exoplanets_5250_EarthUnits_fixed.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="c1"># Convert planet_type to Categorical</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;planet_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Before:
+ 631047
+After:
+ 323219
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Numerical data can be recast as categorical by binning it with <code class="docutils literal notranslate"><span class="pre">pd.cut()</span></code> or <code class="docutils literal notranslate"><span class="pre">pd.qcut()</span></code>, and these bins can be used to create GroupBy objects. Bins created like this are automatically assumed to be in ascending order. However, some mathematical operations may no longer work on the results.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Pandas datatype <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> is named for general data science term “categorical variable”, a classifier like species, sex, brand name, etc. The Pandas datatype should always be typeset as code and capitalized in this documentation.</p>
+</div>
+<p><strong>Sparse Data.</strong> If you have a DataFrame where around half or more of the entries are NaN or a filler value, you can use the <code class="docutils literal notranslate"><span class="pre">SparseArray</span></code> format or <code class="docutils literal notranslate"><span class="pre">SparseDtype</span></code> to save memory. Initialize Series or DataFrames as <code class="docutils literal notranslate"><span class="pre">SparseDtype</span></code> by setting the kwarg <code class="docutils literal notranslate"><span class="pre">dtype=pd.SparseDtype(dtype=np.float64,</span> <span class="pre">fill_value=None)</span></code> in the <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> or <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> initialization functions, or call the method <code class="docutils literal notranslate"><span class="pre">.astype(pd.SparseDtype(&quot;float&quot;,</span> <span class="pre">fill_value))</span></code> on an existing Series or DataFrame. Data of <code class="docutils literal notranslate"><span class="pre">SparseDtype</span></code> have a <code class="docutils literal notranslate"><span class="pre">.sparse</span></code> accessor in much the same way as Categorical data have <code class="docutils literal notranslate"><span class="pre">.cat</span></code>. Most <a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html">NumPy universal functions</a> also work on Sparse Arrays. Other methods and attributes include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.sparse.density</span></code>: prints fraction of data that are non-NaN</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.sparse.fill_value</span></code>: prints fill value for NaNs, if any (if None, it returns NaN)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.sparse.from_spmatrix(data)</span></code>: makes a new <cite>SparseDtype</cite> DataFrame from a SciPy sparse matrix</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.sparse.to_coo()</span></code>: converts a DataFrame (or Series) to sparse SciPy COO type (<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_array.html#scipy.sparse.coo_array">more on those here</a>)</p></li>
+</ul>
+<p>This example shows the difference in memory usage between a 1000x1000 identity matrix as a regular NumPy array and as a SparseDtype DataFrame:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Regular memory usage as Numpy array: &quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">spdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">SparseDtype</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Memory usage as SparseDtype DataFrame: &quot;</span><span class="p">,</span> <span class="n">spdf</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Regular memory usage as Numpy array:  8000128
+Memory usage as SparseDtype DataFrame:  12132
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="numba-jit-compilation">
+<h3>Numba (JIT Compilation)<a class="headerlink" href="#numba-jit-compilation" title="Link to this heading"></a></h3>
+<p>If the Numba module is installed, setting <code class="docutils literal notranslate"><span class="pre">engine=numba</span></code> in most built-in functions can boost performance if the function has to be run multiple times over several columns, particularly if you can set <code class="docutils literal notranslate"><span class="pre">engine_kwargs={&quot;parallel&quot;:</span> <span class="pre">True}</span></code>. Numba uses Just-In-Time (JIT) compilation to compile pure Python code to a machine-optimized form at runtime, automatically incorporating multi-threading across available CPU cores if parallelism is enabled. Types of functions that this works for include:</p>
+<ul class="simple">
+<li><p>Statistical functions like <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">median()</span></code>, and <code class="docutils literal notranslate"><span class="pre">std()</span></code>, which can be applied to the whole data set or to rolling windows.</p></li>
+<li><p>Complex functions, or user-defined functions decorated with <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code>, applied via <code class="docutils literal notranslate"><span class="pre">.agg()</span></code>, <code class="docutils literal notranslate"><span class="pre">.transform()</span></code>, <code class="docutils literal notranslate"><span class="pre">.map()</span></code>, or <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>.</p></li>
+</ul>
+<p>Parallel function evaluation occurs column-wise, so <strong>performance will be boosted if and only if the function is repeated many times over many columns.</strong> For small datasets, the added overhead can actually worsen performance.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Since JIT-compiled functions are parallelized column-wise, make sure that the number of threads allocated for any interactive session or slurm script and the number of threads passed to Numba are all equal to the number of columns you want to process in parallel. Assuming you have imported Numba as <code class="docutils literal notranslate"><span class="pre">numba</span></code>, the way to tell Numba the number of threads to use is: <code class="docutils literal notranslate"><span class="pre">numba.set_num_threads(ncols)</span></code> where <code class="docutils literal notranslate"><span class="pre">ncols</span></code> is the number of columns to apply the function to in parallel.</p>
+</div>
+<p>Here is a (somewhat scientifically nonsensical) example using a DataFrame of various COVID19 statistics across Italy’s 21 administrative regions over the first 2 years of the pandemic. Columns 6-15 are statistics that a rolling mean might make sense for (if we normalized by Region population).</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/covid19_italy_region.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numba</span>    <span class="c1"># on Cosmos, this requires a conda environment with Numba installed</span>
+<span class="n">numba</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>   <span class="c1">#10 would be optimal but apparently the limit in this interface is 4</span>
+<span class="n">stuff</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">6</span><span class="p">:]</span>
+<span class="o">%</span><span class="k">timeit</span> stuff.rolling(630).mean() #30-day rolling average
+<span class="o">%</span><span class="k">timeit</span> stuff.rolling(630).mean(engine=&#39;numba&#39;, engine_kwargs={&quot;parallel&quot;: True})
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1.08 ms ± 13.6 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>675 μs ± 262 μs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Alternatively to JIT, the Cython package lets Python code be compiled into C with minimal additional code. The compiled code can then run markedly faster depending on the application and whether or not variables are declared with static data types. The <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#cython-writing-c-extensions-for-pandas">Pandas documentation on Cython shows an example in Jupyter using IPython magic commands,</a> (see also <a class="reference external" href="https://www.python4data.science/en/latest/workspace/ipython/magics.html">this article on IPython Magics</a>).</p>
+<p>However, the more typical use case requires writing a <code class="docutils literal notranslate"><span class="pre">.pyx</span></code> file, compiling it with a <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> script, and executing the compiled file from a Slurm script or the bash shell. Since this approach requires somewhat more C experience, it is outside the scope of this course. Interested users can <a class="reference external" href="https://cython.readthedocs.io/en/stable/src/tutorial/cython_tutorial.html">view the official Cython documentation here.</a></p>
+</div>
+</section>
+<section id="getting-dummy-variables-for-machine-learning">
+<h3>Getting Dummy Variables for Machine Learning<a class="headerlink" href="#getting-dummy-variables-for-machine-learning" title="Link to this heading"></a></h3>
+<p>Machine Learning (ML) programs like TensorFlow and PyTorch take Series/DataFrame inputs, but they generally require numeric input. If some of the variables that you want to predict are categorical* (e.g. species, sex, brand name, etc.; see also the note in Efficient Datatypes), they need to be converted to a numerical form that TensorFlow and PyTorch can use. Standard practice is turn a categorical variable with <em>N</em> unique values into <em>N</em> or <em>N</em>-1 boolean columns, where a row entry that was assigned a given category value has a 1 or True in the boolean column corresponding to that category and 0 or False in all the other boolean category columns.</p>
+<p>The Pandas function that does this is <code class="docutils literal notranslate"><span class="pre">pd.get_dummies(data,</span> <span class="pre">dtype=bool,</span> <span class="pre">drop_first=False,</span> <span class="pre">prefix=pref,</span> <span class="pre">columns=columns)</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dtype</span></code> can be <code class="docutils literal notranslate"><span class="pre">bool</span></code> (default, less memory), <code class="docutils literal notranslate"><span class="pre">float</span></code> (more memory usage), <code class="docutils literal notranslate"><span class="pre">int</span></code> (same memory as <code class="docutils literal notranslate"><span class="pre">float</span></code>), or a type string with precision like <code class="docutils literal notranslate"><span class="pre">'float32'</span></code> or <code class="docutils literal notranslate"><span class="pre">'uint16'</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">drop_first</span></code>, when True, removes the first category encountered in the original column, which should be done if and only if</dt><dd><ul>
+<li><p>all categories are mutually exclusive, and</p></li>
+<li><p>non-membership in the remaining categories is perfectly correlated with membership in the dropped category.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prefix</span></code> is just a set of strings you can add to dummy column names to make clear which ones are related.</p></li>
+<li><p>If nothing is passed to <code class="docutils literal notranslate"><span class="pre">columns</span></code>, Pandas will try to convert the entire DataFrame to dummy variables, which is usually a bad idea. <em>Always pass the subset of columns you want to convert to the ``columns`` kwarg.</em></p></li>
+</ul>
+<p>Let’s say you did an experiment where you surveyed 10000 people to see if their preference for Coke or Pepsi correlated with whether the container it came in was made of aluminum, plastic, or glass, and whether it was served with or without ice.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choices</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">sodas</span> <span class="o">=</span> <span class="n">choices</span><span class="p">([</span><span class="s1">&#39;Coke&#39;</span><span class="p">,</span><span class="s1">&#39;Pepsi&#39;</span><span class="p">],</span><span class="n">k</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">containers</span> <span class="o">=</span> <span class="n">choices</span><span class="p">([</span><span class="s1">&#39;aluminum&#39;</span><span class="p">,</span><span class="s1">&#39;glass&#39;</span><span class="p">,</span><span class="s1">&#39;plastic&#39;</span><span class="p">],</span><span class="n">k</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">ices</span> <span class="o">=</span> <span class="n">choices</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">k</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span> <span class="c1">###already boolean</span>
+<span class="n">soda_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">sodas</span><span class="p">,</span><span class="n">containers</span><span class="p">,</span><span class="n">ices</span><span class="p">)),</span>
+                       <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brand&#39;</span><span class="p">,</span><span class="s1">&#39;container_material&#39;</span><span class="p">,</span><span class="s1">&#39;with_ice&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soda_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Memory usage:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">soda_df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">dummy_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">soda_df</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brand&#39;</span><span class="p">,</span><span class="s1">&#39;container_material&#39;</span><span class="p">],</span>
+                          <span class="n">prefix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;was&#39;</span><span class="p">,</span><span class="s1">&#39;in&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dummy version:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">dummy_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Memory usage:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">dummy_df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>   brand container_material  with_ice
+0   Coke           aluminum         1
+1   Coke            plastic         1
+2  Pepsi              glass         1
+3  Pepsi            plastic         0
+4   Coke           aluminum         0
+
+ Memory usage:
+ Index                    132
+brand                 535047
+container_material    556732
+with_ice               80000
+dtype: int64 
+
+Dummy version:
+    with_ice  was_Pepsi  in_glass  in_plastic
+0         1          0         0           0
+1         1          0         0           1
+2         1          1         1           0
+3         0          1         0           1
+4         0          0         0           0
+
+ Memory usage:
+ Index           132
+with_ice      80000
+was_Pepsi     80000
+in_glass      80000
+in_plastic    80000
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dummy variables can also be converted to categorical columns names with <code class="docutils literal notranslate"><span class="pre">pd.from_dummies()</span></code> as long as their column names had prefixes to group related variables.</p>
+<ul class="simple">
+<li><p>Both dummy variables and the <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> data type use less memory than the default <code class="docutils literal notranslate"><span class="pre">object</span></code>-type for categorical data if there are many repeating values.</p></li>
+<li><p>Dummy variables typically use more memory than <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> datatype columns, but they allow more vectorwise operations.</p></li>
+</ul>
+</section>
+<section id="chunking-for-large-datasets">
+<h3>Chunking for Large Datasets<a class="headerlink" href="#chunking-for-large-datasets" title="Link to this heading"></a></h3>
+<p>When a data file is larger than memory, your first instinct should be to load only the columns and rows that you need. We already discussed the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> and <code class="docutils literal notranslate"><span class="pre">nrows</span></code> kwargs when we went over the most common reader functions. But what if the data you need to load is still larger than memory?</p>
+<ul class="simple">
+<li><p>Several of the most common Pandas data reader functions, like <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>, also have a <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> kwarg that allow you to read in and work on out-of-memory datasets in batches of rows that fit in memory.</p></li>
+<li><p>Similarly, common writer functions also let you append chunks to file rather than overwriting them to write to files that are larger than memory, using the kwarg <code class="docutils literal notranslate"><span class="pre">mode='a'</span></code>. Be aware that you will have to set up the chunk iteration so that <code class="docutils literal notranslate"><span class="pre">header=False</span></code> for every chunk after the first, or else it will try to inject header rows before every chunk.</p></li>
+</ul>
+<p>While loaded, chunks can be indexed and manipulated like full-sized DataFrames.</p>
+<p>Workflows that can be applied to chunks can also be used to aggregate over multiple files, so it may also be worth breaking a single out-of-memory file into logical subsections that individually fit in memory. <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/scale.html#use-chunking">The Pandas documentation on chunking chooses this method of demonstration</a> rather than showing how to iterate over chunks loaded from an individual file.</p>
+<p>The following example and later exercise use the table <code class="docutils literal notranslate"><span class="pre">global_disaster_response_2018-2024.csv</span></code>, which is not out-of-memory for a typical HPC cluster but is large enough that the additional overhead of chunking does not significantly change the computation time. It contains 50000 rows of data that do not seem to be sorted by date, country, disaster type, cost, response time, or any other included column.</p>
+<p>This example demonstrates both reading and writing in chunks by simulating bootstrapping (randomly sampling with replacement, which this example only approximates) a dataset that technically fits in memory to a create a new dataset 5 times larger:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">incl_head</span> <span class="o">=</span> <span class="kc">True</span>   <span class="c1">#set to add header for 1st chunk</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;global_disaster_response_2018-2024.csv&#39;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+   <span class="n">chunk</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;bootstrapped_disaster_response_2018-2024.csv&#39;</span><span class="p">,</span>
+                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">incl_head</span><span class="p">)</span>
+   <span class="n">incl_head</span> <span class="o">=</span> <span class="kc">False</span>    <span class="c1">#disable header addition after 1st chunk</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Chunking with Pandas works best when no coordination is required between chunks. Operations that handle each row independently can easily be incorporated into chunking routines. Some aggregate statistics can also be calculated if care is taken to make sure that either all chunks are of identical size or that different-sized chunks are reweighted appropriately.</p>
+<p>However, if your data have natural groupings where group membership is not known by position a priori, and/or where each group is itself larger than memory, you may be better off using Dask or other libraries. Windowed operations also do not work because there is no overlap between chunks.</p>
+</div>
+<div class="admonition-exercise exercise important admonition" id="exercise-3">
+<p class="admonition-title">Exercise</p>
+<p>Load <code class="docutils literal notranslate"><span class="pre">global_disaster_response_2018-2024.csv</span></code> in chunks of 10000, and accumulate the sum of the <code class="docutils literal notranslate"><span class="pre">'economic_loss_usd'</span></code> column (hint: remember that DataFrames and Series have a <code class="docutils literal notranslate"><span class="pre">.sum()</span></code> method). Print the final sum. The result should be around $253 billion USD.</p>
+</div>
+<div class="admonition-solution-class-dropdown solution important dropdown admonition" id="solution-3">
+<p class="admonition-title">Solution
+ :class: dropdown</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">loss_sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./docs/day3/global_disaster_response_2018-2024.csv&#39;</span><span class="p">,</span>
+                         <span class="n">chunksize</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+   <span class="n">loss_sum</span><span class="o">+=</span><span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;economic_loss_usd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;total loss over all disasters in this database: $&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">loss_sum</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;billion USD&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>total loss over all disasters in this database: $ 253.43 billion USD
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Pandas lets you construct list- or table-like data structures with mixed data types, the contents of which can be indexed by arbitrary row and column labels</p></li>
+<li><p>The main data structures are Series (1D) and DataFrames (2D). Each column of a DataFrame is a Series.</p></li>
+<li><p>There are hundreds of attributes and methods that can be called on Pandas data structures to inspect, clean, organize, combine, and apply functions to them, including nearly all NumPy ufuncs (universal functions).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Categorical</span></code> and <code class="docutils literal notranslate"><span class="pre">SparseDtype</span></code> datatypes can help you reduce the memory footprint of your data.</p></li>
+<li><p>Most Pandas methods that apply a function can be sped up by multithreading with Numba, if they are applied over multiple columns. Just set <code class="docutils literal notranslate"><span class="pre">engine=numba</span></code> and <code class="docutils literal notranslate"><span class="pre">engine_kwargs={&quot;parallel&quot;:</span> <span class="pre">True}</span></code> in the kwargs.</p></li>
+<li><p>Pandas includes a built-in function to convert categorical data columns to dummy variables for Machine Learning input.</p></li>
+<li><p>Several Pandas reader/writer functions support chunking, i.e., loading subsets of data files that would otherwise not fit in memory.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="new-matplotlib-intro.html" class="btn btn-neutral float-left" title="A Brief Intro to Matplotlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="seaborn-new.html" class="btn btn-neutral float-right" title="A Brief Introduction to the Seaborn Statistical Plotting Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,879 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using GPUs with Python &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Machine Learning and Deep Learning" href="ml.html" />
+    <link rel="prev" title="Parallel computing with Python" href="parallel.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using GPUs with Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpus-on-uppmax-hpc2n-lunarc-nsc-pdc-and-c3se-systems">GPUs on UPPMAX, HPC2N, LUNARC, NSC, PDC, and C3SE systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numba-example">Numba example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-information">Additional information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using GPUs with Python</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day4/gpu.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-gpus-with-python">
+<h1>Using GPUs with Python<a class="headerlink" href="#using-gpus-with-python" title="Link to this heading"></a></h1>
+<div class="admonition-questions questions admonition" id="questions-0">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>What is GPU acceleration?</p></li>
+<li><p>How to enable GPUs (for instance with CUDA) in Python code?</p></li>
+<li><p>How to deploy GPUs at HPC2N, UPPMAX, LUNARC, NSC, PDC and C3SE?</p></li>
+</ul>
+</div>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Get an intro to common schemes for GPU code acceleration</p></li>
+<li><p>Learn about the GPU nodes at HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE</p></li>
+<li><p>Learn how to make a batch script asking for GPU nodes at HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE</p></li>
+</ul>
+</div>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>In order to understand the capabilities of a GPU, it is instructive to compare a pure CPU architecture with a GPU based architecture. Here, there is a schematics of the former:</p>
+<figure class="align-center" id="id1">
+<img alt="../_images/AMD-Zen4-CPU-b-cn1701.png" src="../_images/AMD-Zen4-CPU-b-cn1701.png" />
+<figcaption>
+<p><span class="caption-text">Pure CPU architecture (single node). In the present case there are 256 cores, each with its own cache memory (LX). There is a shared memory (~378 GB/NUMA node) for all these cores. This is an AMD Zen4 node.
+The base frequency is 2.25 GHz, but it can boost up to 3.1 GHz.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>As for the GPU architecture, a GPU card of type Ada Lovelace (like the L40s) looks like this:</p>
+<figure class="align-center" id="id2">
+<img alt="../_images/lovelace-diagram.png" src="../_images/lovelace-diagram.png" />
+<figcaption>
+<p><span class="caption-text">Note: The AD102 GPU also includes 288 FP64 Cores (2 per SM) which are not depicted in the above diagram. The FP64 TFLOP rate is 1/64th the TFLOP rate of FP32 operations. The small number of FP64 Cores are included to ensure any programs with FP64 code operate correctly, including FP64 Tensor Core code.
+This is a single GPU engine of a L40s card. There are 12 Graphics Processing Clusters (GPCs), 72 Texture Processing Clusters (TPCs), 144 Streaming Multiprocessors (SMs), and a 384-bit memory interface with 12 32-bit memory controllers).
+On the diagram, each green dot represents a CUDA core (single precision), while the yellow are RT cores and the blue Tensor cores. The cores are arranged in the slots called SMs in the figure. Cores in the same SM share some local and fast cache memory.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/GPC-with-raster-engine.png"><img alt="../_images/GPC-with-raster-engine.png" src="../_images/GPC-with-raster-engine.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The GPC is the dominant high-level hardware block. Each GPC includes a dedicated Raster Engine, two Raster Operations (ROPs) partitions, with each partition containing eight individual ROP units, and six TPCs. Each TPC includes one PolyMorph Engine and two SMs.
+Each SM contain 128 CUDA Cores, one Ada Third-Generation RT Core, four Ada Fourth-Generation Tensor Cores, four Texture Units, a 256 KB Register File, and 128 KB of L1/Shared Memory, which can be configured for different memory sizes depending on the needs of the graphics or compute workload.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>In a typical cluster, some GPUs are attached to a single node resulting in a CPU-GPU hybrid architecture. The CPU component is called the host and the GPU part the device.
+One possible layout (Kebnekaise, AMD Zen4 node with L40s GPU) is as follows:</p>
+<figure class="align-center" id="id4">
+<img alt="../_images/AMD-Zen4-GPU-1605.png" src="../_images/AMD-Zen4-GPU-1605.png" />
+<figcaption>
+<p><span class="caption-text">Schematics of a hybrid CPU-GPU architecture. A GPU L40s card is attached to a NUMA island which in turn contains 24 cores (AMD Zen4 CPU node with 48 cores total). The NUMA island and the GPUs are connected through a PCI-E interconnect which makes the data transfer between both components rather slow.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>We can characterize the CPU and GPU performance with two quantities: the <strong>latency</strong> and the <strong>throughput</strong>.</p>
+<ul class="simple">
+<li><p><strong>Latency</strong> refers to the time spent in a sole computation.</p></li>
+<li><p><strong>Throughput</strong> denotes the number of computations that can be performed in parallel. Then, we can say that a CPU has low latency (able to do fast computations) but low throughput (only a few computations simultaneously).</p></li>
+</ul>
+<p>In the case of GPUs, the latency is high and the throughput is also high. We can visualize the behavior of the CPUs and GPUs with cars as in the figure below. A CPU would be compact road where only a few racing cars can drive whereas a GPU would be a broader road where plenty of slow cars can drive.</p>
+<figure class="align-center" id="id5">
+<img alt="../_images/cpu-gpu-highway.png" src="../_images/cpu-gpu-highway.png" />
+<figcaption>
+<p><span class="caption-text">Cars and roads analogy for the CPU and GPU behavior. The compact road is analogous to the CPU (low latency, low throughput) and the broader road is analogous to the GPU (high latency, high throughput).</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Not every Python program is suitable for GPU acceleration. GPUs process simple functions rapidly, and are best suited for repetitive and highly-parallel computing tasks. GPUs were originally designed to render high-resolution images and video concurrently and fast, but since they can perform parallel operations on multiple sets of data, they are also often used for other, non-graphical tasks. Common uses are machine learning and scientific computation were the GPUs can take advantage of massive parallelism.</p>
+<p>Many Python packages are not CUDA aware, but some have been written specifically with GPUs in mind.
+If you are usually working with for instance NumPy and SciPy, you could optimize your code for GPU computing by using CuPy which mimics most of the NumPy functions. Another option is using Numba, which has bindings to CUDA and lets you write CUDA kernels in Python yourself. This means you can use custom algorithms. This is for NVidia GPUs. On AMD GPUs you would use HIP.</p>
+<p>One of the most common use of GPUs with Python is for machine learning or deep learning. For these cases you would use something like Tensorflow or PyTorch libraries which can handle CPU and GPU processing internally without the programmer needing to do so. We will talk more about that later in the course.</p>
+</section>
+<section id="gpus-on-uppmax-hpc2n-lunarc-nsc-pdc-and-c3se-systems">
+<h2>GPUs on UPPMAX, HPC2N, LUNARC, NSC, PDC, and C3SE systems<a class="headerlink" href="#gpus-on-uppmax-hpc2n-lunarc-nsc-pdc-and-c3se-systems" title="Link to this heading"></a></h2>
+<p>There are generally either not GPUs on the login nodes or they cannot be accessed for computations.
+To use them you need to either launch an interactive job or submit a batch job.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">LUNARC</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">NSC</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">PDC</button><button aria-controls="panel-0-0-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-5" name="0-5" role="tab" tabindex="-1">C3SE</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>The new cluster Pelle has GPUs. L40s GPUs (up to 10 GPU cards) and H100 GPUs (up to 2 GPU cards).</p>
+<p>You need to use this batch command (number of cards is depending on type):</p>
+<ul class="simple">
+<li><p>for L40s GPUs (up to 10 GPU cards):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -p gpu</span>
+<span class="c1">#SBATCH --gpus=l40s:&lt;number of GPUs&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>for H100 GPUs (up to 2 GPU cards):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -p gpu</span>
+<span class="c1">#SBATCH --gpus=h100:&lt;number of GPUs&gt;</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Kebnekaise’s GPU nodes are considered a separate resource, and the regular compute nodes do not have GPUs.</p>
+<p>Kebnekaise has a great many different types of GPUs:</p>
+<ul class="simple">
+<li><p>V100 (2 cards/node)</p></li>
+<li><p>A40 (8 cards/node)</p></li>
+<li><p>A6000 (2 cards/node)</p></li>
+<li><p>L40s (2 or 6 cards/node)</p></li>
+<li><p>A100 (2 cards/node)</p></li>
+<li><p>H100 (4 cards/node)</p></li>
+<li><p>MI100 (2 cards/node)</p></li>
+</ul>
+<p>To access them, you need to use this to use the batch system:</p>
+<p><code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">--gpus=x</span></code></p>
+<p>where x is the number of GPU cards you want. Above are given how many are on each type, so you can ask for up to that number.</p>
+<p>In addition, you need to add this to use the batch system:</p>
+<p><code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-C</span> <span class="pre">&lt;type&gt;</span></code></p>
+<p>where type is</p>
+<ul class="simple">
+<li><p>v100</p></li>
+<li><p>a40</p></li>
+<li><p>a6000</p></li>
+<li><p>l40s</p></li>
+<li><p>a100</p></li>
+<li><p>h100</p></li>
+<li><p>mi100</p></li>
+</ul>
+<p>For more information, see HPC2N’s guide to the different parts of the batch system: <a class="reference external" href="https://docs.hpc2n.umu.se/documentation/batchsystem/resources/">https://docs.hpc2n.umu.se/documentation/batchsystem/resources/</a></p>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>LUNARC has Nvidia A100 GPUs and Nvidia A40 GPUs, but the latter ones are reserved for interactive graphics work on the on-demand system, and Slurm jobs should not be submitted to them.</p>
+<p>Thus in order to use the A100 GPUs on Cosmos, add this to your batch script:</p>
+<p>A100 GPUs on AMD nodes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -p gpua100</span>
+<span class="c1">#SBATCH --gres=gpu:1</span>
+</pre></div>
+</div>
+<p>These nodes are configured as exclusive access and will not be shared between users. User projects will be charged for the entire node (48 cores). A job on a node will also have access to all memory on the node.</p>
+<p>A100 GPUs on Intel nodes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -p gpua100i</span>
+<span class="c1">#SBATCH --gres=gpu:&lt;number&gt;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;</span></code> is 1 or 2 (Two of the nodes have 1 GPU and two have 2 GPUs).</p>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><p>Tetralith has Nvidia T4 GPUs. In order to access them, add this to your batch script or interactive job:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -n 1</span>
+<span class="c1">#SBATCH -c 32</span>
+<span class="c1">#SBATCH --gpus-per-task=1</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><p>Dardel has 4 AMD Instinct™ MI250X á 2 GCDs per node.</p>
+<p>You need to add this to your batch script or interactive job in order to access them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="c1">#SBATCH -p gpu</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-5" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-5" name="0-5" role="tabpanel" tabindex="0"><p>Alvis is meant for GPU jobs.
+There is no node-sharing on multi-node jobs (<code class="docutils literal notranslate"><span class="pre">--exclusive</span></code> is automatic).</p>
+<p>NOTE: Requesting <code class="docutils literal notranslate"><span class="pre">-N</span> <span class="pre">1</span></code> does not mean 1 full node</p>
+<p>You would need to add this to your batch script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -p alvis</span>
+<span class="c1">#SBATCH -N &lt;nodes&gt;</span>
+<span class="c1">#SBATCH --gpus-per-node=&lt;type&gt;:x</span>
+</pre></div>
+</div>
+<p>where &lt;type&gt; is one of</p>
+<ul class="simple">
+<li><p>V100</p></li>
+<li><p>T4</p></li>
+<li><p>A100</p></li>
+</ul>
+<p>and x is number of GPU cards</p>
+<ul class="simple">
+<li><p>1-4 for V100</p></li>
+<li><p>1-8 for T4</p></li>
+<li><p>1-4 for A100</p></li>
+</ul>
+</div></div>
+</section>
+<section id="numba-example">
+<h2>Numba example<a class="headerlink" href="#numba-example" title="Link to this heading"></a></h2>
+<p>Numba is installed on some of the centers as a module (HPC2N, LUNARC, and C3SE). For UPPMAX and NSC we’ll use virtual environments.</p>
+<p>We are going to use the following program for testing on the machines (minus Dardel). It was taken from a (now absent) linuxhint.com exercise but there are also many great examples at
+<a class="reference external" href="https://numba.readthedocs.io/en/stable/cuda/examples.html">https://numba.readthedocs.io/en/stable/cuda/examples.html</a>):</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Python example <code class="docutils literal notranslate"><span class="pre">add-list.py</span></code> using Numba</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">vectorize</span>
+
+<span class="c1"># This should be a substantially high value.</span>
+<span class="n">NUM_ELEMENTS</span> <span class="o">=</span> <span class="mi">100000000</span>
+
+<span class="c1"># This is the CPU version.</span>
+<span class="k">def</span> <span class="nf">vector_add_cpu</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">NUM_ELEMENTS</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_ELEMENTS</span><span class="p">):</span>
+      <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">c</span>
+
+<span class="c1"># This is the GPU version. Note the @vectorize decorator. This tells</span>
+<span class="c1"># numba to turn this into a GPU vectorized function.</span>
+<span class="nd">@vectorize</span><span class="p">([</span><span class="s2">&quot;float32(float32, float32)&quot;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">vector_add_gpu</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+  <span class="n">a_source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">NUM_ELEMENTS</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  <span class="n">b_source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">NUM_ELEMENTS</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+  <span class="c1"># Time the CPU function</span>
+  <span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+  <span class="n">vector_add_cpu</span><span class="p">(</span><span class="n">a_source</span><span class="p">,</span> <span class="n">b_source</span><span class="p">)</span>
+  <span class="n">vector_add_cpu_time</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+  <span class="c1"># Time the GPU function</span>
+  <span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+  <span class="n">vector_add_gpu</span><span class="p">(</span><span class="n">a_source</span><span class="p">,</span> <span class="n">b_source</span><span class="p">)</span>
+  <span class="n">vector_add_gpu_time</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+  <span class="c1"># Report times</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CPU function took </span><span class="si">%f</span><span class="s2"> seconds.&quot;</span> <span class="o">%</span> <span class="n">vector_add_cpu_time</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GPU function took </span><span class="si">%f</span><span class="s2"> seconds.&quot;</span> <span class="o">%</span> <span class="n">vector_add_gpu_time</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>As before, we need a batch script to run the code. There are no GPUs on the login node and even if there were we should not run long/heavy jobs there.</p>
+<p><strong>Note</strong> Type along!</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">UPPMAX</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">UPPMAX (batch)</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">HPC2N</button><button aria-controls="panel-1-1-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-3" name="1-3" role="tab" tabindex="-1">HPC2N (batch)</button><button aria-controls="panel-1-1-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-4" name="1-4" role="tab" tabindex="-1">LUNARC (batch)</button><button aria-controls="panel-1-1-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-5" name="1-5" role="tab" tabindex="-1">C3SE (batch)</button><button aria-controls="panel-1-1-6" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-6" name="1-6" role="tab" tabindex="-1">NSC: batch</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>Running a GPU Python code interactively on Pelle.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span><span class="o">[</span>bbrydsoe@pelle2<span class="w"> </span>~<span class="o">]</span><span class="w"> </span>salloc<span class="w"> </span>-A<span class="w"> </span>uppmax2025-2-393<span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:30:00<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>-p<span class="w"> </span>gpu<span class="w"> </span>--gpus<span class="o">=</span>l40s:1
+<span class="go">salloc: Pending job allocation 406444</span>
+<span class="go">salloc: job 406444 queued and waiting for resources</span>
+<span class="go">salloc: job 406444 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 406444</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes p202 are ready for job</span>
+<span class="gp">[bbrydsoe@p202 ~]$ </span>module<span class="w"> </span>load<span class="w"> </span>Python/3.13.5<span class="w"> </span>foss/2025b<span class="w"> </span>CUDA/13.0.2
+<span class="gp">[bbrydsoe@p202 ~]$ </span><span class="nb">source</span><span class="w"> </span>/sw/arch/local/software/python/venvs/numba-gpu/bin/activate
+<span class="gp">[bbrydsoe@p202 ~]$ </span>python<span class="w"> </span>add-list.py
+<span class="go">CPU function took 17.475140 seconds.</span>
+<span class="go">GPU function took 0.134774 seconds.</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>Running a GPU Python code on Pelle.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>!/bin/bash
+<span class="gp"># </span>Remember<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>this<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>own<span class="w"> </span>project<span class="w"> </span>ID<span class="w"> </span>after<span class="w"> </span>the<span class="w"> </span>course!
+<span class="gp">#</span>SBATCH<span class="w"> </span>-A<span class="w"> </span>uppmax2025-2-393
+<span class="gp"># </span>We<span class="w"> </span>are<span class="w"> </span>asking<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>minutes
+<span class="gp">#</span>SBATCH<span class="w"> </span>--time<span class="o">=</span><span class="m">00</span>:05:00
+<span class="gp"># </span>Asking<span class="w"> </span><span class="k">for</span><span class="w"> </span>one<span class="w"> </span>L40s<span class="w"> </span>GPU
+<span class="gp">#</span>SBATCH<span class="w"> </span>-p<span class="w"> </span>gpu
+<span class="gp">#</span>SBATCH<span class="w"> </span>--gpus<span class="o">=</span>l40s:1
+
+<span class="go">module load Python/3.13.5 foss/2025b CUDA/13.0.2</span>
+<span class="go">source /sw/arch/local/software/python/venvs/numba-gpu/bin/activate</span>
+
+<span class="go">python add-list.py</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><p>Running a GPU Python code interactively.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>salloc<span class="w"> </span>-A<span class="w"> </span>hpc2n2025-151<span class="w"> </span>--time<span class="o">=</span><span class="m">00</span>:30:00<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>-C<span class="w"> </span>l40s
+<span class="go">salloc: Pending job allocation 32126787</span>
+<span class="go">salloc: job 32126787 queued and waiting for resources</span>
+<span class="go">salloc: job 32126787 has been allocated resources</span>
+<span class="go">salloc: Granted job allocation 32126787</span>
+<span class="go">salloc: Waiting for resource configuration</span>
+<span class="go">salloc: Nodes b-cn1606 are ready for job</span>
+<span class="gp">$ </span>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3<span class="w"> </span>OpenMPI/4.1.5<span class="w"> </span>SciPy-bundle/2023.07<span class="w"> </span>CUDA/12.1.1<span class="w"> </span>numba/0.58.1
+<span class="gp">$ </span>srun<span class="w"> </span>python<span class="w"> </span>add-list.py
+<span class="go">CPU function took 14.216318 seconds.</span>
+<span class="go">GPU function took 0.390335 seconds.</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-3" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-3" name="1-3" role="tabpanel" tabindex="0"><p>Batch script, <code class="docutils literal notranslate"><span class="pre">add-list.sh</span></code>, to run the same GPU Python script (the numba code, <code class="docutils literal notranslate"><span class="pre">add-list.py</span></code>) at Kebnekaise.
+As before, submit with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">add-list.sh</span></code> (assuming you called the batch script thus - change to fit your own naming style).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A hpc2n2025-151     # HPC2N ID - change to your own</span>
+<span class="c1"># We are asking for 5 minutes</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1">#SBATCH -n 1</span>
+<span class="c1"># Asking for one L40s GPU</span>
+<span class="c1">#SBATCH --gpus=1</span>
+<span class="c1">#SBATCH -C l40s</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+module<span class="w"> </span>purge<span class="w">  </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3<span class="w"> </span>OpenMPI/4.1.5<span class="w"> </span>SciPy-bundle/2023.07<span class="w"> </span>CUDA/12.1.1<span class="w"> </span>numba/0.58.1
+
+<span class="c1"># Run your Python script</span>
+python<span class="w"> </span>add-list.py
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-4" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-4" name="1-4" role="tabpanel" tabindex="0"><p>Batch script, “add-list.sh”, to run the same GPU Python script (the numba code, “add-list.py”) at Cosmos. As before, submit with “sbatch add-list.sh” (assuming you called the batch script thus - change to fit your own naming style).</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>!/bin/bash
+<span class="gp"># </span>Remember<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>this<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>own<span class="w"> </span>project<span class="w"> </span>ID<span class="w"> </span>after<span class="w"> </span>the<span class="w"> </span>course!
+<span class="gp">#</span>SBATCH<span class="w"> </span>-A<span class="w"> </span>lu2025-7-106
+<span class="gp"># </span>We<span class="w"> </span>are<span class="w"> </span>asking<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>minutes
+<span class="gp">#</span>SBATCH<span class="w"> </span>--time<span class="o">=</span><span class="m">00</span>:05:00
+<span class="gp">#</span>SBATCH<span class="w"> </span>--ntasks-per-node<span class="o">=</span><span class="m">1</span>
+<span class="gp"># </span>Asking<span class="w"> </span><span class="k">for</span><span class="w"> </span>one<span class="w"> </span>A100<span class="w"> </span>GPU
+<span class="gp">#</span>SBATCH<span class="w"> </span>-p<span class="w"> </span>gpua100
+<span class="gp">#</span>SBATCH<span class="w"> </span>--gres<span class="o">=</span>gpu:1
+
+<span class="gp"># </span>Remove<span class="w"> </span>any<span class="w"> </span>loaded<span class="w"> </span>modules<span class="w"> </span>and<span class="w"> </span>load<span class="w"> </span>the<span class="w"> </span>ones<span class="w"> </span>we<span class="w"> </span>need
+<span class="go">module purge  &gt; /dev/null 2&gt;&amp;1</span>
+<span class="go">module load GCC/12.3.0  Python/3.11.3 OpenMPI/4.1.5 numba/0.58.1 SciPy-bundle/2023.07 CUDA/12.1.1</span>
+
+<span class="gp"># </span>Run<span class="w"> </span>your<span class="w"> </span>Python<span class="w"> </span>script
+<span class="go">python add-list.py</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-5" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-5" name="1-5" role="tabpanel" tabindex="0"><p>Batch script, “add-list.sh”, to run the same GPU Python script (the numba code, “add-list.py”) at Alvis. As before, submit with “sbatch add-list.sh” (assuming you called the batch script thus - change to fit your own naming style).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A naiss2025-22-934</span>
+<span class="c1"># We are asking for 10 minutes</span>
+<span class="c1">#SBATCH -t 00:10:00</span>
+<span class="c1">#SBATCH -p alvis</span>
+<span class="c1">#SBATCH -N 1 --gpus-per-node=T4:2</span>
+<span class="c1"># Writing output and error files</span>
+<span class="c1">#SBATCH --output=output%J.out</span>
+<span class="c1">#SBATCH --error=error%J.error</span>
+
+<span class="c1"># Load any needed GPU modules and any prerequisites - on Alvis this module loads all</span>
+<span class="n">ml</span> <span class="n">purge</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">numba</span><span class="o">-</span><span class="n">cuda</span><span class="o">/</span><span class="mf">0.20.0</span><span class="o">-</span><span class="n">foss</span><span class="o">-</span><span class="mi">2025</span><span class="n">b</span><span class="o">-</span><span class="n">CUDA</span><span class="o">-</span><span class="mf">12.9.1</span>
+<span class="n">python</span> <span class="n">add</span><span class="o">-</span><span class="nb">list</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-6" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-6" name="1-6" role="tabpanel" tabindex="0"><p>Batch script, “add-list.sh”, to run the same GPU Python script (the numba code, “add-list.py”) at Tetralith. As before, submit with “sbatch add-list.sh” (assuming you called the batch script thus - change to fit your own naming style).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A naiss2025-22-934</span>
+<span class="c1"># We are asking for 5 minutes</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1">#SBATCH -n 1</span>
+<span class="c1">#SBATCH -c 32</span>
+<span class="c1">#SBATCH --gpus-per-task=1</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+<span class="n">module</span> <span class="n">purge</span>  <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">Python</span><span class="o">/</span><span class="mf">3.11.5</span><span class="o">-</span><span class="n">bare</span><span class="o">-</span><span class="n">hpc1</span><span class="o">-</span><span class="n">gcc</span><span class="o">-</span><span class="mi">2023</span><span class="n">b</span><span class="o">-</span><span class="n">eb</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">buildenv</span><span class="o">-</span><span class="n">gcccuda</span><span class="o">/</span><span class="mf">12.9.1</span><span class="o">-</span><span class="n">gcc11</span><span class="o">-</span><span class="n">hpc1</span>
+
+<span class="c1"># If you are running this during the course, you can use the venv we have created for you</span>
+<span class="n">source</span> <span class="o">/</span><span class="n">proj</span><span class="o">/</span><span class="n">courses</span><span class="o">-</span><span class="n">fall</span><span class="o">-</span><span class="mi">2025</span><span class="o">/</span><span class="n">numba</span><span class="o">-</span><span class="n">gpu</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="c1"># Otherwise, you have to create a virtual environment to use, then comment out the above</span>
+<span class="c1"># Create a virtual environment to use. Do this before submitting the job</span>
+<span class="c1"># cd /proj/courses-fall-2025/users/&lt;mydir&gt;</span>
+<span class="c1"># module load Python/3.11.5-bare-hpc1-gcc-2023b-eb</span>
+<span class="c1"># module load buildenv-gcccuda/12.9.1-gcc11-hpc1</span>
+<span class="c1"># python3 -m venv numba-gpu</span>
+<span class="c1"># source numba-gpu/bin/activate</span>
+<span class="c1"># pip3 install --upgrade pip setuptools wheel</span>
+<span class="c1"># pip3 install numba-cuda\[cu13\] numpy</span>
+<span class="c1"># Then in the batch script, you load it</span>
+<span class="c1"># source /proj/courses-fall-2025/users/&lt;mydir&gt;/numba-gpu/bin/activate</span>
+<span class="c1"># Remove the comment of the above line if you created your own venv</span>
+
+<span class="c1"># Run your Python script</span>
+<span class="n">python</span> <span class="n">add</span><span class="o">-</span><span class="nb">list</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>This is what I got for Tetralith:</p>
+<p>CPU function took 23.191229 seconds.
+GPU function took 2.931487 seconds.</p>
+</div></div>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<div class="admonition-integration-2d-with-numba exercise important admonition" id="exercise-0">
+<p class="admonition-title">Integration 2D with Numba</p>
+<p>An initial implementation of the 2D integration problem with the CUDA support for Numba could be as follows:</p>
+<div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">integration2d_gpu.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">cuda</span><span class="p">,</span> <span class="n">float32</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="mi">1024</span>
+<span class="n">threadsPerBlock</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">blocksPerGrid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="n">threadsPerBlock</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">threadsPerBlock</span><span class="p">)</span>
+
+<span class="c1"># interval size (same for X and Y)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nd">@cuda</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">dotprod</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="n">tid</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockDim</span><span class="o">.</span><span class="n">x</span>
+
+    <span class="k">if</span> <span class="n">tid</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="c1">#cummulative variable</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># fine-grain integration in the X axis</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">tid</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># regular integration in the Y axis</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">C</span><span class="p">[</span><span class="n">tid</span><span class="p">]</span> <span class="o">=</span> <span class="n">mysum</span>
+
+
+<span class="c1"># array for collecting partial sums on the device</span>
+<span class="n">C_global_mem</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">device_array</span><span class="p">((</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">dotprod</span><span class="p">[</span><span class="n">blocksPerGrid</span><span class="p">,</span><span class="n">threadsPerBlock</span><span class="p">](</span><span class="n">C_global_mem</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">C_global_mem</span><span class="o">.</span><span class="n">copy_to_host</span><span class="p">()</span>
+<span class="n">integral</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Notice the larger size of the grid in the present case (100*1024) compared to the serial case’s size we used previously (10000). Large computations are necessary on the GPUs to get the benefits of this architecture.</p>
+<p>One can take advantage of the shared memory in a thread block to write faster code. Here, we wrote the 2D integration example from the previous section where threads in a block write on a <cite>shared[]</cite> array. Then, this array is reduced (values added) and the output is collected in the array <code class="docutils literal notranslate"><span class="pre">C</span></code>. The entire code is here:</p>
+<div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">integration2d_gpu_shared.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">cuda</span><span class="p">,</span> <span class="n">float32</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="c1"># grid size</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="mi">1024</span>
+<span class="n">threadsPerBlock</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">blocksPerGrid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="n">threadsPerBlock</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">threadsPerBlock</span><span class="p">)</span>
+
+<span class="c1"># interval size (same for X and Y)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nd">@cuda</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">dotprod</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="c1"># using the shared memory in the thread block</span>
+    <span class="n">shared</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">threadsPerBlock</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="n">tid</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockDim</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">shrIndx</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span>
+
+    <span class="k">if</span> <span class="n">tid</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="c1">#cummulative variable</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># fine-grain integration in the X axis</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">tid</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># regular integration in the Y axis</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">mysum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">shared</span><span class="p">[</span><span class="n">shrIndx</span><span class="p">]</span> <span class="o">=</span> <span class="n">mysum</span>
+
+    <span class="n">cuda</span><span class="o">.</span><span class="n">syncthreads</span><span class="p">()</span>
+
+    <span class="c1"># reduction for the whole thread block</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="n">cuda</span><span class="o">.</span><span class="n">blockDim</span><span class="o">.</span><span class="n">x</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">shrIndx</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">shared</span><span class="p">[</span><span class="n">shrIndx</span><span class="p">]</span> <span class="o">+=</span> <span class="n">shared</span><span class="p">[</span><span class="n">shrIndx</span> <span class="o">+</span> <span class="n">s</span><span class="p">]</span>
+        <span class="n">s</span> <span class="o">*=</span> <span class="mi">2</span>
+        <span class="n">cuda</span><span class="o">.</span><span class="n">syncthreads</span><span class="p">()</span>
+    <span class="c1"># collecting the reduced value in the C array</span>
+    <span class="k">if</span> <span class="n">shrIndx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">C</span><span class="p">[</span><span class="n">cuda</span><span class="o">.</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">shared</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># array for collecting partial sums on the device</span>
+<span class="n">C_global_mem</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">device_array</span><span class="p">((</span><span class="n">blocksPerGrid</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="n">starttime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">dotprod</span><span class="p">[</span><span class="n">blocksPerGrid</span><span class="p">,</span><span class="n">threadsPerBlock</span><span class="p">](</span><span class="n">C_global_mem</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">C_global_mem</span><span class="o">.</span><span class="n">copy_to_host</span><span class="p">()</span>
+<span class="n">integral</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="n">endtime</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral value is </span><span class="si">%e</span><span class="s2">, Error is </span><span class="si">%e</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integral</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">integral</span> <span class="o">-</span> <span class="mf">0.0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time spent: </span><span class="si">%.2f</span><span class="s2"> sec&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">endtime</span><span class="o">-</span><span class="n">starttime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Prepare a batch script to run these two versions of the integration 2D with Numba support and monitor the timings for both cases.</p>
+</div>
+<div class="dropdown solution important admonition" id="solution-0">
+<p class="admonition-title">Solution for HPC2N</p>
+<blockquote>
+<div><p>A template for running the python codes at HPC2N is here:</p>
+<div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">job-gpu.sh</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A hpc2n2025-151</span>
+<span class="c1">#SBATCH -t 00:08:00</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -n 24</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+<span class="c1">#SBATCH --gpus=1</span>
+<span class="c1">#SBATCH -C l40s</span>
+<span class="c1">#SBATCH --exclusive</span>
+
+ml<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+ml<span class="w"> </span>GCC/12.3.0<span class="w"> </span>Python/3.11.3<span class="w"> </span>OpenMPI/4.1.5<span class="w"> </span>SciPy-bundle/2023.07<span class="w"> </span>CUDA/12.1.1<span class="w"> </span>numba/0.58.1
+python<span class="w"> </span>integration2d_gpu.py
+python<span class="w"> </span>integration2d_gpu_shared.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>For the <code class="docutils literal notranslate"><span class="pre">integration2d_gpu.py</span></code> implementation, the time for executing the kernel and doing some postprocessing to the outputs (copying the C array and doing a reduction) was 4.35 sec. which is a much smaller value than the time for the serial numba code of 152 sec obtained previously.</p>
+<p>The simulation time for the <code class="docutils literal notranslate"><span class="pre">integration2d_shared.py</span></code> implementation was 1.87 sec. by using the shared memory trick.</p>
+</div></blockquote>
+</div>
+<div class="dropdown solution important admonition" id="solution-1">
+<p class="admonition-title">Solution for UPPMAX</p>
+<blockquote>
+<div><p>A template for running the python codes at UPPMAX is here:</p>
+<div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">job-gpu.sh</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A uppmax2025-2-393</span>
+<span class="c1"># We are asking for 10 minutes</span>
+<span class="c1">#SBATCH --time=00:10:00</span>
+<span class="c1"># Asking for one GPU</span>
+<span class="c1">#SBATCH -p gpu</span>
+<span class="c1">#SBATCH --gpus=l40s:1</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+
+<span class="c1"># Remove any loaded modules and load the ones we need</span>
+ml<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>Python/3.13.5<span class="w"> </span>foss/2025b<span class="w"> </span>CUDA/13.0.2
+<span class="nb">source</span><span class="w"> </span>/sw/arch/local/software/python/venvs/numba-gpu/bin/activate
+
+<span class="c1"># Run your Python script</span>
+
+python<span class="w"> </span>integration2d_gpu.py
+python<span class="w"> </span>integration2d_gpu_shared.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown solution important admonition" id="solution-2">
+<p class="admonition-title">Solution for LUNARC</p>
+<blockquote>
+<div><p>A template for running the python codes at LUNARC is here:</p>
+<div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">job-gpu.sh</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A lu2025-7-106</span>
+<span class="c1">#SBATCH -t 00:15:00</span>
+<span class="c1">#SBATCH -n 24</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="c1">#SBATCH -p gpua100</span>
+<span class="c1">#SBATCH --gres=gpu:1</span>
+<span class="c1">#SBATCH --exclusive</span>
+
+ml<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.2.0<span class="w">  </span>OpenMPI/4.1.4<span class="w"> </span>Python/3.10.8<span class="w"> </span>SciPy-bundle/2023.02<span class="w"> </span>CUDA/12.1.1<span class="w"> </span>numba/0.58.0
+
+python<span class="w"> </span>integration2d_gpu.py
+python<span class="w"> </span>integration2d_gpu_shared.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown solution important admonition" id="solution-3">
+<p class="admonition-title">Solution for NSC</p>
+<blockquote>
+<div><p>A template for running the python codes at NSC is here:</p>
+<div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">job-gpu.sh</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID after the course!</span>
+<span class="c1">#SBATCH -A naiss2025-22-934</span>
+<span class="c1">#SBATCH -t 00:20:00</span>
+<span class="c1">#SBATCH -n 24</span>
+<span class="c1">#SBATCH --gpus-per-task=1</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+<span class="c1">#SBATCH --exclusive</span>
+
+ml<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+ml<span class="w"> </span>Python/3.11.5-bare-hpc1-gcc-2023b-eb
+ml<span class="w"> </span>buildenv-gcccuda/12.9.1-gcc11-hpc1
+
+<span class="c1"># If you are running this during the course, you can use the venv we have created for you</span>
+<span class="nb">source</span><span class="w"> </span>/proj/courses-fall-2025/numba-gpu/bin/activate
+<span class="c1"># Otherwise, you have to create a virtual environment to use, then comment out the above</span>
+<span class="c1"># Create a virtual environment to use. Do this before submitting the job</span>
+<span class="c1"># cd /proj/courses-fall-2025/users/&lt;mydir&gt;</span>
+<span class="c1"># module load Python/3.11.5-bare-hpc1-gcc-2023b-eb</span>
+<span class="c1"># module load buildenv-gcccuda/12.9.1-gcc11-hpc1</span>
+<span class="c1"># python3 -m venv numba-gpu</span>
+<span class="c1"># source numba-gpu/bin/activate</span>
+<span class="c1"># pip3 install --upgrade pip setuptools wheel</span>
+<span class="c1"># pip3 install numba-cuda\[cu13\] numpy</span>
+<span class="c1"># Then in the batch script, you load it</span>
+<span class="c1"># source /proj/courses-fall-2025/users/&lt;mydir&gt;/numba-gpu/bin/activate</span>
+<span class="c1"># Remove the comment of the above line if you created your own venv</span>
+
+python<span class="w"> </span>integration2d_gpu.py
+python<span class="w"> </span>integration2d_gpu_shared.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div></blockquote>
+</div>
+<div class="dropdown solution important admonition" id="solution-4">
+<p class="admonition-title">Solution for C3SE</p>
+<blockquote>
+<div><p>A template for running the python codes at C3SE is here:</p>
+<div class="dropdown admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">job-gpu.sh</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Remember to change this to your own project ID!</span>
+<span class="c1">#SBATCH -A naiss2025-22-934</span>
+<span class="c1">#SBATCH -t 00:15:00</span>
+<span class="c1">#SBATCH -p alvis</span>
+<span class="c1">#SBATCH -N 1 --gpus-per-node=T4:4</span>
+<span class="c1">#SBATCH -o output_%j.out   # output file</span>
+<span class="c1">#SBATCH -e error_%j.err    # error messages</span>
+
+ml<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+ml<span class="w"> </span>numba-cuda/0.20.0-foss-2025b-CUDA-12.9.1
+
+python<span class="w"> </span>integration2d_gpu.py
+python<span class="w"> </span>integration2d_gpu_shared.py
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div></blockquote>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>You deploy GPU nodes via SLURM, either in interactive mode or batch</p></li>
+<li><p>In Python the numba package is handy</p></li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>Of course, interactive mode could also be from inside Desktop on Demand, Jupyter, VScode, spyder …</p></li>
+<li><p>CUDA does not work directly on AMD GPUs, there hip is used instead.</p></li>
+<li><p>We will use GPUs more in the ML/DL section!</p></li>
+</ul>
+</div>
+</section>
+<section id="additional-information">
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numba.readthedocs.io/en/stable/cuda/examples.html">Numba documentation examples</a></p></li>
+<li><p><a class="reference external" href="https://nyu-cds.github.io/python-numba/05-cuda/">New York University CUDA/Numba lesson</a></p></li>
+<li><p>Hands-On GPU Programming with Python and CUDA : Explore High-Performance Parallel Computing with CUDA, Brian Tuomanen. Packt publishing.</p></li>
+<li><p>Parallel and High Performance Computing, Robert Robey and Yuliana Zamora. Manning publishing.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="parallel.html" class="btn btn-neutral float-left" title="Parallel computing with Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ml.html" class="btn btn-neutral float-right" title="Machine Learning and Deep Learning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

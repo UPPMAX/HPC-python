@@ -1,0 +1,157 @@
+.. _install-packages:
+Install packages
+================
+
+.. objectives::
+
+    - Learn how to install a (general-purpose) Python package with `pip`
+    - Understand limitations of this way, e.g. use cases/best practices
+
+.. admonition:: For the teacher
+   :class: drop-down
+
+    - Dialogue with users during class 15 min
+    - Exercise about 5 min
+
+Introduction
+------------
+
+There are 2 ways to install missing python packages at a HPC cluster.
+
+- Local installation, always available for the version of Python you had active when doing the installation
+    - ``pip install --user [package name]``
+- Isolated environment. See next session.
+    - virtual environments provided by python
+    - conda
+
+Normally you want reproducibility and the safe way to go is with isolated environments specific to your different projects.
+
+.. admonition:: Use cases of local *general* packages
+
+   - Packages, missing in the loaded Python module, that would not be specific for a research project.
+   - Comment: You can include the package in a virtual environment as well.
+ 
+Typical workflow
+................
+
+1. Load the Python module with correct version.
+    - Differs among the clusters
+
+2. Check that the right Python is used with ``which python3`` or ``which python`` (should not be a "system" python in ``/usr/bin``)
+    - Double check the version ``python3 -V`` or ``python -V``
+
+3. Install with: ``pip install --user <package-name [version]>`` 
+    - Bit more secure (using really the loaded Python): ``python -m pip install --user <package-name [version]>``
+
+Package versions
+................
+
+- Package name can be pinned, 
+   - like ``numpy==1.26.4`` (Note the double ``==``)
+   - like ``numpy>1.22``: only later than...
+   - read `more <https://peps.python.org/pep-0440/#version-specifiers>`_ 
+
+- If not pinned you will get the latest version compatible with the python version you are using.
+
+.. admonition:: What can go wrong?
+   :class: dropdown
+
+   .. code-block:: console
+ 
+      $ pip install --user numpy==0.1
+      ERROR: Could not find a version that satisfies the requirement numpy==0.1 
+      (from versions: 1.3.0, 1.4.1, 1.5.0, 1.5.1, 1.6.0, 1.6.1, 1.6.2, 1.7.0, 
+      1.7.1, 1.7.2, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.10.0.post2, 
+      1.10.1, 1.10.2, 1.10.4, 1.11.0, 1.11.1, 1.11.2, 1.11.3, 1.12.0, 1.12.1, 
+      1.13.0, 1.13.1, 1.13.3, 1.14.0, 1.14.1, 1.14.2, 1.14.3, 1.14.4, 1.14.5, 
+      1.14.6, 1.15.0, 1.15.1, 1.15.2, 1.15.3, 1.15.4, 1.16.0, 1.16.1, 1.16.2, 
+      1.16.3, 1.16.4, 1.16.5, 1.16.6, 1.17.0, 1.17.1, 1.17.2, 1.17.3, 1.17.4, 
+      1.17.5, 1.18.0, 1.18.1, 1.18.2, 1.18.3, 1.18.4, 1.18.5, 1.19.0, 1.19.1, 
+      1.19.2, 1.19.3, 1.19.4, 1.19.5, 1.20.0, 1.20.1, 1.20.2, 1.20.3, 1.21.0, 
+      1.21.1, 1.21.2, 1.21.3, 1.21.4, 1.21.5, 1.21.6, 1.22.0, 1.22.1, 1.22.2, 
+      1.22.3, 1.22.4, 1.23.0, 1.23.1, 1.23.2, 1.23.3, 1.23.4, 1.23.5, 1.24.0, 
+      1.24.1, 1.24.2, 1.24.3, 1.24.4, 1.25.0, 1.25.1, 1.25.2, 1.26.0, 1.26.1, 
+      1.26.2, 1.26.3, 1.26.4, 2.0.0, 2.0.1, 2.0.2, 2.1.0rc1, 2.1.0, 2.1.1, 2.1.2, 
+      2.1.3, 2.2.0rc1, 2.2.0, 2.2.1, 2.2.2, 2.2.3, 2.2.4, 2.2.5)
+      ERROR: No matching distribution found for numpy==0.1
+
+   - Try with a version in the list. Not necessary working anyway so trial and error. 
+
+Installation directory
+......................
+
+- The package *typically* ends up in ``~/.local/lib/python3.X``
+    - Example: Packages installed by both bython version 3.11.5 and 3.11.8 will go into same folder python3.11 and will be seen by both python interpreters. 
+
+Check your own installed packages (and dependencies)
+....................................................
+
+- Check with ``pip list --user``
+
+.. admonition:: Example after just installing ``xarray`` on Tetralith with SciPy-bundle/2023.11 NOT loaded
+   :class: dropdown
+
+   .. code-block:: console
+
+      $ pip list --user
+      Package         Version
+      --------------- -----------
+      numpy           2.2.5
+      pandas          2.2.3
+      python-dateutil 2.9.0.post0
+      pytz            2025.2
+      six             1.17.0
+      tzdata          2025.2
+      xarray          2025.4.0
+
+- It is evident that some packages have dependencies! In the example, ``xarray`` also installs ``numpy`` and ``pandas``!
+- What if we load SciPy-bundle/2023.11, where ``numpy`` and ``pandas`` are already present?
+
+.. admonition:: Example after just installing ``xarray`` on Tetralith with ``SciPy-bundle/2023.11`` LOADED
+   :class: dropdown
+
+   .. code-block:: console
+
+      $ pip list --user
+      Package         Version
+      --------------- -----------
+      xarray          2025.4.0
+
+   - Let's see what we get in total if we then use ``xarray``
+
+   .. code-block:: console
+
+      $ pip list 
+      Package         Version
+      --------------- -----------
+      ...
+      numpy           1.26.2
+      pandas          2.1.3
+      ...
+      xarray          2025.4.0
+
+
+- It is also evident that if ``numpy`` and ``pandas`` already are available, those will be used, but may be of older versions!
+- If ``SciPy-bundle/2023.11`` was loaded when installing ``xarray`` you need to load it every time you need ``xarray``.
+
+.. keypoints::
+
+   - You can install Python packages as a user with the ``pip install --user <package>[==<version>]``.
+   - The ``pip`` command will look after available *valid* dependencies already seen or install them on the fly.
+   - You can load package modules to help minimizing new installations of dependencies.
+
+      - Then you need to load that package module everytime you need the "main" package.
+
+Exercise
+--------
+
+- If there is time!
+- You'll practice ``pip`` in isolated environments in next session!
+
+.. challenge:: (optional) Exercise 1: Install a python package you know of for an old version of Python
+
+   - Load an older Python module (perhaps one you won't use anymore)
+   - install the python package (it may already be there but with an older version)
+       - (you can always remove your local installation later if you regret it)
+
+   - We may add a solution in a coming instance of the course

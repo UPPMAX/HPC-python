@@ -1,0 +1,667 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to “Using Python in an HPC environment” course material &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="_static/minipres.js?v=a0d29692"></script>
+      <script src="_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pre-requirements" href="prereqs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to “Using Python in an HPC environment” course material</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-using-python-in-an-hpc-environment-course-material">
+<h1>Welcome to “Using Python in an HPC environment” course material<a class="headerlink" href="#welcome-to-using-python-in-an-hpc-environment-course-material" title="Link to this heading"></a></h1>
+<div class="admonition-content admonition">
+<p class="admonition-title">Content</p>
+<ul class="simple">
+<li><p>This course aims to give a brief, but comprehensive introduction to using Python in an HPC environment.</p></li>
+<li><dl class="simple">
+<dt>You will learn how to</dt><dd><ul>
+<li><p>use modules to load Python</p></li>
+<li><p>find site installed Python packages</p></li>
+<li><p>install packages yourself</p></li>
+<li><p>use isolated environments,</p></li>
+<li><p>write a batch script for running Python</p></li>
+<li><p>use Python in parallel</p></li>
+<li><p>use Python for ML and on GPUs.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.</p></li>
+<li><p><strong>We aim to give this course in spring and fall every year.</strong></p></li>
+</ul>
+</div>
+<div class="admonition-course-learning-outcomes admonition">
+<p class="admonition-title"><strong>Course learning outcomes</strong></p>
+<ul class="simple">
+<li><p>You can find and load a Python package modules</p></li>
+<li><p>You can determine if a Python package is installed</p></li>
+<li><p>You can use an isolated environment</p></li>
+<li><p>You can install Python packages</p></li>
+<li><p>You can write and submit batch job scripts</p></li>
+<li><p>You can use the compute nodes interactively</p></li>
+<li><p>You can use a Python IDE</p></li>
+<li><p>Use Python in parallel</p></li>
+<li><p>Use Python for ML</p></li>
+<li><p>Use GPUs with Python</p></li>
+</ul>
+</div>
+<section id="schedule-autumn-2025">
+<h2>Schedule Autumn 2025<a class="headerlink" href="#schedule-autumn-2025" title="Link to this heading"></a></h2>
+<div class="admonition-schedule admonition">
+<p class="admonition-title">Schedule</p>
+<p>See <a class="reference internal" href="schedule.html#schedule"><span class="std std-ref">Schedule</span></a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Not covered</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Improve Python <em>coding</em> skills</p></li>
+<li><p>Specifics of other clusters</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="admonition-course-approach-to-deal-with-multiple-hpc-centers admonition">
+<p class="admonition-title">Course approach to deal with multiple HPC centers</p>
+<p><strong>Target group</strong></p>
+<ul>
+<li><p>The course is for present or presumptive users at the <strong>NAISS</strong> resources at PDC, NSC, and C3SE as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden.</p></li>
+<li><p>The course is a NAISS cooperation with <strong>teachers</strong> from the NAISS branches <strong>UPPMAX</strong> (Pelle, Maya, Rackham, Snowy, Bianca), <strong>HPC2N</strong> (Kebnekaise), and <strong>LUNARC</strong> (Cosmos) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.</p></li>
+<li><p>Although there are differences we will only have <strong>few separate sessions</strong>.</p></li>
+<li><p>Most participants will use The NAISS resources <strong>Tetralith</strong> system at NSC or <strong>Dardel</strong> system at PDC for the course.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Alvis at <strong>C3SE (Chalmers)</strong> is in the process of being added.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Users with the “local” affiliation below, can work at the following clusters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Kebnekaise: UmU, IRF, MIUN, SLU, LTU.</p></li>
+<li><p>Cosmos: LU.</p></li>
+<li><p>Pelle/Maya/Rackham/Snowy: UU.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The general information given in the course will be true for all/most HPC centres in Sweden.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres.</p></li>
+<li><p>When present, links to the Python documentation at other NAISS centres are given in the corresponding session.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="admonition-cluster-documentation-of-python admonition">
+<p class="admonition-title">Cluster documentation of Python</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Documentation at the HPC centres</dt><dd><ul>
+<li><p><a class="reference external" href="https://docs.uppmax.uu.se/software/python/">UPPMAX</a></p></li>
+<li><p><a class="reference external" href="https://docs.hpc2n.umu.se/tutorials/userinstalls/#python__packages">HPC2N</a></p></li>
+<li><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/">LUNARC</a></p></li>
+<li><p><a class="reference external" href="https://www.nsc.liu.se/support/">NSC</a></p></li>
+<li><p><a class="reference external" href="https://support.pdc.kth.se/doc/applications/python/">PDC</a></p></li>
+<li><p><a class="reference external" href="https://www.c3se.chalmers.se/documentation/module_system/python/">C3SE</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition-some-practicals admonition">
+<p class="admonition-title">Some practicals</p>
+<ul>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/UPPMAX/R-matlab-julia-HPC/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></dt><dd><ul class="simple">
+<li><p>Be nice to each other!</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Zoom</dt><dd><ul>
+<li><p>You should have gotten an email with the links</p></li>
+<li><p>Zoom policy:</p>
+<blockquote>
+<div><ul>
+<li><p>Zoom chat (maintained by co-teachers):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>technical issues of zoom</p></li>
+<li><p>technical issues of your settings</p></li>
+<li><p>direct communication</p></li>
+<li><p>each teacher may have somewhat different approach</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>collaboration document (see below):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“explain again”</p></li>
+<li><p>elaborating the course content</p></li>
+<li><p>solutions for your own work</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>Recording policy:</dt><dd><ul>
+<li><p><strong>All lectures and demos</strong> will be available on HPC2Ns <strong>Youtube</strong> channel after the course.</p></li>
+<li><dl class="simple">
+<dt>Due to different teaching styles, the teacher of a session decides if a lesson will be:</dt><dd><ul class="simple">
+<li><p>recorded without learners</p></li>
+<li><p>recorded live with learners</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The teachers will be clear if it is recorded or not and it will be visible in the ZOOM.</p></li>
+<li><p>For the live-recordings</p>
+<blockquote>
+<div><ul>
+<li><p>The questions asked per microphone during these sessions will be recorded</p></li>
+<li><p>If you don’t want your voice to appear:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>use the collaboration document (see below)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The Zoom main room is used for most lectures</p></li>
+<li><p>Some sessions use breakout rooms for exercises, some of which use a silent room</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition-q-a-collaboration-document admonition">
+<p class="admonition-title">Q/A collaboration document</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Use the Q/A page for the workshop with your questions.</dt><dd><ul>
+<li><p><a class="reference external" href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/IQDToLTHrvKHQ7PSkxBv9v_lAfFXgfgLZVMLRDzQ_jOrfDw">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/IQDToLTHrvKHQ7PSkxBv9v_lAfFXgfgLZVMLRDzQ_jOrfDw</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Use this page for the workshop with your questions</p></li>
+<li><p>It helps us identify content that is missing in the course material</p></li>
+<li><p>We answer those questions as soon as possible</p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Please be sure that you have gone through the <a class="reference internal" href="prereqs.html#prereqs"><span class="std std-ref">Pre-requirements</span></a></dt><dd><ul>
+<li><p>It mentions the familiarity with the LINUX command line.</p></li>
+<li><p>The applications to connect to the clusters: terminals and ThinLinc (remote graphical desktop)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>This course does not aim to improve your coding skills. Rather you will learn to understand the ecosystems and navigations for the the different languages on a HPC cluster.</p></li>
+</ul>
+</div>
+</section>
+<section id="content-of-the-course">
+<h2>Content of the course<a class="headerlink" href="#content-of-the-course" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prereqs.html">Pre-requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prereqs.html#pre-requirements-for-day-1">Pre-requirements for Day 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prereqs.html#pre-requirements-for-day-2">Pre-requirements for Day 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prereqs.html#pre-requirements-for-day-3">Pre-requirements for Day 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prereqs.html#pre-requirements-for-day-4">Pre-requirements for Day 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preparations.html">Prepare the environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preparations.html#the-steps-to-make">The steps to make</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="schedule.html#course-dates">Course dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schedule.html#day-1-log-in-and-use-basic-python-in-a-cluster-environment">Day 1: Log in and use basic Python in a cluster environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schedule.html#day-2-packages-environments-and-using-compute-nodes">Day 2: Packages, environments and using compute nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schedule.html#day-3-basic-analysis-big-data-and-batch-jobs">Day 3: Basic analysis, Big Data and Batch jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schedule.html#day-4-parallelism-gpus-and-machine-learning">Day 4: Parallelism, GPUs, and machine learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common/login.html">Log in and other preparations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common/login.html#step-1-log-in">Step 1: Log in!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common/login.html#step-2-make-a-work-directory">Step 2: Make a work directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common/login.html#test-an-editor">Test an editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common/login.html#download-and-extract-the-tarball-with-exercises">Download and extract the tarball with exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common/use_tarball.html">Use the tarball with exercises</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common/use_tarball.html#procedure">Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/understanding_clusters.html">HPC clusters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common/understanding_clusters.html#the-hpc-centers-uppmax-hpc2n-lunarc-nsc-and-dardel">The HPC centers UPPMAX, HPC2N, LUNARC, NSC and Dardel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common/understanding_clusters.html#briefly-about-the-cluster-hardware-and-system-at-uppmax-hpc2n-lunarc-nsc-and-pdc">Briefly about the cluster hardware and system at UPPMAX, HPC2N, LUNARC, NSC and PDC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="day2/intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day2/intro.html#why-is-this-course-important">Why is this course important?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/intro.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day2/use_packages.html">Using packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_packages.html#why-python-packages-are-important">Why Python packages are important</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_packages.html#why-software-modules-are-important">Why software modules are important</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_packages.html#how-to-see-which-python-packages-are-installed">How to see which Python packages are installed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_packages.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day2/install_packages.html">Install packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day2/install_packages.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/install_packages.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day2/use_isolated_environments.html">Use isolated environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_isolated_environments.html#isolated-environments">Isolated environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_isolated_environments.html#virtual-environment-venv-virtualenv">Virtual environment - venv &amp; virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_isolated_environments.html#conda">Conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_isolated_environments.html#install-from-file">Install from file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_isolated_environments.html#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_isolated_environments.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/use_isolated_environments.html#id10">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day2/basic_batch_slurm.html">Basic batch and Slurm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day2/basic_batch_slurm.html#what-is-a-batch-job">What is a batch job?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/basic_batch_slurm.html#what-is-a-cluster">What is a cluster?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/basic_batch_slurm.html#what-are-some-important-commands-regarding-batch-jobs">What are some important commands regarding batch jobs?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/basic_batch_slurm.html#running-your-programs-and-scripts-on-uppmax-hpc2n-lunarc-nsc-and-pdc">Running your programs and scripts on UPPMAX, HPC2N, LUNARC, NSC, and PDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/basic_batch_slurm.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day2/interactive.html">Interactive work on the compute nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day2/interactive.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/interactive.html#the-different-way-hpc2n-uppmax-lunarc-nsc-pdc-and-c3se-provide-for-an-interactive-session">The different way HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE provide for an interactive session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/interactive.html#start-an-interactive-session">Start an interactive session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/interactive.html#end-an-interactive-session">End an interactive session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/interactive.html#check-to-be-in-an-interactive-session">Check to be in an interactive session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/interactive.html#check-that-the-number-of-cores-booked-is-correct">Check that the number of cores booked is correct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/interactive.html#running-a-python-script-in-an-interactive-session">Running a Python script in an interactive session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/interactive.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day2/ondemand-desktop.html">Desktop On Demand</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day2/ondemand-desktop.html#what-is-desktop-on-demand-is-it-right-for-my-job">What is Desktop On Demand? Is it right for my job?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/ondemand-desktop.html#starting-the-on-demand-interface">Starting the On-Demand Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/ondemand-desktop.html#setting-job-parameters">Setting Job Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/ondemand-desktop.html#job-parameters-gpus">Job Parameters - GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day2/IDEs_cmd.html">Starting IDEs from command line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs_cmd.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs_cmd.html#prepare-environment">Prepare environment!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs_cmd.html#jupyter">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs_cmd.html#spyder">Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs_cmd.html#vs-code">VS Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs_cmd.html#exercises-with-step-by-step-instructions">Exercises with step-by-step instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day2/IDEs.html">Using IDEs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs.html#jupyter">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs.html#spyder">Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs.html#vs-code">VS Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day2/IDEs.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day3/new-matplotlib-intro.html#load-and-run">Load and Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/new-matplotlib-intro.html#basic-terms-and-application-programming-interface-api">Basic Terms and Application Programming Interface (API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/new-matplotlib-intro.html#standard-available-plot-types">Standard Available Plot Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day3/pandas.html">Intro to Pandas on HPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day3/pandas.html#load-and-run">Load and Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/pandas.html#introductory-topics-review">Introductory Topics (Review)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/pandas.html#hpc-specific-topics">HPC-Specific Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day3/seaborn-new.html#load-and-run-seaborn">Load and Run Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/seaborn-new.html#common-features">Common Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/seaborn-new.html#plotting-with-seaborn">Plotting with Seaborn</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day3/big_data.html">Big data with Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#high-performance-data-analytics-hpda">High-Performance Data Analytics (HPDA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#why-we-need-to-take-special-actions">Why we need to take special actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#what-the-constraints-are">What the constraints are</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#solutions-and-tools">Solutions and tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#allocating-ram">Allocating RAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#exercise-memory-allocation-10-min">Exercise: Memory allocation (10 min)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#file-formats">File formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#exercise-file-formats-10-minutes">Exercise file formats (10 minutes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#computing-efficiency-with-python">Computing efficiency with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#exercises-packages">Exercises: Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/big_data.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day3/batch-new.html">Running Python in batch mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day3/batch-new.html#running-your-programs-and-scripts-on-uppmax-hpc2n-lunarc-c3se-nsc-and-pdc">Running your programs and scripts on UPPMAX, HPC2N, LUNARC, C3SE, NSC, and PDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day3/batch-new.html#example-python-batch-scripts">Example Python batch scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day3/evaluation.html">Evaluation</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="day4/parallel.html">Parallel computing with Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day4/parallel.html#what-is-parallel-programming">What is parallel programming?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/parallel.html#why-is-parallel-programming-needed">Why is parallel programming needed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/parallel.html#parallelizing-code-in-python">Parallelizing code in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/parallel.html#d-integration">2D integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/parallel.html#serial-optimizations">Serial optimizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/parallel.html#shared-memory">Shared Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/parallel.html#distributed-memory">Distributed Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/parallel.html#monitoring-resources-usage">Monitoring resources’ usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/parallel.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day4/gpu.html">Using GPUs with Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day4/gpu.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/gpu.html#gpus-on-uppmax-hpc2n-lunarc-nsc-pdc-and-c3se-systems">GPUs on UPPMAX, HPC2N, LUNARC, NSC, PDC, and C3SE systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/gpu.html#numba-example">Numba example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/gpu.html#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/gpu.html#additional-information">Additional information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day4/ml.html">Machine Learning and Deep Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day4/ml.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/ml.html#comparison-of-ml-dl-libraries">Comparison of ML/DL Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/ml.html#scikit-learn">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/ml.html#pytorch-and-tensorflow">PyTorch and TensorFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/ml.html#tips-and-tricks-lessons-learned">Tips and Tricks (Lessons Learned):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/ml.html#miscellaneous-examples">Miscellaneous examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/ml.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day4/dim_reduction.html">Dimensionality Reduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day4/dim_reduction.html#visualisation-science">visualisation &lt;–&gt; Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/dim_reduction.html#what-is-a-typical-machine-learning-task">What is a typical machine learning task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/dim_reduction.html#some-dimensionality-reduction-techniques">Some Dimensionality Reduction Techniques:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/dim_reduction.html#face-recognition-fr-use-case">Face Recognition (FR) Use case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day4/dim_reduction.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary4.html">Summary day 4</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra/other_courses.html">Other courses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra/other_courses.html#material-for-improving-your-python-skills">Material for improving your Python skills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra/other_courses.html#material-for-improving-your-general-programming-skills">Material for improving your general programming skills</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra/packages_deeper.html">More about packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra/packages_deeper.html#using-setup-py">Using setup.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra/isolated_deeper.html">Developing in isolated environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra/isolated_deeper.html#creator-developer">Creator/developer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra/isolated_deeper.html#user">User</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extra/jupyterHPC2N.html#running-jupyterlab-at-hpc2n-extra-python-package">Running JupyterLab at HPC2N - extra Python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra/jupyterHPC2N.html#links">Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kebnekaise.html">On Kebnekaise cluster</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kebnekaise.html#accessing-kebnekaise">Accessing Kebnekaise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kebnekaise.html#loading-python">Loading Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kebnekaise.html#starting-python-and-running-python-scripts">Starting Python and running Python scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="day4/ML_deeper.html">More about ML</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="day4/ML_deeper.html#horovod">Horovod</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uppmax.html">On UPPMAX clusters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="uppmax.html#uppmax-clusters">UPPMAX clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uppmax.html#uppmax-packages">UPPMAX packages</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="prereqs.html" class="btn btn-neutral float-right" title="Pre-requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

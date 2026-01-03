@@ -1,0 +1,788 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson plan 2025-04-25 by Richel &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../../_static/minipres.js?v=a0d29692"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Lesson plan 2025-04-25 by Richel</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/lesson_plans/20250425/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="lesson-plan-2025-04-25-by-richel">
+<h1>Lesson plan 2025-04-25 by Richel<a class="headerlink" href="#lesson-plan-2025-04-25-by-richel" title="Link to this heading"></a></h1>
+<p>Here is the current schedule:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Time</p></th>
+<th class="head"><p>Topic</p></th>
+<th class="head"><p>Teacher</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>09:00-10:00</p></td>
+<td><p>Packages</p></td>
+<td><p>Richel</p></td>
+</tr>
+<tr class="row-odd"><td><p>10:00-10:15</p></td>
+<td><p>Break</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>10:15-11:00</p></td>
+<td><p>Isolated environments conda/pip</p></td>
+<td><p>Björn+Richel (co-teaching)</p></td>
+</tr>
+<tr class="row-odd"><td><p>11:00-11:15</p></td>
+<td><p>Break</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>11:15-12:00</p></td>
+<td><p>Basic Slurm and interactive, ?OnDemand,?parallel session</p></td>
+<td><p>Birgitte</p></td>
+</tr>
+<tr class="row-odd"><td><p>12:00-13:00</p></td>
+<td><p>Break</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>13:00-14:00</p></td>
+<td><p>IDEs: Jupyter/vscode/Spyder [1]</p></td>
+<td><p>Jayant</p></td>
+</tr>
+<tr class="row-odd"><td><p>14:00-14:15</p></td>
+<td><p>Break</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>14:15-15:00</p></td>
+<td><p>matplotlib 1/2</p></td>
+<td><p>?Rebecca, else Björn</p></td>
+</tr>
+<tr class="row-odd"><td><p>15:00-15:15</p></td>
+<td><p>Break</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>15:15-15:45</p></td>
+<td><p>matplotlib 2/2</p></td>
+<td><p>?Rebecca, else Björn</p></td>
+</tr>
+<tr class="row-odd"><td><p>15:45-16:00</p></td>
+<td><p>Evaluation</p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>My sessions are:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Time</p></th>
+<th class="head"><p>Topic</p></th>
+<th class="head"><p>Teacher</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>09:00-10:00</p></td>
+<td><p>Packages</p></td>
+<td><p>Richel [Suggest: also co-teach here]</p></td>
+</tr>
+<tr class="row-odd"><td><p>10:00-10:15</p></td>
+<td><p>Break</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>10:15-11:00</p></td>
+<td><p>Isolated environments conda/pip</p></td>
+<td><p>Björn+Richel (co-teaching)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Status ‘Packages’:</p>
+<ul class="contains-task-list simple">
+<li><p>Current material can be found <code class="docutils literal notranslate"><span class="pre">[dead</span> <span class="pre">link]</span></code>
+and is made by Björn</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Suggest co-teaching there too?</p></li>
+</ul>
+<p>Status ‘Isolated environment’:</p>
+<ul class="simple">
+<li><p>Current material can be found <a class="reference external" href="https://uppmax.github.io/HPC-python/extra/isolated_deeper.html">here</a>
+and is made by Björn</p></li>
+<li><p>Is this really it? It is part of the ‘Extra’ material, I guess it can/should
+be moved</p></li>
+</ul>
+<section id="meeting-bjorn-2025-02-19-13-00">
+<h2>Meeting Björn 2025-02-19 ~13:00<a class="headerlink" href="#meeting-bjorn-2025-02-19-13-00" title="Link to this heading"></a></h2>
+<p>Goals:</p>
+<ul class="simple">
+<li><p>To find out how to do co-teaching</p></li>
+</ul>
+<p>Questions:</p>
+<ul class="simple">
+<li><p>What are our personal goals of co-teaching?</p></li>
+<li><p>How do we define good co-teaching?</p></li>
+<li><p>How do we think good co-teaching looks like?</p></li>
+<li><p>How do we prepare our lessons together?</p></li>
+</ul>
+<p>Discuss questions from <code class="docutils literal notranslate"><span class="pre">[Cook</span> <span class="pre">&amp;</span> <span class="pre">Friend,</span> <span class="pre">1995]</span></code>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>To what extent am I willing to let someone else carry out
+teaching tasks at which I am particularly skilled?</p></li>
+</ol>
+</div></blockquote>
+<ul class="simple">
+<li><p>B:</p></li>
+<li><p>R: I can when (1) we agree on the learning outcomes, and (2) there is some
+from of evaluation (i.e. the other can learn from his/her potential
+mistake)</p></li>
+</ul>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>How willing am I to allow a colleague to see aspects of my
+teaching in which I am not particularly skilled?</p></li>
+</ol>
+</div></blockquote>
+<ul class="simple">
+<li><p>B:</p></li>
+<li><p>R: perfectly fine</p></li>
+</ul>
+<blockquote>
+<div><ol class="arabic simple" start="3">
+<li><p>To what degree do I believe that there is more than one right
+way to carry out almost any teaching/learning task?</p></li>
+</ol>
+</div></blockquote>
+<ul class="simple">
+<li><p>B:</p></li>
+<li><p>R: I believe that and am interested to find out other ways</p></li>
+</ul>
+<blockquote>
+<div><ol class="arabic simple" start="4">
+<li><p>How willing am I to tell a colleague when I disagree about an
+issue or have a concern?</p></li>
+</ol>
+</div></blockquote>
+<ul class="simple">
+<li><p>B:</p></li>
+<li><p>R: I am willing to do so</p></li>
+</ul>
+<p>And <code class="docutils literal notranslate"><span class="pre">[Hepner</span> <span class="pre">&amp;</span> <span class="pre">Newman,</span> <span class="pre">2010]</span></code>:</p>
+<blockquote>
+<div><p>Are you flexible or able to compromise your beliefs?
+Which one(s) will you not compromise?</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>R: I can compromise on any beliefs based on evidence
+from the academic literature</p></li>
+</ul>
+<blockquote>
+<div><p>What skills can you contribute to the co-teaching team that will allow you to
+be successful?</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>R: planning, openness, directness, aware of of the literature, preparedness</p></li>
+</ul>
+<blockquote>
+<div><p>How often should co-teachers reflect on their practice? What are some ways
+reflection contributes to the co-teaching partnership?</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>R: For these two hours, one/more questions on an evaluation form are
+good enough. I’d enjoy to read a reflection from the other teacher</p></li>
+</ul>
+<blockquote>
+<div><p>How can co-teachers reconcile differences in personal planning styles?</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>R: I can be flexible and prepare from way-ahead-of-time to last-minute:
+I just need to know</p></li>
+</ul>
+</section>
+<section id="what-is-effective-co-teaching">
+<h2>What is effective co-teaching?<a class="headerlink" href="#what-is-effective-co-teaching" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Study</p></th>
+<th class="head"><p>Relevance/quality</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[Sharon,</span> <span class="pre">2014]</span></code></p></td>
+<td><p>Low, only 12 teachers, close to anecdotal</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Study</p></th>
+<th class="head"><p>Number of co-teachers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[Sharon,</span> <span class="pre">2014]</span></code></p></td>
+<td><p>12</p></td>
+</tr>
+</tbody>
+</table>
+<p>Approaches to Co-Teaching, from <code class="docutils literal notranslate"><span class="pre">[Cook</span> <span class="pre">&amp;</span> <span class="pre">Friend,</span> <span class="pre">1995]</span></code>:</p>
+<p><img alt="Cook &amp; Friend, 1995, figure 1" src="../../_images/cook_and_friend_1995_fig.png" /></p>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Cook</span> <span class="pre">&amp;</span> <span class="pre">Friend,</span> <span class="pre">1995]</span></code>:</p>
+<blockquote>
+<div><p>[…] A first step for most co-teachers is to examine carefully their
+own readiness for the professional and personal demands of
+co-teaching […]:</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>To what extent am I willing to let someone else carry out
+teaching tasks at which I am particularly skilled?</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>How willing am I to allow a colleague to see aspects of my
+teaching in which I am not particularly skilled?</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>To what degree do I believe that there is more than one right
+way to carry out almost any teaching/learning task?</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="4">
+<li><p>How willing am I to tell a colleague when I disagree about an
+issue or have a concern?</p></li>
+</ol>
+</li>
+</ul>
+</div></blockquote>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Cook</span> <span class="pre">&amp;</span> <span class="pre">Friend,</span> <span class="pre">1995]</span></code>, Table 1, ‘Questions for Creating a Collaborative
+Working Relationship in Co-Teaching’:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Topic</p></th>
+<th class="head"><p>Questions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Instructional beliefs</p></td>
+<td><p>What are our overriding philosophies about the roles of teachers and teaching, and students and learning?</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>How do our instructional beliefs affect our instructional practice?</p></td>
+</tr>
+<tr class="row-even"><td><p>Planning</p></td>
+<td><p>When do we have at least 30 minutes of shared planning time?</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>How do we divide our responsibilities for planning and teaching?</p></td>
+</tr>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>How much joint planning time do we need?</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>What records can we keep to facilitate our planning?</p></td>
+</tr>
+<tr class="row-even"><td><p>Parity signals</p></td>
+<td><p>How will we convey to students and others (for example, teachers, parents) that we are equals in the classroom?</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>How can we ensure a sense of parity during instruction?</p></td>
+</tr>
+<tr class="row-even"><td><p>Confidentiality</p></td>
+<td><p>What information about our teaching do we want to share with others?</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>Which information should not be shared?</p></td>
+</tr>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>Which information about students can be shared with others?</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>Which information should not be shared?</p></td>
+</tr>
+<tr class="row-even"><td><p>Noise</p></td>
+<td><p>What noise level are we comfortable with in the classroom?</p></td>
+</tr>
+<tr class="row-odd"><td><p>Classroom routines</p></td>
+<td><p>What are the instructional routines for the classroom?</p></td>
+</tr>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>What are the organizational routines for the classroom?</p></td>
+</tr>
+<tr class="row-odd"><td><p>Discipline</p></td>
+<td><p>What is acceptable and unacceptable student behavior?</p></td>
+</tr>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>Who is to intervene at what point in students’ behavior?</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>What are the rewards and consequences used in the classroom?</p></td>
+</tr>
+<tr class="row-even"><td><p>Feedback</p></td>
+<td><p>What is the best way to give each other feedback?</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>How will you ensure that both positive and negative issues are raised?</p></td>
+</tr>
+<tr class="row-even"><td><p>Pet Peeves</p></td>
+<td><p>What aspects of teaching and classroom life do each of us feel strongly about?</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>How can we identify our pet peeves so as to avoid them?</p></td>
+</tr>
+</tbody>
+</table>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Sharon,</span> <span class="pre">2014]</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Achieving effective co-teaching relationships is a complex process’</p></li>
+<li><p>Obtaining external dimensions is not enough for effective co-teaching partnerships</p></li>
+<li><p>Teachers can use individual differences as strengths to overcome challenges</p></li>
+<li><p>Compatibility can be achieved through being similar or complementary</p></li>
+<li><p>In an effective co-teaching state, teachers are interdependent of each other</p></li>
+</ul>
+</div></blockquote>
+<p>Ironic, the Magiera-Simmons quality indicator model of co-teaching
+is not in the academic literature and the website it was at, has moved.
+However, I can find these in <code class="docutils literal notranslate"><span class="pre">[Simmons</span> <span class="pre">&amp;</span> <span class="pre">Magiera,</span> <span class="pre">2007]</span></code>:</p>
+<ul class="simple">
+<li><p>QI 8 Both Teachers Are Clearly Responsible For Group Instruction</p></li>
+<li><p>QI 11 Accommodations For Students With Disabilities Are Observed In The Classroom</p></li>
+<li><p>QI 14 Both Teachers Provide Substantial Instruction To All Students</p></li>
+<li><p>QI 17 The Process of Learning Is Emphasized Along With The Content Being Learned</p></li>
+</ul>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Peery,</span> <span class="pre">2019]</span></code>, the four pillars of a good co-teaching relationship:</p>
+<ul class="simple">
+<li><p>Respect</p></li>
+<li><p>Communication</p></li>
+<li><p>Flexibility</p></li>
+<li><p>Humor</p></li>
+</ul>
+<p>From  <code class="docutils literal notranslate"><span class="pre">[Conderman</span> <span class="pre">et</span> <span class="pre">al.,</span> <span class="pre">2008]</span></code>:</p>
+<blockquote>
+<div><p>In our co-teaching partnership:</p>
+<ol class="arabic simple">
+<li><p>We decide which co-teaching model we are going to use based on the benefits to students and co-teachers</p></li>
+<li><p>We share ideas, information, and materials</p></li>
+<li><p>We identify the resources and talents of the co-teachers</p></li>
+<li><p>We teach different groups of students at the same time</p></li>
+<li><p>We are aware of what our co-teacher(s) is doing even when we are not directly in his or her presence</p></li>
+<li><p>We share responsibility for deciding what to teach</p></li>
+<li><p>We agree on the curriculum standards that will be addressed in a lesson</p></li>
+<li><p>We share responsibility for deciding how to teach</p></li>
+<li><p>We share responsibility for deciding who teaches parts of the lesson</p></li>
+<li><p>We are flexible and make changes, as needed, during a lesson</p></li>
+<li><p>We identify student strengths and needs</p></li>
+<li><p>We share responsibility for differentiating instruction</p></li>
+<li><p>We include others when their expertise or experience is needed</p></li>
+<li><p>We share responsibility for how student learning is assessed</p></li>
+<li><p>We can show that students are learning when we co-teach</p></li>
+<li><p>We agree on discipline procedures and implement them together</p></li>
+<li><p>We provide feedback to each other on what goes on in the classroom</p></li>
+<li><p>We improve our lessons based on what happens in the classroom</p></li>
+<li><p>We freely communicate our concerns</p></li>
+<li><p>We have a process for resolving disagreements which we use when faced with challenges and conflicts</p></li>
+<li><p>We celebrate the process, outcomes, and successes of co-teaching</p></li>
+<li><p>We have fun with each other and the students when we co-teach</p></li>
+<li><p>We have regularly scheduled times to meet and discuss our work</p></li>
+<li><p>We use our meeting time productively</p></li>
+<li><p>We effectively co-teach even without common planning time</p></li>
+<li><p>We explain co-teaching benefits to students and their families</p></li>
+<li><p>We model collaboration and teamwork for our students</p></li>
+<li><p>We are both viewed by our students as their teacher</p></li>
+<li><p>We include students in the co-teaching role</p></li>
+<li><p>We depend on one another to follow through on responsibilities</p></li>
+<li><p>We seek and enjoy additional training to improve our co-teaching.</p></li>
+<li><p>We are mentors to others who want to co-teach.</p></li>
+<li><p>We use various co-teaching models.</p></li>
+<li><p>We communicate our needs to our administrators.</p></li>
+<li><p>We respect and appreciate the contributions of our co-teacher</p></li>
+</ol>
+</div></blockquote>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Hepner</span> <span class="pre">&amp;</span> <span class="pre">Newman,</span> <span class="pre">2010]</span></code>:</p>
+<blockquote>
+<div><p>WaltherThomas (1996) found five common themes that emerged from her research into
+how successful co-teachers use their planning time:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>. Successful co-teachers trust their partners and rely on their partner’s
+strengths and contributions to facilitate the planning process.
+These coteaching partnerships have confidence in each other and delegate
+responsibilities, knowing that the work will be done.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>. Successful co-teachers use structured learning environments to help them
+use their strengths. They use a mix of direct instruction, guided practice,
+and individual work with teacher assistance in order to support the needs of
+all learners and ensure both co-teachers are equally involved and valued in
+the delivering the lesson. Having a structured learning environment to plan
+for also allows them to focus their planning time on specific types of
+activities.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code>. Successful co-teachers ensure that both partners’ contributions are valued,
+both during planning time and during the lesson. There is parity at all
+levels, effectively erasing the distinction between the general education
+teacher and the special education teacher.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code>. Successful co-teachers create routines to facilitate their planning. By using
+their knowledge of each other’s skills, strengths, and styles, in conjunction
+with planning routines and templates using their limited co-planning time
+well.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5</span></code>. Successful co-teachers become more skilled over time. By combining the
+qualities listed above and through practice, they find their co-planning time
+becomes more productive, comfortable and creative as they work at it.</p></li>
+</ul>
+</div></blockquote>
+<p>About co-teaching planning templates, from <code class="docutils literal notranslate"><span class="pre">[Hepner</span> <span class="pre">&amp;</span> <span class="pre">Newman,</span> <span class="pre">2010]</span></code>:</p>
+<blockquote>
+<div><p>[…] many co-teachers use planning templates […]. While
+the format of these planning templates varies, they consistently include:</p>
+<ul class="simple">
+<li><p>Identification of which co-teaching model(s) will be used. This ensures that
+co-teachers are constantly thinking about how they can use their strengths
+and the strengths of the various co-teaching models to best meet the needs
+of their students.</p></li>
+<li><p>Identification of the accommodations and modifications students in the class
+are eligible for. This ensures that co-teachers can plan activities that take
+classroom accommodations into consideration. In addition, it ensures that
+any necessary classroom modifications, for instance in content expectations,
+are appropriately co-planned for.</p></li>
+<li><p>Identification of the specific teacher roles. This ensures that both teacher’s
+strengths and skills are taken into account during planning and used in class.
+By ensuring that both teachers have a specified, active role in the class,
+coteachers communicate mutual respect and collaboration.</p></li>
+</ul>
+</div></blockquote>
+<p>Reflection for co-teachers, from <code class="docutils literal notranslate"><span class="pre">[Hepner</span> <span class="pre">&amp;</span> <span class="pre">Newman,</span> <span class="pre">2010]</span></code>:</p>
+<ul class="simple">
+<li><p>Do I feel we are jointly planning, both long term and short term?</p></li>
+<li><p>Do I believe that I am an equal partner in the decisions that are made?</p></li>
+<li><p>Do I feel we have a sense of interdependence?</p></li>
+<li><p>Do I feel we are continually learning from each other?</p></li>
+<li><p>Do I feel we have clearly defined roles and responsibilities?</p></li>
+<li><p>Am I satisfied with our roles and responsibilities?</p></li>
+<li><p>Am I learning as a result of our roles and responsibilities?</p></li>
+<li><p>Do I feel that information and materials are freely shared?</p></li>
+<li><p>Do I feel we communicate effectively?</p></li>
+<li><p>Do we regularly reflect on and evaluate our practice?</p></li>
+<li><p>Have we discussed various sound, research-based co-teaching models?</p></li>
+<li><p>Are we using mutually designed planning tools?</p></li>
+<li><p>Do I feel that my knowledge and skills are valued?</p></li>
+<li><p>Do I feel I am frequently acknowledged and reinforced by my partner?</p></li>
+<li><p>Do I feel my time is used productively when I am in the classroom?</p></li>
+<li><p>Can I easily read the nonverbal cues of my partner?</p></li>
+<li><p>Do both teachers move freely about the space in the co-taught classroom?</p></li>
+<li><p>Do we both often present lessons in the class?</p></li>
+<li><p>Are many measures used for grading students?</p></li>
+<li><p>Is humor often used in the classroom?</p></li>
+<li><p>Are modifications of goals for students with special needs fully incorporated into this class?</p></li>
+<li><p>Do we use a variety of classroom management techniques to enhance the learning of all students?</p></li>
+<li><p>Am I confident in my partner’s knowledge of the curriculum content?</p></li>
+<li><p>Is time allotted or found for common planning?</p></li>
+<li><p>Do students accept both teachers as equal partners in the learning process?</p></li>
+<li><p>Is behavior management the shared responsibility of both teachers?</p></li>
+<li><p>Are grading and other external responsibilities equally shared?</p></li>
+</ul>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Hepner</span> <span class="pre">&amp;</span> <span class="pre">Newman,</span> <span class="pre">2010]</span></code>:</p>
+<blockquote>
+<div><p>A template by DeBoer and Fister (1995) asks the teacher to review each of the
+following points to determine if the team is doing all that they can to encourage
+students to think deeply, critically and reflectively in the relevant subject area.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>. Do we ensure that students process information by allowing students to
+‘chew on’ the information that is presented so that it makes sense to them
+and they can see its application to life?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>. Do we model thinking processes such as problem-solving and
+decisionmaking by thinking aloud and how we revise our thinking when we have
+made an error?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code>. Do we ask broad, open-ended questions more frequently
+than we ask factlevel or yes/no questions?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code>. Do we follow up student responses by probing
+and asking for clarification,
+elaboration, evidence, and justification?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5</span></code>. Do we have students ask questions of each other and themselves,
+and make
+them aware of the different levels of cognition
+(from fact-level to higherorder questions)?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">6</span></code>. Do we wait before calling on students so that they have time to fully
+process the question and formulate their response?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">7</span></code>. Do we have a clear, instructional purpose and accomplish it by
+planning a sequence of activities that promote active involvement
+with the content, as
+well as with peers?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">8</span></code>. Do we increase metacognition by making students conscious of their own
+thinking processes?</p></li>
+</ul>
+</div></blockquote>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Hepner</span> <span class="pre">&amp;</span> <span class="pre">Newman,</span> <span class="pre">2010]</span></code>:</p>
+<blockquote>
+<div><p>As teachers work to develop a co-teaching relationship, it is important to
+consider the following questions:</p>
+<ul class="simple">
+<li><p>Are you flexible or able to compromise your beliefs?
+Which one(s) will you not compromise?</p></li>
+<li><p>What skills can you contribute to the co-teaching team that will allow you to
+be successful?</p></li>
+<li><p>How often should co-teachers reflect on their practice? What are some ways
+reflection contributes to the co-teaching partnership?</p></li>
+<li><p>How can co-teachers reconcile differences in personal planning styles?</p></li>
+</ul>
+</div></blockquote>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Brendle</span> <span class="pre">et</span> <span class="pre">al,</span> <span class="pre">2017]</span></code>:</p>
+<blockquote>
+<div><p>The co-teachers’ willingness to share the classroom and instructional responsibilities is
+key to a positive relationship</p>
+</div></blockquote>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Brendle</span> <span class="pre">et</span> <span class="pre">al,</span> <span class="pre">2017]</span></code>:</p>
+<blockquote>
+<div><p>The success of a co-teaching partnership is based on the co-teachers’ understanding
+and expertise in implementing research-based co-teaching models .</p>
+</div></blockquote>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Chapple,</span> <span class="pre">2009]</span></code>:</p>
+<blockquote>
+<div><p>If co-teachers were not of the
+same philosophical beliefs -that is, that all children can learn and that inclusion is
+essential for co-teaching to be successful- then the practice of co-teaching would not be
+effective.</p>
+</div></blockquote>
+<p>From <code class="docutils literal notranslate"><span class="pre">[Walther-Thomas</span> <span class="pre">et</span> <span class="pre">al.,</span> <span class="pre">1996]</span></code>, to discuss at a first meeting:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>. What are your expectations for students regarding: Participation? Daily preparation? Written assignments and/or homework completion?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>. What are your basic classroom rules? What are the consequences?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code>. Typically, how are students grouped for instruction in your classroom?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code>. What instructional methods do you like to use (e.g., lectures, class discussions)?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5</span></code>. What practice activities do you like to use (e.g., cooperative learning groups? labs?)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">6</span></code>. How do you monitor and evaluate student progress?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">7</span></code>. Describe your typical tests and quizzes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">8</span></code>. Describe other typical projects and assignments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">9</span></code>. Do you differentiate instruction for students with special needs? If so, how?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">10</span></code>. Is any special assistance given to students with disabilities during class? On written assignments? On quizzes and tests?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">11</span></code>. How and when do you communicate with families?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">12</span></code>. What are your strengths as a teacher? What are your weaknesses? Pet peeves?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">13</span></code>. What do you see are our potential roles and responsibilities as co-teachers?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">14</span></code>. If we decide to co-teach together, what are your biggest hopes for our work as a team? What are your biggest concerns?</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id1">
+<h2>2025-04-15<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>The time is getting to close to do proper co-teaching. I have a meeting
+with BC today. This will be my meeting schedule:</p>
+<ul class="simple">
+<li><p>Agree that there is not enough time.
+Suggest to continue co-teaching next iteration</p>
+<ul>
+<li><p>[AGREED]</p></li>
+</ul>
+</li>
+<li><p>Double-check schedule together: I think it is good now</p>
+<ul>
+<li><p>[AGREED] on new schedule</p></li>
+</ul>
+</li>
+<li><p>Split up Day 2 (RB is fine with either):</p>
+<ul>
+<li><p>BC both hours</p></li>
+<li><p>RB both hours</p></li>
+<li><p>BC first hour, RB second</p></li>
+<li><p>[AGREED] RB first hour, BC second</p></li>
+</ul>
+</li>
+<li><p>Suggest to collaborate with issues, because in the material
+we’ve put todo’s to someone’s name</p>
+<ul>
+<li><p>[AGREED] We’ll use issues, until we feel the reply takes too long</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h2>2025-04-16<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>All my course material is in, only need to test these by making videos.</p>
+</section>
+<section id="id3">
+<h2>2025-04-25<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>Course material is just now done (at 7:35 in the morning).</p>
+<p>I am worried about the tarball exercise: I estimate this to take some time,
+time that I don’t have.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[Brendle</span> <span class="pre">et</span> <span class="pre">al,</span> <span class="pre">2017]</span></code> Brendle, Joanna, Robert Lock, and Kate Piazza. “A study of co-teaching identifying effective implementation strategies.” International Journal of Special Education 32.3 (2017): 538-550.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Chapple,</span> <span class="pre">2009]</span></code> Chapple, James William. Co-teaching: From obstacles to opportunities. Ashland University, 2009.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Conderman</span> <span class="pre">et</span> <span class="pre">al.,</span> <span class="pre">2008]</span></code> Conderman, Greg, et al. Purposeful co-teaching: Real cases and effective strategies. Corwin Press, 2008.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Cook</span> <span class="pre">&amp;</span> <span class="pre">Friend,</span> <span class="pre">1995]</span></code>    Cook, Lynne, and Marilyn Friend. “Co-teaching: Guidelines for creating effective practices.” Focus on exceptional children 28 (1995).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Hepner</span> <span class="pre">&amp;</span> <span class="pre">Newman,</span> <span class="pre">2010]</span></code> Hepner, Stephanie, and Sarah Newman. “Teaching is teamwork: Preparing for, planning, and implementing effective co-teaching practice.” International Schools Journal 29.2 (2010).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Peery,</span> <span class="pre">2019]</span></code> Peery, Angela. The Co-Teacher′ s Playbook: What It Takes to Make Co-Teaching Work for Everyone. Corwin Press, 2019.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Sharon,</span> <span class="pre">2014]</span></code> Pratt, Sharon. “Achieving symbiosis: Working through challenges found in co-teaching to achieve effective co-teaching relationships.” Teaching and teacher education 41 (2014): 1-12.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Simmons</span> <span class="pre">&amp;</span> <span class="pre">Magiera,</span> <span class="pre">2007]</span></code> Simmons, Rhea J., and Kathleen Magiera. “Evaluation of Co-Teaching in Three High Schools within One School District: How Do You Know when You Are TRULY Co-Teaching?.” Teaching Exceptional Children Plus 3.3 (2007): n3.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[Walther-Thomas</span> <span class="pre">et</span> <span class="pre">al.,</span> <span class="pre">1996]</span></code> Walther-Thomas, Chriss, Mimi Bryant, and Sue Land. “Planning for effective co-teaching the key to successful inclusion: The key to successful inclusion.” Remedial and special education 17.4 (1996): 255-264.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

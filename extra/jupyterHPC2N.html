@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jupyter at Kebnekaise &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="On Kebnekaise cluster" href="../kebnekaise.html" />
+    <link rel="prev" title="Developing in isolated environments" href="isolated_deeper.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Install packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Use isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Desktop On Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/new-matplotlib-intro.html">A Brief Intro to Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas.html">Intro to Pandas on HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn-new.html">A Brief Introduction to the Seaborn Statistical Plotting Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bianca.html">On Bianca cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter at Kebnekaise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-jupyterlab-at-hpc2n-extra-python-package">Running JupyterLab at HPC2N - extra Python package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#already-installed-package-at-hpc2n">Already installed package at HPC2N</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#with-some-own-installed-python-packages">With some own-installed Python packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Jupyter at Kebnekaise</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/extra/jupyterHPC2N.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="jupyter-at-kebnekaise">
+<h1>Jupyter at Kebnekaise<a class="headerlink" href="#jupyter-at-kebnekaise" title="Link to this heading"></a></h1>
+<p>Since the JupyterLab will only be accessible from within HPC2N’s domain, it is by far easiest to do this from inside ThinLinc, so <strong>this is highly recommended</strong>. You can find information about using ThinLinc at HPC2N here: <a class="reference external" href="https://www.hpc2n.umu.se/documentation/guides/thinlinc">https://www.hpc2n.umu.se/documentation/guides/thinlinc</a></p>
+<ol class="arabic simple">
+<li><p>At HPC2N, you currently need to start JupyterLab on a specific compute node. To do that you need a submit file and inside that you load the JupyterLab module and its prerequisites (and possibly other Python modules if you need them - more about that later).</p></li>
+</ol>
+<p>To see the currently available versions, do</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span> <span class="pre">JupyterLab</span></code></p>
+<p>You then do</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span> <span class="pre">JupyterLab/&lt;version&gt;</span></code></p>
+<p>for a specific &lt;version&gt; to see which prerequisites should be loaded first.</p>
+<p><strong>Example, loading ``JupyterLab/4.0.5``</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">GCC/12.3.0</span> <span class="pre">JupyterLab/4.0.5</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p>Making the submit file</p></li>
+</ol>
+<p>Something like the file below will work. Remember to change the project id after the course, how many cores you need, and how long you want the JupyterLab to be available:</p>
+<div class="highlight-slurm notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="kp">#SBATCH -A hpc2n2025-151</span>
+<span class="c1"># This example asks for 1 core</span>
+<span class="kp">#SBATCH -n 1</span>
+<span class="c1"># Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.</span>
+<span class="kp">#SBATCH --time=05:00:00</span>
+
+<span class="c1"># Clear the environment from any previously loaded modules</span>
+module<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+<span class="c1"># Load the module environment suitable for the job</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>JupyterLab/4.0.5
+
+<span class="c1"># Start JupyterLab</span>
+jupyter<span class="w"> </span>lab<span class="w"> </span>--no-browser<span class="w"> </span>--ip<span class="w"> </span><span class="k">$(</span>hostname<span class="k">)</span>
+</pre></div>
+</div>
+<p>Where the flags used to the Jupyter command has the following meaning (you can use <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">--help</span></code> and <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">lab</span> <span class="pre">--help</span></code>&gt; to see extra options):</p>
+<ul class="simple">
+<li><p><strong>lab</strong>: This launches JupyterLab computational environment for Jupyter.</p></li>
+<li><p><strong>–no-browser</strong>: Prevent the opening of the default url in the browser.</p></li>
+<li><p><strong>–ip=&lt;IP address&gt;</strong>: The IP address the JupyterLab server will listen on. Default is ‘localhost’. In the above example script I use <code class="docutils literal notranslate"><span class="pre">$(hostname)</span></code> to get the content of the environment variable for the hostname for the node I am allocated by the job.</p></li>
+</ul>
+<p><strong>Note</strong> again that the JupyterLab is <em>only</em> accessible from within the HPC2N domain, so it is easiest to work on the ThinLinc.</p>
+<ol class="arabic simple" start="3">
+<li><p>Submit the above submit file. Here I am calling it <code class="docutils literal notranslate"><span class="pre">MyJupyterLab.sh</span></code></p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">MyJupyterLab.sh</span></code></p>
+<ol class="arabic simple" start="4">
+<li><p>Get the URL from the SLURM output file.</p></li>
+</ol>
+<p>Wait until the job gets resources allocated. Check the SLURM output file; when the job has resources allocated it will have a number of URLs inside at the bottom.</p>
+<p>The SLURM output file is as default named <code class="docutils literal notranslate"><span class="pre">slurm-&lt;job-id&gt;.out</span></code> where you get the <code class="docutils literal notranslate"><span class="pre">&lt;job-id&gt;</span></code> when you submit the SLURM submit file (as in item 3. here).</p>
+<p><strong>NOTE</strong>: Grab the URL with the <em>hostname</em> since the localhost one requires you to login to the compute node and so will not work!</p>
+<p>The file will look similar to this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>b-an03<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span>cat<span class="w"> </span>slurm-24661064.out
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.595<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>jupyterlab<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0000s<span class="w"> </span>to<span class="w"> </span>import
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.617<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>jupyter_lsp<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0217s<span class="w"> </span>to<span class="w"> </span>import
+<span class="o">[</span>W<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.617<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>A<span class="w"> </span><span class="sb">`</span>_jupyter_server_extension_points<span class="sb">`</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>was<span class="w"> </span>not<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>jupyter_lsp.<span class="w"> </span>Instead,<span class="w"> </span>a<span class="w"> </span><span class="sb">`</span>_jupyter_server_extension_paths<span class="sb">`</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>was<span class="w"> </span>found<span class="w"> </span>and<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span><span class="k">for</span><span class="w"> </span>now.<span class="w"> </span>This<span class="w"> </span><span class="k">function</span><span class="w"> </span>name<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>deprecated<span class="w"> </span><span class="k">in</span><span class="w"> </span>future<span class="w"> </span>releases<span class="w"> </span>of<span class="w"> </span>Jupyter<span class="w"> </span>Server.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.626<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>jupyter_server_terminals<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0087s<span class="w"> </span>to<span class="w"> </span>import
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.627<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>notebook_shim<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0000s<span class="w"> </span>to<span class="w"> </span>import
+<span class="o">[</span>W<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.627<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>A<span class="w"> </span><span class="sb">`</span>_jupyter_server_extension_points<span class="sb">`</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>was<span class="w"> </span>not<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>notebook_shim.<span class="w"> </span>Instead,<span class="w"> </span>a<span class="w"> </span><span class="sb">`</span>_jupyter_server_extension_paths<span class="sb">`</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>was<span class="w"> </span>found<span class="w"> </span>and<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span><span class="k">for</span><span class="w"> </span>now.<span class="w"> </span>This<span class="w"> </span><span class="k">function</span><span class="w"> </span>name<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>deprecated<span class="w"> </span><span class="k">in</span><span class="w"> </span>future<span class="w"> </span>releases<span class="w"> </span>of<span class="w"> </span>Jupyter<span class="w"> </span>Server.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.627<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyter_lsp<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>linked.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.632<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyter_server_terminals<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>linked.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.637<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyterlab<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>linked.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:30.995<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>notebook_shim<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>linked.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.020<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>notebook_shim<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>loaded.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.022<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyter_lsp<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>loaded.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.023<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyter_server_terminals<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>loaded.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.027<span class="w"> </span>LabApp<span class="o">]</span><span class="w"> </span>JupyterLab<span class="w"> </span>extension<span class="w"> </span>loaded<span class="w"> </span>from<span class="w"> </span>/hpc2n/eb/software/JupyterLab/4.0.5-GCCcore-12.3.0/lib/python3.11/site-packages/jupyterlab
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.027<span class="w"> </span>LabApp<span class="o">]</span><span class="w"> </span>JupyterLab<span class="w"> </span>application<span class="w"> </span>directory<span class="w"> </span>is<span class="w"> </span>/cvmfs/ebsw.hpc2n.umu.se/amd64_ubuntu2004_skx/software/JupyterLab/4.0.5-GCCcore-12.3.0/share/jupyter/lab
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.028<span class="w"> </span>LabApp<span class="o">]</span><span class="w"> </span>Extension<span class="w"> </span>Manager<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;pypi&#39;</span>.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.029<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyterlab<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>loaded.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.030<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Serving<span class="w"> </span>notebooks<span class="w"> </span>from<span class="w"> </span><span class="nb">local</span><span class="w"> </span>directory:<span class="w"> </span>/pfs/stor10/users/home/b/bbrydsoe
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.030<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Jupyter<span class="w"> </span>Server<span class="w"> </span><span class="m">2</span>.7.2<span class="w"> </span>is<span class="w"> </span>running<span class="w"> </span>at:
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.030<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>http://b-cn1520.hpc2n.umu.se:8888/lab?token<span class="o">=</span>c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.030<span class="w"> </span>ServerApp<span class="o">]</span><span class="w">     </span>http://127.0.0.1:8888/lab?token<span class="o">=</span>c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.030<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Use<span class="w"> </span>Control-C<span class="w"> </span>to<span class="w"> </span>stop<span class="w"> </span>this<span class="w"> </span>server<span class="w"> </span>and<span class="w"> </span>shut<span class="w"> </span>down<span class="w"> </span>all<span class="w"> </span>kernels<span class="w"> </span><span class="o">(</span>twice<span class="w"> </span>to<span class="w"> </span>skip<span class="w"> </span>confirmation<span class="o">)</span>.
+<span class="o">[</span>C<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.039<span class="w"> </span>ServerApp<span class="o">]</span>
+
+<span class="w"> </span>To<span class="w"> </span>access<span class="w"> </span>the<span class="w"> </span>server,<span class="w"> </span>open<span class="w"> </span>this<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>browser:
+<span class="w">     </span>file:///pfs/stor10/users/home/b/bbrydsoe/.local/share/jupyter/runtime/jpserver-121683-open.html
+<span class="w"> </span>Or<span class="w"> </span>copy<span class="w"> </span>and<span class="w"> </span>paste<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>these<span class="w"> </span>URLs:
+<span class="w">     </span>http://b-cn1520.hpc2n.umu.se:8888/lab?token<span class="o">=</span>c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+<span class="w">     </span>http://127.0.0.1:8888/lab?token<span class="o">=</span>c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-09<span class="w"> </span><span class="m">15</span>:35:31.078<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Skipped<span class="w"> </span>non-installed<span class="w"> </span>server<span class="o">(</span>s<span class="o">)</span>:<span class="w"> </span>bash-language-server,<span class="w"> </span>dockerfile-language-server-nodejs,<span class="w"> </span>javascript-typescript-langserver,<span class="w"> </span>jedi-language-server,<span class="w"> </span>julia-language-server,<span class="w"> </span>pyright,<span class="w"> </span>python-language-server,<span class="w"> </span>python-lsp-server,<span class="w"> </span>r-languageserver,<span class="w"> </span>sql-language-server,<span class="w"> </span>texlab,<span class="w"> </span>typescript-language-server,<span class="w"> </span>unified-language-server,<span class="w"> </span>vscode-css-languageserver-bin,<span class="w"> </span>vscode-html-languageserver-bin,<span class="w"> </span>vscode-json-languageserver-bin,<span class="w"> </span>yaml-language-server
+</pre></div>
+</div>
+<p>To access the server, go to</p>
+<p><code class="docutils literal notranslate"><span class="pre">file:///.local/share/jupyter/runtime/jpserver-&lt;newest&gt;-open.html</span></code></p>
+<p>from a browser within the ThinLinc session. &lt;newest&gt; is a number that you find by looking in the directory <code class="docutils literal notranslate"><span class="pre">.local/share/jupyter/runtime/</span></code> under your home directory.</p>
+<p>Or, to access the server you can copy and paste the URL from the file that is SIMILAR to this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>http://b-cn1520.hpc2n.umu.se:8888/lab?token<span class="o">=</span>c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
+</pre></div>
+</div>
+<p><strong>NOTE</strong> of course, do not copy the above, but the similar looking one from the file you get from running the batch script!!!</p>
+<ol class="arabic simple" start="5">
+<li><p>Start a webbrowser within HPC2N (ThinLinc interface). Open the html or put in the URL you grabbed, including the token:</p></li>
+</ol>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/jupyterlab-start.png"><img alt="../_images/jupyterlab-start.png" src="../_images/jupyterlab-start.png" style="width: 450px;" />
+</a>
+</figure>
+<p>After a few moments JupyterLab starts up:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/jupyterlab_started.png"><img alt="../_images/jupyterlab_started.png" src="../_images/jupyterlab_started.png" style="width: 450px;" />
+</a>
+</figure>
+<p>You shut it down from the menu with “File” &gt; “Shut Down”</p>
+<section id="running-jupyterlab-at-hpc2n-extra-python-package">
+<h2>Running JupyterLab at HPC2N - extra Python package<a class="headerlink" href="#running-jupyterlab-at-hpc2n-extra-python-package" title="Link to this heading"></a></h2>
+<section id="already-installed-package-at-hpc2n">
+<h3>Already installed package at HPC2N<a class="headerlink" href="#already-installed-package-at-hpc2n" title="Link to this heading"></a></h3>
+<p>If you need extra Python modules and these modules are already installed at HPC2N, you can just load them. It is easiest to do so before you start the JupyterLab, inside the submit file.</p>
+<p><strong>Example, loading JupyterLab/4.0.5, its prerequisites, and the modules for SciPy-bundle (mpi4py, numpy, pandas, scipy etc.) and matplotlib</strong>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2n2025-151</span>
+<span class="c1"># This example use 1 core</span>
+<span class="c1">#SBATCH -n 1</span>
+<span class="c1"># Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.</span>
+<span class="c1">#SBATCH --time=01:00:00</span>
+
+<span class="c1"># Clear the environment from any previously loaded modules</span>
+module<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+<span class="c1"># Load the module environment suitable for the job</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0<span class="w"> </span>JupyterLab/4.0.5<span class="w"> </span>SciPy-bundle/2023.07<span class="w"> </span>matplotlib/3.7.2
+
+<span class="c1"># Start JupyterLab</span>
+jupyter<span class="w"> </span>lab<span class="w"> </span>--no-browser<span class="w"> </span>--ip<span class="w"> </span><span class="k">$(</span>hostname<span class="k">)</span>
+</pre></div>
+</div>
+</section>
+<section id="with-some-own-installed-python-packages">
+<h3>With some own-installed Python packages<a class="headerlink" href="#with-some-own-installed-python-packages" title="Link to this heading"></a></h3>
+<p>Running JupyterLab with some own-installed Python packages requires you to use a virtual environment and your own Jupyter kernel. This is not as difficult as it may sound.</p>
+<p><strong>Example Own-installed pyDOE and torch. Using JupyterLab/3.4.2</strong></p>
+<ol class="arabic simple">
+<li><p>First we need to load the modules that we need for our own-installed packages, and for the JupyterLab.</p></li>
+</ol>
+<p>pyDOE and torch has some prerequisites, some of which are already installed at HPC2N. We will start by loading the available prerequisite modules:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>GCC/10.3.0<span class="w"> </span>JupyterLab/3.2.8<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>SciPy-bundle/2021.05<span class="w"> </span>matplotlib/3.4.2
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>We now need to create a virtual environment (venv) to install our own packages in. I am placing it in the Public directory under my home directory ($HOME), but you could instead place it in your project storage. I am calling the venv “jupvenv”, but you can call it what you want:</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="nv">$HOME</span>/Public/jupvenv
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Activate the venv</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/Public/jupvenv/bin/activate
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Install ipykernel in the venv. This is needed to be able to make your own Jupyter kernel which can use the own-installed Python packages</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>--no-build-isolation<span class="w"> </span>ipykernel
+</pre></div>
+</div>
+<p><strong>NOTE</strong>! It may complain of missing prerequisites. If so, instead install:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>--no-build-isolation<span class="w"> </span>pyparsing<span class="w"> </span>pytz<span class="w"> </span>jinja2<span class="w"> </span>packaging<span class="w"> </span>webencodings<span class="w"> </span>cffi<span class="w"> </span>babel<span class="w"> </span>jsonschema<span class="w"> </span>requests<span class="w"> </span>tomlkit<span class="w"> </span>wheel<span class="w"> </span>ipykernel
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Install your Python packages in the venv, here pyDOE and torch</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>--no-build-isolation<span class="w"> </span>pyDOE<span class="w"> </span>torch
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Install the new kernel in Jupyter (here called jupvenv)</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="o">=</span>jupvenv
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Check list of kernels to see your new kernel</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>kernelspec<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Later you can remove the kernel if you feel like, using this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>kernelspec<span class="w"> </span>uninstall<span class="w"> </span>jupvenv
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Now make a submit file as before. Something like this should work:</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -A hpc2n2025-151</span>
+<span class="c1"># Here allocating 1 core - change as suitable for your case</span>
+<span class="c1">#SBATCH -n 1</span>
+<span class="c1"># Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available!</span>
+<span class="c1">#SBATCH --time=01:00:00</span>
+
+<span class="c1"># Clear the environment from any previously loaded modules</span>
+module<span class="w"> </span>purge<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+<span class="c1"># Load the module environment suitable for the job</span>
+module<span class="w"> </span>load<span class="w"> </span>GCC/10.3.0<span class="w"> </span>JupyterLab/3.2.8<span class="w"> </span>OpenMPI/4.1.1<span class="w"> </span>SciPy-bundle/2021.05<span class="w"> </span>matplotlib/3.4.2
+
+<span class="c1"># Activate the venv you installed your own Python packages to</span>
+<span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/Public/jupvenv/bin/activate
+
+<span class="c1"># Start JupyterLab</span>
+jupyter<span class="w"> </span>lab<span class="w"> </span>--no-browser<span class="w"> </span>--ip<span class="w"> </span><span class="k">$(</span>hostname<span class="k">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Submit the above submit file (here I named it MyJupvenv.sh).</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>MyJupvenv.sh
+</pre></div>
+</div>
+<p>You get the &lt;job-id&gt; when you do the above command.</p>
+<blockquote>
+<div><p>Check the SLURM output file (slurm-&lt;job.id&gt;.out); grab the URL <strong>with the hostname</strong> as described in the first part of this document, since the localhost one requires you to login to the compute node.</p>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li><p>Start a webbrowser within HPC2N (ThinLinc interface). Put in the URL you grabbed, including the token.</p></li>
+<li><p>Inside JupyterLab, start the new kernel. Just click the launcher for that one if no other kernel is running.</p></li>
+</ol>
+<p>If a kernel is running (shown under kernels), then shut down that kernel and click “Kernel” in the menu, and then “Change kernel”. Pick your kernel from the drop-down menu.</p>
+<ol class="arabic simple" start="12">
+<li><p>You can now run your files etc. with the own-installed Python packages available.</p></li>
+</ol>
+<p><strong>NOTE</strong>! Sometimes it is still running on the default kernel. If so, Click the 3 little dots in the right side of the editor-window for the program and <em>pick your kernel</em>. Then rerun your files.</p>
+</section>
+</section>
+<section id="links">
+<h2>Links<a class="headerlink" href="#links" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jupyter.org/">The Jupyter project</a> contains a lot of information and inspiration</p></li>
+<li><p><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/">The Jupyter Notebook documentation</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/72rYjwGvWEc">Video: Starting a Jupyter notebook on the Rackham UPPMAX HPC cluster using a ThinLinc remote desktop (YouTube)</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="isolated_deeper.html" class="btn btn-neutral float-left" title="Developing in isolated environments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../kebnekaise.html" class="btn btn-neutral float-right" title="On Kebnekaise cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
