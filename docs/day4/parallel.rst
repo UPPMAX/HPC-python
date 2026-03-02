@@ -53,7 +53,7 @@ Parallel computing with Python
         
       .. code-block:: console
        
-         $ ml julia/1.9.4-bdist 
+         $ ml julia/1.10.2-bdist 
 
          $ pip install JuliaCall
 
@@ -378,7 +378,7 @@ in Python rather than learning to write those codes.
    one can realize how faster the loop can be executed when threads are added:
 
    .. figure:: ../img/parallel-loop.png
-      :width: 200
+      :width: 250
       :align: center
 
    In the following example ``sleep.py`` the `sleep()` function is called `n` times first in 
@@ -434,7 +434,7 @@ in Python rather than learning to write those codes.
 
           print("Time spent parallel: %.2f sec" % (endtime-starttime))
 
-   First load the modules ``ml GCCcore/11.2.0 Python/3.9.6`` (on Kebnekaise) and then run the script
+   First load the modules for Python and dependencies and then run the script
    with the command  ``srun -A "your-project" -n 1 -c 4 -t 00:05:00 python sleep.py`` to use 4 processes.
 
    Optional flags for ``srun`` for writing output and error files are ``-o output_%j.out -e error_%j.err`` instead 
