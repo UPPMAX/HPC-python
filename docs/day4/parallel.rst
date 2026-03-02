@@ -479,6 +479,71 @@ One way to perform the integration is by creating a grid in the ``x`` and ``y`` 
 More specifically, one divides the integration range in both directions into ``n`` bins. A
 serial code (without any optimization) can be seen in the following code block.
 
+.. admonition:: ``integration2d_serial_initial.py``
+   :class: dropdown
+
+   .. code-block:: python
+
+      import math
+      import sys
+      from time import perf_counter
+
+      # grid size
+      n = 10000
+
+      if __name__ == "__main__":
+
+            starttime = perf_counter()
+
+            global integral;
+            # interval size (same for X and Y)
+            h = math.pi / float(n)
+            # cummulative variable
+            mysum = 0.0
+
+            # regular integration in the X axis
+            for i in range(n):
+               x = h * (i + 0.5)
+               # regular integration in the Y axis
+               for j in range(n):
+                  y = h * (j + 0.5)
+                  mysum += math.sin(x + y)
+
+            integral = h**2 * mysum
+
+            print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
+            endtime = perf_counter()
+
+            print("Time spent: %.2f sec" % (endtime-starttime))
+
+We can run this code on the terminal as follows: 
+
+.. warning::
+
+   Although this works on the terminal, having many users doing computations at the same time
+   for this course, could create delays for other users
+
+   .. code-block:: console 
+
+       $ python integration2d_serial_initial.py
+       Integral value is -7.117752e-17, Error is 7.117752e-17
+       Time spent: 27.54 sec
+
+   Because of that, we can use for **short-time** jobs the following command:
+
+   .. code-block:: console 
+
+       $ srun -A <your-projec-id> -n 1 -t 00:10:00 python integration2d_serial_initial.py
+       Integral value is -7.117752e-17, Error is 7.117752e-17
+       Time spent: 26.59 sec    
+
+   where ``srun`` has the flags that are used in a standard batch file. 
+
+Note that outputs can be different, when timing a code a more realistic approach
+would be to run it several times to get statistics. In our initial code it is not clear if we timing the loops computation,
+variable initializations, or the ``print()`` function. Thus, it is highly recommended to enclose blocks of code 
+(related to the same feature) into functions: 
+
 .. admonition:: ``integration2d_serial.py``
    :class: dropdown
 
@@ -518,34 +583,10 @@ serial code (without any optimization) can be seen in the following code block.
             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
             print("Time spent: %.2f sec" % (endtime-starttime))
 
-We can run this code on the terminal as follows (similarly at both HPC2N and UPPMAX): 
 
-.. warning::
 
-   Although this works on the terminal, having many users doing computations at the same time
-   for this course, could create delays for other users
-
-   .. code-block:: console 
-
-       $ python integration2d_serial.py
-       Integral value is -7.117752e-17, Error is 7.117752e-17
-       Time spent: 20.39 sec
-
-   Because of that, we can use for **short-time** jobs the following command:
-
-   .. code-block:: console 
-
-       $ srun -A <your-projec-id> -n 1 -t 00:10:00 python integration2d_serial.py
-       Integral value is -7.117752e-17, Error is 7.117752e-17
-       Time spent: 20.39 sec    
-
-   where ``srun`` has the flags that are used in a standard batch file. 
-
-Note that outputs can be different, when timing a code a more realistic approach
-would be to run it several times to get statistics.
-
-One of the crucial steps upon parallelizing a code is identifying its bottlenecks. In
-the present case, we notice that the most expensive part in this code is the double `for loop`. 
+Here, we can easily recognize that the part we are interested in is the one related to the nested loops computation
+which is the bottleneck of the simulation. This part is now enclosed into the ``integration2d_serial()`` function. 
 
 Serial optimizations
 --------------------
