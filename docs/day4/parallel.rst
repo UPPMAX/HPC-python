@@ -11,7 +11,7 @@ Parallel computing with Python
 .. objectives::
 
    - Learn general concepts for parallel computing
-   - Gain knowledge on the tools for parallel programming in different languages
+   - Gain knowledge on the tools for parallel programming
    - Familiarize with the tools to monitor the usage of resources 
 
 .. admonition:: Get today's tarball!
@@ -24,8 +24,67 @@ Parallel computing with Python
 
 .. tabs::
 
-   .. tab:: HPC2N
+   .. tab:: NSC
       
+      - These guidelines are working for Tetralith:
+      
+      .. code-block:: console
+
+         $ ml buildenv-gcccuda/12.2.2-gcc11-hpc1
+
+         $ python -m venv /path-to-your-project/vpyenv-python-course
+
+         $ source /path-to-your-project/vpyenv-python-course/bin/activate
+
+      - For the ``mpi4py`` example add the following modules:
+
+      .. code-block:: console
+
+         $ pip install mpi4py
+
+
+      - For the ``numba`` example install the corresponding module:
+
+      .. code-block:: console
+
+         $ pip install numba 
+
+      - For the Julia example we will need PyJulia:
+        
+      .. code-block:: console
+       
+         $ ml julia/1.9.4-bdist 
+
+         $ pip install JuliaCall
+
+      Start Julia on the command line and add the following package:
+
+      .. code-block:: julia
+       
+         pkg> add PythonCall
+
+      - For the ``Heat`` examples: 
+
+      .. code-block:: console
+
+         $ pip install torch --index-url https://download.pytorch.org/whl/cu126
+         $ pip install heat[hdf5,netcdf]
+
+      - The PyOMP example needs an additional package:
+
+      .. code-block:: console 
+
+         $ pip install pyomp
+
+      - Quit Python, you should be ready to go!
+
+
+   .. tab:: HPC2N
+
+      .. warning::
+   
+         - These instructions work for the AMD nodes only. For the Intel nodes, one needs a different Python version and tool chains.       
+
       - If not already done so:
       
       .. code-block:: console
@@ -129,59 +188,6 @@ Parallel computing with Python
          
       Quit Python, you should be ready to go!
 
-   .. tab:: NSC
-      
-      - These guidelines are working for Tetralith:
-      
-      .. code-block:: console
-
-         $ ml buildenv-gcccuda/12.2.2-gcc11-hpc1
-
-         $ python -m venv /path-to-your-project/vpyenv-python-course
-
-         $ source /path-to-your-project/vpyenv-python-course/bin/activate
-
-      - For the ``mpi4py`` example add the following modules:
-
-      .. code-block:: console
-
-         $ pip install mpi4py
-
-
-      - For the ``numba`` example install the corresponding module:
-
-      .. code-block:: console
-
-         $ pip install numba 
-
-      - For the Julia example we will need PyJulia:
-        
-      .. code-block:: console
-       
-         $ ml julia/1.9.4-bdist 
-
-         $ pip install JuliaCall
-
-      Start Julia on the command line and add the following package:
-
-      .. code-block:: julia
-       
-         pkg> add PythonCall
-
-      - For the ``Heat`` examples: 
-
-      .. code-block:: console
-
-         $ pip install torch --index-url https://download.pytorch.org/whl/cu126
-         $ pip install heat[hdf5,netcdf]
-
-      - The PyOMP example needs an additional package:
-
-      .. code-block:: console 
-
-         $ pip install pyomp
-
-      - Quit Python, you should be ready to go!
 
    .. tab:: LUNARC
       
