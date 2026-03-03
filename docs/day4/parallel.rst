@@ -486,18 +486,83 @@ Exercises
       .. math:: 
           \sum^{\infty}_{1}\frac{1}{n^2} = \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \dots = \frac{\pi^2}{6} \sim 1.644934  
 
-   One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
-   More specifically, one divides the integration range in both directions into ``n`` bins.
+   Modify the previous ``sleep.py`` code (call it ``pi.py``, for instance) to first create a serial code that computes this summation 
+   and second a parallel version of it. To see the effects of your parallel implementation, you can run the summation up to ``n=1e8``.
 
-   Here is a parallel code using the ``multiprocessing`` module in Python (call it 
-   ``integration2d_multiprocessing.py``):  
+   .. hint:: 
 
-   .. admonition:: integration2d_multiprocessing.py
-      :class: dropdown
+      Use shared arrays of multiprocessing package to store the partial summations from each process:
 
       .. code-block:: python
+     
+         from multiprocessing import Array
 
-            import multiprocessing
+         # number of processes
+         numprocesses = 4
+         # partial sum for each thread
+         partial_integrals = Array('d',[0]*numprocesses, lock=False)
+
+      In this example, the array ``partial_integrals`` has four elements ``partial_integrals[0]``,..., ``partial_integrals[3]``, that
+      can be accessed by each process through the ``processindex`` variable.
+
+.. solution:: Solution
+     
+   .. code-block:: python
+
+      import sys
+      from time import perf_counter
+      import multiprocessing
+      from multiprocessing import Array
+
+      # number of iterations
+      n = int(1e8)
+      # number of processes
+      numprocesses = 4
+      # partial sum for each thread
+      partial_integrals = Array('d',[0]*numprocesses, lock=False)
+
+      def pi_serial(n):
+         psum = 0.0 
+         for i in range(1,n+1):
+            psum = psum + 1.0/(i * i)
+         return psum
+
+
+      def pi_threaded(n,numprocesses,processindex):
+         # workload for each process
+         workload = n/numprocesses
+         begin = int(workload*processindex + 1)
+         end = int(workload*(processindex+1) + 1)
+         psum = 0.0 
+         for i in range(begin,end):
+            psum = psum + 1.0/(i * i)
+         partial_integrals[processindex] = psum
+
+      if __name__ == "__main__":
+
+         starttime = perf_counter()   # Start timing serial code
+         total_sum = pi_serial(n)
+         endtime = perf_counter()
+
+         print("Time spent serial: %.2f sec" % (endtime-starttime))
+         print("Summation = %.6f " % total_sum)
+
+
+         starttime = perf_counter()   # Start timing parallel code
+         processes = []
+         for i in range(numprocesses):
+            p = multiprocessing.Process(target=pi_threaded, args=(n,numprocesses,i))
+            processes.append(p)
+            p.start()
+
+         # waiting for the processes
+         for p in processes:
+            p.join()
+         total_sum = sum(partial_integrals)
+         endtime = perf_counter()
+
+         print("Time spent parallel: %.2f sec" % (endtime-starttime))
+         print("Summation = %.6f " % total_sum)
 
 
 2D integration
