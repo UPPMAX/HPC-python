@@ -490,7 +490,8 @@ Exercises
    and second a parallel version of it. To see the effects of your parallel implementation, you can run the summation up to ``n=1e8``.
 
    .. hint:: 
-
+      :class: dropdown
+      
       Use shared arrays of multiprocessing package to store the partial summations from each process:
 
       .. code-block:: python
@@ -506,7 +507,8 @@ Exercises
       can be accessed by each process through the ``processindex`` variable.
 
 .. solution:: Solution
-     
+   :class: dropdown
+
    .. code-block:: python
 
       import sys
