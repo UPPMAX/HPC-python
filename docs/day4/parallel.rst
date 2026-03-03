@@ -466,6 +466,39 @@ in Python rather than learning to write those codes.
             a[i] = 0.5 * i * (i + 1)
 
 
+Exercises
+---------
+
+.. challenge:: Running a parallel code
+   :class: dropdown
+
+   Run the previous ``sleep.py`` code yourself using 4 processes (``numprocesses = 4``) and allocating 4 cores (-c 4).
+
+   In a parallel code, hardware resources can be undersubscribed (nr. cores > numprocesses) or oversubscribe (nr. cores < numprocesses). 
+   It is crucial to find the optimal number of resources. 
+
+
+.. challenge:: Parallelizing a code
+   :class: dropdown
+
+   According to the Basel problem one can compute the summation of the reciprocals of squared integers as:
+
+      .. math:: 
+          \sum^{\infty}_{1}\frac{1}{n^2} = \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \dots = \frac{\pi^2}{6} \sim 1.644934  
+
+   One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
+   More specifically, one divides the integration range in both directions into ``n`` bins.
+
+   Here is a parallel code using the ``multiprocessing`` module in Python (call it 
+   ``integration2d_multiprocessing.py``):  
+
+   .. admonition:: integration2d_multiprocessing.py
+      :class: dropdown
+
+      .. code-block:: python
+
+            import multiprocessing
+
 
 2D integration
 --------------
@@ -836,7 +869,7 @@ Timing in this case is similar to the Fortran serial case:
 
 If even with the previous (and possibly others from your own) serial optimizations your code
 doesn't achieve the expected performance, you may start looking for some parallelization 
-scheme. Here, we describe the most common schemes.  
+strategy. Here, we describe some of the Python parallel packages.  
 
 .. figure:: ../img/parallel-arch.png
    :width: 550
