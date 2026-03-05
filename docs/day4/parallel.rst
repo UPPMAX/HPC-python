@@ -22,7 +22,7 @@ Parallel computing with Python
 
 .. warning::
 
-   Instructions are updated mainly for Tetralith 
+   Instructions are updated mainly for the NAISS cluster Tetralith 
 
 - Demo
 
