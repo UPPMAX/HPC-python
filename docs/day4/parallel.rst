@@ -20,6 +20,10 @@ Parallel computing with Python
 
 **Prerequisites**
 
+.. warning::
+
+   Instructions are updated mainly for the NAISS cluster Tetralith 
+
 - Demo
 
 .. tabs::
@@ -491,7 +495,7 @@ Exercises
 
    .. hint:: 
       :class: dropdown
-      
+
       Use shared arrays of multiprocessing package to store the partial summations from each process:
 
       .. code-block:: python
@@ -1380,6 +1384,24 @@ example,
 
 .. tabs::
 
+   .. tab:: NSC 
+
+      .. code-block:: sh 
+
+         #!/bin/bash -l
+         #SBATCH -A naiss202X-XY-XYZ
+         #SBATCH -t 00:05:00
+         #SBATCH -n 4
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+
+         ml buildenv-gcccuda/12.2.2-gcc11-hpc1
+         #ml julia/1.10.2-bdist  # if Julia is needed
+
+         source /path-to-your-project/vpyenv-python-course/bin/activate
+
+         mpirun -np 4 python integration2d_mpi.py
+
    .. tab:: HPC2N
 
       .. code-block:: sh
@@ -1419,22 +1441,6 @@ example,
        
          mpirun -np 4 python integration2d_mpi.py
 
-   .. tab:: NSC 
-
-      .. code-block:: sh 
-
-         #!/bin/bash -l
-         #SBATCH -A naiss202X-XY-XYZ
-         #SBATCH -t 00:05:00
-         #SBATCH -n 4
-         #SBATCH -o output_%j.out   # output file
-         #SBATCH -e error_%j.err    # error messages
-
-         #ml julia/1.9.4-bdist  # if Julia is needed
-
-         source /path-to-your-project/vpyenv-python-course/bin/activate
-
-         mpirun -np 4 python integration2d_mpi.py
 
    .. tab:: LUNARC 
 
@@ -1501,6 +1507,26 @@ It is recommended to use a batch script for Heat scripts:
 
 .. tabs::
 
+   .. tab:: NSC 
+
+      .. code-block:: sh 
+
+         #!/bin/bash -l
+         #SBATCH -A naiss202X-XY-XYZ
+         #SBATCH -t 00:05:00
+         #SBATCH -n 1
+         #SBATCH -c 32
+         #SBATCH --gpus-per-task=1
+         #SBATCH -o output_%j.out   # output file
+         #SBATCH -e error_%j.err    # error messages
+
+         ml buildenv-gcccuda/12.2.2-gcc11-hpc1
+         #ml julia/1.10.2-bdist  # if Julia is needed
+
+         source /path-to-your-project/vpyenv-python-course/bin/activate
+
+         mpirun --oversubscribe -np 2 python heat_datatypes.py
+
    .. tab:: HPC2N
 
       .. code-block:: sh
@@ -1521,22 +1547,7 @@ It is recommended to use a batch script for Heat scripts:
        
          mpirun -np 2 python heat_datatypes.py
 
-   .. tab:: NSC 
 
-      .. code-block:: sh 
-
-         #!/bin/bash -l
-         #SBATCH -A naiss202X-XY-XYZ
-         #SBATCH -t 00:05:00
-         #SBATCH -n 2
-         #SBATCH -o output_%j.out   # output file
-         #SBATCH -e error_%j.err    # error messages
-
-         #ml julia/1.9.4-bdist  # if Julia is needed
-
-         source /path-to-your-project/vpyenv-python-course/bin/activate
-
-         mpirun -np 2 python heat_datatypes.py
 
 On Kebnekaise, the ``srun`` command also works:
 
@@ -1661,16 +1672,8 @@ Exercises
 .. challenge:: Running a parallel code efficiently
    :class: dropdown
 
-   In this exercise we will run a parallelized code that performs a 2D integration:
-
-      .. math:: 
-          \int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0
-
-   One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
-   More specifically, one divides the integration range in both directions into ``n`` bins.
-
-   Here is a parallel code using the ``multiprocessing`` module in Python (call it 
-   ``integration2d_multiprocessing.py``):  
+   In this exercise we will run the parallelized code that performs a 2D integration:
+   using the ``multiprocessing`` module in Python that we described above:  
 
    .. admonition:: integration2d_multiprocessing.py
       :class: dropdown
@@ -1734,12 +1737,30 @@ Exercises
             print("Time spent: %.2f sec" % (endtime-starttime))
 
 
-   Run the code with the following batch script.             
+   Run the code with the following batch script:             
 
    .. admonition:: job.sh
       :class: dropdown
 
       .. tabs::
+
+         .. tab:: NSC
+
+               .. code-block:: sh
+                  
+                  #!/bin/bash -l
+                  #SBATCH -A naiss202X-XY-XYZ     # your project_ID
+                  #SBATCH -J job-serial           # name of the job
+                  #SBATCH -N 1
+                  #SBATCH -c *FIXME*              # nr. coresw
+                  #SBATCH --time=00:20:00         # requested time
+                  #SBATCH --error=job.%J.err      # error file
+                  #SBATCH --output=job.%J.out     # output file
+
+                  # Load any required modules
+                  ml buildenv-gcccuda/12.2.2-gcc11-hpc1
+
+                  python integration2d_multiprocessing.py
 
          .. tab:: UPPMAX
 
@@ -1795,22 +1816,6 @@ Exercises
                   ml GCCcore/12.3.0 Python/3.11.3
                   python integration2d_multiprocessing.py
 
-         .. tab:: NSC
-
-               .. code-block:: sh
-                  
-                  #!/bin/bash -l
-                  #SBATCH -A naiss202X-XY-XYZ     # your project_ID
-                  #SBATCH -J job-serial           # name of the job
-                  #SBATCH -n *FIXME*              # nr. tasks/coresw
-                  #SBATCH --time=00:20:00         # requested time
-                  #SBATCH --error=job.%J.err      # error file
-                  #SBATCH --output=job.%J.out     # output file
-
-                  # Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle
-                  ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/11.3.0 Python/3.10.4
-                  python integration2d_multiprocessing.py
-
          .. tab:: PDC
 
                .. code-block:: sh
@@ -1851,13 +1856,24 @@ Exercises
    and goes in steps of 2 (3, 5, 7, ...). The following codes contain parallelized workflows
    whose goal is to compute the average of the whole feature **Value** using some number of 
    workers. Substitute the **FIXME** strings in the following codes to perform the tasks given
-   in the comments. 
+   in the comments. Call the script for instance ``script-df.py``. 
 
-   *The main idea for all languages is to divide the workload across all workers*.
-   You can run the codes as suggested for each language. 
 
-   Pandas is available in the following combo ``ml GCC/12.3.0 SciPy-bundle/2023.07`` (HPC2N) and 
-   ``ml python/3.11.8`` (UPPMAX). Call the script ``script-df.py``. 
+   .. warning::
+
+      For Tetralith you will need to install ``pandas``:
+       
+      .. code-block:: sh
+
+         ml buildenv-gcccuda/12.2.2-gcc11-hpc1
+         source vpyenv-python-course/bin/activate
+         pip install pandas
+
+
+      Pandas is available in the following combo ``ml GCC/12.3.0 SciPy-bundle/2023.07`` (HPC2N) and 
+      ``ml python/3.11.8`` (UPPMAX). 
+      
+   
 
    .. code-block:: python
 
@@ -1900,6 +1916,24 @@ Exercises
    Run the code with the batch script: 
    
    .. tabs::
+
+      .. tab:: NSC
+
+            .. code-block:: sh
+               
+               #!/bin/bash -l
+               #SBATCH -A naiss202X-XY-XYZ     # your project_ID
+               #SBATCH -J job-serial           # name of the job
+               #SBATCH -n 4                    # nr. tasks/coresw
+               #SBATCH --time=00:20:00         # requested time
+               #SBATCH --error=job.%J.err      # error file
+               #SBATCH --output=job.%J.out     # output file
+
+               # Load any required modules
+               ml buildenv-gcccuda/12.2.2-gcc11-hpc1
+               source vpyenv-python-course/bin/activate
+
+               python script-df.py
 
       .. tab:: UPPMAX
 
@@ -1949,22 +1983,6 @@ Exercises
                # Purge and load any modules you need, here for Python & SciPy-bundle
                ml purge
                ml GCCcore/12.3.0  Python/3.11.3  SciPy-bundle/2023.07
-               python script-df.py
-
-      .. tab:: NSC
-
-            .. code-block:: sh
-               
-               #!/bin/bash -l
-               #SBATCH -A naiss202X-XY-XYZ     # your project_ID
-               #SBATCH -J job-serial           # name of the job
-               #SBATCH -n 4                    # nr. tasks/coresw
-               #SBATCH --time=00:20:00         # requested time
-               #SBATCH --error=job.%J.err      # error file
-               #SBATCH --output=job.%J.out     # output file
-
-               # Load any modules you need, here for Python 3.11.8 and compatible SciPy-bundle
-               ml buildtool-easybuild/4.8.0-hpce082752a2  GCCcore/11.3.0 Python/3.10.4
                python script-df.py
 
 
