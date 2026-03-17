@@ -23,6 +23,7 @@ Course iteration|Day|Reflections
 .               |All|[Reflection](202511_whole_course/README.md)
 9  (2026 spring)|1  |[Reflection](https://uppmax.github.io/naiss_intro_python/reflections/20260420/)
 .               |2  |[Reflection](20260422/README.md)
+.               |3  |[Reflection](20260423/README.md)
 .               |All|[Reflection](202604_whole_course/README.md)
 
 

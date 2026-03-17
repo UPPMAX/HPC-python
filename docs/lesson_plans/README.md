@@ -23,5 +23,6 @@ Course iteration|Day|Lesson plans
 .               |2  |[Lesson plan](20251128/README.md)
 9  (2026 spring)|1  |[Lesson plan](https://uppmax.github.io/naiss_intro_python/lesson_plans/20260420/)
 .               |2  |[Lesson plan](20260422/README.md)
+.               |3  |[Lesson plan](20260423/README.md)
 
 

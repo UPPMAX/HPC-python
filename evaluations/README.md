@@ -25,3 +25,8 @@ Course iteration|Day|Evaluations
 .               |3  |[Evaluation](20251201_day_3/README.md)
 .               |4  |[Evaluation](20251202_day_4/README.md)
 .               |All|[Evaluation](202511_course/README.md)
+9  (2026 spring)|1  |[Evaluation](https://uppmax.github.io/naiss_intro_python/evaluations/20260420/)
+.               |2  |[Evaluation](20260422_day_2/README.md)
+.               |3  |[Evaluation](20260423_day_3/README.md)
+.               |4  |[Evaluation](20260424_day_4/README.md)
+.               |All|[Evaluation](202604_course/README.md)
