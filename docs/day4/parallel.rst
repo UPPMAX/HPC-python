@@ -12,7 +12,7 @@ Parallel computing with Python
 
    - Learn general concepts for parallel computing
    - Gain knowledge on the tools for parallel programming
-   - Familiarize with the tools to monitor the usage of resources 
+   - Get familiar with the tools to monitor the usage of resources 
 
 .. admonition:: Get today's tarball!
 
