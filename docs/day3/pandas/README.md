@@ -4,9 +4,7 @@
 
 # Pandas
 
-:::{note} 
-
-## Learning outcomes
+:::{note} "Learning outcomes"
 
 At the end of this sessions, learners
 
