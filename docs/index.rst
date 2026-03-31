@@ -210,7 +210,10 @@ Content of the course
    acknowledgments.md
    bianca.rst
    common/other_courses.rst
+   common/interactive_ondemand.rst
    extra/other_courses.rst
+   extra/conda.rst
+   extra/interactive_deeper.rst
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
    extra/jupyterHPC2N.rst

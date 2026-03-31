@@ -97,6 +97,7 @@ exclude_patterns = [
     'day2/jupyter.md',
     'day2/jupyter.rst',
     'day2/may2024/Matplotlib60min.rst',
+    'day2/may2024/install_packages.rst',
     'day2/use_isolated_environments_old.rst',
     'day3/big_data_old.rst',
     'day3/batch.rst', # is now day3/batch-new.rst
