@@ -1,5 +1,5 @@
 ## Spring
-* Wed 15 May 
+* Wed 15 May
 * onboarding 14 May at 1.15-2pm
 
 ## Next meeting May 29 13.00
@@ -37,9 +37,9 @@
         - Talk less!
         - reservation
         - pandas/matplotlib link lunarc course
-        - 
-    - 
-## Next meeting May 2 10:00 
+        -
+    -
+## Next meeting May 2 10:00
 - Status
     - BC
         - just started due to other duties (new web going live tomorrow)
@@ -47,7 +47,7 @@
         - will work more from Monday next week
     - BB
         - pandas/plot in load/run
-        - lots of tests! 
+        - lots of tests!
 
 - Discuss
     - perhaps ML module is working?
@@ -55,17 +55,17 @@
     - We keep 3.9.5 in Pedro's part
     - Rebecca has a course about matplotlib etc..
         - advertise
-        - ask to collab in fall 
+        - ask to collab in fall
 
 - ToDos
     - our own parts
     - BC
         - clear measurable goals
-        - 
+        -
 
-## Next meeting April 26 11:00 
+## Next meeting April 26 11:00
 
-* Postponed 
+* Postponed
 
 ## Next meeting April 10 13.00
 - Short one
@@ -74,19 +74,19 @@
 
 - ToDos
     - Exercise with pandas, matplotlib
-        - BB: Prepares . 
-        - BC: implements in load/run session 
-        - BB: Same exercise under batch, but now with the graphs saved to files 
+        - BB: Prepares .
+        - BC: implements in load/run session
+        - BB: Same exercise under batch, but now with the graphs saved to files
     - BC: First scratch on goals/teaching outcome (with students' perspective)
     - Change Python version to 3.11.8 in text and exercises.
 
 
 #### Timings
-|Session| Dec 2023 | Suggestions May | 
+|Session| Dec 2023 | Suggestions May |
 |-------|-------|----------|
 |9.00 "Syllabus"| 30 | 15   |
 |9.15 Intro| 10 | 10 |
-9.25 Load-run + system inst. packages| 35 | 30 
+9.25 Load-run + system inst. packages| 35 | 30
 9.55 **break**|15 |15
 10.10 self-install. packages + isolated| 46 | 35
 10:45 batch + arrays | 35 | 35
@@ -94,25 +94,25 @@
 11.30 interactive + jupyter (together)| 15 (a little too short) | 25 |
 12:00 Lunch
 
-|Session| Dec23 | Suggestions 15-May-2024| 
+|Session| Dec23 | Suggestions 15-May-2024|
 |-------|-------|----------|
 13.00 parallel| 55| 60 |
 14:00 break | | 10
-14:10 GPU | 30 | 40 | 
+14:10 GPU | 30 | 40 |
 14.50 BREAK
 15.05 ML (incl all exercises) | 23 | 30
 15:35 Sum+eval| 18| 20
 15:55 Q/A + extra exercise| 0 | 35
 16:30 END-OF-DAY
-**sum**| 150| 
+**sum**| 150|
 
 ### Lecturer
 
 |Session| Björn | Birgitte | Pedro|
 |-------|-------|----------|------|
-|"Syllabus"+intro| X | | 
+|"Syllabus"+intro| X | |
 Load-run+packages| X
-self-inst. isolated | | X | 
+self-inst. isolated | | X |
 batch| | X |
 parallel| | | X
 interactive| X
@@ -120,12 +120,12 @@ GPU| |  | X
 ML (incl exercises)| | X
 Exercises (exercises)| several different rooms |x|x
 Question session (breakout)| X | X | X
-Summary| X | X | X 
+Summary| X | X | X
 
 
 
 ## Meeting 27 March
-- HPC Python: May 15th: leave everything the same: Bi + Bj + Pe teach, Ri assists 
+- HPC Python: May 15th: leave everything the same: Bi + Bj + Pe teach, Ri assists
     - with updates of course from earlier learnings
     - py/3.11 (GPU UPPMAX perhaps other solution)
 

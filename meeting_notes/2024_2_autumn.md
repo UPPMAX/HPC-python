@@ -38,7 +38,7 @@ Proficient/expert: 10``
     - spelling in order
     - links needs revisit
         - manually fix for missing ``-matlab`` in 4-day course links
-    - rst linter 
+    - rst linter
         - not activated yet
 - Working code on all centres
     - Björn/Jayant has not tested yet
@@ -57,18 +57,18 @@ Proficient/expert: 10``
         - just needed thinks
         - exercise including making the env
         - please help to define packages needed on different systems (issue)
-    - compute nodes 
+    - compute nodes
         - show how to load  jupyter, VScode (Pedro from local), spyder (Rebecca)
         - on-demand (10-15 min)
         - split
             - batch 30
             - interactive (seq) 20
-            - IDE 15 
+            - IDE 15
             - users starts interactive for the afternoon 5h
     - matplotlib/analysis
         - spyder
-    - pandas 
-        - add for summary [cheat-sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf) 
+    - pandas
+        - add for summary [cheat-sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 
 #### Discuss schedule
 - Too much material?
@@ -116,7 +116,7 @@ Proficient/expert: 10``
     - Big data: start work
     - DL: started
 #### Discuss
-- requirements for venvs 
+- requirements for venvs
     - different for different clusters
     - YES
 - JUST Tetralith py/3.10.4 for all sessions
@@ -170,7 +170,7 @@ Next meeting
 #### Status
 - UPPMAX maintenance day before (Wed)
     - Involve Tetralith/Dardel? (must evidently do (this)
-        - waiting for input from UPPMAX sysexps 
+        - waiting for input from UPPMAX sysexps
         - course project/staff
         - apply for tetralith! (GPU is available for us, it seems)
             - DONE!
@@ -235,19 +235,19 @@ Next meeting
 #### Evaluations
 **May course HPC-Python**
 - Load and run		
-    - Include in On-boarding? 
-    - On Load/run session: Short summary. 
+    - Include in On-boarding?
+    - On Load/run session: Short summary.
     - No recording at THAT time, interaction for those with problems
-    - NOTES: 
+    - NOTES:
         - On-boarding
             - PRESENT LOGIN AND MODULE LOADING
         - No login session 5-6 Dec?
         - or 9.00-10.00: login/load/editor/run/tar balls
-        
+
 - Install package at 10
     - Fine!?
 - Batch mode: 		
-    - Perfect! 
+    - Perfect!
 - Interactive on compute node (be clear en session title)
     - Let students try Jupyter in exercise
     - more hands-on
@@ -255,13 +255,13 @@ Next meeting
 - Parallel computing		
     - More hands-on
 - GPUs			
-    - Same material but faster? 
+    - Same material but faster?
     - Or Extra material?
     - exercises
 - ML			
     - More exercises?
     - NOTE: will extend!
-    
+
 More links to deeper material!!
 
 **OBS! Above is just the old material**
@@ -279,7 +279,7 @@ More links to deeper material!!
     - Jupyter/spyder
     - pandas/matplotlib/seaborn?
 - Second day: ML and parallelisms
-    - 
+    -
 - Vote YES
 - Vote NO: BB
     - it is in the info already
@@ -288,14 +288,14 @@ More links to deeper material!!
 
 Instead
 - First day
-    - 9.00 Login/load/run/tarball [name=Birgitte] + all 
+    - 9.00 Login/load/run/tarball [name=Birgitte] + all
     - 10.15 packages/virt envs (short) [name=Björn]
     - 11.15 basic slurm [name=Birgitte]
-        - interactive 
+        - interactive
         - get gpus
         - start jupyter/spyder
     - 13.00 analysis (75min) [name=Rebecca]
-        - using IDE work environment 
+        - using IDE work environment
             - jupyter/spyder(?)/VScode(?)
         - matplotlib 60
     - 14.30 GPU 60 [name=Pedro?]
@@ -319,7 +319,7 @@ Instead
         - pytorch
         - tensorflow
         - sklearn
-    
+
     - 16.00 Use cases + Q/A [name=All]
     - 16.45 Ending with evaluation
 
@@ -337,16 +337,16 @@ Instead
             - not learning the solutions of the problems!
 
 - Evaluation of Python day in Oct
-- 
+-
 
 #### Lecturer
 
 **Day 1**
 |Session| Björn | Birgitte | Pedro|Rebecca
 |-------|-------|----------|------|------|
-|"Syllabus"+intro| X | | 
+|"Syllabus"+intro| X | |
 Load-run+packages| X
-self-inst. isolated | | X | 
+self-inst. isolated | | X |
 batch| | X |
 parallel| | | X
 interactive| X
@@ -354,7 +354,7 @@ GPU| |  | X
 ML (incl exercises)| | X
 Exercises (exercises)| several different rooms |x|x
 Question session (breakout)| X | X | X
-Summary| X | X | X 
+Summary| X | X | X
 
 **Day2**
 |Session| Björn | Birgitte | Pedro|
@@ -363,11 +363,11 @@ Summary| X | X | X
 
 #### Old schedule **FIX**
 
-|Session| May 2024 | Suggestions Dec | 
+|Session| May 2024 | Suggestions Dec |
 |-------|-------|----------|
 |9.00 "Syllabus"| 30 | 15   |
 |9.15 Intro| 10 | 10 |
-9.25 Load-run + system inst. packages| 35 | 30 
+9.25 Load-run + system inst. packages| 35 | 30
 9.55 **break**|15 |15
 10.10 self-install. packages + isolated| 46 | 35
 10:45 batch + arrays | 35 | 35
@@ -375,22 +375,22 @@ Summary| X | X | X
 11.30 interactive + jupyter (together)| 15 (a little too short) | 25 |
 12:00 Lunch
 
-|Session| Dec23 | Suggestions 15-May-2024| 
+|Session| Dec23 | Suggestions 15-May-2024|
 |-------|-------|----------|
 13.00 parallel| 55| 60 |
 14:00 break | | 10
-14:10 GPU | 30 | 40 | 
+14:10 GPU | 30 | 40 |
 14.50 BREAK
 15.05 ML (incl all exercises) | 23 | 30
 15:35 Sum+eval| 18| 20
 15:55 Q/A + extra exercise| 0 | 35
 16:00 END-OF-DAY
-**sum**| 150| 
+**sum**| 150|
 
 #### ToDos
 - look into spyder
     - installed on UPPMAX?
     - tunnelling YES
         - allowed at HPC2N? NO
-        - 
-    - 
+        -
+    -

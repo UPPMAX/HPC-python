@@ -6,7 +6,7 @@ Interactive sessions and Desktop On-Demand
    - Demanding work (CPU or Memory intensive) should be done on the compute nodes.
    - If you need live interaction you should start an "interactive session"
    - On Cosmos (LUNARC) and Dardel (PDC) it can be done graphically with the Desktop-On-Demand tool ``GfxLauncher`` which is started inside ThinLinc.
-   - On Kebnekaise (HPC2N) and Alvis (C3SE) it can be done graphically with the Desktop-on-Demand portal.   
+   - On Kebnekaise (HPC2N) and Alvis (C3SE) it can be done graphically with the Desktop-on-Demand portal.
    - Otherwise the terminal approach will work in all centers.
 
 The command to request an interactive node differs per HPC cluster:
@@ -18,19 +18,19 @@ The command to request an interactive node differs per HPC cluster:
 +---------+-----------------+-------------+-------------+----------------------------------------+
 | UPPMAX  | Recommended     | Works       | N/A         | N/A                                    |
 +---------+-----------------+-------------+-------------+----------------------------------------+
-| LUNARC  | Works           | N/A         | N/A         | Recommended                            | 
+| LUNARC  | Works           | N/A         | N/A         | Recommended                            |
 +---------+-----------------+-------------+-------------+----------------------------------------+
-| NSC     | Recommended     | N/A         | N/A         | N/A                                    | 
-+---------+-----------------+-------------+-------------+----------------------------------------+ 
-| PDC     | N/A             | Recommended | N/A         | Possible                               | 
-+---------+-----------------+-------------+-------------+----------------------------------------+ 
-| C3SE    | N/A             | N/A         | Works       | Recommended                            | 
+| NSC     | Recommended     | N/A         | N/A         | N/A                                    |
++---------+-----------------+-------------+-------------+----------------------------------------+
+| PDC     | N/A             | Recommended | N/A         | Possible                               |
++---------+-----------------+-------------+-------------+----------------------------------------+
+| C3SE    | N/A             | N/A         | Works       | Recommended                            |
 +---------+-----------------+-------------+-------------+----------------------------------------+
 
-Start an interactive session from OnDemand 
+Start an interactive session from OnDemand
 ==========================================
 
-ThinLinc + GfxLauncher 
+ThinLinc + GfxLauncher
 ----------------------
 
 For most programs, the start-up process is roughly the same:
@@ -69,10 +69,10 @@ For a few applications (e.g. Jupyter Lab), GfxLauncher will also offer an additi
 Open-On-Demand Portal
 ---------------------
 
-- Kebnekaise: 
+- Kebnekaise:
     - Go to ``https://portal.hpc2n.umu.se/`` and login.
-    - Documentation here: ``https://docs.hpc2n.umu.se/tutorials/connections/#open__ondemand`` 
-- Alvis: 
+    - Documentation here: ``https://docs.hpc2n.umu.se/tutorials/connections/#open__ondemand``
+- Alvis:
     - Go to ``https://alvis.c3se.chalmers.se/``
     - There is some documentation here: ``https://uppmax.github.io/HPC-python/common/interactive_ondemand.html#start-an-interactive-session-from-ondemand``
 
@@ -115,8 +115,8 @@ To start an interactive session in the simplest way, is shown here:
            _   _ ____  ____  __  __    _    __  __
           | | | |  _ \|  _ \|  \/  |  / \   \ \/ /   | System:    r314
           | | | | |_) | |_) | |\/| | / _ \   \  /    | User:      richel
-          | |_| |  __/|  __/| |  | |/ ___ \  /  \    | 
-           \___/|_|   |_|   |_|  |_/_/   \_\/_/\_\   | 
+          | |_| |  __/|  __/| |  | |/ ___ \  /  \    |
+           \___/|_|   |_|   |_|  |_/_/   \_\/_/\_\   |
 
           ###############################################################################
 
@@ -125,14 +125,14 @@ To start an interactive session in the simplest way, is shown here:
                         Write to support@uppmax.uu.se, if you have questions or comments.
 
 
-          [richel@r314 ~]$ 
+          [richel@r314 ~]$
 
       Note that the prompt has changed to show that one is on an interactive node.
-      
+
    .. tab:: HPC2N
 
       .. code-block:: console
-          
+
          salloc -A [project_name]
 
       Where ``[project_name]`` is the HPC2N project name,
@@ -150,18 +150,18 @@ To start an interactive session in the simplest way, is shown here:
           salloc: Waiting for resource configuration
           salloc: Nodes b-cn0241 are ready for job
           b-an01 [~]$ module load GCC/12.3.0 Python/3.11.3
-          b-an01 [~]$ 
+          b-an01 [~]$
 
-   .. tab:: LUNARC 
+   .. tab:: LUNARC
 
-      .. code-block:: console 
+      .. code-block:: console
 
          interactive -A [project_name]
 
       Where ``[project_name]`` is the LUNARC project name,
-      for example ``interactive -A lu2025-7-106``.  
+      for example ``interactive -A lu2025-7-106``.
 
-      This will look similar to this (including asking for resources - time is required): 
+      This will look similar to this (including asking for resources - time is required):
 
       .. code-block:: console
 
@@ -169,27 +169,27 @@ To start an interactive session in the simplest way, is shown here:
          Cluster name: COSMOS
          Waiting for JOBID 988025 to start
 
-      The terminal will refresh for the new connection: 
+      The terminal will refresh for the new connection:
 
       .. code-block:: console
 
          [bbrydsoe@cn137 ~]$ module load GCC/13.2.0 Python/3.11.5
-         [bbrydsoe@cn137 ~]$ 
+         [bbrydsoe@cn137 ~]$
 
-   .. tab:: NSC 
+   .. tab:: NSC
 
-      .. code-block:: console 
+      .. code-block:: console
 
          interactive -A [project_name]
 
       Where ``[project_name]`` is the NSC project name,
-      for example ``interactive -A naiss2025-22-934``.  
+      for example ``interactive -A naiss2025-22-934``.
 
-      This will look similar to this: 
+      This will look similar to this:
 
       .. code-block:: console
 
-         [x_birbr@tetralith1 ~]$ interactive -A naiss2025-22-934 
+         [x_birbr@tetralith1 ~]$ interactive -A naiss2025-22-934
          salloc: Pending job allocation 40137281
          salloc: job 40137281 queued and waiting for resources
          salloc: job 40137281 has been allocated resources
@@ -201,14 +201,14 @@ To start an interactive session in the simplest way, is shown here:
 
    .. tab:: PDC (salloc)
 
-      .. code-block:: console 
+      .. code-block:: console
 
          salloc -A [project_name]
 
       Where ``[project_name]`` is the PDC project name,
-      for example ``interactive -A naiss2025-22-934``.  
+      for example ``interactive -A naiss2025-22-934``.
 
-      This will look similar to this: 
+      This will look similar to this:
 
       .. code-block:: console
 
@@ -226,7 +226,7 @@ To start an interactive session in the simplest way, is shown here:
 
          ssh nid001057
 
-However, this simplest way may have some defaults settings that do not fit you. 
+However, this simplest way may have some defaults settings that do not fit you.
 
 - session duration is too short
 - the session has too few cores available
@@ -236,31 +236,31 @@ You can add more resources the same way as for batch jobs.
 End an interactive session
 --------------------------
 
-You leave interactive mode with ``exit``. 
+You leave interactive mode with ``exit``.
 
 
 Check to be in an interactive session
 -------------------------------------
 
-.. admonition:: For UPPMAX, LUNARC, PDC and NSC 
+.. admonition:: For UPPMAX, LUNARC, PDC and NSC
 
-   You check if you are in an interactive session with: 
+   You check if you are in an interactive session with:
 
    .. code-block:: console
 
       hostname
 
-   If the output contains the words ``rackham``, ``cosmos``, or ``tetralith`` you are on the login node. 
+   If the output contains the words ``rackham``, ``cosmos``, or ``tetralith`` you are on the login node.
 
-   If the output contains: 
+   If the output contains:
 
    - ``r[number].uppmax.uu.se``, where ``[number]`` is a number, you are on a compute node at UPPMAX (rackham).
-   - ``cn[number]``, where ``[number]`` is a number, you are on a compute node at LUNARC (cosmos). 
-   - ``n[number]``, where ``[number]`` is a number, you are on a compute node at NSC (tetralith). 
+   - ``cn[number]``, where ``[number]`` is a number, you are on a compute node at LUNARC (cosmos).
+   - ``n[number]``, where ``[number]`` is a number, you are on a compute node at NSC (tetralith).
 
-.. admonition:: For HPC2N 
+.. admonition:: For HPC2N
 
-   You check if you are in an interactive session with: 
+   You check if you are in an interactive session with:
 
    .. code-block:: console
 
@@ -270,7 +270,7 @@ Check to be in an interactive session
 
    - If the output is ``b-an[number]``, where ``[number]`` is a number, you are still on a login node.
 
-   Do NOT do 
+   Do NOT do
 
    .. code-block:: console
 
@@ -281,18 +281,18 @@ Check to be in an interactive session
 Check that the number of cores booked is correct
 ------------------------------------------------
 
-You can do this on all clusters, except for Dardel and Cosmos, with 
+You can do this on all clusters, except for Dardel and Cosmos, with
 
-.. code-block:: 
+.. code-block::
 
    $ srun hostname
 
-And then you will get one line of output per core booked. 
+And then you will get one line of output per core booked.
 
 On Dardel instead test
 
 .. code-block:: console
-                  
+
    claremar@nid001027:~> srun -n 4 hostname
    nid001027
    nid001027
@@ -318,7 +318,7 @@ Now, it seems that Dardel allows for "hyperthreading", that is 2 threads per cor
 On Cosmos instead do:
 
 .. code-block:: console
-      
+
    [bjornc@cn050 ~]$ echo $SLURM_CPUS_ON_NODE
    4
 

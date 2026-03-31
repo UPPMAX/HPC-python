@@ -9,21 +9,21 @@ Machine Learning and Deep Learning
 
 .. objectives::
 
-   - Get a general overview of ML/DL with Python. 
+   - Get a general overview of ML/DL with Python.
    - Get a general overview of installed ML/DL tools at HPCs.
    - Good practices for running ML/DL code at HPCs.
    - Code along and demos.
    - We will not learn about:
       - How to write and optimize ML/DL code.
-      - How to use multi-node setup for training models on CPU and GPU.  
+      - How to use multi-node setup for training models on CPU and GPU.
 
 
 Introduction
 ------------------
-   
-   Python is well suited for machine learning and deep learning. For instance, it is fairly easy to code in, and this is particularly useful in ML/DL where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for ML and DL in Python, making it a good choice for this area.  
 
-   Some of the most used libraries in Python for ML/DL are: 
+   Python is well suited for machine learning and deep learning. For instance, it is fairly easy to code in, and this is particularly useful in ML/DL where the right solution is rarely known from the start. A lot of tests and experimentation is needed, and the program usually goes through many iterations. In addition, there are a lot of useful libraries written for ML and DL in Python, making it a good choice for this area.
+
+   Some of the most used libraries in Python for ML/DL are:
 
    - scikit-learn (sklearn)
    - PyTorch
@@ -32,7 +32,7 @@ Introduction
 Comparison of ML/DL Libraries
 -----------------------------
 
-.. list-table:: 
+.. list-table::
    :widths: 20 20 20 20
    :header-rows: 1
 
@@ -62,26 +62,26 @@ Comparison of ML/DL Libraries
      - Large, extensive documentation but community support fading away
 
 
-In this course we will look at examples for these, and show how you run them at our centres. 
+In this course we will look at examples for these, and show how you run them at our centres.
 
 The loading are slightly different at the clusters
-   - C3SE: 
+   - C3SE:
       - For TensorFlow: ``module load TensorFlow/2.15.1-foss-2023a-CUDA-12.1.1``
       - For Pytorch: ``PyTorch-bundle/2.1.2-foss-2023a-CUDA-12.1.1``
-      - Datasets and models: `Many <https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/>`_ 
+      - Datasets and models: `Many <https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/>`_
    - UPPMAX:
       - For TensorFlow: install yourself
       - For Pytorch: ``PyTorch/2.6.0-foss-2024a``
       - Bianca has all tools in : ``python_ML_packages/3.9.5``
-   - HPC2N: 
+   - HPC2N:
       - For TensorFlow ``ml GCC/12.3.0  OpenMPI/4.1.5 TensorFlow/2.15.1-CUDA-12.1.1 scikit-learn/1.4.2 Tkinter/3.11.3 matplotlib/3.7.2``
       - For the Pytorch: ``ml GCC/12.3.0  OpenMPI/4.1.5 PyTorch/2.1.2-CUDA-12.1.1 scikit-learn/1.4.2 Tkinter/3.11.3 matplotlib/3.7.2``
    - LUNARC:
       - For TensorFlow ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2``
       - For Pytorch ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 PyTorch/1.12.1-CUDA-11.7.0 scikit-learn/1.1.2``
-   - NSC: 
+   - NSC:
       - For Tetralith, use virtual environment. Pytorch and TensorFlow might coming soon to the cluster!
-   - PDC: 
+   - PDC:
       - For both TensorFlow and Pytorch : ``module load PDC singularity/4.1.1-cpeGNU-23.12``
 
 .. admonition:: Learning Material
@@ -101,11 +101,11 @@ The loading are slightly different at the clusters
    - Scikit-Learn parallelism: https://scikit-learn.org/stable/computing/parallelism.html#parallelism
    - Ray cluster for hyperparameter tuning: https://docs.ray.io/en/latest/ray-more-libs/joblib.html
 
-   
-List of installed ML/DL tools
-############################# 
 
-There are minor differences depending on the version of python. 
+List of installed ML/DL tools
+#############################
+
+There are minor differences depending on the version of python.
 
 The list is not exhaustive, but lists the more popular ML/DL libraries. I encourage you to `module spider` them to see the exact versions before loading them.
 
@@ -135,25 +135,25 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
      - cray-python
      - SciPy-bundle
    * - Scikit-Learn (sklearn)
-     - scikit-learn 
-     - scikit-learn   
-     - scikit-learn 
+     - scikit-learn
+     - scikit-learn
+     - scikit-learn
      - N.A.
      - N.A.
      - scikit-learn
    * - TensorFlow
      - N.A.
-     - TensorFlow 
-     - TensorFlow 
+     - TensorFlow
+     - TensorFlow
      - N.A.
-     - PDC singularity/4.1.1-cpeGNU-23.12 
+     - PDC singularity/4.1.1-cpeGNU-23.12
      - TensorFlow
    * - Keras
      - N.A.
      - Keras (up to Python 3.8.6), TensorFlow (Python 3.11.3)
-     - TensorFlow 
+     - TensorFlow
      - N.A.
-     - PDC singularity/4.1.1-cpeGNU-23.12 
+     - PDC singularity/4.1.1-cpeGNU-23.12
      - TensorFlow
    * - PyTorch (torch)
      - PyTorch
@@ -186,15 +186,15 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
    * - Seaborn
      - Seaborn
      - Seaborn
-     - Seaborn 
+     - Seaborn
      - N.A.
      - N.A.
      - Seaborn
-   * - Horovod 
+   * - Horovod
      - N.A.
      - Horovod
      - N.A.
-     - N.A.    
+     - N.A.
      - N.A.
      - Horovod
 
@@ -215,27 +215,27 @@ More often that not, scikit-learn is used along with other popular libraries lik
       * - **Component**
         - **Definition**
         - **Examples**
-      
+
       * - Estimators
         - Estimators are the core objects in scikit-learn. They implement algorithms for classification, regression, clustering, and more. An estimator is any object that learns from data; it implements the ``fit`` method, which is used to train the model.
-        - 
+        -
          - ``LinearRegression`` for linear regression
          - ``KNeighborsClassifier`` for k-nearest neighbors classification
          - ``DecisionTreeClassifier`` for decision tree classification
-      
+
       * - Transformers
         - Transformers are used for data preprocessing and feature extraction. They implement the ``fit`` and ``transform`` methods. The ``fit`` method learns the parameters from the data, and the ``transform`` method applies the transformation to the data.
-        - 
+        -
             - ``StandardScaler`` for standardizing features by removing the mean and scaling to unit variance
             - ``PCA`` (Principal Component Analysis) for dimensionality reduction
             - ``TfidfVectorizer`` for converting a collection of raw documents to a matrix of TF-IDF features
-      
+
       * - Pipelines
         - Pipelines are a way to streamline a machine learning workflow by chaining together multiple steps into a single object. A pipeline can include both transformers and estimators. This ensures that all steps are executed in the correct order and simplifies the process of parameter tuning.
         - A pipeline that standardizes the data and then applies a linear regression model:
-         
+
             .. code-block:: python
-            
+
                from sklearn.pipeline import Pipeline
                from sklearn.preprocessing import StandardScaler
                from sklearn.linear_model import LinearRegression
@@ -244,34 +244,34 @@ More often that not, scikit-learn is used along with other popular libraries lik
                   ('scaler', StandardScaler()),
                   ('regressor', LinearRegression())
                ])
-         
+
       * - Datasets
         - Scikit-learn provides several built-in datasets for testing and experimenting with machine learning algorithms. These datasets can be loaded using the `datasets` module.
-        - 
+        -
             - ``load_iris`` for the Iris flower dataset
             - ``load_digits`` for the handwritten digits dataset
             - ``load_boston`` for the Boston house prices dataset
 
             Example of loading a dataset:
-         
+
             .. code-block:: python
-            
+
                from sklearn.datasets import load_iris
 
                iris = load_iris()
                X, y = iris.data, iris.target
-         
+
       * - Model Evaluation
         - Scikit-learn provides various tools for evaluating the performance of machine learning models. These include metrics for classification, regression, and clustering, as well as methods for cross-validation.
-        - 
+        -
             - ``accuracy_score`` for classification accuracy
             - ``mean_squared_error`` for regression error
             - ``silhouette_score`` for clustering quality
-         
+
             Example of evaluating a model:
-            
+
             .. code-block:: python
-               
+
                from sklearn.metrics import accuracy_score
                from sklearn.model_selection import train_test_split
                from sklearn.neighbors import KNeighborsClassifier
@@ -282,13 +282,13 @@ More often that not, scikit-learn is used along with other popular libraries lik
                y_pred = model.predict(X_test)
                accuracy = accuracy_score(y_test, y_pred)
                print(f'Accuracy: {accuracy:.2f}')
-            
+
       * - Parameter Searches
         - Scikit-learn provides tools for hyperparameter tuning, such as ``GridSearchCV`` and ``RandomizedSearchCV``. These tools help in finding the best parameters for a given model by performing an exhaustive search over specified parameter values.
         - Example of a parameter search:
-         
+
             .. code-block:: python
-               
+
                from sklearn.model_selection import GridSearchCV
                from sklearn.svm import SVC
 
@@ -297,7 +297,7 @@ More often that not, scikit-learn is used along with other popular libraries lik
                grid_search.fit(X_train, y_train)
                print(f'Best parameters: {grid_search.best_params_}')
                print(f'Best score: {grid_search.best_score_}')
-         
+
 
 Scikit-learn provides a comprehensive suite of tools for building and evaluating machine learning models, making it an essential library for data scientists and machine learning practitioners.
 
@@ -397,7 +397,7 @@ Scikit-learn provides a comprehensive suite of tools for building and evaluating
 
    Try running ``titanic_sklearn.ipynb`` that can be found in ``Exercises/day4/MLDL`` directory, on an interactive CPU node. Also note that datasets are kept in ``Exercises/day4/MLDL/datasets`` directory. Give the **full path** to these datasets for this and subsequent Exercises.
 
-   Run it on a jupyter notebook on an interactive CPU node. An interactive GPU node will also do. 
+   Run it on a jupyter notebook on an interactive CPU node. An interactive GPU node will also do.
 
    Load the correct modules that contain scikit-learn, numpy, seaborn, pandas, matplotlib and jupyter libraries before starting the jupyter notebook. Users on NSC and PDC can build their own venvs.
    Use ``%matplotlib inline`` in jupyter to see the plots inline.
@@ -419,7 +419,7 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
 
    * - **PyTorch**
      - **TensorFlow**
-   * - 
+   * -
        .. code-block:: python
 
          import torch
@@ -452,7 +452,7 @@ The following table demonstrates some common tasks in PyTorch and TensorFlow, hi
             print("Updated weights:\n", layer.weight)
             print("Updated bias:\n", layer.bias)
 
-     - 
+     -
        .. code-block:: python
 
          import tensorflow as tf
@@ -500,13 +500,13 @@ We now learn by submitting a batch job which consists of loading python module, 
       .. tab:: Pytorch
 
          .. code-block:: python
-            
+
             import torch
             from torch import nn
             from torch.utils.data import DataLoader
             from torchvision import datasets
             from torchvision.transforms import ToTensor
-   
+
             # Load FashionMNIST data
             training_data = datasets.FashionMNIST(
                root="data/pytorch",
@@ -514,34 +514,34 @@ We now learn by submitting a batch job which consists of loading python module, 
                download=False,
                transform=ToTensor(),
             )
-   
+
             test_data = datasets.FashionMNIST(
                root="data/pytorch",
                train=False,
                download=False,
                transform=ToTensor(),
             )
-   
+
             batch_size = 32
-   
+
             # Create data loaders.
             train_dataloader = DataLoader(training_data, batch_size=batch_size)
             test_dataloader = DataLoader(test_data, batch_size=batch_size)
-   
+
             for X, y in test_dataloader:
                print(f"Shape of X [N, C, H, W]: {X.shape}")
                print(f"Shape of y: {y.shape} {y.dtype}")
                break
-               
+
             # Define device
             device = (
                "cuda"
                if torch.cuda.is_available()
                else "cpu"
             )
-   
+
             print(f"Using {device} device")
-   
+
             # Define model
             class NeuralNetwork(nn.Module):
                def __init__(self):
@@ -554,37 +554,37 @@ We now learn by submitting a batch job which consists of loading python module, 
                         nn.ReLU(),
                         nn.Linear(128, 10)
                   )
-   
+
                def forward(self, x):
                   x = self.flatten(x)
                   logits = self.linear_relu_stack(x)
                   return logits
-   
+
             model = NeuralNetwork().to(device)
-   
+
             loss_fn = nn.CrossEntropyLoss()
             optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
-   
+
             # Train and evaluate the model
             def train(dataloader, model, loss_fn, optimizer):
                size = len(dataloader.dataset)
                model.train()
                for batch, (X, y) in enumerate(dataloader):
                   X, y = X.to(device), y.to(device)
-   
+
                   # Compute prediction error
                   pred = model(X)
                   loss = loss_fn(pred, y)
-   
+
                   # Backpropagation
                   loss.backward()
                   optimizer.step()
                   optimizer.zero_grad()
-   
+
                   if batch % 100 == 0:
                         loss, current = loss.item(), (batch + 1) * len(X)
                         print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
-                        
+
             def test(dataloader, model, loss_fn):
                size = len(dataloader.dataset)
                num_batches = len(dataloader)
@@ -599,14 +599,14 @@ We now learn by submitting a batch job which consists of loading python module, 
                test_loss /= num_batches
                correct /= size
                print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
-               
+
             epochs = 10
             for t in range(epochs):
                print(f"Epoch {t+1}\n-------------------------------")
                train(train_dataloader, model, loss_fn, optimizer)
                test(test_dataloader, model, loss_fn)
             print("Done!")
-   
+
             # Class names for FashionMNIST
             classes = [
                "T-shirt/top",
@@ -620,9 +620,9 @@ We now learn by submitting a batch job which consists of loading python module, 
                "Bag",
                "Ankle boot",
             ]
-   
+
             model.eval()
-   
+
             # Predict and display results for one example
             x, y = test_data[0][0], test_data[0][1]
             with torch.no_grad():
@@ -630,22 +630,22 @@ We now learn by submitting a batch job which consists of loading python module, 
                pred = model(x)
                predicted, actual = classes[pred[0].argmax(0)], classes[y]
                print(f'Predicted: "{predicted}", Actual: "{actual}"')
-               
+
       .. tab:: TensorFlow
-         
+
          .. code-block:: python
 
             import tensorflow as tf
             import numpy as np
             from utils import load_data_fromlocalpath
-            
+
             # Load FashionMNIST data
             (train_images, train_labels), (test_images, test_labels) = load_data_fromlocalpath("data/tf")
-               
+
             # Define device
             device = "/GPU:0" if tf.config.list_physical_devices('GPU') else "/CPU:0"
             print(f"Using {device} device")
-   
+
             # Define the model
             class NeuralNetwork(tf.keras.Model):
                def __init__(self):
@@ -654,27 +654,27 @@ We now learn by submitting a batch job which consists of loading python module, 
                   self.dense1 = tf.keras.layers.Dense(128, activation='relu')
                   self.dense2 = tf.keras.layers.Dense(128, activation='relu')
                   self.dense3 = tf.keras.layers.Dense(10)
-   
+
                def call(self, x):
                   x = self.flatten(x)
                   x = self.dense1(x)
                   x = self.dense2(x)
                   return self.dense3(x)
-   
+
             model = NeuralNetwork()
-               
+
             model.compile(optimizer='adam',
                   loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
                   metrics=['accuracy'])
-   
-   
-            # Train and evaluate the model      
+
+
+            # Train and evaluate the model
             model.fit(train_images, train_labels, epochs=10)
-   
+
             test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
-   
+
             print('\nTest accuracy:', test_acc)
-   
+
             # Class names for FashionMNIST
             classes = [
                "T-shirt/top",
@@ -688,14 +688,14 @@ We now learn by submitting a batch job which consists of loading python module, 
                "Bag",
                "Ankle boot",
             ]
-   
+
             # Predict and display results for one example
-            probability_model = tf.keras.Sequential([model, 
+            probability_model = tf.keras.Sequential([model,
                                              tf.keras.layers.Softmax()])
-   
+
             # Grab an image from the test dataset.
             x, y = test_images[1], test_labels[1]
-   
+
             # Add the image to a batch where it's the only member.
             x = (np.expand_dims(x,0))
             predictions_single = probability_model.predict(x)
@@ -749,12 +749,12 @@ We now learn by submitting a batch job which consists of loading python module, 
 
 .. admonition:: Batch scripts for running image classification using Pytorch/TensorFlow
    :class: dropdown
-      
+
    .. tabs::
 
       .. tab:: UPPMAX
 
-         .. code-block:: bash 
+         .. code-block:: bash
 
             #!/bin/bash -l
             #SBATCH -A uppmax2025-2-393 # Change to your own after the course
@@ -766,35 +766,35 @@ We now learn by submitting a batch job which consists of loading python module, 
             # Load any modules you need, here Python 3.13.5.
             load Python/3.13.5-GCCcore-14.3.0
 
-            source ../my_env/bin/activate 
+            source ../my_env/bin/activate
 
             # Run your Python script
             python fashion_mnist.py
 
       .. tab:: HPC2N
 
-         .. code-block:: bash 
+         .. code-block:: bash
 
-            #!/bin/bash                                                                     
-            #SBATCH -A hpc2n2025-151 # Change to your own                                   
-            #SBATCH --time=00:10:00 # Asking for 10 minutes                                 
-            #SBATCH -n 1 # Asking for 1 core                                                
-            #SBATCH --gpus=1                                                                
-            #SBATCH -C nvidia_gpu                                                           
+            #!/bin/bash
+            #SBATCH -A hpc2n2025-151 # Change to your own
+            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH -n 1 # Asking for 1 core
+            #SBATCH --gpus=1
+            #SBATCH -C nvidia_gpu
 
             # Load any modules you need, here for Python/3.11.3
             module load GCC/12.3.0 Python/3.11.3
 
             source ../my_env/bin/activate
 
-            # Run your Python script                                                        
+            # Run your Python script
             python fashion_mnist.py
 
 
       .. tab:: LUNARC
 
             .. code-block:: bash
-               
+
                #!/bin/bash
                #SBATCH -A lu2025-7-106
                #SBATCH -p gpua100
@@ -805,7 +805,7 @@ We now learn by submitting a batch job which consists of loading python module, 
 
 
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
-               module load GCC/13.2.0 Python/3.11.5 
+               module load GCC/13.2.0 Python/3.11.5
 
                source ../my_env/bin/activate
 
@@ -813,10 +813,10 @@ We now learn by submitting a batch job which consists of loading python module, 
                python fashion_mnist.py
 
 
-      .. tab:: NSC      
-            
-            .. code-block:: bash 
-   
+      .. tab:: NSC
+
+            .. code-block:: bash
+
                #!/bin/bash
                #SBATCH -A naiss2025-22-934 # Change to your own
                #SBATCH -n 1
@@ -830,11 +830,11 @@ We now learn by submitting a batch job which consists of loading python module, 
                source ../my_env/bin/activate
 
                python fashion_mnist.py
-               
-      .. tab:: PDC      
-            
-            .. code-block:: bash 
-   
+
+      .. tab:: PDC
+
+            .. code-block:: bash
+
                #!/bin/bash
                #SBATCH -A naiss2025-22-934 # Change to your own
                #SBATCH --time=00:10:00  # Asking for 10 minutes
@@ -851,10 +851,10 @@ We now learn by submitting a batch job which consists of loading python module, 
 
                python fashion_mnist.py
 
-      .. tab:: C3SE   
-            
-            .. code-block:: bash 
-   
+      .. tab:: C3SE
+
+            .. code-block:: bash
+
                #!/usr/bin/env bash
                #SBATCH -A naiss2025-22-934 # Change to your own
                #SBATCH --time=00:10:00  # Asking for 10 minutes
@@ -926,7 +926,7 @@ Tips and Tricks (Lessons Learned):
 
    Try and run the either pytorch or tensorflow code for Fashion MNIST dataset by submitting a batch job.
    The dataset is stored in ``datasets/pytorch`` or ``datasets/tf`` directory.
-   In order to run this at any HPC resource you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.  
+   In order to run this at any HPC resource you should either do a batch job or run interactively on compute nodes. Remember, you should not run long/resource heavy jobs on the login nodes, and they also do not have GPUs if you want to use that.
 
    Pytorch env can be created with ``pip install torch torchvision jupyter`` and TensorFlow env can be created with ``pip install tensorflow[and-cuda] jupyter scikit-learn pandas``.
 
@@ -942,9 +942,9 @@ Miscellaneous examples
 .. admonition:: Running several jobs from within one job
    :class: dropdown
 
-      You almost always want to run several iterations of your machine learning code with changed parameters and/or added layers. If you are doing this in a batch job, it is easiest to either make a batch script that submits several variations of your Python script (changed parameters, changed layers), or make a script that loops over and submits jobs with the changes. 
+      You almost always want to run several iterations of your machine learning code with changed parameters and/or added layers. If you are doing this in a batch job, it is easiest to either make a batch script that submits several variations of your Python script (changed parameters, changed layers), or make a script that loops over and submits jobs with the changes.
 
-      This example shows how you would run several programs or variations of programs sequentially within the same job: 
+      This example shows how you would run several programs or variations of programs sequentially within the same job:
 
       .. tabs::
 
@@ -952,20 +952,20 @@ Miscellaneous examples
 
             Example batch script for Kebnekaise, TensorFlow version 2.11.0 and Python version 3.11.3
 
-            .. code-block:: bash 
-            
-               #!/bin/bash 
-               # Remember to change this to your own project ID after the course! 
+            .. code-block:: bash
+
+               #!/bin/bash
+               # Remember to change this to your own project ID after the course!
                #SBATCH -A hpc2n2025-151
                # We are asking for 5 minutes
                #SBATCH --time=00:05:00
-               # Asking for one V100 
+               # Asking for one V100
                #SBATCH --gres=gpu:v100:1
                # Remove any loaded modules and load the ones we need
                module purge  > /dev/null 2>&1
-               module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3-1 
-               # Output to file - not needed if your job creates output in a file directly 
-               # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters). 
+               module load GCC/10.3.0 OpenMPI/4.1.1 SciPy-bundle/2021.05 TensorFlow/2.6.0-CUDA-11.3-1
+               # Output to file - not needed if your job creates output in a file directly
+               # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python <my_tf_program.py> <param1> <param2> > myoutput1 2>&1
                cp myoutput1 mydatadir
                python <my_tf_program.py> <param3> <param4> > myoutput2 2>&1
@@ -975,9 +975,9 @@ Miscellaneous examples
 
          .. tab:: UPPMAX
 
-            Example batch script for Pelle, TensorFlow  and Python version 3.13.5. 
-            
-            .. code-block:: bash 
+            Example batch script for Pelle, TensorFlow  and Python version 3.13.5.
+
+            .. code-block:: bash
 
                #!/bin/bash -l
                # Remember to change this to your own project ID after the course!
@@ -1004,10 +1004,10 @@ Miscellaneous examples
 
          .. tab:: NSC
 
-            Example batch script for Tetralith, TensorFlow version 2.18 and Python version 3.11.5. 
-            
-            .. code-block:: bash 
-   
+            Example batch script for Tetralith, TensorFlow version 2.18 and Python version 3.11.5.
+
+            .. code-block:: bash
+
                #!/bin/bash
                #SBATCH -A naiss2025-22-934 # Change to your own
                #SBATCH -n 1
@@ -1030,9 +1030,9 @@ Miscellaneous examples
 
          .. tab:: LUNARC
 
-            Example batch script for Cosmos, TensorFlow version 2.15 and Python version 3.11.5. 
-            
-            .. code-block:: bash 
+            Example batch script for Cosmos, TensorFlow version 2.15 and Python version 3.11.5.
+
+            .. code-block:: bash
 
                #!/bin/bash
                #SBATCH -A lu2025-7-106
@@ -1044,10 +1044,10 @@ Miscellaneous examples
 
 
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
-               module load GCC/13.2.0 Python/3.11.5 
+               module load GCC/13.2.0 Python/3.11.5
 
                source ../my_env/bin/activate
-               
+
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python tf_program.py 1 2 > myoutput1 2>&1
@@ -1059,12 +1059,12 @@ Miscellaneous examples
 
          .. tab:: PDC
 
-            Example batch script for Dardel, TensorFlow version 2.13 and Python version 3.11.7. 
-            
-            .. code-block:: bash 
+            Example batch script for Dardel, TensorFlow version 2.13 and Python version 3.11.7.
+
+            .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A naiss2025-22-934 
+               #SBATCH -A naiss2025-22-934
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -1076,7 +1076,7 @@ Miscellaneous examples
                module load cray-python/3.11.7
 
                source ../my_env/bin/activate
-               
+
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python tf_program.py 1 2 > myoutput1 2>&1
@@ -1088,9 +1088,9 @@ Miscellaneous examples
 
          .. tab:: C3SE
 
-            Example batch script for Alvis, TensorFlow  and Python version 3.13.5. 
-            
-            .. code-block:: bash 
+            Example batch script for Alvis, TensorFlow  and Python version 3.13.5.
+
+            .. code-block:: bash
 
                #!/bin/bash -l
                # Remember to change this to your own project ID after the course!
@@ -1116,11 +1116,11 @@ Miscellaneous examples
                python tf_program.py 5 6 > myoutput3 2>&1
                cp myoutput3 mydatadir
 
-.. admonition:: Scikit-Learn + TensorFlow using modules 
+.. admonition:: Scikit-Learn + TensorFlow using modules
     :class: dropdown
 
-      .. code-block:: python 
-        
+      .. code-block:: python
+
          # fit a final model and make predictions on new data for the ionosphere dataset
          from pandas import read_csv
          from sklearn.preprocessing import LabelEncoder
@@ -1158,7 +1158,7 @@ Miscellaneous examples
          yhat = model.predict(x=np.array([row]))
          yhat = np.argmax(yhat, axis=1)
          #for tf<2.6 uncomment the following line but comment the prev 2 lines
-         #yhat = model.predict_classes([row]) 
+         #yhat = model.predict_classes([row])
          # invert transform to get label for class
          yhat = le.inverse_transform(yhat)
          # report prediction
@@ -1168,49 +1168,49 @@ Miscellaneous examples
       .. tabs::
 
          .. tab:: HPC2N
-         
-            .. code-block:: bash 
-            
-                  #!/bin/bash 
-                  # Remember to change this to your own project ID after the course! 
+
+            .. code-block:: bash
+
+                  #!/bin/bash
+                  # Remember to change this to your own project ID after the course!
                   #SBATCH -A hpc2n2025-151
                   # We are asking for 5 minutes
                   #SBATCH --time=00:05:00
                   # Asking for one V100
                   #SBATCH --gres=gpu:v100:1
-                  
+
                   # Remove any loaded modules and load the ones we need
                   module purge  > /dev/null 2>&1
                   module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 scikit-learn/1.4.2
                   module load TensorFlow
 
-                  # Run your Python script 
-                  python example-tf.py 
-                  
+                  # Run your Python script
+                  python example-tf.py
+
          .. tab:: UPPMAX
-         
-            .. code-block:: bash 
-            
-                  #!/bin/bash -l  
-                  # Remember to change this to your own project ID after the course! 
+
+            .. code-block:: bash
+
+                  #!/bin/bash -l
+                  # Remember to change this to your own project ID after the course!
                   #SBATCH -A uppmax2025-2-393
                   # We are asking for 15 minutes
                   #SBATCH --time=00:15:00
                   #SBATCH --gpus=l40s:1
-                  
+
                   # Remove any loaded modules and load the ones we need
                   module purge  > /dev/null 2>&1
                   module load Python/3.13.5-GCCcore-14.3.0
 
                   source ../my_env/bin/activate
-                  
-                  # Run your Python script 
-                  python example-tf.py 
+
+                  # Run your Python script
+                  python example-tf.py
 
 
          .. tab:: NSC
 
-            .. code-block:: bash 
+            .. code-block:: bash
 
                #!/bin/bash
                #SBATCH -A naiss2025-22-934 # Change to your own
@@ -1223,14 +1223,14 @@ Miscellaneous examples
                ml load Python/3.11.5
 
                source ../my_env/bin/activate
-               
-               # Run your Python script 
-               python example-tf.py 
+
+               # Run your Python script
+               python example-tf.py
 
 
          .. tab:: LUNARC
-            
-            .. code-block:: bash 
+
+            .. code-block:: bash
 
                #!/bin/bash
                #SBATCH -A lu2025-7-106
@@ -1244,17 +1244,17 @@ Miscellaneous examples
                # Load any modules you need, here for Python/3.10.4 and compatible SciPy-bundle
                module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2
 
-               
-               # Run your Python script 
-               python example-tf.py 
+
+               # Run your Python script
+               python example-tf.py
 
 
          .. tab:: PDC
-            
-            .. code-block:: bash 
+
+            .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A naiss2025-22-934 
+               #SBATCH -A naiss2025-22-934
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -1266,25 +1266,25 @@ Miscellaneous examples
                module load cray-python/3.11.7
                module load PDC singularity/4.1.1-cpeGNU-23.12
 
-               singularity exec --rocm -B /cfs/klemming /pdc/software/resources/sing_hub/rocm5.7-tf2.13-dev python3 example-tf.py 
+               singularity exec --rocm -B /cfs/klemming /pdc/software/resources/sing_hub/rocm5.7-tf2.13-dev python3 example-tf.py
 
          .. tab:: C3SE
-         
-            .. code-block:: bash 
-            
+
+            .. code-block:: bash
+
                   #!/usr/bin/env bash
                   #SBATCH -A naiss2025-22-934 # Change to your own
                   #SBATCH --time=00:15:00  # Asking for 15 minutes
                   #SBATCH -n 2
                   #SBATCH --gpus-per-node=T4:1
-                  
+
                   # Remove any loaded modules and load the ones we need
                   module purge  > /dev/null 2>&1
                   module load Python/3.13.5-GCCcore-14.3.0
                   module load TensorFlow/2.18.0-CUDA-11.8-1
-                  
-                  # Run your Python script 
-                  python example-tf.py 
+
+                  # Run your Python script
+                  python example-tf.py
 
 
 Exercises
@@ -1300,52 +1300,52 @@ Exercises
    .. admonition:: Fit a third order polynomial to a sine function.
     :class: dropdown
 
-        The below program can be found in the ``Exercises/day4/MLDL`` directory under the name ``pytorch_sine.py``. 
+        The below program can be found in the ``Exercises/day4/MLDL`` directory under the name ``pytorch_sine.py``.
 
         .. code-block:: python
-        
+
             # source : https://pytorch.org/tutorials/beginner/pytorch_with_examples.html#pytorch-tensors
-            
+
             import torch
             import math
-            
+
             dtype = torch.float
             #device = torch.device("cpu")
             device = torch.device("cuda:0") # Comment this out to not run on GPU
-            
+
             # Create random input and output data
             x = torch.linspace(-math.pi, math.pi, 2000, device=device, dtype=dtype)
             y = torch.sin(x)
-            
+
             # Randomly initialize weights
             a = torch.randn((), device=device, dtype=dtype)
             b = torch.randn((), device=device, dtype=dtype)
             c = torch.randn((), device=device, dtype=dtype)
             d = torch.randn((), device=device, dtype=dtype)
-            
+
             learning_rate = 1e-6
             for t in range(2000):
                 # Forward pass: compute predicted y
                 y_pred = a + b * x + c * x ** 2 + d * x ** 3
-                
+
                 # Compute and print loss
                 loss = (y_pred - y).pow(2).sum().item()
                 if t % 100 == 99:
                     print(t, loss)
-                
+
                 # Backprop to compute gradients of a, b, c, d with respect to loss
                 grad_y_pred = 2.0 * (y_pred - y)
                 grad_a = grad_y_pred.sum()
                 grad_b = (grad_y_pred * x).sum()
                 grad_c = (grad_y_pred * x ** 2).sum()
                 grad_d = (grad_y_pred * x ** 3).sum()
-                
+
                 # Update weights using gradient descent
                 a -= learning_rate * grad_a
                 b -= learning_rate * grad_b
                 c -= learning_rate * grad_c
                 d -= learning_rate * grad_d
-                
+
             print(f'Result: y = {a.item()} + {b.item()} x + {c.item()} x^2 + {d.item()} x^3')
 
    .. admonition:: Output via an interactive Snowy session
@@ -1353,7 +1353,7 @@ Exercises
 
         .. code-block:: bash
 
-            $ interactive -A uppmax2025-2-393 -n 1 -M snowy --gres=gpu:1  -t 1:00:01 
+            $ interactive -A uppmax2025-2-393 -n 1 -M snowy --gres=gpu:1  -t 1:00:01
             You receive the high interactive priority.
 
             Please, use no more than 8 GB of RAM.
@@ -1396,7 +1396,7 @@ Exercises
 
 .. keypoints::
 
-  - At all clusters you will find PyTorch, TensorFlow, Scikit-learn under different modules, except Tetralith (NSC). 
+  - At all clusters you will find PyTorch, TensorFlow, Scikit-learn under different modules, except Tetralith (NSC).
   - When in doubt, search your modules and its correct version using ``module spider``.  If you still wished to have the correct versions for each cluster, check the `summary page <https://uppmax.github.io/HPC-python/summary2.html#summary-day2>`_.
   - If you plan to use multiple libraries with complex dependencies, it is recommended to use a virtual environment and pip install your libraries.
   - Always run heavy ML/DL jobs on compute nodes and not on login nodes. For development purpose, you can use an interactive session on a compute node.

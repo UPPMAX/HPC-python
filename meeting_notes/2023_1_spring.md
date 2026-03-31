@@ -35,7 +35,7 @@
 
 - Extra packages
     - [x] setup.py
-    
+
 - isolated (only Birgitte, because conda is in packages)
     - [x] Björn can change venv to virtualenv for UPPMAX?
     - [x] rm setup.py
@@ -74,9 +74,9 @@
     - add: (updates of versions)
     - mv to extra: nope
     - comments:
-- packages 
+- packages
     - add: pip install exercise
-    - mv to extra: 
+    - mv to extra:
     - comments: keep because of goal of course
 - isolated
     - add:
@@ -89,26 +89,26 @@
     - comments: In order! (minor fixes?)
 - interactive
     - add: jupyter speed up in thinlinc
-    - mv to extra: Jupyter 
+    - mv to extra: Jupyter
         - (UPPMAX vs HPC2N tabs
-    - comments: 
+    - comments:
 
 - parallel
-    - add: 
+    - add:
     - mv to extra: nope
     - comments: (minor fixes?)
 - GPU
     - add: demo2 --> exercise
     - mv to extra: nope
     - comments: (checking)
-- ML 
+- ML
     - add:
     - mv to extra:
-    - comments: merge ML 
+    - comments: merge ML
 
 
 #### Timings
-|Session| Feb23 | Suggestions May23 | 
+|Session| Feb23 | Suggestions May23 |
 |-------|-------|----------|
 |"Syllabus"| 15 | 10   |
 |Intro| 10 | 10
@@ -121,10 +121,10 @@ interactive| 15 | 20
 (add exercises)
 Lunch??
 
-|Session| Sep22 (in practice) | Suggestions May23 | 
+|Session| Sep22 (in practice) | Suggestions May23 |
 |-------|-------|----------|
 parallel| 36| 40|
-GPU|17 | 30 | 
+GPU|17 | 30 |
 ML (incl all exercises)|21+30 | 40
 Extra exercise time| |15
 Sum| |5
@@ -144,8 +144,8 @@ Q/A ||20
 - [x] Form by Thu
 - [x] Make a branch for old course
     - Björn
-- [x] Remove site specific 
-    - Björn 
+- [x] Remove site specific
+    - Björn
 - [x] Course project
     - Birgitte
 - [x] Issues
@@ -167,7 +167,7 @@ Q/A ||20
 - [x] Timings (when first versions of updates are done)
     - Björn
 
- 
+
 Q/A page from the R/Julia/Python course: https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EbHWglWYU_VNpTpdD2CtSfYBlpsAF6DyD_4RMwWCie_B0g?e=UddlVs
 
 ### Meeting Mo 24 Apr 10:30
@@ -233,7 +233,7 @@ GPU| |  | X
 ML (incl exercises)| | X
 Exercises (exercises)| several different rooms |x|x
 Question session (breakout)| X | X | X
-Summary| X | X | X 
+Summary| X | X | X
 
 ### Until next time
 - [x] Web pages
@@ -245,7 +245,7 @@ Summary| X | X | X
 - [x] Make a branch for old course
     - Björn
 - [ ] Copy files from python feb23 course
-    - Björn 
+    - Björn
 - [x] Issues
     - but otherwise work directly in main
 - [x] Course project
@@ -255,7 +255,7 @@ Summary| X | X | X
     - ML
 - [ ] GPU
     - integrate from Feb
-    - 
+    -
 ### Invitation text
 - [x] Thursday
 
@@ -268,7 +268,7 @@ UPPMAX and HPC2n is organising a joint workshop on how to run Python and install
 The instructors will use UPPMAX's systems for demos and there will be hands-on exercises for the participants.
 
 **The following will be covered:**
-* Loading the appropriate Python module 
+* Loading the appropriate Python module
 * Packages
     * checking installed packages
     * pip install
@@ -281,7 +281,7 @@ The instructors will use UPPMAX's systems for demos and there will be hands-on e
     * Machine Learning environment
 
 Prerequisities:
-- basic Linux 
+- basic Linux
 - basic Python
 - basic Slurm
 
@@ -299,12 +299,12 @@ Course web pages
 - Load/Run
 - Packages especially pip
 - Isolated general
-- Interactive general 
+- Interactive general
     - rm `-p`
 - Batch general
     - this one before interactive
 - Parallel session 1
-    - UPPMAX: Conda, venv (exercises), 
+    - UPPMAX: Conda, venv (exercises),
     - Kebnekaise: virtual env (exercises)
 ##### LUNCH break
 - Parallel computing general
@@ -317,6 +317,6 @@ Course web pages
     - cpu exercise
 - Parallel session 2
     - UPPMAX: Bianca, jupyter
-    - HPC2N: 
+    - HPC2N:
         - gpu exercises at Kebne
         - Machine Learning given by HPC2N

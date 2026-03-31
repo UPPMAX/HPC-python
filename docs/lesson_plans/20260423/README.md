@@ -29,3 +29,5 @@ Note that it cannot be used anymore when this course would have a fee.
 
 ## 2026-03-31
 
+I know that Sphinx can use Markdown anyways. Let's find out, starting with
+Pandas.

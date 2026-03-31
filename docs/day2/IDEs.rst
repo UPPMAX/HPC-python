@@ -3,7 +3,7 @@
 Using IDEs
 ============
 
-There are several popular IDEs that are commonly used for interactive work with Python. Here we will show how to load ``Jupyter``, ``VS Code``, and ``Spyder``. 
+There are several popular IDEs that are commonly used for interactive work with Python. Here we will show how to load ``Jupyter``, ``VS Code``, and ``Spyder``.
 
 Jupyter
 -------
@@ -26,9 +26,9 @@ Jupyter
 
    - For UPPMAX, one can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX `documentation on ThinLinc <https://docs.uppmax.uu.se/software/thinlinc/>`_ on how to install the ThinLinc client locally
 
-   - For LUNARC, you can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_. 
+   - For LUNARC, you can run Jupyter either in compute nodes through Anaconda or through the LUNARC HPC desktop. The latter is recommended. There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_.
 
-   - For NSC, you can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster. 
+   - For NSC, you can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster.
 
 .. comment::
 
@@ -50,7 +50,7 @@ Jupyter
             .. tabs::
 
                .. tab:: Rackham
-               
+
                   .. code-block:: sh
 
                      $ interactive -A uppmax2025-2-393 -t 4:00:00
@@ -133,11 +133,11 @@ Jupyter
                .. tab:: Snowy
 
                   * Similar steps as for Rackham but with the correct port number and hostname pointing to Snowy compute node instead.
-                  
+
                   .. code-block:: sh
 
                      $ ssh -L 8889:s123:8889 username@rackham.uppmax.uu.se
-                  
+
                   * On your computer open the URL you got from step 3. on your webbrowser but replace s123 with localhost i.e. you get something like this
 
                   ``http://localhost:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4``
@@ -172,7 +172,7 @@ Jupyter
 
       .. tab:: HPC2N
 
-         Since the JupyterLab will only be accessible from within HPC2N's domain, it is by far easiest to do this from inside ThinLinc, so **this is highly recommended**. You can find information about using ThinLinc at `HPC2N's documentation <https://docs.hpc2n.umu.se/software/jupyter/>`_ 
+         Since the JupyterLab will only be accessible from within HPC2N's domain, it is by far easiest to do this from inside ThinLinc, so **this is highly recommended**. You can find information about using ThinLinc at `HPC2N's documentation <https://docs.hpc2n.umu.se/software/jupyter/>`_
 
 
          **1. Check JupyterLab version**
@@ -200,7 +200,7 @@ Jupyter
                $ module load GCC/12.3.0 JupyterLab/4.0.5
 
          **2. Start Jupyter on the compute node**
-         
+
             Make a submit file with the following content. You can use any text editor you like, e.g. ``nano`` or ``vim``.
             Something like the file below will work. Remember to change the project id after the course, how many cores you need, and how long you want the JupyterLab to be available:
 
@@ -237,7 +237,7 @@ Jupyter
                $ sbatch MyJupyterLab.sh
 
          **3. Connect to the running Jupyter server**
-         
+
             Wait until the job gets resources allocated. Check the SLURM output file; when the job has resources allocated it will have a number of URLs inside at the bottom.
 
             The SLURM output file is as default named ``slurm-<job-id>.out`` where you get the ``<job-id>`` when you submit the SLURM submit file (from previous step).
@@ -283,7 +283,7 @@ Jupyter
                      http://127.0.0.1:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
                   [I 2024-03-09 15:35:31.078 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
 
-            
+
             To access the server, go to ``file:///.local/share/jupyter/runtime/jpserver-<newest>-open.html`` from a browser within the ThinLinc session. <newest> is a number that you find by looking in the directory ``.local/share/jupyter/runtime/`` under your home directory.
 
             Or, to access the server you can copy and paste the URL from the file that is SIMILAR to this: ``http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1``
@@ -305,9 +305,9 @@ Jupyter
 
          **For the course:**
 
-            If you want to start a Jupyter with access to matplotlib and seaborn, for use with this course for the session on matplotlib, then do the following: 
+            If you want to start a Jupyter with access to matplotlib and seaborn, for use with this course for the session on matplotlib, then do the following:
 
-            3.1. Start ThinLinc and login to HPC2N as described under `preparations <https://uppmax.github.io/HPC-python/preparations.html>`_ 
+            3.1. Start ThinLinc and login to HPC2N as described under `preparations <https://uppmax.github.io/HPC-python/preparations.html>`_
 
             3.2 Load these modules
 
@@ -315,9 +315,9 @@ Jupyter
 
                   module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5
 
-            3.3. Make a submit file with this content 
+            3.3. Make a submit file with this content
 
-               .. code-block:: 
+               .. code-block::
 
                   #!/bin/bash
                   #SBATCH -A hpc2n2025-151
@@ -330,7 +330,7 @@ Jupyter
                   module purge > /dev/null 2>&1
 
                   # Load the module environment suitable for the job
-                  module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5 
+                  module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5
 
                   # Start JupyterLab
                   jupyter lab --no-browser --ip $(hostname)
@@ -339,7 +339,7 @@ Jupyter
 
                It will be **SIMILAR** to this : ``http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1``
 
-            3.5. Open a browser inside ThinLinc and put in the URL similar to above. 
+            3.5. Open a browser inside ThinLinc and put in the URL similar to above.
 
 
       .. tab:: LUNARC
@@ -371,7 +371,7 @@ Jupyter
 
          **Through ThinLinc**
 
-            1. Login with ThinLinc (https://www.nsc.liu.se/support/graphics/) 
+            1. Login with ThinLinc (https://www.nsc.liu.se/support/graphics/)
 
                - Download the client matching your local computer's OS and install it.
                - Start the ThinLinc client.
@@ -379,11 +379,11 @@ Jupyter
                - Change the “Name” setting to your Tetralith username (e.g x_abcde).
                - Enter your cluster Tetralith password in the “Password” box.
                - Press the “Connect” button.
-               - If you connect for the first time, you will see the “The server’s host key is not cached …” dialog. 
+               - If you connect for the first time, you will see the “The server’s host key is not cached …” dialog.
 
             2. Load a JupyterLab module
 
-               - Open a terminal    
+               - Open a terminal
                - This is an example for JupyterLab 4.2.0
 
                .. code-block:: console
@@ -392,8 +392,8 @@ Jupyter
 
             3. Start JupyterLab
 
-               - Type ``jupyter-lab`` in the terminal 
-               - It will show some text, including telling you to open a url in a browser (inside ThinLinc/on Tetralith). If you just wait, it will open a browser with Jupyter.   
+               - Type ``jupyter-lab`` in the terminal
+               - It will show some text, including telling you to open a url in a browser (inside ThinLinc/on Tetralith). If you just wait, it will open a browser with Jupyter.
 
                - It will look similar to this:
 
@@ -405,7 +405,7 @@ Jupyter
 
          **On your own computer through SSH tunneling**
 
-            1. Either do a regular SSH or use ThinLinc to connect to tetralith (change to your own username): 
+            1. Either do a regular SSH or use ThinLinc to connect to tetralith (change to your own username):
 
                ``ssh x_abcde@tetralith.nsc.liu.se``
 
@@ -413,7 +413,7 @@ Jupyter
 
                ``cd <my-workdir>``
 
-            3. Load a module with JupyterLab in (here JupyterLab 4.2.0) 
+            3. Load a module with JupyterLab in (here JupyterLab 4.2.0)
 
                .. code-block:: console
 
@@ -423,20 +423,20 @@ Jupyter
 
                - ``jupyter-lab --no-browser``
 
-               - You get something that looks like this: 
+               - You get something that looks like this:
 
                .. admonition:: Terminal view
                   :class: dropdown
 
                   .. figure:: ../img/jupyter-no-browser-nsc.png
 
-            Where I have marked a line with relevant info. Note that the port will change. 
+            Where I have marked a line with relevant info. Note that the port will change.
 
-            5. Open a second terminal, on your home computer. Input this: 
+            5. Open a second terminal, on your home computer. Input this:
 
                - ``ssh -N -L localhost:88XX:localhost:88XX x_abcde@tetralith1.nsc.liu.se``
 
-               where you change 88XX to the actual port you got, and the name to your username. In my example it would be: 
+               where you change 88XX to the actual port you got, and the name to your username. In my example it would be:
 
                - ``ssh -N -L localhost:8867:localhost:8867 x_birbr@tetralith1.nsc.liu.se``
 
@@ -444,10 +444,10 @@ Jupyter
                      :class: dropdown
 
                      .. figure:: ../img/local-ssh-to-nsc.png
-               
-            6. Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5. 
 
-               - Input that line (url with token) in a browser on your local machine. You wil get something similar to this: 
+            6. Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5.
+
+               - Input that line (url with token) in a browser on your local machine. You wil get something similar to this:
 
                .. admonition:: Webbrowser view
                      :class: dropdown
@@ -458,7 +458,7 @@ Jupyter
       .. tab:: PDC
 
          You can interactively launch Jupyter Lab and Notebook on Dardel by following the steps as below. Hopefully the ThinLinc licenses are sufficient!
-         
+
 
             1. Click on Applications -> PDC-Jupyter -> Jupyter Lab or Jupyter Notebook
 
@@ -479,7 +479,7 @@ Jupyter
                .. admonition:: GfxLauncher view
                      :class: dropdown
 
-                     .. figure:: ../img/pdc_reconnect_to_jupyter.png      
+                     .. figure:: ../img/pdc_reconnect_to_jupyter.png
 
 JupyterLab 🚀
 ############
@@ -636,7 +636,7 @@ Jupyter Notebook is a sibling to other notebook authoring applications under the
             This is **bold** text and this is *italic* text.
             - List item 1
             - List item 2
-              
+
             # LaTeX math equation:
             $$E = mc^2$$
             or inline: $a^2 + b^2 = c^2$
@@ -644,14 +644,14 @@ Jupyter Notebook is a sibling to other notebook authoring applications under the
             # Cell 3: Using magic commands
             # Check execution time
             %timeit sum(range(1000))
-            
+
             # Cell 4: List all variables
             %whos
-            
+
             # Cell 5: Run system commands
             !pwd
             !ls -l
-            
+
             # Cell 6: Display plot inline
             %matplotlib inline
             import matplotlib.pyplot as plt
@@ -700,12 +700,12 @@ Spyder
 
             ml GCC/9.3.0  OpenMPI/4.0.3  Python  Spyder
             spyder3
-         
+
          If you want a newer version with more and newer compatible Python packages, you will have to create a virtual environment.
 
       .. tab:: UPPMAX
 
-         Spyder is not available centrally on Rackham. 
+         Spyder is not available centrally on Rackham.
 
          - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments/#exercises>`_
 
@@ -720,7 +720,7 @@ Spyder
 
       .. tab:: NSC
 
-         Spyder is not available on Tetralith. 
+         Spyder is not available on Tetralith.
 
          - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
@@ -762,23 +762,23 @@ When you open Spyder you will see a three-pane layout similar to other scientifi
 Main panes and useful tabs
 
 * Editor (left) 📝
-   * Edit multiple files in tabs : use the Run toolbar (green ▶️) to run the current file or selection.  
-   * You can mark cells with ``# %%`` (or ``# %%%`` for multi level cells) and run cells interactively.  
+   * Edit multiple files in tabs : use the Run toolbar (green ▶️) to run the current file or selection.
+   * You can mark cells with ``# %%`` (or ``# %%%`` for multi level cells) and run cells interactively.
    * Use the burger menu on the editor pane to split, undock or save layout.
 
 * Utility pane (Top-right) 🧰
-   * Help 🔍: documentation and contextual help for the symbol under the cursor.  
-   * Variable explorer 🧾 : table view of in-memory variables with types and values; inspect, edit or remove variables.  
-   * Files 📂 : file browser for the current working directory. 
-   * Plots 📈 : interactive plots panel (may be a tab in recent versions); can be undocked to a separate window for better interaction. 
+   * Help 🔍: documentation and contextual help for the symbol under the cursor.
+   * Variable explorer 🧾 : table view of in-memory variables with types and values; inspect, edit or remove variables.
+   * Files 📂 : file browser for the current working directory.
+   * Plots 📈 : interactive plots panel (may be a tab in recent versions); can be undocked to a separate window for better interaction.
 
 * Console and History (Bottom-right) 🖥️
-   * IPython console(s) : interactive Python connected to the currently selected kernel/environment.  
-   * History log : previously executed commands from the console.  
+   * IPython console(s) : interactive Python connected to the currently selected kernel/environment.
+   * History log : previously executed commands from the console.
 
 .. admonition:: Quick Tips
    :class: dropdown
-      
+
       * Run workflow
          * Save your script and click the Run button to execute it in the IPython console. Running a saved file will switch the console working directory to the file's location (configurable in Preferences).
          * Run selection or a cell from the editor to test snippets without running the whole file.
@@ -826,7 +826,7 @@ Main panes and useful tabs
    * Either start an interactive session with 4-8 cores and 1-2 hr walltime or stay on the login node.
    * `cd` into your project directory.
    * Start Spyder from your python env that you created in previous session.
-   * Type out (or copy) the following code into the IDE editor and run it to see the results. 
+   * Type out (or copy) the following code into the IDE editor and run it to see the results.
 
    .. admonition:: spyder_basics.py
       :class: dropdown
@@ -889,13 +889,13 @@ VS Code
 
    VS Code can be downloaded and installed on your local machine from the `VS Code website <https://code.visualstudio.com/>`_. It is also available on the HPC center resources, but the installation process is different for each center.
 
-   VS Code is available on ThinLinc on UPPMAX and LUNARC only. On HPC2N and NSC, you will have to install it on your own laptop. 
+   VS Code is available on ThinLinc on UPPMAX and LUNARC only. On HPC2N and NSC, you will have to install it on your own laptop.
    At UPPMAX(Rackham) load it using ``module load VSCodium``, this is an open source version of VS Code. At LUNARC(Cosmos) you can find it under Applications->Programming->Visual Studio Code.
 
    However, VS Code is best used on your local machine, as it is a resource-intensive application that can slow down the ThinLinc interface. The VS Code Server can be installed on all the HPCs that give your the ability to run your code on the HPCs but edit it on your local machine.
    Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.
 
-   On your own computer through SSH tunneling 
+   On your own computer through SSH tunneling
    ############################################
 
    Install VS Code on your local machine and follow the steps below to connect to the HPC center resources.
@@ -904,22 +904,22 @@ VS Code
       :class: dropdown
 
       .. figure:: ../img/vscode_remote_tunnels_before_install.png
-      
+
       .. figure:: ../img/vscode_add_new_remote.png
-      
-      Type ssh [username]@rackham.uppmax.uu.se where [username] is your UPPMAX username, for example, ssh sven@rackham.uppmax.uu.se. 
-      This will change as per the HPC center you are using:  
-      
+
+      Type ssh [username]@rackham.uppmax.uu.se where [username] is your UPPMAX username, for example, ssh sven@rackham.uppmax.uu.se.
+      This will change as per the HPC center you are using:
+
       .. figure:: ../img/vscode_ssh_to_rackham.png
-      
-      Use the ~/.ssh/config file:  
-      
+
+      Use the ~/.ssh/config file:
+
       .. figure:: ../img/vscode_remote_tunnels_use_ssh_config_in_home.png
-      
-      Click on 'Connect':  
-      
+
+      Click on 'Connect':
+
       .. figure:: ../img/vscode_connect_to_rackham.png
-      
+
       .. figure:: ../img/vscode_connected_to_rackham.png
 
    When you first establish the ssh connection to Rackham, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
@@ -988,14 +988,14 @@ Main panes and useful panels
    **Manage Extensions** 🔧
 
    * By default, VSCode server installs all extensions in your home directory on the remote server. Which is not recommended as home directories have limited space. You can change this behavior by changing the remote server install path to a project folder with sufficient space.
-   * Go to Command Palette ``Ctrl+Shift+P`` or ``F1``. Search for ``Remote-SSH: Settings`` and then go to ``Remote.SSH: Server Install Path``. 
+   * Go to Command Palette ``Ctrl+Shift+P`` or ``F1``. Search for ``Remote-SSH: Settings`` and then go to ``Remote.SSH: Server Install Path``.
    * Add ``Item`` as remote host (say, rackham.uppmax.uu.se) and ``Value`` as project folder in which you want to install all your data and extensions (say ``/proj/uppmax202x-x-xx/nobackup``) (without a trailing slash /).
 
    ⚠️ If you already had your vscode-server running and storing extensions in home directory. Make sure to kill the server by selecting ``Remote-SSH: KIll VS Code Server on Host`` on Command Palette and deleting the ``.vscode-server`` directory in your home folder.
 
    **Install Extensions** 📦
 
-   * You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for ``Remote: Install Local Extensions`` in ``SSH: rackham.uppmax.uu.se`` (or other HPC name) in Command Palette. 
+   * You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for ``Remote: Install Local Extensions`` in ``SSH: rackham.uppmax.uu.se`` (or other HPC name) in Command Palette.
    * You can alternatively, go to Extensions tab and select each individually.
 
    **Selecting Kernels** 🧠
@@ -1003,12 +1003,12 @@ Main panes and useful panels
    * Establish an SSH connection to the login node of the HPC resource using VSCode remote-SSH extension as described in previous session.
    * You may request an allocation on a compute node BUT VSCode server does not connect to it automatically and your code will still be executed on login node.
    * Load the correct module (or virtual env) on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Rackham/Snowy, do module load python_ML_packages. Check the file path for python interpreter by checking ``which python`` and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for "interpreter" for python, then paste the path of your interpreter/kernel.
-   * venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server. 
+   * venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server.
    **NOTE**: Fetching python interpreters from a compute node may or may not work depending on the HPC resource. Develop your code on login node and run it on compute nodes using sbatch scripts.
 
    **For Jupyter Notebooks (and a much safer option)** 🧪
 
-   * You need to start the server on the HPC resource first, preferably on a compute node. 
+   * You need to start the server on the HPC resource first, preferably on a compute node.
    * Copy the jupyter server URL which goes something like ``http://s193.uppmax.uu.se:8888/tree?token=xxx`` (where s193 is Snowy node. Other HPCs will have similar URLs), click on ``Select Kernel`` on VSCode and select ``Existing Jupyter Server``. Past the URL here and confirm your choice.
    * This only works if you have the jupyter extension installed on your local VSCode.
    * The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser.
@@ -1028,17 +1028,17 @@ Exercises
 
 .. challenge::
 
-   * Try running a Scipy and a Pytorch example in your favorite IDE.  
-   * Create a Virtual env using your faviroute package manager and install the packages.  
+   * Try running a Scipy and a Pytorch example in your favorite IDE.
+   * Create a Virtual env using your faviroute package manager and install the packages.
    * For an extra challenge: Run the same code in .ipynb format in your IDE. This requires you to install jupyter notebook in your virtual environment.
-   
+
    .. admonition:: Solving linear system of equations and optimization task using Scipy
       :class: dropdown
 
       Install ``Scipy`` for the following example.
 
       .. code-block:: python
-      
+
          import numpy as np
          from scipy.linalg import solve
          from scipy.optimize import minimize

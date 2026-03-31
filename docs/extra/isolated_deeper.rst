@@ -37,7 +37,7 @@ Creator/developer
 
 - That includes also the *system site packages* if you included them with ``--system-site-packages``
 - Test that everything works by running use cases scripts within the environment
-- You can list packages specific for the virtualenv by ``pip list --local`` 
+- You can list packages specific for the virtualenv by ``pip list --local``
 
 - So, creating a file from just the local environment:
 
@@ -45,7 +45,7 @@ Creator/developer
 
    $ pip freeze --local > requirements.txt
 
-.. note:: 
+.. note::
 
    ``requirements.txt`` (used by the virtual environment) is a simple text file which looks similar to this::
 
@@ -68,7 +68,7 @@ User
 
 - Create an environment based on dependencies given in an environment file
 - This can be done in new virtual environment or as a genera installation locally (not activating any environment
-  
+
 .. code-block:: console
 
    pip install -r requirements.txt
@@ -78,7 +78,7 @@ User
 .. code-block:: console
 
    pip list
-   
+
 .. admonition:: More on dependencies
 
    - `Dependency management from course Python for Scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/dependencies/>`_

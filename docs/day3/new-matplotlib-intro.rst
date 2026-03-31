@@ -12,21 +12,21 @@ explanations of function arguments.
 .. admonition:: **Prerequisites**
 
    In order to follow this course, you will need to be familiar with:
-   
+
    -  The Python 3.X language, data structures (e.g. dictionaries), and built-in functions (e.g. string manipulation functions)
    -  NumPy: array I/O and manipulation
 
    It will also help to have experience with:
-   
+
    -  SciPy
    -  Pandas
    -  LaTeX math typesetting
-   
+
    You should be familiar with the meanings of the terms ``args`` and ``kwargs``, since they will appear frequently:
-   
+
    -  ``args`` refer to *positional arguments*, which are usually mandatory, but not always. These always come before the ``kwargs``.
    -  ``kwargs`` are short for *keyword arguments*. These are usually optional, but it's fairly common for some python functions to require a variable subset of all available kwargs dependent on previous inputs. These always come after ``args``.
-   
+
 
 Load and Run
 ------------
@@ -80,14 +80,14 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
                  matplotlib/3.7.2 (E)
                  matplotlib/3.8.2
                  matplotlib/3.8.2 (E)
-         
+
          Names marked by a trailing (E) are extensions provided by another module.
-        
+
 
   .. tab:: LUNARC (Cosmos)
 
      On Cosmos, it is recommended that you use the On-Demand Spyder or Jupyter applications to use Matplotlib. Some Matplotlib scripts will be demonstrated on Cosmos with Spyder.
-      
+
      If you must work on the command line, then you will need to load matplotlib separately, along with all the prerequisite modules (don't forget the SciPy-bundle if you plan to use NumPy, SciPy, or Pandas!). The module ``Tkinter`` loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots.
 
      As of 27-11-2024, ``ml spider matplotlib`` outputs the following versions:
@@ -103,7 +103,7 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
                environments across platforms. matplotlib can be used in python
                scripts, the python and ipython shell, web application servers, and
                six graphical user interface toolkits.
-         
+
               Versions:
                  matplotlib/2.2.5-Python-2.7.18
                  matplotlib/3.3.3
@@ -114,7 +114,7 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
                  matplotlib/3.7.2
                  matplotlib/3.8.2
                  matplotlib/3.9.2
-         
+
          ----------------------------------------------------------------------------
 
      There is a bug in matplotlib/3.9.2, so for now that version should be avoided.
@@ -160,7 +160,7 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
      As of 15-04-2025, ``ml spider matplotlib`` outputs the following:
 
      .. code-block:: console
-         
+
          ----------------------------------------------------------------------------
            matplotlib:
          ----------------------------------------------------------------------------
@@ -170,33 +170,33 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
                environments across platforms. matplotlib can be used in python
                scripts, the python and ipython shell, web application servers, and
                six graphical user interface toolkits.
-         
+
               Versions:
                  matplotlib/3.5.2
                  matplotlib/3.8.2
-         
+
          ----------------------------------------------------------------------------
            For detailed information about a specific "matplotlib" package (including how to load the modules) use the module's full name.
            Note that names that have a trailing (E) are extensions provided by other modules.
            For example:
-         
+
               $ module spider matplotlib/3.8.2
          ----------------------------------------------------------------------------
 
      The module ``Tkinter`` loads as a dependency of Matplotlib, but after importing matplotlib, you still need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots, and call ``plot.show()`` explicitly to make the display window appear.
 
-     We will be using Python/3.11.5, which works with matplotlib/3.8.2. 
+     We will be using Python/3.11.5, which works with matplotlib/3.8.2.
 
      If you want to use Jupyter in this session the easiest way is this:
 
      .. code-block:: console
-        
+
         module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 JupyterLab/4.2.0
 
   .. tab:: PDC (Dardel)
 
-     - Due to the limited number of Thinlinc licenses, it is assumed that you will be using SSH with X-forwarding. 
-     - Note that at PDC, almost all modules require you to load a module starting with PDC (e.g. PDC/23.12, PDCOLD/XX.XX, PDCTEST/XX.XX) before loading anything else. 
+     - Due to the limited number of Thinlinc licenses, it is assumed that you will be using SSH with X-forwarding.
+     - Note that at PDC, almost all modules require you to load a module starting with PDC (e.g. PDC/23.12, PDCOLD/XX.XX, PDCTEST/XX.XX) before loading anything else.
      - Also, unlike at other centers, if you load the wrong module you should either only use the ``ml unload <module>`` command, or save a module collection to restore after using ``ml purge``, because 13 modules are loaded when you first log in and only one of them is sticky (i.e. not removed by an ordinary purge command).
 
      Dardel documentation generally assumes that you will need to build your own environment with conda or pip because the options available natively are fairly limited.
@@ -204,7 +204,7 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
      As of 15-04-2025, ``ml spider matplotlib`` outputs the following:
 
      .. code-block:: console
-         
+
          ----------------------------------------------------------------------------
            matplotlib:
          ----------------------------------------------------------------------------
@@ -213,14 +213,14 @@ In most cases, you will need to load a compatible version of SciPy-bundle to use
                  matplotlib/3.8.2 (E)
               Other possible modules matches:
                  py-matplotlib
-         
+
          Names marked by a trailing (E) are extensions provided by another module.
 
 
      The output is misleading in that matplotlib/3.8.2-cpeGNU-23.12 is the module that provides matplotlib/3.8.2 as an extension, so there is really only that one option. This version requires Python 3.11.x, which on Dardel is best provided by ``cray-python/3.11.5`` and ``cray-python/3.11.7`` (both of which include NumPy, SciPy, and mpi4py). This matplotlib version also requires preloading PDC/23.12.
 
      After importing matplotlib, you will need to set ``matplotlib.use('TkAgg')`` in your script or at the Python prompt in order to view your plots, and call ``plot.show()`` explicitly to make the display window appear.
-    
+
   .. tab:: Alvis (C3SE)
 
       .. important::
@@ -249,7 +249,7 @@ Controlling the Display
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Command Line.** For Python 3.11.x, a Tkinter-based backend is typically required to generate figure popups when you type ``plt.show()`` at the command line (on Dardel this is preset). *Backends* are engines for either displaying figures or writing them to image files (see `the matplotlib docs page on backends for more detail <https://matplotlib.org/stable/users/explain/figure/backends.html>`_ for more info). To set the appropriate backend:
-   
+
 1. import the top-level ``matplotlib`` package,
 2. run ``matplotlib.use('TkAgg')`` before doing any plotting (if you forget, you can set it at any time). If for some reason that backend or the default backend doesn't work, you can also try ``matplotlib.use('Qt5Agg')``.
 
@@ -303,7 +303,7 @@ Most people's first attempt to plot something in matplotlib looks like the follo
    import numpy as np
    import matplotlib.pyplot as plt
    # this code block uses Jupyter to execute
-   %matplotlib inline 
+   %matplotlib inline
    x = np.linspace(0,2*np.pi, 50)   # fake some data
    # Minimum working example with 2 functions
    plt.plot(x,3+3*np.sin(x),'b-',
@@ -320,7 +320,7 @@ The *explicit* API looks more like the following example.
    import numpy as np
    import matplotlib.pyplot as plt
    # this code block uses Jupyter to execute
-   %matplotlib inline 
+   %matplotlib inline
    x = np.linspace(0,2*np.pi, 50)
    # Better way for later formatting
    fig, ax = plt.subplots()
@@ -333,7 +333,7 @@ The *explicit* API looks more like the following example.
 
 A figure and a set of axes objects are created explicitly, usually with ``fig,axes = plt.subplots(nrows=nrows, ncols=ncols)``, even if there will be only 1 set of axes (in which case the ``nrows`` and ``ncols`` kwargs are omitted). Then the vast majority of the plotting and formatting commands are called as methods of the axes object (with the most oft-encountered exception being ``fig.colorbar()``; see `this article on colorbar placement for details <https://matplotlib.org/stable/users/explain/axes/colorbar_placement.html>`__). Notice that most of the formatting methods now start with ``set_`` when called upon an ``axes`` object.
 
-The outputs look the same for both of these examples because the plot type was chosen to work with both APIs, but the explicit API offers a much wider range of plot types and customizations. 
+The outputs look the same for both of these examples because the plot type was chosen to work with both APIs, but the explicit API offers a much wider range of plot types and customizations.
 
 .. challenge:: Let x be an array of 50 values from -5 to 5. Write a script to plot y = 1/(1+exp(-x)) that will run from the command line. (Hint: Refer to the section above on *Controlling the Display*.)
 
@@ -341,12 +341,12 @@ The outputs look the same for both of these examples because the plot type was c
     :class: dropdown
 
       The code block below uses Jupyter to render the output, which requires ``%matplotlib inline``. At the command line, you would have had to import matplotlib and set ``matplotlib.use('TkAgg')`` or the recommended backend from the section on controlling the display.
-   
+
        .. jupyter-execute::
-   
+
             import numpy as np
             import matplotlib.pyplot as plt
-            %matplotlib inline 
+            %matplotlib inline
             x = np.linspace(-5,5, 50)
             fig, ax = plt.subplots()
             ax.plot(x, 1/(1+np.exp(-x)))
@@ -357,7 +357,7 @@ The outputs look the same for both of these examples because the plot type was c
    :class: dropdown
 
    A prime example of a feature only available through the explicit API is subplots, which support and format 2 or more separate sets of axes on the same figure. The `Matplotlib documentation on subplots and subplot mosaics <https://matplotlib.org/stable/users/explain/axes/arranging_axes.html>`__ is extensive and fairly straightforward, so this topic will not be covered in depth here. The table below summarizes all the available subplot creation methods that you may see and their capabilities so you can compare them:
-   
+
    ======================== =============== ======================== ================================ ========================
     Method                   Iterable Axes   Coordinate projections   Row-/column-spanning subplots    Max number of subplots
    ======================== =============== ======================== ================================ ========================
@@ -373,25 +373,25 @@ The outputs look the same for both of these examples because the plot type was c
 
 .. admonition:: Mathtext and String Insertion (Not covered by Matplotlib documentation)
    :class: dropdown
-      
+
    Most journals expect that you typeset all variables and math scripts so they appear the same in your plots as in your main text, whether those symbols appear in the `axes labels, function labels, plot titles, or annotations. <https://matplotlib.org/stable/users/explain/text/text_intro.html>`__ Matplotlib now `supports most LaTeX math commands, <https://matplotlib.org/stable/users/explain/text/mathtext.html#mathtext>`__ but you need to know some basic LaTeX syntax, some of which is covered in that link. For more information, you can refer to `the WikiBooks documentation on LaTeX math <https://en.wikibooks.org/wiki/LaTeX/Mathematics>`__, starting with the Symbols section.
-   
+
    -  LaTeX may need to be installed separately for Matplotlib versions earlier than 3.7, or for exceptionally obscure symbols or odd-sized delimiters.
-   
+
    Unfortunately, Python and LaTeX both use curly braces (``{}``) as parts of different functions, so some awkward adjustments had to be made to resolve the collision. *Matplotlib documentation does not cover this.*
-   
+
    -  In ``str.format()``, **all** curly braces (``{}``) associated with LaTeX commands must be doubled (``{{}}``), including nested braces. *An odd-numbered set of nested curly brace pairs will be interpreted as a site for string insertion.*
    -  Many characters also require the whole string to have an ``r`` (for raw input) in front of the first single- or double-quote, like :math:`\times` (rendered as ``'$\times$'``), :math:`\pm` or :math:`\mp`\ (rendered as ``'$\pm$'`` and ``'$\mp$'`` respectively), or some less-used Greek letters.
    -  Most basic operator symbols (+, -, /, >, <, !, :, \|, [], ()) can be used as-is, but some that have functional meanings in LaTeX, Python, or both (e.g. ``$`` and ``%``) must be preceded by a single- (LaTeX command symbols only) or double-backslash (``\\``) to escape their typical usage.
    -  Spaces within any character sequence between two ``$`` signs are not rendered; they only exist to separate alphabetic characters from commands. You can insert a space with ``\;`` if you don't want to split up the LaTeX sequence to add spaces.
-   
+
    You *can* use string insertion inside of formatting operators like the super- and subscript commands, but it can require a *lot* of sequential curly braces. The following is an example demonstrating some tricky typesetting. Note that you generally *cannot split the string text over multiple lines* because the backslash has other essential uses to the typesetting.
-   
+
    .. jupyter-execute::
-   
+
       import numpy as np
       import matplotlib.pyplot as plt
-      %matplotlib inline 
+      %matplotlib inline
       v_init=15.1
       error_arr=[-0.4,0.3]
       fig,ax=plt.subplots(dpi=120,figsize=(5,5))
@@ -436,7 +436,7 @@ These are the categories of plots that come standard with any Matplotlib distrib
 
 `Almost all available plot types are visually indexed and easy to find in the Matplotlib official documentation. <https://matplotlib.org/stable/plot_types/index>`_
 
-\* **Quick note on contouring functions on irregular grids:** these functions contour by the values Z at triangulation vertices (X,Y), **not** by spatial point density, and so should not be used if Z values are not spatially correlated. If you want to contour by data point density in parameter-space, you still have to interpolate your data to a regular (X,Y) grid. 
+\* **Quick note on contouring functions on irregular grids:** these functions contour by the values Z at triangulation vertices (X,Y), **not** by spatial point density, and so should not be used if Z values are not spatially correlated. If you want to contour by data point density in parameter-space, you still have to interpolate your data to a regular (X,Y) grid.
 
 Volumetric, polar, and other data that rely on 3D or non-cartesian grids typically require you to specify a projection before you can choose the right plot type. For example, for a polar plot, you could
 
@@ -450,7 +450,7 @@ For volumetric data, the options are similar:
 -  ``ax = plt.subplot(nrows, ncols, index, projection='3d')`` for one 3D subplot among several with varying projections or coordinate systems, or
 -  ``ax = plt.figure().add_subplot(projection='3d')`` for a singular plot.
 
-**Colors and colormaps.** Every plotting method accepts either a single color (the kwarg for which may be ``c`` or ``color``) or a colormap (which is usually ``cmap`` in kwargs) depending on the shape of the data. Matplotlib has an excellent series of pages on `how to specify colors and transparency <https://matplotlib.org/stable/users/explain/colors/colors.html>`__, `how to adjust colormap normalizations <https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#sphx-glr-users-explain-colors-colormapnorms-py>`__, and `which colormaps to choose based on the types of data and your audience <https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py>`__. 
+**Colors and colormaps.** Every plotting method accepts either a single color (the kwarg for which may be ``c`` or ``color``) or a colormap (which is usually ``cmap`` in kwargs) depending on the shape of the data. Matplotlib has an excellent series of pages on `how to specify colors and transparency <https://matplotlib.org/stable/users/explain/colors/colors.html>`__, `how to adjust colormap normalizations <https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#sphx-glr-users-explain-colors-colormapnorms-py>`__, and `which colormaps to choose based on the types of data and your audience <https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py>`__.
 
 
 .. keypoints::

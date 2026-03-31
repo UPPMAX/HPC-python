@@ -31,10 +31,10 @@ Something like the file below will work. Remember to change the project id after
    #SBATCH -n 1
    # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
    #SBATCH --time=05:00:00
- 
+
    # Clear the environment from any previously loaded modules
    module purge > /dev/null 2>&1
- 
+
    # Load the module environment suitable for the job
    module load GCC/12.3.0 JupyterLab/4.0.5
 
@@ -97,7 +97,7 @@ The file will look similar to this:
         http://127.0.0.1:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
    [I 2024-03-09 15:35:31.078 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
 
- 
+
 To access the server, go to
 
 ``file:///.local/share/jupyter/runtime/jpserver-<newest>-open.html``
@@ -169,7 +169,7 @@ pyDOE and torch has some prerequisites, some of which are already installed at H
 
    module load GCC/10.3.0 JupyterLab/3.2.8 OpenMPI/4.1.1 SciPy-bundle/2021.05 matplotlib/3.4.2
 
-2. We now need to create a virtual environment (venv) to install our own packages in. I am placing it in the Public directory under my home directory ($HOME), but you could instead place it in your project storage. I am calling the venv "jupvenv", but you can call it what you want: 
+2. We now need to create a virtual environment (venv) to install our own packages in. I am placing it in the Public directory under my home directory ($HOME), but you could instead place it in your project storage. I am calling the venv "jupvenv", but you can call it what you want:
 
 .. code-block:: sh
 
@@ -227,10 +227,10 @@ Later you can remove the kernel if you feel like, using this:
    #SBATCH -n 1
    # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available!
    #SBATCH --time=01:00:00
- 
+
    # Clear the environment from any previously loaded modules
    module purge > /dev/null 2>&1
- 
+
    # Load the module environment suitable for the job
    module load GCC/10.3.0 JupyterLab/3.2.8 OpenMPI/4.1.1 SciPy-bundle/2021.05 matplotlib/3.4.2
 
@@ -265,7 +265,7 @@ Links
 ^^^^^
 
 - `The Jupyter project <https://jupyter.org/>`_ contains a lot of information and inspiration
-- `The Jupyter Notebook documentation <https://jupyter-notebook.readthedocs.io/en/stable/>`_  
+- `The Jupyter Notebook documentation <https://jupyter-notebook.readthedocs.io/en/stable/>`_
 - `Video: Starting a Jupyter notebook on the Rackham UPPMAX HPC cluster using a ThinLinc remote desktop (YouTube) <https://youtu.be/72rYjwGvWEc>`_
 
 

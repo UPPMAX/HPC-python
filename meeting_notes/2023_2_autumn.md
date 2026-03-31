@@ -17,7 +17,7 @@
           - Birgitte checks for the batch session and ML session
 
 
-### Next meeting 21 Nov 
+### Next meeting 21 Nov
 
 - Status:
     - spelling is active
@@ -31,9 +31,9 @@
 
 
 - To discuss:
-    - recording 
-        - during 
-        - before 
+    - recording
+        - during
+        - before
         - after
     - Do we fill these slots with 40 minutes?
         - 13.00 parallel 55
@@ -47,8 +47,8 @@
         - 15:0 ML 35
         - 15: summary & Q/A
 
- - ToDos: 
-     - Björn 
+ - ToDos:
+     - Björn
          - adds link check later (steals time)
          - test packages and scripts
          - dask at rackham
@@ -63,7 +63,7 @@
 
 
 
- 
+
 
 
 ### Next meeting 6 Nov 13:00
@@ -132,20 +132,20 @@
     *  DASK: **Yes**
     *  Are some packages specifically interesting for HPC? **Yes**
     *  Differences between ML packages, which are there, when are they used - with or without GPUs. CUDA. ML on CPU/GPU: **Yes**
-    *  Inspiration from: 
-        *  https://enccs.github.io/hpda-python/ 
-        *  https://aaltoscicomp.github.io/python-for-scicomp/parallel/ 
+    *  Inspiration from:
+        *  https://enccs.github.io/hpda-python/
+        *  https://aaltoscicomp.github.io/python-for-scicomp/parallel/
 
 * ToDos
     * embarassingly parallel?
     * [x] Björn updates UPPMAX web
 
 #### Timings
-|Session| May23 | Suggestions Dec23 | 
+|Session| May23 | Suggestions Dec23 |
 |-------|-------|----------|
 |9.00 "Syllabus"| 10 | 10   |
 |9.10 Intro| 10 | 10 |
-9.20 Load-run + system inst. packages| 30 | 30 
+9.20 Load-run + system inst. packages| 30 | 30
 9.50 **break**|15 |15
 10.05 self-install. packages + isolated| 35 | 25
 10:30 batch + arrays | 25 | 35
@@ -154,24 +154,24 @@
 11.45 |Exercises and informal chat + help
 Lunch
 
-|Session| May23 | Suggestions Dec23 | 
+|Session| May23 | Suggestions Dec23 |
 |-------|-------|----------|
 13.00 parallel| 40| 40 |
-13:40 GPU | 30 | 40 | 
+13:40 GPU | 30 | 40 |
 14:20 break | | 10
 14:30 ML (incl all exercises) | 40 | 40
 15:10 Extra exercise time | 15 | 20
 Sum| |
 Q/A | 20 |
-**sum**| 150| 
+**sum**| 150|
 
 ### Lecturer
 
 |Session| Björn | Birgitte | Pedro|
 |-------|-------|----------|------|
-|"Syllabus"+intro| X | | 
+|"Syllabus"+intro| X | |
 Load-run+packages| X
-self-inst. isolated | | X | 
+self-inst. isolated | | X |
 batch| | X |
 parallel| | | X
 interactive| X
@@ -179,7 +179,7 @@ GPU| |  | X
 ML (incl exercises)| | X
 Exercises (exercises)| several different rooms |x|x
 Question session (breakout)| X | X | X
-Summary| X | X | X 
+Summary| X | X | X
 
 
 * Invitation

@@ -5,13 +5,13 @@ Big data with Python
 
 .. admonition:: "Learning outcomes"
 
-   Learners 
+   Learners
 
    - can allocate resources sufficient to data size
    - can decide on useful file formats
    - can use data-chunking as technique
    - know where to learn more
-    
+
 .. admonition:: "For teacher"
    :class: dropdown
 
@@ -37,11 +37,11 @@ High-Performance Data Analytics (HPDA)
 
          - The data can come from either computer models and simulations or from experiments and observations, and the goal is to preprocess, analyse and visualise it to generate scientific results.
 
-   - “**Big data** refers to data sets that are too large or complex to be dealt with by traditional data-processing application software. […] 
+   - “**Big data** refers to data sets that are too large or complex to be dealt with by traditional data-processing application software. […]
 
          - Big data analysis challenges include capturing data, data storage, data analysis, search, sharing, transfer, visualization, querying, updating, information privacy, and data source.” (from Wikipedia)
 
-.. discussion:: 
+.. discussion::
 
    Do you already work with large data sets?
 
@@ -53,7 +53,7 @@ Remember this one?
 .. image:: ../img/when-to-use-pandas.png
       :width: 600 px
 
-.. discussion:: 
+.. discussion::
 
    - What can limit us?
 
@@ -90,7 +90,7 @@ Allocating RAM
 
 .. discussion::
 
-   Have you seen the Out-of-memory (OOM) error? 
+   Have you seen the Out-of-memory (OOM) error?
 
 .. admonition:: What to do
 
@@ -115,10 +115,10 @@ Use the Slurm options for either "BATCH", "INTERACTIVE" from command line or fro
    - Ex: 128 GB with 20 cores --> 6.4 GB per core
    - Allocate number of cores to cover your needs.
    - ``-n <number>``
-- Request the memory needed and choose number of cores 
+- Request the memory needed and choose number of cores
    - ``--mem=<size>[K|M|G|T]``
    - Example: ``--mem=150G``
-- Request the memory-per-core needed and choose number of cores 
+- Request the memory-per-core needed and choose number of cores
    - ``--mem-core=<size>[K|M|G]``
    - Example: ``--mem-per-cpu=16G``
 - Request a "FAT" node.
@@ -128,8 +128,8 @@ Use the Slurm options for either "BATCH", "INTERACTIVE" from command line or fro
 
 .. note::
 
-   - "core-hours" drawn from your project may be set to the maximum of "number of cores" and "memory part of node" requested. 
-   - So there is no win to ask for one core but much memory! 
+   - "core-hours" drawn from your project may be set to the maximum of "number of cores" and "memory part of node" requested.
+   - So there is no win to ask for one core but much memory!
 
 Exercise: Memory allocation (10 min)
 ------------------------------------
@@ -163,32 +163,32 @@ Exercise: Memory allocation (10 min)
         - Kebnekaise
         - Pelle
         - Bianca
-        - Cosmos  
-        - Tetralith   
+        - Cosmos
+        - Tetralith
         - Dardel
         - Alvis
       * - Cores/compute node
         - 28 (72 for largemem, 128/256 for AMD Zen3/Zen4)
         - 48 (96 with hyperthreading/SMT)
         - 16
-        - 48  
-        - 32  
+        - 48
+        - 32
         - 128
         - many different (updated soon)
       * - Memory/compute node
-        - 128-3072 GB 
+        - 128-3072 GB
         - 768-3072 GB
         - 128-512 GB
-        - 256-512 GB  
-        - 96-384 GB   
+        - 256-512 GB
+        - 96-384 GB
         - 256-1760 GB
         - many different
       * - GPU
-        - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100 
+        - NVidia V100, A100, A6000, L40s, H100, A40, AMD MI100
         - NVidia L40s, H100, T4, A2)
         - NVidia A100
-        - NVidia A100 
-        - NVidia T4   
+        - NVidia A100
+        - NVidia T4
         - 4 AMD Instinct™ MI250X á 2 GCDs
         - many different
 
@@ -208,15 +208,15 @@ Exercise: Memory allocation (10 min)
 
    - Multiply the RAM per core with number of allocated cores..
 
-   - Example: 8 GB per core 
-       - ~40 GB 
+   - Example: 8 GB per core
+       - ~40 GB
 
 .. challenge:: Do you remember how to allocate several cores?
    :class: dropdown
 
    - Slurm flag ``-n <number of cores>``
 
-.. challenge:: Actually start an interactive session with 4 cores for 3 hours. 
+.. challenge:: Actually start an interactive session with 4 cores for 3 hours.
 
    - We will use it for the exercises later.
    - Since it may take some time to get the allocation we do it now already!
@@ -234,14 +234,14 @@ Exercise: Memory allocation (10 min)
    - ``-p <partition>`` may be needed in some clusters
        - Dardel: ``-p shared``
 
-.. admonition:: Compute allocations in this workshop 
-   :class: dropdown   
+.. admonition:: Compute allocations in this workshop
+   :class: dropdown
 
    - Pelle: ``uppmax2025-2-393``
    - Kebnekaise: ``hpc2n2025-151``
    - Cosmos: ``lu2025-7-106``
    - Alvis: ``naiss2025-22-934``
-   - Tetralith: ``naiss2025-22-934``  
+   - Tetralith: ``naiss2025-22-934``
    - Dardel: ``naiss2025-22-934``
 
 .. challenge:: How to get a node with more RAM?
@@ -276,7 +276,7 @@ Exercise: Memory allocation (10 min)
       .. tab:: Cosmos
 
          - https://lunarc-documentation.readthedocs.io/en/latest/manual/submitting_jobs/manual_specifying_requirements/#specifying-a-project-allocation-and-partition
-         - https://www.lunarc.lu.se/systems/cosmos 
+         - https://www.lunarc.lu.se/systems/cosmos
 
       .. tab:: Kebnekaise
 
@@ -323,7 +323,7 @@ Exercise: Memory allocation (10 min)
 
          ``-C largemem``
 
-.. note:: 
+.. note::
 
    - We recommend a desktop environment for speed of the graphics.
    - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
@@ -334,8 +334,8 @@ File formats
 .. admonition:: Bits and Bytes
    :class: dropdown
 
-   - The smallest building block of storage and memory (RAM) in the computer is a bit, which stores either a 0 or 1. 
-   - Normally a number of 8 bits are combined in a group to make a byte. 
+   - The smallest building block of storage and memory (RAM) in the computer is a bit, which stores either a 0 or 1.
+   - Normally a number of 8 bits are combined in a group to make a byte.
    - One byte (8 bits) can represent/hold at most 2^8 distinct values. Organising bytes in different ways can represent different types of information, i.e. data.
 
 .. admonition:: Numerical data
@@ -427,7 +427,7 @@ In real scientific applications, data is complex and structured and usually cont
 .. admonition:: HDF5 (Hierarchical Data Format version 5)
    :class: dropdown
 
-   - HDF5 is a high performance storage format for storing large amounts of data in multiple datasets in a single file. 
+   - HDF5 is a high performance storage format for storing large amounts of data in multiple datasets in a single file.
    - It is especially popular in fields where you need to store big multidimensional arrays such as physical sciences.
    - **Best use cases**: Working with big datasets in array data format.
 
@@ -452,11 +452,11 @@ In real scientific applications, data is complex and structured and usually cont
 .. admonition:: NETCDF4 (Network Common Data Form version 4)
    :class: dropdown
 
-   - NetCDF4 is a data format that uses HDF5 as its file format, but it has standardized structure of datasets and metadata related to these datasets. 
+   - NetCDF4 is a data format that uses HDF5 as its file format, but it has standardized structure of datasets and metadata related to these datasets.
    - This makes it possible to be read from various different programs.
 
      **Best use cases**: Working with big datasets in array data format. Especially useful if the dataset contains spatial or temporal dimensions. Archiving or sharing those datasets.
-   
+
    - Key features
 
        - Type: Binary format
@@ -604,7 +604,7 @@ Exercise file formats (10 minutes)
    - Go over file formats and see if some are more relevant for your work.
    - Would you look at other file formats and why?
 
-.. challenge:: (optional) 
+.. challenge:: (optional)
 
    - Start Jupyter or just a Python shell and
    - Go though and test the lines at the page at https://docs.scipy.org/doc/scipy-1.13.1/reference/generated/scipy.io.netcdf_file.html
@@ -619,24 +619,24 @@ Python is an interpreted language, and many features that make development rapid
 
 - There are some packages that are more efficient than Numpy and Pandas.
 
-    - `SciPy <https://docs.scipy.org/doc/scipy/reference/>`_ is a library that builds on top of NumPy. 
-   
+    - `SciPy <https://docs.scipy.org/doc/scipy/reference/>`_ is a library that builds on top of NumPy.
+
         - It contains a lot of interfaces to battle-tested numerical routines written in Fortran or C, as well as Python implementations of many common algorithms.
         - Reads NETCDF!
-   
+
     - `ENCCS course material <https://enccs.github.io/hpda-python/stack/#scipy>`_
 
 Xarray package
 ..............
 
-- ``xarray`` is a Python package that builds on NumPy but adds labels to **multi-dimensional arrays**. 
+- ``xarray`` is a Python package that builds on NumPy but adds labels to **multi-dimensional arrays**.
 
     -  introduces **labels in the form of dimensions, coordinates and attributes** on top of raw NumPy-like multidimensional arrays, which allows for a more intuitive, more concise, and less error-prone developer experience.
-    - It also **borrows heavily from the Pandas package for labelled tabular data** and integrates tightly with dask for parallel computing. 
+    - It also **borrows heavily from the Pandas package for labelled tabular data** and integrates tightly with dask for parallel computing.
 
 - Xarray is particularly tailored to working with NetCDF files.
 - But work for another files as well
- 
+
 - Explore it a bit in the (optional) exercise below!
 
 Dask
@@ -663,12 +663,12 @@ Dask Collections
 ::::::::::::::::
 
 - Dask provides dynamic parallel task scheduling and three main high-level collections:
-  
+
     - ``dask.array``: Parallel **NumPy** arrays
         - scales NumPy (see also xarray)
     - ``dask.dataframe``: Parallel **Pandas** DataFrames
         - scales Pandas workflows
-    - ``dask.bag``: Parallel Python **List** 
+    - ``dask.bag``: Parallel Python **List**
         - https://enccs.github.io/hpda-python/dask/#dask-bag
 
 .. seealso::
@@ -679,26 +679,26 @@ Dask Collections
 dask.arrays
 ^^^^^^^^^^^
 
-- A Dask array looks and feels a lot like a NumPy array. 
-- However, a Dask array uses the so-called "lazy" execution mode, which allows one to 
-    - build up complex, large calculations symbolically 
-    - before turning them over the scheduler for execution. 
+- A Dask array looks and feels a lot like a NumPy array.
+- However, a Dask array uses the so-called "lazy" execution mode, which allows one to
+    - build up complex, large calculations symbolically
+    - before turning them over the scheduler for execution.
 
 .. admonition:: Chunks
 
-   - Dask divides arrays into many small pieces (chunks), as small as necessary to fit it into memory. 
-   - Operations are delayed (**lazy computing**) e.g. 
+   - Dask divides arrays into many small pieces (chunks), as small as necessary to fit it into memory.
+   - Operations are delayed (**lazy computing**) e.g.
 
-       - tasks are queued and no computation is performed until you actually ask values to be computed (for instance print mean values). 
+       - tasks are queued and no computation is performed until you actually ask values to be computed (for instance print mean values).
    - Then data is loaded into memory and computation proceeds in a streaming fashion, block-by-block.
    - And data is gathered in the end.
-   - Tools like Dask and xarray handle "chunking" automatically. 
+   - Tools like Dask and xarray handle "chunking" automatically.
    - Note that number of chunks does not need to be equal to number of cores.
 
 Big file → split into chunks → parallel workers → results combined.
 
 .. admonition:: To think of
- 
+
    - Chunk size and number of them affect the performance due to overhead/administration of the chunking and combination.
    - Briefly explain what happens when a Dask job runs on multiple cores.
 
@@ -752,11 +752,11 @@ Set up the environment
       .. important:: **Interactive use (Recommended)**
 
          Follow the instructions here: https://docs.hpc2n.umu.se/tutorials/connections/#example__-__jupyter__with__extra__modules.
-   
+
          - Add these lines in the batch script
 
          .. code-block:: console
-        
+
             module load SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3
 
          - Continue and start Jupyter
@@ -767,13 +767,13 @@ Set up the environment
             ! pip install --user xarray
             ! pip install --user dask
             ! pip install --user polars
-           
+
          - You may have to restart the Jupyter kernel (or even Jupyter session) to be able to be able to load the just instaleld package(s).
 
    .. tab:: LUNARC (Cosmos)
 
       .. important:: **Interactive Use (Recommended)**
-      
+
          Start a Thinlinc session and open one of Spyder, Jupyter Lab, or VSCode from the On-Demand applications menu as discussed in the `On-Demand lesson <../day2/ondemand-desktop.rst>`__ from Day 2. Spyder and Jupyter Lab are configured to load Xarray and Dask and all their dependencies automatically via the latest version of Anaconda, whereas VSCode requires modules to be selected to load as part of the additional job settings.
 
          - Continue and start Jupyter
@@ -784,17 +784,17 @@ Set up the environment
             ! pip install --user polars
 
          - You may have to restart the Jupyter kernel (or even Jupyter session) to be able to be able to load the just instaleld package(s).
-    
+
       .. admonition:: Non-Interactive Use
 
          .. code-block:: console
-        
-            ml GCC/12.3.0 OpenMPI/4.1.5 xarray/2023.9.0 dask/2023.9.2 
+
+            ml GCC/12.3.0 OpenMPI/4.1.5 xarray/2023.9.0 dask/2023.9.2
 
          if you prefer pip-installed Python packages, or you can load
 
          .. code-block:: console
-        
+
             ml Anaconda3/2024.06-1
 
    .. tab:: UPPMAX (Pelle)
@@ -802,21 +802,21 @@ Set up the environment
       .. important:: **General Use**
 
          .. code-block:: console
-        
+
             module load dask/2024.9.1-gfbf-2024a xarray/2024.11.0-gfbf-2024a JupyterLab/4.2.5-GCCcore-13.3.0 polars/1.29.0-gfbf-2024a
-     
+
          This command also loads ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, but not any IDEs.
-         
-         - Continue and start Jupyter as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. 
+
+         - Continue and start Jupyter as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2.
 
    .. tab:: NSC (Tetralith)
-     
+
       .. important:: **General Use**
 
          You should for this session load
 
          .. code-block:: console
-        
+
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11
 
          - Continue and start Jupyter
@@ -830,23 +830,23 @@ Set up the environment
 
       .. admonition:: Interactive Use
 
-         In a Thinlinc session, open a terminal and start 
+         In a Thinlinc session, open a terminal and start
 
          ``interactive -A [project_name] -t HHH:MM:SS``
 
          as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. Once transferred to a compute node, do
 
          .. code-block:: console
-        
+
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
-         or swap JupyterLab for your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__. 
+         or swap JupyterLab for your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__.
 
    .. tab:: Dardel (PDC) To be fixed
 
-      - Jupyter Lab is only available on Dardel via ThinLinc. 
-      - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
-      - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
+      - Jupyter Lab is only available on Dardel via ThinLinc.
+      - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer.
+      - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime).
       - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below. The exercise prompts and their solutions are included on this page.
 
       .. important:: **General Use**
@@ -854,24 +854,24 @@ Set up the environment
          For this session, you could load
 
          .. code-block:: console
-        
+
             ml cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12
-     
+
      On Dardel, all cray-python versions include NumPy, SciPy, Pandas, and Dask, and do not have any prerequisites, but Seaborn is part of ``matplotlib/3.8.2-cpeGNU-23.12``, which has ``PDCOLD/23.12`` as a prerequisite. The versions available for cray-python and Matplotlib are limited because Dardel users are typically expected to build their own environments, but for this course, the installed versions are fine.
 
       .. admonition:: Interactive use with Thinlinc (If Available)
          :collapsible:
 
         - Start Jupyter from the menu and it will work
-   
+
              - Default Anaconda3 has all packages needed for this lesson
-   
+
         - Or use Spyder:
 
              First start interactive session
-   
-             .. code-block:: console 
-   
+
+             .. code-block:: console
+
                 salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934
                 salloc: Pending job allocation 9102757
                 salloc: job 9102757 queued and waiting for resources
@@ -879,17 +879,17 @@ Set up the environment
                 salloc: Granted job allocation 9102757
                 salloc: Waiting for resource configuration
                 salloc: Nodes nid001057 are ready for job
-   
+
              Then ssh to the specific node, like
-   
-             .. code-block:: console 
-   
-                ssh nid001057
-   
-             Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
-   
+
              .. code-block:: console
-   
+
+                ssh nid001057
+
+             Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+
+             .. code-block:: console
+
                 ml PDC/24.11
                 ml miniconda3/25.3.1-1-cpeGNU-24.11
                 export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
@@ -911,7 +911,7 @@ Set up the environment
 
             ml xarray/2024.11.0-gfbf-2024a dask/2024.9.1-gfbf-2024a
             ml Jupyter-bundle/20250530-GCCcore-13.3.0
-            
+
          - This will load matplotlib & SciPy-bundle on the fly!
 
          - Make a virtual environment
@@ -931,7 +931,7 @@ Set up the environment
 
 .. challenge:: Chunk sizes in Dask
 
-   - The following example calculate the mean value of a random generated array. 
+   - The following example calculate the mean value of a random generated array.
    - Run the 2 examples and see the performance improvement by using dask.
 
    .. tabs::
@@ -939,11 +939,11 @@ Set up the environment
       .. tab:: NumPy
 
          .. code-block:: python
-           
+
             import numpy as np
 
          .. code-block:: python
-           
+
             %%time
             x = np.random.random((20000, 20000))
             y = x.mean(axis=0)
@@ -951,22 +951,22 @@ Set up the environment
       .. tab:: Dask
 
          .. code-block:: python
-           
+
             import dask
             import dask.array as da
 
          .. code-block:: python
-           
+
             %%time
             x = da.random.random((20000, 20000), chunks=(1000, 1000))
             y = x.mean(axis=0)
-            y.compute() 
+            y.compute()
 
    But what happens if we use different chunk sizes?
    Try out with different chunk sizes:
-   
+
    - What happens if the dask chunks=(20000,20000)
-   
+
    - What happens if the dask chunks=(250,250)
 
 
@@ -974,14 +974,14 @@ Set up the environment
 
       The choice is problem dependent, but here are a few things to consider:
 
-      Each chunk of data should be small enough so that it fits comforably in each worker's available memory. 
-      Chunk sizes between 10MB-1GB are common, depending on the availability of RAM. Dask will likely 
-      manipulate as many chunks in parallel on one machine as you have cores on that machine. 
-      So if you have a machine with 10 cores and you choose chunks in the 1GB range, Dask is likely to use at least 
+      Each chunk of data should be small enough so that it fits comforably in each worker's available memory.
+      Chunk sizes between 10MB-1GB are common, depending on the availability of RAM. Dask will likely
+      manipulate as many chunks in parallel on one machine as you have cores on that machine.
+      So if you have a machine with 10 cores and you choose chunks in the 1GB range, Dask is likely to use at least
       10 GB of memory. Additionally, there should be enough chunks available so that each worker always has something to work on.
 
       On the otherhand, you also want to avoid chunk sizes that are too small as we see in the exercise.
-      Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs 
+      Every task comes with some overhead which is somewhere between 200us and 1ms. Very large graphs
       with millions of tasks will lead to overhead being in the range from minutes to hours which is not recommended.
 
 .. challenge:: (Optional) Xarray
@@ -990,7 +990,7 @@ Set up the environment
 
    - Browse: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html or change to more applicable version in drop-down menu to lower right.
        - find something interesting for you! Test some lines if you want to!
-       - tips: 
+       - tips:
            - Pandas: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough
            - gallery: https://docs.xarray.dev/en/v2024.11.0/gallery.html
            - ecosystems: https://docs.xarray.dev/en/v2024.11.0/ecosystem.html
@@ -1002,14 +1002,14 @@ Set up the environment
 
    - Browse: https://docs.pola.rs/.
        - find something interesting for you! Test some lines if you want to!
-       - tips: 
+       - tips:
 
    - Check if your cluster has Polars!
 
    .. solution::
 
       - Check with ``ml spider polars``
-      - If it is installed it will show up as 
+      - If it is installed it will show up as
 
       .. code-block:: console
 
@@ -1020,18 +1020,18 @@ Set up the environment
                Polars is a blazingly fast DataFrame library for manipulating
                structured data. The core is written in Rust and this module
                provides its interface for Python.
-         
+
               Versions:
                  polars/1.28.1-gfbf-2024a
                  polars/1.29.0-gfbf-2024a
-         
+
          --------------------------------------------------------------------
            For detailed information about a specific "polars" package (including
          how to load the modules) use the module's full name.
            Note that names that have a trailing (E) are extensions provided by ot
          her modules.
            For example:
-         
+
               $ module spider polars/1.29.0-gfbf-2024a
          --------------------------------------------------------------------
 
@@ -1064,7 +1064,7 @@ Summary
    - Packages
        - xarray
           - can deal with 3D-data and higher dimensions
-       - Dask 
+       - Dask
            - uses lazy execution
            - Only use for processing very large amount of data
        - Chunking: Data source → Format choice → Load/Chunk → Process → Write
@@ -1076,14 +1076,14 @@ Summary
    - `Dask documentation <https://docs.dask.org/en/stable/>`_
 
    - `Working with data (Python for Scientific computing course) <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/>`_
-   
+
    - `Tidy data (by CodeRefinery) <https://coderefinery.github.io/data-visualization-python/tidy-data/>`_
-   
+
    ENCCS
- 
+
    - Dask for scalable analysis
    - https://enccs.github.io/hpda-python/stack/
-   - https://enccs.github.io/hpda-python/dask/ 
+   - https://enccs.github.io/hpda-python/dask/
 
    - Too be included in the future?
 

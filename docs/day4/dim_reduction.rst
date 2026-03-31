@@ -5,7 +5,7 @@ Dimensionality Reduction
     :align: right
     :alt: infravis_logo
 
-Guest Lecture by Professor **Anders Hast**  
+Guest Lecture by Professor **Anders Hast**
 
 * Distinguished University Teacher, InfraVis, UU Node
 * Research page: `andershast.com <https://andershast.com>`_
@@ -19,7 +19,7 @@ Guest Lecture by Professor **Anders Hast**
 
 .. objectives::
 
-    - We will look at tools for visualising what cannot easily be seen, i.e. high dimensionality reduction  
+    - We will look at tools for visualising what cannot easily be seen, i.e. high dimensionality reduction
     - Share insights and experience from Anders's own research
 
 visualisation <--> Science
@@ -36,10 +36,10 @@ visualisation <--> Science
     :width: 300px
     :align: right
     :alt: ml_classification
-    
+
     Decision boundary
 
-    
+
 
 * We will look at tools for visualising what cannot easily be seen, i.e. high dimensionality reduction
 * We will also see that you can make discoveries in your visualisations!
@@ -56,7 +56,7 @@ What is a typical machine learning task?
 * If we can separate in 2D it can often be done in High dimensional space and vice versa!
 
 
-**Dimensionality reduction:**  
+**Dimensionality reduction:**
 
 * Project from several dimensions to fewer, often 2D or 3D
 * Remember: we get a distorted picture of the high dimensional space!
@@ -103,7 +103,7 @@ PCA (on Iris Data)
     .. raw:: html
 
         <div style="height: 20px;"></div>
-     
+
     .. figure:: ../img/iris_pca.png
         :align: center
         :alt: iris_pca
@@ -111,11 +111,11 @@ PCA (on Iris Data)
     .. raw:: html
 
         <div style="height: 20px;"></div>
-     
+
     .. figure:: ../img/iris_lines.png
         :align: center
         :alt: iris_lines
-        
+
 
 t-SNE
 ^^^^^^
@@ -220,9 +220,9 @@ Exercise
 
 .. challenge::
 
-    You will find a jupyter notebook in the tarball called ``DimRed.ipynb`` (``Exercises/day4/Dim_reduction``), which works upon a face recognition dataset kept in the ``dataset`` folder. 
+    You will find a jupyter notebook in the tarball called ``DimRed.ipynb`` (``Exercises/day4/Dim_reduction``), which works upon a face recognition dataset kept in the ``dataset`` folder.
     Try running the notebook and give the correct dataset path wherever required.
-    
+
     The env required for this notebook is ``pip install numpy matplotlib scikit-learn scipy pillow plotly umap-learn jupyter``
 
     Sample examples from documentations: https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_iris.html#sphx-glr-auto-examples-decomposition-plot-pca-iris-py , https://plotly.com/python/t-sne-and-umap-projections/

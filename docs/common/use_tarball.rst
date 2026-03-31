@@ -137,9 +137,9 @@ In the terminal, in your personal folder, type the following command:
 
     wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz
 
-NOTE! Friday/2nd day - use this (only that day): 
+NOTE! Friday/2nd day - use this (only that day):
 
-.. code-block:: console 
+.. code-block:: console
 
    wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.bz2
 
@@ -152,12 +152,12 @@ In the terminal, in your personal folder, type the following command:
 
     tar -xvzf exercises.tar.gz
 
-NOTE: Friday/2nd day - use this (only that day): 
+NOTE: Friday/2nd day - use this (only that day):
 
-.. code-block:: console 
+.. code-block:: console
 
    tar -xvjf exercises.tar.bz2
-    
+
 Step 6/6: Navigate in the folder of that day
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -23,7 +23,7 @@
 - many small breakoutrooms
     - many hosts (helpers)
     - also ask for help in HackMD
-- install numba, mpi4py etc in Isolated envs sessions? 
+- install numba, mpi4py etc in Isolated envs sessions?
     - Maybe not, but virtual env name created in Isolated sessions and with name connected to course name
 - UPPMAX users will be able to run CPU versions of ML in exercises unless they already have
 - I have booked Snowy for a demo using the GPUs in the general GPOU session
@@ -52,7 +52,7 @@
 
 98 registered
 
-### Experience with LINUX 
+### Experience with LINUX
 
 Orientation	94%
 Bash	    86%
@@ -80,12 +80,12 @@ Don’t know 25%
 - Load/Run
 - Packages especially pip
 - Isolated general
-- Interactive general 
+- Interactive general
     - rm `-p`
 - Batch general
     - this one before interactive
 - Parallel session 1
-    - UPPMAX: Conda, venv (exercises), 
+    - UPPMAX: Conda, venv (exercises),
     - Kebnekaise: virtual env (exercises)
 #### LUNCH break
 - Parallel computing general
@@ -98,11 +98,11 @@ Don’t know 25%
     - cpu exercise
 - Parallel session 2
     - UPPMAX: Bianca, jupyter
-    - HPC2N: 
+    - HPC2N:
         - gpu exercises at Kebne
         - **Machine Learning given by HPC2N**
-        
-   
+
+
 - Summary
 
 ## Time estimations (min)
@@ -119,7 +119,7 @@ Don’t know 25%
 20	|  |batch|
 15	|  |Interactive  |
 5| 11.00 |**short leg stretch**
-45| 11.05|UPPMAX session1| Lecture +Ex? |Conda, isolated, 
+45| 11.05|UPPMAX session1| Lecture +Ex? |Conda, isolated,
 45| |HPC2N session1|Lecture + Ex?|Kebnekaise,isolated|  Cluster specific practice and installed packages, User interaction |
 |**Afternoon 3 hours** | *45+45m*| |
 30	|13.00  |parallel| +exercises
@@ -160,7 +160,7 @@ Summary| X input | X | X input
 
 - parallel
     - copy paste exercises or given files?
-- gpu 
+- gpu
     - only HPC2N?
     - demo on Snowy
 
@@ -168,7 +168,7 @@ Summary| X input | X | X input
 ## Course material
 
 ### General
-- shorter titles in drop-down 
+- shorter titles in drop-down
   - [Link](http://www.thing.com) (http://www.thing.com)
   - move split sessions to afternoon
 
@@ -195,23 +195,23 @@ Summary| X input | X | X input
       - split and insert to site-specific session
       - pyenv only for uppmax
 - bianca.rst
-  - [name=Björn] 
+  - [name=Björn]
   - format
   - demo pip wharf
 - kebnekaise
   - [name=Birgitte]
   - [name=Pedro]
-- interactive 
-  - [name=Björn] 
-  - [name=Birgitte]
-  - [name=Pedro] 
-  - Introduce batch already here?
-- batch 
+- interactive
   - [name=Björn]
   - [name=Birgitte]
-  - [name=Pedro] 
+  - [name=Pedro]
+  - Introduce batch already here?
+- batch
+  - [name=Björn]
+  - [name=Birgitte]
+  - [name=Pedro]
 - parallel computing
-  - [name=Pedro] 
+  - [name=Pedro]
   - [name=Björn]
 - ml
   - [name=Birgitte]
@@ -219,12 +219,12 @@ Summary| X input | X | X input
   - split to sessions ()
 - gpu
   - [name=Birgitte]
-  - [name=Pedro] 
+  - [name=Pedro]
   - [name=Björn]
 - summary.rst
   - [name=Björn]
   - [name=Birgitte]
-  - [name=Pedro] 
+  - [name=Pedro]
 
 ## Latest version Letter
 
@@ -243,7 +243,7 @@ The goal for the course is that you will be able to:
 - Use Python for ML
 - Use GPUs with Python
 
-Prerequisites: familiarity with the LINUX command line, basic Python, and batch jobs. 
+Prerequisites: familiarity with the LINUX command line, basic Python, and batch jobs.
 
 For more info and registration, please visit https://docs.uppmax.uu.se/courses_workshops/hpc_python/ or https://www.hpc2n.umu.se/events/courses/2022/python-in-hpc
 

@@ -7,12 +7,12 @@ Parallel computing with Python
    - What are the different parallelization mechanisms for Python?
    - How to implement parallel algorithms in Python code?
    - How to deploy threads and workers at our HPC centers?
-  
+
 .. objectives::
 
    - Learn general concepts for parallel computing
    - Gain knowledge on the tools for parallel programming
-   - Get familiar with the tools to monitor the usage of resources 
+   - Get familiar with the tools to monitor the usage of resources
 
 .. admonition:: Get today's tarball!
 
@@ -22,16 +22,16 @@ Parallel computing with Python
 
 .. warning::
 
-   Instructions are updated mainly for the NAISS cluster Tetralith 
+   Instructions are updated mainly for the NAISS cluster Tetralith
 
 - Demo
 
 .. tabs::
 
    .. tab:: NSC
-      
+
       - These guidelines are working for Tetralith:
-      
+
       .. code-block:: console
 
          $ ml buildenv-gcccuda/12.2.2-gcc11-hpc1
@@ -51,23 +51,23 @@ Parallel computing with Python
 
       .. code-block:: console
 
-         $ pip install numba 
+         $ pip install numba
 
       - For the Julia example we will need PyJulia:
-        
+
       .. code-block:: console
-       
-         $ ml julia/1.10.2-bdist 
+
+         $ ml julia/1.10.2-bdist
 
          $ pip install JuliaCall
 
       Start Julia on the command line and add the following package:
 
       .. code-block:: julia
-       
+
          pkg> add PythonCall
 
-      - For the ``Heat`` examples: 
+      - For the ``Heat`` examples:
 
       .. code-block:: console
 
@@ -76,7 +76,7 @@ Parallel computing with Python
 
       - The PyOMP example needs an additional package:
 
-      .. code-block:: console 
+      .. code-block:: console
 
          $ pip install pyomp
 
@@ -86,11 +86,11 @@ Parallel computing with Python
    .. tab:: HPC2N
 
       .. warning::
-   
-         - These instructions work for the AMD nodes only. For the Intel nodes, one needs a different Python version and tool chains.       
+
+         - These instructions work for the AMD nodes only. For the Intel nodes, one needs a different Python version and tool chains.
 
       - If not already done so:
-      
+
       .. code-block:: console
 
          $ ml GCCcore/11.2.0 Python/3.9.6
@@ -102,20 +102,20 @@ Parallel computing with Python
       - For the ``numba`` example install the corresponding module:
 
       .. code-block:: console
-        
+
          $ pip install numba
 
 
       - For the ``mpi4py`` example add the following modules:
 
       .. code-block:: console
-    
+
          $ ml GCC/11.2.0 OpenMPI/4.1.1
 
          $ pip install mpi4py
 
       - For the Julia example we will need PyJulia:
-        
+
       .. code-block:: console
 
          $ ml Julia/1.9.3-linux-x86_64
@@ -131,7 +131,7 @@ Parallel computing with Python
 
       This will install the ``PyCall`` connector between Python and Julia.
 
-      - For the ``Heat`` examples: 
+      - For the ``Heat`` examples:
 
       .. code-block:: console
 
@@ -142,7 +142,7 @@ Parallel computing with Python
 
       - The PyOMP example needs an additional package:
 
-      .. code-block:: console 
+      .. code-block:: console
 
          $ pip install pyomp
 
@@ -151,12 +151,12 @@ Parallel computing with Python
    .. tab:: UPPMAX
 
       If not already done so:
-      
+
       .. code-block:: console
 
          $ module load python/3.9.5
          $ python -m venv --system-site-packages /proj/naiss202X-XY-XYZ/nobackup/<user>/venv-python-course
-    
+
       Activate it if needed (is the name shown in the prompt)
 
       .. code-block:: console
@@ -166,7 +166,7 @@ Parallel computing with Python
       - For the ``numba`` example install the corresponding module:
 
       .. code-block:: console
-       
+
          $ python -m pip install numba
 
       - For the ``mpi4py`` example add the following modules:
@@ -177,26 +177,26 @@ Parallel computing with Python
          $ python -m pip install mpi4py
 
       - For the Julia example we will need PyJulia:
-        
+
       .. code-block:: console
-       
+
          $ ml julia/1.7.2
          $ python -m pip install julia
 
       Start Python on the command line and type:
 
       .. code-block:: python
-       
+
          >>> import julia
          >>> julia.install()
-         
+
       Quit Python, you should be ready to go!
 
 
    .. tab:: LUNARC
-      
+
       - These guidelines are working for Cosmos:
-      
+
       .. code-block:: console
 
          $ ml GCC/12.3.0 Python/3.11.3
@@ -218,12 +218,12 @@ Parallel computing with Python
 
       .. code-block:: console
 
-         $ pip install numba 
+         $ pip install numba
 
       - For the Julia example we will need PyJulia:
-        
+
       .. code-block:: console
-       
+
          $ ml Julia/1.10.4-linux-x86_64
 
          $ pip install JuliaCall
@@ -231,17 +231,17 @@ Parallel computing with Python
       Start Julia on the command line and add the following package:
 
       .. code-block:: julia
-       
-         # go to package mode 
+
+         # go to package mode
          pkg> add PythonCall
          # return to Julian mode
          julia>using PythonCall
          julia>exit()
 
    .. tab:: PDC
-      
+
       - If not already done so:
-      
+
       .. code-block:: console
 
          $ ml cray-python
@@ -253,7 +253,7 @@ Parallel computing with Python
       - For the ``numba`` example install the corresponding module:
 
       .. code-block:: console
-        
+
          $ pip install numba
 
 
@@ -283,8 +283,8 @@ network interconnect.
    :align: center
 
    Shared Memory and Distributed Memory architectures.
- 
-A more realistic picture of a computer architecture can be seen in the following 
+
+A more realistic picture of a computer architecture can be seen in the following
 picture where we have 14 cores that shared a common memory of 64 GB. These cores
 form the socket and the two sockets shown in this picture constitute a node.
 
@@ -292,7 +292,7 @@ form the socket and the two sockets shown in this picture constitute a node.
    :width: 550
    :align: center
 
-   1 standard node on Kebnekaise @HPC2N 
+   1 standard node on Kebnekaise @HPC2N
 
 It is interesting to notice that there are different types of memory
 available for the cores, ranging from the L1 cache to the node's memory for a single
@@ -302,7 +302,7 @@ Now you can see that on a single node you already have several computing units
 (cores) and also a hierarchy of memory resources which is denoted as Non Uniform
 Memory Access (NUMA).
 
-Besides the standard CPUs, nowadays one finds Graphic Processing Units (GPUs) 
+Besides the standard CPUs, nowadays one finds Graphic Processing Units (GPUs)
 architectures in HPC clusters.
 
 
@@ -315,7 +315,7 @@ modern architectures. If you want your code to be aware of those features, you w
 need to either add them explicitly (by coding them yourself) or implicitly (by using
 libraries that were coded by others).
 
-In your local machine, you may have some number of cores available and some memory 
+In your local machine, you may have some number of cores available and some memory
 attached to them which can be exploited by using a parallel program. There can be
 some limited resources for running your data-production simulations as you may use
 your local machine for other purposes such as writing a manuscript, making a presentation,
@@ -331,7 +331,7 @@ HPC cluster is a shown in the figure below.
 
 Although a serial application can run in such a cluster, it would not gain much of the
 HPC resources. If fact, one can underuse the cluster if one allocates more resources than
-what the simulation requires. 
+what the simulation requires.
 
 .. figure:: ../img/laundry-machines.svg
    :width: 400
@@ -340,42 +340,42 @@ what the simulation requires.
    Under-using a cluster.
 
 .. warning::
-   
-   - Check if the resources that you allocated are being used properly.  
+
+   - Check if the resources that you allocated are being used properly.
    - Monitor the usage of hardware resources with tools offered at your HPC center, for instance
-     `job-usage at HPC2N <https://hpc2n.github.io/intro-course/software/#best__practices>`_.   
-   - Here there are some examples (of many) of what you will need to pay attention when porting 
+     `job-usage at HPC2N <https://hpc2n.github.io/intro-course/software/#best__practices>`_.
+   - Here there are some examples (of many) of what you will need to pay attention when porting
      a parallel code from your laptop (or another HPC center) to our clusters:
 
    .. tabs::
 
       .. tab:: HPC2N
 
-         We have a tool to monitor the usage of resources called: 
+         We have a tool to monitor the usage of resources called:
          `job-usage at HPC2N <https://hpc2n.github.io/intro-course/software/#best__practices>`_.
 
       .. tab:: UPPMAX/LUNARC/PDC/NSC
 
          If you are in a interactive node session the ``top`` command will give you information
-         of the resources usage. 
+         of the resources usage.
 
 Parallelizing code in Python
 ----------------------------
 
-In Python there are different schemes that can be used to parallelize your code. 
+In Python there are different schemes that can be used to parallelize your code.
 We will only take a look at some of these schemes that illustrate the general concepts of
 parallel computing. The aim of this lecture is to learn how to run parallel codes
 in Python rather than learning to write those codes.
 
-.. demo:: 
+.. demo::
    :class: dropdown
 
-   The idea is to parallelize a simple *for loop* (language-agnostic): 
+   The idea is to parallelize a simple *for loop* (language-agnostic):
 
-   .. code-block:: sh 
+   .. code-block:: sh
 
-      for i start at 1 end at 4 
-         wait 1 second 
+      for i start at 1 end at 4
+         wait 1 second
       end the for loop
 
    The waiting step is used to simulate a task without writing too much code. In this way,
@@ -385,10 +385,10 @@ in Python rather than learning to write those codes.
       :width: 250
       :align: center
 
-   In the following example ``sleep.py`` the `sleep()` function is called `n` times first in 
-   serial mode and then by using `n` processes. To parallelize the serial code we can use 
-   the ``multiprocessing`` module that is shipped with the base library in Python so that 
-   you don't need to install it.  
+   In the following example ``sleep.py`` the `sleep()` function is called `n` times first in
+   serial mode and then by using `n` processes. To parallelize the serial code we can use
+   the ``multiprocessing`` module that is shipped with the base library in Python so that
+   you don't need to install it.
 
    .. code-block:: python
 
@@ -396,7 +396,7 @@ in Python rather than learning to write those codes.
       from time import perf_counter,sleep
       import multiprocessing
 
-      # number of iterations 
+      # number of iterations
       n = 4
       # number of processes
       numprocesses = 4
@@ -441,7 +441,7 @@ in Python rather than learning to write those codes.
    First load the modules for Python and dependencies and then run the script
    with the command  ``srun -A "your-project" -n 1 -c 4 -t 00:05:00 python sleep.py`` to use 4 processes.
 
-   Optional flags for ``srun`` for writing output and error files are ``-o output_%j.out -e error_%j.err`` instead 
+   Optional flags for ``srun`` for writing output and error files are ``-o output_%j.out -e error_%j.err`` instead
    of writing on the terminal screen.
 
    .. warning::
@@ -460,7 +460,7 @@ in Python rather than learning to write those codes.
       takes the elements :code:`a[0], a[1], a[2]` and process number two :code:`a[3], a[4], a[5]`.
       Because in the loop the iteration ``i`` depends on the previous iteration ``i-1``, process two will have
       conflicts computing :code:`a[3]` because it depends on :code:`a[2]` which is owned by process one.
-      
+
       One can avoid data dependencies by transforming the initial algorithm to a more suitable algorithm for
       parallelization:
 
@@ -478,8 +478,8 @@ Exercises
 
    Run the previous ``sleep.py`` code yourself using 4 processes (``numprocesses = 4``) and allocating 4 cores (-c 4).
 
-   In a parallel code, hardware resources can be undersubscribed (nr. cores > numprocesses) or oversubscribe (nr. cores < numprocesses). 
-   It is crucial to find the optimal number of resources. 
+   In a parallel code, hardware resources can be undersubscribed (nr. cores > numprocesses) or oversubscribe (nr. cores < numprocesses).
+   It is crucial to find the optimal number of resources.
 
 
 .. challenge:: Parallelizing a code
@@ -487,19 +487,19 @@ Exercises
 
    According to the Basel problem one can compute the summation of the reciprocals of squared integers as:
 
-      .. math:: 
-          \sum^{\infty}_{1}\frac{1}{n^2} = \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \dots = \frac{\pi^2}{6} \sim 1.644934  
+      .. math::
+          \sum^{\infty}_{1}\frac{1}{n^2} = \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \dots = \frac{\pi^2}{6} \sim 1.644934
 
-   Modify the previous ``sleep.py`` code (call it ``pi.py``, for instance) to first create a serial code that computes this summation 
+   Modify the previous ``sleep.py`` code (call it ``pi.py``, for instance) to first create a serial code that computes this summation
    and second a parallel version of it. To see the effects of your parallel implementation, you can run the summation up to ``n=1e8``.
 
-   .. hint:: 
+   .. hint::
       :class: dropdown
 
       Use shared arrays of multiprocessing package to store the partial summations from each process:
 
       .. code-block:: python
-     
+
          from multiprocessing import Array
 
          # number of processes
@@ -528,7 +528,7 @@ Exercises
       partial_integrals = Array('d',[0]*numprocesses, lock=False)
 
       def pi_serial(n):
-         psum = 0.0 
+         psum = 0.0
          for i in range(1,n+1):
             psum = psum + 1.0/(i * i)
          return psum
@@ -539,7 +539,7 @@ Exercises
          workload = n/numprocesses
          begin = int(workload*processindex + 1)
          end = int(workload*(processindex+1) + 1)
-         psum = 0.0 
+         psum = 0.0
          for i in range(begin,end):
             psum = psum + 1.0/(i * i)
          partial_integrals[processindex] = psum
@@ -576,7 +576,7 @@ Exercises
 
 The workhorse for this section will be a 2D integration example:
 
-.. math:: 
+.. math::
       \int^{\pi}_{0}\int^{\pi}_{0}\sin(x+y)dxdy = 0
 
 One way to perform the integration is by creating a grid in the ``x`` and ``y`` directions.
@@ -620,14 +620,14 @@ serial code (without any optimization) can be seen in the following code block.
 
             print("Time spent: %.2f sec" % (endtime-starttime))
 
-We can run this code on the terminal as follows: 
+We can run this code on the terminal as follows:
 
 .. warning::
 
    Although this works on the terminal, having many users doing computations at the same time
    for this course, could create delays for other users
 
-   .. code-block:: console 
+   .. code-block:: console
 
        $ python integration2d_serial_initial.py
        Integral value is -7.117752e-17, Error is 7.117752e-17
@@ -635,18 +635,18 @@ We can run this code on the terminal as follows:
 
    Because of that, we can use for **short-time** jobs the following command:
 
-   .. code-block:: console 
+   .. code-block:: console
 
        $ srun -A <your-projec-id> -n 1 -t 00:10:00 python integration2d_serial_initial.py
        Integral value is -7.117752e-17, Error is 7.117752e-17
-       Time spent: 26.59 sec    
+       Time spent: 26.59 sec
 
-   where ``srun`` has the flags that are used in a standard batch file. 
+   where ``srun`` has the flags that are used in a standard batch file.
 
 Note that outputs can be different, when timing a code a more realistic approach
 would be to run it several times to get statistics. In our initial code it is not clear if we timing the loops computation,
-variable initializations, or the ``print()`` function. Thus, it is highly recommended to enclose blocks of code 
-(related to the same feature) into functions: 
+variable initializations, or the ``print()`` function. Thus, it is highly recommended to enclose blocks of code
+(related to the same feature) into functions:
 
 .. admonition:: ``integration2d_serial.py``
    :class: dropdown
@@ -656,17 +656,17 @@ variable initializations, or the ``print()`` function. Thus, it is highly recomm
       import math
       import sys
       from time import perf_counter
-      
+
       # grid size
       n = 10000
-      
+
       def integration2d_serial(n):
             global integral;
             # interval size (same for X and Y)
             h = math.pi / float(n)
-            # cummulative variable 
+            # cummulative variable
             mysum = 0.0
-            
+
             # regular integration in the X axis
             for i in range(n):
                x = h * (i + 0.5)
@@ -674,31 +674,31 @@ variable initializations, or the ``print()`` function. Thus, it is highly recomm
                for j in range(n):
                   y = h * (j + 0.5)
                   mysum += math.sin(x + y)
-            
+
             integral = h**2 * mysum
-      
-      
+
+
       if __name__ == "__main__":
-      
+
             starttime = perf_counter()
             integration2d_serial(n)
             endtime = perf_counter()
-      
+
             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
             print("Time spent: %.2f sec" % (endtime-starttime))
 
 
 
 Here, we can easily recognize that the part we are interested in is the one related to the nested loops computation
-which is the bottleneck of the simulation. This part is now enclosed into the ``integration2d_serial()`` function. 
+which is the bottleneck of the simulation. This part is now enclosed into the ``integration2d_serial()`` function.
 
 Serial optimizations
 --------------------
 
 Just before we jump into a parallelization project, Python offers some options to make
-serial code faster. For instance, the ``Numba`` module can assist you to obtain a 
-compiled-quality function with minimal efforts. This can be achieved with the ``njit()`` 
-decorator: 
+serial code faster. For instance, the ``Numba`` module can assist you to obtain a
+compiled-quality function with minimal efforts. This can be achieved with the ``njit()``
+decorator:
 
 .. admonition:: ``integration2d_serial_numba.py``
    :class: dropdown
@@ -709,16 +709,16 @@ decorator:
       import math
       import sys
       from time import perf_counter
-      
+
       # grid size
       n = 10000
-      
+
       def integration2d_serial(n):
             # interval size (same for X and Y)
             h = math.pi / float(n)
-            # cummulative variable 
+            # cummulative variable
             mysum = 0.0
-            
+
             # regular integration in the X axis
             for i in range(n):
                x = h * (i + 0.5)
@@ -726,17 +726,17 @@ decorator:
                for j in range(n):
                   y = h * (j + 0.5)
                   mysum += math.sin(x + y)
-            
+
             integral = h**2 * mysum
             return integral
-      
-      
+
+
       if __name__ == "__main__":
-      
+
             starttime = perf_counter()
             integral = njit(integration2d_serial)(n)
             endtime = perf_counter()
-      
+
             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
             print("Time spent: %.2f sec" % (endtime-starttime))
 
@@ -748,9 +748,9 @@ The execution time is now:
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 1.90 sec
 
-Another option for making serial codes faster, and specially in the case of arithmetic 
-intensive codes, is to write the most expensive parts of them in a compiled language such 
-as Fortran or C/C++. In the next paragraphs we will show you how Fortran code for the 
+Another option for making serial codes faster, and specially in the case of arithmetic
+intensive codes, is to write the most expensive parts of them in a compiled language such
+as Fortran or C/C++. In the next paragraphs we will show you how Fortran code for the
 2D integration case can be called in Python.
 
 We start by writing the expensive part of our Python code in a Fortran function in a file
@@ -768,7 +768,7 @@ called ``fortran_function.f90``:
             real(kind=dp), parameter   :: pi=3.14159265358979323_dp
             integer, intent(in)        :: n
             real(kind=dp)              :: integral
-      
+
             integer                    :: i,j
       !   interval size
             real(kind=dp)              :: h
@@ -776,7 +776,7 @@ called ``fortran_function.f90``:
             real(kind=dp)              :: x,y
       !   cummulative variable
             real(kind=dp)              :: mysum
-      
+
             h = pi/(1.0_dp * n)
             mysum = 0.0_dp
       !   regular integration in the X axis
@@ -788,9 +788,9 @@ called ``fortran_function.f90``:
                   mysum = mysum + sin(x + y)
                enddo
             enddo
-      
+
             integral = h*h*mysum
-                  
+
       end function integration2d_fortran
 
 Then, we need to compile this code and generate the Python module (``myfunction``):
@@ -800,19 +800,19 @@ Then, we need to compile this code and generate the Python module (``myfunction`
    For UPPMAX you may have to change ``gcc`` version like:
 
    .. code-block:: bash
-   
+
       $ ml gcc/10.3.0
 
    Then continue...
 
 .. code-block:: console
 
-    $ f2py -c -m myfunction fortran_function.f90  
+    $ f2py -c -m myfunction fortran_function.f90
     running build
     running config_cc
     ...
 
-this will produce the Python/C API ``myfunction.cpython-39-x86_64-linux-gnu.so``, which 
+this will produce the Python/C API ``myfunction.cpython-39-x86_64-linux-gnu.so``, which
 can be called in Python as a module:
 
 
@@ -824,20 +824,20 @@ can be called in Python as a module:
       from time import perf_counter
       import myfunction
       import numpy
-      
+
       # grid size
       n = 10000
-      
+
       if __name__ == "__main__":
-      
+
             starttime = perf_counter()
             integral = myfunction.integration2d_fortran(n)
             endtime = perf_counter()
-      
+
             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
             print("Time spent: %.2f sec" % (endtime-starttime))
 
-The execution time is considerably reduced: 
+The execution time is considerably reduced:
 
 .. code-block:: console
 
@@ -845,10 +845,10 @@ The execution time is considerably reduced:
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 1.30 sec
 
-Compilation of code can be tedious specially if you are in a developing phase of your code. As 
-an alternative to improve the performance of expensive parts of your code (without using a 
-compiled language) you can write these parts in Julia (which doesn't require compilation) and 
-then calling Julia code in Python. For the workhorse integration case that we are using, 
+Compilation of code can be tedious specially if you are in a developing phase of your code. As
+an alternative to improve the performance of expensive parts of your code (without using a
+compiled language) you can write these parts in Julia (which doesn't require compilation) and
+then calling Julia code in Python. For the workhorse integration case that we are using,
 the Julia code can look like this:
 
 .. admonition:: ``julia_function.jl``
@@ -889,18 +889,18 @@ A caller script for Julia would be,
             from time import perf_counter
             import julia
             from julia import Main
-            
+
             Main.include('julia_function.jl')
-            
+
             # grid size
             n = 10000
-            
+
             if __name__ == "__main__":
-            
+
                starttime = perf_counter()
                integral = Main.integration2d_julia(n)
                endtime = perf_counter()
-            
+
                print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
                print("Time spent: %.2f sec" % (endtime-starttime))
 
@@ -932,15 +932,15 @@ A caller script for Julia would be,
 
 Timing in this case is similar to the Fortran serial case:
 
-.. code-block:: console 
+.. code-block:: console
 
     $ srun -A <your-projec-id> -n 1 -t 00:10:00 python call_julia_code.py
     Integral value is -7.117752e-17, Error is 7.117752e-17
     Time spent: 1.29 sec
 
 If even with the previous (and possibly others from your own) serial optimizations your code
-doesn't achieve the expected performance, you may start looking for some parallelization 
-strategy. Here, we describe some of the Python parallel packages.  
+doesn't achieve the expected performance, you may start looking for some parallelization
+strategy. Here, we describe some of the Python parallel packages.
 
 .. figure:: ../img/parallel-arch.png
    :width: 550
@@ -954,17 +954,17 @@ Threads
 
 
 In a threaded parallelization scheme, the workers (threads) share a global memory address space.
-The `threading <https://docs.python.org/3/library/threading.html>`_ 
+The `threading <https://docs.python.org/3/library/threading.html>`_
 module is built into Python so you don't have to installed it. By using this
 module, one can create several threads to do some work in parallel (in principle).
 For jobs dealing with files I/O one can observe some speedup by using the `threading` module.
 However, for CPU intensive jobs one would see a decrease in performance w.r.t. the serial code.
-This is because Python uses the Global Interpreter Lock 
-(`GIL <https://docs.python.org/3/c-api/init.html>`_) which serializes the code when 
-several threads are used. The GIL serialization is avoided in Python versions \> 3.14. 
+This is because Python uses the Global Interpreter Lock
+(`GIL <https://docs.python.org/3/c-api/init.html>`_) which serializes the code when
+several threads are used. The GIL serialization is avoided in Python versions \> 3.14.
 
 In the following code we used the `threading` module to parallelize the 2D integration example.
-Threads are created with the construct ``threading.Thread(target=function, args=())``, where 
+Threads are created with the construct ``threading.Thread(target=function, args=())``, where
 `target` is the function that will be executed by each thread and `args` is a tuple containing the
 arguments of that function. Threads are started with the ``start()`` method and when they finish
 their job they are joined with the ``join()`` method,
@@ -978,23 +978,23 @@ their job they are joined with the ``join()`` method,
       import math
       import sys
       from time import perf_counter
-      
+
       # grid size
       n = 10000
       # number of threads
       numthreads = 4
       # partial sum for each thread
       partial_integrals = [None]*numthreads
-      
+
       def integration2d_threading(n,numthreads,threadindex):
             global partial_integrals;
             # interval size (same for X and Y)
             h = math.pi / float(n)
-            # cummulative variable 
+            # cummulative variable
             mysum = 0.0
             # workload for each thread
             workload = n/numthreads
-            # lower and upper integration limits for each thread 
+            # lower and upper integration limits for each thread
             begin = int(workload*threadindex)
             end = int(workload*(threadindex+1))
             # regular integration in the X axis
@@ -1004,27 +1004,27 @@ their job they are joined with the ``join()`` method,
                for j in range(n):
                   y = h * (j + 0.5)
                   mysum += math.sin(x + y)
-            
+
             partial_integrals[threadindex] = h**2 * mysum
-      
-      
+
+
       if __name__ == "__main__":
-      
+
             starttime = perf_counter()
-            # start the threads 
+            # start the threads
             threads = []
             for i in range(numthreads):
                t = threading.Thread(target=integration2d_threading, args=(n,numthreads,i))
                threads.append(t)
                t.start()
-      
+
             # waiting for the threads
             for t in threads:
                t.join()
-      
+
             integral = sum(partial_integrals)
             endtime = perf_counter()
-      
+
             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
             print("Time spent: %.2f sec" % (endtime-starttime))
 
@@ -1037,10 +1037,10 @@ Notice the output of running this code on the terminal:
     Integral value is 4.492851e-12, Error is 4.492851e-12
     Time spent: 21.29 sec
 
-Although we are distributing the work on 4 threads, the execution time is longer than in the 
+Although we are distributing the work on 4 threads, the execution time is longer than in the
 serial code. This is due to the GIL mentioned above.
 
-Implicit Threaded 
+Implicit Threaded
 ~~~~~~~~~~~~~~~~~
 
 Some libraries like OpenBLAS, LAPACK, and MKL provide an implicit threading mechanism. They
@@ -1059,12 +1059,12 @@ Consider the following code that computes the dot product of a matrix with itsel
 
       from time import perf_counter
       import numpy as np
-      
+
       A = np.random.rand(3000,3000)
       starttime = perf_counter()
       B = np.dot(A,A)
       endtime = perf_counter()
-      
+
       print("Time spent: %.2f sec" % (endtime-starttime))
 
 the timing for running this code with 1 thread is:
@@ -1101,7 +1101,7 @@ where OpenMP threads are used. The parallelized code looks as follows:
             real(kind=dp), parameter   :: pi=3.14159265358979323
             integer, intent(in)        :: n
             real(kind=dp)              :: integral
-      
+
             integer                    :: i,j
       !   interval size
             real(kind=dp)              :: h
@@ -1109,7 +1109,7 @@ where OpenMP threads are used. The parallelized code looks as follows:
             real(kind=dp)              :: x,y
       !   cummulative variable
             real(kind=dp)              :: mysum
-      
+
             h = pi/(1.0_dp * n)
             mysum = 0.0_dp
       !   regular integration in the X axis
@@ -1123,9 +1123,9 @@ where OpenMP threads are used. The parallelized code looks as follows:
                enddo
             enddo
       !$omp end parallel do
-      
+
             integral = h*h*mysum
-                  
+
       end function integration2d_fortran_openmp
 
 The way to compile this code differs to the one we saw before, now we will need the flags
@@ -1147,16 +1147,16 @@ the generated module can be then loaded,
       from time import perf_counter
       import myfunction_openmp
       import numpy
-      
+
       # grid size
       n = 10000
-      
+
       if __name__ == "__main__":
-      
+
             starttime = perf_counter()
             integral = myfunction_openmp.integration2d_fortran_openmp(n)
             endtime = perf_counter()
-      
+
             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
             print("Time spent: %.2f sec" % (endtime-starttime))
 
@@ -1175,9 +1175,9 @@ More information about how OpenMP works can be found in the material of a previo
 PyOMP (Advanced)
 ~~~~~~~~~~~~~~~~
 
-The `PyOMP <https://github.com/Python-for-HPC/PyOMP>`_ module offers an interface for writing OpenMP 
+The `PyOMP <https://github.com/Python-for-HPC/PyOMP>`_ module offers an interface for writing OpenMP
 directives in Python, so the compilation step mentioned above is avoided. PyOMP is an extension of
-Numba. 
+Numba.
 
 .. admonition:: ``integration2d_omp.py``
    :class: dropdown
@@ -1249,23 +1249,23 @@ instance.
       import math
       import sys
       from time import perf_counter
-      
+
       # grid size
       n = 10000
       # number of processes
       numprocesses = 4
       # partial sum for each thread
       partial_integrals = Array('d',[0]*numprocesses, lock=False)
-      
+
       def integration2d_multiprocessing(n,numprocesses,processindex):
             global partial_integrals;
             # interval size (same for X and Y)
             h = math.pi / float(n)
-            # cummulative variable 
+            # cummulative variable
             mysum = 0.0
             # workload for each process
             workload = n/numprocesses
-      
+
             begin = int(workload*processindex)
             end = int(workload*(processindex+1))
             # regular integration in the X axis
@@ -1275,27 +1275,27 @@ instance.
                for j in range(n):
                   y = h * (j + 0.5)
                   mysum += math.sin(x + y)
-            
+
             partial_integrals[processindex] = h**2 * mysum
-      
-      
+
+
       if __name__ == "__main__":
-      
+
             starttime = perf_counter()
-            
+
             processes = []
             for i in range(numprocesses):
                p = multiprocessing.Process(target=integration2d_multiprocessing, args=(n,numprocesses,i))
                processes.append(p)
                p.start()
-      
+
             # waiting for the processes
             for p in processes:
                p.join()
-      
+
             integral = sum(partial_integrals)
             endtime = perf_counter()
-      
+
             print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
             print("Time spent: %.2f sec" % (endtime-starttime))
 
@@ -1322,25 +1322,25 @@ More details for the MPI parallelization scheme in Python can be found in a prev
       import math
       import sys
       from time import perf_counter
-      
+
       # MPI communicator
       comm = MPI.COMM_WORLD
       # MPI size of communicator
       numprocs = comm.Get_size()
       # MPI rank of each process
       myrank = comm.Get_rank()
-      
+
       # grid size
       n = 10000
-      
+
       def integration2d_mpi(n,numprocs,myrank):
             # interval size (same for X and Y)
             h = math.pi / float(n)
-            # cummulative variable 
+            # cummulative variable
             mysum = 0.0
             # workload for each process
             workload = n/numprocs
-      
+
             begin = int(workload*myrank)
             end = int(workload*(myrank+1))
             # regular integration in the X axis
@@ -1350,22 +1350,22 @@ More details for the MPI parallelization scheme in Python can be found in a prev
                for j in range(n):
                   y = h * (j + 0.5)
                   mysum += math.sin(x + y)
-            
+
             partial_integrals = h**2 * mysum
             return partial_integrals
-      
-      
+
+
       if __name__ == "__main__":
-      
+
             starttime = perf_counter()
-            
+
             p = integration2d_mpi(n,numprocs,myrank)
-      
+
             # MPI reduction
             integral = comm.reduce(p, op=MPI.SUM, root=0)
-      
+
             endtime = perf_counter()
-      
+
             if myrank == 0:
                print("Integral value is %e, Error is %e" % (integral, abs(integral - 0.0)))
                print("Time spent: %.2f sec" % (endtime-starttime))
@@ -1384,9 +1384,9 @@ example,
 
 .. tabs::
 
-   .. tab:: NSC 
+   .. tab:: NSC
 
-      .. code-block:: sh 
+      .. code-block:: sh
 
          #!/bin/bash -l
          #SBATCH -A naiss202X-XY-XYZ
@@ -1412,19 +1412,19 @@ example,
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
          #SBATCH -e error_%j.err    # error messages
-     
+
          ml purge > /dev/null 2>&1
          ml GCCcore/11.2.0 Python/3.9.6
          ml GCC/11.2.0 OpenMPI/4.1.1
          #ml Julia/1.7.1-linux-x86_64  # if Julia is needed
-      
+
          source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
-       
+
          mpirun -np 4 python integration2d_mpi.py
 
    .. tab:: UPPMAX
 
-      .. code-block:: sh 
+      .. code-block:: sh
 
          #!/bin/bash -l
          #SBATCH -A naiss-202X-XY-XYZ
@@ -1432,19 +1432,19 @@ example,
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
          #SBATCH -e error_%j.err    # error messages
-     
+
          ml python/3.9.5
          ml gcc/9.3.0 openmpi/3.1.5
          #ml julia/1.7.2  # if Julia is needed
-      
+
          source /proj/naiss202X-XY-XYZ/nobackup/<user>/venv-python-course/bin/activate
-       
+
          mpirun -np 4 python integration2d_mpi.py
 
 
-   .. tab:: LUNARC 
+   .. tab:: LUNARC
 
-      .. code-block:: sh 
+      .. code-block:: sh
 
          #!/bin/bash
          #SBATCH -A lu202u-vw-xy
@@ -1460,9 +1460,9 @@ example,
 
          mpirun -np 4 python integration2d_mpi.py
 
-   .. tab:: PDC 
+   .. tab:: PDC
 
-      .. code-block:: sh 
+      .. code-block:: sh
 
          #!/bin/bash
          #SBATCH -A naiss202t-uv-wxyz
@@ -1482,7 +1482,7 @@ example,
 Heat (Advanced)
 ~~~~~~~~~~~~~~~
 
-Heat is a library for distributing tensor operations by using MPI as a backend. Heat uses 
+Heat is a library for distributing tensor operations by using MPI as a backend. Heat uses
 Distributed N-Dimensional (DND) arrays that can be seen as a global array. Locally, each
 rank retains a chunk of the array which is a tensor PyTorch tensor:
 
@@ -1493,9 +1493,9 @@ rank retains a chunk of the array which is a tensor PyTorch tensor:
    .. code-block:: python
 
       import heat as ht
-      
+
       x = ht.arange(10, split=0)
-      
+
       print(type(x))        # <class 'heat.core.dndarray.DNDarray'>
       print(x.shape)        # <class 'heat.core.dndarray.DNDarray'>
       print(type(x.larray)) # <class 'torch.Tensor'>
@@ -1507,9 +1507,9 @@ It is recommended to use a batch script for Heat scripts:
 
 .. tabs::
 
-   .. tab:: NSC 
+   .. tab:: NSC
 
-      .. code-block:: sh 
+      .. code-block:: sh
 
          #!/bin/bash -l
          #SBATCH -A naiss202X-XY-XYZ
@@ -1537,21 +1537,21 @@ It is recommended to use a batch script for Heat scripts:
          #SBATCH -n 2
          #SBATCH -o output_%j.out   # output file
          #SBATCH -e error_%j.err    # error messages
-     
+
          ml purge > /dev/null 2>&1
          ml GCCcore/11.2.0 Python/3.9.6
          ml GCC/11.2.0 OpenMPI/4.1.1
          #ml Julia/1.7.1-linux-x86_64  # if Julia is needed
-      
+
          source /proj/nobackup/<your-project-storage>/vpyenv-python-course/bin/activate
-       
+
          mpirun -np 2 python heat_datatypes.py
 
 
 
 On Kebnekaise, the ``srun`` command also works:
 
-.. code-block:: console 
+.. code-block:: console
 
     $ srun -A projectID -t 00:08:00 -n 2 python heat_datatypes.py
 
@@ -1563,10 +1563,10 @@ On Kebnekaise, the ``srun`` command also works:
        (10,)
        <class 'torch.Tensor'>
        torch.Size([5])
-         
+
 More details for this package can be found here `Heat package <https://github.com/helmholtz-analytics/heat/tree/main>`_.
 
-**Example 1: Distributing matrix-matrix multiplication operations** 
+**Example 1: Distributing matrix-matrix multiplication operations**
 
 
 .. admonition:: ``heat_matmat.py``
@@ -1637,16 +1637,16 @@ Monitoring resources' usage
 ---------------------------
 
 Monitoring the resources that a certain job uses is important specially when this
-job is expected to run on many CPUs and/or GPUs. It could happen, for instance, that 
-an incorrect module is loaded or the command for running on many CPUs is not 
-the proper one and our job runs in serial mode while we allocated possibly many 
-CPUs/GPUs. For this reason, there are several tools available in our centers to 
+job is expected to run on many CPUs and/or GPUs. It could happen, for instance, that
+an incorrect module is loaded or the command for running on many CPUs is not
+the proper one and our job runs in serial mode while we allocated possibly many
+CPUs/GPUs. For this reason, there are several tools available in our centers to
 monitor the performance of running jobs.
 
 HPC2N
 ~~~~~
 
-On a Kebnekaise terminal, you can type the command: 
+On a Kebnekaise terminal, you can type the command:
 
 .. code-block:: console
 
@@ -1660,8 +1660,8 @@ job starts running, here there is one example of how this looks like:
 .. figure:: ../img/monitoring-jobs.png
    :align: center
 
-   The resources used by a job can be monitored in your local browser.   
-   For this job, we can notice that 100% of the requested CPU 
+   The resources used by a job can be monitored in your local browser.
+   For this job, we can notice that 100% of the requested CPU
    and 60% of the GPU resources are being used.
 
 
@@ -1673,7 +1673,7 @@ Exercises
    :class: dropdown
 
    In this exercise we will run the parallelized code that performs a 2D integration:
-   using the ``multiprocessing`` module in Python that we described above:  
+   using the ``multiprocessing`` module in Python that we described above:
 
    .. admonition:: integration2d_multiprocessing.py
       :class: dropdown
@@ -1698,7 +1698,7 @@ Exercises
                global partial_integrals;
                # interval size (same for X and Y)
                h = math.pi / float(n)
-               # cummulative variable 
+               # cummulative variable
                mysum = 0.0
                # workload for each process
                workload = n/numprocesses
@@ -1712,14 +1712,14 @@ Exercises
                   for j in range(n):
                         y = h * (j + 0.5)
                         mysum += math.sin(x + y)
-            
+
                partial_integrals[processindex] = h**2 * mysum
 
 
             if __name__ == "__main__":
 
                starttime = perf_counter()
-            
+
                processes = []
                for i in range(numprocesses):
                   p = multiprocessing.Process(target=integration2d_multiprocessing, args=(n,numprocesses,i))
@@ -1737,7 +1737,7 @@ Exercises
             print("Time spent: %.2f sec" % (endtime-starttime))
 
 
-   Run the code with the following batch script:             
+   Run the code with the following batch script:
 
    .. admonition:: job.sh
       :class: dropdown
@@ -1747,7 +1747,7 @@ Exercises
          .. tab:: NSC
 
                .. code-block:: sh
-                  
+
                   #!/bin/bash -l
                   #SBATCH -A naiss202X-XY-XYZ     # your project_ID
                   #SBATCH -J job-serial           # name of the job
@@ -1765,7 +1765,7 @@ Exercises
          .. tab:: UPPMAX
 
                .. code-block:: sh
-                  
+
                   #!/bin/bash -l
                   #SBATCH -A naiss202X-XY-XYZ     # your project_ID
                   #SBATCH -J job-serial           # name of the job
@@ -1782,16 +1782,16 @@ Exercises
          .. tab:: HPC2N
 
                .. code-block:: sh
-                  
-                  #!/bin/bash            
-                  #SBATCH -A hpc2n202X-XYZ     # your project_ID       
-                  #SBATCH -J job-serial        # name of the job         
-                  #SBATCH -n *FIXME*           # nr. tasks  
+
+                  #!/bin/bash
+                  #SBATCH -A hpc2n202X-XYZ     # your project_ID
+                  #SBATCH -J job-serial        # name of the job
+                  #SBATCH -n *FIXME*           # nr. tasks
                   #SBATCH --time=00:20:00      # requested time
                   #SBATCH --error=job.%J.err   # error file
-                  #SBATCH --output=job.%J.out  # output file  
+                  #SBATCH --output=job.%J.out  # output file
 
-                  # Do a purge and load any modules you need, here for Python 
+                  # Do a purge and load any modules you need, here for Python
                   ml purge > /dev/null 2>&1
                   ml GCCcore/11.2.0 Python/3.9.6
                   python integration2d_multiprocessing.py
@@ -1800,18 +1800,18 @@ Exercises
          .. tab:: LUNARC
 
                .. code-block:: sh
-                  
-                  #!/bin/bash            
+
+                  #!/bin/bash
                   #SBATCH -A lu202X-XX-XX      # your project_ID
-                  #SBATCH -J job-serial        # name of the job         
-                  #SBATCH -n *FIXME*           # nr. tasks  
+                  #SBATCH -J job-serial        # name of the job
+                  #SBATCH -n *FIXME*           # nr. tasks
                   #SBATCH --time=00:20:00      # requested time
                   #SBATCH --error=job.%J.err   # error file
-                  #SBATCH --output=job.%J.out  # output file 
+                  #SBATCH --output=job.%J.out  # output file
                   # reservation (optional)
-                  #SBATCH --reservation=RPJM-course*FIXME* 
+                  #SBATCH --reservation=RPJM-course*FIXME*
 
-                  # Do a purge and load any modules you need, here for Python 
+                  # Do a purge and load any modules you need, here for Python
                   ml purge > /dev/null 2>&1
                   ml GCCcore/12.3.0 Python/3.11.3
                   python integration2d_multiprocessing.py
@@ -1819,7 +1819,7 @@ Exercises
          .. tab:: PDC
 
                .. code-block:: sh
-                  
+
                   #!/bin/bash -l
                   #SBATCH -A naiss202X-XY-XYZ     # your project_ID
                   #SBATCH -J job-serial           # name of the job
@@ -1829,17 +1829,17 @@ Exercises
                   #SBATCH --time=00:20:00         # requested time
                   #SBATCH --error=job.%J.err      # error file
                   #SBATCH --output=job.%J.out     # output file
-                  
+
                   # Load Python
                   ml cray-python
 
                   python integration2d_multiprocessing.py
 
    Try different number of cores for this batch script (*FIXME* string) using the sequence:
-   1,2,4,8,12, and 14. Note: this number should match the number of processes 
+   1,2,4,8,12, and 14. Note: this number should match the number of processes
    (also a *FIXME* string) in the Python script. Collect the timings that are
    printed out in the **job.*.out**. According to these execution times what would be
-   the number of cores that gives the optimal (fastest) simulation? 
+   the number of cores that gives the optimal (fastest) simulation?
 
    Challenge: Increase the grid size (``n``) to 15000 and submit the batch job with 4 workers (in the
    Python script) and request 5 cores in the batch script. Monitor the usage of resources
@@ -1851,18 +1851,18 @@ Exercises
 .. challenge:: Parallelizing a *for loop* workflow (Advanced)
    :class: dropdown
 
-   Create a Data Frame containing two features, one called **ID** which has integer values 
+   Create a Data Frame containing two features, one called **ID** which has integer values
    from 1 to 10000, and the other called **Value** that contains 10000 integers starting from 3
    and goes in steps of 2 (3, 5, 7, ...). The following codes contain parallelized workflows
-   whose goal is to compute the average of the whole feature **Value** using some number of 
+   whose goal is to compute the average of the whole feature **Value** using some number of
    workers. Substitute the **FIXME** strings in the following codes to perform the tasks given
-   in the comments. Call the script for instance ``script-df.py``. 
+   in the comments. Call the script for instance ``script-df.py``.
 
 
    .. warning::
 
       For Tetralith you will need to install ``pandas``:
-       
+
       .. code-block:: sh
 
          ml buildenv-gcccuda/12.2.2-gcc11-hpc1
@@ -1870,10 +1870,10 @@ Exercises
          pip install pandas
 
 
-      Pandas is available in the following combo ``ml GCC/12.3.0 SciPy-bundle/2023.07`` (HPC2N) and 
-      ``ml python/3.11.8`` (UPPMAX). 
-      
-   
+      Pandas is available in the following combo ``ml GCC/12.3.0 SciPy-bundle/2023.07`` (HPC2N) and
+      ``ml python/3.11.8`` (UPPMAX).
+
+
 
    .. code-block:: python
 
@@ -1913,14 +1913,14 @@ Exercises
          # Print the mean value
          print(mean_value)
 
-   Run the code with the batch script: 
-   
+   Run the code with the batch script:
+
    .. tabs::
 
       .. tab:: NSC
 
             .. code-block:: sh
-               
+
                #!/bin/bash -l
                #SBATCH -A naiss202X-XY-XYZ     # your project_ID
                #SBATCH -J job-serial           # name of the job
@@ -1938,7 +1938,7 @@ Exercises
       .. tab:: UPPMAX
 
             .. code-block:: sh
-               
+
                #!/bin/bash -l
                #SBATCH -A naiss202u-w-xyz  # your project_ID
                #SBATCH -J job-parallel      # name of the job
@@ -1954,14 +1954,14 @@ Exercises
       .. tab:: HPC2N
 
             .. code-block:: sh
-               
-               #!/bin/bash            
-               #SBATCH -A hpc2n202w-xyz     # your project_ID       
-               #SBATCH -J job-parallel      # name of the job         
-               #SBATCH -n 4                 # nr. tasks  
+
+               #!/bin/bash
+               #SBATCH -A hpc2n202w-xyz     # your project_ID
+               #SBATCH -J job-parallel      # name of the job
+               #SBATCH -n 4                 # nr. tasks
                #SBATCH --time=00:20:00      # requested time
                #SBATCH --error=job.%J.err   # error file
-               #SBATCH --output=job.%J.out  # output file  
+               #SBATCH --output=job.%J.out  # output file
 
                # Load any modules you need, here for Python 3.11.3 and compatible SciPy-bundle
                module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07
@@ -1970,14 +1970,14 @@ Exercises
       .. tab:: LUNARC
 
             .. code-block:: sh
-                  
-               #!/bin/bash            
+
+               #!/bin/bash
                #SBATCH -A lu202u-vw-xyz     # your project_ID
-               #SBATCH -J job-parallel      # name of the job         
+               #SBATCH -J job-parallel      # name of the job
                #SBATCH -n 4                 # nr. tasks
                #SBATCH --time=00:20:00      # requested time
                #SBATCH --error=job.%J.err   # error file
-               #SBATCH --output=job.%J.out  # output file 
+               #SBATCH --output=job.%J.out  # output file
                #SBATCH --reservation=RPJM-course*FIXME* # reservation (optional)
 
                # Purge and load any modules you need, here for Python & SciPy-bundle
@@ -1989,7 +1989,7 @@ Exercises
       .. tab:: PDC
 
             .. code-block:: sh
-               
+
                #!/bin/bash -l
                #SBATCH -A naiss202u-vw-xyz  # your project_ID
                #SBATCH -J job-parallel      # name of the job
@@ -2004,9 +2004,9 @@ Exercises
                module load cray-python
                python script-df.py
 
-      
+
 .. solution:: Solution
-     
+
    .. code-block:: python
 
       import pandas as pd
@@ -2043,14 +2043,14 @@ Exercises
       mean_value = total_sum / len(data_df['Value'])
 
       # Print the mean value
-      print(mean_value)               
+      print(mean_value)
 
 
-.. seealso:: 
-         
+.. seealso::
+
       - `On parallel software engineering education using python <https://link.springer.com/article/10.1007/s10639-017-9607-0>`_
       - `List of parallel libraries for Python <https://wiki.python.org/moin/ParallelProcessing>`_
-      - `Wikipedias' article on Parallel Computing <https://en.wikipedia.org/wiki/Parallel_computing>`_ 
+      - `Wikipedias' article on Parallel Computing <https://en.wikipedia.org/wiki/Parallel_computing>`_
       - The book `High Performance Python <https://www.oreilly.com/library/view/high-performance-python/9781492055013/>`_ is a good resource for ways of speeding up Python code.
 
 
@@ -2058,4 +2058,4 @@ Exercises
 
    - You deploy cores and nodes via SLURM, either in interactive mode or batch
    - In Python, threads, distributed and MPI parallelization can be used.
-  
+

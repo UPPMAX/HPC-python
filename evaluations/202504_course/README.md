@@ -1,7 +1,7 @@
 # Evaluation 2025-04
 
 - [analysis.R](analyse.R)
-- Feedback from a learner: 
+- Feedback from a learner:
   [evaluation_202504_full_course.md](evaluation_202504_full_course.md)
 
 ## [Analysis](analyse.R)
@@ -112,7 +112,7 @@ for those who both need all of it and are somehow able to efficiently learn
 it the way it is now) if this content was divided between as much as
 four separate courses:
 
-- Intro to HPC, usage and management of software and code 
+- Intro to HPC, usage and management of software and code
   (Logging in, LMOD, SLURM; the things that are actually different
   between HPC and a single-user single computer)
 - Intro to Python (this already exists and is day 1)

@@ -30,15 +30,15 @@ Load and Run Seaborn
          To use Seaborn in a batch script, you can load
 
          .. code-block:: console
-        
+
             ml GCC/13.2.0 Seaborn/0.13.2
 
-         As usual, ``ml spider Seaborn`` shows the available versions and how to load them. These Seaborn modules are built to load their Matplotlib, Tkinter, and SciPy-bundle dependencies internally.           
+         As usual, ``ml spider Seaborn`` shows the available versions and how to load them. These Seaborn modules are built to load their Matplotlib, Tkinter, and SciPy-bundle dependencies internally.
 
    .. tab:: LUNARC (Cosmos)
 
       .. important:: **Interactive Use (Recommended)**
-      
+
          Start a Thinlinc session and open one of Spyder, Jupyter Lab, or VSCode from the On-Demand applications menu as discussed in the `On-Demand lesson <../day2/ondemand-desktop.rst>`__ from Day 2. Spyder and Jupyter Lab are configured to load Seaborn and all its dependencies automatically via the latest version of Anaconda, whereas VSCode requires modules to be selected to load as part of the additional job settings.
 
       .. admonition:: Non-Interactive Use
@@ -46,13 +46,13 @@ Load and Run Seaborn
          To use Seaborn in a batch script, you can either load
 
          .. code-block:: console
-        
+
             ml GCC/13.2.0 Seaborn/0.13.2
 
          if you prefer pip-installed Python packages, or you can load
 
          .. code-block:: console
-        
+
             ml Anaconda3/2024.06-1
 
          if you have a conda environment or otherwise prefer Anaconda. As usual, ``ml spider Seaborn`` shows the available versions and how to load them.
@@ -64,54 +64,54 @@ Load and Run Seaborn
          On Pelle, the only available Seaborn module right now is ``Seaborn/0.13.2-gfbf-2024a``, and it can be loaded directly, as shown below:
 
          .. code-block:: console
-        
+
             module load Seaborn/0.13.2-gfbf-2024a
-     
+
          This command also loads ``SciPy-bundle/2024.05-gfbf-2024a`` (which includes Numpy and Pandas) and ``matplotlib/3.9.2-gfbf-2024a``, but not any IDEs.
 
       .. admonition:: Interactive Use
 
-         In a Thinlinc session, open a terminal and start 
+         In a Thinlinc session, open a terminal and start
 
          ``interactive -A [project_name] -t HHH:MM:SS``
 
          as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. Once transferred to a compute node, load ``Seaborn/0.13.2-gfbf-2024a`` and then load and run your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__.
 
    .. tab:: NSC (Tetralith)
-     
+
       .. important:: **General Use**
 
          You should for this session load
 
          .. code-block:: console
-        
+
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11
 
          and then install ``seaborn`` to ``~/.local/`` if you don't already have it.
 
          .. code-block:: console
-        
+
             pip install seaborn
 
       .. admonition:: Interactive Use
 
-         In a Thinlinc session, open a terminal and start 
+         In a Thinlinc session, open a terminal and start
 
          ``interactive -A [project_name] -t HHH:MM:SS``
 
          as discussed in the `interactive usage lesson <../day2/interactive.rst>`__ on Day 2. Once transferred to a compute node, do
 
          .. code-block:: console
-        
+
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
          or swap JupyterLab for your preferred IDE following the `IDEs lesson from Day 2 <../day2/IDEs_cmd.rst>`__. Seaborn should not have to be loaded as a module since it would be installed in your home directory, which is always in ``$PATH``.
 
    .. tab:: Dardel (PDC)
 
-      - Jupyter Lab is only available on Dardel via ThinLinc. 
-      - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
-      - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
+      - Jupyter Lab is only available on Dardel via ThinLinc.
+      - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer.
+      - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime).
       - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below. The exercise prompts and their solutions are included on this page.
 
       .. important:: **General Use**
@@ -119,24 +119,24 @@ Load and Run Seaborn
          For this session, you could load
 
          .. code-block:: console
-        
+
             ml cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12
-     
+
      On Dardel, all cray-python versions include NumPy, SciPy, Pandas, and Dask, and do not have any prerequisites, but Seaborn is part of ``matplotlib/3.8.2-cpeGNU-23.12``, which has ``PDCOLD/23.12`` as a prerequisite. The versions available for cray-python and Matplotlib are limited because Dardel users are typically expected to build their own environments, but for this course, the installed versions are fine.
 
      .. admonition:: Interactive use with Thinlinc (If Available)
          :collapsible:
 
         - Start Jupyter from the menu and it will work
-   
+
              - Default Anaconda3 has all packages needed for this lesson
-   
+
         - Or use Spyder:
 
              First start interactive session
-   
-             .. code-block:: console 
-   
+
+             .. code-block:: console
+
                 salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934
                 salloc: Pending job allocation 9102757
                 salloc: job 9102757 queued and waiting for resources
@@ -144,17 +144,17 @@ Load and Run Seaborn
                 salloc: Granted job allocation 9102757
                 salloc: Waiting for resource configuration
                 salloc: Nodes nid001057 are ready for job
-   
+
              Then ssh to the specific node, like
-   
-             .. code-block:: console 
-   
-                ssh nid001057
-   
-             Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
-   
+
              .. code-block:: console
-   
+
+                ssh nid001057
+
+             Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+
+             .. code-block:: console
+
                 ml PDC/24.11
                 ml miniconda3/25.3.1-1-cpeGNU-24.11
                 export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
@@ -224,7 +224,7 @@ Seaborn plotting functions are designed to take Pandas DataFrames (or sometimes 
 * ``ax``---this kwarg takes the name of an axis object if you want to add your Seaborn plot(s) as subplots on an existing figure.
 
 .. admonition:: "Figure vs. Axis-level interfaces."
-   
+
    Whether you import ``matplotlib.pyplot`` and instantiate the usual ``fig, ax`` or not, Seaborn plotting commands look almost identical apart from the ``ax`` kwarg, which is only required if you want to add Seaborn subplots to other figures. If you use Seaborn plots with ``ax``, they are essentially drop-in replacements for other Matplotlib axes methods, but you lose some of the nicer automatic formatting features, like exterior legends. Without the ``ax`` kwarg, a Seaborn plot will occupy a whole figure, which can make it trickier to format axes labels properly. `A fuller explanation of the pros and cons of each approach is provided in the official documentation. <https://seaborn.pydata.org/tutorial/function_overview.html#figure-level-vs-axes-level-functions>`_.
 
 .. caution::
@@ -300,7 +300,7 @@ Let's drop 'cylinders', 'model_year', and 'name', and keep 'origin' for the ``hu
                    g.axes[i,j].set_xlabel('Weight [lbs]')
                else:
                    g.axes[i,j].set_xlabel(string.capwords(xlabel))
-                   
+
                if ylabel == 'mpg':
                    g.axes[i,j].set_ylabel('Fuel Economy [mpg]')
                elif ylabel=='weight':
@@ -314,7 +314,7 @@ As you can see, most of the code was spent fixing the labels. The plot itself re
 
 By default the off-diagonals are scatter plots, and the marginal distributions on the diagonal are either histograms if the data are not shaded by a categorical variable, or kernel density estimations (KDEs, basically histograms smoothed by convolution with a usually Gaussian kernel) if the ``hue`` kwarg is used. These options can be modified without resorting to ``PairGrid()``, as detailed `in the documentation <https://seaborn.pydata.org/generated/seaborn.pairplot.html#seaborn.pairplot>`__.
 
-.. challenge:: 
+.. challenge::
 
    Load the dataset ``'penguins'`` and make a pairplot where the data are colored by ``'species'``. You do not need to do anything to format the axis labels.
 
@@ -322,7 +322,7 @@ By default the off-diagonals are scatter plots, and the marginal distributions o
    :class: dropdown
 
    .. jupyter-execute::
-   
+
       import seaborn as sb
       from matplotlib import pyplot as plt
       dat = sb.load_dataset('penguins')
@@ -377,7 +377,7 @@ The ``mpg`` DataFrame can't be used directly, but the correlation matrix of it c
    :class: dropdown
 
    .. jupyter-execute::
-   
+
       import seaborn as sb
       mpg = sb.load_dataset('mpg')
       sb.clustermap(mpg.corr(numeric_only=True), annot=True, fmt=".2f", cbar_kws={'label':'Correlation Coefficients'})
@@ -394,4 +394,4 @@ The most handy kwargs for these two functions is ``annot``, which prints the val
    - Seaborn plotting functions take in a Pandas DataFrame, sometimes the names of variables in the DataFrame to extract as ``x`` and ``y``, and often a ``hue`` that makes different subsets of the data appear in different colors depending on the value of the given categorical variable.
    - Seaborn also offers datasets to play with.
    - Typesetting axes labels can be tedious, though.
-   - Saving and showing figures are best done with the standard ``pyplot`` functions. 
+   - Saving and showing figures are best done with the standard ``pyplot`` functions.

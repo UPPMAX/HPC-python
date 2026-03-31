@@ -8,7 +8,7 @@ Seaborn can produce a wide variety of statistical plots, and even offers built-i
 
 .. caution:: Don't Rely on Seaborn for Regression Analysis
 
-   We will not cover regression because Seaborn does not return any parameters needed to assess the 
+   We will not cover regression because Seaborn does not return any parameters needed to assess the
    quality of the fit. The official documentation itself warns that the Seaborn regression functions are
    only intended for quick and dirty visualizations to *motivate* proper in-depth analysis.
 
@@ -25,7 +25,7 @@ Load and Run Seaborn
          You should for this session load
 
          .. code-block:: console
-        
+
             ml GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 Seaborn/0.13.2
 
       As usual, you can check ``ml spider Seaborn`` to see the available versions and how to load them. These Seaborn modules are built to load their Matplotlib and SciPy-bundle dependencies internally.
@@ -42,37 +42,37 @@ Load and Run Seaborn
              Description:
                Seaborn is a Python visualization library based on matplotlib. It
                provides a high-level interface for drawing attractive statistical
-               graphics. 
-        
+               graphics.
+
               Versions:
                  Seaborn/0.12.1
                  Seaborn/0.12.2
                  Seaborn/0.13.2
-        
+
          ----------------------------------------------------------------------------
            For detailed information about a specific "Seaborn" package (including how to load the modules) use the module's full name.
            Note that names that have a trailing (E) are extensions provided by other modules.
            For example:
-        
+
               $ module spider Seaborn/0.13.2
          ----------------------------------------------------------------------------
 
    .. tab:: LUNARC
-  
+
       .. important::
 
          You should for this session load
 
          .. code-block:: console
-        
+
             ml GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2 Seaborn/0.13.2
 
       On COSMOS, it is recommended that you use the On-Demand Spyder or Jupyter Lab applications to use Seaborn. These applications are configured to load Seaborn and all its dependencies autonatically, including the SciPy-bundle. The demonstrations will be done on Cosmos with Spyder.
-  
+
       If you must work on the command line, then you will need to load Seaborn separately, along with any prerequisite modules. After importing Matplotlib, you will need to set ``matplotlib.use('Tkinter')`` in order to view your plots.
-  
+
       As of 27-11-2024, ``ml spider Seaborn`` outputs the following versions on COSMOS:
-  
+
       .. code-block:: console
 
          ----------------------------------------------------------------------------
@@ -81,21 +81,21 @@ Load and Run Seaborn
              Description:
                Seaborn is a Python visualization library based on matplotlib. It
                provides a high-level interface for drawing attractive statistical
-               graphics. 
-         
+               graphics.
+
               Versions:
                  Seaborn/0.11.2
                  Seaborn/0.12.1
                  Seaborn/0.12.2
                  Seaborn/0.13.2
-          
+
          ----------------------------------------------------------------------------
-           For detailed information about a specific "Seaborn" package (including how to 
+           For detailed information about a specific "Seaborn" package (including how to
          load the modules) use the module's full name.
            Note that names that have a trailing (E) are extensions provided by other modu
          les.
            For example:
-          
+
               $ module spider Seaborn/0.13.2
          ----------------------------------------------------------------------------
 
@@ -106,32 +106,32 @@ Load and Run Seaborn
          You should for this session load
 
          .. code-block:: console
-        
+
             module load python/3.11.8
-     
+
       On Rackham, Seaborn/0.13.2 is included in ``python_ML_packages/3.11.8-cpu``. Jupyter-Lab is available but Spyder is not installed centrally.
 
    .. tab:: Tetralith
-     
+
       .. important::
 
          You should for this session load
 
          .. code-block:: console
-        
+
             module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
 
          - And install ``seaborn`` to ``~/.local/`` if you don't already have it
 
          .. code-block:: console
-        
+
             pip install seaborn
 
    .. tab:: Dardel (PDC)
 
-     - Jupyter Lab is only available on Dardel via ThinLinc. 
-     - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer. 
-     - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime). 
+     - Jupyter Lab is only available on Dardel via ThinLinc.
+     - As there are only 30 ThinLinc licenses available at this time, we recommend that you work on the exercises with a local installation on a personal computer.
+     - Do not trust that a ThinLinc session will be available or that On-Demand applications run therein will start in time for you to keep up (it is not unusual for wait times to be longer than the requested walltime).
      - The exercises were written to work on a regular laptop. If you must work on Dardel, follow the steps below, and view the `exercises <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises.ipynb>`_ and `solutions <https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/HPC-Pandas-exercises-solutions.ipynb>`_ in the GitHub repository (they should render correctly).
 
      .. important::
@@ -139,21 +139,21 @@ Load and Run Seaborn
         For this session, you could load
 
         .. code-block:: console
-        
+
            ml cray-python/3.11.7
-     
+
      On Dardel, all cray-python versions include NumPy, SciPy, and Pandas, and do not require any prerequisites. Matplotlib is separate and will have to be loaded using ``ml PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12``, where PDC/23.12 is a prerequisite. The versions available for for both cray-python and matplotlib are limited because it is generally assumed that most users will build their own environments, but the installed versions are fine for this course.
 
 
      - ALTERNATIVE IF THINLINC IS AVAILABLE
-     - Start Jupyter from the Menu and it will work! 
+     - Start Jupyter from the Menu and it will work!
 
           - Default Anaconda 3 has all packages needed for this lesson
 
      - OR USE SPYDER:
           - start interactive session
 
-          .. code-block:: console 
+          .. code-block:: console
 
              salloc --ntasks=4 -t 0:30:00 -p shared --qos=normal -A naiss2025-22-934
              salloc: Pending job allocation 9102757
@@ -165,7 +165,7 @@ Load and Run Seaborn
 
           We need to ssh to the specific node, like
 
-          .. code-block:: console 
+          .. code-block:: console
 
              ssh nid001057
 
@@ -196,7 +196,7 @@ This tutorial will make use of some of the free test data sets that Seaborn prov
 * ``'iris'``, measurements of the petal and sepal dimensions of three species of iris flower.
 * ``'titanic'``, records of the ticket class, demographics, and survival status of passengers on the Titanic
 * ``'mpg'``, information about the model, year, physical characteristics, engine specifications, and fuel economy of a variety of cars.
-* ``'planets'``, a much older, smaller sample of the exoplanets data we used in the Matplotlib seminar, with fewer physical and orbital parameters. Hopefully it will be updated soon. 
+* ``'planets'``, a much older, smaller sample of the exoplanets data we used in the Matplotlib seminar, with fewer physical and orbital parameters. Hopefully it will be updated soon.
 
 For most of this tutorial, we will use the ``'mpg'`` dataset. For a more categorical dataset, we will use the ``'titanic'`` set.
 
@@ -207,21 +207,21 @@ Seaborn plotting functions are designed to take Pandas DataFrames (or sometimes 
 
 * ``data``---the DataFrame in which to search for the remaining kwargs. You can pass it as either the first positional arg or as a kwarg, but it's mandatory either way.
 * ``x`` and ``y``---the names of two columns in your DataFrame to plot against each other. These are usually necessary, but not if you're plotting every possible pairing of numerical data columns against each other all at once, as in ``pairplot`` or ``heatmap``.
-* ``hue``---this kwarg accepts a categorical variable (e.g. species, sex, brand, etc.) column name, groups the data by those categories, and plots them all on the same plot in a different color. 
+* ``hue``---this kwarg accepts a categorical variable (e.g. species, sex, brand, etc.) column name, groups the data by those categories, and plots them all on the same plot in a different color.
 
    - The default colors are usually fine if you have <5 categories, but if you want to change them, you can set your code under `with sb.color_palette("<palette>")` where `<palette>` can be any of the options described `in the official documentation <https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette>`_. You can also set your own palette for the whole session with ``sb.set_palette(your_color_list)``.
 
 * ``ax``---this kwarg takes the name of an axis object if you want to add your Seaborn plot(s) as subplots on an existing figure.
 
 .. note::
-   
+
    **Figure vs. Axis-level interfaces.** Whether you import ``matplotlib.pyplot`` and instantiate the usual ``fig, ax`` or not, Seaborn plotting commands look almost identical apart from the ``ax`` kwarg, which you only need to add Seaborn subplots to other figures. If you use Seaborn plots with ``ax``, they are essentially drop-in replacements for other Matplotlib axes methods, but you lose some of the nicer automatic formatting features, like exterior legends. Without the ``ax`` kwarg, a Seaborn plot will occupy a whole figure, which can make it trickier to format axes labels properly. `A fuller explanation of the pros and cons of each approach is provided in the official documentation. <https://seaborn.pydata.org/tutorial/function_overview.html#figure-level-vs-axes-level-functions>`_.
 
 .. caution::
 
    Seaborn typically titles axes by the variable names as they appear in the DataFrame, underscores and all. It's easy enough to override the labels for a simple pairwise plot, but correcting the typesetting can get tedious and tricky when there are many subplots. Since proper typesetting is necessary for figures to be published, an upcoming example will demonstrate one possible way to fix the axis label formatting.
 
-Another common feature of Seaborn is that many of the high-level functions that you would ordinarily use are actually wrappers for more flexible base classes with methods that let you layer different plot types on top of each other. We'll only cover one case here, but keep it in mind when you 
+Another common feature of Seaborn is that many of the high-level functions that you would ordinarily use are actually wrappers for more flexible base classes with methods that let you layer different plot types on top of each other. We'll only cover one case here, but keep it in mind when you
 
 
 Plotting with Seaborn
@@ -237,7 +237,7 @@ Here we will explore a few of the plot types Seaborn offers that are difficult t
 Joint Plots
 ^^^^^^^^^^^
 
-A joint plot is a plot of 2 variables against each other with small histograms of each variable along the top and right sides of the plot. If you participated in the Matplotlib tutorial, you saw how tedious this is to make in pure Matplotlib. But what takes at least a dozen lines of code in pure Matplotlib can be done in 1 line with Seaborn. 
+A joint plot is a plot of 2 variables against each other with small histograms of each variable along the top and right sides of the plot. If you participated in the Matplotlib tutorial, you saw how tedious this is to make in pure Matplotlib. But what takes at least a dozen lines of code in pure Matplotlib can be done in 1 line with Seaborn.
 
 To demonstrate with the ``'mpg'`` dataset, let's plot the fuel economy in mpg against vehicle weight. As a bonus, let's color the data by region of origin.
 
@@ -253,12 +253,12 @@ To demonstrate with the ``'mpg'`` dataset, let's plot the fuel economy in mpg ag
 
 The only kwarg shown that we didn't cover already is `marginal_tick`, which shows the y-axis ticks for the marginal probability distributions (the smoothed histograms along the sides). Normally they are off (``False``) to avoid overlap with the main axis ticks.
 
-By default the main plot is a scatter plot, and the marginal plots are either histograms if the data are not shaded by a categorical variable, or kernel density estimations (KDEs, which are basically histograms smoothed by convolution with a usually Gaussian kernel) if the ``hue`` kwarg is used. The type of central plot can be changed with the ``kind`` kwarg, which also accepts 
+By default the main plot is a scatter plot, and the marginal plots are either histograms if the data are not shaded by a categorical variable, or kernel density estimations (KDEs, which are basically histograms smoothed by convolution with a usually Gaussian kernel) if the ``hue`` kwarg is used. The type of central plot can be changed with the ``kind`` kwarg, which also accepts
 
-- ``'scatter'``, 
-- ``'hist'``, 
-- ``'hex'`` (for hexbin), 
-- ``'kde'`` (which plots contours of the smoothed bivariate distribution), 
+- ``'scatter'``,
+- ``'hist'``,
+- ``'hex'`` (for hexbin),
+- ``'kde'`` (which plots contours of the smoothed bivariate distribution),
 - ``'reg'`` (which does linear regression internally and plots the trendline over a scatter plot), and
 - ``'resid'`` (which does linear regression internally and makes a scatter plot of the data minus the trend).
 
@@ -305,7 +305,7 @@ Let's drop 'cylinders', 'model_year', and 'name', and keep 'origin' for the ``hu
                    g.axes[i,j].set_xlabel('Weight [lbs]')
                else:
                    g.axes[i,j].set_xlabel(string.capwords(xlabel))
-                   
+
                if ylabel == 'mpg':
                    g.axes[i,j].set_ylabel('Fuel Economy [mpg]')
                elif ylabel=='weight':
@@ -353,7 +353,7 @@ For the ``map_`` commands, the kwargs depend on the type of plot that was passed
 Heatmap and Clustermap
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Sometimes you have too many variables to look at with pairplots or corner plots, and the best you can do is map the correlation coefficients between different parameters. Alternatively, you might have a DataFrame with a comparable number of numeric rows and columns, and you want to see how the rows and columns correlate. Either way, the DataFrame must be able to be coerced to ``ndarray``. 
+Sometimes you have too many variables to look at with pairplots or corner plots, and the best you can do is map the correlation coefficients between different parameters. Alternatively, you might have a DataFrame with a comparable number of numeric rows and columns, and you want to see how the rows and columns correlate. Either way, the DataFrame must be able to be coerced to ``ndarray``.
 
 Once again, this type of plot is extremely tedious to make in pure Matplotlib, but in Seaborn, it can require as little as one line of code. There are two functions that do this: ``sb.heatmap()`` and ``sb.clustermap()``. The main difference between the two is that the latter attempts to rearrange variables such that those that are correlated are positioned next to each other on the plot, while the former simply lists the variables in the order they were given in the DataFrame.
 
@@ -382,7 +382,7 @@ The most handy kwargs for these two functions is ``annot``, which prints the val
 Violin Plots and the Like
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Seaborn offers several plots in the boxplot/violinplot mold. ``sb.swarmplot()`` (essentially a scatter plot shaped like a violin plot) and ``sb.boxenplot()`` (like a hybrid of box plot and histogram) have no Matplotlib counterpart. Even those with Matplotlib analogs are much easier to make and come out with a much more viewer-friendly appearance. Partly this is because Seaborn makes it so much easier to color different datasets, which in Matplotlib involves painstakingly drawing and filling in separate patches for each dataset. 
+Seaborn offers several plots in the boxplot/violinplot mold. ``sb.swarmplot()`` (essentially a scatter plot shaped like a violin plot) and ``sb.boxenplot()`` (like a hybrid of box plot and histogram) have no Matplotlib counterpart. Even those with Matplotlib analogs are much easier to make and come out with a much more viewer-friendly appearance. Partly this is because Seaborn makes it so much easier to color different datasets, which in Matplotlib involves painstakingly drawing and filling in separate patches for each dataset.
 
 In matplotlib, the default violin plot only shows the median, limits, and the kde of the distributions, all in a uniform color. Seaborn also over-plots a thin box-and-whisker plot (without the fliers) to show the quartiles, it shades different datasets by ``hue`` automatically, and it offers a ``split`` feature that allows you to show a second categorical variable on the same plot as long as it only takes 2 values. Let's have a look using the ``'titanic'`` dataset.
 
@@ -401,7 +401,7 @@ And now let's see the same plot with ``split=True``.
    tdf = sb.load_dataset('titanic')
    sb.violinplot(data=tdf, x="class", y="age", hue="alive", split=True)
 
-There are dozens of other kwargs to control the appearance of different elements of the plot, but exploring them is left as an exercise to the reader. Instead, let's look at a plot that has a similar shape but shows individual data points: ``sb.swarmplot()``. This plot type is useful for smaller datasets where you are suspicious that a KDE or boxplot might smooth out important small-scale structures. 
+There are dozens of other kwargs to control the appearance of different elements of the plot, but exploring them is left as an exercise to the reader. Instead, let's look at a plot that has a similar shape but shows individual data points: ``sb.swarmplot()``. This plot type is useful for smaller datasets where you are suspicious that a KDE or boxplot might smooth out important small-scale structures.
 
 
 .. jupyter-execute::

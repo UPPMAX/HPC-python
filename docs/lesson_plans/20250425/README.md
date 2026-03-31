@@ -68,7 +68,7 @@ Discuss questions from `[Cook & Friend, 1995]`:
 - R: perfectly fine
 
 > 3. To what degree do I believe that there is more than one right
-> way to carry out almost any teaching/learning task? 
+> way to carry out almost any teaching/learning task?
 
 - B:
 - R: I believe that and am interested to find out other ways
@@ -82,7 +82,7 @@ Discuss questions from `[Cook & Friend, 1995]`:
 
 And `[Hepner & Newman, 2010]`:
 
-> Are you flexible or able to compromise your beliefs? 
+> Are you flexible or able to compromise your beliefs?
 > Which one(s) will you not compromise?
 
 - R: I can compromise on any beliefs based on evidence
@@ -108,7 +108,7 @@ And `[Hepner & Newman, 2010]`:
 
 Study           |Relevance/quality
 ----------------|---------------------
-`[Sharon, 2014]`|Low, only 12 teachers, close to anecdotal 
+`[Sharon, 2014]`|Low, only 12 teachers, close to anecdotal
 
 
 Study           |Number of co-teachers
@@ -131,7 +131,7 @@ From `[Cook & Friend, 1995]`:
 > - 2. How willing am I to allow a colleague to see aspects of my
 >   teaching in which I am not particularly skilled?
 > - 3. To what degree do I believe that there is more than one right
->   way to carry out almost any teaching/learning task? 
+>   way to carry out almost any teaching/learning task?
 > - 4. How willing am I to tell a colleague when I disagree about an
 >   issue or have a concern?
 
@@ -161,7 +161,7 @@ Discipline           |What is acceptable and unacceptable student behavior?
 Feedback             |What is the best way to give each other feedback?
 .                    |How will you ensure that both positive and negative issues are raised?
 Pet Peeves           |What aspects of teaching and classroom life do each of us feel strongly about?
-.                    |How can we identify our pet peeves so as to avoid them? 
+.                    |How can we identify our pet peeves so as to avoid them?
 
 From `[Sharon, 2014]`:
 
@@ -221,10 +221,10 @@ From  `[Conderman et al., 2008]`:
 > 28. We are both viewed by our students as their teacher
 > 29. We include students in the co-teaching role
 > 30. We depend on one another to follow through on responsibilities
-> 31. We seek and enjoy additional training to improve our co-teaching. 
+> 31. We seek and enjoy additional training to improve our co-teaching.
 > 32. We are mentors to others who want to co-teach.
 > 33. We use various co-teaching models.
-> 34. We communicate our needs to our administrators. 
+> 34. We communicate our needs to our administrators.
 > 35. We respect and appreciate the contributions of our co-teacher
 
 
@@ -234,7 +234,7 @@ From `[Hepner & Newman, 2010]`:
 > how successful co-teachers use their planning time:
 >
 > - `1`. Successful co-teachers trust their partners and rely on their partner’s
->   strengths and contributions to facilitate the planning process. 
+>   strengths and contributions to facilitate the planning process.
 >   These coteaching partnerships have confidence in each other and delegate
 >   responsibilities, knowing that the work will be done.
 > - `2`. Successful co-teachers use structured learning environments to help them
@@ -324,11 +324,11 @@ From `[Hepner & Newman, 2010]`:
 >   elaboration, evidence, and justification?
 > - `5`. Do we have students ask questions of each other and themselves,
 >    and make
->   them aware of the different levels of cognition 
+>   them aware of the different levels of cognition
 >   (from fact-level to higherorder questions)?
 > - `6`. Do we wait before calling on students so that they have time to fully
 >   process the question and formulate their response?
-> - `7`. Do we have a clear, instructional purpose and accomplish it by 
+> - `7`. Do we have a clear, instructional purpose and accomplish it by
 >   planning a sequence of activities that promote active involvement
 >   with the content, as
 >   well as with peers?
@@ -340,7 +340,7 @@ From `[Hepner & Newman, 2010]`:
 > As teachers work to develop a co-teaching relationship, it is important to
 > consider the following questions:
 >
-> - Are you flexible or able to compromise your beliefs? 
+> - Are you flexible or able to compromise your beliefs?
 >   Which one(s) will you not compromise?
 > - What skills can you contribute to the co-teaching team that will allow you to
 >   be successful?
@@ -363,7 +363,7 @@ From `[Chapple, 2009]`:
 > If co-teachers were not of the
 > same philosophical beliefs -that is, that all children can learn and that inclusion is
 > essential for co-teaching to be successful- then the practice of co-teaching would not be
-> effective. 
+> effective.
 
 From `[Walther-Thomas et al., 1996]`, to discuss at a first meeting:
 

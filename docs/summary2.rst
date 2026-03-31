@@ -17,8 +17,8 @@ Summary day 2
             - ``pip list`` command at both centers
             - ``ml help python/3.11.8`` at UPPMAX
             - ``module -r spider '.*Python.*'`` at otherwise
-     
-   - Install packages and use isolated environments 
+
+   - Install packages and use isolated environments
       - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
       - Make it for each project you have for reproducibility.
       - There are different tools to create virtual environments.
@@ -28,7 +28,7 @@ Summary day 2
       - Conda (available everywhere but not HPC2N)
          - Conda is an installer of packages but also bigger toolkits
              - Conda creates isolated environments as well
-             - requires that you install all packages needed. 
+             - requires that you install all packages needed.
          - Rackham: Pip or secondary conda
          - Bianca: conda and secondary wharf + (pip or conda)
 
@@ -48,6 +48,6 @@ Summary day 2
            - Possible at the others through virtual environments (pip) or Conda (not HPC2N)
        - VScode
            - Always available (except for Bianca) from local computer (if you have VS Code)
-           - available as modules or 
+           - available as modules or
            - from onDemand at Cosmos and Kebnekaise
 

@@ -77,7 +77,7 @@ Schedule Autumn 2025
       - `LUNARC <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
       - `NSC <https://www.nsc.liu.se/support/>`_
       - `PDC <https://support.pdc.kth.se/doc/applications/python/>`_
-      - `C3SE <https://www.c3se.chalmers.se/documentation/module_system/python/>`_  
+      - `C3SE <https://www.c3se.chalmers.se/documentation/module_system/python/>`_
 
 .. admonition:: Some practicals
 

@@ -31,7 +31,7 @@ The IDEs
 Prepare environment!
 --------------------
 
-.. admonition:: 
+.. admonition::
 
    - We recommend a desktop environment for speed of the graphics.
    - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
@@ -39,14 +39,14 @@ Prepare environment!
 1. Log in to a desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
 2. Start interactive session with 6 cores
 
-.. admonition:: Compute allocations in this workshop 
-   :class: dropdown   
+.. admonition:: Compute allocations in this workshop
+   :class: dropdown
 
    - Pelle: ``uppmax2025-2-393``
    - Kebnekaise: ``hpc2n2025-151``
    - Cosmos: ``lu2025-7-106``
    - Alvis: ``naiss2025-22-934``
-   - Tetralith: ``naiss2025-22-934``  
+   - Tetralith: ``naiss2025-22-934``
    - Dardel: ``naiss2025-22-934``
 
 Jupyter
@@ -69,34 +69,34 @@ Jupyter can be slow when using a remote desktop website (e.g. ``pelle-gui.uppmax
 
 Local notes
 
-.. tabs::   
+.. tabs::
 
    .. tab:: NSC
 
-      - You can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster. 
+      - You can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster.
 
    .. tab:: UPPMAX
 
       - One can use a locally installed ThinLinc client to speed up Jupyter. See the UPPMAX `documentation on ThinLinc <https://docs.uppmax.uu.se/software/thinlinc/>`_ on how to install the ThinLinc client locally
 
    .. tab:: HPC2N
-        
+
       - JupyterLab is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
       - **Better use OnDemand!**
 
    .. tab:: LUNARC
 
-      - You can run Jupyter either in compute nodes through Anaconda or through the **LUNARC HPC desktop**. The latter is recommended. 
+      - You can run Jupyter either in compute nodes through Anaconda or through the **LUNARC HPC desktop**. The latter is recommended.
       - Spyder as well!
-      - There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_. 
-      
+      - There is information about `Jupyter at LUNARC in their documentation <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#jupyter-lab>`_.
+
 .. tabs::
 
    .. tab:: NSC
 
       **Through ThinLinc**
 
-         1. Login with ThinLinc (https://www.nsc.liu.se/support/graphics/) 
+         1. Login with ThinLinc (https://www.nsc.liu.se/support/graphics/)
 
             - Download the client matching your local computer's OS and install it.
             - Start the ThinLinc client.
@@ -104,11 +104,11 @@ Local notes
             - Change the “Name” setting to your Tetralith username (e.g x_abcde).
             - Enter your cluster Tetralith password in the “Password” box.
             - Press the “Connect” button.
-            - If you connect for the first time, you will see the “The server’s host key is not cached …” dialog. 
+            - If you connect for the first time, you will see the “The server’s host key is not cached …” dialog.
 
          2. Load a JupyterLab module
 
-            - Open a terminal    
+            - Open a terminal
             - This is an example for JupyterLab 4.2.0
 
             .. code-block:: console
@@ -117,8 +117,8 @@ Local notes
 
          3. Start JupyterLab
 
-            - Type ``jupyter-lab`` in the terminal 
-            - It will show some text, including telling you to open a url in a browser (inside ThinLinc/on Tetralith). If you just wait, it will open a browser with Jupyter.   
+            - Type ``jupyter-lab`` in the terminal
+            - It will show some text, including telling you to open a url in a browser (inside ThinLinc/on Tetralith). If you just wait, it will open a browser with Jupyter.
 
             - It will look similar to this:
 
@@ -130,7 +130,7 @@ Local notes
 
       **On your own computer through SSH tunneling**
 
-         1. Either do a regular SSH or use ThinLinc to connect to tetralith (change to your own username): 
+         1. Either do a regular SSH or use ThinLinc to connect to tetralith (change to your own username):
 
             ``ssh x_abcde@tetralith.nsc.liu.se``
 
@@ -138,7 +138,7 @@ Local notes
 
             ``cd <my-workdir>``
 
-         3. Load a module with JupyterLab in (here JupyterLab 4.2.0) 
+         3. Load a module with JupyterLab in (here JupyterLab 4.2.0)
 
             .. code-block:: console
 
@@ -148,20 +148,20 @@ Local notes
 
             - ``jupyter-lab --no-browser``
 
-            - You get something that looks like this: 
+            - You get something that looks like this:
 
             .. admonition:: Terminal view
                :class: dropdown
 
                .. figure:: ../img/jupyter-no-browser-nsc.png
 
-         Where I have marked a line with relevant info. Note that the port will change. 
+         Where I have marked a line with relevant info. Note that the port will change.
 
-         5. Open a second terminal, on your home computer. Input this: 
+         5. Open a second terminal, on your home computer. Input this:
 
             - ``ssh -N -L localhost:88XX:localhost:88XX x_abcde@tetralith1.nsc.liu.se``
 
-            where you change 88XX to the actual port you got, and the name to your username. In my example it would be: 
+            where you change 88XX to the actual port you got, and the name to your username. In my example it would be:
 
             - ``ssh -N -L localhost:8867:localhost:8867 x_birbr@tetralith1.nsc.liu.se``
 
@@ -169,10 +169,10 @@ Local notes
                   :class: dropdown
 
                   .. figure:: ../img/local-ssh-to-nsc.png
-            
-         6. Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5. 
 
-            - Input that line (url with token) in a browser on your local machine. You wil get something similar to this: 
+         6. Now grab the line that is similar to the one I marked in 4. and which has the same port as you used in 5.
+
+            - Input that line (url with token) in a browser on your local machine. You wil get something similar to this:
 
             .. admonition:: Webbrowser view
                   :class: dropdown
@@ -183,7 +183,7 @@ Local notes
    .. tab:: PDC
 
       You can interactively launch Jupyter Lab and Notebook on Dardel by following the steps as below. Hopefully the ThinLinc licenses are sufficient!
-      
+
 
          1. Click on Applications -> PDC-Jupyter -> Jupyter Lab or Jupyter Notebook
 
@@ -204,7 +204,7 @@ Local notes
             .. admonition:: GfxLauncher view
                   :class: dropdown
 
-                  .. figure:: ../img/pdc_reconnect_to_jupyter.png      
+                  .. figure:: ../img/pdc_reconnect_to_jupyter.png
 
    .. tab:: UPPMAX
 
@@ -213,7 +213,7 @@ Local notes
       .. tabs::
 
          .. tab:: Pelle
-            
+
             - Alt1. Login to the remote desktop website at ``pelle-gui.uppmax.uu.se``
             - Alt2. Login to your local ThinLinc client  at ``pelle-gui.uppmax.uu.se``
 
@@ -228,13 +228,13 @@ Local notes
       .. tabs::
 
          .. tab:: Pelle
-            
+
             .. code-block:: sh
 
                $ interactive -A uppmax2025-2-393 -t 1:00:00
 
          .. tab:: Bianca
-            
+
             .. code-block:: sh
 
                $ interactive -A <proj> -t 1:00:00
@@ -246,7 +246,7 @@ Local notes
       .. tabs::
 
          .. tab:: Pelle
-            
+
             .. code-block:: sh
 
                $ ml JupyterLab/4.2.5-GCCcore-13.3.0
@@ -261,7 +261,7 @@ Local notes
             - Copy the URL containing ``pXXX``
 
          .. tab:: Bianca
-            
+
             .. code-block:: sh
 
                module load python/3.11.8
@@ -274,7 +274,7 @@ Local notes
 
             - This will start a jupyter server session so leave this terminal open. The terminal will also display multiple URLs.
             - Copy the URL containing ``sensXXXXXXX``
- 
+
       **4. Connect to the running Jupyter server**
 
       *On ThinLinc*
@@ -287,8 +287,8 @@ Local notes
 
             * browse to the URLs, which will be similar to ``http://p115.uppmax.uu.se:8888/lab?token=73178b5ec897ae9bed6ae4b1815137d83dff671562574989``
             * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Pelle.
-            
-         .. tab:: Bianca 
+
+         .. tab:: Bianca
 
             * Browse to the URLs, which will be similar to ``http://sens2017625-b9.uppmax.uu.se:8888/tree?token=002be4f71fe1b8dd95c0024de24af08b700cdefdf4b977c4``
             * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Bianca.
@@ -338,7 +338,7 @@ Local notes
 
    .. tab:: HPC2N
 
-      Since the JupyterLab will only be accessible from within HPC2N's domain, it is by far easiest to do this from inside ThinLinc, so **this is highly recommended**. You can find information about using ThinLinc at `HPC2N's documentation <https://docs.hpc2n.umu.se/software/jupyter/>`_ 
+      Since the JupyterLab will only be accessible from within HPC2N's domain, it is by far easiest to do this from inside ThinLinc, so **this is highly recommended**. You can find information about using ThinLinc at `HPC2N's documentation <https://docs.hpc2n.umu.se/software/jupyter/>`_
 
 
       **1. Check JupyterLab version**
@@ -366,7 +366,7 @@ Local notes
             $ module load GCC/12.3.0 JupyterLab/4.0.5
 
       **2. Start Jupyter on the compute node**
-      
+
          Make a submit file with the following content. You can use any text editor you like, e.g. ``nano`` or ``vim``.
          Something like the file below will work. Remember to change the project id after the course, how many cores you need, and how long you want the JupyterLab to be available:
 
@@ -403,7 +403,7 @@ Local notes
             $ sbatch MyJupyterLab.sh
 
       **3. Connect to the running Jupyter server**
-      
+
          Wait until the job gets resources allocated. Check the SLURM output file; when the job has resources allocated it will have a number of URLs inside at the bottom.
 
          The SLURM output file is as default named ``slurm-<job-id>.out`` where you get the ``<job-id>`` when you submit the SLURM submit file (from previous step).
@@ -449,7 +449,7 @@ Local notes
                   http://127.0.0.1:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1
                [I 2024-03-09 15:35:31.078 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
 
-         
+
          To access the server, go to ``file:///.local/share/jupyter/runtime/jpserver-<newest>-open.html`` from a browser within the ThinLinc session. <newest> is a number that you find by looking in the directory ``.local/share/jupyter/runtime/`` under your home directory.
 
          Or, to access the server you can copy and paste the URL from the file that is SIMILAR to this: ``http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1``
@@ -471,9 +471,9 @@ Local notes
 
       **For the course:**
 
-         If you want to start a Jupyter with access to matplotlib and seaborn, for use with this course for the session on matplotlib, then do the following: 
+         If you want to start a Jupyter with access to matplotlib and seaborn, for use with this course for the session on matplotlib, then do the following:
 
-         3.1. Start ThinLinc and login to HPC2N as described under `preparations <https://uppmax.github.io/HPC-python/preparations.html>`_ 
+         3.1. Start ThinLinc and login to HPC2N as described under `preparations <https://uppmax.github.io/HPC-python/preparations.html>`_
 
          3.2 Load these modules
 
@@ -481,9 +481,9 @@ Local notes
 
                module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5
 
-         3.3. Make a submit file with this content 
+         3.3. Make a submit file with this content
 
-            .. code-block:: 
+            .. code-block::
 
                #!/bin/bash
                #SBATCH -A hpc2n2025-151
@@ -496,7 +496,7 @@ Local notes
                module purge > /dev/null 2>&1
 
                # Load the module environment suitable for the job
-               module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5 
+               module load GCC/12.3.0 Python/3.11.3 OpenMPI/4.1.5 SciPy-bundle/2023.07 matplotlib/3.7.2 Seaborn/0.13.2 JupyterLab/4.0.5
 
                # Start JupyterLab
                jupyter lab --no-browser --ip $(hostname)
@@ -505,7 +505,7 @@ Local notes
 
             It will be **SIMILAR** to this : ``http://b-cn1520.hpc2n.umu.se:8888/lab?token=c45b36c6f22322c4cb1e037e046ec33da94506004aa137c1``
 
-         3.5. Open a browser inside ThinLinc and put in the URL similar to above. 
+         3.5. Open a browser inside ThinLinc and put in the URL similar to above.
 
 
    .. tab:: LUNARC
@@ -552,7 +552,7 @@ Principles
 
    .. tab:: NSC
 
-      Spyder is not available on Tetralith. 
+      Spyder is not available on Tetralith.
 
       - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
@@ -583,7 +583,7 @@ Principles
 
    .. tab:: UPPMAX
 
-      Spyder is not available centrally on Rackham. 
+      Spyder is not available centrally on Rackham.
 
       - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
 
@@ -598,23 +598,23 @@ Principles
 
    .. tab:: LUNARC
 
-      - On COSMOS, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under ``Applications - Python``. 
-      - All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes. 
+      - On COSMOS, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under ``Applications - Python``.
+      - All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes.
       - Refer to `the Desktop On Demand documentation <https://uppmax.github.io/HPC-python/day1/ondemand-desktop.html>`_ to help you fill in GfxLauncher prompt.
 
       Avoid launching Spyder from the command line on the login node.
 
    .. tab:: HPC2N
 
-      - The only available version of Spyder on Kebnekaise is Spyder/4.1.5 for Python-3.8.2 (the latest release of Spyder available for users to install in their own environments is 6.0.2). 
-      - Python 3.8.2 is associated with compatible versions of Matplotlib and Pandas, but not Seaborn or any of the ML packages to be covered later. 
+      - The only available version of Spyder on Kebnekaise is Spyder/4.1.5 for Python-3.8.2 (the latest release of Spyder available for users to install in their own environments is 6.0.2).
+      - Python 3.8.2 is associated with compatible versions of Matplotlib and Pandas, but not Seaborn or any of the ML packages to be covered later.
       - To run the available version of Spyder, run the following commands:
 
       .. code-block:: console
 
          ml GCC/9.3.0  OpenMPI/4.0.3  Python  Spyder
          spyder3
-      
+
       If you want a newer version with more and newer compatible Python packages, you will have to create a virtual environment.
 
 
@@ -655,7 +655,7 @@ For the HPC clusters below you need to connect from a local VSCode client (works
 - Kebnekaise
 
 
-On your own computer through SSH tunneling 
+On your own computer through SSH tunneling
 ############################################
 
 Install VS Code on your local machine and follow the steps below to connect to the HPC center resources.
@@ -664,8 +664,8 @@ Install VS Code on your local machine and follow the steps below to connect to t
    :class: dropdown
 
    .. figure:: ../img/vscode_remote_tunnels_before_install.png
-   
-   Since most  now has added the TOTP feature you have to make another setting as well.  
+
+   Since most  now has added the TOTP feature you have to make another setting as well.
 
    - Go to settings (the lower-left corner wheel):
 
@@ -680,20 +680,20 @@ Install VS Code on your local machine and follow the steps below to connect to t
    First time connection
 
    .. figure:: ../img/vscode_add_new_remote.png
-   
-   Type ssh [username]@<cluster address> where [username] is your cluster username, for example, ssh sven@tetralith.uppmax.uu.se. 
-   This will change as per the HPC center you are using:  
-   
+
+   Type ssh [username]@<cluster address> where [username] is your cluster username, for example, ssh sven@tetralith.uppmax.uu.se.
+   This will change as per the HPC center you are using:
+
    .. figure:: ../img/vscode_ssh_to_rackham.png
-   
-   Use the ~/.ssh/config file:  
-   
+
+   Use the ~/.ssh/config file:
+
    .. figure:: ../img/vscode_remote_tunnels_use_ssh_config_in_home.png
 
    Click on "Connect"
-      
+
    .. figure:: ../img/vscode_connect_to_rackham.png
-   
+
    .. figure:: ../img/vscode_connected_to_rackham.png
 
 When you first establish the ssh connection to the cluster, your VSCode server directory .vscode-server will be created in your home folder /home/[username].

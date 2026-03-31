@@ -6,7 +6,7 @@
 - [Lesson plan](../../docs/lesson_plans/20250425/README.md)
 
 My session went reasonably well. I felt tight on time,
-and there were 2 technical problems, 
+and there were 2 technical problems,
 but success rates were high (see below) anyways.
 
 I've seen that a colleague discussed how to get the tarball
@@ -53,22 +53,22 @@ of people outside of class being able to see these recording:
 - Using live recordings as a supplementary tool may not be worth it in our settings,
   as 'No performance advantage was found for viewing recordings despite students'
   positive perception of their utility.'
-  [Lesser, Melissa, and Lora Packel. "Educational Lessons from a Pandemic: 
-  Lecture Recording and Learning Outcomes." 
-  Internet Journal of Allied Health Sciences and Practice 22.2 (2024): 9., 
+  [Lesser, Melissa, and Lora Packel. "Educational Lessons from a Pandemic:
+  Lecture Recording and Learning Outcomes."
+  Internet Journal of Allied Health Sciences and Practice 22.2 (2024): 9.,
   [Link to paper](https://nsuworks.nova.edu/ijahsp/vol22/iss2/9/)]
-- 'The main finding is that students using the online lectures 
-  as a substitute for attending lectures are ultimately 
+- 'The main finding is that students using the online lectures
+  as a substitute for attending lectures are ultimately
   at a fairly severe disadvantage in terms of their final marks'
   [Williams, Andrew, Elisa Birch, and Phil Hancock. "The impact of online lecture recordings on student performance."
-  Australasian Journal of Educational Technology 28.2 (2012), 
+  Australasian Journal of Educational Technology 28.2 (2012),
   [Link to paper](https://ajet.org.au/index.php/AJET/article/view/869)].
 - I found most experimental papers do not compare with live recording (it
   is usual pre-recorded versus an unrecorded/live lesson).
   The exception is a paper that does recommend the recording live webinars,
-  although it admits that 
+  although it admits that
   '[Webinars tend] to be less engaging and less interactive for the participant'
-  [Dailey-Hebert, Amber. "Maximizing interactivity in online learning: 
+  [Dailey-Hebert, Amber. "Maximizing interactivity in online learning:
   Moving beyond discussion boards." Journal of Educators Online 15.3 (2018): n3.,
   [paper](https://eric.ed.gov/?id=EJ1199230)].
 
@@ -79,11 +79,11 @@ For the course as a whole, think following the
 
 - For example 'long lectures and presentations will fail because students stop viewing and listening
   after about six minutes'
-  [Nilson, Linda B., and Ludwika A. Goodson. Online teaching at its best: 
+  [Nilson, Linda B., and Ludwika A. Goodson. Online teaching at its best:
   Merging instructional design with teaching and learning research. John Wiley & Sons, 2021].
   From the same book, the 25 principles of learning from cognitive science (chapter 4, page 92)
   gives some great pointers, e.g. '2. Students learn [...] better [...] by engaging in an activity
-  than when they passively watch [...] an instructor', 
+  than when they passively watch [...] an instructor',
   '6. Some qualities [...] help students learn [...] better [...]: human faces, [...] instructor enthusiasm'.
 
 - [x] Suggest this in a meeting
@@ -139,9 +139,9 @@ was time for exercises.
 Hmmm, in general, I find that live recordings have
 'No performance advantage was found for viewing recordings despite students'
 positive perception of their utility.'
-[Lesser, Melissa, and Lora Packel. "Educational Lessons from a Pandemic: 
-Lecture Recording and Learning Outcomes." 
-Internet Journal of Allied Health Sciences and Practice 22.2 (2024): 9., 
+[Lesser, Melissa, and Lora Packel. "Educational Lessons from a Pandemic:
+Lecture Recording and Learning Outcomes."
+Internet Journal of Allied Health Sciences and Practice 22.2 (2024): 9.,
 [Link to paper](https://nsuworks.nova.edu/ijahsp/vol22/iss2/9/)].
 However, that paper does find positive effects for learners that, like
 here, use it after attending a session.
@@ -291,7 +291,7 @@ to be able to do the exercises by Anders Hast.
 > but I had an immediate evaluation meeting with Richel at the end of the day.
 
 > NB 2: I did fill out the feedback evaluation form for the three remaining
-> days, and did not look back on what I wrote then (or look at the course 
+> days, and did not look back on what I wrote then (or look at the course
 > evaluation results at all) while writing this. Therefore this document
 > probably duplicates some of that while being feedback from a single
 > (and perhaps not the most representative) learner.
@@ -348,7 +348,7 @@ by actually testing this by recording.
 > Full days leave little to zero time
 > for going through the exercises on our own.
 > Having extra exercises for repeating and/or diving deeper
-> after the course is good, 
+> after the course is good,
 > but all that is truly intended to be part of the course
 > needs to be given the time within the course.
 > With no time to test and get some confidence that
@@ -371,7 +371,7 @@ I agree that we should test if our learners got it.
 
 > The sessions on Pandas and Seaborn especially were much too rushed,
 > to the point that they felt close to useless.
-> The session on IDEs had barely enough time for 
+> The session on IDEs had barely enough time for
 > me to get Jupyter running,
 > while I would've expected to try VS Code and Spyder
 > as well since all of them are in there.
@@ -401,7 +401,7 @@ I hope the latter applies to my sessions, as there was enough time
 for exercises.
 
 > There seems to be two good ways to have learners actually do stuff in an
-> online course. 
+> online course.
 > One is what Richel does: most of the time in 2-person breakout
 > rooms, working through exercises as the main way of learning.
 
@@ -427,7 +427,7 @@ Hey, that is me!
 > it the way it is now) if this content was divided between as much as
 > four separate courses:
 
-> - Intro to HPC, usage and management of software and code 
+> - Intro to HPC, usage and management of software and code
 >   (Logging in, LMOD, SLURM; the things that are actually different
 >   between HPC and a single-user single computer)
 > - Intro to Python (this already exists and is day 1)
@@ -473,10 +473,10 @@ As far as I know, my course material has explicit versions.
 
 From [Day 3](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6):
 
-> This is mostly for the parts last week, 
+> This is mostly for the parts last week,
 > I'm not so fond of this calling out of people with their names.
 > It is stressing.
-> I'm here to learn, and I do that better in peace. 
+> I'm here to learn, and I do that better in peace.
 
 I assume this applies to me, and maybe to other colleagues as well.
 It is too bad that 16.1% (in range 6.1-25%) of the Swedish population,
@@ -508,7 +508,7 @@ solution is not the one I will follow.
 > so I am happy that Richel at least posted them!
 > Would be better to have them in the same youtube list as the rest though
 
-I think this is a bit harsh on Brigitte. 
+I think this is a bit harsh on Brigitte.
 Instead of uploading the video twice, it can be linked to from different
 playlists.
 Alternatively, what about we put the playlist on the website?
@@ -531,7 +531,7 @@ Below are the meeting notes of 2025-05-22 with my suggestions.
   That this would be useful is also mentioned by this learner
   ['Learning about modules and packages and handling the dependency hell in various ways is very good'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L19)
   I think it is great idea to add more time for getting modules to work.
-  What about we add it? On the other hand, one learner stated 
+  What about we add it? On the other hand, one learner stated
   ['The fix would be to make sure every single command that loads a module or a python package does specify a specific version'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L57), which would mean to make the course material more version-explicit. I am up for both!
       - Add more time for getting modules to work: RB
       - Make all course material version specific: RB

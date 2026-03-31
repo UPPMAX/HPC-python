@@ -272,7 +272,7 @@ Create a virtual environment called ``vpyenv``. First load the python version yo
          (vpyenv) $ pip install --no-cache-dir --no-build-isolation scikit-build-core cmake
          (vpyenv) $ pip install --no-cache-dir --no-build-isolation lightgbm
 
-      The reason for the other packages (``scikit-build-core`` and ``cmake``) that are being installed first, is that they are prerequisites for ``lightgbm``.     
+      The reason for the other packages (``scikit-build-core`` and ``cmake``) that are being installed first, is that they are prerequisites for ``lightgbm``.
 
       Check what was installed
 

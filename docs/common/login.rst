@@ -62,7 +62,7 @@ For beginners: use the **bold** login method.
 +=============+===============================+========================================================================================================+============================================================+
 | ALVIS       | SSH client                    | `ssh <user>@alvis1.c3se.chalmers.se` or `ssh <user>@alvis2.c3se.chalmers.se`                           |                                                            |
 +-------------+-------------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
-| ALVIS       | Remote Desktop Protocol (RDP) | Server: `alvis1.c3se.chalmers.se` or `alvis2.c3se.chalmers.se`                                         |                                                            | 
+| ALVIS       | Remote Desktop Protocol (RDP) | Server: `alvis1.c3se.chalmers.se` or `alvis2.c3se.chalmers.se`                                         |                                                            |
 +-------------+-------------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | ALVIS       | OpenOndemand portal           | `here <https://alvis.c3se.chalmers.se>`__                                                              |                                                            |
 +-------------+-------------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
@@ -80,7 +80,7 @@ For beginners: use the **bold** login method.
 +-------------+-------------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | Kebnekaise  | **Remote desktop website**    | `here <https://docs.hpc2n.umu.se/documentation/access/>`__                                             | `here <https://youtu.be/_O4dQn8zPaw?si=z32av8XY81WmfMAW>`__|
 +-------------+-------------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
-| Kebnekaise  | Open OnDemand                 | `here <https://portal.hpc2n.umu.se>`__                                                                 |                                                            | 
+| Kebnekaise  | Open OnDemand                 | `here <https://portal.hpc2n.umu.se>`__                                                                 |                                                            |
 +-------------+-------------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
 | LUMI        | SSH client                    | `here <https://docs.lumi-supercomputer.eu/firststeps/loggingin/>`__                                    | `here <https://youtu.be/bPdvn2gajgU>`__                    |
 +-------------+-------------------------------+--------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
@@ -113,7 +113,7 @@ For beginners: use the **bold** login method.
     | Console environment using an SSH client     | A console environment, powerful, need to install an SSH client                                      | .. figure:: ../img/login_rackham_via_terminal_terminal_409_x_290.png  |
     +---------------------------------------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
 
-    \* Open On-Demand is similar to GfxLauncher but from a website instead of from inside ThinLinc 
+    \* Open On-Demand is similar to GfxLauncher but from a website instead of from inside ThinLinc
 
     We recommend using ThinLinc.
 
@@ -183,7 +183,7 @@ For beginners: use the **bold** login method.
    .. tab:: C3SE
 
       - Pelle through terminal: ``ssh <user>@pelle.uppmax.uu.se``
-      - Pelle through ThinLinc: ``pelle-gui.uppmax.uu.se`` and UPPMAX username and password 
+      - Pelle through ThinLinc: ``pelle-gui.uppmax.uu.se`` and UPPMAX username and password
 
    .. tab:: NSC
 
@@ -252,7 +252,7 @@ Step 2: Make a work directory
            $ mkdir $HOME/hpc-python
 
 
-      - Or use the project storage: 
+      - Or use the project storage:
 
         .. code-block:: console
 
@@ -279,15 +279,15 @@ Step 2: Make a work directory
            $ mkdir /cfs/klemming/projects/supr/courses-fall-2025/sevenof9/
 
 
-   .. tab:: C3SE 
+   .. tab:: C3SE
 
-      - Create a working directory where you can code along. 
+      - Create a working directory where you can code along.
 
-         - Example. If your username is sisko and you are at C3SE, then we recommend you create this folder: 
+         - Example. If your username is sisko and you are at C3SE, then we recommend you create this folder:
 
-         .. code-block:: console 
+         .. code-block:: console
 
-            $ mkdir /mimer/NOBACKUP/groups/courses-fall-2025/sisko 
+            $ mkdir /mimer/NOBACKUP/groups/courses-fall-2025/sisko
 
 Test an editor
 --------------

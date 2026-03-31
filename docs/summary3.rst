@@ -47,4 +47,4 @@ Summary day 3
        - Batch jobs runs without interaction with user
        - A batch script consists of a part with *SLURM parameters* describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
        - Remember to include possible input arguments to the Python script in the batch script.
-   
+

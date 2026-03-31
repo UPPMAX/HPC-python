@@ -41,7 +41,7 @@
 - basic Bash commandline + scirpting
     - explicit
 - basic Python
-    - 
+    -
 - basic Slurm
 
 ## Content
@@ -52,9 +52,9 @@
 - Kebnekaise/Bianca separated session 	
     - user specific session as well
 - workflow
-- 
+-
 ### Afternoon
-- interactive 
+- interactive
 - jupyter on calculation nodes
 - batch
 - parallel computing
@@ -74,7 +74,7 @@
 **Morning 2 hours**| 45 + 40m
 10	|Intro	|Lecture |	Outline	| Get overview and LOs
 10	|Load and run|	Lecture+code along	| Show modules |	Learn how to load a python version
-25	|packages	|Lecture + code along + (exercise)	|Check current, Pip, Conda | 	List packages, do pip installation,do conda installation 
+25	|packages	|Lecture + code along + (exercise)	|Check current, Pip, Conda | 	List packages, do pip installation,do conda installation
 10	|Isolated environ	|Lecture + code along |	Venv |	Understand virtual environ
 25	| Kebnekaise/Bianca separated session| Lecture | Cluster specific practice and installed packages, User interaction | Understand cluster limitations		
 5	|Summary|	Lecture|	Describe when to do what|	Keypoints
@@ -87,7 +87,7 @@
 
 ## Letter info
 - [ ] Sep 2
-- [ ] Sep 6 
+- [ ] Sep 6
 - [X] Sep 9
 
 **Online workshop: "Python at UPPMAX & HPC2N", *Sep 9*, 2022**
@@ -96,7 +96,7 @@
 UPPMAX and HPC2n is organising a joint workshop on how to run Python and install additional Python packages on the computer resources provided by UPPMAX and HPC2N and how to use the HPC capabilities. Participants will be able to bring their particular software request for discussion as well.
 
 **The following will be covered:**
-* Loading the appropriate Python module 
+* Loading the appropriate Python module
 * Packages
     * checking installed packages
     * pip install
@@ -110,7 +110,7 @@ UPPMAX and HPC2n is organising a joint workshop on how to run Python and install
     * workflows
 
 Prerequisities:
-- basic Linux 
+- basic Linux
 - basic Python
 - basic Slurm
 
@@ -144,7 +144,7 @@ Registration opens in June
 
 ## Intro
 - Pedro asked:
-"I thought we could join efforts and collaborate in a Python course where we could talk about the workflows at UPPMAX and HPC2N? 
+"I thought we could join efforts and collaborate in a Python course where we could talk about the workflows at UPPMAX and HPC2N?
 If you think this is doable, maybe we could run it in the summer/autumn? "
 
 
@@ -165,7 +165,7 @@ same at HPC2N? (except Bianca)
         - can submit slurm jobs
     - Own workshop?
 
-- Hpc possibilities 
+- Hpc possibilities
     - Focus on site-specific systems
         - modules
         - sbatch
@@ -186,9 +186,9 @@ same at HPC2N? (except Bianca)
     - no mpi4py there
 - ENCCS: **HPDA Python**, https://enccs.se/events/2022-05-hpda-python
     - **May** (closed)
-    - tools for performant processing 
-        - (netcdf, numpy, pandas, scipy) on single workstations 
-    - **parallel**, **distributed** and **GPU** computing 
+    - tools for performant processing
+        - (netcdf, numpy, pandas, scipy) on single workstations
+    - **parallel**, **distributed** and **GPU** computing
         - (**snakemake**, numba ( just-in-time compiler for Python), **dask**, **multiprocessing**, **mpi4py**).
 - CodeRefinery: **Python for Scientific Computing** course together with Aalto University and CodeRefinery
     - https://aaltoscicomp.github.io/python-for-scicomp/
@@ -197,7 +197,7 @@ same at HPC2N? (except Bianca)
     - **mpi4py**
     - **distrib**
     - **packages**
-- CodeRefinery workshop 
+- CodeRefinery workshop
     - **Sep 20-22 and 27-29**,  (6 half-days)
     - online
     - Git, collab version control
@@ -209,11 +209,11 @@ same at HPC2N? (except Bianca)
 
 - PDC Summer School 2022: Introduction to High Performance Computing, **15-26 August 2022**
     - **No python??**
-    - parallel algorithms 
-    - parallel programming 
-    - modern HPC architectures 
-    - performance analysis and engineering 
-    - software engineering 
+    - parallel algorithms
+    - parallel programming
+    - modern HPC architectures
+    - performance analysis and engineering
+    - software engineering
 - Earlier SNIC parallel courses (**Dec 2020**)
     - SNIC Intro to MPI (C, Fortran, **Python**)
         - https://github.com/SNIC-MPI-course/MPI-course
@@ -222,15 +222,15 @@ same at HPC2N? (except Bianca)
 - more?
     - NBIS snakemake (general)
     - https://nbis-reproducible-research.readthedocs.io/en/course_1911/snakemake/
-    - 
+    -
 ## Prerequisites
 - basic Slurm
 - basic Bash scripting
 - basic Python
 
 ## How?
-- [x] Divided into 
-    - [x] packages and 
+- [x] Divided into
+    - [x] packages and
     - [x] HPC python computing
 - [x] One instance
 - [ ] Seminar(s)
@@ -238,7 +238,7 @@ same at HPC2N? (except Bianca)
 - [ ] Hackaton? Another time?
 - [ ] Course?
 - [x] Also updated documentation
-- [X] new topics/examples gradually 
+- [X] new topics/examples gradually
 ## Length?
 - [ ] 3 hours
 - [x] Full day
@@ -253,8 +253,8 @@ same at HPC2N? (except Bianca)
 - Any other SNIC centre?
     - not this time
     - they can learn from
-## Other 
-- 
+## Other
+-
 ## Next steps
 - Further planning
     - Content
@@ -271,12 +271,12 @@ same at HPC2N? (except Bianca)
     - 25 May (Wed)
 ## Next meeting
 - 19 or 20 May, Doodle
-- 
+-
 
 ```python=
 import numpy
 from mpi4py import MPI
-comm = MPI.COMM_WORLD 
+comm = MPI.COMM_WORLD
 size = comm.Get_size()
 rank = comm.Get_rank()
 ```
