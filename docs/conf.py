@@ -58,8 +58,6 @@ mermaid_params = [
     '-p' 'docs/puppeteer-config.json'
 ]
 
-jupyter_execute_notebooks = "cache"
-
 myst_enable_extensions = [
     "amsmath",
     "colon_fence",
