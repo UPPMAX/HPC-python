@@ -43,6 +43,8 @@ jobs:
           rm docs/day3/pandas/pandas.not_rst
           rm -rf docs/day3/not_used
           rm docs/day3/matplotlib/new-matplotlib-intro.rst
+          rm docs/day2/jupyter.md
+          rm docs/day2/jupyter.rst
 
       - name: Sphinx build
         run: |
