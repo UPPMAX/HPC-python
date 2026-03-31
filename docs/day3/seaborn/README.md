@@ -4,4 +4,13 @@
 
 # Seaborn
 
-Stuff about Seaborn.
+:::{admonition} Learning outcomes
+:class: note
+
+At the end of this sessions, learners ...
+
+- understand why Seaborn is important
+- have run Python code that uses Seaborn
+
+:::
+

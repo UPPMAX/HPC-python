@@ -4,9 +4,10 @@
 
 # Matplotlib
 
-:::{note} Learning outcomes
+:::{admonition} Learning outcomes
+:class: note
 
-At the end of this sessions, learners
+At the end of this sessions, learners ...
 
 - understand why Matplotlib is important
 - have run Python code that uses Matplotlib
