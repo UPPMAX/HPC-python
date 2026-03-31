@@ -91,7 +91,7 @@ Using Conda
    - Install a specific version: ``conda install somepackage=1.2.3``
    - Create a new environment: ``conda create --name myenvironment``
    - Create a new environment from requirements.txt: ``conda create --name myenvironment --file requirements.txt``
-   - On e.g. HPC systems where you don’t have write access to central installation directory: conda create --prefix /some/path/to/env``
+   - On e.g. HPC systems where you don’t have write access to central installation directory: ``conda create --prefix /some/path/to/env``
    - Activate a specific environment: ``conda activate myenvironment``
    - Deactivate current environment: ``conda deactivate``
 
