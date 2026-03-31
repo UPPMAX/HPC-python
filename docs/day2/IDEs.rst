@@ -8,7 +8,7 @@ There are several popular IDEs that are commonly used for interactive work with 
 Jupyter
 -------
 
-.. comment::
+.. note::
 
    Jupyter is web application that (among other things) allows literature programming for Python. That is, Jupyter allows to create documents where Python code is shown and run and its results shown, surrounded by written text (e.g. English).
 
@@ -30,7 +30,7 @@ Jupyter
 
    - For NSC, you can start Thinlinc and run Jupyter on a login node, or use a browser on your local computer with SSH tunneling which could be faster.
 
-.. comment::
+.. note::
 
    .. tabs::
 
@@ -676,7 +676,7 @@ Jupyter Notebook is a sibling to other notebook authoring applications under the
 Spyder
 ------
 
-.. comment::
+.. note::
 
    Spyder is a powerful and flexible IDE originally developed to be the main scripting environment for scientific Anaconda users. It is designed to enable quick and easily repeatable experimentation, with automatic syntax checking, auto-complete suggestions, a runtime variable browser, and a graphics window that makes plots easy to manipulate after creation without additional code.
 
@@ -883,7 +883,7 @@ Main panes and useful tabs
 VS Code
 --------
 
-.. comment::
+.. note::
 
    VS Code is a powerful and flexible IDE that is popular among developers for its ease of use and flexibility. It is designed to be a lightweight and fast editor that can be customized to suit the user's needs. It has a built-in terminal, debugger, and Git integration, and can be extended with a wide range of plugins.
 
