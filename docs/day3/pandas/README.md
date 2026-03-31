@@ -6,6 +6,10 @@
 
 Stuff about Pandas.
 
-:::{note}
-Test note
+:::{note} Learning outcomes
+
+At the end of this sessions, learners
+
+- can run Python code that uses Pandas
+
 :::
