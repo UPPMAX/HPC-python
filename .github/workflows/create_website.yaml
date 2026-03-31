@@ -30,7 +30,7 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: remove unused folders
+      - name: remove unused folders and files
         run: |
           rm -rf docs/*/not_used
           rm -rf docs/*/may2024
@@ -39,6 +39,10 @@ jobs:
           rm -rf docs/may2024
           rm -rf docs/May23
           rm -rf docs/May_24
+          rm docs/day3/seaborn/seaborn-new.rst
+          rm docs/day3/pandas/pandas.not_rst
+          rm -rf docs/day3/not_used
+          rm docs/day3/matplotlib/new-matplotlib-intro.rst
 
       - name: Sphinx build
         run: |
