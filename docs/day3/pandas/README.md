@@ -5,3 +5,7 @@
 # Pandas
 
 Stuff about Pandas.
+
+:::{note}
+Test note
+:::
