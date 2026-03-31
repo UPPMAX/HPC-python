@@ -45,6 +45,7 @@ jobs:
           rm docs/day3/matplotlib/new-matplotlib-intro.rst
           rm -rf docs/day3/not_used
           rm docs/day3/big_data_old.rst
+          rm docs/day3/batch.rst # is now day3/batch-new.rst
           rm docs/day3/seaborn/seaborn-new.rst
           rm docs/day3/pandas/pandas.not_rst
           rm docs/day3/example/chunk_dask.py

@@ -99,6 +99,7 @@ exclude_patterns = [
     'day2/may2024/Matplotlib60min.rst',
     'day2/use_isolated_environments_old.rst',
     'day3/big_data_old.rst',
+    'day3/batch.rst', # is now day3/batch-new.rst
     'day3/example/chunk_dask.py',
     'day3/example/chunk_np.py',
     'day3/matplotlib/new-matplotlib-intro.rst',

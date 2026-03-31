@@ -207,7 +207,9 @@ Content of the course
    :maxdepth: 2
    :caption: Extra:
 
+   acknowledgments.md
    bianca.rst
+   common/other_courses.rst
    extra/other_courses.rst
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
