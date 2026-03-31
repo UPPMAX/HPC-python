@@ -98,11 +98,13 @@ exclude_patterns = [
     'day2/jupyter.rst',
     'day2/may2024/Matplotlib60min.rst',
     'day2/use_isolated_environments_old.rst',
+    'day3/big_data_old.rst',
+    'day3/example/chunk_dask.py',
+    'day3/example/chunk_np.py',
     'day3/matplotlib/new-matplotlib-intro.rst',
     'day3/not_used',
-    'day3/big_data_old.rst',
-    'day3/seaborn/seaborn-new.rst',
-    'day3/pandas/pandas.not_rst'
+    'day3/pandas/pandas.not_rst',
+    'day3/seaborn/seaborn-new.rst'
 ]
 
 
