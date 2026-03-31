@@ -958,7 +958,7 @@ Main panes and useful panels
    :class: dropdown
 
    * Use the Command Palette (``Ctrl+Shift+P`` / ``F1``) to find commands quickly (interpreter selection, remote commands, setting server install path).
-   * Open the integrated terminal (``Ctrl+` ``) to run modules, activate conda/venv, or submit batch jobs.
+   * Open the integrated terminal (``Ctrl+\` ``) to run modules, activate conda/venv, or submit batch jobs.
    * Use the Python: Select Interpreter command to point VS Code at the exact Python executable on the remote host (useful after module load or activate).
    * For notebooks, choose "Existing Jupyter Server" to connect VS Code to a Jupyter server running on a compute node.
    * Split the editor (``Ctrl+\``) to compare files or keep docs and code side-by-side.
@@ -973,7 +973,7 @@ Main panes and useful panels
 
    * ``Ctrl+P`` : Quick file open
    * ``Ctrl+Shift+P`` : Command Palette
-   * ``Ctrl+` `` : Toggle integrated terminal
+   * ``Ctrl+\` `` : Toggle integrated terminal
    * ``Ctrl+Shift+D`` : Open Run and Debug
    * ``F5`` : Start debugging
    * ``Ctrl+K Z`` : Zen Mode (distraction-free)
