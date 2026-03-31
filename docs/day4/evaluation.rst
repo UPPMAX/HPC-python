@@ -1,5 +1,5 @@
-.. _evaluation:
+.. _evaluation_day_4:
 Evaluation
 ==========
 
-The evaluation form can be found here: https://forms.office.com/e/i9FE60VZhV 
+`The evaluation form <https://forms.office.com/e/i9FE60VZhV>`__
