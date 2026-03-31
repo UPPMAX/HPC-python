@@ -28,7 +28,6 @@ conf_py_path = "/docs/"
 # The full version, including alpha/beta/rc tags
 release = '2.0'
 
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -115,6 +114,9 @@ exclude_patterns = [
 html_theme = 'sphinx_rtd_theme'
 html_logo = "img/hpc2n-lunarc-uppmax-hpc-course.png"
 #html_logo = "img/logo-python-hpc-course.svg"
+
+# Allows to navigate with keys, from https://www.sphinx-doc.org/en/master/usage/theming.html
+navigation_with_keys = True
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
