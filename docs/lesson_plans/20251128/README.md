@@ -1,3 +1,4 @@
+(orphan)=
 # Lesson plan
 
 - Date: 2025-12-28

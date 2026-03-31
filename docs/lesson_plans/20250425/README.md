@@ -1,3 +1,4 @@
+(orphan)=
 # Lesson plan 2025-04-25 by Richel
 
 Here is the current schedule:

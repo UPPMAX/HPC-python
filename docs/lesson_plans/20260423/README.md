@@ -1,3 +1,4 @@
+(orphan)=
 # Lesson plan 2026-04-23 by Richel
 
 - 09:00-10:00 Matplotlib
