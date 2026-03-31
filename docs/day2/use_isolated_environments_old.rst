@@ -316,8 +316,8 @@ Next steps are the same for all clusters
 .. admonition:: Conda cheat sheet
    :class: dropdown
 
-   - List packages in present environment:	``conda list``
-   - List all environments:			``conda info -e`` or ``conda env list``
+   - List packages in present environment:  ``conda list``
+   - List all environments:      ``conda info -e`` or ``conda env list``
    - Install a package: ``conda install somepackage``
    - Install from certain channel (conda-forge): ``conda install -c conda-forge somepackage``
    - Install a specific version: ``conda install somepackage=1.2.3``

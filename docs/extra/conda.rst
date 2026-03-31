@@ -84,8 +84,8 @@ Using Conda
 
 .. admonition:: Conda cheat sheet
 
-   - List packages in present environment:	``conda list``
-   - List all environments:			``conda info -e`` ot ``conda env list``
+   - List packages in present environment:  ``conda list``
+   - List all environments:      ``conda info -e`` ot ``conda env list``
    - Install a package: ``conda install somepackage``
    - Install from certain channel (conda-forge): ``conda install -c conda-forge somepackage``
    - Install a specific version: ``conda install somepackage=1.2.3``
@@ -105,22 +105,22 @@ Using Conda
     .. prompt:: bash $
 
         conda create --name python36-env python=3.6 numpy=1.13.1 matplotlib=2.2.2
-	
+  
     .. admonition:: The ``mamba`` alternative
         :class: dropdown
 
-	- ``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
-	- Example:
-	
+  - ``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
+  - Example:
+  
           .. prompt:: bash $
 
-	      mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
+        mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
 
 4. Activate the conda environment by:
 
     .. prompt:: bash $
 
-	source activate python36-env
+  source activate python36-env
 
     - You will see that your prompt is changing to start with ``(python-36-env)`` to show that you are within an environment.
 

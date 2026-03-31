@@ -92,7 +92,7 @@ Within your terminal with the interactive session,
 load a modern Python module:
 
 .. code-block:: sh
-		
+    
    module load python/3.11.8
 
 Then, start ``jupyter-notebook`` (or ``jupyter-lab``):
@@ -126,7 +126,7 @@ On own computer
     - On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
 
 .. code-block:: sh
-		
+    
    $ ssh -L 8888:r486:8888 username@rackham.uppmax.uu.se
 
     - If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
@@ -197,7 +197,7 @@ for a specific <version> to see which prerequisites should be loaded first.
 Something like the file below will work. Remember to change the project id after the course, how many cores you need, and how long you want the JupyterLab to be available:
 
 .. code-block:: slurm
-		
+    
    #!/bin/bash
    #SBATCH -A hpc2n2024-114
    # This example asks for 1 core
@@ -393,7 +393,7 @@ Later you can remove the kernel if you feel like, using this:
 8. Now make a submit file as before. Something like this should work:
 
 .. code-block:: sh
-		
+    
    #!/bin/bash
    #SBATCH -A hpc2n2024-114
    # Here allocating 1 core - change as suitable for your case

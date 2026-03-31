@@ -24,7 +24,7 @@ for a specific <version> to see which prerequisites should be loaded first.
 Something like the file below will work. Remember to change the project id after the course, how many cores you need, and how long you want the JupyterLab to be available:
 
 .. code-block:: slurm
-		
+    
    #!/bin/bash
    #SBATCH -A hpc2n2025-151
    # This example asks for 1 core
@@ -220,7 +220,7 @@ Later you can remove the kernel if you feel like, using this:
 8. Now make a submit file as before. Something like this should work:
 
 .. code-block:: sh
-		
+    
    #!/bin/bash
    #SBATCH -A hpc2n2025-151
    # Here allocating 1 core - change as suitable for your case
