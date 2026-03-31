@@ -4,12 +4,11 @@
 
 # Pandas
 
-Stuff about Pandas.
-
 :::{note} Learning outcomes
 
 At the end of this sessions, learners
 
-- can run Python code that uses Pandas
+- understand why Pandas is important
+- have run Python code that uses Pandas
 
 :::

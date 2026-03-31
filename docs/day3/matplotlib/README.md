@@ -4,4 +4,12 @@
 
 # Matplotlib
 
-Stuff about Matplotlib.
+:::{note} Learning outcomes
+
+At the end of this sessions, learners
+
+- understand why Matplotlib is important
+- have run Python code that uses Matplotlib
+
+:::
+
