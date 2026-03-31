@@ -1,5 +1,5 @@
-(orphan)=
 ---
+orphan:
 tags:
   - lesson
   - plans
