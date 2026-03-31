@@ -4,6 +4,7 @@
 * onboarding 14 May at 1.15-2pm
 
 ## Next meeting May 29 13.00
+
 * Evaluation
   * big data
   * point to other on-line material for specific science topics
@@ -17,6 +18,7 @@
       * not learning the solutions of the problems!
 
 ## Next meeting May 8 13:00
+
 * Status
   * number: 57?
   * Rebecca is contacted for fall python/matlab training
@@ -41,6 +43,7 @@
   *
 
 ## Next meeting May 2 10:00
+
 * Status
   * BC
     * just started due to other duties (new web going live tomorrow)
@@ -69,6 +72,7 @@
 * Postponed
 
 ## Next meeting April 10 13.00
+
 * Short one
 * Status
   * what is needed?
@@ -124,10 +128,12 @@ Question session (breakout)| X | X | X
 Summary| X | X | X
 
 ## Meeting 27 March
+
 * HPC Python: May 15th: leave everything the same: Bi + Bj + Pe teach, Ri assists
   * with updates of course from earlier learnings
   * py/3.11 (GPU UPPMAX perhaps other solution)
 
 ### Meeting 15 feb
+
 * ToDos
   * [x] UPPMAX web page

@@ -271,6 +271,7 @@ UPPMAX and HPC2n is organising a joint workshop on how to run Python and install
 The instructors will use UPPMAX's systems for demos and there will be hands-on exercises for the participants.
 
 **The following will be covered:**
+
 - Loading the appropriate Python module
 - Packages
   - checking installed packages

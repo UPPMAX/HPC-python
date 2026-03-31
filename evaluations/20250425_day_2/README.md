@@ -13,20 +13,20 @@ From the registration form.
 
 Using cluster                           |Number of learners
 ----------------------------------------|------------------
-Using NAISS cluster                     |35 
-Using local university cluster       |13 
-Previously used NAISS/SNIC             |7 
-Previously used local/university cluster|8 
-Other clusters                        |5 
-Never used clusters                 |10 
-     
+Using NAISS cluster                     |35
+Using local university cluster       |13
+Previously used NAISS/SNIC             |7
+Previously used local/university cluster|8
+Other clusters                        |5
+Never used clusters                 |10
+
 Using Python                                                                                     |Number of learners
 -------------------------------------------------------------------------------------------------|------------------
 I have no previous experience with Python                                          |6
 I know Python at a beginner level, can write very simple Python code, can import a Python package|25
 I have an intermediate knowledge of Python. I can install Python packages          |15
 I am proficient in Python                                                          |16
-     
+
 Using Linux                                                                                                                                  |Number of learners
 ---------------------------------------------------------------------------------------------------------------------------------------------|-------------------
 I have never used Linux/Unix                                                                                                  |3

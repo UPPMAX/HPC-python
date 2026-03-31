@@ -132,7 +132,7 @@ Don’t know 25%
 5|13.50 | **Leg stretch**
 20 | 13.55 |ML intro|+demos
 25| 14.15 |UPPMAX session2| Lecture +Ex? | jupyter, Bianca
-25| 14.15|HPC2N session2|Lecture + Ex?|ML exercise|  User interaction |   
+25| 14.15|HPC2N session2|Lecture + Ex?|ML exercise|  User interaction |
 |**15**|14.40 |**Coffee**||
 15| 14.55 |Summary| Lecture|Describe when to do what| Keypoints
 25| 15.10| Exercises not recorded

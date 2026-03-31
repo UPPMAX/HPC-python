@@ -29,6 +29,21 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 <!-- markdownlint-enable MD013 -->
 
+## Exercises
+
+```python
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 10, 100)
+
+plt.plot(x, np.sin(x))
+plt.plot(x, np.cos(x))
+
+# plt.show()
+plt.figure().savefig('my_figure.png') # Unsure if this works
+
+```
 
 ## External links
 

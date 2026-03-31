@@ -28,6 +28,53 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 <!-- markdownlint-enable MD013 -->
 
+## Exercises
+
+## Exercise 1: minimal code
+
+Get this code to run:
+
+```python
+import pandas
+print(pandas.__version__)
+```
+
+## Exercise 2
+
+Depends on Matplotlib
+
+Series:
+
+```python
+# 
+data = pd.Series([0.25, 0.5, 0.75, 1.0])
+data = pd.Series({2:'a', 1:'b', 3:'c'})
+print(data.values)
+```
+
+Data frame:
+
+```python
+population_dict = {'California': 38332521,
+                   'Texas': 26448193,
+                   'New York': 19651127,
+                   'Florida': 19552860,
+                   'Illinois': 12882135}
+population = pd.Series(population_dict)
+population
+area_dict = {'California': 423967, 'Texas': 695662, 'New York': 141297,
+             'Florida': 170312, 'Illinois': 149995}
+area = pd.Series(area_dict)
+area
+states = pd.DataFrame({'population': population,
+                       'area': area})
+states
+```
+
+## Done?
+
+Go to [the session about Matplotlib](../matplotlib/README.md)
+
 ## External links
 
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)

@@ -29,6 +29,46 @@ Dardel     |`module load cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU
 
 <!-- markdownlint-enable MD013 -->
 
+## Exercises
+
+```python
+import matplotlib.pyplot as plt
+plt.style.use('classic')
+%matplotlib inline
+import numpy as np
+import pandas as pd
+
+# Create some data
+rng = np.random.RandomState(0)
+x = np.linspace(0, 10, 500)
+y = np.cumsum(rng.randn(500, 6), 0)
+
+# Plot the data with Matplotlib defaults
+plt.plot(x, y)
+plt.legend('ABCDEF', ncol=2, loc='upper left');
+
+
+import seaborn as sns
+sns.set()
+
+
+# same plotting code as above!
+plt.plot(x, y)
+plt.legend('ABCDEF', ncol=2, loc='upper left');
+```
+
+```python
+data = np.random.multivariate_normal([0, 0], [[5, 2], [2, 2]], size=2000)
+data = pd.DataFrame(data, columns=['x', 'y'])
+
+# Two overlaid density plots
+for col in 'xy':
+    sns.kdeplot(data[col], shade=True)
+
+# Density plot
+sns.kdeplot(data);
+```
+
 ## External links
 
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)

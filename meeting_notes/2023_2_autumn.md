@@ -112,6 +112,7 @@
   - ToDos: See last meeting
 
 ### Meeting 24 Oct 15.15
+
 - Suggestions from Björn
   - minimize packages sections
     - [x] links and keypoints from October course

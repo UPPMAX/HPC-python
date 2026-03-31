@@ -260,7 +260,7 @@ Next meeting
 
 - Install package at 10
   - Fine!?
-- Batch mode:   
+- Batch mode:
   - Perfect!
 - Interactive on compute node (be clear en session title)
   - Let students try Jupyter in exercise
@@ -268,11 +268,11 @@ Next meeting
   - NOTE: Look into Spyder
 - Parallel computing  
   - More hands-on
-- GPUs   
+- GPUs
   - Same material but faster?
   - Or Extra material?
   - exercises
-- ML   
+- ML
   - More exercises?
   - NOTE: will extend!
 
