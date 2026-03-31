@@ -90,7 +90,21 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = [
+    '_build',
+    'Thumbs.db',
+    '.DS_Store',
+    'day2/interactive_old.rst',
+    'day2/jupyter.md',
+    'day2/jupyter.rst',
+    'day2/may2024/Matplotlib60min.rst',
+    'day2/use_isolated_environments_old.rst',
+    'day3/matplotlib/new-matplotlib-intro.rst',
+    'day3/not_used',
+    'day3/big_data_old.rst',
+    'day3/seaborn/seaborn-new.rst',
+    'day3/pandas/pandas.not_rst'
+]
 
 
 # -- Options for HTML output -------------------------------------------------
