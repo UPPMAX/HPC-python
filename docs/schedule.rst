@@ -57,6 +57,8 @@ Day 2: Packages, environments and using compute nodes
 
 .. admonition:: Course starts at 9:00 sharp and ends at 16:00
 
+    Course starts at 9:00 sharp and ends at 16:00
+
 +------------+---------------------------------+--------------------------------+
 |Time        | Topic                           |Teacher                         |
 +============+=================================+================================+
