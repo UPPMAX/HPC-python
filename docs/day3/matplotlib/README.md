@@ -16,6 +16,8 @@ At the end of this sessions, learners ...
 
 ## Loading Matplotlib
 
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
 HPC cluster|How to load Matplotlib
 -----------|-------------------------------------------------------------------------------------------------------------------
 Alvis      |`module load matplotlib/3.9.2-gfbf-2024a`
@@ -24,3 +26,5 @@ Dardel     |`module load PDC/23.12 cray-python/3.11.5 matplotlib/3.8.2-cpeGNU-23
 Kebnekaise |`module load matplotlib/3.8.2`
 Pelle      |`module load matplotlib/3.9.2-gfbf-2024a`
 Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2`
+
+<!-- markdownlint-enable MD013 -->
