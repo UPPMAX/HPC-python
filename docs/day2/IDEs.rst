@@ -1,7 +1,7 @@
 .. _use_ides:
 
 Using IDEs
-============
+==========
 
 There are several popular IDEs that are commonly used for interactive work with Python. Here we will show how to load ``Jupyter``, ``VS Code``, and ``Spyder``.
 
@@ -482,12 +482,12 @@ Jupyter
                      .. figure:: ../img/pdc_reconnect_to_jupyter.png
 
 JupyterLab 🚀
-############
+#############
 
 JupyterLab is the next-generation web-based user interface for Project Jupyter. It provides an interactive development environment for working with notebooks, code, and data. JupyterLab offers a more flexible and powerful interface compared to the classic Jupyter Notebook, allowing users to arrange multiple documents and activities side by side in tabs or split screens.
 
 Jupyter Notebook 📝
-#################
+##################
 
 Jupyter Notebook is a sibling to other notebook authoring applications under the Project Jupyter umbrella, like JupyterLab. Jupyter Notebook offers a lightweight, simplified experience compared to JupyterLab.
 
@@ -530,11 +530,13 @@ Jupyter Notebook is a sibling to other notebook authoring applications under the
 
    - Timing snippets
       - ``%time`` — time a single statement.
+
       .. code-block:: python
 
             %time sum(range(100000))
 
       - ``%timeit`` / ``%%timeit`` — run repeated timings for more robust measurements.
+
       .. code-block:: python
 
             %timeit sum(range(1000))
