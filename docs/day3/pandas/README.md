@@ -4,9 +4,10 @@
 
 # Pandas
 
-:::{note} "Learning outcomes"
+:::{admonition} Learning outcomes
+:class: note
 
-At the end of this sessions, learners
+At the end of this sessions, learners ...
 
 - understand why Pandas is important
 - have run Python code that uses Pandas
