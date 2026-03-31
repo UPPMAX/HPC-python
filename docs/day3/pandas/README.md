@@ -11,7 +11,6 @@ At the end of this sessions, learners ...
 
 - understand why Pandas is important
 - have run Python code that uses Pandas
-
 :::
 
 ## Loading Pandas
@@ -28,3 +27,7 @@ Pelle      |`module load SciPy-bundle/2024.05-gfbf-2024a`
 Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0`
 
 <!-- markdownlint-enable MD013 -->
+
+## External links
+
+- [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)

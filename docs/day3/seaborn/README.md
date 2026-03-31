@@ -28,3 +28,7 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 Dardel     |`module load cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12`
 
 <!-- markdownlint-enable MD013 -->
+
+## External links
+
+- [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
