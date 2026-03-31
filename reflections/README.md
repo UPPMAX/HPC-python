@@ -25,5 +25,3 @@ Course iteration|Day|Reflections
 .               |2  |[Reflection](20260422/README.md)
 .               |3  |[Reflection](20260423/README.md)
 .               |All|[Reflection](202604_whole_course/README.md)
-
-

@@ -37,10 +37,10 @@ the best I could do :-)
 In the end, I did ask the progress of the learners:
 
 - 13 out of 13 were able to use a Python module
-    - This 1 learner struggled with logging in to Dardel
+  - This 1 learner struggled with logging in to Dardel
 - 12 out of 14 installed the tarball
-    - 1 is the 1 learner above
-    - For the other learner is unknown why this did not work.
+  - 1 is the 1 learner above
+  - For the other learner is unknown why this did not work.
       I forgot to make a note who this was
 
 Regardless of the hassle, most learners
@@ -522,7 +522,7 @@ Below are the meeting notes of 2025-05-22 with my suggestions.
 ```
 
 - [Jayant] More InfraVis like collabs demoing usecases
-    - [Richel] I agree we should collaborate more!
+  - [Richel] I agree we should collaborate more!
 - [Richel] From the learners, I read [a suggestion to make day 2 'Intro to HPC, usage and management of software and code'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47) and ['it seemed to me that the time was not spent on the right things'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/pace.txt#L12). What about we listen to that? In practice,
   I feel this can mean either
   - switching 'matplotlib' on Day 2 with 'Slurm and batch jobs' on Day 3
@@ -539,22 +539,22 @@ Below are the meeting notes of 2025-05-22 with my suggestions.
 - [Richel] One learner mentioned ['some part or parts had lots of spelling errors'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/comments.txt#L7). I hope the spell checker (we can get it to
   work when using markdown) will fix that
 - [Richel] One learner mentioned ['Asking us to do stuff on the breaks is BAD'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/comments.txt#L7). What about we stick to our scheduled breaks?
-    - Follow the breaks as in the schedule: RB
-    - Ignore breaks:
+  - Follow the breaks as in the schedule: RB
+  - Ignore breaks:
 - [Richel] A learner stated ['Anders Hast deserves special mention for bringing true researcher enthusiasm, it is great to learn from teachers that know and enjoy the subject at hand like that'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11). Could we give Anders more time for his exercise? Now there were only 6 minutes of exercises (on the YouTube video: 28:47-34:02)
-    - Give Anders more time: RB
-    - Keep the current schedule:
+  - Give Anders more time: RB
+  - Keep the current schedule:
 - [Richel] A learner [exercises should be part of the course under course time](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L25),
   with the problem that ['we might not get knowledge/skill presumed by later parts of the course'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L27).
   What about we give our learners the time to do exercises, as well as test if indeed they were able to do so?
   Adding more time for a session seems fine be my.
-    - Add more time for exercises and make sure they are ready for future sessions: RB
-    - Ask learners to work during the breaks or evenings:
+  - Add more time for exercises and make sure they are ready for future sessions: RB
+  - Ask learners to work during the breaks or evenings:
 - [Richel] A learner stated ['The session on IDEs had barely enough time for me to get Jupyter running, while I would've expected to try VS Code and Spyder as well since all of them are in there'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29).
   What about we give this session more time?
-    - Give IDEs more time: RB
-    - Only do Jupyter: RB
-    - Keep the schedule as it is:
+  - Give IDEs more time: RB
+  - Only do Jupyter: RB
+  - Keep the schedule as it is:
 - [Richel] A learner suggested [a 4 day schedule](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47).
   I know that 'Intro to Python' will get more HPCey, among others by adding how to loading
   Python package modules.
@@ -562,8 +562,8 @@ Below are the meeting notes of 2025-05-22 with my suggestions.
   and ['would be better to have them in the same youtube list as the rest though'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6). I think the first is a bit harsh.
   The second is doable: just add the existing video to the HPC2N playlist (i.e you can do
   that in YouTube).
-    - Link to videos in YouTube playlist: RB
-    - Upload videos twice:
+  - Link to videos in YouTube playlist: RB
+  - Upload videos twice:
   Alternatively, we can put the videos in a table on the website too.
-    - Add a table on the website with all link: RB
-    - Rely on the YouTube playlists only:
+  - Add a table on the website with all link: RB
+  - Rely on the YouTube playlists only:

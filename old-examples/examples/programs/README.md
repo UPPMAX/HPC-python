@@ -9,4 +9,3 @@ In this directory, you will find some of the files have "kebnekaise", "rackham",
 ## Batch scripts
 
 The batch scripts are found in directories for each centers, in the parent directory of this.
-

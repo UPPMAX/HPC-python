@@ -79,7 +79,6 @@ Discuss questions from `[Cook & Friend, 1995]`:
 - B:
 - R: I am willing to do so
 
-
 And `[Hepner & Newman, 2010]`:
 
 > Are you flexible or able to compromise your beliefs?
@@ -110,11 +109,9 @@ Study           |Relevance/quality
 ----------------|---------------------
 `[Sharon, 2014]`|Low, only 12 teachers, close to anecdotal
 
-
 Study           |Number of co-teachers
 ----------------|---------------------
 `[Sharon, 2014]`|12
-
 
 Approaches to Co-Teaching, from `[Cook & Friend, 1995]`:
 
@@ -227,7 +224,6 @@ From  `[Conderman et al., 2008]`:
 > 34. We communicate our needs to our administrators.
 > 35. We respect and appreciate the contributions of our co-teacher
 
-
 From `[Hepner & Newman, 2010]`:
 
 > WaltherThomas (1996) found five common themes that emerged from her research into
@@ -256,11 +252,11 @@ From `[Hepner & Newman, 2010]`:
 >   qualities listed above and through practice, they find their co-planning time
 >   becomes more productive, comfortable and creative as they work at it.
 
-
 About co-teaching planning templates, from `[Hepner & Newman, 2010]`:
 
 > [...] many co-teachers use planning templates [...]. While
 > the format of these planning templates varies, they consistently include:
+>
 > - Identification of which co-teaching model(s) will be used. This ensures that
 >   co-teachers are constantly thinking about how they can use their strengths
 >   and the strengths of the various co-teaching models to best meet the needs
@@ -389,9 +385,9 @@ with BC today. This will be my meeting schedule:
 
 - Agree that there is not enough time.
   Suggest to continue co-teaching next iteration
-    - [AGREED]
+  - [AGREED]
 - Double-check schedule together: I think it is good now
-    - [AGREED] on new schedule
+  - [AGREED] on new schedule
 - Split up Day 2 (RB is fine with either):
   - BC both hours
   - RB both hours

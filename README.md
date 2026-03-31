@@ -34,7 +34,6 @@ cd docs
 sphinx-autobuild . _build/html
 ```
 
-
 # Rendered website
 
 - [Rendered website](https://uppmax.github.io/HPC-python/)
@@ -42,4 +41,3 @@ sphinx-autobuild . _build/html
 # Others
 
 - [Meeting notes](meeting_notes/README.md)
-

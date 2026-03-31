@@ -1,100 +1,95 @@
 ## Autumn 2023
 
 ### Next Meeting 28 Nov
-- Course:
-    - registered: 31
-- On-boarding:
-    - common problems?
-- Status:
-    - 3.9.5
-  - Björn
-      - Site-packages added to first lesson
-      - problem with mermaid in rst
-      - will start to check functioning on Rackham
-          - what is done already?
-              - install packages
-          - Björn checks Dask on Rackham
-          - Birgitte checks for the batch session and ML session
 
+- Course:
+  - registered: 31
+- On-boarding:
+  - common problems?
+- Status:
+  - 3.9.5
+  - Björn
+    - Site-packages added to first lesson
+    - problem with mermaid in rst
+    - will start to check functioning on Rackham
+      - what is done already?
+        - install packages
+      - Björn checks Dask on Rackham
+      - Birgitte checks for the batch session and ML session
 
 ### Next meeting 21 Nov
 
 - Status:
-    - spelling is active
-    - Björn
-        - updated index, intro, mermaid
-    - Birgitte
-        - updated index + Q/A
-        - one project for UPPMAX
-            - others use existing kebne-projects
-
-
+  - spelling is active
+  - Björn
+    - updated index, intro, mermaid
+  - Birgitte
+    - updated index + Q/A
+    - one project for UPPMAX
+      - others use existing kebne-projects
 
 - To discuss:
-    - recording
-        - during
-        - before
-        - after
-    - Do we fill these slots with 40 minutes?
-        - 13.00 parallel 55
-            - live coding
-            - exercise
-            - dask: chunks, notebook
-            - "read more": starPU
-        - break 10
-        - 14:05 GPU 40
-        - 14:45 15 min break
-        - 15:0 ML 35
-        - 15: summary & Q/A
+  - recording
+    - during
+    - before
+    - after
+  - Do we fill these slots with 40 minutes?
+    - 13.00 parallel 55
+      - live coding
+      - exercise
+      - dask: chunks, notebook
+      - "read more": starPU
+    - break 10
+    - 14:05 GPU 40
+    - 14:45 15 min break
+    - 15:0 ML 35
+    - 15: summary & Q/A
 
- - ToDos:
-     - Björn
-         - adds link check later (steals time)
-         - test packages and scripts
-         - dask at rackham
-     - project numbers
-     - Birgitte
-         - ML and packages
-         - extra exercise
-     - Pedro
-         - dask at kebnekaise
-     - Evaluation
-         - skip but inform more than usual in the end
-
-
-
-
-
+- ToDos:
+  - Björn
+    - adds link check later (steals time)
+    - test packages and scripts
+    - dask at rackham
+  - project numbers
+  - Birgitte
+    - ML and packages
+    - extra exercise
+  - Pedro
+    - dask at kebnekaise
+  - Evaluation
+    - skip but inform more than usual in the end
 
 ### Next meeting 6 Nov 13:00
+
 - Evaluation
 - links to StarPU
 - interesting with DASK chunks
 - ToDo:s
   - BC: Intro
-      - [ ] a little more hpc
-          - diagram
-          - mention purposes of the clusters
-      - [x] state why we involve two centres
-      - mention the editor as a tool for file creation and change
-      - more info
-          - exercise time
-          - objectives
-      - More to extra reading!
-          - boxes with extra tips
+    - [ ] a little more hpc
+      - diagram
+      - mention purposes of the clusters
+    - [x] state why we involve two centres
+    - mention the editor as a tool for file creation and change
+    - more info
+      - exercise time
+      - objectives
+    - More to extra reading!
+      - boxes with extra tips
 
 - For the workshop
-    - BO:s
-        - have voluntary exercise rooms
-        - silent room
-        - paste messages to BO:s  in chat and/or document so one can re-read
-            - checking in with students more frequently about if they are done or not
-            - let students join the main room again when they are done
-    - No time to cover all material
-        - More to extra reading!
-        - More time on code-along and exercises
+  - BO:s
+    - have voluntary exercise rooms
+    - silent room
+    - paste messages to BO:s  in chat and/or document so one can re-read
+      - checking in with students more frequently about if they are done or not
+      - let students join the main room again when they are done
+  - No time to cover all material
+    - More to extra reading!
+    - More time on code-along and exercises
 
 #### Spring courses
+
 - 15-18 Jan UPPMAX intro
 - 18 Jan HPC2N intro
 - 22-23 Jan Awk
@@ -103,44 +98,43 @@
 - May (flexible day) HPC-Python
 - May/June Programming formalisms
 
-
-
 ### Meeting 30 Oct 13:00
 
 - Helpdesk 1 hour, 16-17
 - Have in mind:
-    - do recordings before without students
-        - or afterwards!
-    - have more interaction during lecture
-    - no flipped-class room (this time)
-    - not show recordings during class time
-    - decide like 2 weeks before
-    - (zoom recording of oneself, for instance)
-    - ToDos: See last meeting
+  - do recordings before without students
+    - or afterwards!
+  - have more interaction during lecture
+  - no flipped-class room (this time)
+  - not show recordings during class time
+  - decide like 2 weeks before
+  - (zoom recording of oneself, for instance)
+  - ToDos: See last meeting
 
 ### Meeting 24 Oct 15.15
-* Suggestions from Björn
-    * minimize packages sections
-        * [x] links and keypoints from October course
-    * although use venvs for course
-    * More focus on the HPC
-* Discuss
-    * same timing: 9-16? **yes**
-    *  need for on-boarding: **yes**
-    *  recording: **Yes** but hoe
-    *  more examples and exercises on how to use in HPC **Yes**
-    *  DASK: **Yes**
-    *  Are some packages specifically interesting for HPC? **Yes**
-    *  Differences between ML packages, which are there, when are they used - with or without GPUs. CUDA. ML on CPU/GPU: **Yes**
-    *  Inspiration from:
-        *  https://enccs.github.io/hpda-python/
-        *  https://aaltoscicomp.github.io/python-for-scicomp/parallel/
+- Suggestions from Björn
+  - minimize packages sections
+    - [x] links and keypoints from October course
+  - although use venvs for course
+  - More focus on the HPC
+- Discuss
+  - same timing: 9-16? **yes**
+  - need for on-boarding: **yes**
+  - recording: **Yes** but hoe
+  - more examples and exercises on how to use in HPC **Yes**
+  - DASK: **Yes**
+  - Are some packages specifically interesting for HPC? **Yes**
+  - Differences between ML packages, which are there, when are they used - with or without GPUs. CUDA. ML on CPU/GPU: **Yes**
+  - Inspiration from:
+    - <https://enccs.github.io/hpda-python/>
+    - <https://aaltoscicomp.github.io/python-for-scicomp/parallel/>
 
-* ToDos
-    * embarassingly parallel?
-    * [x] Björn updates UPPMAX web
+- ToDos
+  - embarassingly parallel?
+  - [x] Björn updates UPPMAX web
 
 #### Timings
+
 |Session| May23 | Suggestions Dec23 |
 |-------|-------|----------|
 |9.00 "Syllabus"| 10 | 10   |
@@ -181,10 +175,7 @@ Exercises (exercises)| several different rooms |x|x
 Question session (breakout)| X | X | X
 Summary| X | X | X
 
-
-* Invitation
-
-
+- Invitation
 
 ### Next meeting 11 Aug 11-12
 
@@ -193,33 +184,34 @@ Summary| X | X | X
   - more exercises!
   - assume students attend prereqs
   - how to do on other Naiss systems
-      - tabs
-      - or cheat sheets
+    - tabs
+    - or cheat sheets
 - Newletter
-    - dates
-    - define prereqs
-    - modify content text
+  - dates
+  - define prereqs
+  - modify content text
 
 ### Meeting 15 June 11:00
-- Dates (Oct-Dec)
-    - py-R-jl
-        - Oct 17-19 (Tue-Thu)
-    - Git
-        - 13-17 Nov
-    - HPC-python
-        - Dec 5
-        - 1 day!!
 
-    - Courses to have in mind to avoid clashes
-        - Python for Scicomp
-        - Programming formalisms (Dec?)
-        - CR i Gothenburg (Nov/Dec?)
-        - Bianca 1 day only (x2)
+- Dates (Oct-Dec)
+  - py-R-jl
+    - Oct 17-19 (Tue-Thu)
+  - Git
+    - 13-17 Nov
+  - HPC-python
+    - Dec 5
+    - 1 day!!
+
+  - Courses to have in mind to avoid clashes
+    - Python for Scicomp
+    - Programming formalisms (Dec?)
+    - CR i Gothenburg (Nov/Dec?)
+    - Bianca 1 day only (x2)
 
 - Changes
   - more HPC!!!
   - more exercises!
   - assume students attend prereqs
   - how to do on other Naiss systems
-      - tabs
-      - or cheat sheets
+    - tabs
+    - or cheat sheets

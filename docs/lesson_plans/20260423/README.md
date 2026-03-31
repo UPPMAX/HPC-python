@@ -20,9 +20,9 @@ Books:
 
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/):
   good book, does expect Numpy
-    - [Pandas](https://jakevdp.github.io/PythonDataScienceHandbook/03.00-introduction-to-pandas.html)
-    - [Matplotlib](https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html)
-    - [Seaborn](https://jakevdp.github.io/PythonDataScienceHandbook/04.14-visualization-with-seaborn.html)
+  - [Pandas](https://jakevdp.github.io/PythonDataScienceHandbook/03.00-introduction-to-pandas.html)
+  - [Matplotlib](https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html)
+  - [Seaborn](https://jakevdp.github.io/PythonDataScienceHandbook/04.14-visualization-with-seaborn.html)
 
 I will use [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/).
 Note that it cannot be used anymore when this course would have a fee.

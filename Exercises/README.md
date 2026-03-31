@@ -12,4 +12,3 @@ The directories below "Exercises/dayN" contains the following directories:
 
 - programs: Python codes, mainly, as well as a few Fortran and Julia codes
 - hpc2n, uppmax, cosmos, nsc, pdc, c3se: Batch scripts that can run on (one of) the clusters at the center in questions, when you have edited the MYPATH variable inside (since the Python scripts recides in the programs directory)
-

@@ -5,4 +5,3 @@
 - Author: Richel
 
 [Confidences per question](../../evaluations/202504_course/confidences_per_question.png)
-

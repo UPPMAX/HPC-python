@@ -31,7 +31,6 @@ Hence, the duration of the session is perfect!
 I had a one-on-one with most learners. Most had at least one extra question
 and there was enough time to discuss this.
 
-
 ## Survey at end
 
 - [Evaluation results (csv)](survey_end.csv)
@@ -83,10 +82,8 @@ I assume the Conda and venv teachers pick this up.
 Unlike Nextflow, Snakemake seems a good fit, as it is intended
 to be Python-like.
 
-
 ### [Other comments](comments.txt)
 
 - Exercises were a bit less clear today, which ones we should do and when was a little confusing. Content was very good though :)
 - NO
 - Because each hpc has different setup it is a bit uninteresting to walk through them all when I'm only concerned with the one I'm using
-
