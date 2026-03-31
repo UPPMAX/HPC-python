@@ -185,7 +185,7 @@ Content of the course
    :caption: Lessons day 3 (advanced analysis):
 
    day3/new-matplotlib-intro.rst
-   day3/pandas.rst
+   day3/pandas/README.md
    day3/seaborn-new.rst
    day3/big_data.md
    day3/batch-new.rst

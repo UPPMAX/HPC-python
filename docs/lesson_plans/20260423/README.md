@@ -4,10 +4,10 @@
 - 10:15-11:00 Pandas
 - 11:15-12:00 Pandas, Seaborn
 
+## 2026-03-17
 
 - [How to Think Like a Computer Scientist](https://openbookproject.net/thinkcs/python/english3e/index.html)
   does not have any
-
 
 Books:
 
@@ -26,3 +26,6 @@ Books:
 
 I will use [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/).
 Note that it cannot be used anymore when this course would have a fee.
+
+## 2026-03-31
+
