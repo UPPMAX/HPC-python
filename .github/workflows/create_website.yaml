@@ -47,6 +47,8 @@ jobs:
           rm docs/day3/big_data_old.rst
           rm docs/day3/seaborn/seaborn-new.rst
           rm docs/day3/pandas/pandas.not_rst
+          rm docs/day3/example/chunk_dask.py
+          rm docs/day3/example/chunk_np.py
 
       - name: Sphinx build
         run: |
