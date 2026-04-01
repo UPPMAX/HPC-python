@@ -608,14 +608,23 @@ Principles
 
             .. code-block:: console
 
-               ml conda
-               export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
-               export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+               ml Miniforge3/24.11.3-0
                source activate spyder-env
 
             * you can install packages with pip install from inside Spyder
 
-   .. tab:: LUNARC
+        .. tab:: Bianca
+
+           - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+
+           .. code-block:: console
+
+              ml conda
+              source activate spyder-env
+  
+           * you can install packages with pip install from inside Spyder
+
+.. tab:: LUNARC
 
       - On COSMOS, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under ``Applications - Python``.
       - All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes.
