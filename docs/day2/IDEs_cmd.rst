@@ -624,7 +624,7 @@ Principles
   
             * you can install packages with pip install from inside Spyder
 
-.. tab:: LUNARC
+   .. tab:: LUNARC
 
       - On COSMOS, the recommended way to use Spyder is to use the On-Demand version in the Applications menu, under ``Applications - Python``.
       - All compatible packages should be configured to load upon launching, so you should only have to specify walltime and maybe a few extra resource settings with the GfxLauncher so that spyder will run on the compute nodes.
