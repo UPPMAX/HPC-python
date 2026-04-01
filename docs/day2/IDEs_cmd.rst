@@ -583,18 +583,37 @@ Principles
 
    .. tab:: UPPMAX
 
-      Spyder is not available centrally on Rackham.
+      .. tabs::
 
-      - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+         .. tab:: Pelle
 
-      .. code-block:: console
+            ALT 1
 
-         ml conda
-         export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
-         export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
-         source activate spyder-env
+            - Within the terminal of the interactive session,
+            load the ``Spyder`` module compatible with the ``foss2023b`` toolchain (``GCCcore-13.2.0``).
+            - You get ``Python/3.11.5`` on the fly.
+            - Also load ``SciPy-bundle`` to get ``numpy`` and ``pandas``
+            - and ``matplotlib`` that is its own module.
+            - (You can add any other compatible python package module as well)
 
-      * you can install packages with pip install from inside Spyder
+            .. code-block:: console
+            
+               ml Spyder/6.0.1-GCCcore-13.2.0
+               ml SciPy-bundle/2023.11-gfbf-2023b
+               ml matplotlib/3.8.2-gfbf-2023b
+
+            ALT 2
+
+            - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments.html#exercises>`_
+
+            .. code-block:: console
+
+               ml conda
+               export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
+               export CONDA_ENVS_PATH=/proj/hpc-python-uppmax/$USER
+               source activate spyder-env
+
+            * you can install packages with pip install from inside Spyder
 
    .. tab:: LUNARC
 
