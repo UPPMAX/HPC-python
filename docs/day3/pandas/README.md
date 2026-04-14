@@ -41,12 +41,23 @@ print(pandas.__version__)
 
 ## Exercise 2: reading a comma-seperated file
 
-Download
+In this exercise, we will read
+[the 'diamonds' dataset (as a comma-seperated file)](diamonds.csv):
+a dataset about diamonds.
+
+Download this file to the same folder as where you are running your Python code.
 
 
 ```python
-pd.read_csv("diamonds.csv")
-# 
+import pandas as pd
+
+table = pd.read_csv("diamonds.csv")
+print(table)
+```
+
+## Exercise 3: working with tabular data
+
+```python
 data = pd.Series([0.25, 0.5, 0.75, 1.0])
 data = pd.Series({2:'a', 1:'b', 3:'c'})
 print(data.values)
