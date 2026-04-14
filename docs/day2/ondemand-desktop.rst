@@ -1,3 +1,5 @@
+.. _ides-ondemand:
+
 Desktop On Demand
 =================
 
