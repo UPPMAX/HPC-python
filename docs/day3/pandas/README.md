@@ -22,34 +22,41 @@ At the end of this sessions, learners ...
 
 - Use the documentation of the HPC cluster you work on
 
+:::{admonition} Answer: where is your documentation?
+:class: dropdown
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+HPC cluster|HPC cluster-specific documentation
+-----------|------------------------------------------------------------
+Alvis      |[Documentation](https://www.c3se.chalmers.se)
+Bianca     |[Documentation](https://docs.uppmax.uu.se)
+COSMOS     |[Documentation](https://lunarc-documentation.readthedocs.io)
+Dardel     |[Documentation](https://support.pdc.kth.se)
+Kebnekaise |[Documentation](https://docs.hpc2n.umu.se)
+Pelle      |[Documentation](https://docs.uppmax.uu.se)
+Tetralith  |[Documentation](https://www.nsc.liu.se)
+<!-- markdownlint-enable MD013 -->
+:::
 
-- Find the software module to load the package. Use either
-  the documentation of the HPC center, or use the module system
+
+- In that documentation, find the software module to load the package.
+  If you know how, you may also use the module system
 
 :::{admonition} Answer: where is the pandas documentation?
 :class: dropdown
 
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| HPC cluster|URL to documentation                                                                                                                          |
-+============+==============================================================================================================================================+
-| Alvis      |`Here <https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy>`__                                                   |
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| Bianca     |`Here <https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu>`__                                              |
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| COSMOS     |`Here <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`__                                                  |
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| Dardel     |`Here <https://support.pdc.kth.se/doc/applications/tensorflow/>`__, but it is irrelevant                                                      |
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| Kebnekaise |`Here <https://docs.hpc2n.umu.se/software/apps/#scipy>`__                                                                                     |
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| LUMI       |`Has no software modules <https://docs.lumi-supercomputer.eu/software/installing/python/#use-an-existing-container>`__                        |
-+            +----------------------------------------------------------------------------------------------------------------------------------------------+
-|            |`Use the thanard/matplotlib container <https://hub.docker.com/r/thanard/matplotlib>`__                                                        |
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| Pelle      |`Python bundles <https://docs.uppmax.uu.se/software/python_bundles/#pytorch>`__                                                               |
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| Tetralith  |`Here <https://www.nsc.liu.se/software/python/>`__                                                                                            |
-+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|HPC cluster-specific `pandas` documentation
+-----------|-------------------------------------------------------------------------------------------------------------------
+Alvis      |[`pandas` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
+Bianca     |[`pandas` documentation](https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu)
+COSMOS     |[`pandas` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
+Dardel     |[`pandas` documentation](https://support.pdc.kth.se/doc/applications/tensorflow) (irrelevant)
+Kebnekaise |[`pandas` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
+Pelle      |[`pandas` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch)
+Tetralith  |[`pandas` documentation](https://www.nsc.liu.se/software/python)
+
+<!-- markdownlint-enable MD013 -->
 
 :::
 
