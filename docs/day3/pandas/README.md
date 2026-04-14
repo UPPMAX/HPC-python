@@ -25,16 +25,19 @@ At the end of this sessions, learners ...
 
 :::{admonition} Answer: where is your documentation?
 :class: dropdown
+
+Sorted by HPC cluster:
+
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
-HPC cluster|HPC cluster-specific documentation
------------|------------------------------------------------------------
-Alvis      |[Documentation](https://www.c3se.chalmers.se)
-Bianca     |[Documentation](https://docs.uppmax.uu.se)
-COSMOS     |[Documentation](https://lunarc-documentation.readthedocs.io)
-Dardel     |[Documentation](https://support.pdc.kth.se)
-Kebnekaise |[Documentation](https://docs.hpc2n.umu.se)
-Pelle      |[Documentation](https://docs.uppmax.uu.se)
-Tetralith  |[Documentation](https://www.nsc.liu.se)
+HPC center |HPC cluster|HPC cluster-specific documentation
+-----------|-----------|------------------------------------------------------------
+C3SE       |Alvis      |[Documentation](https://www.c3se.chalmers.se)
+UPPMAX     |Bianca     |[Documentation](https://docs.uppmax.uu.se)
+LUNARC     |COSMOS     |[Documentation](https://lunarc-documentation.readthedocs.io)
+PDC        |Dardel     |[Documentation](https://support.pdc.kth.se)
+HPC2N      |Kebnekaise |[Documentation](https://docs.hpc2n.umu.se)
+UPPMAX     |Pelle      |[Documentation](https://docs.uppmax.uu.se)
+NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 <!-- markdownlint-enable MD013 -->
 :::
 
