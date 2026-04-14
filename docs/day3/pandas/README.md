@@ -92,6 +92,17 @@ import pandas
 print(pandas.__version__)
 ```
 
+What do you see?
+
+:::{admonition} Answer: how does that look like?
+:class: dropdown
+
+```python
+TODO: text output here
+```
+
+:::
+
 ## Exercise 2: reading and saving a comma-separated file
 
 In this exercise, we will first read
@@ -109,6 +120,15 @@ table = pd.read_csv("diamonds.csv")
 print(table)
 ```
 
+:::{admonition} Answer: how does that look like?
+:class: dropdown
+
+```python
+TODO: text output here
+```
+:::
+
+
 Great, you've read a comma-separated file! Next step is to save it.
 Saving it is straightforward, except for one thing: there is a function
 argument called `index`. Here we'll find out what it is.
@@ -120,38 +140,31 @@ table.to_csv("my_new_file_without_index.csv", index = False)
 table.to_csv("my_new_file_with_index.csv", index = True)
 ```
 
-Run the code. What is the difference between the two created files?
+Run the code. 
+
+:::{admonition} Answer: how does that look like?
+:class: dropdown
+
+```python
+TODO: text output here
+```
+:::
+
+What is the difference between the two created files?
+
+:::{admonition} Answer: what is the difference between the two created files?
+:class: dropdown
+
+```python
+TODO: text output here
+```
+:::
 
 ## Exercise 3: working with tabular data
 
 There are many things one can do with tabular data.
 Pandas has an overview at
 [the pandas page '10 minutes to pandas'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html).
-
-```python
-data = pd.Series([0.25, 0.5, 0.75, 1.0])
-data = pd.Series({2:'a', 1:'b', 3:'c'})
-print(data.values)
-```
-
-Data frame:
-
-```python
-population_dict = {'California': 38332521,
-                   'Texas': 26448193,
-                   'New York': 19651127,
-                   'Florida': 19552860,
-                   'Illinois': 12882135}
-population = pd.Series(population_dict)
-population
-area_dict = {'California': 423967, 'Texas': 695662, 'New York': 141297,
-             'Florida': 170312, 'Illinois': 149995}
-area = pd.Series(area_dict)
-area
-states = pd.DataFrame({'population': population,
-                       'area': area})
-states
-```
 
 ## Done?
 
