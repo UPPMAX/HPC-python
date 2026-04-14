@@ -1,3 +1,4 @@
+.. _basic-slurm:
 Basic batch and Slurm
 =====================
 

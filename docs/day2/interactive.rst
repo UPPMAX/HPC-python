@@ -1,3 +1,5 @@
+.. _interactive:
+
 Interactive work on the compute nodes
 =====================================
 

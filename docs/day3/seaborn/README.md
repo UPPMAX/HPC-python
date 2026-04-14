@@ -86,43 +86,33 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 ## Exercises
 
+Run the following code, that is copied from
+[the `seaborn` page 'An introduction to `seaborn`'](https://seaborn.pydata.org/tutorial/introduction.html)
+and combined with
+[this StackOverflow post to save it to a file](https://stackoverflow.com/a/39482402/3364162)
+
 ```python
-import matplotlib.pyplot as plt
-plt.style.use('classic')
-%matplotlib inline
-import numpy as np
-import seaborn as pd
-
-# Create some data
-rng = np.random.RandomState(0)
-x = np.linspace(0, 10, 500)
-y = np.cumsum(rng.randn(500, 6), 0)
-
-# Plot the data with Matplotlib defaults
-plt.plot(x, y)
-plt.legend('ABCDEF', ncol=2, loc='upper left');
-
-
+# Import seaborn
 import seaborn as sns
-sns.set()
 
+# Apply the default theme
+sns.set_theme()
 
-# same plotting code as above!
-plt.plot(x, y)
-plt.legend('ABCDEF', ncol=2, loc='upper left');
+# Load an example dataset
+tips = sns.load_dataset("tips")
+
+# Create a visualization and save it to file
+my_plot = sns.relplot(
+    data = tips,
+    x = "total_bill", y = "tip", col = "time",
+    hue = "smoker", style = "smoker", size = "size",
+)
+fig = my_plot.get_figure()
+fig.savefig("out.png") 
 ```
 
-```python
-data = np.random.multivariate_normal([0, 0], [[5, 2], [2, 2]], size=2000)
-data = pd.DataFrame(data, columns=['x', 'y'])
-
-# Two overlaid density plots
-for col in 'xy':
-    sns.kdeplot(data[col], shade=True)
-
-# Density plot
-sns.kdeplot(data);
-```
+- Run the script
+- Check that the figure is created
 
 ## External links
 
