@@ -2,19 +2,63 @@
 <!-- From https://docs.readthedocs.com/platform/stable/guides/cross-referencing-with-sphinx.html#explicit-targets -->
 (matplotlib)=
 
-# Matplotlib
+# `matplotlib`
 
 :::{admonition} Learning outcomes
 :class: note
 
 At the end of this sessions, learners ...
 
-- understand why Matplotlib is important
-- have run Python code that uses Matplotlib
+- understand why `matplotlib` is important
+- have run Python code that uses `matplotlib`
 
 :::
 
 ## Loading Matplotlib
+
+- Use the documentation of the HPC cluster you work on
+
+:::{admonition} Answer: where is your documentation?
+:class: dropdown
+
+Sorted by HPC cluster:
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+HPC center |HPC cluster|HPC cluster-specific documentation
+-----------|-----------|------------------------------------------------------------
+C3SE       |Alvis      |[Documentation](https://www.c3se.chalmers.se)
+UPPMAX     |Bianca     |[Documentation](https://docs.uppmax.uu.se)
+LUNARC     |COSMOS     |[Documentation](https://lunarc-documentation.readthedocs.io)
+PDC        |Dardel     |[Documentation](https://support.pdc.kth.se)
+HPC2N      |Kebnekaise |[Documentation](https://docs.hpc2n.umu.se)
+UPPMAX     |Pelle      |[Documentation](https://docs.uppmax.uu.se)
+NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
+<!-- markdownlint-enable MD013 -->
+:::
+
+- In that documentation, find the software module to load the package.
+  If you know how, you may also use the module system
+
+:::{admonition} Answer: where is the `matplotlib` documentation?
+:class: dropdown
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|HPC cluster-specific `matplotlib` documentation
+-----------|-------------------------------------------------------------------------------------------------------------------
+Alvis      |[`matplotlib` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
+Bianca     |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu)
+COSMOS     |[`matplotlib` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
+Dardel     |[`matplotlib` documentation](https://support.pdc.kth.se/doc/applications/tensorflow) (irrelevant)
+Kebnekaise |[`matplotlib` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
+Pelle      |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch)
+Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/python)
+
+<!-- markdownlint-enable MD013 -->
+
+:::
+
+- Load the software module to use `matplotlib`
 
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 

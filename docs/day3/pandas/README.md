@@ -50,15 +50,15 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
-HPC cluster|HPC cluster-specific `pandas` documentation
+HPC cluster|HPC cluster-specific `matplotlib` documentation
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      |[`pandas` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
-Bianca     |[`pandas` documentation](https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu)
-COSMOS     |[`pandas` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
-Dardel     |[`pandas` documentation](https://support.pdc.kth.se/doc/applications/tensorflow) (irrelevant)
-Kebnekaise |[`pandas` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
-Pelle      |[`pandas` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch)
-Tetralith  |[`pandas` documentation](https://www.nsc.liu.se/software/python)
+Alvis      |[`matplotlib` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
+Bianca     |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu)
+COSMOS     |[`matplotlib` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
+Dardel     |[`matplotlib` documentation](https://support.pdc.kth.se/doc/applications/tensorflow) (irrelevant)
+Kebnekaise |[`matplotlib` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
+Pelle      |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch)
+Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/python)
 
 <!-- markdownlint-enable MD013 -->
 
@@ -67,12 +67,12 @@ Tetralith  |[`pandas` documentation](https://www.nsc.liu.se/software/python)
 
 - Load the software module to use pandas
 
-:::{admonition} Answer: how to load the `pandas` software module
+:::{admonition} Answer: how to load the `matplotlib` software module
 :class: dropdown
 
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
-HPC cluster|How to load the `pandas` software module
+HPC cluster|How to load the `matplotlib` software module
 -----------|-------------------------------------------------------------------------------------------------------------------
 Alvis      |`module load matplotlib/3.9.2-gfbf-2024a`
 COSMOS     |`module load GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2`
