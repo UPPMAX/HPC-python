@@ -79,7 +79,7 @@ Tetralith  |?`module load Python/3.10.4-env-hpc1-gcc-2022a-eb`
 
 :::
 
-## Exercises
+- Create a script with the following code:
 
 ```python
 import matplotlib as mpl
@@ -92,8 +92,10 @@ plt.plot(x, np.cos(x))
 
 # plt.show()
 plt.figure().savefig('my_figure.png') # Unsure if this works
-
 ```
+
+- Run the script
+- Check that the figure is created
 
 ## External links
 
