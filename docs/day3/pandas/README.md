@@ -39,13 +39,13 @@ import pandas
 print(pandas.__version__)
 ```
 
-## Exercise 2
+## Exercise 2: reading a comma-seperated file
 
-Depends on Matplotlib
+Download
 
-Series:
 
 ```python
+pd.read_csv("diamonds.csv")
 # 
 data = pd.Series([0.25, 0.5, 0.75, 1.0])
 data = pd.Series({2:'a', 1:'b', 3:'c'})
