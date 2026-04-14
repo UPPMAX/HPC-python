@@ -10,15 +10,15 @@ These are the NAISS course projects:
 +============+==========================+
 | COSMOS     | :code:`lu2025-7-106`     |
 +------------+--------------------------+
-| Dardel     | :code:`naiss2025-22-934` |
+| Dardel     | :code:`naiss2026-4-66`   |
 +------------+--------------------------+
-| Kebnekaise | :code:`hpc2n2025-151`    |
+| Kebnekaise | :code:`hpc2n2026-002`    |
 +------------+--------------------------+
 | Pelle      | :code:`uppmax2025-2-393` |
 +------------+--------------------------+
-| Tetralith  | :code:`naiss2025-22-934` |
+| Tetralith  | :code:`naiss2026-4-66`   |
 +------------+--------------------------+
-| Alvis      | :code:`naiss2025-22-934` |
+| Alvis      | :code:`naiss2026-4-66`   |
 +------------+--------------------------+
 
 Storage spaces for this workshop:
@@ -26,21 +26,21 @@ Storage spaces for this workshop:
 +------------+------------------------------------------------------------+
 | HPC cluster| Course project                                             |
 +============+============================================================+
-| Alvis      | :code:`/mimer/NOBACKUP/groups/courses-fall-2025`           |
+| Alvis      | :code:`/mimer/NOBACKUP/groups/spring-courses-naiss`        |
 +------------+------------------------------------------------------------+
 | Bianca     | None. Use ``/proj/[your_project_code]``                    |
 +------------+------------------------------------------------------------+
 | COSMOS     | :code:`/lunarc/nobackup/projects/lu2025-17-52`             |
 +------------+------------------------------------------------------------+
-| Dardel     | :code:`/cfs/klemming/projects/supr/courses-fall-2025`      |
+| Dardel     | :code:`/cfs/klemming/projects/supr/spring-courses-naiss`   |
 +------------+------------------------------------------------------------+
-| Kebnekaise | :code:`/proj/nobackup/fall-courses`                        |
+| Kebnekaise | :code:`/proj/nobackup/spring-courses`                      |
 +------------+------------------------------------------------------------+
 | LUMI       | None. Use ``/project/[your_project_code]``                 |
 +------------+------------------------------------------------------------+
 | Pelle      | :code:`/proj/hpc-python-uppmax`                            |
 +------------+------------------------------------------------------------+
-| Tetralith  | :code:`/proj/courses-fall-2025/users/`                     |
+| Tetralith  | :code:`/proj/spring-courses-naiss/users/`                  |
 +------------+------------------------------------------------------------+
 
 .. admonition:: Reservations
