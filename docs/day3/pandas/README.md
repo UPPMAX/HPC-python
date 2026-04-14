@@ -29,6 +29,7 @@ At the end of this sessions, learners ...
 Sorted by HPC cluster:
 
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
 HPC center |HPC cluster|HPC cluster-specific documentation
 -----------|-----------|------------------------------------------------------------
 C3SE       |Alvis      |[Documentation](https://www.c3se.chalmers.se)
@@ -38,14 +39,16 @@ PDC        |Dardel     |[Documentation](https://support.pdc.kth.se)
 HPC2N      |Kebnekaise |[Documentation](https://docs.hpc2n.umu.se)
 UPPMAX     |Pelle      |[Documentation](https://docs.uppmax.uu.se)
 NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
+
 <!-- markdownlint-enable MD013 -->
+
 :::
 
 
 - In that documentation, find the software module to load the package.
   If you know how, you may also use the module system
 
-:::{admonition} Answer: where is the pandas documentation?
+:::{admonition} Answer: where is the `pandas` documentation?
 :class: dropdown
 
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
@@ -65,7 +68,7 @@ Tetralith  |[`pandas` documentation](https://www.nsc.liu.se/software/python)
 :::
 
 
-- Load the software module to use pandas
+- Load the software module to use `pandas`
 
 :::{admonition} Answer: how to load the `pandas` software module
 :class: dropdown
