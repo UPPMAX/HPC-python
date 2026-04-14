@@ -1,7 +1,7 @@
 .. _use-isolated-environments:
 
-Use isolated environments
-=========================
+Using isolated environments
+===========================
 
 .. admonition:: Learning objectives
 
