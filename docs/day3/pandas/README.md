@@ -20,6 +20,9 @@ At the end of this sessions, learners ...
 
 ## Loading Pandas
 
+:::{admonition} Answer
+:class: dropdown
+
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
 HPC cluster|How to load Pandas
@@ -30,8 +33,10 @@ Dardel     |`module load cray-python/3.11.7`
 Kebnekaise |`module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3`
 Pelle      |`module load SciPy-bundle/2024.05-gfbf-2024a`
 Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0`
-
 <!-- markdownlint-enable MD013 -->
+
+:::
+
 
 ## Exercises
 
