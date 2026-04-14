@@ -9,6 +9,7 @@
 
 At the end of this sessions, learners ...
 
+- have practiced using the documentation of favorite HPC cluster
 - understand why Pandas is important
 - have run Python code that uses Pandas
 - have read a comma-separated file using Pandas
