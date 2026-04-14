@@ -52,7 +52,7 @@ COSMOS     |?[`matplotlib` documentation](https://lunarc-documentation.readthedo
 Dardel     |?[`matplotlib` documentation](https://support.pdc.kth.se/doc/applications/tensorflow) (irrelevant)
 Kebnekaise |?[`matplotlib` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
 Pelle      |?[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch)
-Tetralith  |?[`matplotlib` documentation](https://www.nsc.liu.se/software/python)
+Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/catalogue/tetralith/modules/python.html)
 
 <!-- markdownlint-enable MD013 -->
 
