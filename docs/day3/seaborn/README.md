@@ -73,11 +73,12 @@ Tetralith  |?[`seaborn` documentation](https://www.nsc.liu.se/software/python)
 HPC cluster|How to load Seaborn
 -----------|-----------------------------------------------------------------------------------------------------------------------
 Alvis      |`module load Seaborn/0.13.2-gfbf-2024a`
-Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2`
 COSMOS     |`module load GCC/13.2.0 Seaborn/0.13.2`
-Pelle      |`module load Seaborn/0.13.2-gfbf-2024a`
-Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11; pip install seaborn`
 Dardel     |`module load cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12`
+Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2`
+Pelle      |`module load Seaborn/0.13.2-gfbf-2024a` :-)
+Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11; pip install seaborn` :-)
+
 
 <!-- markdownlint-enable MD013 -->
 
