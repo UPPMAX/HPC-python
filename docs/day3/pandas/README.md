@@ -20,6 +20,42 @@ At the end of this sessions, learners ...
 
 ## Loading Pandas
 
+- Use the documentation of the HPC cluster you work on
+
+
+- Find the software module to load the package. Use either
+  the documentation of the HPC center, or use the module system
+
+:::{admonition} Answer: where is the pandas documentation?
+:class: dropdown
+
++------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| HPC cluster|URL to documentation                                                                                                                          |
++============+==============================================================================================================================================+
+| Alvis      |`Here <https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy>`__                                                   |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| Bianca     |`Here <https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu>`__                                              |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| COSMOS     |`Here <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`__                                                  |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| Dardel     |`Here <https://support.pdc.kth.se/doc/applications/tensorflow/>`__, but it is irrelevant                                                      |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| Kebnekaise |`Here <https://docs.hpc2n.umu.se/software/apps/#scipy>`__                                                                                     |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| LUMI       |`Has no software modules <https://docs.lumi-supercomputer.eu/software/installing/python/#use-an-existing-container>`__                        |
++            +----------------------------------------------------------------------------------------------------------------------------------------------+
+|            |`Use the thanard/matplotlib container <https://hub.docker.com/r/thanard/matplotlib>`__                                                        |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| Pelle      |`Python bundles <https://docs.uppmax.uu.se/software/python_bundles/#pytorch>`__                                                               |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| Tetralith  |`Here <https://www.nsc.liu.se/software/python/>`__                                                                                            |
++------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+:::
+
+
+- Load the software module to use pandas
+
 :::{admonition} Answer
 :class: dropdown
 
