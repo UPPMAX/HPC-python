@@ -14,14 +14,13 @@ Introduction
 .. admonition:: **For teachers: Learning outcomes for this day**
     :class: dropdown
 
-    - You can find and load a Python package module
+    - You can find and load a Python package modules
     - You can determine if a Python package is installed
-    - You can use an isolated environment
     - You can install Python packages
-    - You can write and submit batch job scripts
+    - You can work with isolated environments like conda or venv
     - You can use the compute nodes interactively
+    - you can check that you are in an interactive session
     - You can use a Python IDE
-    - You can create plots in ``matplotlib``
 
 .. admonition:: **Learning outcomes of this session**
 
@@ -59,8 +58,11 @@ is one of the most used programming languages used today.
     - has `a forum <https://python-forum.io/>`__
 
 Running Python on an HPC cluster allows scientists to
-run their code that needs either (1) massive computation,
-(2) massive storage space, and/or (3) storage of sensitive data.
+run their code that needs either 
+
+1. massive computation,
+2. massive storage space, and/or 
+3. storage of sensitive data.
 
 Exercises
 ---------
@@ -90,7 +92,7 @@ what you will learn today.
 
     With this exercise, we'll discover what we'll learn today.
 
-    Give you confidence levels of the following statements,
+    Give your confidence levels of the following statements,
     using this scale:
 
     - 0: I don't know even what this is about ...?
@@ -100,14 +102,14 @@ what you will learn today.
     - 4: I have good confidence I can do this
     - 5: I absolutely can do this!
 
-    Give you confidence levels of the following statements below:
+    Give your confidence levels of the following statements below:
 
-    - I can find and load a Python package module
+    - I can find and load a Python package modules
     - I can determine if a Python package is installed
-    - I can use an isolated environment
     - I can install Python packages
-    - I can write and submit batch job scripts
+    - I can work with isolated environments like conda or venv
     - I can use the compute nodes interactively
+    - I can check that I am in an interactive session
     - I can use a Python IDE
 
 Exercise 3: downloading and extracting the exercises
@@ -128,7 +130,7 @@ on your favorite HPC cluster and extract the exercises.
 (optional) Exercise 4: where is what?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Explore the website of the course. Where you can you find
+Explore the website of the course. Where can you find
 the things below?
 
 - The schedule
