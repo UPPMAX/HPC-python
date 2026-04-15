@@ -42,12 +42,14 @@ jobs:
           rm docs/day2/jupyter.md
           rm docs/day2/use_isolated_environments_old.rst
           rm docs/day2/jupyter.rst
-          rm docs/day3/matplotlib/new-matplotlib-intro.rst
+          rm -rf docs/day3/matplotlib/20251130_rebecca_pits
           rm -rf docs/day3/not_used
           rm docs/day3/big_data_old.rst
           rm docs/day3/batch.rst # is now day3/batch-new.rst
-          rm docs/day3/seaborn/seaborn-new.rst
-          rm docs/day3/pandas/pandas.not_rst
+          rm -rf docs/day3/seaborn/20251130_rebecca_pits
+          rm -rf docs/day3/seaborn/older
+          rm -rf docs/day3/pandas/20251130_rebecca_pits
+          rm -rf docs/day3/pandas/older
           rm docs/day3/example/chunk_dask.py
           rm docs/day3/example/chunk_np.py
 
