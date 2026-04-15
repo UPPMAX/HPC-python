@@ -19,7 +19,12 @@ At the end of this sessions, learners ...
   [the pandas page '10 minutes to pandas'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)
 :::
 
+## Why `pandas` is important
+
+![The pandas logo, from https://pandas.pydata.org/about/citing.html](pandas.svg)
+
 ## Loading Pandas
+
 
 - Use the documentation of the HPC cluster you work on
 
