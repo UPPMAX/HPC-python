@@ -21,24 +21,24 @@ tags:
     - GCCcore reflects the GCC compiler version that is compatible when using C/C++ "back end" code.
     - The year reflects an EasyBuild toolchain, see [FOSS toolchains](https://docs.easybuild.io/common-toolchains/#common_toolchains_overview_foss).
 
-Package     |Bundle module|Also loads        |Avail at|
+Package     |Bundle module|Also loads        |Avail at *|
 ------------|-------------|------------------|--------|
-numpy       | SciPy-bundle|Python-bundle-PyPI|Pelle
-pandas      | SciPy-bundle|Python-bundle-PyPI|Pelle
-scipy       | SciPy-bundle|Python-bundle-PyPI|Pelle
-matplotlib  | Matplotlib  |SciPy-bundle      |Pelle
-seaborn     | Seaborn     |Matplotlib        |Pelle
-biopython   | BioPython   |SciPy-bundle      |Pelle
-dask        | dask        |Matplotlib        |Pelle
-ipython     | IPython     |Python-bundle-PyPI|Pelle
-Jupyterlab  | JupyterLab  |IPython           |Pelle
-xarray      | xarray      |SciPy-bundle      |Pelle
-numba       | numba       |SciPy-bundle      |Pelle
-mpi4py      | mpi4py      |OpenMPI           |Pelle
-scikit-learn| scikit-learn|SciPy-bundle      |Pelle
-torch       | PyTorch     |OpenMPI           |Pelle
+numpy       | SciPy-bundle|Python-bundle-PyPI|P, K, C
+pandas      | SciPy-bundle|Python-bundle-PyPI|P, K, C
+scipy       | SciPy-bundle|Python-bundle-PyPI|P, K, C
+matplotlib  | matplotlib  |SciPy-bundle      |P, K, C
+seaborn     | Seaborn     |Matplotlib        |P, K, C
+biopython   | BioPython   |SciPy-bundle      |P, K, C
+dask        | dask        |Matplotlib        |P, K, C
+ipython     | IPython     |Python-bundle-PyPI|P, K, C
+Jupyterlab  | JupyterLab  |IPython           |P, K, C
+xarray      | xarray      |SciPy-bundle      |P, , C
+numba       | numba       |SciPy-bundle      |P, K, C
+mpi4py      | mpi4py      |OpenMPI           |P, K, C
+scikit-learn| scikit-learn|SciPy-bundle      |P, K, C
+torch       | PyTorch     |OpenMPI           |P, K, C
 
-
+* Dardel (``D``), Tetralith (``T``), Alvis (``A``), Pelle (``P``), Kebnekaise (``K``), Cosmos (``C``)
 
 :::{callout} "FOSS tool chains and Python version using them"
 
@@ -56,13 +56,13 @@ torch       | PyTorch     |OpenMPI           |Pelle
     - See [Toolchain diagram](https://docs.easybuild.io/common-toolchains/#toolchains_diagram)
 :::
 
-:::{callout} warning
+:::{danger}
 
     - Make sure to use bundles that are compatible with each-other and with needed Python version.
     - Otherwise it is better to create isolated environments with Conda or virtual environments, see [Virtual environments in Python](python_virtual_environments.md).
 ::: 
 
-:::{hint}  Example Matplotlib
+:::{callout}  Example Matplotlib
 :class: dropdown
 
 - `contourpy`
@@ -89,15 +89,7 @@ Dependencies:
 
 :::
 
-## mpi4py
-
-MPI for Python (mpi4py) provides bindings of the Message Passing Interface (MPI) standard for
- the Python programming language, allowing any Python program to exploit multiple processors.
-
-- Homepage: <https://github.com/mpi4py/mpi4py>
-
-
-:::{hint}  What is Python-bundle-PyPI
+:::{callout}  What is Python-bundle-PyPI
 :class: dropdown
 
 Bundle of Python packages from PyPI

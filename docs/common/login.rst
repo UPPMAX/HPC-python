@@ -216,6 +216,7 @@ Step 2: Make a work directory
 -----------------------------
 
 - **Directory names OK?**
+  - Now they are
 
 .. tabs::
 
@@ -239,7 +240,7 @@ Step 2: Make a work directory
 
         .. code-block:: console
 
-           $ mkdir /proj/nobackup/fall-courses/bbrydsoe/
+           $ mkdir /proj/nobackup/spring-courses/bbrydsoe/
 
    .. tab:: LUNARC
 
@@ -252,11 +253,11 @@ Step 2: Make a work directory
            $ mkdir $HOME/hpc-python
 
 
-      - Or use the project storage:
+      - Or use the project storage, if you have:
 
         .. code-block:: console
 
-           $ mkdir /lunarc/nobackup/projects/lu2025-17-52/<yourdir>
+           $ mkdir /lunarc/nobackup/projects/<yourdir>
 
    .. tab:: NSC
 
@@ -266,7 +267,7 @@ Step 2: Make a work directory
 
         .. code-block:: console
 
-           $ mkdir /proj/courses-fall-2025/users/jlpicard
+           $ mkdir /proj/spring-courses-naiss/users/jlpicard
 
    .. tab:: PDC
 
@@ -276,7 +277,7 @@ Step 2: Make a work directory
 
         .. code-block:: console
 
-           $ mkdir /cfs/klemming/projects/supr/courses-fall-2025/sevenof9/
+           $ mkdir /cfs/klemming/projects/supr/spring-courses-naiss/sevenof9/
 
 
    .. tab:: C3SE
@@ -287,7 +288,7 @@ Step 2: Make a work directory
 
          .. code-block:: console
 
-            $ mkdir /mimer/NOBACKUP/groups/courses-fall-2025/sisko
+            $ mkdir /mimer/NOBACKUP/groups/spring-courses-naiss/sisko
 
 Test an editor
 --------------
