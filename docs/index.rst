@@ -18,7 +18,7 @@ Welcome to "Using Python in an HPC environment" course material
       - use Python in parallel
       - use Python for ML and on GPUs.
    - This course will consist of lectures interspersed with hands-on sessions where you get to try out what you have just learned.
-   - **We aim to give this course in spring and fall every year.**
+   - **We aim to give this course in spring every year.**
 
 .. admonition:: **Course learning outcomes**
 
@@ -33,7 +33,7 @@ Welcome to "Using Python in an HPC environment" course material
     - Use Python for ML
     - Use GPUs with Python
 
-Schedule Autumn 2025
+Schedule Spring 2026
 --------------------
 
 .. admonition:: Schedule
@@ -52,9 +52,9 @@ Schedule Autumn 2025
    **Target group**
 
    - The course is for present or presumptive users at the **NAISS** resources at PDC, NSC, and C3SE as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden.
-   - The course is a NAISS cooperation with **teachers** from the NAISS branches **UPPMAX** (Pelle, Maya, Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
+   - The course is a NAISS cooperation with **teachers** from the NAISS branches **UPPMAX** (Pelle, Maya, Bianca), **HPC2N** (Kebnekaise), **LUNARC** (Cosmos), and **C3SE** (Alvis) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
    - Although there are differences we will only have **few separate sessions**.
-   - Most participants will use The NAISS resources **Tetralith** system at NSC or **Dardel** system at PDC for the course.
+   - Most participants will use The NAISS resources **Tetralith** system at NSC or **Dardel** system at PDC for the course - or in the future, **Arrhenius**.
 
        - Alvis at **C3SE (Chalmers)** is in the process of being added.
 
@@ -62,7 +62,7 @@ Schedule Autumn 2025
 
       - Kebnekaise: UmU, IRF, MIUN, SLU, LTU.
       - Cosmos: LU.
-      - Pelle/Maya/Rackham/Snowy: UU.
+      - Pelle/Maya: UU.
 
    - The general information given in the course will be true for all/most HPC centres in Sweden.
 
@@ -123,7 +123,7 @@ Schedule Autumn 2025
 .. admonition:: Q/A collaboration document
 
    - Use the Q/A page for the workshop with your questions.
-       - `https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/IQDToLTHrvKHQ7PSkxBv9v_lAfFXgfgLZVMLRDzQ_jOrfDw <https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/IQDToLTHrvKHQ7PSkxBv9v_lAfFXgfgLZVMLRDzQ_jOrfDw>`_
+       - `https://nextcloud.naiss.se/s/Jbfy4kj3bSJKtfG <https://nextcloud.naiss.se/s/Jbfy4kj3bSJKtfG>`_
    - Use this page for the workshop with your questions
    - It helps us identify content that is missing in the course material
    - We answer those questions as soon as possible
