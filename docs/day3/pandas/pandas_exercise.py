@@ -19,3 +19,6 @@ if not os.path.exists("diamonds.csv"):
 
 table = pd.read_csv("diamonds.csv")
 print(table)
+
+table.to_csv("my_new_file_without_index.csv", index = False)
+table.to_csv("my_new_file_with_index.csv", index = True)
