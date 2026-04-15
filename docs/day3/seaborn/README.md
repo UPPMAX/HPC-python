@@ -124,7 +124,45 @@ fig.savefig("out.png")
 - Run the script
 - Check that the figure is created
 
-## Exercise 2: displaying a `pandas` table
+## (optional) Exercise 2: displaying a `pandas` table
+
+In this exercise, we will again use 
+[the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
+a dataset about diamonds.
+
+This dataset contains information about more than fifty thousand diamonds.
+Two such features are the weight (in carats) and the price (in USD).
+Here we want to use an image to display the relationship between these two.
+
+- Use `pandas` to read the dataset and use `seaborn`
+  to create a scatter plot from that data. Put the diamond weight
+  on the x-axis and the diamond price on the y-axis.
+
+:::{admonition} Answer
+:class: dropdown
+
+Here is a simple solution
+(simplified from [this script](seaborn_exercise.py)):
+
+```python
+import pandas as pd
+import seaborn as sns
+table = pd.read_csv("diamonds.csv")
+
+scatter_plot = sns.relplot(
+    data = table, x = "carat", y = "price"
+)
+scatter_plot.savefig("seaborn_exercise.png") 
+```
+
+This will look like this:
+
+![](seaborn_exercise.png)
+
+:::
+
+
+## (optional) Exercise 3: making the plot pretty
 
 ## External links
 

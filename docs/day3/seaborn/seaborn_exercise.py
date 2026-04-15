@@ -1,9 +1,9 @@
 #!/bin/env python
 #
-# Naming this file 'matplotlib.py' will cause problems
+# Naming this file 'seaborn.py' will cause problems
 #
 import pandas as pd
-import matplotlib.pyplot as plt
+import seaborn as sns
 import os
 
 if not os.path.exists("diamonds.csv"):
@@ -20,6 +20,7 @@ if not os.path.exists("diamonds.csv"):
 
 table = pd.read_csv("diamonds.csv")
 
-
-plt.scatter(table["carat"], table["price"])
-plt.savefig("matplotlib_exercise.png")
+scatter_plot = sns.relplot(
+    data = table, x = "carat", y = "price"
+)
+scatter_plot.savefig("seaborn_exercise.png") 
