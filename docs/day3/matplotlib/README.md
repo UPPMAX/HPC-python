@@ -11,10 +11,15 @@ At the end of this sessions, learners ...
 
 - understand why `matplotlib` is important
 - have run Python code that uses `matplotlib`
+- have run Python code that uses `matplotlib` to display data from a `pandas` table
 
 :::
 
-## Loading Matplotlib
+## Why `matplotlib` is important
+
+## Exercises
+
+## Exercise 1: a minimal program
 
 - Use the documentation of the HPC cluster you work on
 
@@ -79,6 +84,7 @@ Tetralith  |?`module load Python/3.10.4-env-hpc1-gcc-2022a-eb`
 
 :::
 
+
 - Create a script with the following code:
 
 ```python
@@ -96,6 +102,10 @@ plt.figure().savefig('my_figure.png') # Unsure if this works
 
 - Run the script
 - Check that the figure is created
+
+## Exercise 2: displaying a `pandas` table
+
+
 
 ## External links
 

@@ -12,8 +12,13 @@ At the end of this sessions, learners ...
 - have practiced using the documentation of favorite HPC cluster
 - understand why Pandas is important
 - understand why Seaborn is important
-- have run Python code that uses Seaborn
+- have run Python code that uses `seaborn`
+- have run Python code that uses `seaborn` to display data from a `pandas` table
 :::
+
+## Why Seaborn is important
+
+![Seaborn wide logo, from https://seaborn.pydata.org/citing.html](logo-wide-lightbg.svg)
 
 ## Loading Seaborn
 
@@ -86,6 +91,8 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 ## Exercises
 
+## Exercise 1: a minimal `seaborn` program
+
 Run the following code, that is copied from
 [the `seaborn` page 'An introduction to `seaborn`'](https://seaborn.pydata.org/tutorial/introduction.html)
 and combined with
@@ -113,6 +120,8 @@ fig.savefig("out.png")
 
 - Run the script
 - Check that the figure is created
+
+## Exercise 2: displaying a `pandas` table
 
 ## External links
 
