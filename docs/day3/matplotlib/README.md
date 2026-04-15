@@ -110,6 +110,20 @@ plt.figure().savefig('my_figure.png') # Unsure if this works
 
 ## Exercise 2: displaying a `pandas` table
 
+In this exercise, we will first read
+[the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
+a dataset about diamonds, using `pandas`.
+
+Download this file to the same folder as where you are running your Python code.
+
+Run and read the following code:
+
+```python
+import pandas as pd
+table = pd.read_csv("diamonds.csv")
+```
+
+
 
 
 ## External links
