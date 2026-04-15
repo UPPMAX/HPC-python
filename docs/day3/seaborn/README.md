@@ -172,6 +172,8 @@ to improve the plot, for example:
 - Add a linear trendline
 - Whatever you like
 
+
 ## External links
 
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
+

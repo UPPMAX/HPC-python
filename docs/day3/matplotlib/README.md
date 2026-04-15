@@ -153,6 +153,39 @@ to improve the plot, for example:
 - Add a linear trendline
 - Whatever you like
 
+## (optional) Exercise 4: should I use `matplotlib` or `seaborn`?
+
+Search the academic literature to answer the question
+if you should use `matplotlib` or `seaborn`,
+for example 
+[by searching Google Scholar for 'matplotlib versus seaborn'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=matplotlib+versus+seaborn&btnG=).
+
+Which paper will you find?
+
+:::{admonition} Answer
+:class: dropdown
+
+You will find the paper `[Sial et al., 2021]`
+(see below for the complete reference)
+
+:::
+
+What does the paper conclude, regarding using `matplotlib` or `seaborn`?
+
+:::{admonition} Answer
+:class: dropdown
+
+Here is a quote from the conclusion of `[Sial et al., 2021]`:
+
+> It has been identified that if a data scientist
+> wants to visualize the large chunks of datasets then seaborn
+> will be a better option, but if you are looking for basic
+> visualization patterns then matplotlib would be a better
+> choice for beginners and starters in the field of data
+> visualization & computational modelling
+
+:::
+
 ## Done?
 
 Go to [the session about `seaborn`](../seaborn/README.md)
@@ -160,3 +193,7 @@ Go to [the session about `seaborn`](../seaborn/README.md)
 ## External links
 
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
+
+## References
+
+- `[Sial et al., 2021]` Sial, Ali Hassan, Syed Yahya Shah Rashdi, and Abdul Hafeez Khan. "Comparative analysis of data visualization libraries Matplotlib and Seaborn in Python." International Journal 10.1 (2021): 277-281.
