@@ -257,8 +257,8 @@ Conda
    .. code-block:: console
 
       module load Miniforge/24.7.1-2-hpc1
-      export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
-      export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
+      export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
+      export CONDA_ENVS_PATH=/proj/spring-courses-naiss/users/$USER
       mamba create --prefix=$CONDA_ENVS_PATH/numpy-proj-39 python=3.9.5 -c conda-forge
       mamba activate nsc-example
       # A prompt "(/path-to/nsc-example/)" should show up
@@ -503,8 +503,8 @@ Breakout room according to grouping
          .. code-block::
 
             module load Miniforge/24.7.1-2-hpc1
-            export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
-            export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
+            export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
+            export CONDA_ENVS_PATH=/proj/spring-courses-naiss/users/$USER
             mamba create --prefix=$CONDA_ENVS_PATH/spyder-env python=3.12 spyder
             mamba activate spyder-env
             # A prompt "(/path-to/spyder-env/)" should show up
@@ -536,8 +536,8 @@ Breakout room according to grouping
 
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.11.7 spyder
             source activate spyder-env
             # A prompt "(/path-to/spyder-env/)" should show up
@@ -559,8 +559,8 @@ Breakout room according to grouping
 
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/jupyter-env python=3.11.7 jupyter
             conda activate jupyter-env
             # A prompt "(/path-to/jupyter-env/)" should show up
@@ -667,12 +667,12 @@ Breakout room according to grouping
 
       .. tab:: NSC
 
-         - Start in folder ``/proj/courses-fall-2025/$USER``
+         - Start in folder ``/proj/spring-courses-naiss/$USER``
          - Follow the tutorial at `Python <https://www.nsc.liu.se/software/python/>`_: scroll down to "More on Python virtual environments (venvs)"
 
       .. tab:: PDC
 
-         - Start in folder ``/cfs/klemming/projects/snic/courses-fall-2025/$USER``
+         - Start in folder ``/cfs/klemming/projects/snic/spring-courses-naiss/$USER``
          - Follow the tutorial at Virtual environment with venv https://pdc-support.github.io/pdc-intro/#165
 
       .. tab:: UPPMAX: Pelle
@@ -690,8 +690,8 @@ Breakout room according to grouping
          .. code-block:: console
 
             $ module load GCC/12.3.0 Python/3.11.3
-            $ python -m venv /proj/nobackup/fall-courses/$USER/Example
-            $ source /proj/nobackup/fall-courses/$USER/Example/bin/activate
+            $ python -m venv /proj/nobackup/spring-courses/$USER/Example
+            $ source /proj/nobackup/spring-courses/$USER/Example/bin/activate
 
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
@@ -700,8 +700,8 @@ Breakout room according to grouping
          .. code-block:: console
 
             module load GCC/12.3.0 Python/3.11.3
-            python -m venv --system-site-packages /lunarc/nobackup/projects/lu2025-17-52/$USER/Example
-            source /lunarc/nobackup/projects/lu2025-17-52/<user-dir>/Example/bin/activate``
+            python -m venv --system-site-packages /path/to/your/project/$USER/Example
+            source /path/to/your/project/<user-dir>/Example/bin/activate``
 
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
@@ -744,8 +744,8 @@ Breakout room according to grouping
          .. code-block::
 
             module load Miniforge/24.7.1-2-hpc1
-            export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
-            export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
+            export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
+            export CONDA_ENVS_PATH=/proj/spring-courses-naiss/users/$USER
             mamba create --prefix=$CONDA_ENVS_PATH/examplepython=3.12 example
             mamba activate example
             # A prompt "(/path-to/example)" should show up
@@ -759,8 +759,8 @@ Breakout room according to grouping
 
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/example python=3.12
             source activate example
             # A prompt "(/path-to/example)" should show up
@@ -773,8 +773,8 @@ Breakout room according to grouping
          .. code-block:: console
 
             ml Miniforge3/24.1.2-0
-            export CONDA_ENVS_PATH="/lunarc/nobackup/projects/lu2025-17-52/$USER/" #only needed once per session
-            export CONDA_PKG_DIRS="/lunarc/nobackup/projects/lu2025-17-52/$USER/" #only needed once per session
+            export CONDA_ENVS_PATH="/path/to/your/project/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/path/to/your/project/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/example python=3.12
             conda activate example
             # A prompt "(/path-to/example)" should show up
