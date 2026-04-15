@@ -8,7 +8,7 @@ These are the NAISS course projects:
 +------------+--------------------------+
 | HPC cluster| Course project           |
 +============+==========================+
-| COSMOS     | :code:`lu2025-7-106`     |
+| COSMOS     | :code:`lu2026-7-57` `[1]`|
 +------------+--------------------------+
 | Dardel     | :code:`naiss2026-4-66`   |
 +------------+--------------------------+
@@ -21,6 +21,8 @@ These are the NAISS course projects:
 | Alvis      | :code:`naiss2026-4-66`   |
 +------------+--------------------------+
 
+- `[1]` This project is in the proposal stage
+
 Storage spaces for this workshop:
 
 +------------+------------------------------------------------------------+
@@ -30,7 +32,7 @@ Storage spaces for this workshop:
 +------------+------------------------------------------------------------+
 | Bianca     | None. Use ``/proj/[your_project_code]``                    |
 +------------+------------------------------------------------------------+
-| COSMOS     | :code:`/lunarc/nobackup/projects/lu2025-17-52`             |
+| COSMOS     | :code:`/lunarc/nobackup/projects/lu2026-7-57` `[1]`        |
 +------------+------------------------------------------------------------+
 | Dardel     | :code:`/cfs/klemming/projects/supr/spring-courses-naiss`   |
 +------------+------------------------------------------------------------+
@@ -38,10 +40,12 @@ Storage spaces for this workshop:
 +------------+------------------------------------------------------------+
 | LUMI       | None. Use ``/project/[your_project_code]``                 |
 +------------+------------------------------------------------------------+
-| Pelle      | :code:`/proj/hpc-python-uppmax`                            |
+| Pelle      | :code:`/proj/hpc-python-uppmax`                               |
 +------------+------------------------------------------------------------+
 | Tetralith  | :code:`/proj/spring-courses-naiss/users/`                  |
 +------------+------------------------------------------------------------+
+
+- `[1]` This project is in the proposal stage
 
 .. admonition:: Reservations
 
