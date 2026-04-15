@@ -17,6 +17,8 @@ At the end of this sessions, learners ...
 
 ## Why `matplotlib` is important
 
+![The matplotlib logo, from https://matplotlib.org/stable/gallery/misc/logos2.html](matplotlib_logo.png)
+
 ## Exercises
 
 ## Exercise 1: a minimal program
