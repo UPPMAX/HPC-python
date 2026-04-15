@@ -31,6 +31,7 @@ From [the pandas homepage](https://pandas.pydata.org/):
 > open source data analysis and manipulation tool,
 > built on top of the Python programming language.
 
+
 ## Loading Pandas
 
 
@@ -206,6 +207,20 @@ For historical reasons.
 There are many things one can do with tabular data.
 Pandas has an overview at
 [the pandas page '10 minutes to pandas'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html).
+
+## (optional) Exercise 4: what does `pandas` mean?
+
+The word `pandas` is actually a shortened version of something.
+Search the internet for what it stands for.
+In which field did `pandas` originate?
+
+:::{admonition} Answer
+:class: dropdown
+
+`pandas` is short for 'panel data'.
+Panel data is a type of data set used in econometrics.
+Econometrics is the field where `pandas` originated.
+:::
 
 ## Done?
 

@@ -138,13 +138,24 @@ plt.savefig("matplotlib_exercise.png")
 
 This will look like this:
 
-![](matplotlib_exercise.png)
+![Result of the `matplotlib` exercise](matplotlib_exercise.png)
 
 :::
 
 
 ## (optional) Exercise 3: making the plot pretty
 
+Use [the `matplotlib` documentation](https://matplotlib.org/stable/index.html)
+to improve the plot, for example:
+
+- Add a title
+- Add titles to the axes
+- Add a linear trendline
+- Whatever you like
+
+## Done?
+
+Go to [the session about `seaborn`](../seaborn/README.md)
 
 ## External links
 

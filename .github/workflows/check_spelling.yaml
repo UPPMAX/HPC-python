@@ -20,10 +20,10 @@ jobs:
 
       - name: Remove files that do not care about spelling
         run: |
-          rm LICENSE
           rm -rf docs/old
           rm -rf meeting_notes
           rm $(find . | grep "_old\\.")
           rm $(find . | grep "not_used/[A-Za-z]")
+          rm LICENSE
 
       - uses: igsekor/pyspelling-any@v1.0.4

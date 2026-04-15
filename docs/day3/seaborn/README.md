@@ -164,6 +164,14 @@ This will look like this:
 
 ## (optional) Exercise 3: making the plot pretty
 
+Use [the `seaborn` documentation](https://seaborn.pydata.org/)
+to improve the plot, for example:
+
+- Add a title
+- Add titles to the axes
+- Add a linear trendline
+- Whatever you like
+
 ## External links
 
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
