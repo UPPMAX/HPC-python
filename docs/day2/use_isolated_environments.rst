@@ -46,6 +46,11 @@ Isolated environments
 - Isolated environments let you create separate workspaces for different versions of Python and/or different versions of packages.
 - You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
 
+.. warning::
+
+   - Make sure to use bundles that are compatible with each-other and with needed Python version.
+   - Otherwise it is better to create isolated environments with Conda or virtual environments, see [Virtual environments in Python](python_virtual_environments.md).
+
 **The tools**
 
 - Python's built-in ``venv`` module: uses pip
