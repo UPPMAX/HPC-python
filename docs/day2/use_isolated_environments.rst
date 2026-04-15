@@ -61,8 +61,15 @@ What is an isolated environments
 **The tools**
 
 - Python's built-in ``venv`` module: uses pip
-- ``virtualenv`` (can be installed): uses pip
+- ``virtualenv`` (in bundle module or can be installed): uses pip
 - ``conda``/``forge``: uses ``conda`` and ``mamba``
+
+
+Tool | Software module | Own Python | Can use python packages from outside 
+-----|-----------------|------------|-------------------------------------
+venv | Python-<version>|Uses the one it was activated from| ``--system-site-packages``
+conda| conda/forge     | Yes        | No
+
 
 .. admonition:: Other tools perhaps covered in the future
    :class: dropdown
@@ -133,8 +140,6 @@ What happens at activation?
    - ``--user``: Only output packages installed in user-site.
 
    https://pip.pypa.io/en/stable/cli/pip_list/
-
-
 
 
 Virtual environment - venv & virtualenv
