@@ -24,7 +24,7 @@ At the end of this sessions, learners ...
 
 ## Exercises
 
-## Exercise 1: a minimal program
+## Exercise 1: a minimal plot
 
 - Use the documentation of the HPC cluster you work on
 
@@ -89,7 +89,6 @@ Tetralith  |?`module load Python/3.10.4-env-hpc1-gcc-2022a-eb`
 
 :::
 
-
 - Create a script with the following code:
 
 ```python
@@ -102,28 +101,49 @@ plt.plot(x, np.sin(x))
 plt.plot(x, np.cos(x))
 
 # plt.show()
-plt.figure().savefig('my_figure.png') # Unsure if this works
+plt.figure().savefig('my_figure.png')
 ```
 
 - Run the script
 - Check that the figure is created
 
-## Exercise 2: displaying a `pandas` table
+## (optional) Exercise 2: displaying a `pandas` table
 
-In this exercise, we will first read
+In this exercise, we will again use 
 [the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
-a dataset about diamonds, using `pandas`.
+a dataset about diamonds.
 
-Download this file to the same folder as where you are running your Python code.
+This dataset contains information about more than fifty thousand diamonds.
+Two such features are the weight (in carats) and the price (in USD).
+Here we want to use an image to display the relationship between these two.
 
-Run and read the following code:
+- Use `pandas` to read the dataset and use `matplotlib`
+  to create a scatter plot from that data. Put the diamond weight
+  on the x-axis and the diamond price on the y-axis.
+
+:::{admonition} Answer
+:class: dropdown
+
+Here is a simple solution
+(simplified from [this script](matplotlib_exercise.py)):
 
 ```python
 import pandas as pd
+import matplotlib.pyplot as plt
 table = pd.read_csv("diamonds.csv")
+
+plt.scatter(table["carat"], table["price"])
+plt.savefig("matplotlib_exercise.png")
 ```
 
+This will look like this:
 
+![](matplotlib_exercise.png)
+
+:::
+
+
+## (optional) Exercise 3: making the plot pretty
 
 
 ## External links
