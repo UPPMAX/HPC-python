@@ -13,17 +13,11 @@ tags:
 # Python bundles
 
 
-## Introduction
+## Bundle names
 
 - The bundle names reflect the content, like Python packages, and its version, but also which Python version, compilers and libraries that are compatible with it.
 
-- The module endings may contain GCCcore-X.Y.Z and/or [YEAR-a/b]. Example ``SciPy-bundle/2024.05-gfbf-2024a`` or ``Python/3.12.3-GCCcore-13.3.0``
-    - GCCcore reflects the GCC compiler version that is compatible when using C/C++ "back end" code.
-    - The year reflects an EasyBuild toolchain, see [FOSS toolchains](https://docs.easybuild.io/common-toolchains/#common_toolchains_overview_foss).
-
-
-
-:::{callout} "Some well-known bundles"
+:::{callout} "Some well-known bundles by names"
 :class: dropdown
 
     - HPC and big data
@@ -65,6 +59,12 @@ scikit-learn| scikit-learn|SciPy-bundle      |P, K, C
 torch       | PyTorch     |OpenMPI           |P, K, C
 
 * Dardel (``D``), Tetralith (``T``), Alvis (``A``), Pelle (``P``), Kebnekaise (``K``), Cosmos (``C``)
+
+## Bundle versions
+
+- The module endings may contain GCCcore-X.Y.Z and/or [YEAR-a/b]. Example ``SciPy-bundle/2024.05-gfbf-2024a`` or ``Python/3.12.3-GCCcore-13.3.0``
+    - GCCcore reflects the GCC compiler version that is compatible when using C/C++ "back end" code.
+    - The year reflects an EasyBuild toolchain, see [FOSS toolchains](https://docs.easybuild.io/common-toolchains/#common_toolchains_overview_foss).
 
 :::{callout} "Some FOSS tool chains and Python version using them"
 :class: dropdown
