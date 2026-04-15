@@ -21,7 +21,6 @@ At the end of this sessions, learners ...
 
 ## Why `matplotlib` is important
 
-
 ## Exercises
 
 ## Exercise 1: a minimal plot
@@ -73,7 +72,6 @@ Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/catalog
 :::{admonition} Answer: how to load the `matplotlib` software module
 :class: dropdown
 
-
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
 HPC cluster|How to load Matplotlib
@@ -109,7 +107,7 @@ plt.figure().savefig('my_figure.png')
 
 ## (optional) Exercise 2: displaying a `pandas` table
 
-In this exercise, we will again use 
+In this exercise, we will again use
 [the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
 a dataset about diamonds.
 
@@ -142,7 +140,6 @@ This will look like this:
 
 :::
 
-
 ## (optional) Exercise 3: making the plot pretty
 
 Use [the `matplotlib` documentation](https://matplotlib.org/stable/index.html)
@@ -157,7 +154,7 @@ to improve the plot, for example:
 
 Search the academic literature to answer the question
 if you should use `matplotlib` or `seaborn`,
-for example 
+for example
 [by searching Google Scholar for 'matplotlib versus seaborn'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=matplotlib+versus+seaborn&btnG=).
 
 Which paper will you find?

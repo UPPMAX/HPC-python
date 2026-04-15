@@ -21,7 +21,6 @@ At the end of this sessions, learners ...
 
 ## Why `seaborn` is important
 
-
 ## Loading `seaborn`
 
 - Use the documentation of the HPC cluster you work on
@@ -69,7 +68,6 @@ Tetralith  |[`seaborn` documentation](https://www.nsc.liu.se/software/python) No
 
 :::
 
-
 - Load the software module to use `seaborn`
 
 :::{admonition} Answer: how to load the `seaborn` software module
@@ -85,7 +83,6 @@ Dardel     |`module load cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU
 Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2`
 Pelle      |`module load Seaborn/0.13.2-gfbf-2024a` :-)
 Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11; pip install seaborn` :-)
-
 
 <!-- markdownlint-enable MD013 -->
 
@@ -125,7 +122,7 @@ fig.savefig("out.png")
 
 ## (optional) Exercise 2: displaying a `pandas` table
 
-In this exercise, we will again use 
+In this exercise, we will again use
 [the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
 a dataset about diamonds.
 
@@ -170,8 +167,6 @@ to improve the plot, for example:
 - Add a linear trendline
 - Whatever you like
 
-
 ## External links
 
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
-

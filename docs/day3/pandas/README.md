@@ -6,7 +6,7 @@
 
 ![The pandas logo](pandas.svg)
 
-> [The `pandas` logo](https://pandas.pydata.org/about/citing.html) 
+> [The `pandas` logo](https://pandas.pydata.org/about/citing.html)
 
 :::{admonition} Learning outcomes
 :class: note
@@ -31,9 +31,7 @@ From [the `pandas` homepage](https://pandas.pydata.org/):
 > open source data analysis and manipulation tool,
 > built on top of the Python programming language.
 
-
 ## Loading Pandas
-
 
 - Use the documentation of the HPC cluster you work on
 
@@ -58,7 +56,6 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 
 :::
 
-
 - In that documentation, find the software module to load the package.
   If you know how, you may also use the module system
 
@@ -81,7 +78,6 @@ Tetralith  |[`pandas` documentation](https://www.nsc.liu.se/software/python)
 
 :::
 
-
 - Load the software module to use `pandas`
 
 :::{admonition} Answer: how to load the `pandas` software module
@@ -100,7 +96,6 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 <!-- markdownlint-enable MD013 -->
 
 :::
-
 
 ## Exercises
 
@@ -198,6 +193,7 @@ carat,cut,color,clarity,depth,table,price,x,y,z
 0.29,Premium,I,VS2,62.4,58.0,334,4.2,4.23,2.63
 0.31,Good,J,SI2,63.3,58.0,335,4.34,4.35,2.75
 ```
+
 :::
 
 What seems to be the most useful way to save: with or without indexing?
@@ -210,7 +206,6 @@ Typically, you will want to save without indexing.
 :::
 
 Why would `pandas` supply this option, to save with/without indexing?
-
 
 :::{admonition} Answer
 :class: dropdown
@@ -233,7 +228,6 @@ against.
 Instead, it was decided to allow users to turn off indexing when needed.
 
 :::
-
 
 ## Exercise 3: working with tabular data
 
