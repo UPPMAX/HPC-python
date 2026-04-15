@@ -31,8 +31,6 @@ From [the pandas homepage](https://pandas.pydata.org/):
 > open source data analysis and manipulation tool,
 > built on top of the Python programming language.
 
-
-
 ## Loading Pandas
 
 
@@ -142,15 +140,6 @@ table = pd.read_csv("diamonds.csv")
 print(table)
 ```
 
-:::{admonition} Answer: how does that look like?
-:class: dropdown
-
-```python
-TODO: text output here
-```
-:::
-
-
 Great, you've read a comma-separated file! Next step is to save it.
 Saving it is straightforward, except for one thing: there is a function
 argument called `index`. Here we'll find out what it is.
@@ -164,23 +153,53 @@ table.to_csv("my_new_file_with_index.csv", index = True)
 
 Run the code.
 
-:::{admonition} Answer: how does that look like?
-:class: dropdown
-
-```python
-TODO: text output here
-```
-:::
-
 What is the difference between the two created files?
 
-:::{admonition} Answer: what is the difference between the two created files?
+:::{admonition} Answer
 :class: dropdown
 
-```python
-TODO: text output here
+The file with indexing looks like this:
+
+```text
+,carat,cut,color,clarity,depth,table,price,x,y,z
+0,0.23,Ideal,E,SI2,61.5,55.0,326,3.95,3.98,2.43
+1,0.21,Premium,E,SI1,59.8,61.0,326,3.89,3.84,2.31
+2,0.23,Good,E,VS1,56.9,65.0,327,4.05,4.07,2.31
+3,0.29,Premium,I,VS2,62.4,58.0,334,4.2,4.23,2.63
+4,0.31,Good,J,SI2,63.3,58.0,335,4.34,4.35,2.75
+```
+
+The file without indexing looks like this:
+
+```text
+carat,cut,color,clarity,depth,table,price,x,y,z
+0.23,Ideal,E,SI2,61.5,55.0,326,3.95,3.98,2.43
+0.21,Premium,E,SI1,59.8,61.0,326,3.89,3.84,2.31
+0.23,Good,E,VS1,56.9,65.0,327,4.05,4.07,2.31
+0.29,Premium,I,VS2,62.4,58.0,334,4.2,4.23,2.63
+0.31,Good,J,SI2,63.3,58.0,335,4.34,4.35,2.75
 ```
 :::
+
+What seems to be the most useful way to save: with or without indexing?
+
+:::{admonition} Answer
+:class: dropdown
+
+Typically, you will want to save without indexing.
+
+:::
+
+Why would `pandas` supply this option, to save with/without indexing?
+
+
+:::{admonition} Answer
+:class: dropdown
+
+For historical reasons.
+
+:::
+
 
 ## Exercise 3: working with tabular data
 
