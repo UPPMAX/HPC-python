@@ -1,7 +1,8 @@
-.. _use-isolated-environments:
+<!--.. _use-isolated-environments:-->
 
-Using isolated environments
-===========================
+(use-isolated-environments)=
+
+# Using isolated environments
 
 .. admonition:: Learning objectives
 
@@ -21,8 +22,7 @@ Using isolated environments
    - Conda 5
    - Exercises 30 m
 
-Why isolated environments are important
----------------------------------------
+## Why isolated environments are important
 
 Isolated/virtual environments solve a couple of problems:
 
@@ -42,8 +42,7 @@ When?
 
    - What experience have you had?
    
-What is an isolated environments
---------------------------------
+## What is an isolated environments
 
 - Isolated environments let you create separate workspaces for different versions of Python and/or different versions of packages.
 - You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
@@ -81,8 +80,7 @@ conda| conda/forge     | Yes        | No
    - `uv <https://docs.astral.sh/uv/>`_: An extremely fast Python package and project manager, written in Rust.
        - A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more
 
-What happens at activation?
-...........................
+### What happens at activation?
 
 - Python version is defined by the environment.
     - Check with ``which python``, should show at path to the environment.
@@ -142,8 +140,7 @@ What happens at activation?
    https://pip.pypa.io/en/stable/cli/pip_list/
 
 
-Virtual environment - venv & virtualenv
----------------------------------------
+### Virtual environment - venv & virtualenv
 
 With this tool you can download and install with ``pip`` from the `PyPI repository <https://pypi.org/>`_
 
@@ -202,8 +199,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when **building any Cython libraries**.
 
 
-Conda
------
+### Conda
 
 - `Conda <https://anaconda.org/anaconda/conda>`_ is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
 
@@ -320,15 +316,14 @@ Conda
    - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
    - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
 
-Install from file
-------------------
+## Install from file
 
 - All centers has had different approaches in what is included in the module system and not.
 - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
 - This is left as exercise for you, see Exercise 4 and 5.
 
-venv
-....
+### venv
+
 
 Make a requirements file:
 
@@ -358,8 +353,7 @@ Install packages from a file
 
    pip install -r requirements.txt
 
-conda/forge
-...........
+### conda/forge
 
 Make environment file:
 
@@ -424,8 +418,7 @@ Create an environment from a file. Do this on another computer or rename.
    - Did you note the difference in file length?
    - What does it mean?
 
-Exercises
----------
+## Exercises
 
 .. challenge:: Exercise 0: Make a decision between ``venv`` or ``conda``.
 
