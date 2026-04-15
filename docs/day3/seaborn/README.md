@@ -4,6 +4,10 @@
 
 # Seaborn
 
+![The seaborn logo](logo-wide-lightbg.svg)
+
+> [The `seaborn` logo](https://seaborn.pydata.org/citing.html)
+
 :::{admonition} Learning outcomes
 :class: note
 
@@ -18,7 +22,6 @@ At the end of this sessions, learners ...
 
 ## Why Seaborn is important
 
-![Seaborn wide logo, from https://seaborn.pydata.org/citing.html](logo-wide-lightbg.svg)
 
 ## Loading Seaborn
 

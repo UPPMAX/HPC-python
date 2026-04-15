@@ -4,6 +4,10 @@
 
 # `matplotlib`
 
+![The matplotlib logo](matplotlib_logo.png)
+
+> [The `matplotlib` logo](https://matplotlib.org/stable/gallery/misc/logos2.html)
+
 :::{admonition} Learning outcomes
 :class: note
 
@@ -17,7 +21,6 @@ At the end of this sessions, learners ...
 
 ## Why `matplotlib` is important
 
-![The matplotlib logo, from https://matplotlib.org/stable/gallery/misc/logos2.html](matplotlib_logo.png)
 
 ## Exercises
 

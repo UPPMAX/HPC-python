@@ -4,6 +4,10 @@
 
 # Pandas
 
+![The pandas logo](pandas.svg)
+
+> [The `pandas` logo](https://pandas.pydata.org/about/citing.html) 
+
 :::{admonition} Learning outcomes
 :class: note
 
@@ -21,7 +25,13 @@ At the end of this sessions, learners ...
 
 ## Why `pandas` is important
 
-![The pandas logo, from https://pandas.pydata.org/about/citing.html](pandas.svg)
+From [the pandas homepage](https://pandas.pydata.org/):
+
+> pandas is a fast, powerful, flexible and easy to use
+> open source data analysis and manipulation tool,
+> built on top of the Python programming language.
+
+
 
 ## Loading Pandas
 
