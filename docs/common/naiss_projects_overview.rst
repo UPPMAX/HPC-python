@@ -57,9 +57,9 @@ Storage spaces for this workshop:
        -
 
    - HPC2N
-       - ``hpc-python-fri`` for one AMD Zen4 cpu on Friday
-       - ``hpc-python-mon`` for one AMD Zen4 cpu on Monday
-       - ``hpc-python-tue`` for two L40s gpus on Tuesday
+       - ``hpc-python-wed`` for one AMD Zen4 cpu on Wednesday
+       - ``hpc-python-thu`` for one AMD Zen4 cpu on Thursday
+       - ``hpc-python-fri`` for two L40s gpus on Friday
        - it is magnetic, so will be used automatically
 
    - LUNARC
