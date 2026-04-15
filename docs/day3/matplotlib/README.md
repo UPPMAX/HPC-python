@@ -46,12 +46,12 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 
 HPC cluster|HPC cluster-specific `matplotlib` documentation
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      |?[`matplotlib` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
-Bianca     |?[`matplotlib` documentation](https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu)
-COSMOS     |?[`matplotlib` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
-Dardel     |?[`matplotlib` documentation](https://support.pdc.kth.se/doc/applications/tensorflow) (irrelevant)
-Kebnekaise |?[`matplotlib` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
-Pelle      |?[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch)
+Alvis      |[`matplotlib` documentation](https://www.c3se.chalmers.se/documentation/module_system/modules/#to-search-for-keywords-in-a-module-such-as-extensions-in-bundles) [No relevant documentation]
+Bianca     |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#matplotlib)
+COSMOS     |[`matplotlib` documentation](https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/#loading-packages) [No relevant documentation]
+Dardel     |[`matplotlib` documentation](https://support.pdc.kth.se/doc/basics/quickstart/#the-lmod-module-system) [No relevant documentation]
+Kebnekaise |[`matplotlib` documentation](https://docs.hpc2n.umu.se/software/libs/matplotlib/)
+Pelle      |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#matplotlib)
 Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/catalogue/tetralith/modules/python.html)
 
 <!-- markdownlint-enable MD013 -->

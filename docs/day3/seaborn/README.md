@@ -50,13 +50,13 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 
 HPC cluster|HPC cluster-specific `seaborn` documentation
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      |?[`seaborn` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
-Bianca     |?[`seaborn` documentation](https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu)
-COSMOS     |?[`seaborn` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
-Dardel     |?[`seaborn` documentation](https://support.pdc.kth.se/doc/applications/tensorflow) (irrelevant)
-Kebnekaise |?[`seaborn` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
-Pelle      |?[`seaborn` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch)
-Tetralith  |?[`seaborn` documentation](https://www.nsc.liu.se/software/python)
+Alvis      |[`seaborn` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
+Bianca     |[`seaborn` documentation](https://docs.uppmax.uu.se/software/python/) [Only shows module name]
+COSMOS     |[`seaborn` documentation](https://lunarc-documentation.readthedocs.io/en/latest/software/installed_software/) [Only shows module name]
+Dardel     |[`seaborn` documentation](https://support.pdc.kth.se/doc/applications/python/)
+Kebnekaise |[`seaborn` documentation](https://docs.hpc2n.umu.se/software/libs/Seaborn/)
+Pelle      |[`seaborn` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch) No relevant documentation
+Tetralith  |[`seaborn` documentation](https://www.nsc.liu.se/software/python) No relevant documentation
 
 <!-- markdownlint-enable MD013 -->
 
