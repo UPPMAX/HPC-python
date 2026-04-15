@@ -38,7 +38,7 @@ torch | PyTorch
 
 
 
-!!! info "FOSS tool chains and Python version using them"
+:::{callout} "FOSS tool chains and Python version using them"
 
     FOSS | Python version| GCC version | Bundle version
     -----| --------------|-------------|---------------
@@ -52,11 +52,13 @@ torch | PyTorch
     - ``gompi`` means that the MPI library OpenMPI is included.
 
     - See [Toolchain diagram](https://docs.easybuild.io/common-toolchains/#toolchains_diagram)
+:::
 
-!!! warning
+:::{callout} warning
 
     - Make sure to use bundles that are compatible with each-other and with needed Python version.
     - Otherwise it is better to create isolated environments with Conda or virtual environments, see [Virtual environments in Python](python_virtual_environments.md).
+::: 
 
 ## Matplotlib
 
