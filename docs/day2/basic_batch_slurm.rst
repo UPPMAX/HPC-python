@@ -17,38 +17,37 @@ Basic batch and Slurm
 .. admonition:: Compute allocations in this workshop
 
    - Pelle: ``uppmax2025-2-393``
-   - Kebnekaise: ``hpc2n2025-151``
-   - Cosmos: ``lu2025-7-106``
-   - Tetralith: ``naiss2025-22-934``
-   - Dardel: ``naiss2025-22-934``
-   - Alvis: ``naiss2025-22-934``
+   - Kebnekaise: ``hpc2n2026-002``
+   - Cosmos: ``lu2026-7-57``
+   - Tetralith: ``naiss2026-4-66``
+   - Dardel: ``naiss2026-4-66``
+   - Alvis: ``naiss2026-4-66``
 
 .. admonition:: Storage space for this workshop
 
    - Pelle: ``/proj/hpc-python-uppmax``
-   - Kebnekaise: ``/proj/nobackup/fall-courses``
-   - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
-   - Tetralith: ``/proj/courses-fall-2025``
-   - Dardel: ``/cfs/klemming/projects/supr/courses-fall-2025``
-   - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
+   - Kebnekaise: ``/proj/nobackup/spring-courses``
+   - Cosmos: ``none - use your own or home``
+   - Tetralith: ``/proj/spring-courses-naiss``
+   - Dardel: ``/cfs/klemming/projects/supr/spring-courses-naiss``
+   - Alvis: ``/mimer/NOBACKUP/groups/spring-courses-naiss``
 
 .. admonition:: Reservation
 
-   Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name.
+   Include with ``#SBATCH --reservation==<reservation-name>``. On UPPMAX and HPC2N it is "magnetic" and so follows the project ID without you having to add the reservation name.
 
    **NOTE** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for.
 
    - UPPMAX
        -
    - HPC2N
-       - ``hpc-python-fri`` for one AMD Zen4 cpu on Friday
-       - ``hpc-python-mon`` for one AMD Zen4 cpu on Monday
-       - ``hpc-python-tue`` for two L40s gpus on Tuesday
+       - ``hpc-python-wed`` for one AMD Zen4 cpu on Wednesday
+       - ``hpc-python-thu`` for one AMD Zen4 cpu on Thursday
+       - ``hpc-python-fri`` for two L40s gpus on Friday
        - it is magnetic, so will be used automatically
 
    - LUNARC
-       - ``hpc-python-dayN`` for up to 2 CPU nodes per day, where N=1 for Thursday, 2 for Friday, 3 for Monday, and 4 for Tuesday
-       - ``hpc-python-day4-gpu`` for the GPU and ML sessions on Tuesday afternoon
+       - 
 
 
 What is a batch job?
@@ -183,7 +182,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2025-151 # Change to your own
+            #SBATCH -A hpc2n2026-002 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -200,7 +199,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2025-7-106 # Change to your own
+            #SBATCH -A lu2026-7-57 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -217,7 +216,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -234,7 +233,7 @@ This first example shows how to run a short, serial script. The batch script (na
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             #SBATCH -p shared
@@ -255,7 +254,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
            #!/bin/bash
            # Change to your own project ID!
-           #SBATCH -A naiss2025-22-934
+           #SBATCH -A naiss2026-4-66
            #SBATCH --time=00:30:00 # Asking for 30 minutes
            # You need to ask for a GPU to run on alvis.
            # This is a CPU job. Do not do things like this normally!
@@ -330,7 +329,7 @@ Exercises
           .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2025-151 # Change to your own
+            #SBATCH -A hpc2n2026-002 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -367,7 +366,7 @@ Exercises
           .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2025-7-106 # Change to your own
+            #SBATCH -A lu2026-7-57 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -385,7 +384,7 @@ Exercises
           .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -403,7 +402,7 @@ Exercises
           .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             #SBATCH -p shared
