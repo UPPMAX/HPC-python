@@ -2,7 +2,7 @@
 <!-- From https://docs.readthedocs.com/platform/stable/guides/cross-referencing-with-sphinx.html#explicit-targets -->
 (pandas)=
 
-# Pandas
+# `pandas`
 
 ![The pandas logo](pandas.svg)
 
@@ -25,9 +25,9 @@ At the end of this sessions, learners ...
 
 ## Why `pandas` is important
 
-From [the pandas homepage](https://pandas.pydata.org/):
+From [the `pandas` homepage](https://pandas.pydata.org/):
 
-> pandas is a fast, powerful, flexible and easy to use
+> *pandas* is a fast, powerful, flexible and easy to use
 > open source data analysis and manipulation tool,
 > built on top of the Python programming language.
 
@@ -132,6 +132,24 @@ a dataset about diamonds.
 
 Download this file to the same folder as where you are running your Python code.
 
+:::{admonition} How do I do that?
+:class: dropdown
+
+There are many ways:
+
+- Click on [the 'diamonds' dataset (as a comma-separated file)](diamonds.csv).
+  This will take you to a webpage with the data.
+  Right-click and do 'Save as' to save this file to your computer
+- Download the file from the command-line:
+
+```bash
+wget https://raw.githubusercontent.com/UPPMAX/HPC-python/refs/heads/main/docs/day3/pandas/diamonds.csv
+```
+
+- Your favorite alternative way
+
+:::
+
 Run and read the following code:
 
 ```python
@@ -197,7 +215,22 @@ Why would `pandas` supply this option, to save with/without indexing?
 :::{admonition} Answer
 :class: dropdown
 
-For historical reasons.
+For backwards compatibility.
+
+Indexing was a useful feature in the field
+`pandas` was initially developed in
+and `pandas` always used indexing, with no way to turn this feature.
+
+However, later it was found that indexing is not useful in other fields.
+
+There were two options:
+
+- Remove indexing
+- Allow users to turn off indexing
+
+Removing indexing would cause old code to break, so this was decided
+against.
+Instead, it was decided to allow users to turn off indexing when needed.
 
 :::
 

@@ -2,7 +2,7 @@
 <!-- From https://docs.readthedocs.com/platform/stable/guides/cross-referencing-with-sphinx.html#explicit-targets -->
 (seaborn)=
 
-# Seaborn
+# `seaborn`
 
 ![The seaborn logo](logo-wide-lightbg.svg)
 
@@ -14,16 +14,15 @@
 At the end of this sessions, learners ...
 
 - have practiced using the documentation of favorite HPC cluster
-- understand why Pandas is important
-- understand why Seaborn is important
+- understand why `seaborn` is important
 - have run Python code that uses `seaborn`
 - have run Python code that uses `seaborn` to display data from a `pandas` table
 :::
 
-## Why Seaborn is important
+## Why `seaborn` is important
 
 
-## Loading Seaborn
+## Loading `seaborn`
 
 - Use the documentation of the HPC cluster you work on
 
@@ -157,10 +156,9 @@ scatter_plot.savefig("seaborn_exercise.png")
 
 This will look like this:
 
-![](seaborn_exercise.png)
+![`seaborn` exercise result](seaborn_exercise.png)
 
 :::
-
 
 ## (optional) Exercise 3: making the plot pretty
 
