@@ -21,49 +21,64 @@ Using isolated environments
    - Conda 5
    - Exercises 30 m
 
-Isolated environments
----------------------
+Why isolated environments are important
+---------------------------------------
 
-- As an example, maybe you have been using TensorFlow 1.x.x for your project and
-    - now you need to install a package that requires TensorFlow 2.x.x
-    - but you will still be needing the old version of TensorFlow.
-- This is easily solved with isolated environments.
+Isolated/virtual environments solve a couple of problems:
 
-- Another example is when a reviewer want you to remake a figure.
-    - You have already started to use a newer Python version or newer packages and
-    - realize that your earlier script does not work anymore.
-- Having freezed the environment would have solved you from this issue!
+- You can install specific, also older, package versions into them.
+- You can create one for each project and no problem if the two projects require different versions.
+- You can remove the environment and create a new one, if not needed or with errors.
+- Good for reproducibility!
 
-.. note::
+When?
 
-   Isolated/virtual environments solve a couple of problems:
+- When installed modules are not enough for you.
+- Examples:
+    - you continue a project on your computer on the HPC cluster
+    - you continue someone else's project on the HPC cluster
 
-   - You can install specific, also older, package versions into them.
-   - You can create one for each project and no problem if the two projects require different versions.
-   - You can remove the environment and create a new one, if not needed or with errors.
-   - Good for reproducibility!
+.. discussion::
+
+   - What experience have you had?
+   
+What is an isolated environments
+--------------------------------
 
 - Isolated environments let you create separate workspaces for different versions of Python and/or different versions of packages.
 - You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
 
-.. warning::
+.. note:: Principles
 
-   - Make sure to use bundles that are compatible with each-other and with needed Python version.
-   - Otherwise it is better to create isolated environments with Conda or virtual environments, see [Virtual environments in Python](python_virtual_environments.md).
+   - create environment (choose Python version as well)
+   - activate the environment
+       - now you work isolated from the rest of the system, e.g. Python packages
+   - install packages
+       - these are now reached only from the activated project
+   - do your research
+   - deactivate
 
 **The tools**
 
 - Python's built-in ``venv`` module: uses pip
 - ``virtualenv`` (can be installed): uses pip
-- ``conda``/``forge``: uses ``conda``/``mamba``
+- ``conda``/``forge``: uses ``conda`` and ``mamba``
+
+.. admonition:: Other tools perhaps covered in the future
+   :class: dropdown
+
+   - `pixi <https://pixi.sh/latest/>`_: package management tool for developers
+       - It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.
+       - could replace conda/mamba
+
+   - `uv <https://docs.astral.sh/uv/>`_: An extremely fast Python package and project manager, written in Rust.
+       - A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more
 
 What happens at activation?
 ...........................
 
 - Python version is defined by the environment.
     - Check with ``which python``, should show at path to the environment.
-    - In conda you can define python version as well
-    - Since ``venv`` is part of Python you will get the python version used when running the ``venv`` command.
 - Packages are defined by the environment.
     - Check with ``pip list``
     - Conda can only see what you installed for it.
@@ -94,7 +109,7 @@ What happens at activation?
 +------------+---------------------------------+
 | Kebnekaise | venv **only**                   |
 +------------+---------------------------------+
-| LUMI       | venv, conda in container        |
+| LUMI       | venv,  conda-containerize       |
 +------------+---------------------------------+
 | Pelle      | venv, Miniforge3/24.11.3-0      |
 +------------+---------------------------------+
@@ -119,15 +134,8 @@ What happens at activation?
 
    https://pip.pypa.io/en/stable/cli/pip_list/
 
-.. admonition:: Other tools perhaps covered in the future
-   :class: dropdown
 
-   - `pixi <https://pixi.sh/latest/>`_: package management tool for developers
-       - It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.
-       - could replace conda/mamba
 
-   - `uv <https://docs.astral.sh/uv/>`_: An extremely fast Python package and project manager, written in Rust.
-       - A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more
 
 Virtual environment - venv & virtualenv
 ---------------------------------------
