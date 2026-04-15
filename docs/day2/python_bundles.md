@@ -21,24 +21,24 @@ tags:
     - GCCcore reflects the GCC compiler version that is compatible when using C/C++ "back end" code.
     - The year reflects an EasyBuild toolchain, see [FOSS toolchains](https://docs.easybuild.io/common-toolchains/#common_toolchains_overview_foss).
 
-Package     |Bundle module|Also loads        |Avail at|
+Package     |Bundle module|Also loads        |Avail at *|
 ------------|-------------|------------------|--------|
-numpy       | SciPy-bundle|Python-bundle-PyPI|Pelle
-pandas      | SciPy-bundle|Python-bundle-PyPI|Pelle
-scipy       | SciPy-bundle|Python-bundle-PyPI|Pelle
-matplotlib  | Matplotlib  |SciPy-bundle      |Pelle
-seaborn     | Seaborn     |Matplotlib        |Pelle
-biopython   | BioPython   |SciPy-bundle      |Pelle
-dask        | dask        |Matplotlib        |Pelle
-ipython     | IPython     |Python-bundle-PyPI|Pelle
-Jupyterlab  | JupyterLab  |IPython           |Pelle
-xarray      | xarray      |SciPy-bundle      |Pelle
-numba       | numba       |SciPy-bundle      |Pelle
-mpi4py      | mpi4py      |OpenMPI           |Pelle
-scikit-learn| scikit-learn|SciPy-bundle      |Pelle
-torch       | PyTorch     |OpenMPI           |Pelle
+numpy       | SciPy-bundle|Python-bundle-PyPI|P, K, C
+pandas      | SciPy-bundle|Python-bundle-PyPI|P, K, C
+scipy       | SciPy-bundle|Python-bundle-PyPI|P, K, C
+matplotlib  | matplotlib  |SciPy-bundle      |P, K, C
+seaborn     | Seaborn     |Matplotlib        |P, K, C
+biopython   | BioPython   |SciPy-bundle      |P, K, C
+dask        | dask        |Matplotlib        |P, K, C
+ipython     | IPython     |Python-bundle-PyPI|P, K, C
+Jupyterlab  | JupyterLab  |IPython           |P, K, C
+xarray      | xarray      |SciPy-bundle      |P, , C
+numba       | numba       |SciPy-bundle      |P, K, C
+mpi4py      | mpi4py      |OpenMPI           |P, K, C
+scikit-learn| scikit-learn|SciPy-bundle      |P, K, C
+torch       | PyTorch     |OpenMPI           |P, K, C
 
-
+* Dardel (D), Tetralith (T), Alvis (A), Pelle (P), Kebnekaise (K), Cosmos (C)
 
 :::{callout} "FOSS tool chains and Python version using them"
 
