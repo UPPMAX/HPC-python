@@ -25,9 +25,7 @@ At the end of this sessions, learners ...
 
 ```python
 import seaborn as sns
-
 y = [0, 1, 4, 9, 16]
-sns.set_theme()
 sns.lineplot(x = range(len(y)), y = y).figure.show()
 ```
 
