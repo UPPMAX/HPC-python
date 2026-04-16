@@ -1,0 +1,865 @@
+country,year,democratic_score
+Albania,1952,-9
+Argentina,1952,-9
+Armenia,1952,-9
+Australia,1952,10
+Austria,1952,10
+Azerbaijan,1952,-9
+Belarus,1952,-9
+Belgium,1952,10
+Bhutan,1952,-10
+Bolivia,1952,-4
+Brazil,1952,5
+Bulgaria,1952,-7
+Canada,1952,10
+Chile,1952,2
+China,1952,-8
+Colombia,1952,-5
+Costa Rica,1952,10
+Croatia,1952,-7
+Cuba,1952,0
+Czech Rep.,1952,-7
+Denmark,1952,10
+Dominican Rep.,1952,-9
+Ecuador,1952,2
+Egypt,1952,-7
+El Salvador,1952,-6
+Estonia,1952,-9
+Ethiopia,1952,-9
+Finland,1952,10
+France,1952,10
+Georgia,1952,-9
+Germany,1952,10
+Greece,1952,4
+Guatemala,1952,2
+Haiti,1952,-5
+Honduras,1952,-3
+Hungary,1952,-7
+India,1952,9
+Indonesia,1952,0
+Iran,1952,-1
+Iraq,1952,-4
+Ireland,1952,10
+Israel,1952,10
+Italy,1952,10
+Japan,1952,10
+Jordan,1952,-1
+Kazakhstan,1952,-9
+"Korea, Dem. Rep.",1952,-7
+"Korea, Rep.",1952,-4
+Kyrgyzstan,1952,-9
+Latvia,1952,-9
+Lebanon,1952,2
+Liberia,1952,-6
+Libya,1952,-7
+Lithuania,1952,-9
+"Macedonia, FYR",1952,-7
+Mexico,1952,-6
+Moldova,1952,-9
+Mongolia,1952,-7
+Montenegro,1952,-7
+Myanmar,1952,8
+Nepal,1952,-7
+Netherlands,1952,10
+New Zealand,1952,10
+Nicaragua,1952,-8
+Norway,1952,10
+Oman,1952,-6
+Pakistan,1952,5
+Panama,1952,-1
+Paraguay,1952,-5
+Peru,1952,-2
+Philippines,1952,5
+Poland,1952,-7
+Portugal,1952,-9
+Romania,1952,-7
+Russia,1952,-9
+Saudi Arabia,1952,-10
+Serbia,1952,-7
+Slovak Republic,1952,-7
+Slovenia,1952,-7
+South Africa,1952,4
+Spain,1952,-7
+Sri Lanka,1952,7
+Sweden,1952,10
+Switzerland,1952,10
+Syria,1952,-7
+Taiwan,1952,-8
+Tajikistan,1952,-9
+Thailand,1952,-6
+Turkey,1952,7
+Turkmenistan,1952,-9
+Ukraine,1952,-9
+United Kingdom,1952,10
+United States,1952,10
+Uruguay,1952,8
+Uzbekistan,1952,-9
+Venezuela,1952,-3
+Albania,1957,-9
+Argentina,1957,-1
+Armenia,1957,-7
+Australia,1957,10
+Austria,1957,10
+Azerbaijan,1957,-7
+Belarus,1957,-7
+Belgium,1957,10
+Bhutan,1957,-10
+Bolivia,1957,-3
+Brazil,1957,5
+Bulgaria,1957,-7
+Canada,1957,10
+Chile,1957,5
+China,1957,-8
+Colombia,1957,7
+Costa Rica,1957,10
+Croatia,1957,-7
+Cuba,1957,-9
+Czech Rep.,1957,-7
+Denmark,1957,10
+Dominican Rep.,1957,-9
+Ecuador,1957,2
+Egypt,1957,-7
+El Salvador,1957,-5
+Estonia,1957,-7
+Ethiopia,1957,-9
+Finland,1957,10
+France,1957,10
+Georgia,1957,-7
+Germany,1957,10
+Greece,1957,4
+Guatemala,1957,-6
+Haiti,1957,-5
+Honduras,1957,-1
+Hungary,1957,-7
+India,1957,9
+Indonesia,1957,-1
+Iran,1957,-10
+Iraq,1957,-4
+Ireland,1957,10
+Israel,1957,10
+Italy,1957,10
+Japan,1957,10
+Jordan,1957,-9
+Kazakhstan,1957,-7
+"Korea, Dem. Rep.",1957,-8
+"Korea, Rep.",1957,-4
+Kyrgyzstan,1957,-7
+Latvia,1957,-7
+Lebanon,1957,2
+Liberia,1957,-6
+Libya,1957,-7
+Lithuania,1957,-7
+"Macedonia, FYR",1957,-7
+Mexico,1957,-6
+Moldova,1957,-7
+Mongolia,1957,-7
+Montenegro,1957,-7
+Myanmar,1957,8
+Nepal,1957,-4
+Netherlands,1957,10
+New Zealand,1957,10
+Nicaragua,1957,-8
+Norway,1957,10
+Oman,1957,-10
+Pakistan,1957,8
+Panama,1957,4
+Paraguay,1957,-9
+Peru,1957,5
+Philippines,1957,5
+Poland,1957,-7
+Portugal,1957,-9
+Romania,1957,-7
+Russia,1957,-7
+Saudi Arabia,1957,-10
+Serbia,1957,-7
+Slovak Republic,1957,-7
+Slovenia,1957,-7
+South Africa,1957,4
+Spain,1957,-7
+Sri Lanka,1957,7
+Sweden,1957,10
+Switzerland,1957,10
+Syria,1957,7
+Taiwan,1957,-8
+Tajikistan,1957,-7
+Thailand,1957,-3
+Turkey,1957,4
+Turkmenistan,1957,-7
+Ukraine,1957,-7
+United Kingdom,1957,10
+United States,1957,10
+Uruguay,1957,8
+Uzbekistan,1957,-7
+Venezuela,1957,-3
+Albania,1962,-9
+Argentina,1962,-1
+Armenia,1962,-7
+Australia,1962,10
+Austria,1962,10
+Azerbaijan,1962,-7
+Belarus,1962,-7
+Belgium,1962,10
+Bhutan,1962,-10
+Bolivia,1962,-3
+Brazil,1962,5
+Bulgaria,1962,-7
+Canada,1962,10
+Chile,1962,5
+China,1962,-8
+Colombia,1962,7
+Costa Rica,1962,10
+Croatia,1962,-7
+Cuba,1962,-7
+Czech Rep.,1962,-7
+Denmark,1962,10
+Dominican Rep.,1962,8
+Ecuador,1962,-1
+Egypt,1962,-7
+El Salvador,1962,-3
+Estonia,1962,-7
+Ethiopia,1962,-9
+Finland,1962,10
+France,1962,5
+Georgia,1962,-7
+Germany,1962,10
+Greece,1962,4
+Guatemala,1962,-5
+Haiti,1962,-9
+Honduras,1962,-1
+Hungary,1962,-7
+India,1962,9
+Indonesia,1962,-5
+Iran,1962,-10
+Iraq,1962,-5
+Ireland,1962,10
+Israel,1962,10
+Italy,1962,10
+Japan,1962,10
+Jordan,1962,-9
+Kazakhstan,1962,-7
+"Korea, Dem. Rep.",1962,-8
+"Korea, Rep.",1962,-7
+Kyrgyzstan,1962,-7
+Latvia,1962,-7
+Lebanon,1962,2
+Liberia,1962,-6
+Libya,1962,-7
+Lithuania,1962,-7
+"Macedonia, FYR",1962,-7
+Mexico,1962,-6
+Moldova,1962,-7
+Mongolia,1962,-7
+Montenegro,1962,-7
+Myanmar,1962,-6
+Nepal,1962,-9
+Netherlands,1962,10
+New Zealand,1962,10
+Nicaragua,1962,-8
+Norway,1962,10
+Oman,1962,-10
+Pakistan,1962,1
+Panama,1962,4
+Paraguay,1962,-9
+Peru,1962,-6
+Philippines,1962,5
+Poland,1962,-7
+Portugal,1962,-9
+Romania,1962,-7
+Russia,1962,-7
+Saudi Arabia,1962,-10
+Serbia,1962,-7
+Slovak Republic,1962,-7
+Slovenia,1962,-7
+South Africa,1962,4
+Spain,1962,-7
+Sri Lanka,1962,7
+Sweden,1962,10
+Switzerland,1962,10
+Syria,1962,-2
+Taiwan,1962,-8
+Tajikistan,1962,-7
+Thailand,1962,-7
+Turkey,1962,9
+Turkmenistan,1962,-7
+Ukraine,1962,-7
+United Kingdom,1962,10
+United States,1962,10
+Uruguay,1962,8
+Uzbekistan,1962,-7
+Venezuela,1962,6
+Albania,1967,-9
+Argentina,1967,-9
+Armenia,1967,-7
+Australia,1967,10
+Austria,1967,10
+Azerbaijan,1967,-7
+Belarus,1967,-7
+Belgium,1967,10
+Bhutan,1967,-10
+Bolivia,1967,-4
+Brazil,1967,-9
+Bulgaria,1967,-7
+Canada,1967,10
+Chile,1967,6
+China,1967,-9
+Colombia,1967,7
+Costa Rica,1967,10
+Croatia,1967,-7
+Cuba,1967,-7
+Czech Rep.,1967,-7
+Denmark,1967,10
+Dominican Rep.,1967,-3
+Ecuador,1967,-1
+Egypt,1967,-7
+El Salvador,1967,0
+Estonia,1967,-7
+Ethiopia,1967,-9
+Finland,1967,10
+France,1967,5
+Georgia,1967,-7
+Germany,1967,10
+Greece,1967,-7
+Guatemala,1967,3
+Haiti,1967,-9
+Honduras,1967,-1
+Hungary,1967,-7
+India,1967,9
+Indonesia,1967,-7
+Iran,1967,-10
+Iraq,1967,-5
+Ireland,1967,10
+Israel,1967,9
+Italy,1967,10
+Japan,1967,10
+Jordan,1967,-9
+Kazakhstan,1967,-7
+"Korea, Dem. Rep.",1967,-9
+"Korea, Rep.",1967,3
+Kyrgyzstan,1967,-7
+Latvia,1967,-7
+Lebanon,1967,2
+Liberia,1967,-6
+Libya,1967,-7
+Lithuania,1967,-7
+"Macedonia, FYR",1967,-7
+Mexico,1967,-6
+Moldova,1967,-7
+Mongolia,1967,-7
+Montenegro,1967,-7
+Myanmar,1967,-7
+Nepal,1967,-9
+Netherlands,1967,10
+New Zealand,1967,10
+Nicaragua,1967,-8
+Norway,1967,10
+Oman,1967,-10
+Pakistan,1967,1
+Panama,1967,4
+Paraguay,1967,-8
+Peru,1967,5
+Philippines,1967,5
+Poland,1967,-7
+Portugal,1967,-9
+Romania,1967,-7
+Russia,1967,-7
+Saudi Arabia,1967,-10
+Serbia,1967,-7
+Slovak Republic,1967,-7
+Slovenia,1967,-7
+South Africa,1967,4
+Spain,1967,-7
+Sri Lanka,1967,7
+Sweden,1967,10
+Switzerland,1967,10
+Syria,1967,-7
+Taiwan,1967,-8
+Tajikistan,1967,-7
+Thailand,1967,-7
+Turkey,1967,8
+Turkmenistan,1967,-7
+Ukraine,1967,-7
+United Kingdom,1967,10
+United States,1967,10
+Uruguay,1967,8
+Uzbekistan,1967,-7
+Venezuela,1967,6
+Albania,1972,-9
+Argentina,1972,-9
+Armenia,1972,-7
+Australia,1972,10
+Austria,1972,10
+Azerbaijan,1972,-7
+Belarus,1972,-7
+Belgium,1972,10
+Bhutan,1972,-10
+Bolivia,1972,-7
+Brazil,1972,-9
+Bulgaria,1972,-7
+Canada,1972,10
+Chile,1972,6
+China,1972,-8
+Colombia,1972,7
+Costa Rica,1972,10
+Croatia,1972,-7
+Cuba,1972,-7
+Czech Rep.,1972,-7
+Denmark,1972,10
+Dominican Rep.,1972,-3
+Ecuador,1972,-5
+Egypt,1972,-7
+El Salvador,1972,-1
+Estonia,1972,-7
+Ethiopia,1972,-9
+Finland,1972,10
+France,1972,8
+Georgia,1972,-7
+Germany,1972,10
+Greece,1972,-7
+Guatemala,1972,1
+Haiti,1972,-10
+Honduras,1972,-1
+Hungary,1972,-7
+India,1972,9
+Indonesia,1972,-7
+Iran,1972,-10
+Iraq,1972,-7
+Ireland,1972,10
+Israel,1972,9
+Italy,1972,10
+Japan,1972,10
+Jordan,1972,-9
+Kazakhstan,1972,-7
+"Korea, Dem. Rep.",1972,-9
+"Korea, Rep.",1972,-9
+Kyrgyzstan,1972,-7
+Latvia,1972,-7
+Lebanon,1972,5
+Liberia,1972,-6
+Libya,1972,-7
+Lithuania,1972,-7
+"Macedonia, FYR",1972,-7
+Mexico,1972,-6
+Moldova,1972,-7
+Mongolia,1972,-7
+Montenegro,1972,-7
+Myanmar,1972,-7
+Nepal,1972,-9
+Netherlands,1972,10
+New Zealand,1972,10
+Nicaragua,1972,-8
+Norway,1972,10
+Oman,1972,-10
+Pakistan,1972,4
+Panama,1972,-7
+Paraguay,1972,-8
+Peru,1972,-7
+Philippines,1972,-9
+Poland,1972,-7
+Portugal,1972,-9
+Romania,1972,-7
+Russia,1972,-7
+Saudi Arabia,1972,-10
+Serbia,1972,-7
+Slovak Republic,1972,-7
+Slovenia,1972,-7
+South Africa,1972,4
+Spain,1972,-7
+Sri Lanka,1972,8
+Sweden,1972,10
+Switzerland,1972,10
+Syria,1972,-9
+Taiwan,1972,-8
+Tajikistan,1972,-7
+Thailand,1972,-7
+Turkey,1972,-2
+Turkmenistan,1972,-7
+Ukraine,1972,-7
+United Kingdom,1972,10
+United States,1972,10
+Uruguay,1972,-3
+Uzbekistan,1972,-7
+Venezuela,1972,9
+Albania,1977,-9
+Argentina,1977,-9
+Armenia,1977,-7
+Australia,1977,10
+Austria,1977,10
+Azerbaijan,1977,-7
+Belarus,1977,-7
+Belgium,1977,10
+Bhutan,1977,-10
+Bolivia,1977,-7
+Brazil,1977,-4
+Bulgaria,1977,-7
+Canada,1977,10
+Chile,1977,-7
+China,1977,-7
+Colombia,1977,8
+Costa Rica,1977,10
+Croatia,1977,-7
+Cuba,1977,-7
+Czech Rep.,1977,-7
+Denmark,1977,10
+Dominican Rep.,1977,-3
+Ecuador,1977,-5
+Egypt,1977,-6
+El Salvador,1977,-6
+Estonia,1977,-7
+Ethiopia,1977,-7
+Finland,1977,10
+France,1977,8
+Georgia,1977,-7
+Germany,1977,10
+Greece,1977,8
+Guatemala,1977,-3
+Haiti,1977,-9
+Honduras,1977,-1
+Hungary,1977,-7
+India,1977,8
+Indonesia,1977,-7
+Iran,1977,-10
+Iraq,1977,-7
+Ireland,1977,10
+Israel,1977,9
+Italy,1977,10
+Japan,1977,10
+Jordan,1977,-10
+Kazakhstan,1977,-7
+"Korea, Dem. Rep.",1977,-9
+"Korea, Rep.",1977,-8
+Kyrgyzstan,1977,-7
+Latvia,1977,-7
+Lebanon,1977,0
+Liberia,1977,-6
+Libya,1977,-7
+Lithuania,1977,-7
+"Macedonia, FYR",1977,-7
+Mexico,1977,-3
+Moldova,1977,-7
+Mongolia,1977,-7
+Montenegro,1977,-7
+Myanmar,1977,-6
+Nepal,1977,-9
+Netherlands,1977,10
+New Zealand,1977,10
+Nicaragua,1977,-8
+Norway,1977,10
+Oman,1977,-10
+Pakistan,1977,-7
+Panama,1977,-7
+Paraguay,1977,-8
+Peru,1977,-7
+Philippines,1977,-9
+Poland,1977,-7
+Portugal,1977,9
+Romania,1977,-8
+Russia,1977,-7
+Saudi Arabia,1977,-10
+Serbia,1977,-7
+Slovak Republic,1977,-7
+Slovenia,1977,-7
+South Africa,1977,4
+Spain,1977,5
+Sri Lanka,1977,8
+Sweden,1977,10
+Switzerland,1977,10
+Syria,1977,-9
+Taiwan,1977,-7
+Tajikistan,1977,-7
+Thailand,1977,-2
+Turkey,1977,9
+Turkmenistan,1977,-7
+Ukraine,1977,-7
+United Kingdom,1977,10
+United States,1977,10
+Uruguay,1977,-8
+Uzbekistan,1977,-7
+Venezuela,1977,9
+Albania,1982,-9
+Argentina,1982,-8
+Armenia,1982,-7
+Australia,1982,10
+Austria,1982,10
+Azerbaijan,1982,-7
+Belarus,1982,-7
+Belgium,1982,10
+Bhutan,1982,-10
+Bolivia,1982,8
+Brazil,1982,-3
+Bulgaria,1982,-7
+Canada,1982,10
+Chile,1982,-7
+China,1982,-7
+Colombia,1982,8
+Costa Rica,1982,10
+Croatia,1982,-5
+Cuba,1982,-7
+Czech Rep.,1982,-7
+Denmark,1982,10
+Dominican Rep.,1982,6
+Ecuador,1982,9
+Egypt,1982,-6
+El Salvador,1982,2
+Estonia,1982,-7
+Ethiopia,1982,-7
+Finland,1982,10
+France,1982,8
+Georgia,1982,-7
+Germany,1982,10
+Greece,1982,8
+Guatemala,1982,-7
+Haiti,1982,-9
+Honduras,1982,6
+Hungary,1982,-7
+India,1982,8
+Indonesia,1982,-7
+Iran,1982,-6
+Iraq,1982,-9
+Ireland,1982,10
+Israel,1982,9
+Italy,1982,10
+Japan,1982,10
+Jordan,1982,-10
+Kazakhstan,1982,-7
+"Korea, Dem. Rep.",1982,-9
+"Korea, Rep.",1982,-5
+Kyrgyzstan,1982,-7
+Latvia,1982,-7
+Lebanon,1982,0
+Liberia,1982,-7
+Libya,1982,-7
+Lithuania,1982,-7
+"Macedonia, FYR",1982,-5
+Mexico,1982,-3
+Moldova,1982,-7
+Mongolia,1982,-7
+Montenegro,1982,-5
+Myanmar,1982,-8
+Nepal,1982,-2
+Netherlands,1982,10
+New Zealand,1982,10
+Nicaragua,1982,-5
+Norway,1982,10
+Oman,1982,-10
+Pakistan,1982,-7
+Panama,1982,-5
+Paraguay,1982,-8
+Peru,1982,7
+Philippines,1982,-7
+Poland,1982,-8
+Portugal,1982,10
+Romania,1982,-8
+Russia,1982,-7
+Saudi Arabia,1982,-10
+Serbia,1982,-5
+Slovak Republic,1982,-7
+Slovenia,1982,-5
+South Africa,1982,4
+Spain,1982,10
+Sri Lanka,1982,5
+Sweden,1982,10
+Switzerland,1982,10
+Syria,1982,-9
+Taiwan,1982,-7
+Tajikistan,1982,-7
+Thailand,1982,2
+Turkey,1982,-5
+Turkmenistan,1982,-7
+Ukraine,1982,-7
+United Kingdom,1982,10
+United States,1982,10
+Uruguay,1982,-7
+Uzbekistan,1982,-7
+Venezuela,1982,9
+Albania,1987,-9
+Argentina,1987,8
+Armenia,1987,-7
+Australia,1987,10
+Austria,1987,10
+Azerbaijan,1987,-7
+Belarus,1987,-7
+Belgium,1987,10
+Bhutan,1987,-10
+Bolivia,1987,9
+Brazil,1987,7
+Bulgaria,1987,-7
+Canada,1987,10
+Chile,1987,-6
+China,1987,-7
+Colombia,1987,8
+Costa Rica,1987,10
+Croatia,1987,-5
+Cuba,1987,-7
+Czech Rep.,1987,-7
+Denmark,1987,10
+Dominican Rep.,1987,6
+Ecuador,1987,8
+Egypt,1987,-6
+El Salvador,1987,6
+Estonia,1987,-7
+Ethiopia,1987,-8
+Finland,1987,10
+France,1987,9
+Georgia,1987,-7
+Germany,1987,10
+Greece,1987,10
+Guatemala,1987,3
+Haiti,1987,-8
+Honduras,1987,5
+Hungary,1987,-7
+India,1987,8
+Indonesia,1987,-7
+Iran,1987,-6
+Iraq,1987,-9
+Ireland,1987,10
+Israel,1987,9
+Italy,1987,10
+Japan,1987,10
+Jordan,1987,-9
+Kazakhstan,1987,-7
+"Korea, Dem. Rep.",1987,-9
+"Korea, Rep.",1987,1
+Kyrgyzstan,1987,-7
+Latvia,1987,-7
+Lebanon,1987,0
+Liberia,1987,-6
+Libya,1987,-7
+Lithuania,1987,-7
+"Macedonia, FYR",1987,-5
+Mexico,1987,-3
+Moldova,1987,-7
+Mongolia,1987,-7
+Montenegro,1987,-5
+Myanmar,1987,-8
+Nepal,1987,-2
+Netherlands,1987,10
+New Zealand,1987,10
+Nicaragua,1987,-1
+Norway,1987,10
+Oman,1987,-10
+Pakistan,1987,-4
+Panama,1987,-8
+Paraguay,1987,-8
+Peru,1987,7
+Philippines,1987,8
+Poland,1987,-6
+Portugal,1987,10
+Romania,1987,-8
+Russia,1987,-7
+Saudi Arabia,1987,-10
+Serbia,1987,-5
+Slovak Republic,1987,-7
+Slovenia,1987,-5
+South Africa,1987,4
+Spain,1987,10
+Sri Lanka,1987,5
+Sweden,1987,10
+Switzerland,1987,10
+Syria,1987,-9
+Taiwan,1987,-1
+Tajikistan,1987,-7
+Thailand,1987,2
+Turkey,1987,7
+Turkmenistan,1987,-7
+Ukraine,1987,-7
+United Kingdom,1987,10
+United States,1987,10
+Uruguay,1987,9
+Uzbekistan,1987,-7
+Venezuela,1987,9
+Albania,1992,5
+Argentina,1992,7
+Armenia,1992,7
+Australia,1992,10
+Austria,1992,10
+Azerbaijan,1992,1
+Belarus,1992,7
+Belgium,1992,10
+Bhutan,1992,-10
+Bolivia,1992,9
+Brazil,1992,8
+Bulgaria,1992,8
+Canada,1992,10
+Chile,1992,8
+China,1992,-7
+Colombia,1992,9
+Costa Rica,1992,10
+Croatia,1992,-3
+Cuba,1992,-7
+Czech Rep.,1992,8
+Denmark,1992,10
+Dominican Rep.,1992,6
+Ecuador,1992,9
+Egypt,1992,-6
+El Salvador,1992,7
+Estonia,1992,6
+Ethiopia,1992,0
+Finland,1992,10
+France,1992,9
+Georgia,1992,4
+Germany,1992,10
+Greece,1992,10
+Guatemala,1992,3
+Haiti,1992,-7
+Honduras,1992,6
+Hungary,1992,10
+India,1992,8
+Indonesia,1992,-7
+Iran,1992,-6
+Iraq,1992,-9
+Ireland,1992,10
+Israel,1992,9
+Italy,1992,10
+Japan,1992,10
+Jordan,1992,-2
+Kazakhstan,1992,-3
+"Korea, Dem. Rep.",1992,-9
+"Korea, Rep.",1992,6
+Kyrgyzstan,1992,-3
+Latvia,1992,8
+Lebanon,1992,0
+Liberia,1992,0
+Libya,1992,-7
+Lithuania,1992,10
+"Macedonia, FYR",1992,6
+Mexico,1992,0
+Moldova,1992,5
+Mongolia,1992,9
+Montenegro,1992,-5
+Myanmar,1992,-7
+Nepal,1992,5
+Netherlands,1992,10
+New Zealand,1992,10
+Nicaragua,1992,6
+Norway,1992,10
+Oman,1992,-9
+Pakistan,1992,8
+Panama,1992,8
+Paraguay,1992,7
+Peru,1992,-3
+Philippines,1992,8
+Poland,1992,8
+Portugal,1992,10
+Romania,1992,5
+Russia,1992,5
+Saudi Arabia,1992,-10
+Serbia,1992,-5
+Slovak Republic,1992,8
+Slovenia,1992,10
+South Africa,1992,6
+Spain,1992,10
+Sri Lanka,1992,5
+Sweden,1992,10
+Switzerland,1992,10
+Syria,1992,-9
+Taiwan,1992,7
+Tajikistan,1992,-6
+Thailand,1992,9
+Turkey,1992,9
+Turkmenistan,1992,-9
+Ukraine,1992,6
+United Kingdom,1992,10
+United States,1992,10
+Uruguay,1992,10
+Uzbekistan,1992,-9
+Venezuela,1992,8

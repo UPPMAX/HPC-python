@@ -2,8 +2,14 @@
 #
 # Naming this file 'matplotlib.py' will cause problems
 #
+import pandas
 import pandas as pd
 import os
+
+################################################################################
+# Minimal code
+################################################################################
+print(pandas.__version__)
 
 ################################################################################
 # Diamonds dataset
@@ -46,6 +52,10 @@ if not os.path.exists("dem_score.csv"):
 table = pd.read_csv("dem_score.csv")
 print(table)
 
-table = table.melt()
+table = table.melt(id_vars = ["country"])
+
+table.rename(columns = {"variable": "year", "value": "democratic_score"}, inplace = True)
+
+print(table)
 
 table.to_csv("tidy_dem_scores.csv", index = False)

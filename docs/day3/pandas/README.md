@@ -101,20 +101,25 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 ## Exercise 1: minimal code
 
-Get this code to run:
+Create a script called `pandas_exercise.py`
+with the following code:
 
 ```python
 import pandas
 print(pandas.__version__)
 ```
 
+Load the modules needed and run the script.
+
 What do you see?
 
 :::{admonition} Answer: how does that look like?
 :class: dropdown
 
-```python
-TODO: text output here
+The output looks similar to this:
+
+```text
+3.0.1
 ```
 
 :::
@@ -288,7 +293,8 @@ In tidy data:
 - Each observation is a row; each row is an observation.
 - Each value is a cell; each cell is a single value.
 
-The `dem_score` dataset is **not** tidy, because:
+The [`dem_score.csv`](https://moderndive.com/data/dem_score.csv)
+dataset is **not** tidy, because:
 
 - For all expect the first column, these columns are *values*: they are
   values for the year the measurement was done.
@@ -314,15 +320,31 @@ Albania,1955,-9
 ```
 :::
 
-Use `pandas` to read the `dem_score.csv` dataset, convert it to tidy data
+Use `pandas` to read
+[the `dem_score.csv` dataset](https://moderndive.com/data/dem_score.csv),
+convert it to tidy data
 and save it as `tidy_dem_scores.csv`.
-For this use
-[the `pandas` cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf).
-Tip: the function you will need is [this one](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html#pandas.DataFrame.melt).
+
+For this use:
+
+- [the `pandas` cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf).
+  Tip: the function you will need is [this one](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html#pandas.DataFrame.melt).
+- Your favorite web search engine
+- Your favorite AI
+
+:::{admonition} Answer
+:class: dropdown
+
+Here is the code that reads the
 
 ```python
-HIERO
+table = pd.read_csv("dem_score.csv")
+table = table.melt(id_vars = ["country"])
+table.rename(columns = {"variable": "year", "value": "democratic_score"}, inplace = True)
+table.to_csv("tidy_dem_scores.csv", index = False)
+
 ```
+:::
 
 ## (optional) Exercise 4: what does `pandas` mean?
 
