@@ -1,19 +1,19 @@
 .. _ides-ondemand:
 
-Desktop On Demand including IDEs
-================================
+Gfx launcher/Desktop On Demand including IDEs
+=============================================
 
 .. objectives::
 
    You will learn:
 
-   - What is On-Demand and when to use it
+   - What is Gfx launcher and On-Demand portal and when to use them 
    - Which interface to use on each resource and how to start them
-   - How to set the job parameters for your application
+   - How to set the job parameters for your application   - How to start IDEs from inside Gfx launcher and OpenOnDemand 
 
 
-What is Desktop On Demand? Is it right for my job?
---------------------------------------------------
+What is Gfx launcher / Desktop On Demand? Is it right for my job?
+-----------------------------------------------------------------
 
 On Cosmos (LUNARC), Kebnekaise (HPC2N), Alvis (C3SE), and Dardel (PDC), some applications are available through one of a couple of On Demand services. On Demand applications provide an interactive environment to schedule jobs on compute nodes using a graphic user interface (GUI) instead of the typical batch submission script. How you reach this interface is dependent on the system you use and their choice of On Demand client.
 

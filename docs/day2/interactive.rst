@@ -7,10 +7,9 @@ Interactive work on the compute nodes
 
    - Understand what an interactive session is
    - Understand why one may need an interactive session
-   - How to work with an interactive session (single + multiple cores)
+   - How to work with an interactive session 
    - Run an interactive-friendly Python script
    - Run an interactive-unfriendly Python script
-   - Gfx Launcher and On-demand desktop
 
 .. questions::
 
@@ -23,20 +22,20 @@ Interactive work on the compute nodes
 .. admonition:: Compute allocations in this workshop
 
    - Pelle: ``uppmax2025-2-393``
-   - Kebnekaise: ``hpc2n2025-151``
-   - Cosmos: ``lu2025-7-106``
-   - Alvis: ``naiss2025-22-934``
-   - Tetralith: ``naiss2025-22-934``
-   - Dardel: ``naiss2025-22-934``
+   - Kebnekaise: ``hpc2n2026-002``
+   - Cosmos: ``lu2026-7-57``
+   - Alvis: ``naiss2026-4-66``
+   - Tetralith: ``naiss2026-4-66``
+   - Dardel: ``naiss2026-4-66``
 
 .. admonition:: Storage space for this workshop
 
    - Pelle: ``/proj/hpc-python-uppmax``
-   - Kebnekaise: ``/proj/nobackup/fall-courses``
-   - Cosmos: ``/lunarc/nobackup/projects/lu2025-17-52``
-   - Alvis: ``/mimer/NOBACKUP/groups/courses-fall-2025``
-   - Tetralith: ``/proj/courses-fall-2025``
-   - Dardel: ``/cfs/klemming/projects/supr/courses-fall-2005``
+   - Kebnekaise: ``/proj/nobackup/spring-courses``
+   - Cosmos: ``none``
+   - Alvis: ``/mimer/NOBACKUP/groups/spring-courses-naiss``
+   - Tetralith: ``/proj/spring-courses-naiss``
+   - Dardel: ``/cfs/klemming/projects/supr/spring-courses-naiss``
 
 Introduction
 ------------
@@ -67,7 +66,7 @@ One good example is Jupyter.
 
    - interactive/salloc/srun
    - Running a Python script interactively
-   - Open-on-demand desktop
+   - Open-on-demand desktop (mention - more later!)
 
 An interactive session is a session with direct access to a compute node. Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
 
@@ -141,7 +140,7 @@ To start an interactive session in the simplest way, as shown here:
          interactive -A [project_name] -t HHH:MM:SS
 
       Where ``[project_name]`` is the NAISS project name,
-      for example ``interactive -A naiss2025-22-934``.
+      for example ``interactive -A naiss2026-4-66``.
 
       If you need more CPUs/GPUs, etc. you need to ask for that as well. The default which gives 1 CPU.
 
@@ -149,7 +148,7 @@ To start an interactive session in the simplest way, as shown here:
 
       .. code-block:: console
 
-         [x_birbr@tetralith3 ~]$ interactive -A naiss2025-22-403
+         [x_birbr@tetralith3 ~]$ interactive -A naiss2026-4-66
          salloc: Pending job allocation 44252533
          salloc: job 44252533 queued and waiting for resources
          salloc: job 44252533 has been allocated resources
@@ -171,13 +170,13 @@ To start an interactive session in the simplest way, as shown here:
          salloc -A [project_name] -t HHH:MM:SS -p main
 
       Where ``[project_name]`` is the NAISS project name,
-      for example ``salloc -A naiss2025-22-934 -t 00:10:00 -p main``.
+      for example ``salloc -A naiss2026-4-66 -t 00:10:00 -p main``.
 
       This will look similar to this (including asking for resources - time is required):
 
       .. code-block:: console
 
-          bbrydsoe@login1:~> salloc --time=00:10:00 -A naiss2025-22-934 -p main
+          bbrydsoe@login1:~> salloc --time=00:10:00 -A naiss2026-4-66 -p main
           salloc: Pending job allocation 9722449
           salloc: job 9722449 queued and waiting for resources
           salloc: job 9722449 has been allocated resources
@@ -209,7 +208,7 @@ To start an interactive session in the simplest way, as shown here:
 
       .. code-block:: console
 
-         [brydso@alvis2 ~]$ srun --account=NAISS2025-22-395 --gpus-per-node=T4:1 --time=01:00:00 --pty=/bin/bash
+         [brydso@alvis2 ~]$ srun --account=NAISS2026-4-66 --gpus-per-node=T4:1 --time=01:00:00 --pty=/bin/bash
         [brydso@alvis2-12 ~]$
 
       The recommended way to do interactive jobs at Alvis is with OpenOnDemand.
@@ -230,7 +229,7 @@ To start an interactive session in the simplest way, as shown here:
 
       .. code-block:: console
 
-         b-an01 [~]$ salloc -A hpc2n2025-151 -t 00:10:00
+         b-an01 [~]$ salloc -A hpc2n2026-002 -t 00:10:00
          salloc: Pending job allocation 34624444
          salloc: job 34624444 queued and waiting for resources
          salloc: job 34624444 has been allocated resources
@@ -306,7 +305,7 @@ To start an interactive session in the simplest way, as shown here:
 
       .. code-block:: console
 
-         [bbrydsoe@cosmos2 ~]$ interactive -A lu2025-7-76 -t 00:15:00
+         [bbrydsoe@cosmos2 ~]$ interactive -A lu2026-7-57 -t 00:15:00
          Cluster name: COSMOS
          Waiting for JOBID 1724396 to start
 
@@ -501,11 +500,9 @@ Conclusion
    - seen how to use a compute node interactively,
      which differs between HPC2N, UPPMAX, LUNARC, C3SE, NSC, and PDC (particularly between HPC2N (and PDC) and the others)
    - checked if we are in an interactive session
-   - checked if we have booked the right number of cores
+   - checked if we have booked the right number of cores (optional)
    - run Python scripts in an interactive session,
      which differs between HPC2N and the others
-   - seen that not all Python scripts
-     can be run interactively on multiples cores
    - exited an interactive session
 
 
