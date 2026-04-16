@@ -124,6 +124,8 @@ TODO: text output here
 In this exercise, we will first read
 [the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
 a dataset about diamonds.
+It is described
+[in the `ggplot2` (an R package) documentation](https://ggplot2.tidyverse.org/reference/diamonds.html).
 
 Download this file to the same folder as where you are running your Python code.
 
@@ -213,27 +215,114 @@ Why would `pandas` supply this option, to save with/without indexing?
 For backwards compatibility.
 
 Indexing was a useful feature in the field
-`pandas` was initially developed in
-and `pandas` always used indexing, with no way to turn this feature.
+`pandas` was initially developed in,
+so `pandas` always used indexing, with no way to disable this feature.
 
 However, later it was found that indexing is not useful in other fields.
 
 There were two options:
 
-- Remove indexing
-- Allow users to turn off indexing
+- Remove indexing from `pandas`
+- Allow users to disable indexing
 
 Removing indexing would cause old code to break, so this was decided
 against.
-Instead, it was decided to allow users to turn off indexing when needed.
+Instead, it was decided to allow users to disable indexing when needed.
 
 :::
 
-## Exercise 3: working with tabular data
+## Exercise 3: tidy data
 
-There are many things one can do with tabular data.
-Pandas has an overview at
-[the pandas page '10 minutes to pandas'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html).
+`pandas` shines when the data is tidy.
+
+Search the web for 'What is tidy data?'. Is the `diamonds` dataset tidy? Why?
+
+:::{admonition} Answer
+:class: dropdown
+
+I found the definition below from
+[a `tidyr` (an R package) article](https://tidyr.tidyverse.org/articles/tidy-data.html#tidy-data):
+
+In tidy data:
+
+- Each variable is a column; each column is a variable.
+- Each observation is a row; each row is an observation.
+- Each value is a cell; each cell is a single value.
+
+The `diamonds` dataset is tidy, because:
+
+- Each feature of each single diamond has a column.
+  Each feature is observed at more-or-less the same time
+- Each diamond has its own row
+- Each value in the table is indeed one value
+
+:::
+
+Now take a look at a dataset from [this book](https://moderndive.com)
+called [`dem_score.csv`](https://moderndive.com/data/dem_score.csv).
+This dataset shows the ratings of the level of democracy in
+different countries spanning 1952 to 1992, where the minimum value of -10
+corresponds to a highly autocratic nation whereas a value of 10 corresponds
+to a highly democratic nation. Here is how it looks like:
+
+
+```text
+country,1952,1957,1962,1967,1972,1977,1982,1987,1992
+Albania,-9,-9,-9,-9,-9,-9,-9,-9,5
+Argentina,-9,-1,-1,-9,-9,-9,-8,8,7
+Armenia,-9,-7,-7,-7,-7,-7,-7,-7,7
+Australia,10,10,10,10,10,10,10,10,10
+```
+
+Is the `dem_score` dataset tidy? Why?
+
+:::{admonition} Answer
+:class: dropdown
+
+I found the definition below from
+[a `tidyr` (an R package) article](https://tidyr.tidyverse.org/articles/tidy-data.html#tidy-data):
+
+In tidy data:
+
+- Each variable is a column; each column is a variable.
+- Each observation is a row; each row is an observation.
+- Each value is a cell; each cell is a single value.
+
+The `dem_score` dataset is **not** tidy, because:
+
+- For all expect the first column, these columns are *values*: they are
+  values for the year the measurement was done.
+- Each row contains multiple observations: per country, it shows
+  the democratic index of 1952, the democratic index of 1953, etc.
+- Each value in the table is indeed one value
+
+:::
+
+How would this data look like, would it be tidy?
+
+:::{admonition} Answer
+:class: dropdown
+
+Here is how this data would look like, would it be tidy:
+
+```text
+country,year,democracy_level
+Albania,1952,-9
+Albania,1953,-9
+Albania,1954,-9
+Albania,1955,-9
+```
+:::
+
+Use `pandas` to read the `dem_score.csv` dataset, convert it to tidy data
+and save it as `tidy_dem_scores.csv`.
+For this use
+[the `pandas` cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf).
+Tip: the function you will need is [this one](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html#pandas.DataFrame.melt).
+
+```python
+HIERO
+```
 
 ## (optional) Exercise 4: what does `pandas` mean?
 
@@ -255,4 +344,6 @@ Go to [the session about `matplotlib`](../matplotlib/README.md)
 
 ## External links
 
+- [The `pandas` cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf).
+- [the `pandas` page '10 minutes to `pandas`'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html).
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)

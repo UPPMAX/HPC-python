@@ -5,6 +5,10 @@
 import pandas as pd
 import os
 
+################################################################################
+# Diamonds dataset
+################################################################################
+
 if not os.path.exists("diamonds.csv"):
     # Download the file
     from urllib.request import urlretrieve
@@ -22,3 +26,26 @@ print(table)
 
 table.to_csv("my_new_file_without_index.csv", index = False)
 table.to_csv("my_new_file_with_index.csv", index = True)
+
+################################################################################
+# Democratic scores dataset
+################################################################################
+
+if not os.path.exists("dem_score.csv"):
+    # Download the file
+    from urllib.request import urlretrieve
+
+    urlretrieve(
+        "https://moderndive.com/data/dem_score.csv",
+        "dem_score.csv",
+    )
+
+if not os.path.exists("dem_score.csv"):
+    os.sys.exit("Failed to download 'dem_score.csv'")
+
+table = pd.read_csv("dem_score.csv")
+print(table)
+
+table = table.melt()
+
+table.to_csv("tidy_dem_scores.csv", index = False)
