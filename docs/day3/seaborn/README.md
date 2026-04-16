@@ -4,12 +4,9 @@
 
 # `seaborn`
 
-:::{admonition} [The `seaborn` logo](https://seaborn.pydata.org/citing.html)
-:class: quote
-
 ![The seaborn logo](logo-wide-lightbg.svg)
 
-:::
+[The `seaborn` logo](https://seaborn.pydata.org/citing.html)
 
 
 :::{admonition} Learning outcomes
