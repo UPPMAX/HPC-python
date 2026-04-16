@@ -23,13 +23,66 @@ At the end of this sessions, learners ...
   [the pandas page '10 minutes to pandas'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)
 :::
 
-## Why `pandas` is important
+## What is `pandas`?
 
 From [the `pandas` homepage](https://pandas.pydata.org/):
 
 > *pandas* is a fast, powerful, flexible and easy to use
 > open source data analysis and manipulation tool,
 > built on top of the Python programming language.
+
+It allows you to do work with/on data, for example:
+
+```python
+table = pd.read_csv("dem_score.csv")
+table = table.melt(id_vars = ["country"])
+```
+
+Or many other things, such as reshaping data (from
+[the `pandas` cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)):
+
+![Reshaping functions, from the `pandas` cheat sheet](pandas_cheat_sheet_reshape.png)
+
+For example, you can turn this messy data:
+
+Country  |1952|1957|1962
+---------|----|----|----
+Albania  |-9  |-9  |-9
+Argentina|-9  |-1  |-1
+
+To the tidy data, which is easier to work with:
+
+Country  |Year|Democracy level
+---------|----|---------------
+Albania  |1952|-9
+Albania  |1957|-9
+Albania  |1962|-9
+Argentina|1952|-9
+Argentina|1957|-1
+Argentina|1962|-1
+
+## Why `pandas` is important
+
+`pandas` is a popular Python package that allows you
+to work with data and it gives you a *vocabulary*
+(and the Python functions) to do so.
+
+:::{admonition} How popular is `pandas`?
+:class: dropdown
+
+`pandas` is not popular enough to be in
+[the `PyPI` top 20](https://pypistats.org/top).
+
+However, at
+[the `pandas` PyPI statistics page](https://pypistats.org/packages/pandas)
+we see that it has more than 600 million downloads per month. 
+As the number 20 package has around 800 million downloads per month,
+we can infer that it is not all too impopular.
+
+:::
+
+
+
 
 ## Loading Pandas
 

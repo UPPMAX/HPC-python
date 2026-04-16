@@ -51,9 +51,25 @@ It can be used to create publication-quality figures and
 [the `seaborn` plot gallery](https://seaborn.pydata.org/examples/index.html)
 shows that most plot types are present.
 
+:::{admonition} How popular is `seaborn`?
+:class: dropdown
+
+`seaborn` is not popular enough to be in
+[the `PyPI` top 20](https://pypistats.org/top).
+
+However, at
+[the `seaborn` PyPI statistics page](https://pypistats.org/packages/seaborn)
+we see that it has around 20 million downloads per month. 
+As the number 20 package has around 800 million downloads per month,
+we can infer that it is not all too impopular.
+
+:::
+
 ## Exercises
 
-## Loading `seaborn`
+## Exercises
+
+## Exercise 1: a minimal `seaborn` program
 
 - Use the documentation of the HPC cluster you work on
 
@@ -119,10 +135,6 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 <!-- markdownlint-enable MD013 -->
 
 :::
-
-## Exercises
-
-## Exercise 1: a minimal `seaborn` program
 
 Create a script called `seaborn_exercise_1.py`,
 with the following content:

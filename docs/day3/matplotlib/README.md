@@ -40,6 +40,20 @@ It can be used to create publication-quality figures and
 [the `matplotlib` plot types overview](https://matplotlib.org/stable/plot_types/index.html)
 shows that most plot types are present.
 
+:::{admonition} How popular is `matplotlib`?
+:class: dropdown
+
+`matplotlib` is not popular enough to be in
+[the `PyPI` top 20](https://pypistats.org/top).
+
+However, at
+[the `matplotlib` PyPI statistics page](https://pypistats.org/packages/matplotlib)
+we see that it has around 200 million downloads per month. 
+As the number 20 package has around 800 million downloads per month,
+we can infer that it is not all too impopular.
+
+:::
+
 ## Exercises
 
 ## Exercise 1: a minimal plot
