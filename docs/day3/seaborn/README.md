@@ -80,8 +80,6 @@ we can infer that it is not all too unpopular.
 
 ## Exercises
 
-## Exercises
-
 ## Exercise 1: a minimal `seaborn` program
 
 - Use the documentation of the HPC cluster you work on
