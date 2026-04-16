@@ -6,8 +6,10 @@ Schedule
 Course dates
 ------------
 
-The 4-day version of this course is scheduled twice a year.
-The 1-day version of this course is scheduled an additional two times a year
+- The 4-day version of this course is scheduled once a year, unless there is
+  a reason to schedule more often
+- The 1-day version of this course is scheduled to four times a year in total,
+  either as part of the 4-day course, or on its own
 
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
 |Week|Day      |Date      |Time                 |Description                                                                            |
@@ -26,6 +28,7 @@ The 1-day version of this course is scheduled an additional two times a year
 +====+=========+==========+=====================+=======================================================================================+
 |?42 |?        |2026-?-?  |9:00 (sharp) to 16:00|:ref:`schedule-day-1`                                                                  |
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
+
 
 +----+---------+----------+---------------------+---------------------------------------------------------------------------------------+
 |Week|Day      |Date      |Time                 |Description                                                                            |
