@@ -2,6 +2,17 @@
 #
 # Naming this file 'matplotlib.py' will cause problems
 #
+
+################################################################################
+# Exercise 1: minimal
+################################################################################
+import matplotlib
+print(matplotlib.__version__)
+
+################################################################################
+# Exercise 2: minimal plot
+################################################################################
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import os

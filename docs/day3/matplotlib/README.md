@@ -56,7 +56,7 @@ we can infer that it is not all too impopular.
 
 ## Exercises
 
-## Exercise 1: a minimal plot
+## Exercise 1: minimal code
 
 - Use the documentation of the HPC cluster you work on
 
@@ -120,6 +120,44 @@ Tetralith  |?`module load Python/3.10.4-env-hpc1-gcc-2022a-eb`
 
 :::
 
+Create a script called `matplotlib_exercise.py`
+with the following code:
+
+```python
+import matplotlib
+print(matplotlib.__version__)
+```
+
+Load the modules needed and run the script.
+
+What do you see?
+
+:::{admonition} Answer: how does that look like?
+:class: dropdown
+
+The output looks similar to this:
+
+```text
+3.6.3
+```
+
+:::
+
+Even though the code shows nothing directly useful,
+why is this a useful exercise anyways?
+
+:::{admonition} Answer
+:class: dropdown
+
+This is a useful exercise,
+because it proves that you have successfully loaded/installed
+`matplotlib`.
+
+:::
+
+## Exercise 2: a minimal plot
+
+
 - Create a script with the following code:
 
 ```python
@@ -138,7 +176,7 @@ plt.figure().savefig('my_figure.png')
 - Run the script
 - Check that the figure is created
 
-## (optional) Exercise 2: displaying a `pandas` table
+## (optional) Exercise 3: displaying a `pandas` table
 
 In this exercise, we will again use
 [the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
@@ -173,7 +211,7 @@ This will look like this:
 
 :::
 
-## (optional) Exercise 3: making the plot pretty
+## (optional) Exercise 4: making the plot pretty
 
 Use [the `matplotlib` documentation](https://matplotlib.org/stable/index.html)
 to improve the plot, for example:
@@ -183,7 +221,7 @@ to improve the plot, for example:
 - Add a linear trendline
 - Whatever you like
 
-## (optional) Exercise 4: should I use `matplotlib` or `seaborn`?
+## (optional) Exercise 5: should I use `matplotlib` or `seaborn`?
 
 Search the academic literature to answer the question
 if you should use `matplotlib` or `seaborn`,
