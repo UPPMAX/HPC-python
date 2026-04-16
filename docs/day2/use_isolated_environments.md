@@ -1,7 +1,8 @@
-.. _use-isolated-environments:
+<!--.. _use-isolated-environments:-->
 
-Using isolated environments
-===========================
+(use-isolated-environments)=
+
+# Using isolated environments
 
 .. admonition:: Learning objectives
 
@@ -21,44 +22,68 @@ Using isolated environments
    - Conda 5
    - Exercises 30 m
 
-Isolated environments
----------------------
+## Why isolated environments are important
 
-- As an example, maybe you have been using TensorFlow 1.x.x for your project and
-    - now you need to install a package that requires TensorFlow 2.x.x
-    - but you will still be needing the old version of TensorFlow.
-- This is easily solved with isolated environments.
+Isolated/virtual environments solve a couple of problems:
 
-- Another example is when a reviewer want you to remake a figure.
-    - You have already started to use a newer Python version or newer packages and
-    - realize that your earlier script does not work anymore.
-- Having freezed the environment would have solved you from this issue!
+- You can install specific, also older, package versions into them.
+- You can create one for each project and no problem if the two projects require different versions.
+- You can remove the environment and create a new one, if not needed or with errors.
+- Good for reproducibility!
 
-.. note::
+When?
 
-   Isolated/virtual environments solve a couple of problems:
+- When installed modules are not enough for you.
+- Examples:
+    - you continue a project on your computer on the HPC cluster
+    - you continue someone else's project on the HPC cluster
 
-   - You can install specific, also older, package versions into them.
-   - You can create one for each project and no problem if the two projects require different versions.
-   - You can remove the environment and create a new one, if not needed or with errors.
-   - Good for reproducibility!
+.. discussion::
+
+   - What experience have you had?
+   
+## What is an isolated environments
 
 - Isolated environments let you create separate workspaces for different versions of Python and/or different versions of packages.
 - You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
 
+.. note:: Principles
+
+   - create environment (choose Python version as well)
+   - activate the environment
+       - now you work isolated from the rest of the system, e.g. Python packages
+   - install packages
+       - these are now reached only from the activated project
+   - do your research
+   - deactivate
+
 **The tools**
 
 - Python's built-in ``venv`` module: uses pip
-- ``virtualenv`` (can be installed): uses pip
-- ``conda``/``forge``: uses ``conda``/``mamba``
+- ``virtualenv`` (in bundle module or can be installed): uses pip
+- ``conda``/``forge``: uses ``conda`` and ``mamba``
 
-What happens at activation?
-...........................
+
+Tool | Software module | Own Python | Can use python packages from outside 
+-----|-----------------|------------|-------------------------------------
+venv | Python-<version>|Uses the one it was activated from| ``--system-site-packages``
+conda| conda/forge     | Yes        | No
+
+
+.. admonition:: Other tools perhaps covered in the future
+   :class: dropdown
+
+   - `pixi <https://pixi.sh/latest/>`_: package management tool for developers
+       - It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.
+       - could replace conda/mamba
+
+   - `uv <https://docs.astral.sh/uv/>`_: An extremely fast Python package and project manager, written in Rust.
+       - A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more
+
+### What happens at activation?
 
 - Python version is defined by the environment.
     - Check with ``which python``, should show at path to the environment.
-    - In conda you can define python version as well
-    - Since ``venv`` is part of Python you will get the python version used when running the ``venv`` command.
 - Packages are defined by the environment.
     - Check with ``pip list``
     - Conda can only see what you installed for it.
@@ -89,7 +114,7 @@ What happens at activation?
 +------------+---------------------------------+
 | Kebnekaise | venv **only**                   |
 +------------+---------------------------------+
-| LUMI       | venv, conda in container        |
+| LUMI       | venv,  conda-containerize       |
 +------------+---------------------------------+
 | Pelle      | venv, Miniforge3/24.11.3-0      |
 +------------+---------------------------------+
@@ -114,18 +139,8 @@ What happens at activation?
 
    https://pip.pypa.io/en/stable/cli/pip_list/
 
-.. admonition:: Other tools perhaps covered in the future
-   :class: dropdown
 
-   - `pixi <https://pixi.sh/latest/>`_: package management tool for developers
-       - It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.
-       - could replace conda/mamba
-
-   - `uv <https://docs.astral.sh/uv/>`_: An extremely fast Python package and project manager, written in Rust.
-       - A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more
-
-Virtual environment - venv & virtualenv
----------------------------------------
+### Virtual environment - venv & virtualenv
 
 With this tool you can download and install with ``pip`` from the `PyPI repository <https://pypi.org/>`_
 
@@ -184,8 +199,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when **building any Cython libraries**.
 
 
-Conda
------
+### Conda
 
 - `Conda <https://anaconda.org/anaconda/conda>`_ is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
 
@@ -252,8 +266,8 @@ Conda
    .. code-block:: console
 
       module load Miniforge/24.7.1-2-hpc1
-      export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
-      export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
+      export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
+      export CONDA_ENVS_PATH=/proj/spring-courses-naiss/users/$USER
       mamba create --prefix=$CONDA_ENVS_PATH/numpy-proj-39 python=3.9.5 -c conda-forge
       mamba activate nsc-example
       # A prompt "(/path-to/nsc-example/)" should show up
@@ -302,15 +316,14 @@ Conda
    - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
    - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
 
-Install from file
-------------------
+## Install from file
 
 - All centers has had different approaches in what is included in the module system and not.
 - Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
 - This is left as exercise for you, see Exercise 4 and 5.
 
-venv
-....
+### venv
+
 
 Make a requirements file:
 
@@ -340,8 +353,7 @@ Install packages from a file
 
    pip install -r requirements.txt
 
-conda/forge
-...........
+### conda/forge
 
 Make environment file:
 
@@ -406,8 +418,7 @@ Create an environment from a file. Do this on another computer or rename.
    - Did you note the difference in file length?
    - What does it mean?
 
-Exercises
----------
+## Exercises
 
 .. challenge:: Exercise 0: Make a decision between ``venv`` or ``conda``.
 
@@ -498,8 +509,8 @@ Breakout room according to grouping
          .. code-block::
 
             module load Miniforge/24.7.1-2-hpc1
-            export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
-            export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
+            export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
+            export CONDA_ENVS_PATH=/proj/spring-courses-naiss/users/$USER
             mamba create --prefix=$CONDA_ENVS_PATH/spyder-env python=3.12 spyder
             mamba activate spyder-env
             # A prompt "(/path-to/spyder-env/)" should show up
@@ -531,8 +542,8 @@ Breakout room according to grouping
 
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/spyder-env python=3.11.7 spyder
             source activate spyder-env
             # A prompt "(/path-to/spyder-env/)" should show up
@@ -554,8 +565,8 @@ Breakout room according to grouping
 
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/jupyter-env python=3.11.7 jupyter
             conda activate jupyter-env
             # A prompt "(/path-to/jupyter-env/)" should show up
@@ -662,12 +673,12 @@ Breakout room according to grouping
 
       .. tab:: NSC
 
-         - Start in folder ``/proj/courses-fall-2025/$USER``
+         - Start in folder ``/proj/spring-courses-naiss/$USER``
          - Follow the tutorial at `Python <https://www.nsc.liu.se/software/python/>`_: scroll down to "More on Python virtual environments (venvs)"
 
       .. tab:: PDC
 
-         - Start in folder ``/cfs/klemming/projects/snic/courses-fall-2025/$USER``
+         - Start in folder ``/cfs/klemming/projects/snic/spring-courses-naiss/$USER``
          - Follow the tutorial at Virtual environment with venv https://pdc-support.github.io/pdc-intro/#165
 
       .. tab:: UPPMAX: Pelle
@@ -685,8 +696,8 @@ Breakout room according to grouping
          .. code-block:: console
 
             $ module load GCC/12.3.0 Python/3.11.3
-            $ python -m venv /proj/nobackup/fall-courses/$USER/Example
-            $ source /proj/nobackup/fall-courses/$USER/Example/bin/activate
+            $ python -m venv /proj/nobackup/spring-courses/$USER/Example
+            $ source /proj/nobackup/spring-courses/$USER/Example/bin/activate
 
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
@@ -695,8 +706,8 @@ Breakout room according to grouping
          .. code-block:: console
 
             module load GCC/12.3.0 Python/3.11.3
-            python -m venv --system-site-packages /lunarc/nobackup/projects/lu2025-17-52/$USER/Example
-            source /lunarc/nobackup/projects/lu2025-17-52/<user-dir>/Example/bin/activate``
+            python -m venv --system-site-packages /path/to/your/project/$USER/Example
+            source /path/to/your/project/<user-dir>/Example/bin/activate``
 
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
@@ -739,8 +750,8 @@ Breakout room according to grouping
          .. code-block::
 
             module load Miniforge/24.7.1-2-hpc1
-            export CONDA_PKG_DIRS=/proj/courses-fall-2025/users/$USER
-            export CONDA_ENVS_PATH=/proj/courses-fall-2025/users/$USER
+            export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
+            export CONDA_ENVS_PATH=/proj/spring-courses-naiss/users/$USER
             mamba create --prefix=$CONDA_ENVS_PATH/examplepython=3.12 example
             mamba activate example
             # A prompt "(/path-to/example)" should show up
@@ -754,8 +765,8 @@ Breakout room according to grouping
 
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/" #only needed once per session
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/example python=3.12
             source activate example
             # A prompt "(/path-to/example)" should show up
@@ -768,8 +779,8 @@ Breakout room according to grouping
          .. code-block:: console
 
             ml Miniforge3/24.1.2-0
-            export CONDA_ENVS_PATH="/lunarc/nobackup/projects/lu2025-17-52/$USER/" #only needed once per session
-            export CONDA_PKG_DIRS="/lunarc/nobackup/projects/lu2025-17-52/$USER/" #only needed once per session
+            export CONDA_ENVS_PATH="/path/to/your/project/$USER/" #only needed once per session
+            export CONDA_PKG_DIRS="/path/to/your/project/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/example python=3.12
             conda activate example
             # A prompt "(/path-to/example)" should show up
@@ -1093,4 +1104,3 @@ Next steps are the same for all clusters
    - want to share your work? :ref:`devel_iso`
    - uploading files
       - `NAISS transfer course <https://uppmax.github.io/naiss_file_transfer_course/sessions/intro/>`_
-

@@ -13,13 +13,33 @@ tags:
 # Python bundles
 
 
-## Introduction
+## Bundle names
 
 - The bundle names reflect the content, like Python packages, and its version, but also which Python version, compilers and libraries that are compatible with it.
 
-- The module endings may contain GCCcore-X.Y.Z and/or [YEAR-a/b]. Example ``SciPy-bundle/2024.05-gfbf-2024a`` or ``Python/3.12.3-GCCcore-13.3.0``
-    - GCCcore reflects the GCC compiler version that is compatible when using C/C++ "back end" code.
-    - The year reflects an EasyBuild toolchain, see [FOSS toolchains](https://docs.easybuild.io/common-toolchains/#common_toolchains_overview_foss).
+:::{callout} "Some well-known bundles by names"
+:class: dropdown
+
+    - HPC and big data
+        - dask
+        - mpi4py
+        - numba
+    - Scientific tools
+        - SciPy-bundles: ``numpy``, ``pandas``, ``scipy``
+        - xarray
+    - Biopython
+    - Interactivity
+        - iPython
+        - JupyterLab
+    - Graphics and diagrams
+        - Matplotlib
+        - Seaborn
+    - Machine Learning
+        - scikit-learn
+        - PyTorch
+        - TensorFlow
+    - Bundle of useful packages
+        - Python-bundle-PyPI
 
 Package     |Bundle module|Also loads        |Avail at *|
 ------------|-------------|------------------|--------|
@@ -40,26 +60,31 @@ torch       | PyTorch     |OpenMPI           |P, K, C
 
 * Dardel (``D``), Tetralith (``T``), Alvis (``A``), Pelle (``P``), Kebnekaise (``K``), Cosmos (``C``)
 
-:::{callout} "FOSS tool chains and Python version using them"
+## Bundle versions
 
-    FOSS | Python version| GCC version | Bundle version
-    -----| --------------|-------------|---------------
-    2023b| 3.11.5        | 13.2.0      | not installed on Pelle
-    2024a| 3.12.3        | 13.3.0      | 2024.06/06
-    2025a| 3.13.1        | 14.2.0      | not installed on Pelle
-    2025b| 3.13.5        | 14.3.0      | 2025.07
+- The module endings may contain GCCcore-X.Y.Z and/or [YEAR-a/b]. Example ``SciPy-bundle/2024.05-gfbf-2024a`` or ``Python/3.12.3-GCCcore-13.3.0``
+    - GCCcore reflects the GCC compiler version that is compatible when using C/C++ "back end" code.
+    - The year reflects an EasyBuild toolchain, see [FOSS toolchains](https://docs.easybuild.io/common-toolchains/#common_toolchains_overview_foss).
 
-    - ``foss`` is the full level toolchain.
-    - ``gfbf`` means that the libraries FlexiBLAS (incl. LAPACK) + FFTW are included.
-    - ``gompi`` means that the MPI library OpenMPI is included.
+:::{callout} "Some FOSS tool chains and Python version using them"
+:class: dropdown
 
-    - See [Toolchain diagram](https://docs.easybuild.io/common-toolchains/#toolchains_diagram)
+FOSS | Python version| GCC version | Bundle version
+-----| --------------|-------------|---------------
+2024a| 3.12.3        | 13.3.0      | 2024.06/06
+2025b| 3.13.5        | 14.3.0      | 2025.07
+
+- ``foss`` is the full level toolchain.
+- ``gfbf`` means that the libraries FlexiBLAS (incl. LAPACK) + FFTW are included.
+- ``gompi`` means that the MPI library OpenMPI is included.
+
+- See [Toolchain diagram](https://docs.easybuild.io/common-toolchains/#toolchains_diagram)
 :::
 
 :::{danger}
 
-    - Make sure to use bundles that are compatible with each-other and with needed Python version.
-    - Otherwise it is better to create isolated environments with Conda or virtual environments, see [Virtual environments in Python](python_virtual_environments.md).
+- Make sure to use bundles that are compatible with each-other and with needed Python version.
+- Otherwise it is better to create isolated environments with Conda or virtual environments, see [Virtual environments in Python](python_virtual_environments.md).
 ::: 
 
 :::{callout}  Example Matplotlib
@@ -89,17 +114,14 @@ Dependencies:
 
 :::
 
-:::{callout}  What is Python-bundle-PyPI
+:::{callout}  What is Python-bundle-PyPI?
 :class: dropdown
 
 Bundle of Python packages from PyPI
 
 - Homepage: <https://python.org/>
 
-:::{note} Main package(s)
-:class: dropdown
-
-    - Type ``ml help Python-bundle-PyPI/[version]`` on Pelle to see an output.
+- Type ``ml help Python-bundle-PyPI/[version]`` on Pelle to see an output.
 
     Among others:
 
@@ -118,76 +140,55 @@ Bundle of Python packages from PyPI
     - toml
     - urllib
 
-    Also loads the package module
+Also loads the package module
 
     - virtualenv
 
-        
-## SciPy-bundle
+:::
 
-Bundle of Python packages for scientific software
+## Principles with example: ``matplotlib``
 
-- Homepage: <https://python.org/>
+- Decide what you need!
+    1. Start new project with newest toolchain
+    2. Go for version you have used before (reproduce)
+    3. Exact versions of many packages may need an isolated environment.
+- Load one or several bundles, python is loaded on the fly!
 
-!!! info "Main package(s)"
+- Check versions
 
-    - numpy
-    - pandas
-    - scipy
+```console
+ml spider matplotlib
+```
 
-!!! info "Installed versions"
+This is a very good way to find packages that are not in a bundle with the same name. For instance, ``pandas`` and ``numpy`` are parts of the ``SciPy-bundle``
 
-    Versions and dependencies
-    
-    ??? note "2023.07-gfbf-2023a"
+or
 
-        Packages
-        
-        - numpy-1.25.1
-        - pandas-2.0.3
-        - scipy-1.11.1
+```console
+ml avail matplotlib
+```
 
-        Dependencies
+- Load prerequisites, if needed, and then
 
-        - Python/3.11.3-GCCcore-12.3.0
-        - Python-bundle-PyPI/2023.06-GCCcore-12.3.0
-        
-    ??? note "2023.11-gfbf-2023b"
+```console
+ml matplotlib/<version>
+```
 
-        Packages
-        
-        - numpy-1.26.2
-        - pandas-2.1.3
-        - scipy-1.11.4
+or
 
-        Dependencies
+```console
+ml matplotlib/<version>
+```
 
-        - Python/3.11.5-GCCcore-13.2.0
-        - Python-bundle-PyPI/2023.10-GCCcore-13.2.0
-        
-    ??? note "2024.05-gfbf-2024a"
+- Start Python session in a console with
 
-        Packages
-        
-        - numpy-1.26.4
-        - pandas-2.2.2
-        - scipy-1.13.1
+```console
+python
+```
 
-        Dependencies
+- Load a needed library, like
 
-        - Python/3.12.3-GCCcore-13.3.0
-        - Python-bundle-PyPI/2024.06-GCCcore-13.3.0
-
-    ??? note "2025.07-gfbf-2025b"
-
-        Packages
-        
-        - numpy-2.3.2
-        - pandas-2.3.1
-        - scipy-1.16.1
-
-        Dependencies
-
-        - Python/3.13.5-GCCcore-14.3.0
-        - Python-bundle-PyPI/2025.07-GCCcore-14.3.0
+```python
+import matplotlib
+```
 
