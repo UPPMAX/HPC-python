@@ -1,7 +1,7 @@
 .. _ides-ondemand:
 
-Desktop On Demand
-=================
+Desktop On Demand including IDEs
+================================
 
 .. objectives::
 
