@@ -81,10 +81,9 @@ we can infer that it is not all too impopular.
 
 :::
 
+## Exercises
 
-
-
-## Loading Pandas
+## Exercise 1: minimal code
 
 - Use the documentation of the HPC cluster you work on
 
@@ -150,9 +149,6 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 :::
 
-## Exercises
-
-## Exercise 1: minimal code
 
 Create a script called `pandas_exercise.py`
 with the following code:
@@ -176,6 +172,19 @@ The output looks similar to this:
 ```
 
 :::
+
+Even though the code shows nothing directly useful,
+why is this a useful exercise anyways?
+
+:::{admonition} Answer
+:class: dropdown
+
+This is a useful exercise,
+because it proves that you have successfully loaded/installed
+`pandas`.
+
+:::
+
 
 ## Exercise 2: reading and saving a comma-separated file
 

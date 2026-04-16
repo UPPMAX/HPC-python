@@ -5,6 +5,7 @@
 # `seaborn`
 
 :::{admonition} [The `seaborn` logo](https://seaborn.pydata.org/citing.html)
+:class: quote
 
 ![The seaborn logo](logo-wide-lightbg.svg)
 
