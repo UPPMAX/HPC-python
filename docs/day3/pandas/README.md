@@ -78,7 +78,7 @@ However, at
 [the `pandas` PyPI statistics page](https://pypistats.org/packages/pandas)
 we see that it has more than 600 million downloads per month. 
 As the number 20 package has around 800 million downloads per month,
-we can infer that it is not all too impopular.
+we can infer that it is not all too unpopular.
 
 :::
 

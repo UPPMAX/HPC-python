@@ -50,7 +50,7 @@ However, at
 [the `matplotlib` PyPI statistics page](https://pypistats.org/packages/matplotlib)
 we see that it has around 200 million downloads per month. 
 As the number 20 package has around 800 million downloads per month,
-we can infer that it is not all too impopular.
+we can infer that it is not all too unpopular.
 
 :::
 

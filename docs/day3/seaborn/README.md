@@ -48,12 +48,12 @@ From [the `seaborn` FAQ](https://seaborn.pydata.org/faq.html#why-is-seaborn-impo
 
 :::
 
-:::{admonition} Why does this plot look indentical to the `matplotlib` plot?
+:::{admonition} Why does this plot look identical to the `matplotlib` plot?
 :class: dropdown
 
 Because it is!
 
-This plot is indentical to the `matplotlib` plot in
+This plot is identical to the `matplotlib` plot in
 [the session about `matplotlib`](../matplotlib/README.md),
 because `seaborn` is built on top of `matplotlib`.
 Hence, `seaborn` uses `matplotlib` for plotting.
@@ -77,7 +77,7 @@ However, at
 [the `seaborn` PyPI statistics page](https://pypistats.org/packages/seaborn)
 we see that it has around 20 million downloads per month. 
 As the number 20 package has around 800 million downloads per month,
-we can infer that it is not all too impopular.
+we can infer that it is not all too unpopular.
 
 :::
 
