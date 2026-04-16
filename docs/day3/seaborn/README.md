@@ -19,7 +19,41 @@ At the end of this sessions, learners ...
 - have run Python code that uses `seaborn` to display data from a `pandas` table
 :::
 
+## What is `seaborn`?
+
+`seaborn` allows you to create figures:
+
+```python
+import seaborn as sns
+
+y = [0, 1, 4, 9, 16]
+sns.set_theme()
+sns.lineplot(x = range(len(y)), y = y).figure.show()
+```
+
+Which shows:
+
+![A minimal `seaborn` plot](what_is_seaborn.png)
+
+:::{admonition} Why is `seaborn` imported as `sns`?
+:class: dropdown
+
+From [the `seaborn` FAQ](https://seaborn.pydata.org/faq.html#why-is-seaborn-imported-as-sns):
+
+> This is an obscure reference to
+> [the namesake](https://pbs.twimg.com/media/C3C6q1ZUYAALXX0.jpg)
+> of the library, but you can also think of it as “seaborn name space”.
+
+:::
+
 ## Why `seaborn` is important
+
+`seaborn` is one of the most popular Python plotting libraries.
+It can be used to create publication-quality figures and
+[the `seaborn` plot gallery](https://seaborn.pydata.org/examples/index.html)
+shows that most plot types are present.
+
+## Exercises
 
 ## Loading `seaborn`
 
@@ -92,33 +126,59 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 ## Exercise 1: a minimal `seaborn` program
 
-Run the following code, that is copied from
-[the `seaborn` page 'An introduction to `seaborn`'](https://seaborn.pydata.org/tutorial/introduction.html)
-and combined with
-[this StackOverflow post to save it to a file](https://stackoverflow.com/a/39482402/3364162)
+Create a script called `seaborn_exercise_1.py`,
+with the following content:
 
 ```python
-# Import seaborn
 import seaborn as sns
-
-# Apply the default theme
-sns.set_theme()
-
-# Load an example dataset
-tips = sns.load_dataset("tips")
-
-# Create a visualization and save it to file
-my_plot = sns.relplot(
-    data = tips,
-    x = "total_bill", y = "tip", col = "time",
-    hue = "smoker", style = "smoker", size = "size",
-)
-fig = my_plot.get_figure()
-fig.savefig("out.png") 
+y = [0, 1, 4, 9, 16]
+sns.lineplot(x = range(len(y)), y = y).figure.savefig("seaborn_exercise_1.png")
 ```
 
-- Run the script
-- Check that the figure is created
+Run the script.
+
+:::{admonition} Answer: how to run the script
+:class: dropdown
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|How to run the script
+-----------|-----------------------------------------------------------------------------------------------------------------------
+Alvis      |`python seaborn_exercise_1.py`
+COSMOS     |`python seaborn_exercise_1.py`
+Dardel     |`python3 seaborn_exercise_1.py`
+Kebnekaise |`python seaborn_exercise_1.py`
+Pelle      |`python seaborn_exercise_1.py`
+Tetralith  |`python seaborn_exercise_1.py`
+
+<!-- markdownlint-enable MD013 -->
+
+:::
+
+Check that the figure is created.
+
+![`seaborn` exercise 1](seaborn_exercise_1.png)
+
+:::{admonition} Answer: how to check that the figure is created
+:class: dropdown
+
+There are many ways to do so:
+
+- **Download the file to your local computer**:
+  You can download the file to your local computer.
+  Then use your favorite way to view this image.
+- **View in a remote desktop environment**:
+  Your favorite HPC cluster has a remote desktop environment, which
+  is a visual/graphical environment that is intuitive to use.
+  There, for example, use the file explorer to find
+  the file, then double-click it to do display it
+- **View from a console environment that has X-forwarding enabled**:
+  Use the same procedure as on
+  [the 'HPC Python' course Day 1: view a plot](https://uppmax.github.io/naiss_intro_python/sessions/working_with_graphics/#exercise-2-optional-view-the-plot).
+
+<!-- markdownlint-enable MD013 -->
+
+:::
 
 ## (optional) Exercise 2: displaying a `pandas` table
 
