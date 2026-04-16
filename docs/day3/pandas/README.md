@@ -31,26 +31,22 @@ From [the `pandas` homepage](https://pandas.pydata.org/):
 > open source data analysis and manipulation tool,
 > built on top of the Python programming language.
 
-It allows you to do work with/on data, for example:
-
-```python
-table = pd.read_csv("dem_score.csv")
-table = table.melt(id_vars = ["country"])
-```
-
-Or many other things, such as reshaping data (from
-[the `pandas` cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)):
-
-![Reshaping functions, from the `pandas` cheat sheet](pandas_cheat_sheet_reshape.png)
-
-For example, you can turn this messy data:
+It allows you to do work with/on data, for example,
+you can turn this messy data ...
 
 Country  |1952|1957|1962
 ---------|----|----|----
 Albania  |-9  |-9  |-9
 Argentina|-9  |-1  |-1
 
-To the tidy data, which is easier to work with:
+using this `pandas` code ...
+
+```python
+table = pd.read_csv("dem_score.csv")
+table = table.melt(id_vars = ["country"])
+```
+
+into this tidy data, which is easier to work with:
 
 Country  |Year|Democracy level
 ---------|----|---------------
@@ -60,6 +56,11 @@ Albania  |1962|-9
 Argentina|1952|-9
 Argentina|1957|-1
 Argentina|1962|-1
+
+`pandas` can do many other things, such as reshaping data (from
+[the `pandas` cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)):
+
+![Reshaping functions, from the `pandas` cheat sheet](pandas_cheat_sheet_reshape.png)
 
 ## Why `pandas` is important
 
