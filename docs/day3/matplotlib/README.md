@@ -19,7 +19,26 @@ At the end of this sessions, learners ...
 
 :::
 
+## What is `matplotlib`?
+
+`matplotlib` allows you to create figures:
+
+```python
+import matplotlib.pyplot as plt
+plt.plot([0, 1, 4, 9, 16])
+plt.show()
+```
+
+Which shows:
+
+![A minimal `matplotlib` plot](what_is_matplotlib.png)
+
 ## Why `matplotlib` is important
+
+`matplotlib` is one of the most popular Python plotting libraries.
+It can be used to create publication-quality figures and
+[the `matplotlib` plot types overview](https://matplotlib.org/stable/plot_types/index.html)
+shows that most plot types are present.
 
 ## Exercises
 

@@ -23,3 +23,8 @@ table = pd.read_csv("diamonds.csv")
 
 plt.scatter(table["carat"], table["price"])
 plt.savefig("matplotlib_exercise.png")
+
+
+
+
+
