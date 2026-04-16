@@ -47,6 +47,18 @@ From [the `seaborn` FAQ](https://seaborn.pydata.org/faq.html#why-is-seaborn-impo
 
 :::
 
+:::{admonition} Why does this plot look indentical to the `matplotlib` plot?
+:class: dropdown
+
+Because it is!
+
+This plot is indentical to the `matplotlib` plot in
+[the session about `matplotlib`](../matplotlib/README.md),
+because `seaborn` is built on top of `matplotlib`.
+Hence, `seaborn` uses `matplotlib` for plotting.
+
+:::
+
 ## Why `seaborn` is important
 
 `seaborn` is one of the most popular Python plotting libraries.
