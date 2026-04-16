@@ -33,17 +33,17 @@ and there was enough time to discuss this.
 
 ## Survey at end
 
-- [Evaluation results (csv)](survey_end.csv)
-- [Evaluation results (xlsx)](survey_end.xlsx)
-- [Analysis script](analyse.R)
-- [Average confidence per question (.csv)](average_confidences.csv)
-- [Success score](success_score.txt): 82%
+- [Evaluation results (csv)](../../evaluations/20251128_day_2/survey_end.csv)
+- [Evaluation results (xlsx)](../../evaluations/20251128_day_2/survey_end.xlsx)
+- [Analysis script](../../evaluations/20251128_day_2/analyse.R)
+- [Average confidence per question (.csv)](../../evaluations/20251128_day_2/average_confidences.csv)
+- [Success score](../../evaluations/20251128_day_2/success_score.txt): 82%
 
-![Course ratings](course_rating.png)
-![All confidences](all_confidences.png)
-![Average confidence per question](average_confidences_per_question.png)
-![Confidences per question](confidences_per_question.png)
-![Course recommend](recommend.png)
+![Course ratings](../../evaluations/20251128_day_2/course_rating.png)
+![All confidences](../../evaluations/20251128_day_2/all_confidences.png)
+![Average confidence per question](../../evaluations/20251128_day_2/average_confidences_per_question.png)
+![Confidences per question](../../evaluations/20251128_day_2/confidences_per_question.png)
+![Course recommend](../../evaluations/20251128_day_2/recommend.png)
 
 ## Evaluation results
 

@@ -162,7 +162,7 @@ If you think this is doable, maybe we could run it in the summer/autumn? "
 ## Content
 
 - core from “Python at Uppmax” and made general
-      - <https://python-at-uppmax.readthedocs.io/en/main/>
+      - `[Broken link] https://python-at-uppmax.readthedocs.io/en/main/`
 
   HPC
 

@@ -179,7 +179,7 @@ plt.figure().savefig('my_figure.png')
 ## (optional) Exercise 3: displaying a `pandas` table
 
 In this exercise, we will again use
-[the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
+[the 'diamonds' dataset (as a comma-separated file)](../pandas/diamonds.csv):
 a dataset about diamonds.
 
 This dataset contains information about more than fifty thousand diamonds.
