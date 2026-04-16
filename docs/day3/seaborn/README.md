@@ -152,13 +152,14 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 :::
 
-Create a script called `seaborn_exercise_1.py`,
-with the following content:
+:::
+
+Create a script called `seaborn_exercise_1.py`
+with the following code:
 
 ```python
-import seaborn as sns
-y = [0, 1, 4, 9, 16]
-sns.lineplot(x = range(len(y)), y = y).figure.savefig("seaborn_exercise_1.png")
+import seaborn
+print(seaborn.__version__)
 ```
 
 Run the script.
@@ -181,9 +182,65 @@ Tetralith  |`python seaborn_exercise_1.py`
 
 :::
 
+What do you see?
+
+:::{admonition} Answer: how does that look like?
+:class: dropdown
+
+The output looks similar to this:
+
+```text
+0.13.2
+```
+
+:::
+
+Even though the code shows nothing directly useful,
+why is this a useful exercise anyways?
+
+:::{admonition} Answer
+:class: dropdown
+
+This is a useful exercise,
+because it proves that you have successfully loaded/installed
+`seaborn`.
+
+:::
+
+## Exercise 2: a minimal plot
+
+Create a script called `seaborn_exercise_2.py`,
+with the following content:
+
+```python
+import seaborn as sns
+y = [0, 1, 4, 9, 16]
+sns.lineplot(x = range(len(y)), y = y).figure.savefig("seaborn_exercise_2.png")
+```
+
+Run the script.
+
+:::{admonition} Answer: how to run the script
+:class: dropdown
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|How to run the script
+-----------|-----------------------------------------------------------------------------------------------------------------------
+Alvis      |`python seaborn_exercise_2.py`
+COSMOS     |`python seaborn_exercise_2.py`
+Dardel     |`python3 seaborn_exercise_2.py`
+Kebnekaise |`python seaborn_exercise_2.py`
+Pelle      |`python seaborn_exercise_2.py`
+Tetralith  |`python seaborn_exercise_2.py`
+
+<!-- markdownlint-enable MD013 -->
+
+:::
+
 Check that the figure is created.
 
-![`seaborn` exercise 1](seaborn_exercise_1.png)
+![`seaborn` exercise 2](seaborn_exercise_2.png)
 
 :::{admonition} Answer: how to check that the figure is created
 :class: dropdown
@@ -206,7 +263,7 @@ There are many ways to do so:
 
 :::
 
-## (optional) Exercise 2: displaying a `pandas` table
+## (optional) Exercise 3: displaying a `pandas` table
 
 In this exercise, we will again use
 [the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
@@ -243,7 +300,7 @@ This will look like this:
 
 :::
 
-## (optional) Exercise 3: making the plot pretty
+## (optional) Exercise 4: making the plot pretty
 
 Use [the `seaborn` documentation](https://seaborn.pydata.org/)
 to improve the plot, for example:
