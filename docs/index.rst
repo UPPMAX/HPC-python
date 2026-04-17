@@ -52,7 +52,7 @@ Schedule Spring 2026
    **Target group**
 
    - The course is for present or presumptive users at the **NAISS** resources at PDC, NSC, and C3SE as well as UPPMAX, HPC2N, LUNARC, or possibly other clusters in Sweden.
-   - The course is a NAISS cooperation with **teachers** from the NAISS branches **UPPMAX** (Pelle, Maya, Bianca), **HPC2N** (Kebnekaise), **LUNARC** (Cosmos), and **C3SE** (Alvis) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
+   - The course is a NAISS cooperation with **teachers** from the NAISS branches **UPPMAX** (Pelle, Bianca/Maja), **HPC2N** (Kebnekaise), **LUNARC** (Cosmos), and **C3SE** (Alvis) and will focus on systems at the Swedish academic HPC centres with NAISS personnel.
    - Although there are differences we will only have **few separate sessions**.
    - Most participants will use The NAISS resources **Tetralith** system at NSC or **Dardel** system at PDC for the course - or in the future, **Arrhenius**.
 
@@ -156,6 +156,7 @@ Content of the course
    common/use_text_editor.rst
    common/understanding_clusters.rst
    common/naiss_projects_overview.rst
+   arrhenius.md
 
 .. toctree::
    :maxdepth: 2
