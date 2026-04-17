@@ -16,10 +16,10 @@ At the end of this sessions, learners ...
 - have practiced using the documentation of favorite HPC cluster
 - understand why Pandas is important
 - have run Python code that uses Pandas
-- have read a comma-separated file using Pandas
-- have saved a table as a comma-separated file using Pandas
-- have seen the effect of the `index` argument when saving a table
-- have tried out some of the operation at the
+- (optional) have read a comma-separated file using Pandas
+- (optional) have saved a table as a comma-separated file using Pandas
+- (optional) have seen the effect of the `index` argument when saving a table
+- (optional) have tried out some of the operation at the
   [the pandas page '10 minutes to pandas'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)
 :::
 
