@@ -57,6 +57,26 @@ we can infer that it is not all too unpopular.
 
 ## Exercises
 
+:::{admonition} Want to see the answers as a video?
+:class: dropdown
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|YouTube video
+-----------|-------------------------------------------------------------------------------------------------------------------
+Alvis      | <!-- [YouTube video]() -->
+Bianca     | <!-- [YouTube video]() -->
+COSMOS     | <!-- [YouTube video]() -->
+Dardel     | <!-- [YouTube video]() -->
+Kebnekaise | <!-- [YouTube video]() -->
+Pelle      | <!-- [YouTube video]() -->
+Tetralith  | <!-- [YouTube video]() -->
+
+
+<!-- markdownlint-enable MD013 -->
+
+:::
+
 ## Exercise 1: minimal code
 
 - Use the documentation of the HPC cluster you work on
