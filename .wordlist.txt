@@ -1153,3 +1153,6 @@ pytest
 threadpoolctl
 urllib
 chatbot
+arrhenius
+dec
+Maja
