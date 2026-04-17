@@ -2,17 +2,6 @@
 #
 # Naming this file 'matplotlib.py' will cause problems
 #
-
-################################################################################
-# Exercise 1: minimal
-################################################################################
-import matplotlib
-print(matplotlib.__version__)
-
-################################################################################
-# Exercise 2: minimal plot
-################################################################################
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
@@ -33,9 +22,4 @@ table = pd.read_csv("diamonds.csv")
 
 
 plt.scatter(table["carat"], table["price"])
-plt.savefig("matplotlib_exercise.png")
-
-
-
-
-
+plt.savefig("matplotlib_exercise_3.png")

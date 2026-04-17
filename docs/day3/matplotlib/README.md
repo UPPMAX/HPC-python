@@ -79,7 +79,7 @@ Tetralith  | <!-- [YouTube video]() -->
 
 ## Exercise 1: minimal code
 
-- Use the documentation of the HPC cluster you work on
+Go to the documentation of the HPC cluster you work on.
 
 :::{admonition} Answer: where is your documentation?
 :class: dropdown
@@ -99,8 +99,7 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 <!-- markdownlint-enable MD013 -->
 :::
 
-- In that documentation, find the software module to load the package.
-  If you know how, you may also use the module system
+In that documentation, find the software module to load the package.
 
 :::{admonition} Answer: where is the `matplotlib` documentation?
 :class: dropdown
@@ -121,7 +120,7 @@ Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/catalog
 
 :::
 
-- Load the software module to use `matplotlib`
+Load the software module to use `matplotlib`
 
 :::{admonition} Answer: how to load the `matplotlib` software module
 :class: dropdown
@@ -141,7 +140,7 @@ Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb` <!-- :-) 2026-05-1
 
 :::
 
-Create a script called `matplotlib_exercise.py`
+Create a script called `matplotlib_exercise_1.py`
 with the following code:
 
 ```python
@@ -149,7 +148,25 @@ import matplotlib
 print(matplotlib.__version__)
 ```
 
-Load the modules needed and run the script.
+Run `matplotlib_exercise_1.py`.
+
+:::{admonition} Answer: how to run the script
+:class: dropdown
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|How to run the script
+-----------|-----------------------------------------------------------------------------------------------------------------------
+Alvis      |`python matplotlib_exercise_1.py`
+COSMOS     |`python matplotlib_exercise_1.py`
+Dardel     |`python3 matplotlib_exercise_1.py`
+Kebnekaise |`python matplotlib_exercise_1.py`
+Pelle      |`python matplotlib_exercise_1.py`
+Tetralith  |`python matplotlib_exercise_1.py`
+
+<!-- markdownlint-enable MD013 -->
+
+:::
 
 What do you see?
 
@@ -179,23 +196,52 @@ because it proves that you have successfully loaded/installed
 ## Exercise 2: a minimal plot
 
 
-- Create a script with the following code:
+Create a script called `matplotlib_exercise_2.py`
+with the following code:
 
 ```python
-import matplotlib as mpl
 import matplotlib.pyplot as plt
-
-x = np.linspace(0, 10, 100)
-
-plt.plot(x, np.sin(x))
-plt.plot(x, np.cos(x))
-
-# plt.show()
-plt.figure().savefig('my_figure.png')
+plt.plot([0, 1, 4, 9, 16])
+plt.savefig("matplotlib_exercise_2.png")
 ```
 
-- Run the script
-- Check that the figure is created
+Run `matplotlib_exercise_2.py`.
+
+:::{admonition} Answer: how to run the script
+:class: dropdown
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|How to run the script
+-----------|-----------------------------------------------------------------------------------------------------------------------
+Alvis      |`python matplotlib_exercise_2.py`
+COSMOS     |`python matplotlib_exercise_2.py`
+Dardel     |`python3 matplotlib_exercise_2.py`
+Kebnekaise |`python matplotlib_exercise_2.py`
+Pelle      |`python matplotlib_exercise_2.py`
+Tetralith  |`python matplotlib_exercise_2.py`
+
+<!-- markdownlint-enable MD013 -->
+
+:::
+
+Check that the figure is created
+
+:::{admonition} Answer: how to check that the figure is created
+:class: dropdown
+
+There are many ways.
+
+To check if the file is created:
+
+- Use `ls` to view the list of files
+- Use a file explorer
+
+
+
+:::
+
+
 
 ## (optional) Exercise 3: displaying a `pandas` table
 
