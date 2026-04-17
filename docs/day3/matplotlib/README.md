@@ -115,7 +115,7 @@ COSMOS     |`module load matplotlib/3.8.2` (avoid version `3.9.2`!) <!-- TODO --
 Dardel     |`module load PDC/23.12 cray-python/3.11.5 matplotlib/3.8.2-cpeGNU-23.12` <!-- TODO -->
 Kebnekaise |`module load matplotlib/3.8.2` <!-- TODO -->
 Pelle      |`module load matplotlib/3.9.2-gfbf-2024a` <!-- :-) 2026-05-17 -->
-Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb` <!-- TODO -->
+Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb` <!-- :-) 2026-05-17 -->
 
 <!-- markdownlint-enable MD013 -->
 
