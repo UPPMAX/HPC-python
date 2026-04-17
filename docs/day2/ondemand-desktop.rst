@@ -334,7 +334,7 @@ We will look briefly at how to start three IDEs through the Gfx launcher/OpenOnD
    - On Cosmos, there are also interactive On-Demand command lines (for CPUs and GPUs) under `Applications - General` that can be used to start Jupyter or Spyder with a custom pip-based environment.
  
 
-- Regardless of which of the IDEs, start out by following the <a  href="https://uppmax.github.io/HPC-python/day2/ondemand-desktop.html#starting-the-on-demand-interface">"Starting the On-Demand Interface" as shown further up on this page, depending on the cluster. 
+- Regardless of which of the IDEs, start out by following the <a href="https://uppmax.github.io/HPC-python/day2/ondemand-desktop.html#starting-the-on-demand-interface">"Starting the On-Demand Interface"</a> as shown further up on this page, depending on the cluster. 
 - Next, start your IDE as shown below. 
 
 Jupyter
@@ -446,12 +446,12 @@ Spyder
 
 .. tabs::
 
-   .. tab:: "COSMOS and Dardel"
+   .. tab:: "COSMOS"
 
       This is using ThinLinc + GfxLauncher
 
        1. As already shown, log into COSMOS/Dardel via Thinlinc to start a HPC Desktop session.
-       2. Click "Applications" in the top left corner and hover over the items prefixed with "Applications" - until you find your desired application (on Dardel, On-Demand applications are prefixed with ``PDC-``), and click it. Spyder should be under general 
+       2. Click "Applications" in the top left corner and hover over the items prefixed with "Applications" - until you find your desired application, and click it. Spyder should be under general 
 
       .. figure:: ../img/Cosmos-AppMenu.png
          :width: 400
@@ -473,7 +473,7 @@ Spyder
          :width: 400
          :align: center
 
-   .. tab:: "Kebnekaise and Alvis"
+   .. tab:: "Kebnekaise, Alvis, and Dardel"
 
       Not available through OpenOnDemand 
 
@@ -482,9 +482,44 @@ VSCode
 
 .. tabs::
 
-   .. tab:: "COSMOS and Dardel"
+   .. tab:: "COSMOS"
 
-            This is using ThinLinc + GfxLauncher
+      This is using ThinLinc + GfxLauncher
+
+      1. As already shown, log into COSMOS/Dardel via Thinlinc to start a HPC Desktop session.
+      2. Click "Applications" in the top left corner and hover over the items prefixed with "Applications" - until you find your desired application. VSCode should be under "Applications - General". 
+
+      .. figure:: ../img/Cosmos-AppMenu.png
+         :width: 400
+         :align: center
+
+      3. Choose VSCode 
 
    .. tab:: "Kebnekaise and Alvis"
+
+      This is when connecting through the Open-On-Demand Portal
+
+      1. When you have signed in you will now be on the HPC2N Open OnDemand dashboard. The top of it looks like this:       
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-dashboard.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Dashboard
+
+      2. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-apps.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Apps
+
+      3. Select "VSCode" 
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-VSCode.png
+
+      Most of the options are the same as for other interactive apps, but there is a Codeserver Version (just one version here) and a Runtime Environment to choose if you have created one. Otherwise pick System provided. It is described how to create your own, just as for Jupyter. 
+
+   .. tab:: "Dardel"
+
+      VSCode is not available through the Gfx launcher on Dardel. You have to use remote desktop. 
 
