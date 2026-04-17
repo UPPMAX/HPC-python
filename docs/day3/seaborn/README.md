@@ -157,7 +157,7 @@ HPC cluster|How to load Seaborn
 -----------|-----------------------------------------------------------------------------------------------------------------------
 Alvis      |`module load Seaborn/0.13.2-gfbf-2024a`<!-- TODO -->
 COSMOS     |`module load GCC/13.2.0 Seaborn/0.13.2`<!-- TODO -->
-Dardel     |`module load cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12`<!-- TODO -->
+Dardel     |`module load python/3.12.3 ; pip3 install seaborn`<!-- :-) 2026-04-17 -->
 Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2`<!-- TODO -->
 Pelle      |`module load Seaborn/0.13.2-gfbf-2024a` <!-- :-) 2026-05-17 -->
 Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb ; pip install seaborn` <!-- :-) 2026-05-17 -->
