@@ -187,7 +187,7 @@ because it proves that you have successfully loaded/installed
 :::
 
 
-## Exercise 2: reading and saving a comma-separated file
+## (optional) Exercise 2: reading and saving a comma-separated file
 
 In this exercise, we will first read
 [the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
@@ -299,7 +299,7 @@ Instead, it was decided to allow users to disable indexing when needed.
 
 :::
 
-## Exercise 3: tidy data
+## (optional) Exercise 3: tidy data
 
 `pandas` shines when the data is tidy.
 
