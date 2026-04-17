@@ -120,7 +120,7 @@ Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/catalog
 
 :::
 
-Load the software module to use `matplotlib`
+In a terminal (on your HPC cluster), load the software module to use `matplotlib`
 
 :::{admonition} Answer: how to load the `matplotlib` software module
 :class: dropdown
@@ -140,7 +140,7 @@ Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb` <!-- :-) 2026-04-1
 
 :::
 
-Create a script called `matplotlib_exercise_1.py`
+On your HPC cluster, create a script called `matplotlib_exercise_1.py`
 with the following code:
 
 ```python
@@ -195,8 +195,7 @@ because it proves that you have successfully loaded/installed
 
 ## Exercise 2: a minimal plot
 
-
-Create a script called `matplotlib_exercise_2.py`
+On your HPC cluster, create a script called `matplotlib_exercise_2.py`
 with the following code:
 
 ```python
