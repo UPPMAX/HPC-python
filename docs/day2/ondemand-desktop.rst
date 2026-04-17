@@ -361,87 +361,87 @@ Jupyter
 
       Note that for JupyterLab, GfxLauncher will also offer an additional menu item titled "Job settings...". This is where you can load custom environments or additional modules if absolutely necessary. Only use if you are sure of what you are doing! 
 
-    .. tab:: "Kebnekaise"
+   .. tab:: "Kebnekaise"
 
-       This is when connecting through the Open-On-Demand Portal
+      This is when connecting through the Open-On-Demand Portal
 
-       1. When you have signed in you will now be on the HPC2N Open OnDemand dashboard. The top of it looks like this:       
+      1. When you have signed in you will now be on the HPC2N Open OnDemand dashboard. The top of it looks like this:       
 
-       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-dashboard.png
-          :width: 1200
-          :align: center
-          :alt: HPC2N Open On-Demand Dashboard
-
-       2. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
-
-       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-apps.png
-          :width: 1200
-          :align: center
-          :alt: HPC2N Open On-Demand Apps
-
-       3. Select Jupyter Notebook:
-
-       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter.png
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-dashboard.png
          :width: 1200
          :align: center
-         :alt: HPC2N Open On-Demand Jupyter
+         :alt: HPC2N Open On-Demand Dashboard
 
-       4. Set options. A specific one for Jupyter is that you can choose a **Runtime environment.** Choices include "System provided", "Project provided", or "User provided". If you or your project do not have a custom environment, then use "System provided". After picking options, click **Launch**. 
+      2. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
 
-       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-starting.png
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-apps.png
          :width: 1200
          :align: center
-         :alt: HPC2N Open On-Demand Jupyter waiting
+         :alt: HPC2N Open On-Demand Apps
 
-       5. When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from "Queued" to "Running", and the number of nodes and cores with appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:
+      3. Select Jupyter Notebook:
 
-       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-ready.png
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter.png
+        :width: 1200
+        :align: center
+        :alt: HPC2N Open On-Demand Jupyter
+
+      4. Set options. A specific one for Jupyter is that you can choose a **Runtime environment.** Choices include "System provided", "Project provided", or "User provided". If you or your project do not have a custom environment, then use "System provided". After picking options, click **Launch**. 
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-starting.png
+        :width: 1200
+        :align: center
+        :alt: HPC2N Open On-Demand Jupyter waiting
+
+      5. When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from "Queued" to "Running", and the number of nodes and cores with appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:
+
+      .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-ready.png
+        :width: 1200
+        :align: center
+        :alt: HPC2N Open On-Demand Jupyter waiting
+
+      For all apps, the equivalent of a start button will be a bright blue rectangle near the bottom of the job box, usually with "Connect to" and the app name on it. When you click this button, your app should launch in a new window.
+
+   .. tab:: "Alvis"
+
+      This is when connecting through the Open-On-Demand Portal
+
+      1. When you have signed in you will now be on the Alvis Open OnDemand dashboard. The top of it looks like this:
+
+      .. figure:: ../img/alvis-OOD-logged-in.png
          :width: 1200
          :align: center
-         :alt: HPC2N Open On-Demand Jupyter waiting
+         :alt: Alvis Open On-Demand Dashboard
 
-       For all apps, the equivalent of a start button will be a bright blue rectangle near the bottom of the job box, usually with "Connect to" and the app name on it. When you click this button, your app should launch in a new window.
+      2. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
 
-    .. tab:: "Alvis"
+      .. figure:: ../img/alvis-OOD-apps.png
+         :width: 1200
+         :align: center
+         :alt: Alvis Open On-Demand Apps
 
-       This is when connecting through the Open-On-Demand Portal
+      3. Select Jupyter: 
 
-       1. When you have signed in you will now be on the Alvis Open OnDemand dashboard. The top of it looks like this:
-
-       .. figure:: ../img/alvis-OOD-logged-in.png
-          :width: 1200
-          :align: center
-          :alt: Alvis Open On-Demand Dashboard
-
-       2. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
-
-       .. figure:: ../img/alvis-OOD-apps.png
-          :width: 1200
-          :align: center
-          :alt: Alvis Open On-Demand Apps
-
-       3. Select Jupyter: 
-
-       .. figure:: ../img/alvis-jup.png
+      .. figure:: ../img/alvis-jup.png
          :width: 1200
          :align: center
          :alt: Alvis Open On-Demand Jupyter
 
-       Set options, possibly including picking a **Runtime environment** if you created one. Then click **Launch** 
+      Set options, possibly including picking a **Runtime environment** if you created one. Then click **Launch** 
 
-       .. figure:: ../img/alvis-jup-wait.png
+      .. figure:: ../img/alvis-jup-wait.png
+        :width: 1200
+        :align: center
+        :alt: Alvis Open On-Demand Jupyter waiting
+
+      4. When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from "Queued" and then "Starting" to "Running", and the number of nodes and cores will appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:
+
+      .. figure:: ../img/alvis-jup-running.png
          :width: 1200
          :align: center
-         :alt: Alvis Open On-Demand Jupyter waiting
+         :alt: Alvis Open On-Demand Jupyter running
 
-       4. When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from "Queued" and then "Starting" to "Running", and the number of nodes and cores will appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:
-
-       .. figure:: ../img/alvis-jup-running.png
-          :width: 1200
-          :align: center
-          :alt: Alvis Open On-Demand Jupyter running
-
-VSCode
+Spyder
 ......
 
 .. tabs::
@@ -450,11 +450,34 @@ VSCode
 
       This is using ThinLinc + GfxLauncher
 
-         
+       1. As already shown, log into COSMOS/Dardel via Thinlinc to start a HPC Desktop session.
+       2. Click "Applications" in the top left corner and hover over the items prefixed with "Applications" - until you find your desired application (on Dardel, On-Demand applications are prefixed with ``PDC-``), and click it. Spyder should be under general 
+
+      .. figure:: ../img/Cosmos-AppMenu.png
+         :width: 400
+         :align: center
+
+      3. Choose Spyder
+
+         .. figure:: ../img/cosmos-on-demand-resource-specs.png
+            :width: 400
+            :align: center
+
+      The box on the left is the basic menu and the box on the right is what pops up when the gear icon next to ``Requirements`` is clicked.
+
+      4. When you're happy with your settings, click "Start". The Gfx Launcher menu will stay open in the background so that you can monitor your remaining time and resources with the ``Usage`` bar.
+
+      5. If you want, you can also look at the associated SLURM scripts by clicking the "More" button at the bottom of the Gfx Launcher menu and clicking the "Script" tab (example below), or view the logs under the "Logg" tab.
+
+      .. figure:: ../img/cosmos-on-demand-more.png
+         :width: 400
+         :align: center
 
    .. tab:: "Kebnekaise and Alvis"
 
-Spyder
+      Not available through OpenOnDemand 
+
+VSCode 
 ......
 
 .. tabs::
