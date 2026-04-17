@@ -324,3 +324,63 @@ Most settings are the same, with exception of the "Resource" or "Node Type"/"Cor
 Starting IDEs
 -------------
 
+We will look briefly at how to start three IDEs through the Gfx launcher/OpenOnDemand portal. Later sessions will show you how to use the IDEs. 
+
+.. reminder:: "Reminder"
+
+   - Jupyter (Lab and/or Notebook) is available as an On-Demand application at all 4 facilities covered on this page. For Cosmos specifically, it can also load custom conda environments (but NOT pip environments).
+   - On Alvis, Cosmos and Kebnekaise, VSCode can also be run via On-Demand.
+   - Spyder can be run via On-Demand on Cosmos only. It also supports custom conda environments.
+   - On Cosmos, there are also interactive On-Demand command lines (for CPUs and GPUs) under `Applications - General` that can be used to start Jupyter or Spyder with a custom pip-based environment.
+ 
+
+Jupyter
+.......
+
+.. tabs::
+
+   .. tab:: "COSMOS and Dardel"
+
+      This is using ThinLinc + GfxLauncher
+
+      1. As already shown, log into COSMOS/Dardel via Thinlinc to start a HPC Desktop session.
+      2. Click "Applications" in the top left corner and hover over the items prefixed with "Applications" - until you find your desired application (on Dardel, On-Demand applications are prefixed with ``PDC-``), and click it.
+
+      .. figure:: ../img/Cosmos-AppMenu.png
+         :width: 400
+         :align: center
+
+      3. Choose Jupyter Lab
+
+         .. figure:: ../img/cosmos-on-demand-job-settings.png
+            :width: 400
+            :align: center
+
+      Note that for JupyterLab, GfxLauncher will also offer an additional menu item titled "Job settings...". This is where you can load custom environments or additional modules if absolutely necessary. Only use if you are sure of what you are doing! 
+
+    .. tab:: "Kebnekaise and Alvis"
+
+       
+
+VSCode
+......
+
+.. tabs::
+
+   .. tab:: "COSMOS and Dardel"
+
+            THis is using ThinLinc + GfxLauncher
+
+   .. tab:: "Kebnekaise and Alvis"
+
+Spyder
+......
+
+.. tabs::
+
+   .. tab:: "COSMOS and Dardel"
+
+            This is using ThinLinc + GfxLauncher
+
+   .. tab:: "Kebnekaise and Alvis"
+
