@@ -334,6 +334,9 @@ We will look briefly at how to start three IDEs through the Gfx launcher/OpenOnD
    - On Cosmos, there are also interactive On-Demand command lines (for CPUs and GPUs) under `Applications - General` that can be used to start Jupyter or Spyder with a custom pip-based environment.
  
 
+- Regardless of which of the IDEs, start out by following the <a  href="https://uppmax.github.io/HPC-python/day2/ondemand-desktop.html#starting-the-on-demand-interface">"Starting the On-Demand Interface" as shown further up on this page, depending on the cluster. 
+- Next, start your IDE as shown below. 
+
 Jupyter
 .......
 
@@ -358,9 +361,43 @@ Jupyter
 
       Note that for JupyterLab, GfxLauncher will also offer an additional menu item titled "Job settings...". This is where you can load custom environments or additional modules if absolutely necessary. Only use if you are sure of what you are doing! 
 
-    .. tab:: "Kebnekaise and Alvis"
+    .. tab:: "Kebnekaise"
 
-       
+       This is when connecting through the Open-On-Demand Portal
+
+       1. When you have signed in you will now be on the HPC2N Open OnDemand dashboard. The top of it looks like this:       
+
+       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-dashboard.png
+          :width: 1200
+          :align: center
+          :alt: HPC2N Open On-Demand Dashboard
+
+       2. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
+
+       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-apps.png
+          :width: 1200
+          :align: center
+          :alt: HPC2N Open On-Demand Apps
+
+       3. 
+
+    .. tab:: "Alvis"
+
+       This is when connecting through the Open-On-Demand Portal
+
+       1. When you have signed in you will now be on the Alvis Open OnDemand dashboard. The top of it looks like this:
+
+       .. figure:: ../img/alvis-OOD-logged-in.png
+          :width: 1200
+          :align: center
+          :alt: HPC2N Open On-Demand Dashboard
+
+       5. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
+
+       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-apps.png
+          :width: 1200
+          :align: center
+          :alt: HPC2N Open On-Demand Apps
 
 VSCode
 ......
