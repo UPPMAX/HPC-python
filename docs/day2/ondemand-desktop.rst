@@ -519,6 +519,8 @@ VSCode
 
       Most of the options are the same as for other interactive apps, but there is a Codeserver Version (just one version here) and a Runtime Environment to choose if you have created one. Otherwise pick System provided. It is described how to create your own, just as for Jupyter. 
 
+      There is a description about using OpenOnDemand on Kebnekaise here: https://docs.hpc2n.umu.se/tutorials/connections/#open__ondemand
+
    .. tab:: "Dardel"
 
       VSCode is not available through the Gfx launcher on Dardel. You have to use remote desktop. 
