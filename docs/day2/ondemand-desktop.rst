@@ -1,19 +1,19 @@
 .. _ides-ondemand:
 
-Desktop On Demand
-=================
+Gfx launcher/Desktop On Demand including IDEs
+=============================================
 
 .. objectives::
 
    You will learn:
 
-   - What is On-Demand and when to use it
+   - What is Gfx launcher and On-Demand portal and when to use them 
    - Which interface to use on each resource and how to start them
-   - How to set the job parameters for your application
+   - How to set the job parameters for your application   - How to start IDEs from inside Gfx launcher and OpenOnDemand 
 
 
-What is Desktop On Demand? Is it right for my job?
---------------------------------------------------
+What is Gfx launcher / Desktop On Demand? Is it right for my job?
+-----------------------------------------------------------------
 
 On Cosmos (LUNARC), Kebnekaise (HPC2N), Alvis (C3SE), and Dardel (PDC), some applications are available through one of a couple of On Demand services. On Demand applications provide an interactive environment to schedule jobs on compute nodes using a graphic user interface (GUI) instead of the typical batch submission script. How you reach this interface is dependent on the system you use and their choice of On Demand client.
 
@@ -320,4 +320,7 @@ Most settings are the same, with exception of the "Resource" or "Node Type"/"Cor
 - OpenOnDemand is a good option for interactive tasks, graphical applications/visualization, and simpler job submissions. It can also be more user-friendly.
 - Regardless, there are many situations where submitting a batch job is the best option instead, including when you want to run jobs that need many resources (time, memory, multiple cores, multiple GPUs) or when you run multiple jobs concurrently or in a specified succession, without need for manual intervention. Batch jobs are often also preferred for automation (scripts) and reproducibility. Many types of application software fall into this category.
 - At centres that have ThinLinc you can usually submit MATLAB jobs to compute resources from within MATLAB.
+
+Starting IDEs
+-------------
 

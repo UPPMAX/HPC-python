@@ -183,7 +183,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
             #!/bin/bash
             #SBATCH -A hpc2n2026-002 # Change to your own
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH --time=00:20:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
 
             # Load any modules you need, here for Python/3.11.3 and compatible SciPy-bundle
@@ -200,7 +200,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
             #!/bin/bash
             #SBATCH -A lu2026-7-57 # Change to your own
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH --time=00:20:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
 
             # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
@@ -217,7 +217,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
             #!/bin/bash
             #SBATCH -A naiss2026-4-66 # Change to your own
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH --time=00:20:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
 
             # Load any modules you need, here for 3.11.5 and compatible SciPy-bundle
@@ -234,7 +234,7 @@ This first example shows how to run a short, serial script. The batch script (na
 
             #!/bin/bash
             #SBATCH -A naiss2026-4-66 # Change to your own
-            #SBATCH --time=00:10:00 # Asking for 10 minutes
+            #SBATCH --time=00:20:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             #SBATCH -p shared
 
