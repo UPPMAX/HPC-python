@@ -16,15 +16,21 @@ End-of-life of Alvis, Tetralith and Dardel
 - Reduced amount of nodes available for CPU calculations
 - Lower RAM/CPU ratio
 - Decrease in storage facility
+- Sensitive partition Arrhenius-SENS replacing Bianca/Maja for non-UU users
 
-
-- 2027: Just Arrhenius on national level up.
+- 2027: Just Arrhenius on national level is up and running.
 
 ## What will happen?
 
-- Active projects running on Dardel will be migrated to the new system
+- Active projects running on Alvis, Tetralith and Dardel will be migrated to the new system.
+- Timeline
 
-- Local clusters, like Kebnekaise, Pelle and Cosmos local university users several more years.
+    - Alvis: Summer
+    - Tetralith: Fall
+    - Dardel: End of year.
+    - Bianca/Maja: End of year
+ 
+- Local clusters, like Kebnekaise, Pelle and Cosmos available for local university users several more years.
 
 
 
