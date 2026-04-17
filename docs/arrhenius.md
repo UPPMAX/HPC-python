@@ -8,7 +8,7 @@ End-of-life of Alvis, Tetralith and Dardel
 - Tetralith Autumn 2026
 - Dardel dec 2026-27
 
-## What is Arrhenius 
+## What is Arrhenius?
 
 - This is the new HPC cluster by NAISS.
 - Vast increase of GPU performance
