@@ -379,7 +379,28 @@ Jupyter
           :align: center
           :alt: HPC2N Open On-Demand Apps
 
-       3. 
+       3. Select Jupyter Notebook:
+
+       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter
+
+       4. Set options. A specific one for Jupyter is that you can choose a **Runtime environment.** Choices include "System provided", "Project provided", or "User provided". If you or your project do not have a custom environment, then use "System provided". After picking options, click **Launch**. 
+
+       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-starting.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter waiting
+
+       5. When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from "Queued" to "Running", and the number of nodes and cores with appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:
+
+       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-jupyter-ready.png
+         :width: 1200
+         :align: center
+         :alt: HPC2N Open On-Demand Jupyter waiting
+
+       For all apps, the equivalent of a start button will be a bright blue rectangle near the bottom of the job box, usually with "Connect to" and the app name on it. When you click this button, your app should launch in a new window.
 
     .. tab:: "Alvis"
 
@@ -390,14 +411,35 @@ Jupyter
        .. figure:: ../img/alvis-OOD-logged-in.png
           :width: 1200
           :align: center
-          :alt: HPC2N Open On-Demand Dashboard
+          :alt: Alvis Open On-Demand Dashboard
 
-       5. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
+       2. Find the ``Interactive Apps`` tab in the menu bar along the top and click it to open a drop-down menu of available apps. The menu currently looks like this:
 
-       .. figure:: https://docs.hpc2n.umu.se/images/open-ondemand-apps.png
+       .. figure:: ../img/alvis-OOD-apps.png
           :width: 1200
           :align: center
-          :alt: HPC2N Open On-Demand Apps
+          :alt: Alvis Open On-Demand Apps
+
+       3. Select Jupyter: 
+
+       .. figure:: ../img/alvis-jup.png
+         :width: 1200
+         :align: center
+         :alt: Alvis Open On-Demand Jupyter
+
+       Set options, possibly including picking a **Runtime environment** if you created one. Then click **Launch** 
+
+       .. figure:: ../img/alvis-jup-wait.png
+         :width: 1200
+         :align: center
+         :alt: Alvis Open On-Demand Jupyter waiting
+
+       4. When the job starts, the title bar of the box containing your job will turn from blue to green, the status message will change from "Queued" and then "Starting" to "Running", and the number of nodes and cores will appear in the title bar. You can have more than one OnDemand job running or queued. Running jobs will look like these:
+
+       .. figure:: ../img/alvis-jup-running.png
+          :width: 1200
+          :align: center
+          :alt: Alvis Open On-Demand Jupyter running
 
 VSCode
 ......
@@ -406,7 +448,9 @@ VSCode
 
    .. tab:: "COSMOS and Dardel"
 
-            THis is using ThinLinc + GfxLauncher
+      This is using ThinLinc + GfxLauncher
+
+         
 
    .. tab:: "Kebnekaise and Alvis"
 
