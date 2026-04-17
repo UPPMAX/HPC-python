@@ -237,10 +237,12 @@ To check if the file is created:
 - Use `ls` to view the list of files
 - Use a file explorer
 
+For this exercise, this is good enough.
 
+Optionally, if you want to actually see the file, then read
+[the HPC Python course Day 1 'Working with graphics' session](https://uppmax.github.io/naiss_intro_python/sessions/working_with_graphics/#exercise-2-optional-view-the-plot).
 
 :::
-
 
 
 ## (optional) Exercise 3: displaying a `pandas` table
