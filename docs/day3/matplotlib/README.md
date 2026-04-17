@@ -255,15 +255,26 @@ This dataset contains information about more than fifty thousand diamonds.
 Two such features are the weight (in carats) and the price (in USD).
 Here we want to use an image to display the relationship between these two.
 
-- Use `pandas` to read the dataset and use `matplotlib`
-  to create a scatter plot from that data. Put the diamond weight
+Create a script called `matplotlib_exercise_3.py`. In that script:
+
+- use `pandas` to read the dataset
+  (as done in [the `pandas` session](../pandas/README.md))
+- use `matplotlib` to create a scatter plot from that data:
+  Put the diamond weight
   on the x-axis and the diamond price on the y-axis.
+  Use
+  [the `matplotlib` documentation](https://matplotlib.org/stable/index.html),
+  a search engine or an AI chatbot for the answer.
+- save the plot as `matplotlib_exercise_3.png`
+  Use
+  [the `matplotlib` documentation](https://matplotlib.org/stable/index.html),
+  a search engine or an AI chatbot for the answer.
 
 :::{admonition} Answer
 :class: dropdown
 
 Here is a simple solution
-(simplified from [this script](matplotlib_exercise.py)):
+(simplified from [this script](matplotlib_exercise_3.py)):
 
 ```python
 import pandas as pd
@@ -276,7 +287,7 @@ plt.savefig("matplotlib_exercise.png")
 
 This will look like this:
 
-![Result of the `matplotlib` exercise](matplotlib_exercise.png)
+![Result of the `matplotlib` exercise](matplotlib_exercise_3.png)
 
 :::
 
