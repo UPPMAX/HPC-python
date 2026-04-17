@@ -16,8 +16,8 @@ At the end of this sessions, learners ...
 
 - have practiced using the documentation of favorite HPC cluster
 - understand why `seaborn` is important
-- have run Python code that uses `seaborn`
-- have run Python code that uses `seaborn` to display data from a `pandas` table
+- have created a plot with `seaborn`
+- (optional) have created a plot with `seaborn` from a `pandas` table
 :::
 
 ## What is `seaborn`?
@@ -136,12 +136,12 @@ Tetralith  |[`seaborn` documentation](https://www.nsc.liu.se/software/python) No
 
 HPC cluster|How to load Seaborn
 -----------|-----------------------------------------------------------------------------------------------------------------------
-Alvis      |`module load Seaborn/0.13.2-gfbf-2024a`
-COSMOS     |`module load GCC/13.2.0 Seaborn/0.13.2`
-Dardel     |`module load cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12`
-Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2`
-Pelle      |`module load Seaborn/0.13.2-gfbf-2024a` :-)
-Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11; pip install seaborn` :-)
+Alvis      |`module load Seaborn/0.13.2-gfbf-2024a`<!-- TODO -->
+COSMOS     |`module load GCC/13.2.0 Seaborn/0.13.2`<!-- TODO -->
+Dardel     |`module load cray-python/3.11.7 PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12`<!-- TODO -->
+Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2`<!-- TODO -->
+Pelle      |`module load Seaborn/0.13.2-gfbf-2024a` <!-- :-) 2026-05-17 -->
+Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11; pip install seaborn` <!-- :-) 2026-05-17 -->
 
 <!-- markdownlint-enable MD013 -->
 
