@@ -143,7 +143,7 @@ Bianca     |[`pandas` documentation](https://docs.uppmax.uu.se/software/tensorfl
 COSMOS     |[`pandas` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
 Dardel     |[`pandas` documentation](https://support.pdc.kth.se/doc/applications/tensorflow) (irrelevant)
 Kebnekaise |[`pandas` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
-Pelle      |[`pandas` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch)
+Pelle      |[`pandas` documentation](https://docs.uppmax.uu.se/software/python_bundles/#loading-the-pandas-module)
 Tetralith  |[`pandas` documentation](https://www.nsc.liu.se/software/python)
 
 <!-- markdownlint-enable MD013 -->

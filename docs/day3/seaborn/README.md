@@ -139,7 +139,7 @@ Bianca     |[`seaborn` documentation](https://docs.uppmax.uu.se/software/python/
 COSMOS     |[`seaborn` documentation](https://lunarc-documentation.readthedocs.io/en/latest/software/installed_software/) [Only shows module name]
 Dardel     |[`seaborn` documentation](https://support.pdc.kth.se/doc/applications/python/)
 Kebnekaise |[`seaborn` documentation](https://docs.hpc2n.umu.se/software/libs/Seaborn/)
-Pelle      |[`seaborn` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch) No relevant documentation
+Pelle      |[`seaborn` documentation](https://docs.uppmax.uu.se/software/seaborn/)
 Tetralith  |[`seaborn` documentation](https://www.nsc.liu.se/software/python) No relevant documentation
 
 <!-- markdownlint-enable MD013 -->

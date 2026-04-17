@@ -113,7 +113,7 @@ Bianca     |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/pyth
 COSMOS     |[`matplotlib` documentation](https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/#loading-packages) [No relevant documentation]
 Dardel     |[`matplotlib` documentation](https://support.pdc.kth.se/doc/basics/quickstart/#the-lmod-module-system) [No relevant documentation]
 Kebnekaise |[`matplotlib` documentation](https://docs.hpc2n.umu.se/software/libs/matplotlib/)
-Pelle      |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#matplotlib)
+Pelle      |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/matplotlib/)
 Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/catalogue/tetralith/modules/python.html)
 
 <!-- markdownlint-enable MD013 -->
