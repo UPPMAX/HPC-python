@@ -84,6 +84,26 @@ we can infer that it is not all too unpopular.
 
 ## Exercises
 
+:::{admonition} Want to see the answers as a video?
+:class: dropdown
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|YouTube video
+-----------|-------------------------------------------------------------------------------------------------------------------
+Alvis      | <!-- [YouTube video]() -->
+Bianca     | <!-- [YouTube video]() -->
+COSMOS     | <!-- [YouTube video]() -->
+Dardel     | <!-- [YouTube video]() -->
+Kebnekaise | <!-- [YouTube video]() -->
+Pelle      | <!-- [YouTube video]() -->
+Tetralith  | <!-- [YouTube video]() -->
+
+
+<!-- markdownlint-enable MD013 -->
+
+:::
+
 ## Exercise 1: minimal code
 
 - Use the documentation of the HPC cluster you work on
@@ -458,7 +478,8 @@ Albania,1955,-9
 ```
 :::
 
-Use `pandas` to read
+Create a Python script called `pandas_exercise_3.py`.
+In that script, use `pandas` to read
 [the `dem_score.csv` dataset](https://moderndive.com/data/dem_score.csv),
 convert it to tidy data
 and save it as `tidy_dem_scores.csv`.
@@ -473,15 +494,16 @@ For this use:
 :::{admonition} Answer
 :class: dropdown
 
-Here is the code that reads the
+Here is the minimal code to do so:
 
 ```python
+import pandas as pd
 table = pd.read_csv("dem_score.csv")
 table = table.melt(id_vars = ["country"])
 table.rename(columns = {"variable": "year", "value": "democratic_score"}, inplace = True)
 table.to_csv("tidy_dem_scores.csv", index = False)
-
 ```
+
 :::
 
 ## (optional) Exercise 4: what does `pandas` mean?

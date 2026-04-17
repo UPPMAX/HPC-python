@@ -1,3 +1,7 @@
+#!/bin/env python
+#
+# Naming this file 'matplotlib.py' will cause problems
+#
 import pandas as pd
 
 table = pd.read_csv("diamonds.csv")
