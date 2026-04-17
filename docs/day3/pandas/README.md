@@ -131,7 +131,7 @@ Tetralith  |[`pandas` documentation](https://www.nsc.liu.se/software/python)
 
 :::
 
-- Load the software module to use `pandas`
+Load the software module to use `pandas`
 
 :::{admonition} Answer: how to load the `pandas` software module
 :class: dropdown
@@ -150,8 +150,7 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 :::
 
-
-Create a script called `pandas_exercise.py`
+Create a script called `pandas_exercise_1.py`
 with the following code:
 
 ```python
@@ -159,7 +158,25 @@ import pandas
 print(pandas.__version__)
 ```
 
-Load the modules needed and run the script.
+Run the script.
+
+:::{admonition} Answer: how to run the script
+:class: dropdown
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|How to run the script
+-----------|-----------------------------------------------------------------------------------------------------------------------
+Alvis      |`python pandas_exercise_1.py`
+COSMOS     |`python pandas_exercise_1.py`
+Dardel     |`python3 pandas_exercise_1.py`
+Kebnekaise |`python pandas_exercise_1.py`
+Pelle      |`python pandas_exercise_1.py`
+Tetralith  |`python pandas_exercise_1.py`
+
+<!-- markdownlint-enable MD013 -->
+
+:::
 
 What do you see?
 
@@ -215,7 +232,9 @@ wget https://raw.githubusercontent.com/UPPMAX/HPC-python/refs/heads/main/docs/da
 
 :::
 
-Run and read the following code:
+
+Create a script called `pandas_exercise_2.py`
+with the following code:
 
 ```python
 import pandas as pd
@@ -224,25 +243,68 @@ table = pd.read_csv("diamonds.csv")
 print(table)
 ```
 
-Great, you've read a comma-separated file! Next step is to save it.
-Saving it is straightforward, except for one thing: there is a function
-argument called `index`. Here we'll find out what it is.
+Run the script `pandas_exercise_2.py`.
 
-Add the following code to this Python script:
+:::{admonition} Answer: how to run the script
+:class: dropdown
 
-```python
-table.to_csv("my_new_file_without_index.csv", index = False)
-table.to_csv("my_new_file_with_index.csv", index = True)
-```
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
-Run the code.
+HPC cluster|How to run the script
+-----------|-----------------------------------------------------------------------------------------------------------------------
+Alvis      |`python pandas_exercise_2.py`
+COSMOS     |`python pandas_exercise_2.py`
+Dardel     |`python3 pandas_exercise_2.py`
+Kebnekaise |`python pandas_exercise_2.py`
+Pelle      |`python pandas_exercise_2.py`
+Tetralith  |`python pandas_exercise_2.py`
 
-What is the difference between the two created files?
+<!-- markdownlint-enable MD013 -->
+
+:::
+
+What does the script `pandas_exercise_2.py` do?
 
 :::{admonition} Answer
 :class: dropdown
 
-The file with indexing looks like this:
+It reads a comma-separated file into memory.
+
+:::
+
+Next step is to save it. Add the following code to `pandas_exercise_2.py`:
+
+```python
+table.to_csv("pandas_exercise_2.csv")
+```
+
+Again, run the script `pandas_exercise_2.py`.
+
+:::{admonition} Answer: how to run the script
+:class: dropdown
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+HPC cluster|How to run the script
+-----------|-----------------------------------------------------------------------------------------------------------------------
+Alvis      |`python pandas_exercise_2.py`
+COSMOS     |`python pandas_exercise_2.py`
+Dardel     |`python3 pandas_exercise_2.py`
+Kebnekaise |`python pandas_exercise_2.py`
+Pelle      |`python pandas_exercise_2.py`
+Tetralith  |`python pandas_exercise_2.py`
+
+<!-- markdownlint-enable MD013 -->
+
+:::
+
+Take a look at the file `pandas_exercise_2.csv`.
+What has been added to the data?
+
+:::{admonition} Answer
+:class: dropdown
+
+Of each row in the data, there has been an index added:
 
 ```text
 ,carat,cut,color,clarity,depth,table,price,x,y,z
@@ -253,7 +315,20 @@ The file with indexing looks like this:
 4,0.31,Good,J,SI2,63.3,58.0,335,4.34,4.35,2.75
 ```
 
-The file without indexing looks like this:
+:::
+
+In `pandas_exercise_2.py`, replace the last line by this version:
+
+```python
+table.to_csv("pandas_exercise_2.csv", index = False)
+```
+
+Run `pandas_exercise_2.py`. How does the data look like now?
+
+:::{admonition} Answer
+:class: dropdown
+
+Now, the file looks like shown below, where there is no indexing anymore.
 
 ```text
 carat,cut,color,clarity,depth,table,price,x,y,z
