@@ -1152,3 +1152,4 @@ pydevtool
 pytest
 threadpoolctl
 urllib
+chatbot

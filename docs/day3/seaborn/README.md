@@ -102,7 +102,7 @@ Tetralith  | <!-- [YouTube video]() -->
 
 ## Exercise 1: a minimal `seaborn` program
 
-- Use the documentation of the HPC cluster you work on
+Use the documentation of the HPC cluster you work on.
 
 :::{admonition} Answer: where is your documentation?
 :class: dropdown
@@ -125,8 +125,7 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 
 :::
 
-- In that documentation, find the software module to load the package.
-  If you know how, you may also use the module system
+In that documentation, find the software module to load the package.
 
 :::{admonition} Answer: where is the `seaborn` documentation?
 :class: dropdown
@@ -140,14 +139,14 @@ Bianca     |[`seaborn` documentation](https://docs.uppmax.uu.se/software/python/
 COSMOS     |[`seaborn` documentation](https://lunarc-documentation.readthedocs.io/en/latest/software/installed_software/) [Only shows module name]
 Dardel     |[`seaborn` documentation](https://support.pdc.kth.se/doc/applications/python/)
 Kebnekaise |[`seaborn` documentation](https://docs.hpc2n.umu.se/software/libs/Seaborn/)
-Pelle      |[`seaborn` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch) No relevant documentation
+Pelle      |[`seaborn` documentation](https://docs.uppmax.uu.se/software/seaborn/)
 Tetralith  |[`seaborn` documentation](https://www.nsc.liu.se/software/python) No relevant documentation
 
 <!-- markdownlint-enable MD013 -->
 
 :::
 
-- Load the software module to use `seaborn`
+In a terminal (on your HPC cluster), load the software module to use `seaborn`.
 
 :::{admonition} Answer: how to load the `seaborn` software module
 :class: dropdown
@@ -167,9 +166,7 @@ Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb ; pip install seabo
 
 :::
 
-:::
-
-Create a script called `seaborn_exercise_1.py`
+On your HPC cluster, create a script called `seaborn_exercise_1.py`
 with the following code:
 
 ```python
@@ -224,7 +221,8 @@ because it proves that you have successfully loaded/installed
 
 ## Exercise 2: a minimal plot
 
-Create a script called `seaborn_exercise_2.py`,
+On your HPC cluster,
+create a script called `seaborn_exercise_2.py`,
 with the following content:
 
 ```python
@@ -288,9 +286,20 @@ This dataset contains information about more than fifty thousand diamonds.
 Two such features are the weight (in carats) and the price (in USD).
 Here we want to use an image to display the relationship between these two.
 
-- Use `pandas` to read the dataset and use `seaborn`
-  to create a scatter plot from that data. Put the diamond weight
+On your HPC cluster,
+create a script called `seaborn_exercise_3.py`. In that script:
+
+- Use `pandas` to read the dataset
+- Use `seaborn` to create a scatter plot from that data.
+  Put the diamond weight
   on the x-axis and the diamond price on the y-axis.
+  Use
+  [the `seaborn` documentation](https://seaborn.pydata.org/),
+  a search engine or an AI chatbot for the answer.
+- save the plot as `seaborn_exercise_3.png`
+  Use
+  [the `matplotlib` documentation](https://seaborn.pydata.org/),
+  a search engine or an AI chatbot for the answer.
 
 :::{admonition} Answer
 :class: dropdown

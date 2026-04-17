@@ -106,7 +106,7 @@ Tetralith  | .<!-- [YouTube video]() -->
 
 ## Exercise 1: minimal code
 
-- Use the documentation of the HPC cluster you work on
+Use the documentation of the HPC cluster you work on.
 
 :::{admonition} Answer: where is your documentation?
 :class: dropdown
@@ -129,8 +129,7 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 
 :::
 
-- In that documentation, find the software module to load the package.
-  If you know how, you may also use the module system
+In that documentation, find the software module to load the package.
 
 :::{admonition} Answer: where is the `pandas` documentation?
 :class: dropdown
@@ -144,14 +143,14 @@ Bianca     |[`pandas` documentation](https://docs.uppmax.uu.se/software/tensorfl
 COSMOS     |[`pandas` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
 Dardel     |[`pandas` documentation](https://support.pdc.kth.se/doc/applications/tensorflow) (irrelevant)
 Kebnekaise |[`pandas` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
-Pelle      |[`pandas` documentation](https://docs.uppmax.uu.se/software/python_bundles/#pytorch)
+Pelle      |[`pandas` documentation](https://docs.uppmax.uu.se/software/python_bundles/#loading-the-pandas-module)
 Tetralith  |[`pandas` documentation](https://www.nsc.liu.se/software/python)
 
 <!-- markdownlint-enable MD013 -->
 
 :::
 
-Load the software module to use `pandas`
+In a terminal (on your HPC cluster), load the software module to use `pandas`.
 
 :::{admonition} Answer: how to load the `pandas` software module
 :class: dropdown
@@ -170,7 +169,7 @@ Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Pytho
 
 :::
 
-Create a script called `pandas_exercise_1.py`
+On your HPC cluster, create a script called `pandas_exercise_1.py`
 with the following code:
 
 ```python
@@ -253,7 +252,7 @@ wget https://raw.githubusercontent.com/UPPMAX/HPC-python/refs/heads/main/docs/da
 :::
 
 
-Create a script called `pandas_exercise_2.py`
+On your HPC cluster, create a script called `pandas_exercise_2.py`
 with the following code:
 
 ```python

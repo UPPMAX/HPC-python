@@ -64,13 +64,13 @@ we can infer that it is not all too unpopular.
 
 HPC cluster|YouTube video
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      | <!-- [YouTube video]() -->
-Bianca     | <!-- [YouTube video]() -->
-COSMOS     | <!-- [YouTube video]() -->
-Dardel     | <!-- [YouTube video]() -->
-Kebnekaise | <!-- [YouTube video]() -->
-Pelle      | <!-- [YouTube video]() -->
-Tetralith  | <!-- [YouTube video]() -->
+Alvis      | . <!-- [YouTube video]() -->
+Bianca     | . <!-- [YouTube video]() -->
+COSMOS     | . <!-- [YouTube video]() -->
+Dardel     | . <!-- [YouTube video]() -->
+Kebnekaise | . <!-- [YouTube video]() -->
+Pelle      |[YouTube video](https://youtu.be/5fWxXBA5120)
+Tetralith  | . <!-- [YouTube video]() -->
 
 
 <!-- markdownlint-enable MD013 -->
@@ -113,14 +113,14 @@ Bianca     |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/pyth
 COSMOS     |[`matplotlib` documentation](https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/#loading-packages) [No relevant documentation]
 Dardel     |[`matplotlib` documentation](https://support.pdc.kth.se/doc/basics/quickstart/#the-lmod-module-system) [No relevant documentation]
 Kebnekaise |[`matplotlib` documentation](https://docs.hpc2n.umu.se/software/libs/matplotlib/)
-Pelle      |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#matplotlib)
+Pelle      |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/matplotlib/)
 Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/catalogue/tetralith/modules/python.html)
 
 <!-- markdownlint-enable MD013 -->
 
 :::
 
-Load the software module to use `matplotlib`
+In a terminal (on your HPC cluster), load the software module to use `matplotlib`
 
 :::{admonition} Answer: how to load the `matplotlib` software module
 :class: dropdown
@@ -132,7 +132,6 @@ HPC cluster|How to load Matplotlib
 Alvis      |`module load matplotlib/3.9.2-gfbf-2024a` <!-- TODO -->
 COSMOS     |`module load matplotlib/3.8.2` (avoid version `3.9.2`!) <!-- :-) 2026-04-17 -->
 Dardel     |`module load python/3.12.3 ; pip3 install matplotlib` <!-- :-) 2016-04-17 -->
-Kebnekaise |`module load matplotlib/3.8.2` <!-- TODO -->
 Pelle      |`module load matplotlib/3.9.2-gfbf-2024a` <!-- :-) 2026-04-17 -->
 Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb` <!-- :-) 2026-04-17 -->
 
@@ -140,7 +139,7 @@ Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb` <!-- :-) 2026-04-1
 
 :::
 
-Create a script called `matplotlib_exercise_1.py`
+On your HPC cluster, create a script called `matplotlib_exercise_1.py`
 with the following code:
 
 ```python
@@ -195,8 +194,7 @@ because it proves that you have successfully loaded/installed
 
 ## Exercise 2: a minimal plot
 
-
-Create a script called `matplotlib_exercise_2.py`
+On your HPC cluster, create a script called `matplotlib_exercise_2.py`
 with the following code:
 
 ```python
