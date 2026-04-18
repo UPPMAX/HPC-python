@@ -492,6 +492,7 @@ Breakout room according to grouping
             - `Venv <https://docs.hpc2n.umu.se/software/userinstalls/#venv>`_
             - `Video by Richel <https://www.youtube.com/watch?v=_ev3g5Zvn9g>`_
 
+         :::
          :::{tab-item} conda
 
             NSC:
@@ -518,6 +519,8 @@ Breakout room according to grouping
             HPC2N:
 
             - Not recommended
+         :::
+      ::::
    :::
 
 :::
@@ -561,7 +564,7 @@ Breakout room according to grouping
              - TensorFlow
              - PyTorch
              - numba
-
+      :::
       :::{tab-item} PDC
 
          1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
@@ -622,11 +625,13 @@ Breakout room according to grouping
              - PyTorch
              - numba
 
+      :::
       :::{tab-item} LUNARC
 
          - Everything will work by just loading modules.
          - Go down to the other exercises!
 
+      :::
       :::{tab-item} UPPMAX
 
          Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
@@ -647,7 +652,7 @@ Breakout room according to grouping
                   which python  # should point to the conda environment!
                   python -V     # should give python version 3.12.X
                ```
-
+            :::
             :::{tab-item} Pelle
 
                ```console
@@ -662,13 +667,14 @@ Breakout room according to grouping
                   which python  # should point to the conda environment!
                   python -V     # should give python version 3.12.X
                ```
-
+            :::
+         ::::
          - Let's install packages that we need.
 
          ```console
 
             conda install matplotlib pandas seaborn xarray dask numba
-         `` 
+         ``` 
 
          - Check that the above packages are there by ``conda list``.
 
@@ -678,7 +684,7 @@ Breakout room according to grouping
 
              - TensorFlow
              - PyTorch
-
+      :::   
       :::{tab-item} HPC2N
 
          We will put requirements files in the course project folder that you can build from in latter lessons
@@ -688,6 +694,7 @@ Breakout room according to grouping
              - TensorFlow
              - PyTorch
              - numba
+      :::
    ::: 
 :::
 
@@ -751,6 +758,8 @@ Breakout room according to grouping
 
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
+      :::
+   ::::
 
    - Note that your prompt is changing to start with (Example) to show that you are within an environment.
 
@@ -869,6 +878,8 @@ Breakout room according to grouping
 
          Skip this exercise
 
+      :::
+   ::::
    - Let's install packages that we need.
 
    ```console
