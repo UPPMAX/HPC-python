@@ -21,7 +21,7 @@ Running Python in batch mode
 Running your programs and scripts on UPPMAX, HPC2N, LUNARC, C3SE, NSC, and PDC
 ------------------------------------------------------------------------------
 
-As mentioned Friday, in the introduction to Slurm and batch jobs:
+As mentioned yesterday, in the introduction to Slurm and batch jobs:
 
 - Any longer, resource-intensive, or parallel jobs must be run through a **batch script** or in an interactive session on allocated compute nodes.
 - A batch job is **not** interactive, so you cannot make changes to the job while it is running.
@@ -38,7 +38,7 @@ As mentioned Friday, in the introduction to Slurm and batch jobs:
 Example Python batch scripts
 ----------------------------
 
-Friday we looked at a simple Python serial code run as a batch script. There are many other situations:
+Yesterday, we looked at a simple Python serial code run as a batch script. There are many other situations:
 
 - Python code needing self-installed packages in virtual environment
 - Python code requiring tweaking before running as a batch job
@@ -91,7 +91,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2025-151 # Change to your own
+            #SBATCH -A hpc2n2026-002 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -116,7 +116,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2025-7-106 # Change to your own
+            #SBATCH -A lu2026-7-57 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -139,7 +139,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -163,7 +163,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             #SBATCH -p shared
@@ -185,7 +185,7 @@ Serial code + self-installed package in virt. env.
         .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             # You need to ask for a GPU to run on alvis.
             # This is a CPU job. Do not do things like this normally!
@@ -220,7 +220,7 @@ We will talk more about parallel code in the session "Parallel computing with Py
 
            #!/bin/bash
            # Change to your own project account after the course
-           #SBATCH -A naiss2025-22-934
+           #SBATCH -A naiss2026-4-66
            # Asking for 10 min
            #SBATCH -t 00:10:00
            # ask for 32 cores here, modify for your needs.
@@ -245,7 +245,7 @@ We will talk more about parallel code in the session "Parallel computing with Py
 
            #!/bin/bash
            # Change to your own project account after the course
-           #SBATCH -A naiss2025-22-934
+           #SBATCH -A naiss2026-4-66
            # Asking for 10 min
            #SBATCH -t 00:10:00
            # Using the Dardel shared partition
@@ -270,7 +270,7 @@ We will talk more about parallel code in the session "Parallel computing with Py
 
            #!/bin/bash
            # Change to your own project account after the course
-           #SBATCH -A naiss2025-22-934
+           #SBATCH -A naiss2026-4-66
            # Asking for 10 min
            #SBATCH -t 00:10:00
            #SBATCH -p alvis
@@ -313,7 +313,7 @@ We will talk more about parallel code in the session "Parallel computing with Py
 
            #!/bin/bash
            # Change to your own project id!
-           #SBATCH -A hpc2n2025-151
+           #SBATCH -A hpc2n2026-002
            #SBATCH -t 00:05:00
            #SBATCH -n 4
            #SBATCH -o output_%j.out   # output file
@@ -334,7 +334,7 @@ We will talk more about parallel code in the session "Parallel computing with Py
 
            #!/bin/bash
            # The name of the account you are running in, mandatory.
-           #SBATCH -A lu2025-7-106
+           #SBATCH -A lu2026-7-57
            # Request resources - here for eight MPI tasks
            #SBATCH -n 8
            # Request runtime for the job (HHH:MM:SS) where 168 hours is the maximum. Here asking for 15 min.
@@ -423,7 +423,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
 
 .. challenge:: Simple example of option 1
 
-    Run the serial example script from Friday (https://uppmax.github.io/HPC-python/day2/basic_batch_slurm.html#simple-example-batch-script - the one that was used to run mmmult.py) but with this code (sum-2args.py) instead
+    Run the serial example script from yesterday (https://uppmax.github.io/HPC-python/day2/basic_batch_slurm.html#simple-example-batch-script - the one that was used to run mmmult.py) but with this code (sum-2args.py) instead
 
     .. code-block:: python
 
@@ -446,7 +446,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2025-151 # Change to your own
+            #SBATCH -A hpc2n2026-002 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -482,7 +482,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A lu2025-7-106 # Change to your own
+            #SBATCH -A lu2026-7-57 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -500,7 +500,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
 
@@ -518,7 +518,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -n 1 # Asking for 1 core
             #SBATCH -p shared
@@ -537,7 +537,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           .. code-block:: bash
 
              #!/bin/bash
-            #SBATCH -A naiss2025-22-934 # Change to your own
+            #SBATCH -A naiss2026-4-66 # Change to your own
             #SBATCH --time=00:05:00 # Asking for 5 minutes
             #SBATCH -p alvis
             # You need to ask for a GPU to run on alvis.
