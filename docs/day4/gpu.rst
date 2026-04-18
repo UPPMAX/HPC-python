@@ -6,7 +6,7 @@ Using GPUs with Python
    - What is GPU acceleration?
    - How to enable GPUs (for instance with CUDA) in Python code?
    - How to deploy GPUs at HPC2N, UPPMAX, LUNARC, NSC, PDC and C3SE?
-
+   - Which GPUs will the new Arrhenius have? 
 
 
 .. objectives::
@@ -174,7 +174,7 @@ To use them you need to either launch an interactive job or submit a batch job.
 
    .. tab:: PDC
 
-      Dardel has 4 AMD Instinct™ MI250X á 2 GCDs per node.
+      Dardel has 4 AMD Instinct™ MI250X á 2 GCDs per node on 62 nodes on its GPU partition.
 
       You need to add this to your batch script or interactive job in order to access them:
 
@@ -183,6 +183,19 @@ To use them you need to either launch an interactive job or submit a batch job.
          #SBATCH -N 1
          #SBATCH --ntasks-per-node=1
          #SBATCH -p gpu
+
+      In addition, Dardel has 8 Grace Hopper nodes on its GPU-GH partition, where each has four NVIDIA Grace Hopper (H100) GPUs and four NVIDIA Grace ARM CPUs—totalling 32 Grace Hopper Superchips.
+
+      You need to add this to your batch script or interactive job in order to access them: 
+
+      .. code-block::
+
+         #SBATCH -p gpugh
+         #SBATCH --nodes=1
+
+      .. admonition:: warning
+
+         You need to apply for the GPU and GPU-GH resources in your project in order to use these partitions. 
 
    .. tab:: C3SE
 
