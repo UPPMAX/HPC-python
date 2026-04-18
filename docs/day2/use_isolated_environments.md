@@ -719,12 +719,12 @@ Breakout room according to grouping
 
          - Start in folder ``/proj/spring-courses-naiss/$USER``
          - Follow the tutorial at `Python <https://www.nsc.liu.se/software/python/>`_: scroll down to "More on Python virtual environments (venvs)"
-
+      :::
       :::{tab-item} PDC
 
          - Start in folder ``/cfs/klemming/projects/snic/spring-courses-naiss/$USER``
          - Follow the tutorial at Virtual environment with venv https://pdc-support.github.io/pdc-intro/#165
-
+      :::
       :::{tab-item} UPPMAX: Pelle
 
          ```console
@@ -735,7 +735,7 @@ Breakout room according to grouping
          ```
 
         "Example" is the name of the virtual environment. The directory "Example" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
-
+      :::
       :::{tab-item} HPC2N
 
          ```console
@@ -747,6 +747,7 @@ Breakout room according to grouping
 
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
+      :::
       :::{tab-item} LUNARC
 
          ```console
@@ -812,7 +813,7 @@ Breakout room according to grouping
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
          ```
-
+      :::
       :::{tab-item} PDC
 
          ```console
@@ -828,7 +829,7 @@ Breakout room according to grouping
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
          ```
-
+      :::
       :::{tab-item} LUNARC
 
          ```console
@@ -843,7 +844,7 @@ Breakout room according to grouping
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
          ```
-
+      :::
       :::{tab-item} UPPMAX: Bianca
 
           ```console
@@ -858,7 +859,7 @@ Breakout room according to grouping
              which python  # should point to the conda environment!
              python -V     # should give python version 3.12.X
          ```
-
+      :::
       :::{tab-item} UPPMAX: Pelle
 
          ```console
@@ -873,7 +874,7 @@ Breakout room according to grouping
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
          ```
-
+      :::
       :::{tab-item} HPC2N
 
          Skip this exercise
@@ -1169,14 +1170,12 @@ Next steps are the same for all clusters
 
 7. Deactivate
 
- .. prompt::
+:::{prompt}
     :language: bash
     :prompts: (python-36-env) $
 
     conda deactivate
-
-
-
+:::
 
 :::{seealso}
 
