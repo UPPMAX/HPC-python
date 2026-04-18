@@ -207,7 +207,7 @@ Jupyter
             .. code-block:: slurm
 
                #!/bin/bash
-               #SBATCH -A hpc2n2025-151
+               #SBATCH -A hpc2n2026-002
                # This example asks for 1 core
                #SBATCH -n 1
                # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
@@ -320,7 +320,7 @@ Jupyter
                .. code-block::
 
                   #!/bin/bash
-                  #SBATCH -A hpc2n2025-151
+                  #SBATCH -A hpc2n2026-002
                   # This example asks for 1 core
                   #SBATCH -n 1
                   # Ask for a suitable amount of time. Remember, this is the time the Jupyter notebook will be available! HHH:MM:SS.
