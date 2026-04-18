@@ -15,6 +15,7 @@
     - (optional) export and import a virtual
       environment
 :::
+
 :::{admonition} For teachers
 
    - Introduction 5 m
@@ -39,16 +40,17 @@ When?
     - you continue a project on your computer on the HPC cluster
     - you continue someone else's project on the HPC cluster
 
-.. discussion::
+:::{discussion}
 
    - What experience have you had?
-   
+:::
+
 ## What is an isolated environments
 
 - Isolated environments let you create separate workspaces for different versions of Python and/or different versions of packages.
 - You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
 
-.. note:: Principles
+:::{note} Principles
 
    - create environment (choose Python version as well)
    - activate the environment
@@ -115,7 +117,7 @@ Pelle      | venv, Miniforge3/24.11.3-0
 Tetralith  | Anaconda3/2024.02-1             
 LUMI       | conda-containerize              
 
-.. tip::
+:::{tip}
 
    - Try with ``venv`` first
    - If very troublesome, try with ``conda``
@@ -123,6 +125,7 @@ LUMI       | conda-containerize
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course.
    - To see which Python packages you, yourself, have installed, you can use ``pip list --local`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``.
        - Note that ``--user`` must be omitted: else the package will be installed in the global user folder.
+:::
 
 :::{admonition} ``pip list`` documentation
 
@@ -182,7 +185,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 
    deactivate
 
-.. note::
+:::{note}
 
    - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions.
    - Some packages may be inherited from the modules you have loaded
@@ -192,7 +195,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
        -   ``--system-site-packages`` includes the packages already installed in the loaded python module.
    - The ``--no-cache-dir"`` option is required to **avoid it from reusing earlier installations from the same user in a different environment**.
    - The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when **building any Cython libraries**.
-
+:::
 
 ### Conda
 
@@ -229,7 +232,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - Check your disk usage and quota limit
        - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
 
-.. tip::
+:::{tip}
 
    - The conda environments including many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
    - Move your ``.conda`` directory to your project folder and make a soft link to it from ``$HOME``
@@ -255,6 +258,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
          $ mkdir -p ~/.conda
          $ mv ~/.conda /<path-to-project-folder>/<username>/
          $ ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
+:::
 
 :::{admonition} Example NSC
 
@@ -415,10 +419,11 @@ Create an environment from a file. Do this on another computer or rename.
    conda env create -f environment.yml -p /path/renamed
 ```
 
-.. discussion::
+:::{discussion}
 
    - Did you note the difference in file length?
    - What does it mean?
+:::
 
 ## Exercises
 
@@ -1022,11 +1027,11 @@ The next points will be the same for all clusters
 
 4. Activate the environment with ``source <path to virtual environment>/bin activate``
 
-.. note::
+:::{note}
 
    - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
    - For clarity we use the ``source`` style here.
-
+:::
 
 5. Install (or update) the environment with the packages you need with the ``pip install`` command
 
@@ -1037,7 +1042,7 @@ The next points will be the same for all clusters
    - When activated you can always continue to add packages!
 7. Deactivate the environment after use with ``deactivate``
 
-.. note::
+:::{note}
 
    To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!
          ``--system-site-packages`` includes the packages already installed in the loaded python module.
@@ -1048,6 +1053,7 @@ The next points will be the same for all clusters
 
        $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
        $ python -m venv --system-site-packages Example
+:::
 
 .. warning::
 
