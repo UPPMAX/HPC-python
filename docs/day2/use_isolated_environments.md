@@ -6,13 +6,13 @@
 
 :::{admonition} Learning objectives
 
-    - Practice using the documentation of your HPC cluster
-    - Find out which isolated environment tool to use on your HPC cluster
-    - Work (create, activate, work, deactivate) with isolated environments
+- Practice using the documentation of your HPC cluster
+- Find out which isolated environment tool to use on your HPC cluster
+- Work (create, activate, work, deactivate) with isolated environments
       in the way recommended by your HPC cluster
-    - (optional) work (create, activate, work, deactivate) with isolated environments
+- (optional) work (create, activate, work, deactivate) with isolated environments
       in the other way (if any) possible on your HPC cluster
-    - (optional) export and import a virtual
+- (optional) export and import a virtual
       environment
 :::
 
@@ -77,11 +77,11 @@ conda| conda/forge     | Yes        | No
 :::{admonition} Other tools perhaps covered in the future
    :class: dropdown
 
-   - `pixi <https://pixi.sh/latest/>`_: package management tool for developers
+   - [pixi](https://pixi.sh/latest/): package management tool for developers
        - It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.
        - could replace conda/mamba
 
-   - `uv <https://docs.astral.sh/uv/>`_: An extremely fast Python package and project manager, written in Rust.
+     [uv](https://docs.astral.sh/uv/): An extremely fast Python package and project manager, written in Rust.
        - A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more
 :::
 
