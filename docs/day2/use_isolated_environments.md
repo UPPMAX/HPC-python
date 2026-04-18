@@ -441,16 +441,18 @@ Create an environment from a file. Do this on another computer or rename.
 
 ## Exercises
 
-.. challenge:: Exercise 0: Make a decision between ``venv`` or ``conda``.
+:::{challenge} Exercise 0: Make a decision between ``venv`` or ``conda``.
 
    - We recommend `conda` for LUNARC.
    - We recommend ``venv`` for HPC2N
    - Otherwise there are some kind of documentation at all sites.
    - ``venv`` "should" work everywhere but has not been fully tested
 
+:::
+
 Breakout room according to grouping
 
-.. challenge:: Exercise 1: Cover the documentation for venvs or conda
+:::{challenge} Exercise 1: Cover the documentation for venvs or conda
 
    First try to find it by navigating.
 
@@ -517,7 +519,9 @@ Breakout room according to grouping
 
             - Not recommended
 
-.. challenge:: Exercise 2: Prepare the course environment
+:::
+
+:::{challenge} Exercise 2: Prepare the course environment
 
    There will be a mix of conda and venv att all clusters except for HPC2N where all is ``venv``
 
@@ -683,8 +687,9 @@ Breakout room according to grouping
              - TensorFlow
              - PyTorch
              - numba
+:::
 
-.. challenge:: (Optional) Exercise 3: Install package with venv
+:::{challenge} (Optional) Exercise 3: Install package with venv
 
    - Choose a track below
    - Bianca users could follow
@@ -767,8 +772,9 @@ Breakout room according to grouping
 
       $ source /proj/<your-project-id>/<your-dir>/Example/bin/activate
    ```
+:::
 
-.. challenge:: (optional) Exercise 4: like 3, but for Conda
+:::{challenge} (optional) Exercise 4: like 3, but for Conda
 
     Let's make an installation with the latest bug fix version of ``Python 3.12`` and compatible ``numpy`` and ``matplotlib`` in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
 
@@ -870,12 +876,9 @@ Breakout room according to grouping
 
    - Check that the above packages are there by ``conda list``.
 
+:::
 
-
-
-
-
-.. challenge:: (optional) 5. Make a test environment and spread (venv)
+:::{challenge} (optional) 5. Make a test environment and spread (venv)
 
    Read `here <https://uppmax.github.io/HPC-python/extra/isolated_deeper.html#creator-developer>`_
 
@@ -986,8 +989,9 @@ Breakout room according to grouping
 
       deactivate
    ```
+:::
 
-.. challenge:: (optional) Exercise 5b. Make a test environment (conda)
+:::{challenge} (optional) Exercise 5b. Make a test environment (conda)
 
    Principle
 
@@ -999,7 +1003,7 @@ Breakout room according to grouping
       conda env export > environment.yml
    ```
 
-- Look at the resulting file!
+   - Look at the resulting file!
 
    - Create a copy of the environment but called another way to not overwrite the original!
        - Usually someone else use your file or you, yourself, on another computer.
@@ -1008,13 +1012,13 @@ Breakout room according to grouping
 
       conda env create -f environment.yml -p /lunarc/nobackup/projects/lu2025-17-52/bjornc/test
    ```
-
+:::
 
 Summary
 -------
 
 
-.. keypoints::
+:::{keypoints}
 
    - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
    - Make it for each project you have for reproducibility.
@@ -1025,6 +1029,7 @@ Summary
             - supports more and is a bit more reliable
             - do not use together with Python modules
             - install in project folder due to many files.
+:::
 
 :::{admonition} Documentation at the centres
    :class: dropdown
@@ -1159,8 +1164,9 @@ Next steps are the same for all clusters
 
 
 
-.. seealso::
+:::{seealso}
 
    - want to share your work? :ref:`devel_iso`
    - uploading files
       - `NAISS transfer course <https://uppmax.github.io/naiss_file_transfer_course/sessions/intro/>`_
+:::
