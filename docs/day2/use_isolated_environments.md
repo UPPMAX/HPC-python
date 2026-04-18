@@ -4,7 +4,7 @@
 
 # Using isolated environments
 
-.. admonition:: Learning objectives
+:::{admonition} Learning objectives
 
     - Practice using the documentation of your HPC cluster
     - Find out which isolated environment tool to use on your HPC cluster
@@ -14,13 +14,14 @@
       in the other way (if any) possible on your HPC cluster
     - (optional) export and import a virtual
       environment
-
-.. admonition:: For teachers
+:::
+:::{admonition} For teachers
 
    - Introduction 5 m
    - venv 5 m
    - Conda 5
    - Exercises 30 m
+:::
 
 ## Why isolated environments are important
 
@@ -70,7 +71,7 @@ venv | Python-<version>|Uses the one it was activated from| ``--system-site-pack
 conda| conda/forge     | Yes        | No
 
 
-.. admonition:: Other tools perhaps covered in the future
+:::{admonition} Other tools perhaps covered in the future
    :class: dropdown
 
    - `pixi <https://pixi.sh/latest/>`_: package management tool for developers
@@ -79,6 +80,7 @@ conda| conda/forge     | Yes        | No
 
    - `uv <https://docs.astral.sh/uv/>`_: An extremely fast Python package and project manager, written in Rust.
        - A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more
+:::
 
 ### What happens at activation?
 
@@ -122,19 +124,20 @@ LUMI       | conda-containerize
    - To see which Python packages you, yourself, have installed, you can use ``pip list --local`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``.
        - Note that ``--user`` must be omitted: else the package will be installed in the global user folder.
 
-.. admonition:: ``pip list`` documentation
+:::{admonition} ``pip list`` documentation
 
    - ``--local``: If in a virtualenv that has global access, do not list globally-installed packages.
    - ``--user``: Only output packages installed in user-site.
 
    https://pip.pypa.io/en/stable/cli/pip_list/
+:::
 
 
 ### Virtual environment - venv & virtualenv
 
 With this tool you can download and install with ``pip`` from the `PyPI repository <https://pypi.org/>`_
 
-.. admonition:: venv vs. virtualenv
+:::{admonition} venv vs. virtualenv
    :class: dropdown
 
    - These are almost completely interchangeable
@@ -145,12 +148,13 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - Next steps are identical and involves "activating" and ``pip install``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
 
-.. admonition:: Tip for Tetralith
+:::{admonition} Tip for Tetralith
 
    - load a "bare" python, like ``Python/3.10.4-bare-hpc1-gcc-2022a-eb``
    - in en environment install setuptools and wheel: ``pip3 install --upgrade pip setuptools wheel``
+:::
 
-.. admonition:: Example NSC
+:::{admonition} Example NSC
 
    .. code-block:: console
 
@@ -166,6 +170,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
       pip install matplotlib
       # do some work
       python
+:::
 
    .. code-block:: python
 
@@ -197,7 +202,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 - Conda environment requires that you install all packages needed by yourself.
     - That is,  you cannot load the python module and use the packages therein inside you Conda environment.
 
-.. admonition:: Conda channels
+:::{admonition} Conda channels
    :class: dropdown
 
    - bioconda
@@ -251,7 +256,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
          $ mv ~/.conda /<path-to-project-folder>/<username>/
          $ ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
 
-.. admonition:: Example NSC
+:::{admonition} Example NSC
 
    .. code-block:: console
 
@@ -269,19 +274,21 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    .. code-block:: python
 
       >>> import numpy
+:::
 
-.. admonition:: Comments
+:::{admonition} Comments
    :class: dropdown
 
    - When pinning with Conda, use single ``=`` instead of double (as used by pip)
+:::
 
-.. admonition:: Conda base env
+:::{admonition} Conda base env
    :class: dropdown
 
    - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments.
    - It includes a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
 
-.. admonition:: Conda cheat sheet
+:::{admonition} Conda cheat sheet
 
    - List packages in present environment:           ``conda list``
    - List all environments:                       ``conda info -e`` or ``conda env list``
@@ -293,18 +300,21 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - On e.g. HPC systems where you don’t have write access to central installation directory: ``conda create --prefix /some/path/to/env``
    - Activate a specific environment:                ``conda activate myenvironment``
    - Deactivate current environment:                 ``conda deactivate``
+:::
 
-.. admonition:: Conda vs mamba etc...
+:::{admonition} Conda vs mamba etc...
    :class: dropdown
 
    - `what-is-the-difference-with-conda-mamba-poetry-pip <https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip>`_
+:::
 
-.. admonition:: What to do when a problem arises?
+:::{admonition} What to do when a problem arises?
    :class: dropdown
 
    - If you experience unexpected problems with the conda provided by the module system on Rackham or anaconda3 on Dardel, you can easily install your own and maintain it yourself.
    - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
    - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
+:::
 
 ## Install from file
 
@@ -321,7 +331,7 @@ Make a requirements file:
 
    pip freeze --local > requirements.txt
 
-.. admonition:: How does it look like?
+:::{admonition} How does it look like?
    :class: dropdown
 
    .. code-block:: text
@@ -351,7 +361,7 @@ Make environment file:
 
     conda env export > environment.yml
 
-.. admonition:: How does it look like?
+:::{admonition} How does it look like?
    :class: dropdown
 
    .. code-block:: yaml
@@ -394,6 +404,7 @@ Make environment file:
         - libblas=3.11.0=2_h4a7cf45_openblas
         ...
         this was just like 30%
+:::
 
 Create an environment from a file. Do this on another computer or rename.
 
@@ -962,7 +973,7 @@ Summary
             - do not use together with Python modules
             - install in project folder due to many files.
 
-.. admonition:: Documentation at the centres
+:::{admonition} Documentation at the centres
    :class: dropdown
 
    NSC:
@@ -991,12 +1002,11 @@ Summary
    LUMI
 
    - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+:::
 
-Summary
--------
+## Summary
 
-Workflow ``venv``
-................
+### Workflow ``venv``
 
 1. Start from a Python version you would like to use (load the module):
     - This step are different at different clusters since the naming is different
@@ -1054,7 +1064,7 @@ The first 2 steps are cluster dependent and will therefore be slightly different
 1. Make conda available from a software module, like ``ml load conda`` or similar, or use own installation of miniconda or miniforge.
 2. First time
 
-   .. admonition:: First time
+   :::{admonition} First time
       :class: dropdown
 
       - The variables CONDA_ENVS_PATH and CONDA_PKG_DIRS contains the location of your environments. Set it to your project's environments folder, if you have one, instead of the $HOME folder.
@@ -1065,6 +1075,7 @@ The first 2 steps are cluster dependent and will therefore be slightly different
 
          $ export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
          $ export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
+   :::
 
 Next steps are the same for all clusters
 
