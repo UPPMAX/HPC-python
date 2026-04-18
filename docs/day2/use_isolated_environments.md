@@ -50,7 +50,7 @@ When?
 - Isolated environments let you create separate workspaces for different versions of Python and/or different versions of packages.
 - You can activate and deactivate them one at a time, and work as if the other workspace does not exist.
 
-:::{note} Principles
+:::{admonition} Principles
 
    - create environment (choose Python version as well)
    - activate the environment
@@ -59,6 +59,7 @@ When?
        - these are now reached only from the activated project
    - do your research
    - deactivate
+:::
 
 **The tools**
 
@@ -95,7 +96,7 @@ conda| conda/forge     | Yes        | No
 - You can work in a Python shell or IDE (coming session)
 - You can run scripts dependent on packages now installed in your environment.
 
-.. warning::
+:::{warning}
 
    **About Conda on HPC systems**
 
@@ -104,6 +105,7 @@ conda| conda/forge     | Yes        | No
       - having base environment always active
    - Not recommended at HPC2N
    - At the other clusters, handle with care!
+:::
 
 HPC cluster| Conda vs venv                  
 -|-
@@ -159,7 +161,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 
 :::{admonition} Example NSC
 
-   .. code-block:: console
+   ```console
 
       ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
       which python
@@ -173,17 +175,20 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
       pip install matplotlib
       # do some work
       python
+   ```   
 :::
 
-   .. code-block:: python
+   ```python
 
       >>> import matplotlib
+   ```   
 
 - When work is done, deactivate the environment with
 
-.. code-block:: console
+```console
 
    deactivate
+```
 
 :::{note}
 
@@ -223,7 +228,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
     You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX. Otherwise you do with ``conda -c <channel> ...``
 
 
-.. warning::
+:::{warning}
 
    Drawbacks
 
@@ -231,6 +236,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in $HOME).
    - Check your disk usage and quota limit
        - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
+:::
 
 :::{tip}
 
@@ -243,26 +249,28 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 
       This works nicely if you have several projects. Then you can change these variables according to what you are currently working with.
 
-      .. code-block:: bash
+      ```bash
 
          export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
          export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
          mamba create --prefix=$CONDA_ENVS_PATH/<conda env name>
+      ```
 
    - Solution 2
 
       - This may not be a good idea if you have several projects.
 
-      .. code-block:: bash
+      ```bash
 
          $ mkdir -p ~/.conda
          $ mv ~/.conda /<path-to-project-folder>/<username>/
          $ ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
+      ```
 :::
 
 :::{admonition} Example NSC
 
-   .. code-block:: console
+   ```console
 
       module load Miniforge/24.7.1-2-hpc1
       export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
@@ -274,10 +282,12 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
       which python  # should point to the conda environment!
       python -V     # should give python version 3.9.5
       mamba install numpy
+   ```
 
-   .. code-block:: python
+   ```python
 
       >>> import numpy
+   ```
 :::
 
 :::{admonition} Comments
@@ -331,14 +341,14 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 
 Make a requirements file:
 
-.. code-block::
+```console
 
    pip freeze --local > requirements.txt
-
+```
 :::{admonition} How does it look like?
    :class: dropdown
 
-   .. code-block:: text
+   ```text
 
       contourpy==1.3.3
       cycler==0.12.1
@@ -350,25 +360,28 @@ Make a requirements file:
       pyparsing==3.2.5
       python-dateutil==2.9.0.post0
       six==1.17.0
+   ```
 
 Install packages from a file
 
-.. code-block::
+```console
 
    pip install -r requirements.txt
+```
 
 ### conda/forge
 
 Make environment file:
 
-.. code-block::
+```console
 
     conda env export > environment.yml
+```
 
 :::{admonition} How does it look like?
    :class: dropdown
 
-   .. code-block:: yaml
+   ```yaml
 
       name: /lunarc/nobackup/projects/lu2025-17-52/bjornc/example
       channels:
@@ -408,6 +421,7 @@ Make environment file:
         - libblas=3.11.0=2_h4a7cf45_openblas
         ...
         this was just like 30%
+   ```
 :::
 
 Create an environment from a file. Do this on another computer or rename.
@@ -513,7 +527,7 @@ Breakout room according to grouping
 
          1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
 
-         .. code-block::
+         ```console
 
             module load Miniforge/24.7.1-2-hpc1
             export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
@@ -524,13 +538,15 @@ Breakout room according to grouping
             # double-check we are using python from the Conda environment!
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
+         ```
 
          - Let's install packages that we need.
 
-         .. code-block::
+         ```console
 
             conda install matplotlib pandas seaborn xarray dask numba
-
+         ```
+         
          - Check that the above packages are there by ``conda list``.
 
          We will put requirements files in the course project folder that you can build from in latter lessons.
@@ -545,7 +561,7 @@ Breakout room according to grouping
 
          1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
 
-         .. code-block::
+         ```console
 
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
@@ -557,18 +573,20 @@ Breakout room according to grouping
             # double-check we are using python from the Conda environment!
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
+         ```
 
          - Let's install packages that we need.
 
-         .. code-block::
+         ```console
 
             conda install matplotlib pandas seaborn xarray dask numba
+         ```
 
          - Check that the above packages are there by ``conda list``.
 
          2. Let's make a Jupyter installation based on Python 3.11.7
 
-         .. code-block:: console
+         ```console
 
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
@@ -580,12 +598,14 @@ Breakout room according to grouping
             # double-check we are using python from the Conda environment!
             which python  # should point to the conda environment!
             python -V     # should give python version 3.11.7
+         ```
 
          - Let's install packages that we need.
 
-         .. code-block::
+         ```console
 
             conda install matplotlib pandas seaborn xarray dask numba
+         ```
 
          - Check that the above packages are there by ``conda list``.
 
@@ -610,7 +630,7 @@ Breakout room according to grouping
 
             .. tab:: Bianca
 
-               .. code-block::
+               ```console
 
                   ml conda
                   export CONDA_PKG_DIRS=/proj/<proj-dir>/$USER
@@ -621,10 +641,11 @@ Breakout room according to grouping
                   # double-check we are using python from the Conda environment!
                   which python  # should point to the conda environment!
                   python -V     # should give python version 3.12.X
+               ```
 
             .. tab:: Pelle
 
-               .. code-block::
+               ```console
 
                   ml Miniforge3/24.11.3-0
                   export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
@@ -635,12 +656,14 @@ Breakout room according to grouping
                   # double-check we are using python from the Conda environment!
                   which python  # should point to the conda environment!
                   python -V     # should give python version 3.12.X
+               ```
 
          - Let's install packages that we need.
 
-         .. code-block::
+         ```console
 
             conda install matplotlib pandas seaborn xarray dask numba
+         `` 
 
          - Check that the above packages are there by ``conda list``.
 
@@ -690,31 +713,34 @@ Breakout room according to grouping
 
       .. tab:: UPPMAX: Pelle
 
-         .. code-block:: console
+         ```console
 
             $ module load Python/3.12.3-GCCcore-13.3.0
             $ python -m venv --system-site-packages /proj/hpc-python-uppmax/$USER/Example
             $ source /proj/hpc-python-uppmax/$USER/Example/bin/activate
+         ```
 
         "Example" is the name of the virtual environment. The directory "Example" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
 
       .. tab:: HPC2N
 
-         .. code-block:: console
+         ```console
 
             $ module load GCC/12.3.0 Python/3.11.3
             $ python -m venv /proj/nobackup/spring-courses/$USER/Example
             $ source /proj/nobackup/spring-courses/$USER/Example/bin/activate
+         ```
 
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
       .. tab:: LUNARC
 
-         .. code-block:: console
+         ```console
 
             module load GCC/12.3.0 Python/3.11.3
             python -m venv --system-site-packages /path/to/your/project/$USER/Example
-            source /path/to/your/project/<user-dir>/Example/bin/activate``
+            source /path/to/your/project/<user-dir>/Example/bin/activate
+         ```
 
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
@@ -723,21 +749,24 @@ Breakout room according to grouping
 
    - Install your packages with ``pip``. While not always needed, it is often a good idea to give the correct versions you want, to ensure compatibility with other packages you use. This example assumes your venv is activated:
 
-   .. code-block:: console
+   ```console
 
       (Example) $ pip install --no-cache-dir --no-build-isolation numpy matplotlib
+   ```
 
    - Deactivate the venv.
 
-   .. code-block:: console
+   ```console
 
       (Example) $ deactivate
+   ```
 
    - Every time you need the tools available in the virtual environment you activate it as above (after also loading the modules).
 
-   .. prompt:: console
+   ```console
 
       $ source /proj/<your-project-id>/<your-dir>/Example/bin/activate
+   ```
 
 .. challenge:: (optional) Exercise 4: like 3, but for Conda
 
@@ -754,7 +783,7 @@ Breakout room according to grouping
 
       .. tab:: NSC
 
-         .. code-block::
+         ```console
 
             module load Miniforge/24.7.1-2-hpc1
             export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
@@ -765,10 +794,11 @@ Breakout room according to grouping
             # double-check we are using python from the Conda environment!
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
+         ```
 
       .. tab:: PDC
 
-         .. code-block::
+         ```console
 
             ml PDC/24.11
             ml miniconda3/25.3.1-1-cpeGNU-24.11
@@ -780,10 +810,11 @@ Breakout room according to grouping
             # double-check we are using python from the Conda environment!
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
+         ```
 
       .. tab:: LUNARC
 
-         .. code-block:: console
+         ```console
 
             ml Miniforge3/24.1.2-0
             export CONDA_ENVS_PATH="/path/to/your/project/$USER/" #only needed once per session
@@ -794,10 +825,11 @@ Breakout room according to grouping
             # double-check we are using python from the Conda environment!
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
+         ```
 
       .. tab:: UPPMAX: Bianca
 
-          .. code-block::
+          ```console
 
              ml conda
              export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER
@@ -808,10 +840,11 @@ Breakout room according to grouping
              # double-check we are using python from the Conda environment!
              which python  # should point to the conda environment!
              python -V     # should give python version 3.12.X
+         ```
 
       .. tab:: UPPMAX: Pelle
 
-         .. code-block::
+         ```console
 
             ml Miniforge3/24.11.3-0
             export CONDA_PKG_DIRS=/proj/hpc-python-uppmax/$USER  #only needed once per session
@@ -822,6 +855,7 @@ Breakout room according to grouping
             # double-check we are using python from the Conda environment!
             which python  # should point to the conda environment!
             python -V     # should give python version 3.12.X
+         ```
 
       .. tab:: HPC2N
 
@@ -829,9 +863,10 @@ Breakout room according to grouping
 
    - Let's install packages that we need.
 
-   .. code-block::
+   ```console
 
       conda install matplotlib numpy
+   ```
 
    - Check that the above packages are there by ``conda list``.
 
@@ -864,81 +899,93 @@ Breakout room according to grouping
 
    1. make the first environment
 
-   .. code-block:: console
+   ```console
 
       $ python -m venv venv1
+   ```
 
    2. Activate it.
 
-   .. code-block:: console
+   ```console
 
       $ source venv1/bin/activate
+   ```
 
       - Note that your prompt is changing to start with ``(venv1)`` to show that you are within an environment.
 
    3. install ``matplotlib``
 
-   .. code-block:: console
+   ```console
 
       pip install matplotlib
 
    4. make a requirements file of the content
 
-   .. code-block:: console
+   ```console
 
       pip freeze --local > requirements.txt
+   ```
 
    5. deactivate
 
-   .. code-block:: console
+   ```console
 
       deactivate
+   ```
 
    6. make another virtual environment with the name ``venv2``
 
-   .. code-block:: console
+   ```console
 
       python -m venv venv2
+   ```
 
    7. activate that
 
-   .. code-block:: console
+   ```console
 
       source venv2/bin/activate
+   ```
 
    8. install with the aid of the requirements file
 
-   .. code-block:: console
+   ```console
 
       pip install -r requirements-pip.txt
+   ```
 
    9. check the content
 
-   .. code-block:: console
+   ```console
 
       pip list
+   ```
 
    10. open python shell from command line and try to import
 
-   .. code-block:: console
+   ```console
 
       python
+   ```
 
-   .. code-block:: python
+   ```python
 
       import matplotlib
+   ```
 
    11. exit python
 
-   .. code-block:: python
+   ```python
 
       exit()
+   ```
 
    12. deactivate
 
-   .. code-block:: console
+   ```console
 
       deactivate
+   ```
 
 .. challenge:: (optional) Exercise 5b. Make a test environment (conda)
 
@@ -947,19 +994,20 @@ Breakout room according to grouping
    - Start in an environment created above
    - Export the settings:
 
-   .. code-block:: console
+   ```console
 
       conda env export > environment.yml
+   ```
 
 - Look at the resulting file!
 
    - Create a copy of the environment but called another way to not overwrite the original!
        - Usually someone else use your file or you, yourself, on another computer.
 
-   .. code-block:: console
+   ```console
 
       conda env create -f environment.yml -p /lunarc/nobackup/projects/lu2025-17-52/bjornc/test
-
+   ```
 
 
 Summary
@@ -1049,18 +1097,20 @@ The next points will be the same for all clusters
 
    At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you on Tetralith (NSC) could create a venv (Example) with a SciPy-bundle included which is compatible with Python/3.11.5:
 
-   .. code-block:: console
+   ```console
 
        $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
        $ python -m venv --system-site-packages Example
+   ```    
 :::
 
-.. warning::
+:::{warning}
 
    Draw-backs
 
    - Only works for Python environments
    - Only works with Python versions already installed
+:::
 
 Typical workflow Conda
 ......................
@@ -1077,10 +1127,12 @@ The first 2 steps are cluster dependent and will therefore be slightly different
       - Otherwise, the default is ``~/.conda/envs``.
       - Example:
 
-      .. code-block:: console
+      ```console
 
          $ export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
          $ export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
+      ```
+      
    :::
 
 Next steps are the same for all clusters
