@@ -464,7 +464,7 @@ Breakout room according to grouping
    - HPC2N: https://docs.hpc2n.umu.se/
    - LUMI: https://docs.lumi-supercomputer.eu/software
 
-   .. solution::
+   :::{solution}
 
       .. tabs::
 
@@ -518,6 +518,7 @@ Breakout room according to grouping
             HPC2N:
 
             - Not recommended
+   :::
 
 :::
 
@@ -687,6 +688,7 @@ Breakout room according to grouping
              - TensorFlow
              - PyTorch
              - numba
+   ::: 
 :::
 
 :::{challenge} (Optional) Exercise 3: Install package with venv
@@ -895,7 +897,7 @@ Breakout room according to grouping
    11. exit python
    12. deactivate
 
-.. solution:: Solution
+   :::{solution}
    :class: dropdown
 
    - First load the required Python module(s) if not already done so in earlier lessons. Remember that this steps differ between the HPC centers
@@ -921,11 +923,11 @@ Breakout room according to grouping
    ```console
 
       pip install matplotlib
+   ```
 
    4. make a requirements file of the content
 
    ```console
-
       pip freeze --local > requirements.txt
    ```
 
@@ -989,6 +991,7 @@ Breakout room according to grouping
 
       deactivate
    ```
+   :::
 :::
 
 :::{challenge} (optional) Exercise 5b. Make a test environment (conda)
