@@ -101,27 +101,17 @@ conda| conda/forge     | Yes        | No
    - Not recommended at HPC2N
    - At the other clusters, handle with care!
 
-+------------+---------------------------------+
-| HPC cluster| Conda vs venv                   |
-+============+=================================+
-| Alvis      | venv, conda in container        |
-+------------+---------------------------------+
-| Bianca     | conda/latest, venv via wharf    |
-+------------+---------------------------------+
-| COSMOS     | Anaconda3/2024.02-1             |
-+------------+---------------------------------+
-| Dardel     | miniconda3/24.7.1-0-cpeGNU-23.12|
-+------------+---------------------------------+
-| Kebnekaise | venv **only**                   |
-+------------+---------------------------------+
-| LUMI       | venv,  conda-containerize       |
-+------------+---------------------------------+
-| Pelle      | venv, Miniforge3/24.11.3-0      |
-+------------+---------------------------------+
-| Tetralith  | Anaconda3/2024.02-1             |
-+------------+---------------------------------+
-| LUMI       | conda-containerize              |
-+------------+---------------------------------+
+HPC cluster| Conda vs venv                  
+-|-
+Alvis      | venv, conda in container        
+Bianca     | conda/latest, venv via wharf    
+COSMOS     | Anaconda3/2024.02-1             
+Dardel     | miniconda3/24.7.1-0-cpeGNU-23.12
+Kebnekaise | venv **only**                   
+LUMI       | venv,  conda-containerize       
+Pelle      | venv, Miniforge3/24.11.3-0      
+Tetralith  | Anaconda3/2024.02-1             
+LUMI       | conda-containerize              
 
 .. tip::
 
@@ -407,11 +397,12 @@ Make environment file:
 
 Create an environment from a file. Do this on another computer or rename.
 
-.. code-block::
+```console
 
    conda env create -f environment.yml
    # if renaming is necessary
    conda env create -f environment.yml -p /path/renamed
+```
 
 .. discussion::
 
