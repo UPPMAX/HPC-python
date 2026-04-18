@@ -466,9 +466,9 @@ Breakout room according to grouping
 
    :::{solution}
 
-      .. tabs::
+      ::::{tab-set}
 
-         .. tab:: venv
+         :::{tab-item} venv
 
             NSC:
 
@@ -492,7 +492,7 @@ Breakout room according to grouping
             - `Venv <https://docs.hpc2n.umu.se/software/userinstalls/#venv>`_
             - `Video by Richel <https://www.youtube.com/watch?v=_ev3g5Zvn9g>`_
 
-         .. tab:: conda
+         :::{tab-item} conda
 
             NSC:
 
@@ -526,9 +526,9 @@ Breakout room according to grouping
 
    There will be a mix of conda and venv att all clusters except for HPC2N where all is ``venv``
 
-   .. tabs::
+   ::::{tab-set}
 
-      .. tab:: NSC
+      :::{tab-item} NSC
 
          1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
 
@@ -562,7 +562,7 @@ Breakout room according to grouping
              - PyTorch
              - numba
 
-      .. tab:: PDC
+      :::{tab-item} PDC
 
          1. Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
 
@@ -622,18 +622,18 @@ Breakout room according to grouping
              - PyTorch
              - numba
 
-      .. tab:: LUNARC
+      :::{tab-item} LUNARC
 
          - Everything will work by just loading modules.
          - Go down to the other exercises!
 
-      .. tab:: UPPMAX
+      :::{tab-item} UPPMAX
 
          Let's make a Spyder installation in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
 
-         .. tabs::
+         ::::{tab-set}
 
-            .. tab:: Bianca
+            :::{tab-item} Bianca
 
                ```console
 
@@ -648,7 +648,7 @@ Breakout room according to grouping
                   python -V     # should give python version 3.12.X
                ```
 
-            .. tab:: Pelle
+            :::{tab-item} Pelle
 
                ```console
 
@@ -679,7 +679,7 @@ Breakout room according to grouping
              - TensorFlow
              - PyTorch
 
-      .. tab:: HPC2N
+      :::{tab-item} HPC2N
 
          We will put requirements files in the course project folder that you can build from in latter lessons
 
@@ -706,19 +706,19 @@ Breakout room according to grouping
    - Deactivate environment
    - Confirm package is now absent again
 
-   .. tabs::
+   ::::{tab-set}
 
-      .. tab:: NSC
+      :::{tab-item} NSC
 
          - Start in folder ``/proj/spring-courses-naiss/$USER``
          - Follow the tutorial at `Python <https://www.nsc.liu.se/software/python/>`_: scroll down to "More on Python virtual environments (venvs)"
 
-      .. tab:: PDC
+      :::{tab-item} PDC
 
          - Start in folder ``/cfs/klemming/projects/snic/spring-courses-naiss/$USER``
          - Follow the tutorial at Virtual environment with venv https://pdc-support.github.io/pdc-intro/#165
 
-      .. tab:: UPPMAX: Pelle
+      :::{tab-item} UPPMAX: Pelle
 
          ```console
 
@@ -729,7 +729,7 @@ Breakout room according to grouping
 
         "Example" is the name of the virtual environment. The directory "Example" is created in the present working directory. The ``-m`` flag makes sure that you use the libraries from the python version you are using.
 
-      .. tab:: HPC2N
+      :::{tab-item} HPC2N
 
          ```console
 
@@ -740,7 +740,7 @@ Breakout room according to grouping
 
          "Example" is the name of the virtual environment. You can name it whatever you want. The directory “Example” is created in the present working directory.
 
-      .. tab:: LUNARC
+      :::{tab-item} LUNARC
 
          ```console
 
@@ -787,9 +787,9 @@ Breakout room according to grouping
    - Deactivate environment
    - Confirm package is now absent again
 
-   .. tabs::
+   ::::{tab-set}
 
-      .. tab:: NSC
+      :::{tab-item} NSC
 
          ```console
 
@@ -804,7 +804,7 @@ Breakout room according to grouping
             python -V     # should give python version 3.12.X
          ```
 
-      .. tab:: PDC
+      :::{tab-item} PDC
 
          ```console
 
@@ -820,7 +820,7 @@ Breakout room according to grouping
             python -V     # should give python version 3.12.X
          ```
 
-      .. tab:: LUNARC
+      :::{tab-item} LUNARC
 
          ```console
 
@@ -835,7 +835,7 @@ Breakout room according to grouping
             python -V     # should give python version 3.12.X
          ```
 
-      .. tab:: UPPMAX: Bianca
+      :::{tab-item} UPPMAX: Bianca
 
           ```console
 
@@ -850,7 +850,7 @@ Breakout room according to grouping
              python -V     # should give python version 3.12.X
          ```
 
-      .. tab:: UPPMAX: Pelle
+      :::{tab-item} UPPMAX: Pelle
 
          ```console
 
@@ -865,7 +865,7 @@ Breakout room according to grouping
             python -V     # should give python version 3.12.X
          ```
 
-      .. tab:: HPC2N
+      :::{tab-item} HPC2N
 
          Skip this exercise
 
