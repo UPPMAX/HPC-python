@@ -473,7 +473,9 @@ This example is for a HIP (heterogeneous interface for portability) code, since 
 
 We will use the example HIP C++ code "Hello_world_gpu.cpp" from wget https://raw.githubusercontent.com/PDC-support/introduction-to-pdc/master/example/hello_world_gpu.cpp
 
-.. tabs:: Running on Dardel AMD GPU partition
+.. tabs:: 
+
+   Running on Dardel AMD GPU partition
 
    .. tab:: Dardel batch 
 
