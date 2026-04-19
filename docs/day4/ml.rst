@@ -776,7 +776,7 @@ We now learn by submitting a batch job which consists of loading python module, 
          .. code-block:: bash
 
             #!/bin/bash
-            #SBATCH -A hpc2n2025-151 # Change to your own
+            #SBATCH -A hpc2n2026-002 # Change to your own
             #SBATCH --time=00:10:00 # Asking for 10 minutes
             #SBATCH -n 1 # Asking for 1 core
             #SBATCH --gpus=1
@@ -796,7 +796,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A lu2025-7-106
+               #SBATCH -A lu2026-7-57
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -818,7 +818,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A naiss2025-22-934 # Change to your own
+               #SBATCH -A naiss2026-4-66 # Change to your own
                #SBATCH -n 1
                #SBATCH -c 32
                #SBATCH -t 00:10:00 # Asking for 10 minutes
@@ -836,7 +836,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A naiss2025-22-934 # Change to your own
+               #SBATCH -A naiss2026-4-66 # Change to your own
                #SBATCH --time=00:10:00  # Asking for 10 minutes
                #SBATCH -N 1
                #SBATCH --ntasks-per-node=1
@@ -856,7 +856,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             .. code-block:: bash
 
                #!/usr/bin/env bash
-               #SBATCH -A naiss2025-22-934 # Change to your own
+               #SBATCH -A naiss2026-4-66 # Change to your own
                #SBATCH --time=00:10:00  # Asking for 10 minutes
                #SBATCH -n 2
                #SBATCH --gpus-per-node=T4:1
@@ -956,7 +956,7 @@ Miscellaneous examples
 
                #!/bin/bash
                # Remember to change this to your own project ID after the course!
-               #SBATCH -A hpc2n2025-151
+               #SBATCH -A hpc2n2026-002
                # We are asking for 5 minutes
                #SBATCH --time=00:05:00
                # Asking for one V100
@@ -1009,7 +1009,7 @@ Miscellaneous examples
             .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A naiss2025-22-934 # Change to your own
+               #SBATCH -A naiss2026-4-66 # Change to your own
                #SBATCH -n 1
                #SBATCH -c 32
                #SBATCH -t 00:10:00 # Asking for 10 minutes
@@ -1035,7 +1035,7 @@ Miscellaneous examples
             .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A lu2025-7-106
+               #SBATCH -A lu2026-7-57
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -1064,7 +1064,7 @@ Miscellaneous examples
             .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A naiss2025-22-934
+               #SBATCH -A naiss2026-4-66
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -1094,7 +1094,7 @@ Miscellaneous examples
 
                #!/bin/bash -l
                # Remember to change this to your own project ID after the course!
-               #SBATCH -A naiss2025-22-934
+               #SBATCH -A naiss2026-4-66
                # We are asking for at least 1 hour
                #SBATCH --time=01:00:01
                #SBATCH --gpus=T4:1
@@ -1173,7 +1173,7 @@ Miscellaneous examples
 
                   #!/bin/bash
                   # Remember to change this to your own project ID after the course!
-                  #SBATCH -A hpc2n2025-151
+                  #SBATCH -A hpc2n2026-002
                   # We are asking for 5 minutes
                   #SBATCH --time=00:05:00
                   # Asking for one V100
@@ -1213,7 +1213,7 @@ Miscellaneous examples
             .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A naiss2025-22-934 # Change to your own
+               #SBATCH -A naiss2026-4-66 # Change to your own
                #SBATCH -n 1
                #SBATCH -c 32
                #SBATCH -t 00:10:00 # Asking for 10 minutes
@@ -1233,7 +1233,7 @@ Miscellaneous examples
             .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A lu2025-7-106
+               #SBATCH -A lu2026-5-57
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -1254,7 +1254,7 @@ Miscellaneous examples
             .. code-block:: bash
 
                #!/bin/bash
-               #SBATCH -A naiss2025-22-934
+               #SBATCH -A naiss2026-4-66
                #SBATCH -p gpua100
                #SBATCH -n 1
                #SBATCH --ntasks-per-node=1
@@ -1273,7 +1273,7 @@ Miscellaneous examples
             .. code-block:: bash
 
                   #!/usr/bin/env bash
-                  #SBATCH -A naiss2025-22-934 # Change to your own
+                  #SBATCH -A naiss2026-4-66 # Change to your own
                   #SBATCH --time=00:15:00  # Asking for 15 minutes
                   #SBATCH -n 2
                   #SBATCH --gpus-per-node=T4:1
