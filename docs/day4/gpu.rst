@@ -6,8 +6,6 @@ Using GPUs with Python
    - What is GPU acceleration?
    - How to enable GPUs (for instance with CUDA) in Python code?
    - How to deploy GPUs at HPC2N, UPPMAX, LUNARC, NSC, PDC and C3SE?
-   - Which GPUs will the new Arrhenius have? 
-
 
 .. objectives::
 
@@ -230,9 +228,11 @@ Numba example
 
 Numba is installed on some of the centers as a module (HPC2N, LUNARC, and C3SE). For UPPMAX and NSC we'll use virtual environments.
 
-.. admonition NOTE
+.. admonition:: NOTE
 
    PDC/Dardel has AMD GPUs and numba after version 0.53.1 only has compatibility with CUDA. The numba 0.53.1 version is too old to work with anything else installed.
+
+   The GPU-GH partition on PDC/Dardel has Nvidia Grace Hopper nodes which each has four NVIDIA Grace Hopper (H100) GPUs and four NVIDIA Grace ARM CPUs. However, the course project does not have an allocation on this. It *is* similar to what Arrhenius has, so next time this course runs there will be an example for this! 
 
    Thus, no numba example for PDC. You can try and play around with the hip example (marked with hip in the name) in the Exercises/examples/programs folder. There is also an example batch scripts for GPUs on Dardel in the Exercises/examples/pdc folder, which you can try with.
 
@@ -341,7 +341,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       .. code-block:: console
 
-         $ salloc -A hpc2n2025-151 --time=00:30:00 -n 1 --gpus=1 -C l40s
+         $ salloc -A hpc2n2026-002 --time=00:30:00 -n 1 --gpus=1 -C l40s
          salloc: Pending job allocation 32126787
          salloc: job 32126787 queued and waiting for resources
          salloc: job 32126787 has been allocated resources
@@ -362,7 +362,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
           #!/bin/bash
           # Remember to change this to your own project ID after the course!
-          #SBATCH -A hpc2n2025-151     # HPC2N ID - change to your own
+          #SBATCH -A hpc2n2026-002     # HPC2N ID - change to your own
           # We are asking for 5 minutes
           #SBATCH --time=00:05:00
           #SBATCH -n 1
@@ -385,7 +385,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          #!/bin/bash
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A lu2025-7-106
+         #SBATCH -A lu2026-7-57
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
          #SBATCH --ntasks-per-node=1
@@ -408,7 +408,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          #!/bin/bash
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A naiss2025-22-934
+         #SBATCH -A naiss2026-4-66
          # We are asking for 10 minutes
          #SBATCH -t 00:10:00
          #SBATCH -p alvis
@@ -430,7 +430,7 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
          #!/bin/bash
          # Remember to change this to your own project ID after the course!
-         #SBATCH -A naiss2025-22-934
+         #SBATCH -A naiss2026-4-66
          # We are asking for 5 minutes
          #SBATCH --time=00:05:00
          #SBATCH -n 1
@@ -464,6 +464,114 @@ As before, we need a batch script to run the code. There are no GPUs on the logi
 
       CPU function took 23.191229 seconds.
       GPU function took 2.931487 seconds.
+
+
+An example for Dardel/PDC
+......................... 
+
+This example is for a HIP (heterogeneous interface for portability) code, since most of Dardel's GPU's are AMD and not Nvidia - as mentioned above. 
+
+We will use the example HIP C++ code "Hello_world_gpu.cpp" from wget https://raw.githubusercontent.com/PDC-support/introduction-to-pdc/master/example/hello_world_gpu.cpp
+
+.. tabs:: Running on Dardel AMD GPU partition
+
+   .. tab:: Dardel batch 
+
+      .. code-block:: batch
+
+         #!/bin/bash
+         # Remember to change this to your own project ID after the course!
+         #SBATCH -A naiss2026-4-66
+         # We are asking for 10 minutes
+         #SBATCH -t 10:00:00
+         #SBATCH -N 1
+         #SBATCH --ntasks-per-node=1
+         #SBATCH -p gpu
+
+         # Load the ROCm module and set the accelerator target to 
+         # amd gfx90a  AMD MI250X GPU
+         ml rocm/6.3.3
+         ml craype-accel-amd-gfx90a
+         
+         # We use the AMD hipcc compiler  
+         # You can check the full path of the command hipcc: 
+         # which hipcc
+         # This returns
+         # /opt/rocm-6.3.3/bin/hipcc
+
+         # You can compile it on the login node. Here we compile it in the 
+         # batch script (normally don't do this)
+         hipcc --offload-arch=gfx90a hello_world_gpu.cpp -o hello_world_gpu.x
+      
+         srun -n 1 ./hello_world_gpu.x
+
+    .. tab:: HIP code
+
+      .. code-block:: c++ 
+
+         /*
+         ==============================================================================
+         Hello world
+         Copyright (C) 2023  Henric Zazzi <hzazzi@kth.se>
+         This program is free software: you can redistribute it and/or modify
+         it under the terms of the GNU General Public License as published by
+         the Free Software Foundation, either version 3 of the License, or
+         (at your option) any later version.
+         This program is distributed in the hope that it will be useful,
+         but WITHOUT ANY WARRANTY; without even the implied warranty of
+         MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+         GNU General Public License for more details.
+         You should have received a copy of the GNU General Public License
+         along with this program.  If not, see <http://www.gnu.org/licenses/>.
+         ==============================================================================
+         */
+         #include <hip/hip_runtime.h>
+         #include <stdio.h>
+
+         // Kernel function that copies data string 1 -> string 2
+         __global__ void MyKernel(char* s1, char* s2) {
+           int idx = blockIdx.x * blockDim.x + threadIdx.x;
+           s2[idx] = s1[idx];
+           }
+
+         int main(int argc, char** argv) {
+           char hosts1[] = "hello world";
+           char hosts2[11], *devs1, *devs2;
+           size_t size = sizeof(hosts1);
+           int ndevices, ndevice;
+
+           // Get number of GPUs available
+           if (hipGetDeviceCount(&ndevices) != hipSuccess) {
+             printf("No such devices\n");
+             return 1;
+             } 
+           printf("You can access GPU devices: 0-%d\n", (ndevices - 1));
+           ndevice = 0;
+           if (argc > 1)
+             ndevice = atoi(argv[1]);
+           // Set default device to be used for subsequent hip API calls from this thread
+           if (hipSetDevice(ndevice) != hipSuccess) {
+             printf("Error initializing device %d\n", ndevice);
+             return 1;
+             }
+           // Allocate memory on device
+           hipMalloc(&devs1, size);
+           hipMalloc(&devs2, size);
+           // Copy data host -> device
+           hipMemcpy(devs1, hosts1, size, hipMemcpyHostToDevice);
+           // 3D-grid dimensions specifying the number of blocks to launch
+           dim3 ngrid(1);
+           // 3D-block dimensions specifying the number of threads in each block
+           dim3 nblock(size);
+           // Run kernel
+           hipLaunchKernelGGL(MyKernel, ngrid, nblock, 0, 0, devs1, devs2);
+           // Copy data device -> host
+           hipMemcpy(hosts2, devs2, size, hipMemcpyDeviceToHost);
+           // Free up memory
+           hipFree(devs1);
+           hipFree(devs2);
+           printf("GPU %d: %s\n", ndevice, hosts2);
+           }
 
 
 Exercises
@@ -610,7 +718,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A hpc2n2025-151
+            #SBATCH -A hpc2n2026-002
             #SBATCH -t 00:08:00
             #SBATCH -N 1
             #SBATCH -n 24
@@ -672,7 +780,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A lu2025-7-106
+            #SBATCH -A lu2026-7-57 
             #SBATCH -t 00:15:00
             #SBATCH -n 24
             #SBATCH -o output_%j.out   # output file
@@ -700,7 +808,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID after the course!
-            #SBATCH -A naiss2025-22-934
+            #SBATCH -A naiss2026-4-66
             #SBATCH -t 00:20:00
             #SBATCH -n 24
             #SBATCH --gpus-per-task=1
@@ -742,7 +850,7 @@ Exercises
 
             #!/bin/bash
             # Remember to change this to your own project ID!
-            #SBATCH -A naiss2025-22-934
+            #SBATCH -A naiss2026-4-66
             #SBATCH -t 00:15:00
             #SBATCH -p alvis
             #SBATCH -N 1 --gpus-per-node=T4:4
@@ -773,3 +881,4 @@ Additional information
 * `New York University CUDA/Numba lesson  <https://nyu-cds.github.io/python-numba/05-cuda/>`_
 * Hands-On GPU Programming with Python and CUDA : Explore High-Performance Parallel Computing with CUDA, Brian Tuomanen. Packt publishing.
 * Parallel and High Performance Computing, Robert Robey and Yuliana Zamora. Manning publishing.
+* `The new Arrhenius system <https://uppmax.github.io/HPC-python/arrhenius.html>`_

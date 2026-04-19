@@ -3,4 +3,4 @@
 Evaluation
 ==========
 
-`The evaluation form <https://forms.office.com/e/i9FE60VZhV>`__
+`The evaluation form <https://forms.cloud.microsoft/e/7xBb8TDKRR>`__
