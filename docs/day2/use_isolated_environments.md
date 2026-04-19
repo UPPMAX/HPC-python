@@ -131,10 +131,9 @@ LUMI       | conda-containerize
 
 :::{admonition} ``pip list`` documentation
 
-   - ``--local``: If in a virtualenv that has global access, do not list globally-installed packages.
-   - ``--user``: Only output packages installed in user-site.
-
-   https://pip.pypa.io/en/stable/cli/pip_list/
+- ``--local``: If in a virtualenv that has global access, do not list globally-installed packages.
+- ``--user``: Only output packages installed in user-site.
+- [documentation](https://pip.pypa.io/en/stable/cli/pip_list)
 :::
 
 
