@@ -505,7 +505,7 @@ We will use the example HIP C++ code "Hello_world_gpu.cpp" from wget https://raw
       
          srun -n 1 ./hello_world_gpu.x
 
-    .. tab:: HIP code
+   .. tab:: HIP code
 
       .. code-block:: c++ 
 
