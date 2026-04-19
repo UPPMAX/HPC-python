@@ -475,11 +475,11 @@ We will use the example HIP C++ code "Hello_world_gpu.cpp" from wget https://raw
 
 .. tabs:: 
 
-   Running on Dardel AMD GPU partition
-
    .. tab:: Dardel batch 
 
-      .. code-block:: batch
+      Running on Dardel AMD GPU partition
+
+      .. code-block:: 
 
          #!/bin/bash
          # Remember to change this to your own project ID after the course!
