@@ -326,89 +326,93 @@ Well done!
     When done, and if you haven't done so yet,
     do :ref:`common-use-tarball`.
 
-    After that, read what the next session is about.
+    After that, get acquainted about packages in the "See also section"
 
-    You can easily navigate there by pressing the 'Next' arrow
-    at the bottom of this page, at the right-hand side
+.. seealso::
 
-.. admonition:: Core numerics libraries
+   :class: dropdown
 
-   - numpy - Arrays and array math.
-   - scipy - Software for math, science, and engineering.
+   Summary taken from `Libraries section <https://aaltoscicomp.github.io/python-for-scicomp/libraries/>`_ of course Python for Scientific Computing.
 
-.. admonition:: Plotting
+   .. admonition:: Core numerics libraries
 
-   - matplotlib - Base plotting package, somewhat low level but almost everything builds on it.
-   - seaborn - Higher level plotting interface; statistical graphics.
-   - Vega-Altair - Declarative Python plotting.
-   - mayavi - 3D plotting
-   - Plotly - Big graphing library.
+      - numpy - Arrays and array math.
+      - scipy - Software for math, science, and engineering.
 
-.. admonition:: Data analysis and other important core packages
+   .. admonition:: Plotting
 
-   - pandas - Columnar data analysi.
-   - polars <https://pola.rs/> - Alternative to pandas that uses similar API, but is re-imagined for more speed.
-   - Vaex - Alternative for pandas that uses similar API for lazy-loading and processing huge DataFrames.
-   - Dask - Alternative to Pandas that uses similar API and can do analysis in parallel.
-   - xarrray - Framework for working with mutli-dimensional arrays.
-   - statsmodels - Statistical models and tests.
-   - SymPy - Symbolic math.
-   - networkx - Graph and network analysis.
-   - graph-tool - Graph and network analysis toolkit implemented in C++.
+      - matplotlib - Base plotting package, somewhat low level but almost everything builds on it.
+      - seaborn - Higher level plotting interface; statistical graphics.
+      - Vega-Altair - Declarative Python plotting.
+      - mayavi - 3D plotting
+      - Plotly - Big graphing library.
 
-.. admonition:: Interactive computing and human interface
+   .. admonition:: Data analysis and other important core packages
 
-   - Interactive computing
-      - IPython - Nicer interactive interpreter
-      - Jupyter - Web-based interface to IPython and other languages (includes projects such as jupyter notebook, lab, hub, …)
-   - Testing
-      - pytest - Automated testing interface
-   - Documentation
-      - Sphinx - Documentation generator (also used for this lesson…)
-   - Development environments
-      - Spyder - Interactive Python development environment.
-      - Visual Studio Code - Microsoft’s flagship code editor.
-      - PyCharm - JetBrains’s Python IDE.
-   - Binder - load any git repository in Jupyter automatically, good for reproducible research
+      - pandas - Columnar data analysi.
+      - polars <https://pola.rs/> - Alternative to pandas that uses similar API, but is re-imagined for more speed.
+      - Vaex - Alternative for pandas that uses similar API for lazy-loading and processing huge DataFrames.
+      - Dask - Alternative to Pandas that uses similar API and can do analysis in parallel.
+      - xarrray - Framework for working with mutli-dimensional arrays.
+      - statsmodels - Statistical models and tests.
+      - SymPy - Symbolic math.
+      - networkx - Graph and network analysis.
+      - graph-tool - Graph and network analysis toolkit implemented in C++.
 
-.. admonition:: Data format support and data ingestion
+   .. admonition:: Interactive computing and human interface
 
-   - pillow - Image manipulation. The original PIL is no longer maintained, the new “Pillow” is a drop-in replacement.
-   - h5py and PyTables - Interfaces to the HDF5 file format.
+      - Interactive computing
+         - IPython - Nicer interactive interpreter
+         - Jupyter - Web-based interface to IPython and other languages (includes projects such as jupyter notebook, lab, hub, …)
+      - Testing
+         - pytest - Automated testing interface
+      - Documentation
+         - Sphinx - Documentation generator (also used for this lesson…)
+      - Development environments
+         - Spyder - Interactive Python development environment.
+         - Visual Studio Code - Microsoft’s flagship code editor.
+         - PyCharm - JetBrains’s Python IDE.
+      - Binder - load any git repository in Jupyter automatically, good for reproducible research
 
-.. admonition:: Speeding up code and parallelism
+   .. admonition:: Data format support and data ingestion
 
-   - MPI for Python (mpi4py) - Message Passing Interface (MPI) in Python for parallelizing jobs.
-   - cython - easily make C extensions for Python, also interface to C libraries
-   - numba - just in time compiling of functions for speed-up
-   - PyPy - Python written in Python so that it can internally optimize more.
-   - Dask - Distributed array data structure for distributed computation
-   - Joblib - Easy embarrassingly parallel computing
-   - IPyParallel - Easy parallel task engine.
-   - numexpr - Fast evaluation of array expressions by automatically compiling the arithmetic.
+      - pillow - Image manipulation. The original PIL is no longer maintained, the new “Pillow” is a drop-in replacement.
+      - h5py and PyTables - Interfaces to the HDF5 file format.
 
-.. admonition:: Machine learning
+   .. admonition:: Speeding up code and parallelism
 
-   - nltk - Natural language processing toolkit.
-   - scikit-learn - Traditional machine learning toolkit.
-   - xgboost - Toolkit for gradient boosting algorithms.
+      - MPI for Python (mpi4py) - Message Passing Interface (MPI) in Python for parallelizing jobs.
+      - cython - easily make C extensions for Python, also interface to C libraries
+      - numba - just in time compiling of functions for speed-up
+      - PyPy - Python written in Python so that it can internally optimize more.
+      - Dask - Distributed array data structure for distributed computation
+      - Joblib - Easy embarrassingly parallel computing
+      - IPyParallel - Easy parallel task engine.
+      - numexpr - Fast evaluation of array expressions by automatically compiling the arithmetic.
 
-.. admonition:: Deep learning
+   .. admonition:: Machine learning
 
-   - tensorflow - Deep learning library by Google.
-   - pytorch - Currently the most popular deep learning library.
-   - keras - Simple libary for doing deep learning.
-   - huggingface - Ecosystem for sharing and running deep learning models and datasets. Incluses packages like transformers, datasets, accelerate, etc.
-   - jax - Google’s Python library for running NumPy and automatic differentiation on GPUs.
-   - flax - Neural network framework built on Jax.
-   - equinox - Another neural network framework built on Jax.
-   - DeepSpeed - Algorithms for running massive scale trainings. Included in many of the frameworks.
-   - PyTorch Lightning - Framework for creating and training PyTorch models.
-   - Tensorboard <https://www.tensorflow.org/tensorboard/> - Tool for visualizing model training on a web page.
+      - nltk - Natural language processing toolkit.
+      - scikit-learn - Traditional machine learning toolkit.
+      - xgboost - Toolkit for gradient boosting algorithms.
 
-.. admonition:: Other packages for special cases
+   .. admonition:: Deep learning
 
-   - dateutil and pytz - Date arithmetic and handling, timezone database and conversion.
+      - tensorflow - Deep learning library by Google.
+      - pytorch - Currently the most popular deep learning library.
+      - keras - Simple libary for doing deep learning.
+      - huggingface - Ecosystem for sharing and running deep learning models and datasets. Incluses packages like transformers, datasets, accelerate, etc.
+      - jax - Google’s Python library for running NumPy and automatic differentiation on GPUs.
+      - flax - Neural network framework built on Jax.
+      - equinox - Another neural network framework built on Jax.
+      - DeepSpeed - Algorithms for running massive scale trainings. Included in many of the frameworks.
+      - PyTorch Lightning - Framework for creating and training PyTorch models.
+      - Tensorboard <https://www.tensorflow.org/tensorboard/> - Tool for visualizing model training on a web page.
+
+   .. admonition:: Other packages for special cases
+
+      - dateutil and pytz - Date arithmetic and handling, timezone database and conversion.
+
 
 
 
