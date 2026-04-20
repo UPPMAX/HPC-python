@@ -41,17 +41,34 @@ Plan of the week:
 
 - Cover the use of the above packages in more or less detail
 
-Why software modules are important on a HPC cluster
----------------------------------------------------
+Why software modules are important on an HPC cluster
+----------------------------------------------------
 
 Software modules allows users of any HPC cluster
 to activate their favorite software and/or packages of any version.
 This helps to assure reproducible research.
 
+Where are the python packages?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Python packages can be included inside a Python software module, in a bundle module or needs to be installed by the user.
+
+Cluster | Recommended Python module | Python packages
+--------|---------------------------|----------------
+Dardel  | ``cray-python`` | Many installed in the Python module
+Tetralith | ``Python`` | Many installed in the Python module
+Alvis | ``Python`` | Other then core module in Bundle modules
+Bianca | ``python`` | Many installed in the Python module
+Kebnekaise | ``Python`` | Other then core module in Bundle modules
+Pelle | ``Python`` | Other then core module in Bundle modules
+Cosmos | ``Python`` | Other then core module in Bundle modules
+
+About ref:`python-bundles` from `EasyBuild <https://easybuild.io/>`_.
+
 How to see which Python packages are installed
 ----------------------------------------------
 
-There are two ways to determine which Python packages are installed:
+There are two ways to determine which Python packages are installed (with software modules loaded):
 
 +-------------------------+------------------------------------------------+--------------------------------+
 |Where                    |Command to run                                  |The package is present when ... |
@@ -320,7 +337,6 @@ In all cases, the package is now installed.
 Well done!
 
 
-
 .. admonition:: **Done?**
 
     When done, and if you haven't done so yet,
@@ -328,8 +344,11 @@ Well done!
 
     After that, get acquainted about packages in the "See also section"
 
-.. seealso::
+.. admonition:: Using a cluster with bundles (all *but* Dardel,Tetralith and Bianca)
 
+    Read about ref:`python-bundles` from `EasyBuild <https://easybuild.io/>`_.
+
+.. seealso::
    :class: dropdown
 
    Summary taken from `Libraries section <https://aaltoscicomp.github.io/python-for-scicomp/libraries/>`_ of course Python for Scientific Computing.
