@@ -1,3 +1,5 @@
+(use-isolated-environments)=
+
 # New system Arrhenius
 
 ## Background 
