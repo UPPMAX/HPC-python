@@ -53,17 +53,25 @@ Where are the python packages?
 
 Python packages can be included inside a Python software module, in a bundle module or needs to be installed by the user.
 
-Cluster | Recommended Python module | Python packages
---------|---------------------------|----------------
-Dardel  | ``cray-python`` | Many installed in the Python module
-Tetralith | ``Python`` | Many installed in the Python module
-Alvis | ``Python`` | Other then core module in Bundle modules
-Bianca | ``python`` | Many installed in the Python module
-Kebnekaise | ``Python`` | Other then core module in Bundle modules
-Pelle | ``Python`` | Other then core module in Bundle modules
-Cosmos | ``Python`` | Other then core module in Bundle modules
++-------------------------+---------------------------+------------------------------------------+
+|Cluster                  | Recommended Python module | Python packages                          |
++=========================+===========================+==========================================+
+|Dardel                   | ``cray-python``           | Many installed in the Python module      |
++-------------------------+---------------------------+------------------------------------------+
+|Tetralith                | ``Python``                | Many installed in the Python module      |
++-------------------------+---------------------------+------------------------------------------+
+|Alvis                    | ``Python``                | Other then core module in Bundle modules |
++-------------------------+---------------------------+------------------------------------------+
+|Bianca                   | ``python``                | Many installed in the Python module      |
++-------------------------+---------------------------+------------------------------------------+
+|Kebnekaise               | ``Python``                | Other then core module in Bundle modules |
++-------------------------+---------------------------+------------------------------------------+
+|Pelle                    | ``Python``                | Other then core module in Bundle modules |
++-------------------------+---------------------------+------------------------------------------+
+|Cosmos                   | ``Python``                | Other then core module in Bundle modules |
++-------------------------+---------------------------+------------------------------------------+
 
-About ref:`python-bundles` from `EasyBuild <https://easybuild.io/>`_.
+About :ref:`python-bundles` from `EasyBuild <https://easybuild.io/>`_.
 
 How to see which Python packages are installed
 ----------------------------------------------
