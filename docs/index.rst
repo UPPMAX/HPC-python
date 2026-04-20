@@ -213,18 +213,14 @@ Content of the course
    :caption: Extra:
 
    acknowledgments.md
-   bianca.rst
+   day2/python_bundles.md
+   day4/ML_deeper.rst
    common/other_courses.rst
    common/interactive_ondemand.rst
    extra/other_courses.rst
-   extra/conda.rst
-   extra/interactive_deeper.rst
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
    extra/jupyterHPC2N.rst
-   kebnekaise.md
-   day4/ML_deeper.rst
-   uppmax.rst
 
 .. Indices and tables
 .. ==================
