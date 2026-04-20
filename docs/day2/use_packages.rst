@@ -19,11 +19,33 @@ Why Python packages are important
 Python packages are pieces of tested Python code.
 Prefer using a Python package over writing your own code.
 
-Why software modules are important
-----------------------------------
+.. admonition:: Some definitions
+
+   - Library: A collection of code used by a program.
+   - Package: A library that has been made easily installable and reusable. Often published on public repositories such as the Python Package Index
+   - Dependency: A requirement of another program, not included in that program.
+
+What packages are out there
+---------------------------
+
+- Core numerics libraries: Ex ``numpy``
+- Plotting: Ex ``matplotlib`` and ``seaborn``
+- Data analysis and other important core packages: Ex ``pandas``, ``dask``, ``xarray``
+- Interactive computing and human interface: Ex ``Jupyter``, ``spyder``
+- Data format support and data ingestion: Ex ``h5py``
+- Speeding up code and parallelism: Ex ``mpi4py``, ``numba``, ``dask``
+- Machine learning: Ex ``scikit-learn``
+- Deep learning: Ex ``pytorch``, ``tensorflow``, ``keras``
+
+Plan of the week:
+
+- Cover the use of the above packages in more or less detail
+
+Why software modules are important on a HPC cluster
+---------------------------------------------------
 
 Software modules allows users of any HPC cluster
-to activate their favorite software of any version.
+to activate their favorite software and/or packages of any version.
 This helps to assure reproducible research.
 
 How to see which Python packages are installed
@@ -297,6 +319,8 @@ Exercise 1: using Python packages
 In all cases, the package is now installed.
 Well done!
 
+
+
 .. admonition:: **Done?**
 
     When done, and if you haven't done so yet,
@@ -306,4 +330,86 @@ Well done!
 
     You can easily navigate there by pressing the 'Next' arrow
     at the bottom of this page, at the right-hand side
+
+.. admonition:: Core numerics libraries
+
+   - numpy - Arrays and array math.
+   - scipy - Software for math, science, and engineering.
+
+.. admonition:: Plotting
+
+   - matplotlib - Base plotting package, somewhat low level but almost everything builds on it.
+   - seaborn - Higher level plotting interface; statistical graphics.
+   - Vega-Altair - Declarative Python plotting.
+   - mayavi - 3D plotting
+   - Plotly - Big graphing library.
+
+.. admonition:: Data analysis and other important core packages
+
+   - pandas - Columnar data analysi.
+   - polars <https://pola.rs/> - Alternative to pandas that uses similar API, but is re-imagined for more speed.
+   - Vaex - Alternative for pandas that uses similar API for lazy-loading and processing huge DataFrames.
+   - Dask - Alternative to Pandas that uses similar API and can do analysis in parallel.
+   - xarrray - Framework for working with mutli-dimensional arrays.
+   - statsmodels - Statistical models and tests.
+   - SymPy - Symbolic math.
+   - networkx - Graph and network analysis.
+   - graph-tool - Graph and network analysis toolkit implemented in C++.
+
+.. admonition:: Interactive computing and human interface
+
+   - Interactive computing
+      - IPython - Nicer interactive interpreter
+      - Jupyter - Web-based interface to IPython and other languages (includes projects such as jupyter notebook, lab, hub, …)
+   - Testing
+      - pytest - Automated testing interface
+   - Documentation
+      - Sphinx - Documentation generator (also used for this lesson…)
+   - Development environments
+      - Spyder - Interactive Python development environment.
+      - Visual Studio Code - Microsoft’s flagship code editor.
+      - PyCharm - JetBrains’s Python IDE.
+   - Binder - load any git repository in Jupyter automatically, good for reproducible research
+
+.. admonition:: Data format support and data ingestion
+
+   - pillow - Image manipulation. The original PIL is no longer maintained, the new “Pillow” is a drop-in replacement.
+   - h5py and PyTables - Interfaces to the HDF5 file format.
+
+.. admonition:: Speeding up code and parallelism
+
+   - MPI for Python (mpi4py) - Message Passing Interface (MPI) in Python for parallelizing jobs.
+   - cython - easily make C extensions for Python, also interface to C libraries
+   - numba - just in time compiling of functions for speed-up
+   - PyPy - Python written in Python so that it can internally optimize more.
+   - Dask - Distributed array data structure for distributed computation
+   - Joblib - Easy embarrassingly parallel computing
+   - IPyParallel - Easy parallel task engine.
+   - numexpr - Fast evaluation of array expressions by automatically compiling the arithmetic.
+
+.. admonition:: Machine learning
+
+   - nltk - Natural language processing toolkit.
+   - scikit-learn - Traditional machine learning toolkit.
+   - xgboost - Toolkit for gradient boosting algorithms.
+
+.. admonition:: Deep learning
+
+   - tensorflow - Deep learning library by Google.
+   - pytorch - Currently the most popular deep learning library.
+   - keras - Simple libary for doing deep learning.
+   - huggingface - Ecosystem for sharing and running deep learning models and datasets. Incluses packages like transformers, datasets, accelerate, etc.
+   - jax - Google’s Python library for running NumPy and automatic differentiation on GPUs.
+   - flax - Neural network framework built on Jax.
+   - equinox - Another neural network framework built on Jax.
+   - DeepSpeed - Algorithms for running massive scale trainings. Included in many of the frameworks.
+   - PyTorch Lightning - Framework for creating and training PyTorch models.
+   - Tensorboard <https://www.tensorflow.org/tensorboard/> - Tool for visualizing model training on a web page.
+
+.. admonition:: Other packages for special cases
+
+   - dateutil and pytz - Date arithmetic and handling, timezone database and conversion.
+
+
+
 
