@@ -135,6 +135,10 @@ Schedule Spring 2026
       - The applications to connect to the clusters: terminals and ThinLinc (remote graphical desktop)
    - This course does not aim to improve your coding skills. Rather you will learn to understand the ecosystems and navigations for the the different languages on a HPC cluster.
 
+.. info::
+
+   - Alvis, Tetralith and Dardel are all phased out (in this order) and will be replaced by **Arrhenius**
+   - More info in the :ref:`arrhenius` page
 
 Content of the course
 ---------------------
