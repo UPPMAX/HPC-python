@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A naiss2025-22-934
+#SBATCH -A naiss2026-4-66
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
 # The following two lines splits the output in a file for any errors and a file for other output.
@@ -12,7 +12,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/courses-fall-2025/users/<mydir-name>/Exercises/day4/programs/
+MYPATH=/proj/spring-courses-naiss/users/<mydir-name>/Exercises/day4/programs/
 
 # Remove any loaded modules and load the ones we need
 module purge  > /dev/null 2>&1

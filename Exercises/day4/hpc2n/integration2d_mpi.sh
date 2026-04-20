@@ -1,6 +1,6 @@
 #!/bin/bash
 # Change to your own project id! 
-#SBATCH -A hpc2n2025-151
+#SBATCH -A hpc2n2026-002
 #SBATCH -t 00:05:00
 #SBATCH -n 4
 #SBATCH -o output_%j.out   # output file
@@ -8,7 +8,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/nobackup/fall-courses/<mydir-name>/Exercises/day4/programs/
+MYPATH=/proj/nobackup/spring-courses/<mydir-name>/Exercises/day4/programs/
 
 ml purge > /dev/null 2>&1
 ml GCC/12.3.0 Python/3.11.3

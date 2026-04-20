@@ -1,6 +1,6 @@
 #!/bin/bash
 # Change to your own project id! 
-#SBATCH -A lu2025-7-106
+#SBATCH -A lu2026-7-57
 #SBATCH -t 00:05:00
 #SBATCH -n 4
 #SBATCH -o output_%j.out   # output file
@@ -8,7 +8,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/lunarc/nobackup/projects/lu2025-17-52/<mydir-name>/Exercises/day4/programs/
+MYPATH=$HOME/<mydir-name>/Exercises/day4/programs/
 
 ml purge > /dev/null 2>&1
 ml GCC/12.3.0 Python/3.11.3

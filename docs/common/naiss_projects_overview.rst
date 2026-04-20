@@ -63,6 +63,6 @@ Storage spaces for this workshop:
        - it is magnetic, so will be used automatically
 
    - LUNARC
-       - ``hpc-python-dayN`` for up to 2 CPU nodes per day, where N=1 for Thursday, 2 for Friday, 3 for Monday, and 4 for Tuesday
-       - ``hpc-python-day4-gpu`` for the GPU and ML sessions on Tuesday afternoon
+       - ``python_april26`` for the GPU and ML sessions on Friday
+         - NOTE: it is in the gpua40i partition.   Nodes have Intel processors (32 cores) and a40 cards.   
        - **Note**: for On-Demand apps, click the gear icon next to "Resource" in GfxLauncher popup to see additional options, which should include a box to include a reservation. Ticking that box will reveal a dropdown menu with the list of reservations associated with the project.

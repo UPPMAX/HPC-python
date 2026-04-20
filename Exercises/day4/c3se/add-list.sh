@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID after the course!
-#SBATCH -A naiss2025-22-934
+#SBATCH -A naiss2026-4-66
 # We are asking for 10 minutes
 #SBATCH -t 00:10:00
 #SBATCH -p alvis
@@ -11,7 +11,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/mimer/NOBACKUP/groups/courses-fall-2025/<mydir-name>/Exercises/day4/programs/
+MYPATH=/mimer/NOBACKUP/groups/spring-courses-naiss/<mydir-name>/Exercises/day4/programs/
 
 # Load any needed GPU modules and any prerequisites - on Alvis this module loads all
 ml purge > /dev/null 2>&1
