@@ -35,6 +35,11 @@ Introduction
     Prior questions:
     - What is Pyton?
 
+.. warning::
+
+   - Alvis, Tetralith and Dardel are all phased out (in this order) and will be replaced by **Arrhenius**
+   - More info in the :ref:`arrhenius` page
+
 Why is this course important?
 -----------------------------
 
@@ -76,13 +81,13 @@ programming language, e.g. make `Sven` into `Sven [Alvis]`.
 You can do so by right-click on the video of yourself,
 then click 'Rename' to change your Zoom name.
 
-Exercise 2: the learning outcomes of today
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Exercise 2: Q/A and the learning outcomes of today
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The goal of this exercise is to find out
+The goal of this exercise is to find out where to ask questions and 
 what you will learn today.
 
-- Go to `this form <https://docs.google.com/forms/d/e/1FAIpQLSfg9jH5RjSAEV_YzxBWcNA0Nd1Oi4--uED0NSnZTDmFAh4CYw/viewform?usp=publish-editor>`__
+Go to `this form <https://nextcloud.naiss.se/s/Jbfy4kj3bSJKtfG?dir=/&editing=false&openfile=true>`__
   and fill it in
 
 .. admonition:: **For teachers: What is in that form**
@@ -137,3 +142,4 @@ the things below?
 - How to use a text editor
 - The evaluation of this day
 - The NAISS project overview
+- The Arrhenius page
