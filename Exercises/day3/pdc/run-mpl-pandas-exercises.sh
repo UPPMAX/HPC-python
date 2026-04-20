@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remember to change this to your own project ID!
-#SBATCH -A naiss2025-22-934 
+#SBATCH -A naiss2026-4-66 
 # We are asking for 5 minutes
 #SBATCH --time=00:05:00
 # Asking for one core (may need to add more for later pandas exercises)
@@ -8,7 +8,7 @@
 
 # Change to the directory where the data files and program are located
 # Change the below to your own path to where you placed the example programs
-cd cfs/klemming/projects/supr/courses-fall-2025/<mydir-name>/Exercises/day3/programs/
+cd cfs/klemming/projects/supr/spring-courses-naiss/<mydir-name>/Exercises/day3/programs/
 
 # Load the modules we need
 module load cray-python/3.11.7

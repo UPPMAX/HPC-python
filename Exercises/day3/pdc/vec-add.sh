@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A naiss2025-22-934 # Change to your own
+#SBATCH -A naiss2026-4-66 # Change to your own
 #SBATCH --time=00:10:00  # Asking for 10 minutes
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=1
@@ -7,7 +7,7 @@
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/cfs/klemming/projects/supr/courses-fall-2025/<mydir-name>/Exercises/day3/programs/
+MYPATH=/cfs/klemming/projects/supr/spring-courses-naiss/<mydir-name>/Exercises/day3/programs/
 
 # Load the module we need
 module load PDC/23.12
