@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH -A naiss2025-22-934 # Change to your own
+#SBATCH -A naiss2026-4-66 # Change to your own
 #SBATCH --time=00:10:00 # Asking for 10 minutes
 #SBATCH -n 1 # Asking for 1 core
 
 # Set a path where the example programs are installed. 
 # Change the below to your own path to where you placed the example programs
-MYPATH=/proj/courses-fall-2025/users/<mydir-name>/Exercises/day2/programs/
+MYPATH=/proj/spring-courses-naiss/users/<mydir-name>/Exercises/day2/programs/
 
 # Load any modules you need. This is an example 
 ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0
