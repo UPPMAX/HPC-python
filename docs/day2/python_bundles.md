@@ -84,7 +84,7 @@ FOSS | Python version| GCC version | Bundle version
 :::{danger}
 
 - Make sure to use bundles that are compatible with each-other and with needed Python version.
-- Otherwise it is better to create isolated environments with Conda or virtual environments, see [Virtual environments in Python](python_virtual_environments.md).
+- Otherwise it is better to create isolated environments with Conda or virtual environments, see [Isolated environments in Python](use_isolated_environments.md).
 ::: 
 
 :::{callout}  Example Matplotlib
