@@ -125,7 +125,7 @@ LUMI       | conda-containerize
    - If very troublesome, try with ``conda``
 
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course.
-   - To see which Python packages you have installed in an anvironment, you can use ``pip list --local`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``.
+   - To see which Python packages you have installed in an environment, you can use ``pip list --local`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``.
        - Note that ``--user`` must be omitted: else the package will be installed in the global user folder.
 :::
 
@@ -278,7 +278,7 @@ conda install numpy
 >>> import numpy
 ```
 
-- Note, hen pinning with Conda, use single ``=`` instead of double (as used by pip)
+- Note, when pinning with `conda`, use single ``=`` instead of double (as used by pip)
 
 
 :::{admonition} Conda base env
