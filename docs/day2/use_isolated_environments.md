@@ -1180,5 +1180,5 @@ Next steps are the same for all clusters
 
    - want to share your work? :ref:`devel_iso`
    - uploading files
-      - `NAISS transfer course <https://uppmax.github.io/naiss_file_transfer_course/sessions/intro/>`_
+      - `NAISS transfer course <https://hpc.pages.naiss.se/training/connect-transfer/sessions/intro/>`_
 :::
