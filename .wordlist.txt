@@ -1165,3 +1165,4 @@ numerics
 gpua
 installable
 micromamba
+repos
