@@ -139,7 +139,7 @@ LUMI       | conda-containerize
 
 ### Virtual environment - venv & virtualenv
 
-With this tool you can download and install with ``pip`` from the `PyPI repository <https://pypi.org/>`_
+With this tool you can download and install with ``pip`` from the [PyPI repository](https://pypi.org/)
 
 :::{admonition} venv vs. virtualenv
    :class: dropdown
@@ -203,7 +203,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 
 ### Conda
 
-- `Conda <https://anaconda.org/anaconda/conda>`_ is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
+- [Conda](https://anaconda.org/anaconda/conda) is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
 
 - Conda creates isolated environments not clashing with other installations of python and other versions of packages.
 - Conda environment requires that you install all packages needed by yourself.
@@ -318,15 +318,15 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 :::{admonition} Conda vs mamba etc...
    :class: dropdown
 
-   - `what-is-the-difference-with-conda-mamba-poetry-pip <https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip>`_
+   - [what-is-the-difference-with-conda-mamba-poetry-pip](https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip)
 :::
 
 :::{admonition} What to do when a problem arises?
    :class: dropdown
 
    - If you experience unexpected problems with the conda provided by the module system on Rackham or anaconda3 on Dardel, you can easily install your own and maintain it yourself.
-   - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
-   - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
+   - Read more at [Pavlin Mitev's page about conda on Rackham/Dardel](https://hackmd.io/@pmitev/conda_on_Rackham) and change paths to relevant one for your system.
+   - Or [Conda - "best practices" - UPPMAX](https://hackmd.io/@pmitev/module_conda_Rackham)
 :::
 
 ## Install from file
@@ -471,25 +471,25 @@ Breakout room according to grouping
 
             NSC:
 
-            - `Python <https://www.nsc.liu.se/software/python/>`_
+            - [Python](https://www.nsc.liu.se/software/python/)
 
             PDC:
 
-            - `Virtual environment with venv <https://pdc-support.github.io/pdc-intro/#165>`_
+            - [Virtual environment with venv](https://pdc-support.github.io/pdc-intro/#165)
 
             LUNARC
 
-            - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
+            - [Python](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/)
 
             UPPMAX (only Pelle)
 
-            - `Python venv <https://docs.uppmax.uu.se/software/python_venv/>`_
-            - `Video By Richel <https://www.youtube.com/watch?v=lj_Q-5l0BqU>`_
+            - [Python venv](https://docs.uppmax.uu.se/software/python_venv/)
+            - [Video By Richel <https://www.youtube.com/watch?v=lj_Q-5l0BqU)
 
             HPC2N
 
-            - `Venv <https://docs.hpc2n.umu.se/software/userinstalls/#venv>`_
-            - `Video by Richel <https://www.youtube.com/watch?v=_ev3g5Zvn9g>`_
+            - [Venv](https://docs.hpc2n.umu.se/software/userinstalls/#venv)
+            - [Video by Richel](https://www.youtube.com/watch?v=_ev3g5Zvn9g)
 
          :::
          :::{tab-item} conda
@@ -508,8 +508,8 @@ Breakout room according to grouping
 
             UPPMAX
 
-            - https://docs.uppmax.uu.se/software/conda/
-            - `Bianca <https://uppmax.github.io/bianca_workshops/extra/conda/>`_
+            - [Conda on Pelle](https://docs.uppmax.uu.se/software/conda_on_pelle/)
+            - [Bianca](https://uppmax.github.io/bianca_workshops/extra/conda/)
 
             LUMI
 
@@ -1178,7 +1178,8 @@ Next steps are the same for all clusters
 
 :::{seealso}
 
-   - want to share your work? :ref:`devel_iso`
-   - uploading files
-      - `NAISS transfer course <https://hpc.pages.naiss.se/training/connect-transfer/sessions/intro/>`_
+   - Want to share your work? [Developing in insolated environments](extra/isolated_deeper.rst)
+   - Uploading files
+
+      - [NAISS transfer course](https://hpc.pages.naiss.se/training/connect-transfer/sessions/intro)
 :::
