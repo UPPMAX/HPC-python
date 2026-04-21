@@ -279,7 +279,7 @@ There are many ways to do so:
 ## (optional) Exercise 3: displaying a `pandas` table
 
 In this exercise, we will again use
-[the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
+the 'diamonds' dataset (as a comma-separated file), [click to download](https://uppmax.github.io/HPC-python/_downloads/2c3f44b9035e3effc9e3b2854f37f1f0/diamonds.csv):
 a dataset about diamonds.
 
 This dataset contains information about more than fifty thousand diamonds.
