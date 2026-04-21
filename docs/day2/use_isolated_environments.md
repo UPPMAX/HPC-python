@@ -893,7 +893,7 @@ Breakout room according to grouping
 
 :::{challenge} (optional) 5. Make a test environment and spread (venv)
 
-   Read `here <https://uppmax.github.io/HPC-python/extra/isolated_deeper.html#creator-developer>`_
+   Read [here](../extra/isolated_deeper.rst#creator-developer)
 
    1. make a virtual environment with the name ``venv1``. Do not include packages from the the loaded module(s)
    2. activate
@@ -1178,8 +1178,8 @@ Next steps are the same for all clusters
 
 :::{seealso}
 
-   - Want to share your work? [Developing in insolated environments](extra/isolated_deeper.rst)
+   - Want to share your work? [Developing in insolated environments](../extra/isolated_deeper.rst)
    - Uploading files
 
-      - [NAISS transfer course](https://hpc.pages.naiss.se/training/connect-transfer/sessions/intro)
+      - [NAISS transfer course](https://hpc.pages.naiss.se/training/connect-transfer/sessions/intro_file_transfer/)
 :::
