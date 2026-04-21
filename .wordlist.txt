@@ -1164,3 +1164,4 @@ githubusercontent
 numerics
 gpua
 installable
+micromamba
