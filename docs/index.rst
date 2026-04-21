@@ -214,6 +214,7 @@ Content of the course
 
    acknowledgments.md
    day2/python_bundles.md
+   extra/extra_isolated.md
    day4/ML_deeper.rst
    common/other_courses.rst
    common/interactive_ondemand.rst
