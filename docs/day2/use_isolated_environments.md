@@ -91,7 +91,7 @@ conda| conda/forge     | Yes        | No
     - Check with ``which python``, should show at path to the environment.
 - Packages are defined by the environment.
     - Check with ``pip list``
-    - Conda can only see what you installed for it.
+    - ``conda`` can only see what you installed for it.
     - ``venv`` and ``virtualenv`` also see other packages if you allowed for that when creating the environment (``--system-site-packages``).
 - You can work in a Python shell or IDE (coming session)
 - You can run scripts dependent on packages now installed in your environment.
@@ -125,18 +125,20 @@ LUMI       | conda-containerize
    - If very troublesome, try with ``conda``
 
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course.
-   - To see which Python packages you, yourself, have installed, you can use ``pip list --local`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``.
+   - To see which Python packages you have installed in an anvironment, you can use ``pip list --local`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``.
        - Note that ``--user`` must be omitted: else the package will be installed in the global user folder.
 :::
 
 :::{admonition} ``pip list`` documentation
+   :class: dropdown
+
 
 - ``--local``: If in a virtualenv that has global access, do not list globally-installed packages.
 - ``--user``: Only output packages installed in user-site.
 - [documentation](https://pip.pypa.io/en/stable/cli/pip_list)
 :::
 
-### Virtual environment - venv & virtualenv
+## Virtual environment - venv & virtualenv
 
 With this tool you can download and install with ``pip`` from the [PyPI repository](https://pypi.org/)
 
@@ -150,16 +152,17 @@ With this tool you can download and install with ``pip`` from the [PyPI reposito
        - venv: ``python -m venv Example2``
    - Next steps are identical and involves "activating" and ``pip install``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
+:::
 
 :::{admonition} Tip for Tetralith
 
    - load a "bare" python, like ``Python/3.10.4-bare-hpc1-gcc-2022a-eb``
-   - in en environment install setuptools and wheel: ``pip3 install --upgrade pip setuptools wheel``
+   - in an environment install setuptools and wheel: ``pip3 install --upgrade pip setuptools wheel``
 :::
 
-:::{admonition} Example NSC
+### Example NSC
 
-   ```console
+```console
 
       ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
       which python
@@ -173,13 +176,12 @@ With this tool you can download and install with ``pip`` from the [PyPI reposito
       pip install matplotlib
       # do some work
       python
-   ```   
-:::
+```   
 
-   ```python
+```python
 
-      >>> import matplotlib
-   ```   
+    >>> import matplotlib
+```   
 
 - When work is done, deactivate the environment with
 
@@ -188,22 +190,21 @@ With this tool you can download and install with ``pip`` from the [PyPI reposito
    deactivate
 ```
 
-:::{note}
-
-   - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions.
-   - Some packages may be inherited from the modules you have loaded
-   - To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!
-       -   ``--system-site-packages`` includes the packages already installed in the loaded python module.
-   - The ``--no-cache-dir"`` option is required to **avoid it from reusing earlier installations from the same user in a different environment**.
-:::
-
-### Conda
+## Conda
 
 - [Conda](https://anaconda.org/anaconda/conda) is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
 
 - Conda creates isolated environments not clashing with other installations of python and other versions of packages.
 - Conda environment requires that you install all packages needed by yourself.
-    - That is,  you cannot load the python module and use the packages therein inside you Conda environment.
+    - That is,  you cannot load the Python module and use the packages therein inside you Conda environment.
+
+:::{admonition} Conda vs mamba etc...
+   :class: dropdown
+
+   - [what-is-the-difference-with-conda-mamba-poetry-pip](https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip)
+:::
+
+One can choose from different repos, or ``channels``
 
 :::{admonition} Conda channels
    :class: dropdown
@@ -223,11 +224,22 @@ With this tool you can download and install with ``pip`` from the [PyPI reposito
     You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX. Otherwise you do with ``conda -c <channel> ...``
 :::
 
+``Miniconda`` and ``Miniforge`` are the common software modules at the centres.
+
+:::{admonitions} Conda distributions
+   :class: dropdown
+
+- **Anaconda** is a distribution of conda packages made by Anaconda Inc.. When using Anaconda remember to check that your situation abides with their **licensing terms**.
+- **Miniconda** is a minimal installer maintained by Anaconda Inc. that has conda and uses Anaconda’s channels by default. Check **licensing terms** when using these packages.
+- **Miniforge** is an **open-source** Miniconda replacement that uses **conda-forge as the default channel**. Contains mamba as well.
+- micromamba is a tiny stand-alone version of the mamba package manager written in C++. It can be used to create and manage environments without installing base-environment and Python. It is very useful if you want to automate environment creation or want a more lightweight tool
+:::
+
 :::{warning}
 
 Drawbacks
 
-- Conda cannot use already install packages from the Python modules and libraries already installed, and hence installs them anyway
+- Conda cannot use already installed packages from the Python modules and libraries, and hence installs them anyway
 - Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in $HOME).
 - Check your disk usage and quota limit
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
@@ -243,10 +255,9 @@ Drawbacks
    export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
    mamba create --prefix=$CONDA_ENVS_PATH/<conda env name>
    ```
-
 :::
 
-:::{admonition} Example NSC
+### Example NSC
 
 ```console
 
@@ -266,10 +277,9 @@ conda install numpy
 
 >>> import numpy
 ```
-:::
 
 - Note, hen pinning with Conda, use single ``=`` instead of double (as used by pip)
-:::
+
 
 :::{admonition} Conda base env
    :class: dropdown
@@ -279,6 +289,7 @@ conda install numpy
    - It is a “best practice” to avoid installing additional packages into your base software environment.
 
 :::{admonition} Conda cheat sheet
+   :class: dropdown
 
    - List packages in present environment:           ``conda list``
    - List all environments:                       ``conda info -e`` or ``conda env list``
@@ -290,12 +301,6 @@ conda install numpy
    - On e.g. HPC systems where you don’t have write access to central installation directory: ``conda create --prefix /some/path/to/env``
    - Activate a specific environment:                ``conda activate myenvironment``
    - Deactivate current environment:                 ``conda deactivate``
-:::
-
-:::{admonition} Conda vs mamba etc...
-   :class: dropdown
-
-   - [what-is-the-difference-with-conda-mamba-poetry-pip](https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip)
 :::
 
 ## Install from file
@@ -411,7 +416,7 @@ Create an environment from a file. Do this on another computer or rename.
 
 :::{discussion}
 
-   - Did you note the difference in file length?
+   - Did you note the difference in file length for ``venv`` & ``conda``?
    - What does it mean?
 :::
 
