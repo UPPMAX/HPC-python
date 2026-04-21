@@ -1178,7 +1178,7 @@ Next steps are the same for all clusters
 
 :::{seealso}
 
-   - Want to share your work? [Developing in insolated environments](../extra/isolated_deeper.rst)
+   - Want to share your work? [Developing in isolated environments](../extra/isolated_deeper.rst)
    - Uploading files
 
       - [NAISS transfer course](https://hpc.pages.naiss.se/training/connect-transfer/sessions/intro_file_transfer/)
