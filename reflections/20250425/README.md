@@ -471,7 +471,7 @@ As far as I know, my course material has explicit versions.
 
 ## Some other feedback
 
-From [Day 3](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6):
+From [Day 3](../../evaluations/20250428_day_3/comments.txt#L6):
 
 > This is mostly for the parts last week,
 > I'm not so fond of this calling out of people with their names.
@@ -523,43 +523,43 @@ Below are the meeting notes of 2025-05-22 with my suggestions.
 
 - [Jayant] More InfraVis like collabs demoing usecases
   - [Richel] I agree we should collaborate more!
-- [Richel] From the learners, I read [a suggestion to make day 2 'Intro to HPC, usage and management of software and code'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47) and ['it seemed to me that the time was not spent on the right things'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/pace.txt#L12). What about we listen to that? In practice,
+- [Richel] From the learners, I read [a suggestion to make day 2 'Intro to HPC, usage and management of software and code'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47) and ['it seemed to me that the time was not spent on the right things'](../../evaluations/20250425_day_2/pace.txt#L12). What about we listen to that? In practice,
   I feel this can mean either
   - switching 'matplotlib' on Day 2 with 'Slurm and batch jobs' on Day 3
   - move 'matplotlib' on Day 2 for more time for the more foundational things (Install packages, Slurm, isolated environments)
-- [Richel] From the learners I read the suggested topic ['How to find compatible modules and packages'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/future_topics.txt#L9).
+- [Richel] From the learners I read the suggested topic ['How to find compatible modules and packages'](../../evaluations/20250425_day_2/future_topics.txt#L9).
   That this would be useful is also mentioned by this learner
-  ['Learning about modules and packages and handling the dependency hell in various ways is very good'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L19)
+  ['Learning about modules and packages and handling the dependency hell in various ways is very good'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L19)
   I think it is great idea to add more time for getting modules to work.
   What about we add it? On the other hand, one learner stated
-  ['The fix would be to make sure every single command that loads a module or a python package does specify a specific version'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L57), which would mean to make the course material more version-explicit. I am up for both!
+  ['The fix would be to make sure every single command that loads a module or a python package does specify a specific version'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L57), which would mean to make the course material more version-explicit. I am up for both!
       - Add more time for getting modules to work: RB
       - Make all course material version specific: RB
       - Make no changes:
-- [Richel] One learner mentioned ['some part or parts had lots of spelling errors'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/comments.txt#L7). I hope the spell checker (we can get it to
+- [Richel] One learner mentioned ['some part or parts had lots of spelling errors'](../../evaluations/20250425_day_2/comments.txt#L7). I hope the spell checker (we can get it to
   work when using markdown) will fix that
-- [Richel] One learner mentioned ['Asking us to do stuff on the breaks is BAD'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250425_day_2/comments.txt#L7). What about we stick to our scheduled breaks?
+- [Richel] One learner mentioned ['Asking us to do stuff on the breaks is BAD'](../../evaluations/20250425_day_2/comments.txt#L7). What about we stick to our scheduled breaks?
   - Follow the breaks as in the schedule: RB
   - Ignore breaks:
-- [Richel] A learner stated ['Anders Hast deserves special mention for bringing true researcher enthusiasm, it is great to learn from teachers that know and enjoy the subject at hand like that'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11). Could we give Anders more time for his exercise? Now there were only 6 minutes of exercises (on the YouTube video: 28:47-34:02)
+- [Richel] A learner stated ['Anders Hast deserves special mention for bringing true researcher enthusiasm, it is great to learn from teachers that know and enjoy the subject at hand like that'](../../evaluation_202504_full_course.md?plain=1#L11). Could we give Anders more time for his exercise? Now there were only 6 minutes of exercises (on the YouTube video: 28:47-34:02)
   - Give Anders more time: RB
   - Keep the current schedule:
-- [Richel] A learner [exercises should be part of the course under course time](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L25),
-  with the problem that ['we might not get knowledge/skill presumed by later parts of the course'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L27).
+- [Richel] A learner [exercises should be part of the course under course time](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L25),
+  with the problem that ['we might not get knowledge/skill presumed by later parts of the course'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L27).
   What about we give our learners the time to do exercises, as well as test if indeed they were able to do so?
   Adding more time for a session seems fine be my.
   - Add more time for exercises and make sure they are ready for future sessions: RB
   - Ask learners to work during the breaks or evenings:
-- [Richel] A learner stated ['The session on IDEs had barely enough time for me to get Jupyter running, while I would've expected to try VS Code and Spyder as well since all of them are in there'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29).
+- [Richel] A learner stated ['The session on IDEs had barely enough time for me to get Jupyter running, while I would've expected to try VS Code and Spyder as well since all of them are in there'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29).
   What about we give this session more time?
   - Give IDEs more time: RB
   - Only do Jupyter: RB
   - Keep the schedule as it is:
-- [Richel] A learner suggested [a 4 day schedule](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47).
+- [Richel] A learner suggested [a 4 day schedule](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47).
   I know that 'Intro to Python' will get more HPCey, among others by adding how to loading
   Python package modules.
-- [Richel] A learners suggested ['could you please post the recordings a bit faster next time'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6)
-  and ['would be better to have them in the same youtube list as the rest though'](https://github.com/UPPMAX/HPC-python/blob/main/evaluations/20250428_day_3/comments.txt#L6). I think the first is a bit harsh.
+- [Richel] A learners suggested ['could you please post the recordings a bit faster next time'](../../evaluations/20250428_day_3/comments.txt#L6)
+  and ['would be better to have them in the same youtube list as the rest though'](../../evaluations/20250428_day_3/comments.txt#L6). I think the first is a bit harsh.
   The second is doable: just add the existing video to the HPC2N playlist (i.e you can do
   that in YouTube).
   - Link to videos in YouTube playlist: RB
