@@ -284,7 +284,7 @@ material.
 I agree that not everyone needs an IDE. However, Jupyter was needed
 to be able to do the exercises by Anders Hast.
 
-## [Detailed feedback from a learner](../../evaluations/202504_course/evaluation_202504_full_course.md)
+## [Detailed feedback from a learner](../../evaluations/202504_course/04_full_course.md)
 
 > NB: On the first day, with Richel, I was mostly in the role of a TA rather
 > than a learner. I did not fill out the feedback form for that day,
@@ -523,7 +523,7 @@ Below are the meeting notes of 2025-05-22 with my suggestions.
 
 - [Jayant] More InfraVis like collabs demoing usecases
   - [Richel] I agree we should collaborate more!
-- [Richel] From the learners, I read [a suggestion to make day 2 'Intro to HPC, usage and management of software and code'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47) and ['it seemed to me that the time was not spent on the right things'](../../evaluations/20250425_day_2/pace.txt#L12). What about we listen to that? In practice,
+- [Richel] From the learners, I read [a suggestion to make day 2 'Intro to HPC, usage and management of software and code'](../../evaluations/202504_course/04_full_course.md?plain=1#L47) and ['it seemed to me that the time was not spent on the right things'](../../evaluations/20250425_day_2/pace.txt#L12). What about we listen to that? In practice,
   I feel this can mean either
   - switching 'matplotlib' on Day 2 with 'Slurm and batch jobs' on Day 3
   - move 'matplotlib' on Day 2 for more time for the more foundational things (Install packages, Slurm, isolated environments)
@@ -541,7 +541,7 @@ Below are the meeting notes of 2025-05-22 with my suggestions.
 - [Richel] One learner mentioned ['Asking us to do stuff on the breaks is BAD'](../../evaluations/20250425_day_2/comments.txt#L7). What about we stick to our scheduled breaks?
   - Follow the breaks as in the schedule: RB
   - Ignore breaks:
-- [Richel] A learner stated ['Anders Hast deserves special mention for bringing true researcher enthusiasm, it is great to learn from teachers that know and enjoy the subject at hand like that'](../../evaluation_202504_full_course.md?plain=1#L11). Could we give Anders more time for his exercise? Now there were only 6 minutes of exercises (on the YouTube video: 28:47-34:02)
+- [Richel] A learner stated ['Anders Hast deserves special mention for bringing true researcher enthusiasm, it is great to learn from teachers that know and enjoy the subject at hand like that'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11). Could we give Anders more time for his exercise? Now there were only 6 minutes of exercises (on the YouTube video: 28:47-34:02)
   - Give Anders more time: RB
   - Keep the current schedule:
 - [Richel] A learner [exercises should be part of the course under course time](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L25),
