@@ -240,7 +240,7 @@ One can choose from different repos, or ``channels``
 Drawbacks
 
 - Conda cannot use already installed packages from the Python modules and libraries, and hence installs them anyway
-- Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in $HOME).
+- Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in ``$HOME``).
 - Check your disk usage and quota limit
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
 :::
@@ -441,13 +441,13 @@ Breakout room according to grouping
 
    First try to find it by navigating.
 
-   - Alvis: https://www.c3se.chalmers.se/documentation/first_time_users/
-   - NSC: https://www.nsc.liu.se
-   - PDC: https://support.pdc.kth.se/doc/
-   - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/
-   - UPPMAX: https://docs.uppmax.uu.se/
-   - HPC2N: https://docs.hpc2n.umu.se/
-   - LUMI: https://docs.lumi-supercomputer.eu/software
+   - Alvis: <https://www.c3se.chalmers.se/documentation/first_time_users/>
+   - NSC: <https://www.nsc.liu.se>
+   - PDC: <https://support.pdc.kth.se/doc/>
+   - LUNARC: <https://lunarc-documentation.readthedocs.io/en/latest/>
+   - UPPMAX: <https://docs.uppmax.uu.se/>
+   - HPC2N: <https://docs.hpc2n.umu.se/>
+   - LUMI: <https://docs.lumi-supercomputer.eu/software>
 
    :::{solution}
 
@@ -482,15 +482,15 @@ Breakout room according to grouping
 
             NSC:
 
-            - https://www.nsc.liu.se/software/anaconda/
+            - <https://www.nsc.liu.se/software/anaconda/>
 
             PDC:
 
-            - https://support.pdc.kth.se/doc/applications/python/
+            - <https://support.pdc.kth.se/doc/applications/python/>
 
             LUNARC
 
-            - https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
+            - <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>
 
             UPPMAX
 
@@ -499,7 +499,7 @@ Breakout room according to grouping
 
             LUMI
 
-            - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+            - <https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper>
 
             HPC2N:
 
@@ -773,7 +773,7 @@ Breakout room according to grouping
 
 :::{challenge} (optional) Exercise 4: like 3, but for Conda
 
-    Let's make an installation with the latest bug fix version of ``Python 3.12`` and compatible ``numpy`` and ``matplotlib`` in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
+Let's make an installation with the latest bug fix version of ``Python 3.12`` and compatible ``numpy`` and ``matplotlib`` in a [conda environment](https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment)
 
    - Activate environment
    - Confirm package is absent
@@ -1032,37 +1032,37 @@ Breakout room according to grouping
 Summary of the workflows:
 
 - [Venv](../extra/extra_isolated.md#)
-- [Conda](../extra/extra_isolated.md#
+- [Conda](../extra/extra_isolated.md#)
 
 :::{admonition} Documentation at the centres
    :class: dropdown
 
    NSC:
 
-   - https://www.nsc.liu.se/software/python/
-   - https://www.nsc.liu.se/software/anaconda/
+   - <https://www.nsc.liu.se/software/python/>
+   - <https://www.nsc.liu.se/software/anaconda/>
 
    PDC:
 
-   - https://support.pdc.kth.se/doc/applications/python/
-   - https://pdc-support.github.io/pdc-intro/#165
+   - <https://support.pdc.kth.se/doc/applications/python/>
+   - <https://pdc-support.github.io/pdc-intro/#165>
 
    LUNARC
 
-   - https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
+   - <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>
 
    UPPMAX
 
-   - https://docs.uppmax.uu.se/software/conda/
-   - https://hackmd.io/@pmitev/conda_on_Rackham
+   - <https://docs.uppmax.uu.se/software/conda_on_pelle/>
+   - <https://hackmd.io/@pmitev/conda_on_Rackham>
 
    HPC2N
 
-   - https://docs.hpc2n.umu.se/software/userinstalls/#venv
+   - <https://docs.hpc2n.umu.se/software/userinstalls/#venv>
 
    LUMI
 
-   - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+   - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper>
 :::
 
 
