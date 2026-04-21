@@ -4,6 +4,15 @@
 
 With this tool you can download and install with ``pip`` from the [PyPI repository](https://pypi.org/)
 
+:::{admonition} ``pip list`` documentation
+   :class: dropdown
+
+
+- ``--local``: If in a virtualenv that has global access, do not list globally-installed packages.
+- ``--user``: Only output packages installed in user-site.
+- [documentation](https://pip.pypa.io/en/stable/cli/pip_list)
+:::
+
 :::{note}
 
    - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions.
@@ -78,7 +87,7 @@ The next points will be the same for all clusters
 
 :::{note}
 
-   - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
+   - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important ``<space>`` after ``.``
    - For clarity we use the ``source`` style here.
 :::
 
