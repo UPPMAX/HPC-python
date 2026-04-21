@@ -1,5 +1,65 @@
 # Extra material about isolated environments
 
+## Virtual environment - venv & virtualenv
+
+With this tool you can download and install with ``pip`` from the [PyPI repository](https://pypi.org/)
+
+:::{note}
+
+   - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions.
+   - Some packages may be inherited from the modules you have loaded
+   - You can do ``pip list --local`` to see what is installed by you in the environment.
+   - Some IDE:s like Spyder may only find those "local" packages
+   - To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!
+       -   ``--system-site-packages`` includes the packages already installed in the loaded python module.
+   - The ``--no-cache-dir"`` option is required to **avoid it from reusing earlier installations from the same user in a different environment**.
+   - The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when **building any Cython libraries**.
+:::
+
+## Conda
+
+- [Conda](https://anaconda.org/anaconda/conda) is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
+
+:::{warning}
+
+   Drawbacks
+
+   - Conda cannot use already install packages from the Python modules and libraries already installed, and hence installs them anyway
+   - Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in $HOME).
+   - Check your disk usage and quota limit
+       - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
+:::
+
+:::{tip}
+
+   - The conda environments including many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
+   - Move your ``.conda`` directory to your project folder and make a soft link to it from ``$HOME``
+   - Do the following (``mkdir -p`` ignores error output and will not recreate another folder if it already exists):
+        - (replace what is inside ``<>`` with relevant path)
+
+   - Solution 1
+
+      This works nicely if you have several projects. Then you can change these variables according to what you are currently working with.
+
+      ```bash
+
+         export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
+         export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
+         mamba create --prefix=$CONDA_ENVS_PATH/<conda env name>
+      ```
+
+   - Solution 2
+
+      - This may not be a good idea if you have several projects.
+
+      ```bash
+
+         mkdir -p ~/.conda
+         mv ~/.conda /<path-to-project-folder>/<username>/
+         ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
+      ```
+:::
+
 ## Workflow ``venv``
 
 1. Start from a Python version you would like to use (load the module):
