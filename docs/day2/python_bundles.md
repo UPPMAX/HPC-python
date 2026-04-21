@@ -1,19 +1,6 @@
 (python-bundles)=
 
----
-tags:
-  - Python
-  - bundles
-  - software
-  - module
-  - torch
-  - PyTorch
-  - Matplotlib
----
-
-
 # Python bundles
-
 
 ## Bundle names
 
