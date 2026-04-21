@@ -132,6 +132,7 @@ HPC cluster|How to load Matplotlib
 Alvis      |`module load matplotlib/3.9.2-gfbf-2024a` <!-- TODO -->
 COSMOS     |`module load matplotlib/3.8.2` (avoid version `3.9.2`!) <!-- :-) 2026-04-17 -->
 Dardel     |`module load python/3.12.3 ; pip3 install matplotlib` <!-- :-) 2016-04-17 -->
+Kebnekaise |`pip install matplotlib` <!-- :-) 2026-04-21 -->
 Pelle      |`module load matplotlib/3.9.2-gfbf-2024a` <!-- :-) 2026-04-17 -->
 Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb` <!-- :-) 2026-04-17 -->
 
