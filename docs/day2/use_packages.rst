@@ -287,7 +287,7 @@ Exercise 1: using Python packages
 - Load the software module
 
 .. admonition:: Answer
-    :class: dropdown
+   :class: dropdown
 
     In the terminal, type the following command:
 
@@ -300,7 +300,9 @@ Exercise 1: using Python packages
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | COSMOS     | ``module load module load GCC/13.3.0 SciPy-bundle/2024.05``                                                        |
     +------------+--------------------------------------------------------------------------------------------------------------------+
-    | Dardel     | ``module load PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12``. It is not recommended to load a PDCOLD module,         |                               |            | but it works and loads an older python version                                                                     |
+    | Dardel     | ``module load PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12``. It is not recommended to load a PDCOLD module,         |
+    +            +--------------------------------------------------------------------------------------------------------------------+
+    |            | but it works and loads an older python version                                                                     |
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | Kebnekaise | ``module load GCC/13.3.0 SciPy-bundle/2024.05``                                                                    |
     +------------+--------------------------------------------------------------------------------------------------------------------+
@@ -377,7 +379,7 @@ Well done!
    .. admonition:: Data analysis and other important core packages
 
       - pandas - Columnar data analysi.
-      - polars <https://pola.rs/> - Alternative to pandas that uses similar API, but is re-imagined for more speed.
+      - `polars <https://pola.rs/>`_ - Alternative to pandas that uses similar API, but is re-imagined for more speed.
       - Vaex - Alternative for pandas that uses similar API for lazy-loading and processing huge DataFrames.
       - Dask - Alternative to Pandas that uses similar API and can do analysis in parallel.
       - xarrray - Framework for working with mutli-dimensional arrays.
@@ -434,9 +436,9 @@ Well done!
       - equinox - Another neural network framework built on Jax.
       - DeepSpeed - Algorithms for running massive scale trainings. Included in many of the frameworks.
       - PyTorch Lightning - Framework for creating and training PyTorch models.
-      - Tensorboard <https://www.tensorflow.org/tensorboard/> - Tool for visualizing model training on a web page.
+      - `Tensorboard <https://www.tensorflow.org/tensorboard/>`_ - Tool for visualizing model training on a web page.
 
-   .. admonition:: Other packages for special cases
+   .. admonition:: Other packages for special cases
 
       - dateutil and pytz - Date arithmetic and handling, timezone database and conversion.
 
