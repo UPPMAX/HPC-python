@@ -82,7 +82,7 @@ The loading are slightly different at the clusters
    - NSC:
       - For Tetralith, use virtual environment. Pytorch and TensorFlow might coming soon to the cluster!
    - PDC:
-      - For both TensorFlow and Pytorch : ``module load PDC singularity/4.1.1-cpeGNU-23.12``
+      - For both TensorFlow and Pytorch : ``module load PDC singularity/4.2.0-cpeGNU-24.11``
 
 .. admonition:: Learning Material
    :class: dropdown
