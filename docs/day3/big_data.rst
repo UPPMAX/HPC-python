@@ -106,7 +106,8 @@ Allocating RAM
 .. important::
 
    - You do not have to explicitly run threads or other parallelism.
-   - Allocating several nodes for one one big problem is not useful.
+   - Allocating several nodes for one one big memory problem is not useful. (Unless you are "chunking")
+
       - Note that shared memory among the cores works within node only.
 
 Principles
@@ -143,11 +144,11 @@ Exercise: Memory allocation (10 min)
 
 - Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
 - Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
-- Alvis (https://alvis.c3se.chalmers.se/)
-- Bianca (https://bianca.uppmax.uu.se/)
-- Pelle (https://pelle-gui.uppmax.uu.se/)
+- Alvis (<https://alvis.c3se.chalmers.se/>)
+- Bianca (<https://bianca.uppmax.uu.se/>)
+- Pelle (<https://pelle-gui.uppmax.uu.se/>)
 - Cosmos (ThinLinc client: ``cosmos-dt.lunarc.lu.se``)
-- Kebnekaise(https://portal.hpc2n.umu.se/public/landing_page.html)
+- Kebnekaise (<https://portal.hpc2n.umu.se/public/landing_page.html>)
 
 .. discussion::
 
@@ -237,15 +238,10 @@ Exercise: Memory allocation (10 min)
    - ``-p <partition>`` may be needed in some clusters
        - Dardel: ``-p shared``
 
-.. admonition:: Compute allocations in this workshop
-   :class: dropdown
+.. admonition:: Compute project numbers in this workshop
+   
+   :ref:`common-naiss-projects-overview`
 
-   - Pelle: ``uppmax2025-2-393``
-   - Kebnekaise: ``hpc2n2025-151``
-   - Cosmos: ``lu2025-7-106``
-   - Alvis: ``naiss2025-22-934``
-   - Tetralith: ``naiss2025-22-934``
-   - Dardel: ``naiss2025-22-934``
 
 .. challenge:: How to get a node with more RAM?
 
@@ -258,34 +254,34 @@ Exercise: Memory allocation (10 min)
 
       .. tab:: Tetralith
 
-         Scroll down a bit at https://www.nsc.liu.se/systems/tetralith/
+         - Scroll down a bit at <https://www.nsc.liu.se/systems/tetralith/>
 
       .. tab:: Dardel
 
-         https://support.pdc.kth.se/doc/run_jobs/job_scheduling/#dardel-compute-nodes
+         - <https://support.pdc.kth.se/doc/run_jobs/job_scheduling/#dardel-compute-nodes>
 
       .. tab:: Alvis
 
-         https://www.c3se.chalmers.se/documentation/submitting_jobs/running_jobs/#memory-and-other-node-features
+         - <https://www.c3se.chalmers.se/documentation/submitting_jobs/running_jobs/#memory-and-other-node-features>
 
       .. tab:: Bianca
 
-         - https://docs.uppmax.uu.se/cluster_guides/slurm/#need-more-resources-or-gpu
+         - <https://docs.uppmax.uu.se/cluster_guides/slurm/#need-more-resources-or-gpu>
 
       .. tab:: Pelle
 
-         - https://docs.uppmax.uu.se/cluster_guides/slurm_on_pelle/#the-fat-partition
+         - <https://docs.uppmax.uu.se/cluster_guides/slurm_on_pelle/#the-fat-partition>
 
       .. tab:: Cosmos
 
-         - https://lunarc-documentation.readthedocs.io/en/latest/manual/submitting_jobs/manual_specifying_requirements/#specifying-a-project-allocation-and-partition
-         - https://www.lunarc.lu.se/systems/cosmos
+         - <https://lunarc-documentation.readthedocs.io/en/latest/manual/submitting_jobs/manual_specifying_requirements/#specifying-a-project-allocation-and-partition>
+         - <https://www.lunarc.lu.se/systems/cosmos>
 
       .. tab:: Kebnekaise
 
-         - https://docs.hpc2n.umu.se/documentation/batchsystem/resources/
-         - https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#requesting__specific__features__ie__setting__contraints__on__the__job
-         - https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#for__selecting__large__memory__nodes
+         - <https://docs.hpc2n.umu.se/documentation/batchsystem/resources/>
+         - <https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#requesting__specific__features__ie__setting__contraints__on__the__job>
+         - <https://docs.hpc2n.umu.se/documentation/batchsystem/resources/#for__selecting__large__memory__nodes>
 
 .. solution:: Commands
 
