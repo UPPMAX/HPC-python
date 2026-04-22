@@ -87,13 +87,13 @@ we can infer that it is not all too unpopular.
 
 HPC cluster|YouTube video
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      | <!-- [YouTube video]() -->
-Bianca     | <!-- [YouTube video]() -->
-COSMOS     | <!-- [YouTube video]() -->
-Dardel     | <!-- [YouTube video]() -->
-Kebnekaise | <!-- [YouTube video]() -->
-Pelle      | <!-- [YouTube video]() -->
-Tetralith  | <!-- [YouTube video]() -->
+Alvis      |.
+Bianca     |.
+COSMOS     |.
+Dardel     |.
+Kebnekaise |.
+Pelle      |[YouTube video](https://youtu.be/xD56QJ0O_jM)
+Tetralith  |.
 
 
 <!-- markdownlint-enable MD013 -->
