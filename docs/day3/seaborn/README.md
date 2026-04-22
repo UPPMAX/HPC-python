@@ -137,7 +137,7 @@ HPC cluster|HPC cluster-specific `seaborn` documentation
 Alvis      |[`seaborn` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
 Bianca     |[`seaborn` documentation](https://docs.uppmax.uu.se/software/python/) [Only shows module name]
 COSMOS     |[`seaborn` documentation](https://lunarc-documentation.readthedocs.io/en/latest/software/installed_software/) [Only shows module name]
-Dardel     |[`seaborn` documentation](https://support.pdc.kth.se/doc/applications/python/)
+Dardel     |No documentation
 Kebnekaise |[`seaborn` documentation](https://docs.hpc2n.umu.se/software/libs/Seaborn/)
 Pelle      |[`seaborn` documentation](https://docs.uppmax.uu.se/software/seaborn/)
 Tetralith  |[`seaborn` documentation](https://www.nsc.liu.se/software/python) No relevant documentation
@@ -157,7 +157,7 @@ HPC cluster|How to load Seaborn
 -----------|-----------------------------------------------------------------------------------------------------------------------
 Alvis      |`module load Seaborn/0.13.2-gfbf-2024a`<!-- TODO -->
 COSMOS     |`module load GCC/13.2.0 Seaborn/0.13.2`<!-- 2026-04-17 -->
-Dardel     |`module load python/3.12.3 ; pip3 install matplotlib`<!-- 2026-04-17 -->
+Dardel     |`module load python/3.12.3 ; pip3 install seaborn` <!-- 2026-04-17 -->
 Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2`<!-- :-) 2026-04-21 -->
 Pelle      |`module load Seaborn/0.13.2-gfbf-2024a` <!-- :-) 2026-05-17 -->
 Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb ; pip install seaborn` <!-- :-) 2026-05-17 -->
