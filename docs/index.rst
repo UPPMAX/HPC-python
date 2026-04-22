@@ -177,9 +177,9 @@ Content of the course
    day2/install_packages.rst
    day2/use_isolated_environments.rst
    day2/basic_batch_slurm.rst
-   day2/interactive.md
-   day2/ondemand-desktop.rst
+   day2/interactive.rst
    day2/IDEs_cmd.md
+   day2/ondemand-desktop.rst
    day2/IDEs.rst
    summary2.rst
    day2/evaluation.rst
