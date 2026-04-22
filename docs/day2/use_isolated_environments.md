@@ -6,7 +6,7 @@
 
 :::{admonition} Learning objectives
 
-- Practice using the documentation of your HPC cluster
+- Practice using the docclass:dropdownumentation of your HPC cluster
 - Find out which isolated environment tool to use on your HPC cluster
 - Work (create, activate, work, deactivate) with isolated environments
       in the way recommended by your HPC cluster
@@ -17,11 +17,12 @@
 :::
 
 :::{admonition} For teachers
-
+   :class: dropdown
    - Introduction 5 m
    - venv 5 m
    - Conda 5
    - Exercises 30 m
+   - Wrap-up
 :::
 
 ## Why isolated environments are important
@@ -1029,7 +1030,7 @@ Let's make an installation with the latest bug fix version of ``Python 3.12`` an
             - install in project folder due to many files.
 :::
 
-Summary of the workflows:
+### Summary of the workflows
 
 - [Venv](../extra/extra_isolated.md#)
 - [Conda](../extra/extra_isolated.md#)
