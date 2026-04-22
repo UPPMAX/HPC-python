@@ -90,7 +90,7 @@ HPC cluster|YouTube video
 Alvis      |.
 Bianca     |.
 COSMOS     |.
-Dardel     |.
+Dardel     |[YouTube video](https://youtu.be/ykSkToSHF_Y)
 Kebnekaise |.
 Pelle      |[YouTube video](https://youtu.be/xD56QJ0O_jM)
 Tetralith  |.
