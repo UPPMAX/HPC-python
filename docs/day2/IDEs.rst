@@ -87,37 +87,32 @@ Jupyter
 
             If you use the ThinLinc, depending on which Jupyter server (Pelle) you want to launch on web browser
 
-         
-            .. tab:: Pelle
-
-               * start ``firefox`` on the ThinLinc.
-               * browse to the URLs, which will be similar to ``http://p[xxx].uppmax.uu.se:8888/?token=5c3aeee9fbfc7a11c4a64b2b549622231388241c2``
-               * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Pelle.
+            * start ``firefox`` on the ThinLinc.
+            * browse to the URLs, which will be similar to ``http://p[xxx].uppmax.uu.se:8888/?token=5c3aeee9fbfc7a11c4a64b2b549622231388241c2``
+            * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Pelle.
 
 
          *On own computer*
 
             If you want to connect to the Jupyter server running on Pelle from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.
 
-            .. tab:: Pelle
+            * On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
 
-               * On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
+            .. code-block:: sh
 
-               .. code-block:: sh
+               $ ssh -L 8888:p[xxx]:8888 username@pelle.uppmax.uu.se
 
-                  $ ssh -L 8888:p[xxx]:8888 username@pelle.uppmax.uu.se
-
-               * If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
-               * If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
+            * If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
+            * If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
 
 
-               * On your computer open the URL you got from step 3. on your webbrowser but replace r486 with localhost i.e. you get something like this
+            * On your computer open the URL you got from step 3. on your webbrowser but replace r486 with localhost i.e. you get something like this
 
-               ``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
-               or
-               ``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+            ``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+            or
+            ``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 
-               * This should bring the jupyter interface on your computer and all calculations and files will be on Pelle.
+            * This should bring the jupyter interface on your computer and all calculations and files will be on Pelle.
 
 
          .. warning::
