@@ -8,7 +8,6 @@ Summary day 2
 .. keypoints::
 
    - Load and run and pre-installed packages
-
       - Use python from module system
       - Start a Python shell session either with ``python`` or ``ipython``
       - run scripts with ``python3 <script.py>``
@@ -20,8 +19,9 @@ Summary day 2
             - ``pip list`` command at both centers
             - ``module spider <package>`` at otherwise
 
-   - Install packages and use isolated environments
+      - Get installed Python packages from the Python module or extra *Python Bundles*.
 
+   - Install packages and use isolated environments
       - With a virtual environment you can tailor an environment with specific versions for Python and packages, not interfering with other installed python versions and packages.
       - Make it for each project you have for reproducibility.
       - There are different tools to create virtual environments.
@@ -35,14 +35,12 @@ Summary day 2
              - requires that you install all packages needed.
 
    - Slurm and batch
-
        - The SLURM scheduler handles allocations to the calculation nodes
        - Batch jobs runs without interaction with user
        - A batch script consists of a part with *SLURM parameters* describing the allocation and a second part describing the actual work within the job, for instance one or several Python scripts.
        - Remember to include possible input arguments to the Python script in the batch script.
 
    - Interactive work on calculation nodes
-
       - Start an interactive session on a calculation node by a SLURM allocation (similar flags)
 
          - At HPC2N/PDC: ``salloc`` ...
