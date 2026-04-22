@@ -613,30 +613,26 @@ Exercise file formats (10 minutes)
 Computing efficiency with Python
 --------------------------------
 
-Python is an interpreted language, and many features that make development rapid with Python are a result of that, with the price of reduced performance in many cases.
+Python is an interpreted language, and many features (dynamical typing, flexible data structures) that make development rapid with Python are a result of that, with the price of reduced performance in many cases.
 
-- Dynamic typing
-- Flexible data structures
+There are some packages that are more efficient than Numpy and Pandas.
 
-- There are some packages that are more efficient than Numpy and Pandas.
+- `SciPy <https://docs.scipy.org/doc/scipy/reference/>`_ is a library that builds on top of NumPy.
 
-    - `SciPy <https://docs.scipy.org/doc/scipy/reference/>`_ is a library that builds on top of NumPy.
-
-        - It contains a lot of interfaces to battle-tested numerical routines written in Fortran or C, as well as Python implementations of many common algorithms.
-        - Reads NETCDF!
-
-    - `ENCCS course material <https://enccs.github.io/hpda-python/stack/#scipy>`_
+   - It contains a lot of interfaces to battle-tested numerical routines written in Fortran or C, as well as Python implementations of many common algorithms.
+   - Reads NETCDF!
+   - `ENCCS course material <https://enccs.github.io/hpda-python/stack/#scipy>`_
 
 Xarray package
 ..............
 
-- ``xarray`` is a Python package that builds on NumPy but adds labels to **multi-dimensional arrays**.
+``xarray`` is a Python package that builds on ``NumPy`` but adds labels to **multi-dimensional arrays**.
 
-    -  introduces **labels in the form of dimensions, coordinates and attributes** on top of raw NumPy-like multidimensional arrays, which allows for a more intuitive, more concise, and less error-prone developer experience.
-    - It also **borrows heavily from the Pandas package for labelled tabular data** and integrates tightly with dask for parallel computing.
+- **labels in the form of dimensions, coordinates and attributes** on top of raw NumPy-like multidimensional arrays, which allows for a more intuitive, more concise, and less error-prone developer experience.
+- **borrows from the Pandas package for labelled tabular data** and integrates tightly with ``dask`` for parallel computing.
 
-- Xarray is particularly tailored to working with NetCDF files.
-- But work for another files as well
+- particularly tailored to working with NetCDF files.
+- work for another file formats as well
 
 - Explore it a bit in the (optional) exercise below!
 
@@ -645,42 +641,45 @@ Dask
 
 How to use more resources than available?
 
-.. image:: ../img/when-to-use-pandas.png
-   :width: 600 px
+.. admonition:: Remember this image? ;-)
+   :class: dropdown
+
+   .. image:: ../img/when-to-use-pandas.png
+      :width: 600 px
 
 Dask is very popular for data analysis and is used by a number of high-level
-Python libraries:
+Python libraries.
 
-- Dask is composed of two parts:
+2 parts:
 
-    - **Dask Clusters**
-        - Dynamic task scheduling optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.
-        - `ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-clusters>`_
-    - **“Big Data” Collections**
-        - Like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to **larger-than-memory** or distributed environments. These parallel collections run on top of dynamic task schedulers.
-        - `ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-collections>`_
+- **Dask Clusters**
+   - Dynamic task **scheduling** optimized for computation. Similar to other workflow management systems, but optimized for interactive computational workloads.
+   - `ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-clusters>`_
+- **“Big Data” Collections**
+   - Like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or Python iterators to **larger-than-memory** or distributed environments. These parallel collections run on top of dynamic task schedulers.
+   - `ENCCS course <https://enccs.github.io/hpda-python/dask/#dask-collections>`_
 
 Dask Collections
 ::::::::::::::::
 
-- Dask provides dynamic parallel task scheduling and three main high-level collections:
+Dask provides dynamic parallel task scheduling and three main high-level collections:
 
-    - ``dask.array``: Parallel **NumPy** arrays
-        - scales NumPy (see also xarray)
-    - ``dask.dataframe``: Parallel **Pandas** DataFrames
-        - scales Pandas workflows
-    - ``dask.bag``: Parallel Python **List**
-        - https://enccs.github.io/hpda-python/dask/#dask-bag
+- ``dask.array``: Parallel **NumPy** arrays
+   - scales NumPy (see also xarray)
+- ``dask.dataframe``: Parallel **Pandas** DataFrames
+   - scales Pandas workflows
+- ``dask.bag``: Parallel Python **List**
+   - https://enccs.github.io/hpda-python/dask/#dask-bag
 
 .. seealso::
 
    - `dask_ml package <https://ml.dask.org/>`_: Dask-ML provides scalable machine learning in Python using Dask alongside popular machine learning libraries like Scikit-Learn, XGBoost, and others.
    - `Dask.distributed <https://distributed.dask.org/en/stable/>`_: Dask.distributed is a lightweight library for distributed computing in Python. It extends both the concurrent.futures and dask APIs to moderate sized clusters.
 
-dask.arrays
-^^^^^^^^^^^
+``dask.arrays``
+^^^^^^^^^^^^^^^
 
-- A Dask array looks and feels a lot like a NumPy array.
+- A Dask array looks and feels a lot like a **NumPy array**.
 - However, a Dask array uses the so-called "lazy" execution mode, which allows one to
     - build up complex, large calculations symbolically
     - before turning them over the scheduler for execution.
@@ -721,25 +720,13 @@ Big file → split into chunks → parallel workers → results combined.
 Polars package
 ..............
 
-- ``polars`` is a Python package that presents itself as **Blazingly Fast DataFrame Library**
-    - Utilizes all available cores on your machine.
-    - Optimizes queries to reduce unneeded work/memory allocations.
-    - Handles datasets much larger than your available RAM.
-    - A consistent and predictable API.
-    - Adheres to a strict schema (data-types should be known before running the query).
+`Polars <https://pola.rs/>`_ is a Python package that presents itself as **Blazingly Fast DataFrame Library**
+- Utilizes all available cores on your machine.
+- Optimizes queries to reduce unneeded work/memory allocations.
+- Handles datasets much larger than your available RAM.
+- A consistent and predictable API.
+- Adheres to a strict schema (data-types should be known before running the query).
 
-.. admonition:: Key features
-   :class: dropdown
-
-   - Fast: Written from scratch in **Rust**
-   - I/O: First class **support for all common data storage** layers
-   - **Intuitive API**: Write your queries the way they were intended. Internally, there is a query optimizer.
-   - Out of Core: **streaming** without requiring all your data to be in memory at the same time. I.e. **chunking**
-   - **Parallel**: dividing the workload among the available CPU cores without any additional configuration.
-   - GPU Support: Optionally run queries on **NVIDIA GPUs**
-   - `Apache Arrow <https://arrow.apache.org/overview/>`_ support
-
-   [`https://pola.rs/`](https://pola.rs/)
 
 Exercises: Packages
 -------------------
@@ -966,9 +953,9 @@ Set up the environment
    But what happens if we use different chunk sizes?
    Try out with different chunk sizes:
 
-   - What happens if the dask chunks=(20000,20000)
+   - What happens if the dask chunks=``(20000,20000)``
 
-   - What happens if the dask chunks=(250,250)
+   - What happens if the dask chunks=``(250,250)``
 
 
    .. solution:: Choice of chunk size
@@ -987,25 +974,34 @@ Set up the environment
 
 .. challenge:: (Optional) Xarray
 
-   - https://stackoverflow.com/questions/72155514/when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data
+   - Read `when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data <https://stackoverflow.com/questions/72155514/when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data>`_
 
-   - Browse: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html or change to more applicable version in drop-down menu to lower right.
+   - Browse: <https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html> or change to more applicable version in drop-down menu to lower right.
        - find something interesting for you! Test some lines if you want to!
        - tips:
-           - Pandas: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough
-           - gallery: https://docs.xarray.dev/en/v2024.11.0/gallery.html
-           - ecosystems: https://docs.xarray.dev/en/v2024.11.0/ecosystem.html
-           - Quick overview: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/quick-overview.html
-
-
+           - Pandas: <https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough>
+           - gallery: <https://docs.xarray.dev/en/v2024.11.0/gallery.html>
+           - ecosystems: <https://docs.xarray.dev/en/v2024.11.0/ecosystem.html>
+           - Quick overview: <https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/quick-overview.html>
 
 .. challenge:: (Optional) Polars
 
-   - Browse: https://docs.pola.rs/.
+   - Browse: <https://docs.pola.rs/>.
        - find something interesting for you! Test some lines if you want to!
        - tips:
 
-   - Check if your cluster has Polars!
+   .. admonition:: Key features
+      :class: dropdown
+
+      - Fast: Written from scratch in **Rust**
+      - I/O: First class **support for all common data storage** layers
+      - **Intuitive API**: Write your queries the way they were intended. Internally, there is a query optimizer.
+      - Out of Core: **streaming** without requiring all your data to be in memory at the same time. I.e. **chunking**
+      - **Parallel**: dividing the workload among the available CPU cores without any additional configuration.
+      - GPU Support: Optionally run queries on **NVIDIA GPUs**
+      - `Apache Arrow <https://arrow.apache.org/overview/>`_ support
+
+- Check if your cluster has Polars!
 
    .. solution::
 
@@ -1038,7 +1034,7 @@ Set up the environment
 
       - Load the module or install it in your present ``conda`` or ``venv`` environment
 
-      - Try the most interesting examples: https://docs.pola.rs/user-guide/getting-started/#reading-writing
+      - Try the most interesting examples: <https://docs.pola.rs/user-guide/getting-started/#reading-writing>
 
 
 Summary
@@ -1055,13 +1051,13 @@ Summary
 .. keypoints::
 
    - Allocate more RAM by asking for
-       - Several cores
-       - Nodes will more RAM
+       - Several cores or request ``--mem``
+       - Nodes with more RAM
        - Check job memory usage with ``sacct`` or ``sstat``. Check you documentation!
    - File formats
        - No format fits all requirements
        - HDF5 and NetCDF good for Big data since it allows loading parts of the file into memory
-   - Store temporary data in local scratch ($SNIC_TMP).
+   - Store temporary data in local scratch ``($SNIC_TMP``).
    - Packages
        - xarray
           - can deal with 3D-data and higher dimensions
@@ -1083,8 +1079,8 @@ Summary
    ENCCS
 
    - Dask for scalable analysis
-   - https://enccs.github.io/hpda-python/stack/
-   - https://enccs.github.io/hpda-python/dask/
+   - <https://enccs.github.io/hpda-python/stack/>
+   - <https://enccs.github.io/hpda-python/dask/>
 
    - Too be included in the future?
 
