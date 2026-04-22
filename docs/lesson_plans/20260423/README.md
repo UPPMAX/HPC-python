@@ -44,7 +44,7 @@ Let's prioritize on the most registrations:
 hpc_cluster |  n|Done
 ------------|---|---
 Dardel      | 30|Yes
-Tetralith   | 10|
+Tetralith   | 10|Yes
 Alvis       |  9|Yes
 COSMOS      |  8|
 Kebnekaise  |  6|
@@ -52,4 +52,4 @@ Bianca      |  4|
 Pelle       |  3|Yes
 Vera        |  1|
 
-Progress: 42/71 registrations has a video
+Progress: 52 of 71 (i.e. 73%) registrations has a video

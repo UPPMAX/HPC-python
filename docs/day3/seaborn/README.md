@@ -93,7 +93,7 @@ COSMOS     |.
 Dardel     |[YouTube video](https://youtu.be/ykSkToSHF_Y)
 Kebnekaise |.
 Pelle      |[YouTube video](https://youtu.be/xD56QJ0O_jM)
-Tetralith  |.
+Tetralith  |[YouTube video](https://youtu.be/kDsN1qssEfQ)
 
 
 <!-- markdownlint-enable MD013 -->
