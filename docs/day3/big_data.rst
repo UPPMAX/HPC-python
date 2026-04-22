@@ -477,113 +477,6 @@ In real scientific applications, data is complex and structured and usually cont
       - NetCDF4 is by far the most common format for storing large data from big simulations in physical sciences.
       - The advantage of NetCDF4 compared to HDF5 is that one can easily add additional metadata, e.g. spatial dimensions (x, y, z) or timestamps (t) that tell where the grid-points are situated. As the format is standardized, many programs can use this metadata for visualization and further analysis.
 
-An overview of common data formats
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. list-table::
-   :header-rows: 1
-
-   * - | Name:
-     - | Human
-       | readable:
-     - | Space
-       | efficiency:
-     - | Arbitrary
-       | data:
-     - | Tidy
-       | data:
-     - | Array
-       | data:
-     - | Long term
-       | storage/sharing:
-
-   * - :ref:`Pickle <pickle>`
-     - ❌
-     - 🟨
-     - ✅
-     - 🟨
-     - 🟨
-     - ❌
-
-   * - :ref:`CSV <csv>`
-     - ✅
-     - ❌
-     - ❌
-     - ✅
-     - 🟨
-     - ✅
-
-   * - :ref:`Feather <feather>`
-     - ❌
-     - ✅
-     - ❌
-     - ✅
-     - ❌
-     - ❌
-
-   * - :ref:`Parquet <parquet>`
-     - ❌
-     - ✅
-     - 🟨
-     - ✅
-     - 🟨
-     - ✅
-
-   * - :ref:`npy <npy>`
-     - ❌
-     - 🟨
-     - ❌
-     - ❌
-     - ✅
-     - ❌
-
-   * - :ref:`HDF5 <hdf5>`
-     - ❌
-     - ✅
-     - ❌
-     - ❌
-     - ✅
-     - ✅
-
-   * - :ref:`NetCDF4 <netcdf4>`
-     - ❌
-     - ✅
-     - ❌
-     - ❌
-     - ✅
-     - ✅
-
-   * - :ref:`JSON <json>`
-     - ✅
-     - ❌
-     - 🟨
-     - ❌
-     - ❌
-     - ✅
-
-   * - :ref:`Excel <excel>`
-     - ✅
-     - ❌
-     - ❌
-     - 🟨
-     - ❌
-     - 🟨
-
-   * - `Graph formats <https://gephi.org/users/supported-graph-formats/>`_
-     - 🟨
-     - 🟨
-     - ❌
-     - ❌
-     - ❌
-     - ✅
-
-.. important:: Legend
-
-    - ✅ : Good
-    - 🟨 : Ok / depends on a case
-    - ❌ : Bad
-
-    Adapted from Aalto university's `Python for scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/#what-is-a-data-format>`__
 
 .. seealso::
 
@@ -601,7 +494,116 @@ Exercise file formats (10 minutes)
 .. challenge:: View file formats
 
    - Go over file formats and see if some are more relevant for your work.
-   - Would you look at other file formats and why?
+
+   .. admonition:: Overview of common data formats
+      :class: dropdown
+
+      .. list-table::
+         :header-rows: 1
+
+         * - | Name:
+           - | Human
+             | readable:
+           - | Space
+             | efficiency:
+           - | Arbitrary
+             | data:
+           - | Tidy
+             | data:
+           - | Array
+             | data:
+           - | Long term
+             | storage/sharing:
+
+         * - :ref:`Pickle <pickle>`
+           - ❌
+           - 🟨
+           - ✅
+           - 🟨
+           - 🟨
+           - ❌
+
+         * - :ref:`CSV <csv>`
+           - ✅
+           - ❌
+           - ❌
+           - ✅
+           - 🟨
+           - ✅
+
+         * - :ref:`Feather <feather>`
+           - ❌
+           - ✅
+           - ❌
+           - ✅
+           - ❌
+           - ❌
+
+         * - :ref:`Parquet <parquet>`
+           - ❌
+           - ✅
+           - 🟨
+           - ✅
+           - 🟨
+           - ✅
+
+         * - :ref:`npy <npy>`
+           - ❌
+           - 🟨
+           - ❌
+           - ❌
+           - ✅
+           - ❌
+
+         * - :ref:`HDF5 <hdf5>`
+           - ❌
+           - ✅
+           - ❌
+           - ❌
+           - ✅
+           - ✅
+
+         * - :ref:`NetCDF4 <netcdf4>`
+           - ❌
+           - ✅
+           - ❌
+           - ❌
+           - ✅
+           - ✅
+
+         * - :ref:`JSON <json>`
+           - ✅
+           - ❌
+           - 🟨
+           - ❌
+           - ❌
+           - ✅
+
+         * - :ref:`Excel <excel>`
+           - ✅
+           - ❌
+           - ❌
+           - 🟨
+           - ❌
+           - 🟨
+
+         * - `Graph formats <https://gephi.org/users/supported-graph-formats/>`_
+           - 🟨
+           - 🟨
+           - ❌
+           - ❌
+           - ❌
+           - ✅
+
+      .. admonition:: Legend
+
+          - ✅ : Good
+          - 🟨 : Ok / depends on a case
+          - ❌ : Bad
+
+          Adapted from Aalto university's `Python for scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/#what-is-a-data-format>`__
+
+   - Would you look at or change to other file formats than you use today and why?
 
 .. challenge:: (optional)
 
