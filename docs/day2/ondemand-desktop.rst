@@ -487,6 +487,7 @@ VSCode
       This is using ThinLinc + GfxLauncher
 
       1. As already shown, log into COSMOS/Dardel via Thinlinc to start a HPC Desktop session.
+          - Another way of logging in is through SSH, like this: ``ssh -X <username>@cosmos.lunarc.lu.se gfxmenu --interactive`` and then give password and pocketpass/other MFA. 
       2. Click "Applications" in the top left corner and hover over the items prefixed with "Applications" - until you find your desired application. VSCode should be under "Applications - General". 
 
       .. figure:: ../img/Cosmos-AppMenu.png
