@@ -134,13 +134,13 @@ In that documentation, find the software module to load the package.
 
 HPC cluster|HPC cluster-specific `seaborn` documentation
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      |[`seaborn` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
-Bianca     |[`seaborn` documentation](https://docs.uppmax.uu.se/software/python/) [Only shows module name]
-COSMOS     |[`seaborn` documentation](https://lunarc-documentation.readthedocs.io/en/latest/software/installed_software/) [Only shows module name]
-Dardel     |No documentation
+Alvis      |No relevant documentation
+Bianca     |[`seaborn` documentation](https://docs.uppmax.uu.se/software/seaborn/)
+COSMOS     |Partially relevant [`seaborn` documentation](https://lunarc-documentation.readthedocs.io/en/latest/software/installed_software/): it only shows the module name
+Dardel     |No relevant documentation
 Kebnekaise |[`seaborn` documentation](https://docs.hpc2n.umu.se/software/libs/Seaborn/)
 Pelle      |[`seaborn` documentation](https://docs.uppmax.uu.se/software/seaborn/)
-Tetralith  |[`seaborn` documentation](https://www.nsc.liu.se/software/python) No relevant documentation
+Tetralith  |No relevant documentation
 
 <!-- markdownlint-enable MD013 -->
 
