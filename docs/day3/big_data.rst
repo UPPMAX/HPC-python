@@ -756,7 +756,7 @@ Set up the environment
             ! pip install --user dask
             ! pip install --user polars
 
-         - You may have to restart the Jupyter kernel (or even Jupyter session) to be able to be able to load the just instaleld package(s).
+         - You may have to restart the Jupyter kernel (or even Jupyter session) to be able to load the just installed package(s).
 
    .. tab:: LUNARC (Cosmos)
 
@@ -976,17 +976,19 @@ Set up the environment
 
    - Read `when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data <https://stackoverflow.com/questions/72155514/when-to-use-xarray-over-numpy-for-medium-rank-multidimensional-data>`_
 
-   - Browse: <https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html> or change to more applicable version in drop-down menu to lower right.
-       - find something interesting for you! Test some lines if you want to!
-       - tips:
-           - Pandas: <https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough>
-           - gallery: <https://docs.xarray.dev/en/v2024.11.0/gallery.html>
-           - ecosystems: <https://docs.xarray.dev/en/v2024.11.0/ecosystem.html>
-           - Quick overview: <https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/quick-overview.html>
+   - Browse: https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/why-xarray.html or change to more applicable version in drop-down menu to lower right.
+
+       - Find something interesting for you! Test some lines if you want to!
+       - Tips:
+
+           - `Why not Pandas <https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/faq.html#why-is-pandas-not-enough>`_
+           - `Gallery <https://docs.xarray.dev/en/v2024.11.0/gallery.html>`_
+           - `Ecosystems <https://docs.xarray.dev/en/v2024.11.0/ecosystem.html>`_
+           - `Quick overview <https://docs.xarray.dev/en/v2024.11.0/getting-started-guide/quick-overview.html>`_
 
 .. challenge:: (Optional) Polars
 
-   - Browse: <https://docs.pola.rs/>.
+   - Browse https://docs.pola.rs/.
        - find something interesting for you! Test some lines if you want to!
        - tips:
 
@@ -1034,7 +1036,7 @@ Set up the environment
 
       - Load the module or install it in your present ``conda`` or ``venv`` environment
 
-      - Try the most interesting examples: <https://docs.pola.rs/user-guide/getting-started/#reading-writing>
+      - Try the most interesting examples `here <https://docs.pola.rs/user-guide/getting-started/#reading-writing>`_
 
 
 Summary
@@ -1079,8 +1081,8 @@ Summary
    ENCCS
 
    - Dask for scalable analysis
-   - <https://enccs.github.io/hpda-python/stack/>
-   - <https://enccs.github.io/hpda-python/dask/>
+   - `stack <https://enccs.github.io/hpda-python/stack/>`_
+   - `dask <https://enccs.github.io/hpda-python/dask/>`_
 
    - Too be included in the future?
 
