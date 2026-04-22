@@ -135,13 +135,13 @@ In the terminal, in your personal folder, type the following command:
 
 .. code-block:: console
 
-    wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz
+    wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/Exercises.tar.gz
 
-NOTE! Friday/2nd day - use this (only that day):
+Dardel, Tetralith, Alvis, Kebnekaise, Pelle:
 
 .. code-block:: console
 
-   wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.bz2
+   You can also find the exercises tarball in the root of the course project folder and copy it from there. 
 
 Step 5/6: Uncompress the tarball
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,13 +150,7 @@ In the terminal, in your personal folder, type the following command:
 
 .. code-block:: console
 
-    tar -xvzf exercises.tar.gz
-
-NOTE: Friday/2nd day - use this (only that day):
-
-.. code-block:: console
-
-   tar -xvjf exercises.tar.bz2
+    tar -xvzf Exercises.tar.gz
 
 Step 6/6: Navigate in the folder of that day
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
