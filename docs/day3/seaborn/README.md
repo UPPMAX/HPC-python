@@ -158,7 +158,7 @@ HPC cluster|How to load Seaborn
 Alvis      |`module load Seaborn/0.13.2-gfbf-2024a`<!-- TODO -->
 COSMOS     |`module load GCC/13.2.0 Seaborn/0.13.2`<!-- 2026-04-17 -->
 Dardel     |`module load python/3.12.3 ; pip3 install matplotlib`<!-- 2026-04-17 -->
-Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2`<!-- TODO -->
+Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2`<!-- :-) 2026-04-21 -->
 Pelle      |`module load Seaborn/0.13.2-gfbf-2024a` <!-- :-) 2026-05-17 -->
 Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb ; pip install seaborn` <!-- :-) 2026-05-17 -->
 
@@ -279,7 +279,7 @@ There are many ways to do so:
 ## (optional) Exercise 3: displaying a `pandas` table
 
 In this exercise, we will again use
-[the 'diamonds' dataset (as a comma-separated file)](diamonds.csv):
+the 'diamonds' dataset (as a comma-separated file), [click to download](https://uppmax.github.io/HPC-python/_downloads/2c3f44b9035e3effc9e3b2854f37f1f0/diamonds.csv):
 a dataset about diamonds.
 
 This dataset contains information about more than fifty thousand diamonds.

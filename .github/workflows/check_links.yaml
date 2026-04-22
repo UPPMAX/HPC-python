@@ -12,6 +12,7 @@ on:
   push:
     branches:
       - develop
+      - main
   pull_request:
   
 
@@ -29,6 +30,7 @@ jobs:
           rm -rf docs/May_24
           rm -rf docs/feb23_course
           rm -rf docs/mermaid
+
 
       - name: Restore lychee cache
         uses: actions/cache@v4

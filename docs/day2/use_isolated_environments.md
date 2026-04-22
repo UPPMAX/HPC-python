@@ -17,11 +17,12 @@
 :::
 
 :::{admonition} For teachers
-
+   :class: dropdown
    - Introduction 5 m
    - venv 5 m
    - Conda 5
    - Exercises 30 m
+   - Wrap-up
 :::
 
 ## Why isolated environments are important
@@ -91,7 +92,7 @@ conda| conda/forge     | Yes        | No
     - Check with ``which python``, should show at path to the environment.
 - Packages are defined by the environment.
     - Check with ``pip list``
-    - Conda can only see what you installed for it.
+    - ``conda`` can only see what you installed for it.
     - ``venv`` and ``virtualenv`` also see other packages if you allowed for that when creating the environment (``--system-site-packages``).
 - You can work in a Python shell or IDE (coming session)
 - You can run scripts dependent on packages now installed in your environment.
@@ -112,7 +113,7 @@ HPC cluster| Conda vs venv
 Alvis      | venv, conda in container        
 Bianca     | conda/latest, venv via wharf    
 COSMOS     | Anaconda3/2024.02-1             
-Dardel     | miniconda3/24.7.1-0-cpeGNU-23.12
+Dardel     | miniconda3/25.3.1-1-cpeGNU-24.11
 Kebnekaise | venv **only**                   
 LUMI       | venv,  conda-containerize       
 Pelle      | venv, Miniforge3/24.11.3-0      
@@ -125,21 +126,22 @@ LUMI       | conda-containerize
    - If very troublesome, try with ``conda``
 
    - To use self-installed Python packages in a batch script, you also need to load the above mentioned modules and activate the environment. An example of this will follow later in the course.
-   - To see which Python packages you, yourself, have installed, you can use ``pip list --local`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``.
+   - To see which Python packages you have installed in an environment, you can use ``pip list --local`` while the environment you have installed the packages in is active. To see all packages, use ``pip list``.
        - Note that ``--user`` must be omitted: else the package will be installed in the global user folder.
 :::
 
 :::{admonition} ``pip list`` documentation
+   :class: dropdown
+
 
 - ``--local``: If in a virtualenv that has global access, do not list globally-installed packages.
 - ``--user``: Only output packages installed in user-site.
 - [documentation](https://pip.pypa.io/en/stable/cli/pip_list)
 :::
 
+## Virtual environment - venv & virtualenv
 
-### Virtual environment - venv & virtualenv
-
-With this tool you can download and install with ``pip`` from the `PyPI repository <https://pypi.org/>`_
+With this tool you can download and install with ``pip`` from the [PyPI repository](https://pypi.org/)
 
 :::{admonition} venv vs. virtualenv
    :class: dropdown
@@ -151,16 +153,17 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
        - venv: ``python -m venv Example2``
    - Next steps are identical and involves "activating" and ``pip install``
    - We recommend ``venv`` in the course. Then we are just needing the Python module itself!
+:::
 
 :::{admonition} Tip for Tetralith
 
    - load a "bare" python, like ``Python/3.10.4-bare-hpc1-gcc-2022a-eb``
-   - in en environment install setuptools and wheel: ``pip3 install --upgrade pip setuptools wheel``
+   - in an environment install setuptools and wheel: ``pip3 install --upgrade pip setuptools wheel``
 :::
 
-:::{admonition} Example NSC
+### Example NSC
 
-   ```console
+```console
 
       ml buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5
       which python
@@ -174,13 +177,12 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
       pip install matplotlib
       # do some work
       python
-   ```   
-:::
+```   
 
-   ```python
+```python
 
-      >>> import matplotlib
-   ```   
+    >>> import matplotlib
+```   
 
 - When work is done, deactivate the environment with
 
@@ -189,25 +191,21 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    deactivate
 ```
 
-:::{note}
+## Conda
 
-   - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions.
-   - Some packages may be inherited from the modules you have loaded
-   - You can do ``pip list --local`` to see what is installed by you in the environment.
-   - Some IDE:s like Spyder may only find those "local" packages
-   - To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!
-       -   ``--system-site-packages`` includes the packages already installed in the loaded python module.
-   - The ``--no-cache-dir"`` option is required to **avoid it from reusing earlier installations from the same user in a different environment**.
-   - The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when **building any Cython libraries**.
-:::
-
-### Conda
-
-- `Conda <https://anaconda.org/anaconda/conda>`_ is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
+- [Conda](https://anaconda.org/anaconda/conda) is an installer of packages but also bigger toolkits and is useful also for R packages and C/C++ installations.
 
 - Conda creates isolated environments not clashing with other installations of python and other versions of packages.
 - Conda environment requires that you install all packages needed by yourself.
-    - That is,  you cannot load the python module and use the packages therein inside you Conda environment.
+    - That is,  you cannot load the Python module and use the packages therein inside you Conda environment.
+
+:::{admonition} Conda vs mamba etc...
+   :class: dropdown
+
+   - [what-is-the-difference-with-conda-mamba-poetry-pip](https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip)
+:::
+
+One can choose from different repos, or ``channels``
 
 :::{admonition} Conda channels
    :class: dropdown
@@ -225,83 +223,74 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - scilifelab-lts
 
     You reach them all by loading the conda module. You don't have to state the specific channel when using UPPMAX. Otherwise you do with ``conda -c <channel> ...``
+:::
 
+``Miniconda`` and ``Miniforge`` are the common software modules at the centres.
+
+:::{admonitions} Conda distributions
+   :class: dropdown
+
+- **Anaconda** is a distribution of conda packages made by Anaconda Inc.. When using Anaconda remember to check that your situation abides with their **licensing terms**.
+- **Miniconda** is a minimal installer maintained by Anaconda Inc. that has conda and uses Anaconda’s channels by default. Check **licensing terms** when using these packages.
+- **Miniforge** is an **open-source** Miniconda replacement that uses **conda-forge as the default channel**. Contains mamba as well.
+- micromamba is a tiny stand-alone version of the mamba package manager written in C++. It can be used to create and manage environments without installing base-environment and Python. It is very useful if you want to automate environment creation or want a more lightweight tool
+:::
 
 :::{warning}
 
-   Drawbacks
+Drawbacks
 
-   - Conda cannot use already install packages from the Python modules and libraries already installed, and hence installs them anyway
-   - Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in $HOME).
-   - Check your disk usage and quota limit
-       - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
+- Conda cannot use already installed packages from the Python modules and libraries, and hence installs them anyway
+- Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in ``$HOME``).
+- Check your disk usage and quota limit
+    - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
 :::
 
 :::{tip}
 
    - The conda environments including many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
-   - Move your ``.conda`` directory to your project folder and make a soft link to it from ``$HOME``
-   - Do the following (``mkdir -p`` ignores error output and will not recreate another folder if it already exists):
-        - (replace what is inside ``<>`` with relevant path)
+   - Use the commands
 
-   - Solution 1
-
-      This works nicely if you have several projects. Then you can change these variables according to what you are currently working with.
-
-      ```bash
-
-         export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
-         export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
-         mamba create --prefix=$CONDA_ENVS_PATH/<conda env name>
-      ```
-
-   - Solution 2
-
-      - This may not be a good idea if you have several projects.
-
-      ```bash
-
-         $ mkdir -p ~/.conda
-         $ mv ~/.conda /<path-to-project-folder>/<username>/
-         $ ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
-      ```
-:::
-
-:::{admonition} Example NSC
-
-   ```console
-
-      module load Miniforge/24.7.1-2-hpc1
-      export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
-      export CONDA_ENVS_PATH=/proj/spring-courses-naiss/users/$USER
-      mamba create --prefix=$CONDA_ENVS_PATH/numpy-proj-39 python=3.9.5 -c conda-forge
-      mamba activate nsc-example
-      # A prompt "(/path-to/nsc-example/)" should show up
-      # double-check we are using python from the Conda environment!
-      which python  # should point to the conda environment!
-      python -V     # should give python version 3.9.5
-      mamba install numpy
-   ```
-
-   ```python
-
-      >>> import numpy
+   ```bash
+   export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
+   export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
+   mamba create --prefix=$CONDA_ENVS_PATH/<conda env name>
    ```
 :::
 
-:::{admonition} Comments
-   :class: dropdown
+### Example NSC
 
-   - When pinning with Conda, use single ``=`` instead of double (as used by pip)
-:::
+```console
+
+module load Miniforge/24.7.1-2-hpc1
+export CONDA_PKG_DIRS=/proj/spring-courses-naiss/users/$USER
+export CONDA_ENVS_PATH=/proj/spring-courses-naiss/users/$USER
+mamba create --prefix=$CONDA_ENVS_PATH/numpy-proj-39 python=3.9.5 -c conda-forge
+mamba activate nsc-example
+# A prompt "(/path-to/nsc-example/)" should show up
+# double-check we are using python from the Conda environment!
+which python  # should point to the conda environment!
+python -V     # should give python version 3.9.5
+conda install numpy
+```
+
+```python
+
+>>> import numpy
+```
+
+- Note, when pinning with `conda`, use single ``=`` instead of double (as used by pip)
+
 
 :::{admonition} Conda base env
    :class: dropdown
 
-   - When conda is loaded you will by default be in the base environment, which works in the same way as other conda environments.
-   - It includes a Python installation and some core system libraries and dependencies of Conda. It is a “best practice” to avoid installing additional packages into your base software environment.
+   - When conda is loaded you will by default be in the *base environment*, which works in the same way as other conda environments.
+   - It includes a Python installation and some core system libraries and dependencies of Conda.
+   - It is a “best practice” to avoid installing additional packages into your base software environment.
 
 :::{admonition} Conda cheat sheet
+   :class: dropdown
 
    - List packages in present environment:           ``conda list``
    - List all environments:                       ``conda info -e`` or ``conda env list``
@@ -315,35 +304,28 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
    - Deactivate current environment:                 ``conda deactivate``
 :::
 
-:::{admonition} Conda vs mamba etc...
-   :class: dropdown
-
-   - `what-is-the-difference-with-conda-mamba-poetry-pip <https://pixi.sh/latest/misc/FAQ/#what-is-the-difference-with-conda-mamba-poetry-pip>`_
-:::
-
-:::{admonition} What to do when a problem arises?
-   :class: dropdown
-
-   - If you experience unexpected problems with the conda provided by the module system on Pelle or anaconda3 on Dardel, you can easily install your own and maintain it yourself.
-   - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
-   - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
-:::
-
 ## Install from file
 
-- All centers has had different approaches in what is included in the module system and not.
-- Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
-- This is left as exercise for you, see Exercise 4 and 5.
+- This is handy when you want to move your Python environment somewhere else. 
+- Also, when giving your code to someone else (in research group or to a community).
+- Good for reproducibility
+
+:::{admonition} Principle for both ``venv`` & ``conda``
+1. Activate the environment and make sure it works
+2. Save a environment file
+3. Distribute the file
+4. Receiver installs the environment from the file
+:::
 
 ### venv
-
 
 Make a requirements file:
 
 ```console
 
-   pip freeze --local > requirements.txt
+pip freeze --local > requirements.txt
 ```
+
 :::{admonition} How does it look like?
    :class: dropdown
 
@@ -360,6 +342,7 @@ Make a requirements file:
       python-dateutil==2.9.0.post0
       six==1.17.0
    ```
+:::
 
 Install packages from a file
 
@@ -434,11 +417,15 @@ Create an environment from a file. Do this on another computer or rename.
 
 :::{discussion}
 
-   - Did you note the difference in file length?
+   - Did you note the difference in file length for ``venv`` & ``conda``?
    - What does it mean?
 :::
 
 ## Exercises
+
+- All centers has had different approaches in what is included in the module system and not.
+- Therefore the solution to complete the necessary packages needed for the course lessons, different approaches has to be made.
+- This is left as exercise for you, see Exercise 4 and 5.
 
 :::{challenge} Exercise 0: Make a decision between ``venv`` or ``conda``.
 
@@ -455,13 +442,13 @@ Breakout room according to grouping
 
    First try to find it by navigating.
 
-   - Alvis: https://www.c3se.chalmers.se/documentation/first_time_users/
-   - NSC: https://www.nsc.liu.se
-   - PDC: https://support.pdc.kth.se/doc/
-   - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/
-   - UPPMAX: https://docs.uppmax.uu.se/
-   - HPC2N: https://docs.hpc2n.umu.se/
-   - LUMI: https://docs.lumi-supercomputer.eu/software
+   - Alvis: <https://www.c3se.chalmers.se/documentation/first_time_users/>
+   - NSC: <https://www.nsc.liu.se>
+   - PDC: <https://support.pdc.kth.se/doc/>
+   - LUNARC: <https://lunarc-documentation.readthedocs.io/en/latest/>
+   - UPPMAX: <https://docs.uppmax.uu.se/>
+   - HPC2N: <https://docs.hpc2n.umu.se/>
+   - LUMI: <https://docs.lumi-supercomputer.eu/software>
 
    :::{solution}
 
@@ -471,49 +458,49 @@ Breakout room according to grouping
 
             NSC:
 
-            - `Python <https://www.nsc.liu.se/software/python/>`_
+            - [Python](https://www.nsc.liu.se/software/python/)
 
             PDC:
 
-            - `Virtual environment with venv <https://pdc-support.github.io/pdc-intro/#165>`_
+            - [Virtual environment with venv](https://pdc-support.github.io/pdc-intro/#165)
 
             LUNARC
 
-            - `Python <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`_
+            - [Python](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/)
 
             UPPMAX (only Pelle)
 
-            - `Python venv <https://docs.uppmax.uu.se/software/python_venv/>`_
-            - `Video By Richel <https://www.youtube.com/watch?v=lj_Q-5l0BqU>`_
+            - [Python venv](https://docs.uppmax.uu.se/software/python_venv/)
+            - [Video By Richel <https://www.youtube.com/watch?v=lj_Q-5l0BqU)
 
             HPC2N
 
-            - `Venv <https://docs.hpc2n.umu.se/software/userinstalls/#venv>`_
-            - `Video by Richel <https://www.youtube.com/watch?v=_ev3g5Zvn9g>`_
+            - [Venv](https://docs.hpc2n.umu.se/software/userinstalls/#venv)
+            - [Video by Richel](https://www.youtube.com/watch?v=_ev3g5Zvn9g)
 
          :::
          :::{tab-item} conda
 
             NSC:
 
-            - https://www.nsc.liu.se/software/anaconda/
+            - <https://www.nsc.liu.se/software/anaconda/>
 
             PDC:
 
-            - https://support.pdc.kth.se/doc/applications/python/
+            - <https://support.pdc.kth.se/doc/applications/python/>
 
             LUNARC
 
-            - https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
+            - <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>
 
             UPPMAX
 
-            - https://docs.uppmax.uu.se/software/conda/
-            - `Bianca <https://uppmax.github.io/bianca_workshops/extra/conda/>`_
+            - [Conda on Pelle](https://docs.uppmax.uu.se/software/conda_on_pelle/)
+            - [Bianca](https://uppmax.github.io/bianca_workshops/extra/conda/)
 
             LUMI
 
-            - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+            - <https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper>
 
             HPC2N:
 
@@ -787,7 +774,7 @@ Breakout room according to grouping
 
 :::{challenge} (optional) Exercise 4: like 3, but for Conda
 
-    Let's make an installation with the latest bug fix version of ``Python 3.12`` and compatible ``numpy`` and ``matplotlib`` in a `conda environment <https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment>`_
+Let's make an installation with the latest bug fix version of ``Python 3.12`` and compatible ``numpy`` and ``matplotlib`` in a [conda environment](https://saturncloud.io/blog/how-to-ensure-that-spyder-runs-within-a-conda-environment/#step-2-create-a-conda-environment)
 
    - Activate environment
    - Confirm package is absent
@@ -893,7 +880,7 @@ Breakout room according to grouping
 
 :::{challenge} (optional) 5. Make a test environment and spread (venv)
 
-   Read `here <https://uppmax.github.io/HPC-python/extra/isolated_deeper.html#creator-developer>`_
+   Read [here](../extra/isolated_deeper.rst#creator-developer)
 
    1. make a virtual environment with the name ``venv1``. Do not include packages from the the loaded module(s)
    2. activate
@@ -1028,9 +1015,7 @@ Breakout room according to grouping
    ```
 :::
 
-Summary
--------
-
+## Summary
 
 :::{keypoints}
 
@@ -1045,140 +1030,48 @@ Summary
             - install in project folder due to many files.
 :::
 
+### Summary of the workflows
+
+- [Venv](../extra/extra_isolated.md#)
+- [Conda](../extra/extra_isolated.md#)
+
 :::{admonition} Documentation at the centres
    :class: dropdown
 
    NSC:
 
-   - https://www.nsc.liu.se/software/python/
-   - https://www.nsc.liu.se/software/anaconda/
+   - <https://www.nsc.liu.se/software/python/>
+   - <https://www.nsc.liu.se/software/anaconda/>
 
    PDC:
 
-   - https://support.pdc.kth.se/doc/applications/python/
-   - https://pdc-support.github.io/pdc-intro/#165
+   - <https://support.pdc.kth.se/doc/applications/python/>
+   - <https://pdc-support.github.io/pdc-intro/#165>
 
    LUNARC
 
-   - https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions
+   - <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/#anaconda-distributions>
 
    UPPMAX
 
-   - https://docs.uppmax.uu.se/software/conda/
-   - https://hackmd.io/@pmitev/conda_on_Rackham
+   - <https://docs.uppmax.uu.se/software/conda_on_pelle/>
+   - <https://hackmd.io/@pmitev/conda_on_Rackham>
 
    HPC2N
 
-   - https://docs.hpc2n.umu.se/software/userinstalls/#venv
+   - <https://docs.hpc2n.umu.se/software/userinstalls/#venv>
 
    LUMI
 
-   - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper
+   - https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/#examples-of-using-the-lumi-container-wrapper>
 :::
 
-## Summary
 
-### Workflow ``venv``
-
-1. Start from a Python version you would like to use (load the module):
-    - This step are different at different clusters since the naming is different
-
-2. Load the Python module you will be using, as well as any site-installed package modules (requires the ``--system-site-packages`` option later)
-    - ``module load <python module>``
-
-The next points will be the same for all clusters
-
-3. Create the isolated environment with something like ``python -m venv <name-of-environment>``
-    - use the ``--system-site-packages`` to include all "non-base" packages
-    - include the full path in the name if you want the environment to be stored other than in the "present working directory".
-
-4. Activate the environment with ``source <path to virtual environment>/bin activate``
-
-:::{note}
-
-   - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important <space> after ``.``
-   - For clarity we use the ``source`` style here.
-:::
-
-5. Install (or update) the environment with the packages you need with the ``pip install`` command
-
-    - Note that ``--user`` must be omitted: else the package will be installed in the global user folder.
-    - The ``--no-cache-dir"`` option is required to avoid it from reusing earlier installations from the same user in a different environment. The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when building any Cython libraries.
-
-6. Work in the isolated environment
-   - When activated you can always continue to add packages!
-7. Deactivate the environment after use with ``deactivate``
-
-:::{note}
-
-   To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!
-         ``--system-site-packages`` includes the packages already installed in the loaded python module.
-
-   At HPC2N, NSC and LUNARC, you often have to load SciPy-bundle. This is how you on Tetralith (NSC) could create a venv (Example) with a SciPy-bundle included which is compatible with Python/3.11.5:
-
-   ```console
-
-       $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
-       $ python -m venv --system-site-packages Example
-   ```    
-:::
-
-:::{warning}
-
-   Draw-backs
-
-   - Only works for Python environments
-   - Only works with Python versions already installed
-:::
-
-Typical workflow Conda
-......................
-
-The first 2 steps are cluster dependent and will therefore be slightly different.
-
-1. Make conda available from a software module, like ``ml load conda`` or similar, or use own installation of miniconda or miniforge.
-2. First time
-
-   :::{admonition} First time
-      :class: dropdown
-
-      - The variables CONDA_ENVS_PATH and CONDA_PKG_DIRS contains the location of your environments. Set it to your project's environments folder, if you have one, instead of the $HOME folder.
-      - Otherwise, the default is ``~/.conda/envs``.
-      - Example:
-
-      ```console
-
-         $ export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
-         $ export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
-      ```
-      
-   :::
-
-Next steps are the same for all clusters
-
-3. Create the conda environment ``conda create -n <name-of-env>``
-4. Activate the conda environment by: ``source activate <conda-env-name>``
-
-    - You can define the packages to be installed here already.
-    - If you want another Python version, you have to define it here, like: ``conda ... python=3.6.8``
-
-5. Install the packages with ``conda install ...`` or ``pip install ...``
-6. Now do your work!
-
-    - When activated you can always continue to add packages!
-
-7. Deactivate
-
-:::{prompt}
-    :language: bash
-    :prompts: (python-36-env) $
-
-    conda deactivate
-:::
 
 :::{seealso}
 
-   - want to share your work? :ref:`devel_iso`
-   - uploading files
-      - `NAISS transfer course <https://hpc.pages.naiss.se/training/connect-transfer/sessions/intro/>`_
+   - Want to share your work? [Developing in isolated environments](../extra/isolated_deeper.rst)
+   - Uploading files
+
+      - [NAISS transfer course](https://hpc.pages.naiss.se/training/connect-transfer/sessions/intro_file_transfer/)
 :::

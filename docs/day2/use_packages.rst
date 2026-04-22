@@ -139,7 +139,7 @@ Exercise 1: using Python packages
 +------------+-----------------+
 | COSMOS     |``3.11.5``       |
 +------------+-----------------+
-| Dardel     |``3.11.4``       |
+| Dardel     |``3.11.7``       |
 +------------+-----------------+
 | Kebnekaise |``3.11.3``       |
 +------------+-----------------+
@@ -151,27 +151,27 @@ Exercise 1: using Python packages
 +------------+-----------------+
 
 .. admonition:: Forgot how to do this?
-    :class: dropdown
+   :class: dropdown
 
-    +------------+----------------------------------------------------+
-    | HPC cluster|Python version                                      |
-    +============+====================================================+
-    | Alvis      |``module load Python/3.12.3-GCCcore-13.3.0``        |
-    +------------+----------------------------------------------------+
-    | Bianca     |``module load python/3.12.7``                       |
-    +------------+----------------------------------------------------+
-    | COSMOS     |``module load GCCcore/13.2.0 Python/3.11.5``        |
-    +------------+----------------------------------------------------+
-    | Dardel     |``module load bioinfo-tools python/3.11.4``         |
-    +------------+----------------------------------------------------+
-    | Kebnekaise |``module load GCC/12.3.0 Python/3.11.3``            |
-    +------------+----------------------------------------------------+
-    | LUMI       |``module load cray-python/3.11.7``                  |
-    +------------+----------------------------------------------------+
-    | Pelle      |``module load Python/3.12.3-GCCcore-13.3.0``        |
-    +------------+----------------------------------------------------+
-    | Tetralith  |``module load Python/3.11.5-bare-hpc1-gcc-2023b-eb``|
-    +------------+----------------------------------------------------+
+   +------------+----------------------------------------------------+
+   | HPC cluster|Python version                                      |
+   +============+====================================================+
+   | Alvis      |``module load Python/3.12.3-GCCcore-13.3.0``        |
+   +------------+----------------------------------------------------+
+   | Bianca     |``module load python/3.12.7``                       |
+   +------------+----------------------------------------------------+
+   | COSMOS     |``module load GCCcore/13.2.0 Python/3.11.5``        |
+   +------------+----------------------------------------------------+
+   | Dardel     |``module load cray-python/3.11.7``                  |
+   +------------+----------------------------------------------------+
+   | Kebnekaise |``module load GCC/12.3.0 Python/3.11.3``            |
+   +------------+----------------------------------------------------+
+   | LUMI       |``module load cray-python/3.11.7``                  |
+   +------------+----------------------------------------------------+
+   | Pelle      |``module load Python/3.12.3-GCCcore-13.3.0``        |
+   +------------+----------------------------------------------------+
+   | Tetralith  |``module load Python/3.11.5-bare-hpc1-gcc-2023b-eb``|
+   +------------+----------------------------------------------------+
 
 
 - Confirm that the Python package, indicated in the table below, is absent.
@@ -186,7 +186,7 @@ Exercise 1: using Python packages
 +------------+------------------------------+
 | COSMOS     | ``scipy``                    |
 +------------+------------------------------+
-| Dardel     | ``tensorflow``               |
+| Dardel     | ``matplotlib``               |
 +------------+------------------------------+
 | Kebnekaise | ``scipy``                    |
 +------------+------------------------------+
@@ -241,7 +241,7 @@ Exercise 1: using Python packages
     +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
     | COSMOS     |`Here <https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python/>`__                                                  |
     +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-    | Dardel     |`Here <https://support.pdc.kth.se/doc/applications/tensorflow/>`__, but it is irrelevant                                                      |
+    | Dardel     |`Here <https://support.pdc.kth.se/doc/applications/python/>`__, but it just says it need to be installed                                      |
     +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
     | Kebnekaise |`Here <https://docs.hpc2n.umu.se/software/apps/#scipy>`__                                                                                     |
     +------------+----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -270,7 +270,7 @@ Exercise 1: using Python packages
     +------------+---------------------------------------------------+
     | COSMOS     |``module spider SciPy``                            |
     +------------+---------------------------------------------------+
-    | Dardel     |``module spider <package>``                        |
+    | Dardel     |``module spider matplotlib``                       |
     +------------+---------------------------------------------------+
     | Kebnekaise |``module spider SciPy``                            |
     +------------+---------------------------------------------------+
@@ -287,7 +287,7 @@ Exercise 1: using Python packages
 - Load the software module
 
 .. admonition:: Answer
-    :class: dropdown
+   :class: dropdown
 
     In the terminal, type the following command:
 
@@ -300,7 +300,9 @@ Exercise 1: using Python packages
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | COSMOS     | ``module load module load GCC/13.3.0 SciPy-bundle/2024.05``                                                        |
     +------------+--------------------------------------------------------------------------------------------------------------------+
-    | Dardel     | ``module load python_ML_packages/3.11.8-cpu``. You will be asked to do a ``module unload python`` first. Do so :-) |
+    | Dardel     | ``module load PDCOLD/23.12 matplotlib/3.8.2-cpeGNU-23.12``. It is not recommended to load a PDCOLD module,         |
+    +            +--------------------------------------------------------------------------------------------------------------------+
+    |            | but it works and loads an older python version                                                                     |
     +------------+--------------------------------------------------------------------------------------------------------------------+
     | Kebnekaise | ``module load GCC/13.3.0 SciPy-bundle/2024.05``                                                                    |
     +------------+--------------------------------------------------------------------------------------------------------------------+
@@ -354,9 +356,9 @@ Well done!
 
 .. admonition:: Using a cluster with bundles (all *but* Dardel,Tetralith and Bianca)
 
-    Read about ref:`python-bundles` from `EasyBuild <https://easybuild.io/>`_.
+    Read about :ref:`python-bundles` from `EasyBuild <https://easybuild.io/>`_.
 
-.. seealso::
+.. admonition:: More about packages
    :class: dropdown
 
    Summary taken from `Libraries section <https://aaltoscicomp.github.io/python-for-scicomp/libraries/>`_ of course Python for Scientific Computing.
@@ -377,7 +379,7 @@ Well done!
    .. admonition:: Data analysis and other important core packages
 
       - pandas - Columnar data analysi.
-      - polars <https://pola.rs/> - Alternative to pandas that uses similar API, but is re-imagined for more speed.
+      - `polars <https://pola.rs/>`_ - Alternative to pandas that uses similar API, but is re-imagined for more speed.
       - Vaex - Alternative for pandas that uses similar API for lazy-loading and processing huge DataFrames.
       - Dask - Alternative to Pandas that uses similar API and can do analysis in parallel.
       - xarrray - Framework for working with mutli-dimensional arrays.
@@ -434,13 +436,17 @@ Well done!
       - equinox - Another neural network framework built on Jax.
       - DeepSpeed - Algorithms for running massive scale trainings. Included in many of the frameworks.
       - PyTorch Lightning - Framework for creating and training PyTorch models.
-      - Tensorboard <https://www.tensorflow.org/tensorboard/> - Tool for visualizing model training on a web page.
+      - `Tensorboard <https://www.tensorflow.org/tensorboard/>`_ - Tool for visualizing model training on a web page.
 
-   .. admonition:: Other packages for special cases
+   .. admonition:: Other packages for special cases
 
       - dateutil and pytz - Date arithmetic and handling, timezone database and conversion.
 
+.. discussion::
 
+   - Questions?
 
+   - About Dardel?
 
+   - Coming Arrhenius, probably a combination of Dardel and Kebnekaise and Alvis.
 

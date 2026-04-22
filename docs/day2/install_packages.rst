@@ -10,8 +10,7 @@ Installing packages
 .. admonition:: For the teacher
    :class: drop-down
 
-    - Dialogue with users during class 15 min
-    - Exercise about 5 min
+   - Dialogue with users during class 15 min
 
 Introduction
 ------------
@@ -151,7 +150,8 @@ Exercise
 .. challenge:: (optional) Exercise 1: Install a python package you know of for an old version of Python
 
    - Load an older Python module (perhaps one you won't use anymore)
-   - install the python package (it may already be there but with an older version)
-       - (you can always remove your local installation later if you regret it)
+   - Install the python package (it may already be there but with an older version)
+
+- (you can always remove your local installation later if you regret it)
 
    - We may add a solution in a coming instance of the course

@@ -66,7 +66,7 @@ Does not apply to me.
 
 I assume this does not apply to me.
 
-### [Future topics](future_topics.txt)
+### [Future topics](../../evaluations/20251128_day_2/future_topics.txt)
 
 - Me personally I want more about COSMOS-SENS but that is mainly as there
   is very little documentation at Lunarc about it
@@ -82,7 +82,7 @@ I assume the Conda and venv teachers pick this up.
 Unlike Nextflow, Snakemake seems a good fit, as it is intended
 to be Python-like.
 
-### [Other comments](comments.txt)
+### [Other comments](../../evaluations/20251128_day_2/comments.txt)
 
 - Exercises were a bit less clear today, which ones we should do and when was a little confusing. Content was very good though :)
 - NO

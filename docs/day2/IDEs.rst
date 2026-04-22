@@ -20,7 +20,7 @@ Jupyter
 
    - displayed in a web browser, such as firefox.
 
-   Jupyter can be slow when using a remote desktop website (e.g. ``rackham-gui.uppmax.uu.se`` or ``kebnekaise-tl.hpc2n.umu.se``).
+   Jupyter can be slow when using a remote desktop website (e.g. ``pelle-gui.uppmax.uu.se`` or ``kebnekaise-tl.hpc2n.umu.se``).
 
    - For HPC2N, as JupyterLab it is only accessible from within HPC2N’s domain, and there is no way to improve any slowness
 
@@ -36,11 +36,11 @@ Jupyter
 
       .. tab:: UPPMAX
 
-         Depending on your requirement of GPU or CPU, you can use Jupyter on either Rackham or Snowy compute node.
+         Depending on your requirement of GPU or CPU, you can use Jupyter on Pelle compute node.
 
          **1. Login to a remote desktop**
 
-            Alt1.  Login to the remote desktop website at ``rackham-gui.uppmax.uu.se``
+            Alt1.  Login to the remote desktop website at ``pelle-gui.uppmax.uu.se``
             Alt2. Login to your local ThinLinc client
 
          **2. start an interactive session**
@@ -49,18 +49,18 @@ Jupyter
 
             .. tabs::
 
-               .. tab:: Rackham
+               .. tab:: Pelle
 
                   .. code-block:: sh
 
                      $ interactive -A uppmax2025-2-393 -t 4:00:00
 
 
-               .. tab:: Snowy
+               .. tab:: Bianca
 
                   .. code-block:: sh
 
-                     $ interactive -M snowy -A uppmax2025-2-393 -t 4:00:00 --gres=gpu:1
+                     $ interactive -A <proj> -t 4:00:00 
 
 
 
@@ -71,7 +71,7 @@ Jupyter
 
             .. code-block:: sh
 
-               module load python/3.11.8
+               module load JupyterLab/4.2.5-GCCcore-13.3.0
 
             Then, start ``jupyter-notebook`` (or ``jupyter-lab``):
 
@@ -85,67 +85,39 @@ Jupyter
 
          *On ThinLinc*
 
-            If you use the ThinLinc, depending on which Jupyter server (Rackham or Snowy) you want to launch on web browser
+            If you use the ThinLinc, depending on which Jupyter server (Pelle) you want to launch on web browser
 
+         
+            .. tab:: Pelle
 
-            .. tabs::
+               * start ``firefox`` on the ThinLinc.
+               * browse to the URLs, which will be similar to ``http://p[xxx].uppmax.uu.se:8888/?token=5c3aeee9fbfc7a11c4a64b2b549622231388241c2``
+               * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Pelle.
 
-               .. tab:: Rackham
-
-                  * start ``firefox`` on the ThinLinc.
-                  * browse to the URLs, which will be similar to ``http://r[xxx]:8888/?token=5c3aeee9fbfc7a11c4a64b2b549622231388241c2``
-                  * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Rackham.
-
-               .. tab:: Snowy
-
-                  * start ``firefox`` on the ThinLinc.
-                  * browse to the URLs, which will be similar to ``http://s[xxx].uppmax.uu.se:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4``
-                  * Paste the url and it will start the Jupyter interface on ThinLinc and all calculations and files will be on Snowy.
 
          *On own computer*
 
-            If you want to connect to the Jupyter server running on Rackham/Snowy from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.
+            If you want to connect to the Jupyter server running on Pelle from your own computer, you can do this by using SSH tunneling. Which means forwarding the port of the interactive node to your local computer.
 
-            .. tabs::
+            .. tab:: Pelle
 
-               .. tab:: Rackham
+               * On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
 
-                  * On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
+               .. code-block:: sh
 
-                  .. code-block:: sh
+                  $ ssh -L 8888:p[xxx]:8888 username@pelle.uppmax.uu.se
 
-                     $ ssh -L 8888:r486:8888 username@rackham.uppmax.uu.se
-
-                  * If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
-                  * If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
+               * If you use Windows it may be better to do this in the PowerShell instead of a WSL2 terminal.
+               * If you use PuTTY - you need to change the settings in "Tunnels" accordingly (could be done for the current connection as well).
 
 
-                  * On your computer open the URL you got from step 3. on your webbrowser but replace r486 with localhost i.e. you get something like this
+               * On your computer open the URL you got from step 3. on your webbrowser but replace r486 with localhost i.e. you get something like this
 
-                  ``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
-                  or
-                  ``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+               ``http://localhost:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
+               or
+               ``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 
-                  * This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.
-
-
-
-               .. tab:: Snowy
-
-                  * Similar steps as for Rackham but with the correct port number and hostname pointing to Snowy compute node instead.
-
-                  .. code-block:: sh
-
-                     $ ssh -L 8889:s123:8889 username@rackham.uppmax.uu.se
-
-                  * On your computer open the URL you got from step 3. on your webbrowser but replace s123 with localhost i.e. you get something like this
-
-                  ``http://localhost:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4``
-                  or
-                  ``http://127.0.0.0:8889/tree?token=2ac454a7c5d7376e965ad521d324595ce3d4``
-
-                  * Paste the url and it will start the Jupyter interface on your computer and all calculations and files will be on Snowy.
-
+               * This should bring the jupyter interface on your computer and all calculations and files will be on Pelle.
 
 
          .. warning::
@@ -707,7 +679,7 @@ Spyder
 
       .. tab:: UPPMAX
 
-         Spyder is not available centrally on Rackham.
+         Spyder is not available centrally on Pelle.
 
          - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments/#exercises>`_
 
@@ -743,10 +715,10 @@ Spyder
 
          .. code-block:: console
 
-            ml PDC/23.12
-            ml miniconda3/24.7.1-0-cpeGNU-23.12
-            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
-            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/courses-fall-2025/$USER/"
+            ml PDC/24.11
+            ml miniconda3/25.3.1-1-cpeGNU-24.11
+            export CONDA_ENVS_PATH="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/"
+            export CONDA_PKG_DIRS="/cfs/klemming/projects/supr/spring-courses-naiss/$USER/"
             source activate spyder-env
 
          * you can install packages with pip install from inside Spyder
@@ -892,7 +864,7 @@ VS Code
    VS Code can be downloaded and installed on your local machine from the `VS Code website <https://code.visualstudio.com/>`_. It is also available on the HPC center resources, but the installation process is different for each center.
 
    VS Code is available on ThinLinc on UPPMAX and LUNARC only. On HPC2N and NSC, you will have to install it on your own laptop.
-   At UPPMAX(Rackham) load it using ``module load VSCodium``, this is an open source version of VS Code. At LUNARC(Cosmos) you can find it under Applications->Programming->Visual Studio Code.
+   At UPPMAX(Pelle) load it using ``module load VSCodium``, this is an open source version of VS Code. At LUNARC(Cosmos) you can find it under Applications->Programming->Visual Studio Code.
 
    However, VS Code is best used on your local machine, as it is a resource-intensive application that can slow down the ThinLinc interface. The VS Code Server can be installed on all the HPCs that give your the ability to run your code on the HPCs but edit it on your local machine.
    Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.
@@ -909,7 +881,7 @@ VS Code
 
       .. figure:: ../img/vscode_add_new_remote.png
 
-      Type ssh [username]@rackham.uppmax.uu.se where [username] is your UPPMAX username, for example, ssh sven@rackham.uppmax.uu.se.
+      Type ssh [username]@pelle.uppmax.uu.se where [username] is your UPPMAX username, for example, ssh sven@pelle.uppmax.uu.se.
       This will change as per the HPC center you are using:
 
       .. figure:: ../img/vscode_ssh_to_rackham.png
@@ -924,7 +896,7 @@ VS Code
 
       .. figure:: ../img/vscode_connected_to_rackham.png
 
-   When you first establish the ssh connection to Rackham, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
+   When you first establish the ssh connection to Pelle, your VSCode server directory .vscode-server will be created in your home folder /home/[username].
    This also where VS Code will install all your extensions that can quickly fill up your home directory.
 
 Features
@@ -991,27 +963,27 @@ Main panes and useful panels
 
    * By default, VSCode server installs all extensions in your home directory on the remote server. Which is not recommended as home directories have limited space. You can change this behavior by changing the remote server install path to a project folder with sufficient space.
    * Go to Command Palette ``Ctrl+Shift+P`` or ``F1``. Search for ``Remote-SSH: Settings`` and then go to ``Remote.SSH: Server Install Path``.
-   * Add ``Item`` as remote host (say, rackham.uppmax.uu.se) and ``Value`` as project folder in which you want to install all your data and extensions (say ``/proj/uppmax202x-x-xx/nobackup``) (without a trailing slash /).
+   * Add ``Item`` as remote host (say, pelle.uppmax.uu.se) and ``Value`` as project folder in which you want to install all your data and extensions (say ``/proj/uppmax202x-x-xx/nobackup``) (without a trailing slash /).
 
    ⚠️ If you already had your vscode-server running and storing extensions in home directory. Make sure to kill the server by selecting ``Remote-SSH: KIll VS Code Server on Host`` on Command Palette and deleting the ``.vscode-server`` directory in your home folder.
 
    **Install Extensions** 📦
 
-   * You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for ``Remote: Install Local Extensions`` in ``SSH: rackham.uppmax.uu.se`` (or other HPC name) in Command Palette.
+   * You can sync all your local VSCode extensions to the remote server after you are connected with VSCode server on HPC resource by searching for ``Remote: Install Local Extensions`` in ``SSH: pelle.uppmax.uu.se`` (or other HPC name) in Command Palette.
    * You can alternatively, go to Extensions tab and select each individually.
 
    **Selecting Kernels** 🧠
 
    * Establish an SSH connection to the login node of the HPC resource using VSCode remote-SSH extension as described in previous session.
    * You may request an allocation on a compute node BUT VSCode server does not connect to it automatically and your code will still be executed on login node.
-   * Load the correct module (or virtual env) on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Rackham/Snowy, do module load python_ML_packages. Check the file path for python interpreter by checking ``which python`` and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for "interpreter" for python, then paste the path of your interpreter/kernel.
+   * Load the correct module (or virtual env) on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Pelle, do module load python_ML_packages. Check the file path for python interpreter by checking ``which python`` and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for "interpreter" for python, then paste the path of your interpreter/kernel.
    * venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server.
    **NOTE**: Fetching python interpreters from a compute node may or may not work depending on the HPC resource. Develop your code on login node and run it on compute nodes using sbatch scripts.
 
    **For Jupyter Notebooks (and a much safer option)** 🧪
 
    * You need to start the server on the HPC resource first, preferably on a compute node.
-   * Copy the jupyter server URL which goes something like ``http://s193.uppmax.uu.se:8888/tree?token=xxx`` (where s193 is Snowy node. Other HPCs will have similar URLs), click on ``Select Kernel`` on VSCode and select ``Existing Jupyter Server``. Past the URL here and confirm your choice.
+   * Copy the jupyter server URL which goes something like ``http://p193.uppmax.uu.se:8888/tree?token=xxx`` (where p193 is Pelle node. Other HPCs will have similar URLs), click on ``Select Kernel`` on VSCode and select ``Existing Jupyter Server``. Past the URL here and confirm your choice.
    * This only works if you have the jupyter extension installed on your local VSCode.
    * The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser.
    **NOTE**: Selecting kernels/interpreter does not work currently on HPC2N.

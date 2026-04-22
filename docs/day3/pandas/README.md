@@ -162,7 +162,7 @@ HPC cluster|How to load the `pandas` software module
 Alvis      |`module load matplotlib/3.9.2-gfbf-2024a` <!-- TODO -->
 COSMOS     |`module load GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2` <!-- :-) 2026-04-17 -->
 Dardel     |`module load python/3.12.3 ; pip3 install pandas` <!-- :-) 2026-05-17 -->
-Kebnekaise |`module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3` <!-- TODO -->
+Kebnekaise |`module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3` <!-- :-) 2026-04-21 -->
 Pelle      |`module load SciPy-bundle/2024.05-gfbf-2024a` <!-- :-) 2026-04-17 -->
 Tetralith  |`module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 JupyterLab/4.2.0` <!-- :-) 2026-04-17 -->
 <!-- markdownlint-enable MD013 -->

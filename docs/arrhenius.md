@@ -8,7 +8,7 @@ End-of-life of Alvis, Tetralith and Dardel
 
 - Alvis (GPU and AI) Summer 2026
 - Tetralith Autumn 2026
-- Dardel dec 2026-27
+- Dardel Dec 2026-27
 
 ## What is Arrhenius?
 
