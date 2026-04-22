@@ -6,7 +6,7 @@
 
 :::{admonition} Learning objectives
 
-- Practice using the docclass:dropdownumentation of your HPC cluster
+- Practice using the documentation of your HPC cluster
 - Find out which isolated environment tool to use on your HPC cluster
 - Work (create, activate, work, deactivate) with isolated environments
       in the way recommended by your HPC cluster
