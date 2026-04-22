@@ -64,13 +64,13 @@ we can infer that it is not all too unpopular.
 
 HPC cluster|YouTube video
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      | . <!-- [YouTube video]() -->
-Bianca     | . <!-- [YouTube video]() -->
-COSMOS     | . <!-- [YouTube video]() -->
+Alvis      |[YouTube video](https://youtu.be/5TSr-pE-BuU)
+Bianca     |.
+COSMOS     |.
 Dardel     |[YouTube video](https://youtu.be/8XdJP61IEMk)
-Kebnekaise | . <!-- [YouTube video]() -->
+Kebnekaise |.
 Pelle      |[YouTube video](https://youtu.be/5fWxXBA5120)
-Tetralith  | . <!-- [YouTube video]() -->
+Tetralith  |.
 
 
 <!-- markdownlint-enable MD013 -->
@@ -108,10 +108,10 @@ In that documentation, find the software module to load the package.
 
 HPC cluster|HPC cluster-specific `matplotlib` documentation
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      |[`matplotlib` documentation](https://www.c3se.chalmers.se/documentation/module_system/modules/#to-search-for-keywords-in-a-module-such-as-extensions-in-bundles) [No relevant documentation]
+Alvis      |No relevant documentation
 Bianca     |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#matplotlib)
-COSMOS     |[`matplotlib` documentation](https://lunarc-documentation.readthedocs.io/en/latest/manual/manual_modules/#loading-packages) [No relevant documentation]
-Dardel     |[`matplotlib` documentation](https://support.pdc.kth.se/doc/basics/quickstart/#the-lmod-module-system) [No relevant documentation]
+COSMOS     |No relevant documentation
+Dardel     |No relevant documentation
 Kebnekaise |[`matplotlib` documentation](https://docs.hpc2n.umu.se/software/libs/matplotlib/)
 Pelle      |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/matplotlib/)
 Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/catalogue/tetralith/modules/python.html)
