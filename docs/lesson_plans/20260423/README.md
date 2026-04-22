@@ -35,3 +35,19 @@ Note that it cannot be used anymore when this course would have a fee.
 
 I know that Sphinx can use Markdown anyways. Let's find out, starting with
 Pandas.
+
+## 2026-04-22
+
+Material is in good shape and I made videos for Pelle now.
+Let's prioritize on the most registrations:
+
+|hpc_cluster |  n|
+|:-----------|--:|
+|Alvis       |  9|
+|Bianca      |  4|
+|Cosmos      |  8|
+|Dardel      | 30|
+|Kebnekaise  |  6|
+|Pelle       |  3|
+|Tetralith   | 10|
+|Vera        |  1|
