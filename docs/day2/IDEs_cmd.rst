@@ -39,15 +39,7 @@ Prepare environment!
 1. Log in to a desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
 2. Start interactive session with 6 cores
 
-.. admonition:: Compute allocations in this workshop
-   :class: dropdown
-
-   - Pelle: ``uppmax2025-2-393``
-   - Kebnekaise: ``hpc2n2025-151``
-   - Cosmos: ``lu2025-7-106``
-   - Alvis: ``naiss2025-22-934``
-   - Tetralith: ``naiss2025-22-934``
-   - Dardel: ``naiss2025-22-934``
+   :ref:`common-naiss-projects-overview`
 
 Jupyter
 -------
