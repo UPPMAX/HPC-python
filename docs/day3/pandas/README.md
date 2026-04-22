@@ -89,15 +89,15 @@ we can infer that it is not all too unpopular.
 
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
-HPC cluster| YouTube video
+HPC cluster|YouTube video
 -----------|----------------------------------------------
-Alvis      | .<!-- [YouTube video]() -->
-Bianca     | .<!-- [YouTube video]() -->
-COSMOS     | .<!-- [YouTube video]() -->
-Dardel     | [YouTube video](https://youtu.be/pfql_NmZuIc)
-Kebnekaise | .<!-- [YouTube video]() -->
-Pelle      | [YouTube video](https://youtu.be/oaRV1M9mwPE)
-Tetralith  | .<!-- [YouTube video]() -->
+Alvis      |[YouTube video](https://youtu.be/ogPddCKCUuA)
+Bianca     |.
+COSMOS     |.
+Dardel     |[YouTube video](https://youtu.be/pfql_NmZuIc)
+Kebnekaise |.
+Pelle      |[YouTube video](https://youtu.be/oaRV1M9mwPE)
+Tetralith  |.
 
 
 <!-- markdownlint-enable MD013 -->
@@ -138,8 +138,8 @@ In that documentation, find the software module to load the package.
 
 HPC cluster|HPC cluster-specific `pandas` documentation
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      |[`pandas` documentation](https://www.c3se.chalmers.se/documentation/module_system/python/#numpy-and-scipy)
-Bianca     |[`pandas` documentation](https://docs.uppmax.uu.se/software/tensorflow/#tensorflow-as-a-python-package-for-cpu)
+Alvis      |Has no documentation on how to load `pandas`
+Bianca     |[`pandas` documentation](https://docs.uppmax.uu.se/software/python_bundles/#loading-the-pandas-module)
 COSMOS     |[`pandas` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
 Dardel     |Has no documentation on how to load `pandas`
 Kebnekaise |[`pandas` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
