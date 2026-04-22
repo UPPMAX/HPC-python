@@ -47,7 +47,8 @@ Basic batch and Slurm
        - it is magnetic, so will be used automatically
 
    - LUNARC
-       - 
+       - ``python_april26`` for the GPU and ML sessions on Friday - NOTE: it is in the gpua40i partition. Nodes have Intel processors (32 cores) and a40 cards.
+       - Note: for On-Demand apps, click the gear icon next to “Resource” in GfxLauncher popup to see additional options, which should include a box to include a reservation. Ticking that box will reveal a dropdown menu with the list of reservations associated with the project.
 
 
 What is a batch job?
@@ -145,9 +146,8 @@ This first example shows how to run a short, serial script. The batch script (na
 - If you did ``git clone https://github.com/UPPMAX/HPC-python.git``
     - ``HPC-Python/Exercises/day2/<center>``, where <center> is hpc2n, uppmax, lunarc, nsc, pdc, or c3se.
     - The Python script is in ``HPC-Python/Exercises/day2/programs`` and is named ``mmmult.py``.
-- If you did ``wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/exercises.tar.gz`` and then ``tar -xvzf exercises.tar.gz``
-    - ``exercises/day2/<center>``, where <center> is hpc2n, uppmax, lunarc, nsc, or pdc.
-    - The Python script is in ``exercises/day2/programs`` and is named ``mmmult.py``.
+- If you did ``wget https://github.com/UPPMAX/HPC-python/raw/refs/heads/main/Exercises.tar.gz`` (or copied it from the root of the course project folder) and then did ``tar -xvzf Exercises.tar.gz``
+    - The Python script is in ``Exercises/day2/programs`` and is named ``mmmult.py``.
 
 1. The batch script is run with ``sbatch run_mmmult.sh``.
 2. Try type ``squeue -u <username>`` to see if it is pending or running.
