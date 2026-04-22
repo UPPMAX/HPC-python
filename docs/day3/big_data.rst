@@ -27,8 +27,11 @@ Big data with Python
    - BREAK 15min 13.50-14.05
    - Exercise Dask 30
 
+Introduction
+------------
+
 High-Performance Data Analytics (HPDA)
---------------------------------------
+......................................
 
 .. admonition:: What is it?
    :class: dropdown
@@ -46,7 +49,7 @@ High-Performance Data Analytics (HPDA)
    Do you already work with large data sets?
 
 Why we need to take special actions
------------------------------------
+...................................
 
 Remember this one?
 
@@ -58,7 +61,7 @@ Remember this one?
    - What can limit us?
 
 What the constraints are
-------------------------
+........................
 
 - storage
 - memory
@@ -73,7 +76,7 @@ What the constraints are
    - allocate more memory
 
 Solutions and tools
--------------------
+...................
 
 - Allocate enough RAM
     - If you are running ready tools
