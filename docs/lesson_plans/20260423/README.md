@@ -45,11 +45,11 @@ hpc_cluster |  n|Done
 ------------|---|---
 Dardel      | 30|Yes
 Tetralith   | 10|
-Alvis       |  9|
-Cosmos      |  8|
+Alvis       |  9|Yes
+COSMOS      |  8|
 Kebnekaise  |  6|
 Bianca      |  4|
 Pelle       |  3|Yes
 Vera        |  1|
 
-
+Progress: 42/71 registrations has a video
