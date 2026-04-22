@@ -324,7 +324,7 @@ With this tool you can download and install with ``pip`` from the `PyPI reposito
 :::{admonition} What to do when a problem arises?
    :class: dropdown
 
-   - If you experience unexpected problems with the conda provided by the module system on Rackham or anaconda3 on Dardel, you can easily install your own and maintain it yourself.
+   - If you experience unexpected problems with the conda provided by the module system on Pelle or anaconda3 on Dardel, you can easily install your own and maintain it yourself.
    - Read more at `Pavlin Mitev's page about conda on Rackham/Dardel <https://hackmd.io/@pmitev/conda_on_Rackham>`_ and change paths to relevant one for your system.
    - Or `Conda - "best practices" - UPPMAX <https://hackmd.io/@pmitev/module_conda_Rackham>`_
 :::

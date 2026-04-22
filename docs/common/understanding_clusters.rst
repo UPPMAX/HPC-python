@@ -24,7 +24,7 @@ The HPC centers UPPMAX, HPC2N, LUNARC, NSC and Dardel
 
      - UPPMAX has three different clusters
 
-       - Rackham for general purpose computing on CPUs only
+       - Pelle for general purpose computing on CPUs only
        - Snowy available for local projects and suits long jobs (< 1 month) and has GPUs
        - Bianca for sensitive data and has GPUs
 
@@ -90,7 +90,7 @@ Common features
 
    * - Technology
      - Kebnekaise
-     - Rackham
+     - Pelle
      - Snowy
      - Bianca
      - Cosmos

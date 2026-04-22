@@ -23,9 +23,9 @@ Log in and other preparations
 
 .. admonition:: Cluster-specific approaches
 
-   - The course is a cooperation between the NAISS branches **UPPMAX** (Pelle, Maya, Rackham, Snowy, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on the compute systems at all these centres, as well as select resources at NSC (Tetralith) and PDC (Dardel).
+   - The course is a cooperation between the NAISS branches **UPPMAX** (Pelle, Maya, Bianca), **HPC2N** (Kebnekaise), and **LUNARC** (Cosmos) and will focus on the compute systems at all these centres, as well as select resources at NSC (Tetralith) and PDC (Dardel).
    - Although there are differences we will only have **few separate sessions**.
-   - Most participants will use NSC's or Dardel's systems for the course, as Pelle, Rackham, Kebnekaise and Cosmos are only for local (UU, UmU, IRF, MIUN, SLU, LTU, LU) users.
+   - Most participants will use NSC's or Dardel's systems for the course, as Pelle, Kebnekaise and Cosmos are only for local (UU, UmU, IRF, MIUN, SLU, LTU, LU) users.
    - The general information given in the course will be true for all/most HPC centres in Sweden.
 
       - The examples will often have specific information, like module names and versions, which may vary. What you learn here should help you to make any changes needed for the other centres.
@@ -40,7 +40,7 @@ Log in and other preparations
 
    - If you have user account and *research* project on Kebnekaise, follow the **HPC2N** track below.
    - If you have user account and *research* project on Cosmos, follow the **LUNARC** track below.
-   - If you have user account and course/research project on Rackham, follow the **UPPMAX** track below.
+   - If you have user account and course/research project on Pelle, follow the **UPPMAX** track below.
    - If you have user account and course/research project on Tetralith, follow the **NSC** track below.
    - If you have user account and course/research project on Dardel, follow the **PDC** track below.
 

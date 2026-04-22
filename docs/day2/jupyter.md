@@ -16,7 +16,7 @@
 ## 1. Start an interactive session from the login node
 
 ``` console
-# For Rackham
+# For Pelle
 $ interactive -A <naiss-project> -n <cores>-t 4:00:00
 
 # For Snowy
@@ -36,12 +36,12 @@ Keep this session open and running. Note the node on which you are got the inter
 
 ### In ThinLinc
 
-- If you are connected to Rackham via [ThinLinc session](https://docs.uppmax.uu.se/software/thinlinc/), open a browser with the link you got but modified to point to r486 i.e.
+- If you are connected to Pelle via [ThinLinc session](https://docs.uppmax.uu.se/software/thinlinc/), open a browser with the link you got but modified to point to r486 i.e.
 ``http://r486:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 
 ### On own computer
 
-- If you use ssh to connect to Rackham, you need to forward the port of the interactive node to your local computer.
+- If you use ssh to connect to Pelle, you need to forward the port of the interactive node to your local computer.
   - On Linux or Mac this is done by running in another terminal. Make sure you have the ports changed if they are not at the default ``8888``.
 
         ``` console
@@ -59,4 +59,4 @@ Keep this session open and running. Note the node on which you are got the inter
 or
 ``http://127.0.0.0:8888/?token=5c3aeee9fbfc75f7a11c4a64b2b5b7ec49622231388241c2``
 
-    This should bring the jupyter interface on your computer and all calculations and files will be on Rackham.
+    This should bring the jupyter interface on your computer and all calculations and files will be on Pelle.

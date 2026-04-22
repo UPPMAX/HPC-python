@@ -1,8 +1,8 @@
 # Directory overview for uppmax folder
 
-Contains batch scripts for running on UPPMAX's clusters Rackham and Snowy.
+Contains batch scripts for running on UPPMAX's cluster Pelle.
 
-In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnekaise. Python scripts are located in the ``/Exercises/examples/programs/`` directory.
+In the below, U is UPPMAX, H is HPC2N, P is Pelle and K is Kebnekaise. Python scripts are located in the ``/Exercises/examples/programs/`` directory.
 
 ## Section "Batch"
 
@@ -31,11 +31,11 @@ In the below, U is UPPMAX, H is HPC2N, R is Rackham, S is Snowy, and K is Kebnek
 
 | Name | System | Related Python script | Comments |
 | ---- | ------ | --------------------- | -------- |
-| run_pandas_matplotlib-batch.sh | U(R), H(K) | pandas_matplotlib-batch-<kebnekaise/rackham>.py | |
-| pytorch_fitting_gpu.sh | U(S), H(K) | pytorch_fitting_gpu.py | |
-| example-tf.sh | U(S), H(K) | example-tf.py | |
-| pandas_matplotlib-linreg-batch.sh | U(R), H (K) | pandas_matplotlib-linreg-batch-<kebnekaise/rackham>.py | |
-| pandas_matplotlib-linreg-pretty-batch.sh | U(R), H (K) | pandas_matplotlib-linreg-pretty-batch-<kebnekaise/rackham>.py | |
+| run_pandas_matplotlib-batch.sh | U(P), H(K) | pandas_matplotlib-batch-<kebnekaise/rackham>.py | |
+| pytorch_fitting_gpu.sh | U, H(K) | pytorch_fitting_gpu.py | |
+| example-tf.sh | U, H(K) | example-tf.py | |
+| pandas_matplotlib-linreg-batch.sh | U(P), H (K) | pandas_matplotlib-linreg-batch-<kebnekaise/rackham>.py | |
+| pandas_matplotlib-linreg-pretty-batch.sh | U(P), H (K) | pandas_matplotlib-linreg-pretty-batch-<kebnekaise/rackham>.py | |
 | simple-lightgbm.sh | U, H | simple-lightgbm.py | |
 
 ## Extra/other
