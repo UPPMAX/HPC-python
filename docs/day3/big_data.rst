@@ -569,7 +569,7 @@ An overview of common data formats
      - ❌
      - 🟨
 
-   * - :ref:`Graph formats <https://gephi.org/users/supported-graph-formats/>`_
+   * - `Graph formats <https://gephi.org/users/supported-graph-formats/>`_
      - 🟨
      - 🟨
      - ❌
