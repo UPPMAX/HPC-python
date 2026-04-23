@@ -16,11 +16,11 @@ At the end of this sessions, learners ...
 - have practiced using the documentation of favorite HPC cluster
 - understand why `pandas` is important
 - have run Python code that uses `pandas`
-- (optional) have read a comma-separated file using Pandas
-- (optional) have saved a table as a comma-separated file using Pandas
+- (optional) have read a comma-separated file using `pandas`
+- (optional) have saved a table as a comma-separated file using `pandas`
 - (optional) have seen the effect of the `index` argument when saving a table
 - (optional) have tried out some of the operation at the
-  [the pandas page '10 minutes to pandas'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)
+  [the `pandas` page '10 minutes to pandas'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)
 :::
 
 ## What is `pandas`?
@@ -92,7 +92,7 @@ HPC cluster|YouTube video
 -----------|----------------------------------------------
 Alvis      |[YouTube video](https://youtu.be/ogPddCKCUuA)
 Bianca     |.
-COSMOS     |.
+COSMOS     |[YouTube video](https://youtu.be/Lj2osOWK3WU)
 Dardel     |[YouTube video](https://youtu.be/pfql_NmZuIc)
 Kebnekaise |.
 Pelle      |[YouTube video](https://youtu.be/oaRV1M9mwPE)
@@ -128,7 +128,8 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 
 :::
 
-In that documentation, find the software module to load the package.
+In that documentation, find the software module to load
+the `pandas` Python package.
 
 :::{admonition} Answer: where is the `pandas` documentation?
 :class: dropdown
@@ -139,7 +140,7 @@ HPC cluster|HPC cluster-specific `pandas` documentation
 -----------|-------------------------------------------------------------------------------------------------------------------
 Alvis      |Has no documentation on how to load `pandas`
 Bianca     |[`pandas` documentation](https://docs.uppmax.uu.se/software/python_bundles/#loading-the-pandas-module)
-COSMOS     |[`pandas` documentation](https://lunarc-documentation.readthedocs.io/en/latest/guides/applications/Python)
+COSMOS     |Has no documentation on how to load `pandas`
 Dardel     |Has no documentation on how to load `pandas`
 Kebnekaise |[`pandas` documentation](https://docs.hpc2n.umu.se/software/apps/#scipy)
 Pelle      |[`pandas` documentation](https://docs.uppmax.uu.se/software/python_bundles/#loading-the-pandas-module)
