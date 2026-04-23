@@ -588,7 +588,7 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           plt.scatter(x, y)
           plt.show()
 
-       - At UPPMAX, HPC2N, LUNARC, and C3SE
+       - At UPPMAX, HPC2N, LUNARC, C3SE, and NSC
 
        .. code-block:: python
 
@@ -601,23 +601,6 @@ In both cases the codes need to be rewritten (more or less), depending on what i
           y = dataframe.Latitude
           plt.scatter(x, y)
           plt.show()
-
-      - At NSC
-
-        There is a problem with the Tkinter and matplotlib version causing the backend not to work for GUI so you cannot do graphics except saving it to a file and opening it afterwards (with ``eog`` for instance, if you have logged in with ``-X`` or ``-Y``). You can use this script to save it to a file:
-
-      .. code-block:: python
-
-         import pandas as pd
-         import matplotlib
-         import matplotlib.pyplot as plt
-         matplotlib.use('Agg')
-         dataframe = pd.read_csv("scottish_hills.csv")
-         x = dataframe.Height
-         y = dataframe.Latitude
-         plt.scatter(x, y)
-         plt.savefig("myplot.png")
-
 
    **CHALLENGE: How would you do it so you could run as a batch script?**
 
