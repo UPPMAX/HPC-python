@@ -125,10 +125,9 @@ we can infer that it is not all too unpopular.
 HPC cluster|YouTube video
 -----------|----------------------------------------------
 Alvis      |[YouTube video](https://youtu.be/ogPddCKCUuA)
-Bianca     |.
 COSMOS     |[YouTube video](https://youtu.be/Lj2osOWK3WU)
 Dardel     |[YouTube video](https://youtu.be/pfql_NmZuIc)
-Kebnekaise |.
+Kebnekaise |[YouTube video](https://youtu.be/KrYgHUM1U9Y)
 Pelle      |[YouTube video](https://youtu.be/oaRV1M9mwPE)
 Tetralith  |[YouTube video](https://youtu.be/C1LLyXHwtx4)
 
