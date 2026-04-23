@@ -192,11 +192,11 @@ In a terminal (on your HPC cluster), load the software module to use `pandas`.
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
 HPC cluster|How to load the `pandas` software module
------------|-------------------------------------------------------------------------------------------------------------------
+-----------|-----------------------------------------------------------
 Alvis      |`module load matplotlib/3.9.2-gfbf-2024a`
-COSMOS     |`module load GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 matplotlib/3.8.2`
+COSMOS     |`module load GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11`
 Dardel     |`module load python/3.12.3 ; pip3 install pandas`
-Kebnekaise |`module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3`
+Kebnekaise |`module load GCC/13.3.0 SciPy-bundle/2024.05`
 Pelle      |`module load SciPy-bundle/2024.05-gfbf-2024a`
 Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb`
 <!-- markdownlint-enable MD013 -->
