@@ -100,7 +100,7 @@ HPC cluster|YouTube video
 Alvis      |[YouTube video](https://youtu.be/6pViv8CPFRk)
 COSMOS     |[YouTube video](https://youtu.be/O04Zb6ynA1k)
 Dardel     |[YouTube video](https://youtu.be/ykSkToSHF_Y)
-Kebnekaise |.
+Kebnekaise |[YouTube video](https://youtu.be/tMufq6EWEXE)
 Pelle      |[YouTube video](https://youtu.be/xD56QJ0O_jM)
 Tetralith  |[YouTube video](https://youtu.be/kDsN1qssEfQ)
 
