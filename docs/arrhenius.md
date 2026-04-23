@@ -2,7 +2,7 @@
 
 # New system Arrhenius
 
-## Background 
+## Background
 
 End-of-life of Alvis, Tetralith and Dardel
 
@@ -27,12 +27,9 @@ End-of-life of Alvis, Tetralith and Dardel
 - Active projects running on Alvis, Tetralith and Dardel will be migrated to the new system.
 - Timeline
 
-    - Alvis: Summer
-    - Tetralith: Fall
-    - Dardel: End of year.
-    - Bianca/Maja: End of year
- 
+  - Alvis: Summer
+  - Tetralith: Fall
+  - Dardel: End of year.
+  - Bianca/Maja: End of year
+
 - Local clusters, like Kebnekaise, Pelle and Cosmos available for local university users several more years.
-
-
-

@@ -47,13 +47,13 @@ mpi4py      | mpi4py      |OpenMPI           |P, K, C
 scikit-learn| scikit-learn|SciPy-bundle      |P, K, C
 torch       | PyTorch     |OpenMPI           |P, K, C
 
-* Dardel (``D``), Tetralith (``T``), Alvis (``A``), Pelle (``P``), Kebnekaise (``K``), Cosmos (``C``)
+- Dardel (``D``), Tetralith (``T``), Alvis (``A``), Pelle (``P``), Kebnekaise (``K``), Cosmos (``C``)
 
 ## Bundle versions
 
 - The module endings may contain GCCcore-X.Y.Z and/or [YEAR-a/b]. Example ``SciPy-bundle/2024.05-gfbf-2024a`` or ``Python/3.12.3-GCCcore-13.3.0``
-    - GCCcore reflects the GCC compiler version that is compatible when using C/C++ "back end" code.
-    - The year reflects an EasyBuild toolchain, see [FOSS toolchains](https://docs.easybuild.io/common-toolchains/#common_toolchains_overview_foss).
+  - GCCcore reflects the GCC compiler version that is compatible when using C/C++ "back end" code.
+  - The year reflects an EasyBuild toolchain, see [FOSS toolchains](https://docs.easybuild.io/common-toolchains/#common_toolchains_overview_foss).
 
 :::{callout} "Some FOSS tool chains and Python version using them"
 :class: dropdown
@@ -74,7 +74,7 @@ FOSS | Python version| GCC version | Bundle version
 
 - Make sure to use bundles that are compatible with each-other and with needed Python version.
 - Otherwise it is better to create isolated environments with Conda or virtual environments, see [Isolated environments in Python](use_isolated_environments.md).
-::: 
+:::
 
 :::{callout}  Example Matplotlib
 :class: dropdown
@@ -114,20 +114,20 @@ Bundle of Python packages from PyPI
 
     Among others:
 
-    - chardet
-    - future
-    - Jinja
-    - pkginfo
-    - psutil
-    - Pygments
-    - pydevtool
-    - pytest
-    - pytz
-    - regex
-    - Sphinx
-    - threadpoolctl
-    - toml
-    - urllib
+  - chardet
+  - future
+  - Jinja
+  - pkginfo
+  - psutil
+  - Pygments
+  - pydevtool
+  - pytest
+  - pytz
+  - regex
+  - Sphinx
+  - threadpoolctl
+  - toml
+  - urllib
 
 Also loads the package module
 
@@ -180,4 +180,3 @@ python
 ```python
 import matplotlib
 ```
-

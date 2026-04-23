@@ -7,7 +7,6 @@ With this tool you can download and install with ``pip`` from the [PyPI reposito
 :::{admonition} ``pip list`` documentation
    :class: dropdown
 
-
 - ``--local``: If in a virtualenv that has global access, do not list globally-installed packages.
 - ``--user``: Only output packages installed in user-site.
 - [documentation](https://pip.pypa.io/en/stable/cli/pip_list)
@@ -15,14 +14,14 @@ With this tool you can download and install with ``pip`` from the [PyPI reposito
 
 :::{note}
 
-   - You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions.
-   - Some packages may be inherited from the modules you have loaded
-   - You can do ``pip list --local`` to see what is installed by you in the environment.
-   - Some IDE:s like Spyder may only find those "local" packages
-   - To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!
-       -   ``--system-site-packages`` includes the packages already installed in the loaded python module.
-   - The ``--no-cache-dir"`` option is required to **avoid it from reusing earlier installations from the same user in a different environment**.
-   - The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when **building any Cython libraries**.
+- You can use "pip list" on the command line (after loading the python module) to see which packages are available and which versions.
+- Some packages may be inherited from the modules you have loaded
+- You can do ``pip list --local`` to see what is installed by you in the environment.
+- Some IDE:s like Spyder may only find those "local" packages
+- To save space, you should load any other Python modules you will need that are system installed before installing your own packages! Remember to choose ones that are compatible with the Python version you picked!
+  - ``--system-site-packages`` includes the packages already installed in the loaded python module.
+- The ``--no-cache-dir"`` option is required to **avoid it from reusing earlier installations from the same user in a different environment**.
+- The ``--no-build-isolation`` is to make sure that it uses the loaded modules from the module system when **building any Cython libraries**.
 :::
 
 ## Conda
@@ -33,20 +32,20 @@ With this tool you can download and install with ``pip`` from the [PyPI reposito
 
    Drawbacks
 
-   - Conda cannot use already install packages from the Python modules and libraries already installed, and hence installs them anyway
-   - Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in $HOME).
-   - Check your disk usage and quota limit
-       - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
+- Conda cannot use already install packages from the Python modules and libraries already installed, and hence installs them anyway
+- Conda is therefore known for creating **many** *small* files. Your disk space is not only limited in GB, but also in number of files (typically ``300000`` in $HOME).
+- Check your disk usage and quota limit
+  - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
 :::
 
 :::{tip}
 
-   - The conda environments including many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
-   - Move your ``.conda`` directory to your project folder and make a soft link to it from ``$HOME``
-   - Do the following (``mkdir -p`` ignores error output and will not recreate another folder if it already exists):
-        - (replace what is inside ``<>`` with relevant path)
+- The conda environments including many small files are by default stored in ``~/.conda`` folder that is in your $HOME directory with limited storage.
+- Move your ``.conda`` directory to your project folder and make a soft link to it from ``$HOME``
+- Do the following (``mkdir -p`` ignores error output and will not recreate another folder if it already exists):
+  - (replace what is inside ``<>`` with relevant path)
 
-   - Solution 1
+- Solution 1
 
       This works nicely if you have several projects. Then you can change these variables according to what you are currently working with.
 
@@ -57,9 +56,9 @@ With this tool you can download and install with ``pip`` from the [PyPI reposito
          mamba create --prefix=$CONDA_ENVS_PATH/<conda env name>
       ```
 
-   - Solution 2
+- Solution 2
 
-      - This may not be a good idea if you have several projects.
+  - This may not be a good idea if you have several projects.
 
       ```bash
 
@@ -67,6 +66,7 @@ With this tool you can download and install with ``pip`` from the [PyPI reposito
          mv ~/.conda /<path-to-project-folder>/<username>/
          ln -s /<path-to-project-folder>/<username>/.conda ~/.conda
       ```
+
 :::
 
 ## Workflow ``venv``
@@ -87,8 +87,8 @@ The next points will be the same for all clusters
 
 :::{note}
 
-   - ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important ``<space>`` after ``.``
-   - For clarity we use the ``source`` style here.
+- ``source`` can most often be replaced by ``.``, like in ``. Example/bin/activate``. Note the important ``<space>`` after ``.``
+- For clarity we use the ``source`` style here.
 :::
 
 5. Install (or update) the environment with the packages you need with the ``pip install`` command
@@ -109,22 +109,21 @@ The next points will be the same for all clusters
 
    ```console
 
-       $ module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
-       $ python -m venv --system-site-packages Example
-   ```    
+       module load buildtool-easybuild/4.8.0-hpce082752a2 GCC/13.2.0 Python/3.11.5 SciPy-bundle/2023.11 # for NSC
+       python -m venv --system-site-packages Example
+   ```
+
 :::
 
 :::{warning}
 
    Draw-backs
 
-   - Only works for Python environments
-   - Only works with Python versions already installed
+- Only works for Python environments
+- Only works with Python versions already installed
 :::
 
-
 ## Typical workflow Conda
-
 
 The first 2 steps are cluster dependent and will therefore be slightly different.
 
@@ -140,10 +139,10 @@ The first 2 steps are cluster dependent and will therefore be slightly different
 
       ```console
 
-         $ export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
-         $ export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
+         export CONDA_ENVS_PATH="path/to/your/project/(subdir)"
+         export CONDA_PKG_DIRS="path/to/your/project/(subdir)"
       ```
-      
+
    :::
 
 Next steps are the same for all clusters
