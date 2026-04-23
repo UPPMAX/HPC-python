@@ -14,14 +14,31 @@ Poor Dardel users.
 
 Extend the time for `pandas` for 15 minutes, so everyone is up to speed
 
+There were 10 learners mostly present,
+with an addittional 3
+being present only a short while.
+
 ## 12:58
 
 Shared with the colleagues:
 
 Results of the morning:
 
-- Being able to use pandas: at least 6 out of 10 (at the time of polling), I estimate 9 out of 10 at the end of these sessions
-- Being able to use matplotlib: 9 out of 12 (at the time of polling), I estimate 11 out of 12 at the end of these sessions
+- Being able to use pandas: 
+  - Success: at least 6 out of 10 (at the time of polling), 
+    I estimate 9 out of 10 at the end of these sessions
+  - Fail (at the time of polling): 3x Dardel, 1x COSMOS or Dardel (this learner tried both, 1 of the 2 worked)
+
+![`pandas` worked](pandas_worked.png)
+
+- Being able to use matplotlib:
+  - Success: at least 8 out of 10 (at the time of polling), 
+    I estimate 11 out of 12 at the end of these sessions
+    (there were some learners that arrived later)
+  - Failed (at the time of polling): 1x Dardel, 1x Tetralith
+
+![`matplotlib` worked](matplotlib_worked.png)
+
 - Being able to use seaborn: unknown
 
 Actual schedule:
