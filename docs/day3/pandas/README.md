@@ -38,10 +38,10 @@ Repeat:
   A: Pre-installed software of a specific version
 - Q: In which two ways can we find out which software module to load?
   A: search the documentation or search the modules using `module spider`
-- Q: If there is no documention,
+- Q: If there is no documentation,
   how to find out which software module to load?
   A: search the modules using `module spider`
-- Q: If there is no documention,
+- Q: If there is no documentation,
   and there is no software module, what do we do?
   A: we install this ourselves
 - Q: What is `pip`?
