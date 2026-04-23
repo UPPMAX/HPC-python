@@ -15,7 +15,7 @@ Poor Dardel users.
 Extend the time for `pandas` for 15 minutes, so everyone is up to speed
 
 There were 10 learners mostly present,
-with an addittional 3
+with an additional 3
 being present only a short while.
 
 ## 12:58
