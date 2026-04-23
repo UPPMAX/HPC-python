@@ -98,8 +98,7 @@ we can infer that it is not all too unpopular.
 HPC cluster|YouTube video
 -----------|-------------------------------------------------------------------------------------------------------------------
 Alvis      |[YouTube video](https://youtu.be/6pViv8CPFRk)
-Bianca     |.
-COSMOS     |.
+COSMOS     |[YouTube video](https://youtu.be/O04Zb6ynA1k)
 Dardel     |[YouTube video](https://youtu.be/ykSkToSHF_Y)
 Kebnekaise |.
 Pelle      |[YouTube video](https://youtu.be/xD56QJ0O_jM)
