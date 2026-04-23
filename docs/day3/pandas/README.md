@@ -110,7 +110,7 @@ to work with data and it gives you a *vocabulary*
 
 However, at
 [the `pandas` PyPI statistics page](https://pypistats.org/packages/pandas)
-we see that it has more than 600 million downloads per month. 
+we see that it has more than 600 million downloads per month.
 As the number 20 package has around 800 million downloads per month,
 we can infer that it is not all too unpopular.
 
@@ -131,7 +131,6 @@ Dardel     |[YouTube video](https://youtu.be/pfql_NmZuIc)
 Kebnekaise |[YouTube video](https://youtu.be/KrYgHUM1U9Y)
 Pelle      |[YouTube video](https://youtu.be/oaRV1M9mwPE)
 Tetralith  |[YouTube video](https://youtu.be/C1LLyXHwtx4)
-
 
 <!-- markdownlint-enable MD013 -->
 
@@ -256,7 +255,6 @@ because it proves that you have successfully loaded/installed
 
 :::
 
-
 ## (optional) Exercise 2: reading and saving a comma-separated file
 
 In this exercise, we will first read
@@ -284,7 +282,6 @@ wget https://raw.githubusercontent.com/UPPMAX/HPC-python/refs/heads/main/docs/da
 - Your favorite alternative way
 
 :::
-
 
 On your HPC cluster, create a script called `pandas_exercise_2.py`
 with the following code:
@@ -461,7 +458,6 @@ different countries spanning 1952 to 1992, where the minimum value of -10
 corresponds to a highly autocratic nation whereas a value of 10 corresponds
 to a highly democratic nation. Here is how it looks like:
 
-
 ```text
 country,1952,1957,1962,1967,1972,1977,1982,1987,1992
 Albania,-9,-9,-9,-9,-9,-9,-9,-9,5
@@ -509,6 +505,7 @@ Albania,1953,-9
 Albania,1954,-9
 Albania,1955,-9
 ```
+
 :::
 
 Create a Python script called `pandas_exercise_3.py`.

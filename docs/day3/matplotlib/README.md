@@ -31,7 +31,6 @@ Prior:
 
 :::
 
-
 ## What is `matplotlib`?
 
 `matplotlib` allows you to create figures:
@@ -61,7 +60,7 @@ shows that most plot types are present.
 
 However, at
 [the `matplotlib` PyPI statistics page](https://pypistats.org/packages/matplotlib)
-we see that it has around 200 million downloads per month. 
+we see that it has around 200 million downloads per month.
 As the number 20 package has around 800 million downloads per month,
 we can infer that it is not all too unpopular.
 
@@ -82,7 +81,6 @@ Dardel     |[YouTube video](https://youtu.be/8XdJP61IEMk)
 Kebnekaise |[YouTube video](https://youtu.be/mqA4TxZUTlM)
 Pelle      |[YouTube video](https://youtu.be/5fWxXBA5120)
 Tetralith  |[YouTube video](https://youtu.be/ErYPu5Ejig8)
-
 
 <!-- markdownlint-enable MD013 -->
 
@@ -254,7 +252,6 @@ Optionally, if you want to actually see the file, then read
 [the HPC Python course Day 1 'Working with graphics' session](https://uppmax.github.io/naiss_intro_python/sessions/working_with_graphics/#exercise-2-optional-view-the-plot).
 
 :::
-
 
 ## (optional) Exercise 3: displaying a `pandas` table
 

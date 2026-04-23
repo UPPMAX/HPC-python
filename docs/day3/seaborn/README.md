@@ -8,7 +8,6 @@
 
 [The `seaborn` logo](https://seaborn.pydata.org/citing.html)
 
-
 :::{admonition} Learning outcomes
 :class: note
 
@@ -83,7 +82,7 @@ shows that most plot types are present.
 
 However, at
 [the `seaborn` PyPI statistics page](https://pypistats.org/packages/seaborn)
-we see that it has around 20 million downloads per month. 
+we see that it has around 20 million downloads per month.
 As the number 20 package has around 800 million downloads per month,
 we can infer that it is not all too unpopular.
 
@@ -104,7 +103,6 @@ Dardel     |[YouTube video](https://youtu.be/ykSkToSHF_Y)
 Kebnekaise |[YouTube video](https://youtu.be/tMufq6EWEXE)
 Pelle      |[YouTube video](https://youtu.be/xD56QJ0O_jM)
 Tetralith  |[YouTube video](https://youtu.be/kDsN1qssEfQ)
-
 
 <!-- markdownlint-enable MD013 -->
 
