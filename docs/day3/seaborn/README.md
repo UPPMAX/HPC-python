@@ -125,7 +125,8 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 
 :::
 
-In that documentation, find the software module to load the package.
+In that documentation, find the software module to load
+the `seaborn` Python package.
 
 :::{admonition} Answer: where is the `seaborn` documentation?
 :class: dropdown

@@ -13,6 +13,7 @@
 
 At the end of this sessions, learners ...
 
+- have practiced using the documentation of favorite HPC cluster
 - understand why `matplotlib` is important
 - have run Python code that uses `matplotlib`
 - have created a plot with `matplotlib`
@@ -99,7 +100,8 @@ NSC        |Tetralith  |[Documentation](https://www.nsc.liu.se)
 <!-- markdownlint-enable MD013 -->
 :::
 
-In that documentation, find the software module to load the package.
+In that documentation, find the software module to load
+the `matplotlib` Python package.
 
 :::{admonition} Answer: where is the `matplotlib` documentation?
 :class: dropdown
