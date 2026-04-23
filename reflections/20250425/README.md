@@ -50,8 +50,10 @@ I think the camera recordings do more harm than good,
 as it kills interactivity during class, at the minimal gain
 of people outside of class being able to see these recording:
 
-- Using live recordings as a supplementary tool may not be worth it in our settings,
-  as 'No performance advantage was found for viewing recordings despite students'
+- Using live recordings as a supplementary tool may not be worth
+  it in our settings,
+  as 'No performance advantage was found for viewing recordings
+  despite students'
   positive perception of their utility.'
   [Lesser, Melissa, and Lora Packel. "Educational Lessons from a Pandemic:
   Lecture Recording and Learning Outcomes."
@@ -60,7 +62,8 @@ of people outside of class being able to see these recording:
 - 'The main finding is that students using the online lectures
   as a substitute for attending lectures are ultimately
   at a fairly severe disadvantage in terms of their final marks'
-  [Williams, Andrew, Elisa Birch, and Phil Hancock. "The impact of online lecture recordings on student performance."
+  [Williams, Andrew, Elisa Birch, and Phil Hancock. "The impact of online
+  lecture recordings on student performance."
   Australasian Journal of Educational Technology 28.2 (2012),
   [Link to paper](https://ajet.org.au/index.php/AJET/article/view/869)].
 - I found most experimental papers do not compare with live recording (it
@@ -69,7 +72,8 @@ of people outside of class being able to see these recording:
   although it admits that
   '[Webinars tend] to be less engaging and less interactive for the participant'
   [Dailey-Hebert, Amber. "Maximizing interactivity in online learning:
-  Moving beyond discussion boards." Journal of Educators Online 15.3 (2018): n3.,
+  Moving beyond discussion boards." Journal of Educators
+  Online 15.3 (2018): n3.,
   [paper](https://eric.ed.gov/?id=EJ1199230)].
 
 - [x] Suggest this in a meeting
@@ -77,14 +81,19 @@ of people outside of class being able to see these recording:
 For the course as a whole, think following the
   pedagogic literature has a bigger impact over reading evaluations.
 
-- For example 'long lectures and presentations will fail because students stop viewing and listening
+- For example 'long lectures and presentations will fail because
+  students stop viewing and listening
   after about six minutes'
   [Nilson, Linda B., and Ludwika A. Goodson. Online teaching at its best:
-  Merging instructional design with teaching and learning research. John Wiley & Sons, 2021].
-  From the same book, the 25 principles of learning from cognitive science (chapter 4, page 92)
-  gives some great pointers, e.g. '2. Students learn [...] better [...] by engaging in an activity
+  Merging instructional design with teaching and learning research.
+  John Wiley & Sons, 2021].
+  From the same book, the 25 principles of learning from cognitive science
+  (chapter 4, page 92)
+  gives some great pointers, e.g. '2. Students learn [...] better [...]
+  by engaging in an activity
   than when they passively watch [...] an instructor',
-  '6. Some qualities [...] help students learn [...] better [...]: human faces, [...] instructor enthusiasm'.
+  '6. Some qualities [...] help students learn [...] better [...]:
+  human faces, [...] instructor enthusiasm'.
 
 - [x] Suggest this in a meeting
 
@@ -109,7 +118,8 @@ I assume this is not about my session, as 60% of its time there
 was time for exercises.
 
 - great
-- I think it was good, I could keep up and take notes during all of the lectures.
+- I think it was good, I could keep up and
+  take notes during all of the lectures.
 - I feel like it was a bit rushed, good content but a bit too much given
   the amount of time maybe?
 
@@ -290,11 +300,15 @@ to be able to do the exercises by Anders Hast.
 > than a learner. I did not fill out the feedback form for that day,
 > but I had an immediate evaluation meeting with Richel at the end of the day.
 
+...
+
 > NB 2: I did fill out the feedback evaluation form for the three remaining
 > days, and did not look back on what I wrote then (or look at the course
 > evaluation results at all) while writing this. Therefore this document
 > probably duplicates some of that while being feedback from a single
 > (and perhaps not the most representative) learner.
+
+...
 
 > NB 3: I did not attend the matplotlib sessions.
 
@@ -323,7 +337,11 @@ I think this will be solved when more exercises are done.
 > However, the contrast between sessions pulls into sharp focus a few things to
 > improve upon:
 
+...
+
 > Preparedness is key
+
+...
 
 > Several sessions had examples, code-alongs or exercises that did not work as
 > intended without troubleshooting that was not within the focus of the session.
@@ -344,6 +362,8 @@ I think I already do this, as I've checked my course material
 by actually testing this by recording.
 
 > Too much content, too little time
+
+...
 
 > Full days leave little to zero time
 > for going through the exercises on our own.
@@ -391,6 +411,8 @@ I hope I do this
 
 > We learn what we do
 
+...
+
 > In some sessions, mainly Parallelism and ML/DL if I recall correctly,
 > I was learning about modules and packages and lost track of the lecture as
 > I was trying to make the examples work. In some sessions I learned little
@@ -422,10 +444,14 @@ Hey, that is me!
 > the entirety of this and will not be able to group and separate things—and
 > for the learners who only needs selected parts of the course.
 
+...
+
 > It would be easier for both groups (though a bit less efficient,
 > for those who both need all of it and are somehow able to efficiently learn
 > it the way it is now) if this content was divided between as much as
 > four separate courses:
+
+...
 
 > - Intro to HPC, usage and management of software and code
 >   (Logging in, LMOD, SLURM; the things that are actually different
@@ -435,6 +461,8 @@ Hey, that is me!
 >   and GPU but is not specific to HPC and probably exists elsewhere)
 > - Using Python code, packages and environments at NAISS HPC systems
 >   (LMOD, venv, conda; when to use what and how they interact)
+
+...
 
 > Course 1 is general to HPC users, not specific to Python.
 > It should probably be provided by NAISS quite often
@@ -459,6 +487,8 @@ I feel that is a first step to what the learner wants/needs.
 > taught by other resources—so this is what I truly wanted from this course.
 > I did learn a bit about it but it seemed to happen by accident as much or
 > more than as a result of the course truly focussing on this matter.
+
+And:
 
 > The fix would be to make sure every single command that loads a module or
 > a python package does specify a specific version.
@@ -485,7 +515,8 @@ way into the university could be described as having predominantly a
 mild form of the disorder' [Tillfors, Maria, and Tomas Furmark.
 "Social phobia in Swedish university students: prevalence, subgroups and
 avoidant behavior." Social psychiatry and psychiatric epidemiology
-42 (2007): 79-86.][Link](https://journals.sagepub.com/doi/10.1177/070674370404900910).
+42 (2007): 79-86.]
+[Source](https://journals.sagepub.com/doi/10.1177/070674370404900910).
 The effect of this is unknown, as here I quote the paper:
 'future studies should investigate whether sufferers of
 social phobia underachieve or abolish their studies prematurely.'.
@@ -517,50 +548,81 @@ Alternatively, what about we put the playlist on the website?
 
 ## Meeting notes
 
-```
+```text
 Below are the meeting notes of 2025-05-22 with my suggestions.
 ```
 
 - [Jayant] More InfraVis like collabs demoing usecases
   - [Richel] I agree we should collaborate more!
-- [Richel] From the learners, I read [a suggestion to make day 2 'Intro to HPC, usage and management of software and code'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47) and ['it seemed to me that the time was not spent on the right things'](../../evaluations/20250425_day_2/pace.txt#L12). What about we listen to that? In practice,
+- [Richel] From the learners, I read
+  [a suggestion to make day 2 'Intro to HPC, usage and management of software and code'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47)
+  and
+  ['it seemed to me that the time was not spent on the right things'](../../evaluations/20250425_day_2/pace.txt#L12).
+  What about we listen to that? In practice,
   I feel this can mean either
   - switching 'matplotlib' on Day 2 with 'Slurm and batch jobs' on Day 3
-  - move 'matplotlib' on Day 2 for more time for the more foundational things (Install packages, Slurm, isolated environments)
-- [Richel] From the learners I read the suggested topic ['How to find compatible modules and packages'](../../evaluations/20250425_day_2/future_topics.txt#L9).
+  - move 'matplotlib' on Day 2 for more time for the more foundational things
+  (Install packages, Slurm, isolated environments)
+- [Richel] From the learners I read the suggested topic
+  ['How to find compatible modules and packages'](../../evaluations/20250425_day_2/future_topics.txt#L9).
   That this would be useful is also mentioned by this learner
   ['Learning about modules and packages and handling the dependency hell in various ways is very good'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L19)
   I think it is great idea to add more time for getting modules to work.
   What about we add it? On the other hand, one learner stated
-  ['The fix would be to make sure every single command that loads a module or a python package does specify a specific version'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L57), which would mean to make the course material more version-explicit. I am up for both!
+  ['The fix would be to make sure every single command that loads a module or a](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L57),
+  [python package does specify a specific version'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L57),
+  which would mean to make the course material more version-explicit.
+  I am up for both!
       - Add more time for getting modules to work: RB
       - Make all course material version specific: RB
       - Make no changes:
-- [Richel] One learner mentioned ['some part or parts had lots of spelling errors'](../../evaluations/20250425_day_2/comments.txt#L7). I hope the spell checker (we can get it to
+- [Richel] One learner mentioned
+  ['some part or parts had lots of spelling errors'](../../evaluations/20250425_day_2/comments.txt#L7).
+  I hope the spell checker (we can get it to
   work when using markdown) will fix that
-- [Richel] One learner mentioned ['Asking us to do stuff on the breaks is BAD'](../../evaluations/20250425_day_2/comments.txt#L7). What about we stick to our scheduled breaks?
+- [Richel] One learner mentioned
+  ['Asking us to do stuff on the breaks is BAD'](../../evaluations/20250425_day_2/comments.txt#L7).
+  What about we stick to our scheduled breaks?
   - Follow the breaks as in the schedule: RB
   - Ignore breaks:
-- [Richel] A learner stated ['Anders Hast deserves special mention for bringing true researcher enthusiasm, it is great to learn from teachers that know and enjoy the subject at hand like that'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11). Could we give Anders more time for his exercise? Now there were only 6 minutes of exercises (on the YouTube video: 28:47-34:02)
+- [Richel] A learner stated
+  ['Anders Hast deserves special mention for bringing true researcher](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11).
+  [enthusiasm, it is great to learn from teachers that know and enjoy the](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11).
+  [subject at hand like that'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11).
+  Could we give Anders more time for his exercise?
+  Now there were only 6 minutes of exercises (on the YouTube video: 28:47-34:02)
   - Give Anders more time: RB
   - Keep the current schedule:
-- [Richel] A learner [exercises should be part of the course under course time](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L25),
-  with the problem that ['we might not get knowledge/skill presumed by later parts of the course'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L27).
-  What about we give our learners the time to do exercises, as well as test if indeed they were able to do so?
+- [Richel] A learner
+  [exercises should be part of the course under course time](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L25),
+  with the problem that
+  ['we might not get knowledge/skill presumed by later parts of the course'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L27).
+  What about we give our learners the time to do exercises,
+  as well as test if indeed they were able to do so?
   Adding more time for a session seems fine be my.
-  - Add more time for exercises and make sure they are ready for future sessions: RB
+  - Add more time for exercises and make sure they are ready
+    for future sessions: RB
   - Ask learners to work during the breaks or evenings:
-- [Richel] A learner stated ['The session on IDEs had barely enough time for me to get Jupyter running, while I would've expected to try VS Code and Spyder as well since all of them are in there'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29).
+- [Richel] A learner stated
+  ['The session on IDEs had barely enough time for me to get Jupyter running,](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29).
+  [while I would've expected to try VS Code and Spyder](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29).
+  [as well since all of them are in there'](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29).
   What about we give this session more time?
   - Give IDEs more time: RB
   - Only do Jupyter: RB
   - Keep the schedule as it is:
-- [Richel] A learner suggested [a 4 day schedule](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47).
-  I know that 'Intro to Python' will get more HPCey, among others by adding how to loading
+- [Richel] A learner suggested
+  [a 4 day schedule](../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47).
+  I know that 'Intro to Python' will get more HPCey,
+  among others by adding how to loading
   Python package modules.
-- [Richel] A learners suggested ['could you please post the recordings a bit faster next time'](../../evaluations/20250428_day_3/comments.txt#L6)
-  and ['would be better to have them in the same youtube list as the rest though'](../../evaluations/20250428_day_3/comments.txt#L6). I think the first is a bit harsh.
-  The second is doable: just add the existing video to the HPC2N playlist (i.e you can do
+- [Richel] A learners suggested
+  ['could you please post the recordings a bit faster next time'](../../evaluations/20250428_day_3/comments.txt#L6)
+  and
+  ['would be better to have them in the same youtube list as the rest though'](../../evaluations/20250428_day_3/comments.txt#L6).
+  I think the first is a bit harsh.
+  The second is doable: just add the existing video to the HPC2N playlist
+  (i.e you can do
   that in YouTube).
   - Link to videos in YouTube playlist: RB
   - Upload videos twice:

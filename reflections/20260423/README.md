@@ -27,7 +27,8 @@ Results of the morning:
 - Being able to use pandas:
   - Success: at least 6 out of 10 (at the time of polling),
     I estimate 9 out of 10 at the end of these sessions
-  - Fail (at the time of polling): 3x Dardel, 1x COSMOS or Dardel (this learner tried both, 1 of the 2 worked)
+  - Fail (at the time of polling): 3x Dardel, 1x COSMOS or Dardel
+    (this learner tried both, 1 of the 2 worked)
 
 ![`pandas` worked](pandas_worked.png)
 
