@@ -14,6 +14,7 @@
 At the end of this sessions, learners ...
 
 - have practiced using the documentation of favorite HPC cluster
+- understand what `matplotlib` is
 - understand why `matplotlib` is important
 - have run Python code that uses `matplotlib`
 - have created a plot with `matplotlib`

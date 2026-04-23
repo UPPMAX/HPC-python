@@ -15,6 +15,7 @@
 At the end of this sessions, learners ...
 
 - have practiced using the documentation of favorite HPC cluster
+- understand what `seaborn` is
 - understand why `seaborn` is important
 - have created a plot with `seaborn`
 - (optional) have created a plot with `seaborn` from a `pandas` table
