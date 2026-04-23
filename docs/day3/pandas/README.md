@@ -23,6 +23,40 @@ At the end of this sessions, learners ...
   [the `pandas` page '10 minutes to pandas'](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)
 :::
 
+:::{admonition} For teachers
+:class: dropdown
+
+Repeat:
+
+- Q: What is an HPC cluster?
+  A: A group of computers working together to do things one computer would
+  not be able to do
+- Q: When we are on an HPC cluster, what is the name of the computer we are on?
+  A: The login node
+- Q: What is a software module?
+  A: Pre-installed software of a specific version
+- Q: In which two ways can we find out which software module to load?
+  A: search the documentation or search the modules using `module spider`
+- Q: If there is no documention,
+  how to find out which software module to load?
+  A: search the modules using `module spider`
+- Q: If there is no documention,
+  and there is no software module, what do we do?
+  A: we install this ourselves
+- Q: What is `pip`?
+  A: The Python package installer
+- Q: How do we behave on the login node?
+  A: We run only light jobs
+- Q: How do we run heavy calculations?
+  A: We submit a job to the job scheduler
+
+Prior:
+
+- What is data wrangling?
+- What is tidy data?
+
+:::
+
 ## What is `pandas`?
 
 From [the `pandas` homepage](https://pandas.pydata.org/):

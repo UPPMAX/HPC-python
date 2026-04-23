@@ -20,6 +20,16 @@ At the end of this sessions, learners ...
 - (optional) have created a plot with `seaborn` from a `pandas` table
 :::
 
+:::{admonition} For teachers
+:class: dropdown
+
+Prior:
+
+- What is a plotting library?
+- Why would there be multiple plotting libraries?
+
+:::
+
 ## What is `seaborn`?
 
 `seaborn` allows you to create figures:
@@ -135,13 +145,13 @@ the `seaborn` Python package.
 
 HPC cluster|HPC cluster-specific `seaborn` documentation
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      |No relevant documentation
+Alvis      |Has no documentation on how to load `seaborn`
 Bianca     |[`seaborn` documentation](https://docs.uppmax.uu.se/software/seaborn/)
 COSMOS     |Partially relevant [`seaborn` documentation](https://lunarc-documentation.readthedocs.io/en/latest/software/installed_software/): it only shows the module name
-Dardel     |No relevant documentation
+Dardel     |Has no documentation on how to load `seaborn`
 Kebnekaise |[`seaborn` documentation](https://docs.hpc2n.umu.se/software/libs/Seaborn/)
 Pelle      |[`seaborn` documentation](https://docs.uppmax.uu.se/software/seaborn/)
-Tetralith  |No relevant documentation
+Tetralith  |Has no documentation on how to load `seaborn`
 
 <!-- markdownlint-enable MD013 -->
 

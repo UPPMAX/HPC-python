@@ -21,6 +21,16 @@ At the end of this sessions, learners ...
 
 :::
 
+:::{admonition} For teachers
+:class: dropdown
+
+Prior:
+
+- What is a plotting library?
+
+:::
+
+
 ## What is `matplotlib`?
 
 `matplotlib` allows you to create figures:
@@ -67,7 +77,7 @@ HPC cluster|YouTube video
 -----------|-------------------------------------------------------------------------------------------------------------------
 Alvis      |[YouTube video](https://youtu.be/5TSr-pE-BuU)
 Bianca     |.
-COSMOS     |.
+COSMOS     |[YouTube video](https://youtu.be/1se9oCW0HHU)
 Dardel     |[YouTube video](https://youtu.be/8XdJP61IEMk)
 Kebnekaise |.
 Pelle      |[YouTube video](https://youtu.be/5fWxXBA5120)
@@ -110,10 +120,10 @@ the `matplotlib` Python package.
 
 HPC cluster|HPC cluster-specific `matplotlib` documentation
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      |No relevant documentation
+Alvis      |Has no documentation on how to load `matplotlib`
 Bianca     |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/python_bundles/#matplotlib)
-COSMOS     |No relevant documentation
-Dardel     |No relevant documentation
+COSMOS     |Has no documentation on how to load `matplotlib`
+Dardel     |Has no documentation on how to load `matplotlib`
 Kebnekaise |[`matplotlib` documentation](https://docs.hpc2n.umu.se/software/libs/matplotlib/)
 Pelle      |[`matplotlib` documentation](https://docs.uppmax.uu.se/software/matplotlib/)
 Tetralith  |[`matplotlib` documentation](https://www.nsc.liu.se/software/catalogue/tetralith/modules/python.html)
