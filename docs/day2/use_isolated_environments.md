@@ -112,12 +112,12 @@ HPC cluster| Conda vs venv
 -|-
 Alvis      | venv, conda in container        
 Bianca     | conda/latest, venv via wharf    
-COSMOS     | Anaconda3/2024.02-1             
+COSMOS     | Anaconda3/2024.06-1             
 Dardel     | miniconda3/25.3.1-1-cpeGNU-24.11
 Kebnekaise | venv **only**                   
 LUMI       | venv,  conda-containerize       
 Pelle      | venv, Miniforge3/24.11.3-0      
-Tetralith  | Anaconda3/2024.02-1             
+Tetralith  | Miniforge/24.7.1-2-hpc1            
 LUMI       | conda-containerize              
 
 :::{tip}
@@ -820,7 +820,7 @@ Let's make an installation with the latest bug fix version of ``Python 3.12`` an
 
          ```console
 
-            ml Miniforge3/24.1.2-0
+            ml Miniforge3/25.3.0-3
             export CONDA_ENVS_PATH="/path/to/your/project/$USER/" #only needed once per session
             export CONDA_PKG_DIRS="/path/to/your/project/$USER/" #only needed once per session
             conda create --prefix $CONDA_ENVS_PATH/example python=3.12
