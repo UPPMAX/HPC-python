@@ -141,12 +141,12 @@ In a terminal (on your HPC cluster), load the software module to use `matplotlib
 
 HPC cluster|How to load Matplotlib
 -----------|-------------------------------------------------------------------------------------------------------------------
-Alvis      |`module load matplotlib/3.9.2-gfbf-2024a` <!-- TODO -->
-COSMOS     |`module load matplotlib/3.8.2` (avoid version `3.9.2`!) <!-- :-) 2026-04-17 -->
-Dardel     |`module load python/3.12.3 ; pip3 install matplotlib` <!-- :-) 2026-04-17 -->
-Kebnekaise |`module load matplotlib` <!-- :-) 2026-04-21 -->
-Pelle      |`module load matplotlib/3.9.2-gfbf-2024a` <!-- :-) 2026-04-17 -->
-Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb` <!-- :-) 2026-04-17 -->
+Alvis      |`module load matplotlib/3.9.2-gfbf-2024a`
+COSMOS     |`module load matplotlib/3.8.2` (avoid version `3.9.2`!)
+Dardel     |`module load python/3.12.3 ; pip3 install matplotlib`
+Kebnekaise |`module load GCC/13.2.0 matplotlib/3.8.2`
+Pelle      |`module load matplotlib/3.9.2-gfbf-2024a`
+Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb`
 
 <!-- markdownlint-enable MD013 -->
 

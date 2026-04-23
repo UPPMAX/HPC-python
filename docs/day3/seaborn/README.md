@@ -166,12 +166,12 @@ In a terminal (on your HPC cluster), load the software module to use `seaborn`.
 
 HPC cluster|How to load Seaborn
 -----------|-----------------------------------------------------------------------------------------------------------------------
-Alvis      |`module load Seaborn/0.13.2-gfbf-2024a` <!-- 2026-04-21 -->
-COSMOS     |`module load GCC/13.2.0 Seaborn/0.13.2` <!-- 2026-04-17 -->
-Dardel     |`module load python/3.12.3 ; pip3 install seaborn` <!-- 2026-04-17 -->
-Kebnekaise |`module load GCC/13.2.0 Seaborn/0.13.2` <!-- 2026-04-21 -->
-Pelle      |`module load Seaborn/0.13.2-gfbf-2024a` <!-- 2026-05-17 -->
-Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb ; pip install seaborn` <!-- 2026-05-17 -->
+Alvis      |`module load Seaborn/0.13.2-gfbf-2024a`
+COSMOS     |`module load GCC/13.2.0 Seaborn/0.13.2`
+Dardel     |`module load python/3.12.3 ; pip3 install seaborn`
+Kebnekaise |`module load GCC/12.3.0 Python/3.11.3 SciPy-bundle/2023.07 matplotlib/3.7.2 Tkinter/3.11.3 Seaborn/0.13.2`
+Pelle      |`module load Seaborn/0.13.2-gfbf-2024a`
+Tetralith  |`module load Python/3.10.4-env-hpc1-gcc-2022a-eb ; pip install seaborn`
 
 <!-- markdownlint-enable MD013 -->
 
