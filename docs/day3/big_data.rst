@@ -152,7 +152,7 @@ Exercise: Memory allocation (10 min)
 
 1a. Log in to a Desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
 
-.. admonition:: Linmks and addresses
+.. admonition:: Links and addresses
 
    - Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
    - Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
@@ -226,13 +226,13 @@ Exercise: Memory allocation (10 min)
 
    - Multiply the RAM per core with number of allocated cores..
 
-   - Example: 8 GB per core
+   - Example: ~8 GB per core
        - ~40 GB
 
 .. challenge:: Do you remember how to allocate several cores?
    :class: dropdown
 
-   - Slurm flag ``-n <number of cores>``
+   - Slurm option ``-n <number of cores>``
 
 .. challenge:: Actually start an interactive session with 4 cores for 3 hours.
 
@@ -243,8 +243,7 @@ Exercise: Memory allocation (10 min)
 .. admonition:: How?
    :class: dropdown
 
-
-   The following Slurm options needs to be set
+   - Start with the command ``salloc`` or ``interactive`` (depending on system) followed by the Slurm options:
 
    - ``-t 3:0:0``
    - ``-n 4``
