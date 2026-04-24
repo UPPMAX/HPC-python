@@ -1004,7 +1004,6 @@ Set up the environment
 
    - Browse https://docs.pola.rs/.
        - find something interesting for you! Test some lines if you want to!
-       - tips:
 
    .. admonition:: Key features
       :class: dropdown
@@ -1017,7 +1016,7 @@ Set up the environment
       - GPU Support: Optionally run queries on **NVIDIA GPUs**
       - `Apache Arrow <https://arrow.apache.org/overview/>`_ support
 
-- Check if your cluster has Polars!
+   - Check if your cluster has Polars!
 
    .. solution::
 
