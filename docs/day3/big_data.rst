@@ -735,6 +735,7 @@ Polars package
 ..............
 
 `Polars <https://pola.rs/>`_ is a Python package that presents itself as **Blazingly Fast DataFrame Library**
+
 - Utilizes all available cores on your machine.
 - Optimizes queries to reduce unneeded work/memory allocations.
 - Handles datasets much larger than your available RAM.
