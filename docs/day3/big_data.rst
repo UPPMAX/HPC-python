@@ -51,7 +51,6 @@ High-Performance Data Analytics (HPDA)
 Why we need to take special actions
 ...................................
 
-Remember this one?
 
 .. image:: ../img/when-to-use-pandas.png
       :width: 600 px
@@ -105,7 +104,7 @@ Allocating RAM
 
 .. important::
 
-   - You do not have to explicitly run threads or other parallelism.
+   - You do not have to explicitly run threads or other parallelism (see 
    - Allocating several nodes for one one big memory problem is not useful. (Unless you are "chunking")
 
       - Note that shared memory among the cores works within node only.
@@ -130,6 +129,19 @@ Use the Slurm options for either "BATCH", "INTERACTIVE" from command line or fro
    - You ask here for a non-default partition.
    - How to do this, search your cluster documentation, see exercise below.
 
+Example for Tetralith with one core but 50 GB RAM for one hour
+
+.. code-block:: console
+
+   interactive -A naiss2026-4-66 --mem 50G -t 1:0:0
+
+.. code-block: bash
+
+   #!/bin/bash
+   #SBATCH -A naiss2026-4-66
+   #SBATCH --mem 50G
+   #SBATCH -t 1:0:0
+
 .. note::
 
    - "core-hours" drawn from your project may be set to the maximum of "number of cores" and "memory part of node" requested.
@@ -138,17 +150,19 @@ Use the Slurm options for either "BATCH", "INTERACTIVE" from command line or fro
 Exercise: Memory allocation (10 min)
 ------------------------------------
 
-.. admonition:: Break-out rooms per Cluster or Cluster Type (OnDemand vs terminal)
+1a. Log in to a Desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
 
-1. Log in to a Desktop (ThinLinc or OnDemand) (see :ref:`common-login`)
+.. admonition:: Linmks and addresses
 
-- Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
-- Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
-- Alvis (<https://alvis.c3se.chalmers.se/>)
-- Bianca (<https://bianca.uppmax.uu.se/>)
-- Pelle (<https://pelle-gui.uppmax.uu.se/>)
-- Cosmos (ThinLinc client: ``cosmos-dt.lunarc.lu.se``)
-- Kebnekaise (<https://portal.hpc2n.umu.se/public/landing_page.html>)
+   - Tetralith (ThinLinc client: ``tetralith.nsc.liu.se``)
+   - Dardel (ThinLinc client: ``dardel-vnc.pdc.kth.se``)
+   - Alvis (https://alvis.c3se.chalmers.se/)
+   - Bianca (https://bianca.uppmax.uu.se/)
+   - Pelle (https://pelle-gui.uppmax.uu.se/)
+   - Cosmos (ThinLinc client: ``cosmos-dt.lunarc.lu.se``)
+   - Kebnekaise (https://portal.hpc2n.umu.se/public/landing_page.html)
+
+1b. If You cannot use a desktop it is all fine with a command line: ``ssh ...``
 
 .. discussion::
 
