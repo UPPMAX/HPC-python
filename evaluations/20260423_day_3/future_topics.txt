@@ -1,0 +1,4 @@
+We did not even get to practice what is already in the course properly
+GNNs
+More information about how analyze big data such as genomic or transcriptomic data.
+-

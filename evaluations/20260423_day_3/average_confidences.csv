@@ -1,0 +1,8 @@
+question,mean
+I can decide on useful file formats for big data,2.36
+I can make a plot with Seaborn,3.6
+I can make a plot with matplotlib,4
+I can read and write tabular data with Pandas,3.45
+I can submit a script to the job scheduler,3.45
+"I can work (i.e. inspect, clean, sort, etc) on my data with Pandas",3.18
+I can write a batch script,3.3

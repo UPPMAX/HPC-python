@@ -185,6 +185,8 @@ ggplot2::ggsave(filename = "average_confidences_per_question.png", width = 7, he
 t_sessions_taught <- unique(t_tidy$question)
 
 # Cut out sessions if needed
+t_sessions_taught <- stringr::str_subset(t_sessions_taught, "Pandas|Seaborn|matplotlib")
+
 
 testthat::expect_true(all(t_sessions_taught %in% t_tidy$question))
 
