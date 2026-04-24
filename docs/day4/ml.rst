@@ -67,20 +67,20 @@ In this course we will look at examples for these, and show how you run them at 
 The loading are slightly different at the clusters
    - C3SE:
       - For TensorFlow: ``module load TensorFlow/2.15.1-foss-2023a-CUDA-12.1.1``
-      - For Pytorch: ``PyTorch-bundle/2.1.2-foss-2023a-CUDA-12.1.1``
+      - For Pytorch: ``PyTorch-bundle/2.1.2-foss-2023a-CUDA-12.1.1`` and ``PyTorch/2.7.1-foss-2024a-CUDA-12.6.0``
       - Datasets and models: `Many <https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/>`_
    - UPPMAX:
-      - For TensorFlow: install yourself
+      - For TensorFlow: ``TensorFlow/2.18.1-foss-2024a```
       - For Pytorch: ``PyTorch/2.6.0-foss-2024a``
       - Bianca has all tools in : ``python_ML_packages/3.9.5``
    - HPC2N:
-      - For TensorFlow ``ml GCC/12.3.0  OpenMPI/4.1.5 TensorFlow/2.15.1-CUDA-12.1.1 scikit-learn/1.4.2 Tkinter/3.11.3 matplotlib/3.7.2``
-      - For the Pytorch: ``ml GCC/12.3.0  OpenMPI/4.1.5 PyTorch/2.1.2-CUDA-12.1.1 scikit-learn/1.4.2 Tkinter/3.11.3 matplotlib/3.7.2``
+      - For TensorFlow ``module load GCC/13.3.0 OpenMPI/5.0.3 TensorFlow/2.18.1-CUDA-12.6.0``
+      - For the Pytorch: ``module load GCC/13.3.0 OpenMPI/5.0.3 PyTorch/2.7.1-CUDA-12.6.0``
    - LUNARC:
       - For TensorFlow ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 TensorFlow/2.11.0-CUDA-11.7.0 scikit-learn/1.1.2``
       - For Pytorch ``module load GCC/11.3.0 Python/3.10.4 SciPy-bundle/2022.05 PyTorch/1.12.1-CUDA-11.7.0 scikit-learn/1.1.2``
    - NSC:
-      - For Tetralith, use virtual environment. Pytorch and TensorFlow might coming soon to the cluster!
+      - For Tetralith, use virtual environment.
    - PDC:
       - For both TensorFlow and Pytorch : ``module load PDC singularity/4.2.0-cpeGNU-24.11``
 
@@ -115,7 +115,7 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
 
    * - Tool
      - Pelle (Python 3.12.3)
-     - Kebnekaise (Python 3.11.3/3.11.5)
+     - Kebnekaise (Python 3.12.3)
      - Cosmos (Python 3.11.3/3.11.5)
      - Tetralith (Python 3.11.3/3.11.5)
      - Dardel (Python 3.11.7)
@@ -143,7 +143,7 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
      - scikit-learn
    * - TensorFlow
      - N.A.
-     - TensorFlow
+     - GCC OpenMPI TensorFlow
      - TensorFlow
      - N.A.
      - PDC singularity/4.1.1-cpeGNU-23.12
@@ -153,20 +153,20 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
      - Keras (up to Python 3.8.6), TensorFlow (Python 3.11.3)
      - TensorFlow
      - N.A.
-     - PDC singularity/4.1.1-cpeGNU-23.12
+     - PDC singularity
      - TensorFlow
    * - PyTorch (torch)
      - PyTorch
-     - PyTorch
+     - GCC OpenMPI PyTorch
      - PyTorch
      - N.A.
-     - PDC singularity/4.1.1-cpeGNU-23.12
+     - PDC singularity
      - PyTorch
    * - Pandas
      - SciPy-bundle
      - SciPy-bundle
      - SciPy-bundle
-     - SciPy-bundle
+     - N.A.
      - cray-python
      - SciPy-bundle
    * - Matplotlib
@@ -174,13 +174,13 @@ The list is not exhaustive, but lists the more popular ML/DL libraries. I encour
      - matplotlib
      - matplotlib
      - buildtool-easybuild GCC matplotlib
-     - PDC/23.12 matplotlib/3.8.2-cpeGNU-23.12
+     - PDC matplotlib
      - matplotlib
    * - Beautiful Soup (beautifulsoup4)
      - BeautifulSoup
      - BeautifulSoup
      - BeautifulSoup
-     - BeautifulSoup
+     - buildtool-easybuild GCC BeautifulSoup
      - N.A.
      - BeautifulSoup
    * - Seaborn
