@@ -239,6 +239,7 @@ Exercise: Memory allocation (10 min)
    - We will use it for the exercises later.
    - Since it may take some time to get the allocation we do it now already!
    - Follow the best procedure for your cluster, e.g. from **command-line** or **OnDemand**.
+   - **Continue with the other exercises below, while session is waiting to be started.**
 
 .. admonition:: How?
    :class: dropdown
