@@ -766,7 +766,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             # Load any modules you need, here Python 3.13.5.
             load Python/3.13.5-GCCcore-14.3.0
 
-            source ../my_env/bin/activate
+            source my_env/bin/activate
 
             # Run your Python script
             python [pytorch/tf]_mnist.py
@@ -785,7 +785,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             # Load any modules you need, here for Python/3.11.3
             module load GCC/12.3.0 Python/3.11.3
 
-            source ../my_env/bin/activate
+            source my_env/bin/activate
 
             # Run your Python script
             python [pytorch/tf]_mnist.py
@@ -807,7 +807,7 @@ We now learn by submitting a batch job which consists of loading python module, 
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
                module load GCC/13.2.0 Python/3.11.5
 
-               source ../my_env/bin/activate
+               source my_env/bin/activate
 
                # Run your Python script
                python [pytorch/tf]_mnist.py
@@ -827,7 +827,7 @@ We now learn by submitting a batch job which consists of loading python module, 
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source ../my_env/bin/activate
+               source my_env/bin/activate
 
                python [pytorch/tf]_mnist.py
 
@@ -847,7 +847,7 @@ We now learn by submitting a batch job which consists of loading python module, 
                module load cray-python/3.11.5
                module load craype-accel-amd-gfx90a
 
-               source ../my_env/bin/activate
+               source my_env/bin/activate
 
                python [pytorch/tf]_mnist.py
 
@@ -863,7 +863,7 @@ We now learn by submitting a batch job which consists of loading python module, 
 
                module load Python/3.11.3-GCCcore-12.3.0
 
-               source ../my_env/bin/activate
+               source my_env/bin/activate
 
                python [pytorch/tf]_mnist.py
 
@@ -991,7 +991,7 @@ Miscellaneous examples
                module purge  > /dev/null 2>&1
                module load Python/3.13.5-GCCcore-14.3.0
 
-               source ../my_env/bin/activate
+               source my_env/bin/activate
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python tf_program.py 1 2 > myoutput1 2>&1
@@ -1018,7 +1018,7 @@ Miscellaneous examples
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source ../my_env/bin/activate
+               source my_env/bin/activate
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python tf_program.py 1 2 > myoutput1 2>&1
@@ -1046,7 +1046,7 @@ Miscellaneous examples
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
                module load GCC/13.2.0 Python/3.11.5
 
-               source ../my_env/bin/activate
+               source my_env/bin/activate
 
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
@@ -1075,7 +1075,7 @@ Miscellaneous examples
                # Load any modules you need, here for Python/3.11.5 and compatible SciPy-bundle
                module load cray-python/3.11.7
 
-               source ../my_env/bin/activate
+               source my_env/bin/activate
 
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
@@ -1106,7 +1106,7 @@ Miscellaneous examples
                module load Python/3.13.5-GCCcore-14.3.0
                module load TensorFlow/2.18.0-CUDA-11.8-1
 
-               #optionally: source ../my_env/bin/activate
+               #optionally: source my_env/bin/activate
                # Output to file - not needed if your job creates output in a file directly
                # In this example I also copy the output somewhere else and then run another executable (or you could just run the same executable for different parameters).
                python tf_program.py 1 2 > myoutput1 2>&1
@@ -1202,7 +1202,7 @@ Miscellaneous examples
                   module purge  > /dev/null 2>&1
                   module load Python/3.13.5-GCCcore-14.3.0
 
-                  source ../my_env/bin/activate
+                  source my_env/bin/activate
 
                   # Run your Python script
                   python example-tf.py
@@ -1222,7 +1222,7 @@ Miscellaneous examples
                ml load buildtool-easybuild/4.8.0-hpce082752a2 GCCcore/13.2.0
                ml load Python/3.11.5
 
-               source ../my_env/bin/activate
+               source my_env/bin/activate
 
                # Run your Python script
                python example-tf.py
