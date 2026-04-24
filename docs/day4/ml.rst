@@ -769,7 +769,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             source ../my_env/bin/activate
 
             # Run your Python script
-            python fashion_mnist.py
+            python [pytorch/tf]_mnist.py
 
       .. tab:: HPC2N
 
@@ -788,7 +788,7 @@ We now learn by submitting a batch job which consists of loading python module, 
             source ../my_env/bin/activate
 
             # Run your Python script
-            python fashion_mnist.py
+            python [pytorch/tf]_mnist.py
 
 
       .. tab:: LUNARC
@@ -810,7 +810,7 @@ We now learn by submitting a batch job which consists of loading python module, 
                source ../my_env/bin/activate
 
                # Run your Python script
-               python fashion_mnist.py
+               python [pytorch/tf]_mnist.py
 
 
       .. tab:: NSC
@@ -829,7 +829,7 @@ We now learn by submitting a batch job which consists of loading python module, 
 
                source ../my_env/bin/activate
 
-               python fashion_mnist.py
+               python [pytorch/tf]_mnist.py
 
       .. tab:: PDC
 
@@ -849,7 +849,7 @@ We now learn by submitting a batch job which consists of loading python module, 
 
                source ../my_env/bin/activate
 
-               python fashion_mnist.py
+               python [pytorch/tf]_mnist.py
 
       .. tab:: C3SE
 
@@ -865,7 +865,7 @@ We now learn by submitting a batch job which consists of loading python module, 
 
                source ../my_env/bin/activate
 
-               python fashion_mnist.py
+               python [pytorch/tf]_mnist.py
 
 
 Tips and Tricks (Lessons Learned):
