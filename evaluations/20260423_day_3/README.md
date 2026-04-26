@@ -6,7 +6,6 @@
 ## Survey at end
 
 - [Evaluation results (csv)](survey_end.csv)
-- [Evaluation results (xlsx)](survey_end.xlsx)
 - [Analysis script](analyse.R)
 - [Average confidence per question (.csv)](average_confidences.csv)
 - [Success score](success_score.txt): 
