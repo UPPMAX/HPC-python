@@ -70,7 +70,7 @@
   We could use that time learning
   and using common python packages in an HPC cluster.
 - It think that we need more documentation about Dardel.
-  Also, we need more hands-ons and demonstrations.
+  Also, we need more hands-on and demonstrations.
 - I feel some exercises are not in "step-by-step" format
   that makes difficult to complete it.
 
