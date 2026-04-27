@@ -27,9 +27,17 @@
 
 ### [Future topics](future_topics.txt)
 
-- I guess that python, pandas, matplotlib and such could be prerequisites to the course and instead only focus on big data and hpc specifics
+- I guess that python, pandas, matplotlib and such could be prerequisites
+  to the course and instead only focus on big data and hpc specifics
 
 ### [Other comments](comments.txt)
 
-- Overall a good setup of the course! It is hard to do the exercises because environments etc. has to be set, so I will have to go back later to finish.
-- The first half of today’s training covered important material, but I personally found the delivery less engaging. It felt more like a reading of the manual, and I didn’t gain much from it. Demonstrating everything with actual code and a more hands-on approach would be essential to better understand the core concepts. The second half of the training, however, was satisfactory.
+- Overall a good setup of the course!
+  It is hard to do the exercises because environments etc. has to be set,
+  so I will have to go back later to finish.
+- The first half of today’s training covered important material,
+  but I personally found the delivery less engaging.
+  It felt more like a reading of the manual, and I didn’t gain much from it.
+  Demonstrating everything with actual code and a more hands-on approach
+  would be essential to better understand the core concepts.
+  The second half of the training, however, was satisfactory.

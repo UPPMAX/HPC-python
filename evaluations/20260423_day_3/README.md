@@ -8,7 +8,7 @@
 - [Evaluation results (csv)](survey_end.csv)
 - [Analysis script](analyse.R)
 - [Average confidence per question (.csv)](average_confidences.csv)
-- [Success score](success_score.txt): 
+- [Success score](success_score.txt):
 
 ![Course ratings](course_rating.png)
 ![All confidences](all_confidences.png)
@@ -47,17 +47,17 @@
   There's simply way too much to go through,
   way to many potential technical difficulties that take time,
   and way too little time to do exercises to actually absorb
-  all the content and enjoy the learning process. 
-  And I would suggest that the course on how to connect and work 
-  in an HPC environment be moved to before this course during the same semester, 
-  so that people don't have to deal with having to learn that at the same time. 
-  Right now the "Online training events for new users: 
-  NAISS Introduction training days" course is after this course 
-  during the semester, which makes little sense considering that 
+  all the content and enjoy the learning process.
+  And I would suggest that the course on how to connect and work
+  in an HPC environment be moved to before this course during the same semester,
+  so that people don't have to deal with having to learn that at the same time.
+  Right now the "Online training events for new users:
+  NAISS Introduction training days" course is after this course
+  during the semester, which makes little sense considering that
   its contents should be a prerequisite for this course.
 - Where should we improve? materials, exercises, and structure
 - For me personally, the time spent interacting with the cluster
-  and getting familiarised was the most useful. 
+  and getting familiarised was the most useful.
   This is personally though an I'm not sure whether this
   would be the case across the board.
 - Today (day3), the topics were more of what I expected from
