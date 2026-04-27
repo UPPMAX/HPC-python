@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>matplotlib &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../../_static/minipres.js?v=a0d29692"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="seaborn" href="../seaborn/README.html" />
+    <link rel="prev" title="pandas" href="../pandas/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../arrhenius.html">New system Arrhenius</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/install_packages.html">Installing packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_isolated_environments.html">Using isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/IDEs_cmd.html">Starting IDEs from command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/ondemand-desktop.html">Gfx launcher/Desktop On Demand including IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../pandas/README.html"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-matplotlib">What is <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-matplotlib-is-important">Why <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is important</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-1-minimal-code">Exercise 1: minimal code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-2-a-minimal-plot">Exercise 2: a minimal plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-exercise-3-displaying-a-pandas-table">(optional) Exercise 3: displaying a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-exercise-4-making-the-plot-pretty">(optional) Exercise 4: making the plot pretty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-exercise-5-should-i-use-matplotlib-or-seaborn">(optional) Exercise 5: should I use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> or <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#done">Done?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#external-links">External links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../seaborn/README.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/python_bundles.html">Python bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/extra_isolated.html">Extra material about isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/day3/matplotlib/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <!-- From https://docs.readthedocs.com/platform/stable/guides/cross-referencing-with-sphinx.html#explicit-targets -->
+<section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
+<span id="id1"></span><h1><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#matplotlib" title="Link to this heading"></a></h1>
+<p><img alt="The matplotlib logo" src="../../_images/matplotlib_logo.png" /></p>
+<blockquote>
+<div><p><a class="reference external" href="https://matplotlib.org/stable/gallery/misc/logos2.html">The <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> logo</a></p>
+</div></blockquote>
+<div class="note admonition">
+<p class="admonition-title">Learning outcomes</p>
+<p>At the end of this sessions, learners …</p>
+<ul class="simple">
+<li><p>have practiced using the documentation of favorite HPC cluster</p></li>
+<li><p>understand what <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is</p></li>
+<li><p>understand why <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is important</p></li>
+<li><p>have run Python code that uses <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+<li><p>have created a plot with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+<li><p>(optional) have created a plot with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> from a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> table</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">For teachers</p>
+<p>Prior:</p>
+<ul class="simple">
+<li><p>What is a plotting library?</p></li>
+</ul>
+</div>
+<section id="what-is-matplotlib">
+<h2>What is <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>?<a class="headerlink" href="#what-is-matplotlib" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> allows you to create figures:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Which shows:</p>
+<p><img alt="A minimal  plot" src="../../_images/what_is_matplotlib.png" /></p>
+</section>
+<section id="why-matplotlib-is-important">
+<h2>Why <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is important<a class="headerlink" href="#why-matplotlib-is-important" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is one of the most popular Python plotting libraries.
+It can be used to create publication-quality figures and
+<a class="reference external" href="https://matplotlib.org/stable/plot_types/index.html">the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> plot types overview</a>
+shows that most plot types are present.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">How popular is <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>?</p>
+<p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is not popular enough to be in
+<a class="reference external" href="https://pypistats.org/top">the <code class="docutils literal notranslate"><span class="pre">PyPI</span></code> top 20</a>.</p>
+<p>However, at
+<a class="reference external" href="https://pypistats.org/packages/matplotlib">the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> PyPI statistics page</a>
+we see that it has around 200 million downloads per month.
+As the number 20 package has around 800 million downloads per month,
+we can infer that it is not all too unpopular.</p>
+</div>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Want to see the answers as a video?</p>
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HPC cluster</p></th>
+<th class="head"><p>YouTube video</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alvis</p></td>
+<td><p><a class="reference external" href="https://youtu.be/5TSr-pE-BuU">YouTube video</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>COSMOS</p></td>
+<td><p><a class="reference external" href="https://youtu.be/1se9oCW0HHU">YouTube video</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Dardel</p></td>
+<td><p><a class="reference external" href="https://youtu.be/8XdJP61IEMk">YouTube video</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Kebnekaise</p></td>
+<td><p><a class="reference external" href="https://youtu.be/mqA4TxZUTlM">YouTube video</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Pelle</p></td>
+<td><p><a class="reference external" href="https://youtu.be/5fWxXBA5120">YouTube video</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tetralith</p></td>
+<td><p><a class="reference external" href="https://youtu.be/ErYPu5Ejig8">YouTube video</a></p></td>
+</tr>
+</tbody>
+</table>
+<!-- markdownlint-enable MD013 -->
+</div>
+</section>
+<section id="exercise-1-minimal-code">
+<h2>Exercise 1: minimal code<a class="headerlink" href="#exercise-1-minimal-code" title="Link to this heading"></a></h2>
+<p>Go to the documentation of the HPC cluster you work on.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer: where is your documentation?</p>
+<p>Sorted by HPC cluster:</p>
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HPC center</p></th>
+<th class="head"><p>HPC cluster</p></th>
+<th class="head"><p>HPC cluster-specific documentation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C3SE</p></td>
+<td><p>Alvis</p></td>
+<td><p><a class="reference external" href="https://www.c3se.chalmers.se">Documentation</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>UPPMAX</p></td>
+<td><p>Bianca</p></td>
+<td><p><a class="reference external" href="https://docs.uppmax.uu.se">Documentation</a></p></td>
+</tr>
+<tr class="row-even"><td><p>LUNARC</p></td>
+<td><p>COSMOS</p></td>
+<td><p><a class="reference external" href="https://lunarc-documentation.readthedocs.io">Documentation</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>PDC</p></td>
+<td><p>Dardel</p></td>
+<td><p><a class="reference external" href="https://support.pdc.kth.se">Documentation</a></p></td>
+</tr>
+<tr class="row-even"><td><p>HPC2N</p></td>
+<td><p>Kebnekaise</p></td>
+<td><p><a class="reference external" href="https://docs.hpc2n.umu.se">Documentation</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>UPPMAX</p></td>
+<td><p>Pelle</p></td>
+<td><p><a class="reference external" href="https://docs.uppmax.uu.se">Documentation</a></p></td>
+</tr>
+<tr class="row-even"><td><p>NSC</p></td>
+<td><p>Tetralith</p></td>
+<td><p><a class="reference external" href="https://www.nsc.liu.se">Documentation</a></p></td>
+</tr>
+</tbody>
+</table>
+<!-- markdownlint-enable MD013 -->
+</div>
+<p>In that documentation, find the software module to load
+the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> Python package.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer: where is the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> documentation?</p>
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HPC cluster</p></th>
+<th class="head"><p>HPC cluster-specific <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> documentation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alvis</p></td>
+<td><p>Has no documentation on how to load <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Bianca</p></td>
+<td><p><a class="reference external" href="https://docs.uppmax.uu.se/software/python_bundles/#matplotlib"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> documentation</a></p></td>
+</tr>
+<tr class="row-even"><td><p>COSMOS</p></td>
+<td><p>Has no documentation on how to load <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Dardel</p></td>
+<td><p>Has no documentation on how to load <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Kebnekaise</p></td>
+<td><p><a class="reference external" href="https://docs.hpc2n.umu.se/software/libs/matplotlib/"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> documentation</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Pelle</p></td>
+<td><p><a class="reference external" href="https://docs.uppmax.uu.se/software/matplotlib/"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> documentation</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Tetralith</p></td>
+<td><p><a class="reference external" href="https://www.nsc.liu.se/software/catalogue/tetralith/modules/python.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> documentation</a></p></td>
+</tr>
+</tbody>
+</table>
+<!-- markdownlint-enable MD013 -->
+</div>
+<p>In a terminal (on your HPC cluster), load the software module to use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer: how to load the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> software module</p>
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HPC cluster</p></th>
+<th class="head"><p>How to load Matplotlib</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alvis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">matplotlib/3.9.2-gfbf-2024a</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>COSMOS</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">matplotlib/3.8.2</span></code> (avoid version <code class="docutils literal notranslate"><span class="pre">3.9.2</span></code>!)</p></td>
+</tr>
+<tr class="row-even"><td><p>Dardel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">python/3.12.3</span> <span class="pre">;</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Kebnekaise</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">GCC/13.2.0</span> <span class="pre">matplotlib/3.8.2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Pelle</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">matplotlib/3.9.2-gfbf-2024a</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tetralith</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">Python/3.10.4-env-hpc1-gcc-2022a-eb</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<!-- markdownlint-enable MD013 -->
+</div>
+<p>On your HPC cluster, create a script called <code class="docutils literal notranslate"><span class="pre">matplotlib_exercise_1.py</span></code>
+with the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run <code class="docutils literal notranslate"><span class="pre">matplotlib_exercise_1.py</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer: how to run the script</p>
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HPC cluster</p></th>
+<th class="head"><p>How to run the script</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alvis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_1.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>COSMOS</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_1.py</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Dardel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">matplotlib_exercise_1.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Kebnekaise</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_1.py</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Pelle</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_1.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tetralith</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_1.py</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<!-- markdownlint-enable MD013 -->
+</div>
+<p>What do you see?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer: how does that look like?</p>
+<p>The output looks similar to this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>3.6.3
+</pre></div>
+</div>
+</div>
+<p>Even though the code shows nothing directly useful,
+why is this a useful exercise anyways?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>This is a useful exercise,
+because it proves that you have successfully loaded/installed
+<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+</div>
+</section>
+<section id="exercise-2-a-minimal-plot">
+<h2>Exercise 2: a minimal plot<a class="headerlink" href="#exercise-2-a-minimal-plot" title="Link to this heading"></a></h2>
+<p>On your HPC cluster, create a script called <code class="docutils literal notranslate"><span class="pre">matplotlib_exercise_2.py</span></code>
+with the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;matplotlib_exercise_2.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run <code class="docutils literal notranslate"><span class="pre">matplotlib_exercise_2.py</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer: how to run the script</p>
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HPC cluster</p></th>
+<th class="head"><p>How to run the script</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alvis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_2.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>COSMOS</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_2.py</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Dardel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">matplotlib_exercise_2.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Kebnekaise</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_2.py</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Pelle</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_2.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tetralith</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">matplotlib_exercise_2.py</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<!-- markdownlint-enable MD013 -->
+</div>
+<p>Check that the figure is created</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer: how to check that the figure is created</p>
+<p>There are many ways.</p>
+<p>To check if the file is created:</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">ls</span></code> to view the list of files</p></li>
+<li><p>Use a file explorer</p></li>
+</ul>
+<p>For this exercise, this is good enough.</p>
+<p>Optionally, if you want to actually see the file, then read
+<a class="reference external" href="https://uppmax.github.io/naiss_intro_python/sessions/working_with_graphics/#exercise-2-optional-view-the-plot">the HPC Python course Day 1 ‘Working with graphics’ session</a>.</p>
+</div>
+</section>
+<section id="optional-exercise-3-displaying-a-pandas-table">
+<h2>(optional) Exercise 3: displaying a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> table<a class="headerlink" href="#optional-exercise-3-displaying-a-pandas-table" title="Link to this heading"></a></h2>
+<p>In this exercise, we will again use
+<a class="reference download internal" download="" href="../../_downloads/2c3f44b9035e3effc9e3b2854f37f1f0/diamonds.csv"><span class="xref download myst">the ‘diamonds’ dataset (as a comma-separated file)</span></a>:
+a dataset about diamonds.</p>
+<p>This dataset contains information about more than fifty thousand diamonds.
+Two such features are the weight (in carats) and the price (in USD).
+Here we want to use an image to display the relationship between these two.</p>
+<p>Create a script called <code class="docutils literal notranslate"><span class="pre">matplotlib_exercise_3.py</span></code>. In that script:</p>
+<ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to read the dataset
+(as done in <a class="reference internal" href="../pandas/README.html"><span class="std std-doc">the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> session</span></a>)</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to create a scatter plot from that data:
+Put the diamond weight
+on the x-axis and the diamond price on the y-axis.
+Use
+<a class="reference external" href="https://matplotlib.org/stable/index.html">the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> documentation</a>,
+a search engine or an AI chatbot for the answer.</p></li>
+<li><p>save the plot as <code class="docutils literal notranslate"><span class="pre">matplotlib_exercise_3.png</span></code>
+Use
+<a class="reference external" href="https://matplotlib.org/stable/index.html">the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> documentation</a>,
+a search engine or an AI chatbot for the answer.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Here is a simple solution
+(simplified from <a class="reference download internal" download="" href="../../_downloads/b11fe774a51294e68e4f14e0efb1e9da/matplotlib_exercise_3.py"><span class="xref download myst">this script</span></a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;diamonds.csv&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;carat&quot;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;matplotlib_exercise.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will look like this:</p>
+<p><img alt="Result of the  exercise" src="../../_images/matplotlib_exercise_3.png" /></p>
+</div>
+</section>
+<section id="optional-exercise-4-making-the-plot-pretty">
+<h2>(optional) Exercise 4: making the plot pretty<a class="headerlink" href="#optional-exercise-4-making-the-plot-pretty" title="Link to this heading"></a></h2>
+<p>Use <a class="reference external" href="https://matplotlib.org/stable/index.html">the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> documentation</a>
+to improve the plot, for example:</p>
+<ul class="simple">
+<li><p>Add a title</p></li>
+<li><p>Add titles to the axes</p></li>
+<li><p>Add a linear trendline</p></li>
+<li><p>Whatever you like</p></li>
+</ul>
+</section>
+<section id="optional-exercise-5-should-i-use-matplotlib-or-seaborn">
+<h2>(optional) Exercise 5: should I use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> or <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>?<a class="headerlink" href="#optional-exercise-5-should-i-use-matplotlib-or-seaborn" title="Link to this heading"></a></h2>
+<p>Search the academic literature to answer the question
+if you should use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> or <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>,
+for example
+<a class="reference external" href="https://scholar.google.com/scholar?hl=en&amp;amp;as_sdt=0%2C5&amp;amp;q=matplotlib+versus+seaborn&amp;amp;btnG=">by searching Google Scholar for ‘matplotlib versus seaborn’</a>.</p>
+<p>Which paper will you find?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>You will find the paper <code class="docutils literal notranslate"><span class="pre">[Sial</span> <span class="pre">et</span> <span class="pre">al.,</span> <span class="pre">2021]</span></code>
+(see below for the complete reference)</p>
+</div>
+<p>What does the paper conclude, regarding using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> or <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Here is a quote from the conclusion of <code class="docutils literal notranslate"><span class="pre">[Sial</span> <span class="pre">et</span> <span class="pre">al.,</span> <span class="pre">2021]</span></code>:</p>
+<blockquote>
+<div><p>It has been identified that if a data scientist
+wants to visualize the large chunks of datasets then seaborn
+will be a better option, but if you are looking for basic
+visualization patterns then matplotlib would be a better
+choice for beginners and starters in the field of data
+visualization &amp; computational modelling</p>
+</div></blockquote>
+</div>
+</section>
+<section id="done">
+<h2>Done?<a class="headerlink" href="#done" title="Link to this heading"></a></h2>
+<p>Go to <a class="reference internal" href="../seaborn/README.html"><span class="std std-doc">the session about <code class="docutils literal notranslate"><span class="pre">seaborn</span></code></span></a></p>
+</section>
+<section id="external-links">
+<h2>External links<a class="headerlink" href="#external-links" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a></p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[Sial</span> <span class="pre">et</span> <span class="pre">al.,</span> <span class="pre">2021]</span></code> Sial, Ali Hassan, Syed Yahya Shah Rashdi, and Abdul Hafeez Khan. “Comparative analysis of data visualization libraries Matplotlib and Seaborn in Python.” International Journal 10.1 (2021): 277-281.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../pandas/README.html" class="btn btn-neutral float-left" title="pandas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../seaborn/README.html" class="btn btn-neutral float-right" title="seaborn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
