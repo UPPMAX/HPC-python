@@ -131,7 +131,7 @@ Bundle of Python packages from PyPI
 
 Also loads the package module
 
-    - virtualenv
+- virtualenv
 
 :::
 
