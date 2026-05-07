@@ -7,28 +7,27 @@
 - The bundle names reflect the content, like Python packages, and its version, but also which Python version, compilers and libraries that are compatible with it.
 
 :::{callout} "Some well-known bundles by names"
-:class: dropdown
 
-    - HPC and big data
-        - dask
-        - mpi4py
-        - numba
-    - Scientific tools
-        - SciPy-bundles: ``numpy``, ``pandas``, ``scipy``
-        - xarray
-    - Biopython
-    - Interactivity
-        - iPython
-        - JupyterLab
-    - Graphics and diagrams
-        - Matplotlib
-        - Seaborn
-    - Machine Learning
-        - scikit-learn
-        - PyTorch
-        - TensorFlow
-    - Bundle of useful packages
-        - Python-bundle-PyPI
+- HPC and big data
+    - dask
+    - mpi4py
+    - numba
+- Scientific tools
+    - SciPy-bundles: ``numpy``, ``pandas``, ``scipy``
+    - xarray
+- Biopython
+- Interactivity
+    - iPython
+    - JupyterLab
+- Graphics and diagrams
+    - Matplotlib
+    - Seaborn
+- Machine Learning
+    - scikit-learn
+    - PyTorch
+    - TensorFlow
+- Bundle of useful packages
+    - Python-bundle-PyPI
 
 Package     |Bundle module|Also loads        |Avail at *|
 ------------|-------------|------------------|--------|
@@ -77,7 +76,8 @@ FOSS | Python version| GCC version | Bundle version
 :::
 
 :::{callout}  Example Matplotlib
-:class: dropdown
+
+Contains
 
 - `contourpy`
 - `Cycler`
@@ -85,7 +85,7 @@ FOSS | Python version| GCC version | Bundle version
 - `kiwisolver`
 - `matplotlib`
 
-Example Matplotlib 3.10.5-gfbf-2025b
+**Example Matplotlib 3.10.5-gfbf-2025b**
 
 Packages:
 
