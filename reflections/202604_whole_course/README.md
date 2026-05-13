@@ -98,7 +98,7 @@ literature is a great next step.
 
 ## Actually listen to feedback from learners
 
-Here is some feedback from [the May 2023 evaluations](../evaluations/20230523/evaluation_20230523.csv):
+Here is some feedback from [the May 2023 evaluations](../../evaluations/20230523/evaluation_20230523.csv):
 
 - Please be prepared and make it more hands-on.
 - More exercises for us to try

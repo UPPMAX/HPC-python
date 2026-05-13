@@ -1,6 +1,6 @@
 # Evaluation 2026-04
 
-- [Analysis script (R)](analysis.R)
+- [Analysis script (R)](analyse.R)
 
 Confidences per question, colored by course day:
 

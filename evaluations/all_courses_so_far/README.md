@@ -1,12 +1,12 @@
 # Evaluation of all courses so far
 
-- [Analysis script (R)](analysis.R)
+- [Analysis script (R)](analyse.R)
 
 ## Average confidences per course per day
 
 ![Average confidences per course per day](confidences_per_course_per_day.png)
 
-## [Comments per course per day](comments_per_course_per_day.md)
+## [Comments per course per day](comments_per_course_per_day.txt)
 
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
