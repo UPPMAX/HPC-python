@@ -110,7 +110,7 @@
   Pedro has some amazing material and is a great lecturer
   but i am not intrested in parallel programming.
   Bjorn was mostly ok but maybe a bit fast (packages).
-  Rachel should have more advanced material,
+  Richel should have more advanced material,
   we are smarter than he thinks.
   Brigitte i didn't get through the sessions as batch is not intresting
   but i need it until you install ondemand everywhere.
