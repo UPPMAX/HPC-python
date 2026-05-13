@@ -121,7 +121,13 @@ four separate courses:
 - Using Python code, packages and environments at NAISS HPC systems
   (LMOD, venv, conda; when to use what and how they interact)
 
-Course 1 is general to HPC users, not specific to Python. It should probably be provided by NAISS quite often and be a prerequisite to all other NAISS courses. Courses 2 and 3 are general to Python users, not specific to HPC, widely available from elsewhere. Course 4 is specific to Python in HPC; this is what I, a seasoned learner, would expect NAISS to provide in regards to using Python.
+Course 1 is general to HPC users, not specific to Python.
+It should probably be provided by NAISS quite often and
+be a prerequisite to all other NAISS courses.
+Courses 2 and 3 are general to Python users, not specific to HPC,
+widely available from elsewhere. Course 4 is specific to Python in HPC;
+this is what I, a seasoned learner,
+would expect NAISS to provide in regards to using Python.
 
 ## What I expected (or hoped) to learn that I did not learn
 
@@ -133,4 +139,7 @@ taught by other resources—so this is what I truly wanted from this course.
 I did learn a bit about it but it seemed to happen by accident as much or
 more than as a result of the course truly focussing on this matter.
 
-The fix would be to make sure every single command that loads a module or a python package does specify a specific version. Well, for the recurring problem that I do remember, but there may have been more problems. ↩︎
+The fix would be to make sure every single command that loads a module
+or a python package does specify a specific version.
+Well, for the recurring problem that I do remember,
+but there may have been more problems.

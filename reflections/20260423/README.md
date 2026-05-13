@@ -83,6 +83,8 @@ Let's first take a look at how the sessions went:
 
 ![Average confidence per question](../../evaluations/20260423_day_3/average_confidences_per_question.png)
 
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
 Question                                                          |Mean|My response
 ------------------------------------------------------------------|----|------------------------------------
 I can decide on useful file formats for big data                  |2.15|Not mine
@@ -92,6 +94,8 @@ I can read and write tabular data with Pandas                     |3.31|This is 
 I can write a batch script                                        |3.5 |Not mine
 I can submit a script to the job scheduler                        |3.69|Not mine
 I can make a plot with matplotlib                                 |3.75|This is low
+
+<!-- markdownlint-enable MD013 -->
 
 The mean confidence for the sessions I taught are all low (I use 4.0 as
 a hinge point). I expect the Dardel users, of which most were unable

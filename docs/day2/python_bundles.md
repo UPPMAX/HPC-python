@@ -9,25 +9,25 @@
 :::{callout} "Some well-known bundles by names"
 
 - HPC and big data
-    - dask
-    - mpi4py
-    - numba
+  - dask
+  - mpi4py
+  - numba
 - Scientific tools
-    - SciPy-bundles: ``numpy``, ``pandas``, ``scipy``
-    - xarray
+  - SciPy-bundles: ``numpy``, ``pandas``, ``scipy``
+  - xarray
 - Biopython
 - Interactivity
-    - iPython
-    - JupyterLab
+  - iPython
+  - JupyterLab
 - Graphics and diagrams
-    - Matplotlib
-    - Seaborn
+  - Matplotlib
+  - Seaborn
 - Machine Learning
-    - scikit-learn
-    - PyTorch
-    - TensorFlow
+  - scikit-learn
+  - PyTorch
+  - TensorFlow
 - Bundle of useful packages
-    - Python-bundle-PyPI
+  - Python-bundle-PyPI
 
 Package     |Bundle module|Also loads        |Avail at *|
 ------------|-------------|------------------|--------|
