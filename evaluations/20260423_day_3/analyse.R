@@ -182,21 +182,14 @@ ggplot2::ggplot(
 
 ggplot2::ggsave(filename = "average_confidences_per_question.png", width = 7, height = 7)
 
-
-t_sessions_taught <- unique(t_tidy$question)
+success_score <- mean(t_tidy$answer) / 5.0
+readr::write_lines(x = success_score, "success_score.txt")
 
 # Cut out sessions if needed
-#t_sessions_taught <- stringr::str_subset(t_sessions_taught, "Pandas|Seaborn|matplotlib")
+t_sessions_taught <- stringr::str_subset(t_sessions_taught, "Pandas|Seaborn|matplotlib")
 
 testthat::expect_true(all(t_sessions_taught %in% t_tidy$question))
 
 confidences_on_taught_sessions <- t_tidy |> dplyr::filter(question %in% t_sessions_taught)
 success_score <- mean(confidences_on_taught_sessions$answer) / 5.0
-readr::write_lines(x = success_score, "success_score.txt")
-
-
-
-
-
-
-
+readr::write_lines(x = success_score, "success_score_richel.txt")

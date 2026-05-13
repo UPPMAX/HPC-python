@@ -95,4 +95,3 @@
 A wordcloud of all the words in the comments.
 
 ![Wordcloud](wordcloud.png)
-

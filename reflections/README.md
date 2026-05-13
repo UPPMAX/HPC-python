@@ -5,7 +5,7 @@ tags:
 
 # Reflections
 
-Here are the reflections.
+Here are some reflections.
 
 Course iteration|Day|Reflections
 ----------------|---|-----------
@@ -22,6 +22,5 @@ Course iteration|Day|Reflections
 .               |2  |[Reflection](20251128/README.md)
 .               |All|[Reflection](202511_whole_course/README.md)
 9  (2026 spring)|1  |[Reflection](https://uppmax.github.io/naiss_intro_python/reflections/20260420/)
-.               |2  |[Reflection](20260422/README.md)
 .               |3  |[Reflection](20260423/README.md)
 .               |All|[Reflection](202604_whole_course/README.md)
