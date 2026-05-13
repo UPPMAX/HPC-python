@@ -21,7 +21,7 @@
 
 - i got lost before the IDE session
 - Not good at all. Not clear, things don't work, could not install an env really,
-  The instructions on the site are confusing and dont work most of the time,
+  The instructions on the site are confusing and don't work most of the time,
   I could not start any IDE, VS code didn't want to connect to PDC,
   it was quite bad for me
 - Too high, mostly because of the amount of content during the day,
