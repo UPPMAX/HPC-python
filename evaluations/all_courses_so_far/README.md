@@ -4,7 +4,7 @@
 
 ## Average confidences per course per day
 
-![](confidences_per_course_per_day.png)
+![Average confidences per course per day](confidences_per_course_per_day.png)
 
 ## [Comments per course per day](comments_per_course_per_day.md)
 
@@ -89,3 +89,10 @@
 |      9|   4|I didn't fill the other evaluations and day4 i watched as videos so i will comment for all days here: Pedro has some amazing material and is a great lecturer but i am not intrested in parallel programming. Bjorn was mostly ok but maybe a bit fast (packages). Rachel should have more advanced material, we are smarter than he thinks. Brigitte i didn't get through the sessions as batch is not intresting but i need it until you install ondemand everywhere. Also the day4 recordings was not up until sunday!!!!! Jayant ok good presentations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 <!-- markdownlint-enable MD013 -->
+
+## Wordcloud
+
+A wordcloud of all the words in the comments.
+
+![Wordcloud](wordcloud.png)
+

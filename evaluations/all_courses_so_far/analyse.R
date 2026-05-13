@@ -123,3 +123,61 @@ comments_per_day$comment
 readr::write_csv(comments_per_day, "comments_per_course_per_day.csv")
 text <- knitr::kable(comments_per_day)
 readr::write_lines(text, "comments_per_course_per_day.md")
+
+
+comments_per_day$comment
+
+# Adapted from https://stackoverflow.com/a/51316814/3364162
+library(tidyverse)
+text_string <- paste0(comments_per_day$comment, collapse = " ")
+testthat::expect_equal(1, length(text_string))
+stop_words <- c(
+  "a",
+  "and",
+  "for",
+  "the",
+  "to",
+  "i",
+  "it",
+  "of",
+  "in",
+  "that",
+  "was",
+  "with",
+  "not",
+  "we",
+  "this",
+  "would",
+  "could",
+  "as",
+  "have",
+  "is",
+  "you",
+  "from",
+  "some",
+  "so",
+  "up",
+  "maybe",
+  "do",
+  "are",
+  "were",
+  "on",
+  "at", "am", "us", "only",
+  "can", "until", "my", "set", "each", "if", "along",
+  "me", "been", "no",
+  "but", "or", "about", "bit", "will",
+  "too", "had", "just", "still", "then", "an",
+  "very", "did", "has", "also",
+  "be"
+  ) # just a sample list of words I don't care about
+word_frequencies <- data_frame(text = text_string) %>%
+  mutate(text = tolower(text)) %>%
+  mutate(text = str_remove_all(text, '[[:punct:]]')) %>%
+  mutate(tokens = str_split(text, "\\s+")) %>%
+  unnest(cols = c(tokens)) %>%
+  count(tokens) %>%
+  filter(!tokens %in% stop_words) %>%
+  mutate(freq = n / sum(n)) %>%
+  arrange(desc(n))
+
+wordcloud2::wordcloud2(word_frequencies)
