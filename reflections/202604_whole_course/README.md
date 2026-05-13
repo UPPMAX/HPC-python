@@ -83,7 +83,7 @@ My answers:
 - A3: As minimal as possible: the goal is to get things to work in an HPC
   environment
 
-## Listen to feedback
+## Listen to feedback from learners
 
 My question:
 
@@ -96,21 +96,34 @@ No. When we know that an advice goes against the literature, we should
 follow the literature instead. Would we be in doubt, then checking the
 literature is a great next step.
 
-## Actually listen to feedback
+## Actually listen to feedback from learners
 
 Here is some feedback from [the May 2023 evaluations](../evaluations/20230523/evaluation_20230523.csv):
 
 - Please be prepared and make it more hands-on.
-- Test the modules work the day before instead of a week before!
-  More exercises for us to try
-- More exercises all over.
+- More exercises for us to try
+- More exercises all over
 - more time for code-along and on-your-own to try it
-- More GPU and ML examples. More about how to install packages in
-  virtual environment as I had problems
 - longer time to do the exercises
 
 This means already since May 2023 the learners ask for more time for
-exercises. Are they being listened to?
+exercises. Are they really being listened to? Or is this a matter
+of teaching practice that states that lecturing is better than exercises?
+
+## Listen to feedback from teachers
+
+There has never been a teacher giving proper feedback about the course.
+I would like that.
+
+I have had an observer this course for Day 1.
+It helped me grow.
+
+## My conclusion
+
+The course has many different teachers, with different ideas about
+what good teaching is. That is fine, as we do our own thing in our lessons.
+This does make it less useful to evaluate as a team.
+Me, I see no use of this, but I will observe how that goes.
 
 ## References
 
