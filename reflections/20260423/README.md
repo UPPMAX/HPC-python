@@ -182,7 +182,7 @@ This is for Björn to ponder, as he teaches how to find modules.
 
 Other comments (both from NAISS survey as the hastily added Google Form):
 
-- more cases, like, an oom killed job,
+- more cases, like, an OOM killed job,
   how to seff it and solve the issue to run it properly
 
 I agree that job optimization is missing.
@@ -218,7 +218,7 @@ I wish I knew which sessions this was about...
 
 - For me personally, the time spent interacting with the cluster and
   getting familiarised was the most useful.
-  This is personaly though an I'm not sure whether this would be the case
+  This is personal though an I'm not sure whether this would be the case
   across the board.
 
 I assume that the exercises were seen as most useful.

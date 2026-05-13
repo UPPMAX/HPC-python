@@ -18,7 +18,6 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v4.2.0
 
-      # This script started to act weird since commit 204a75856859e0e00b32ad9755c3a2a7c141879d
       - name: Remove files that do not care about spelling
         run: |
           rm -rf LICENSE.md
@@ -26,5 +25,6 @@ jobs:
           rm -rf meeting_notes
           rm $(find . | grep "_old\\.")
           rm docs/day3/seaborn/older/Seaborn-Intro.rst
+          rm docs/evaluations/all_courses_so_far/README.md
 
       - uses: igsekor/pyspelling-any@v1.0.4
