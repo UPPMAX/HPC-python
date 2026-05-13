@@ -50,7 +50,8 @@ recommend$recommend <- as.factor(recommend$recommend)
 ggplot2::ggplot(recommend, ggplot2::aes(x = recommend)) +
   ggplot2::geom_bar() +
   ggplot2::scale_y_continuous(
-    name = "Number of learners"
+    name = "Number of learners",
+    breaks = scales::breaks_pretty()
   ) +
   ggplot2::labs(
     title = "Would you recommend the course?",
@@ -185,7 +186,7 @@ ggplot2::ggsave(filename = "average_confidences_per_question.png", width = 7, he
 t_sessions_taught <- unique(t_tidy$question)
 
 # Cut out sessions if needed
-t_sessions_taught <- stringr::str_subset(t_sessions_taught, "Pandas|Seaborn|matplotlib")
+#t_sessions_taught <- stringr::str_subset(t_sessions_taught, "Pandas|Seaborn|matplotlib")
 
 testthat::expect_true(all(t_sessions_taught %in% t_tidy$question))
 

@@ -53,7 +53,8 @@ recommend$recommend <- as.factor(recommend$recommend)
 ggplot2::ggplot(recommend, ggplot2::aes(x = recommend)) +
   ggplot2::geom_bar() +
   ggplot2::scale_y_continuous(
-    name = "Number of learners"
+    name = "Number of learners",
+    breaks = scales::breaks_pretty()
   ) +
   ggplot2::labs(
     title = "Would you recommend the course?",

@@ -9,7 +9,7 @@
 - [Evaluation results (xlsx)](evaluation_results.xlsx)
 - [Analysis script](analyse.R)
 - [Average confidence per question (.csv)](average_confidences.csv)
-- [Success score](success_score.txt):
+- [Success score](success_score.txt): 54%
 
 ![Course ratings](course_rating.png)
 ![All confidences](all_confidences.png)
