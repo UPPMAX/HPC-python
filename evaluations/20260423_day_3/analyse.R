@@ -1,7 +1,7 @@
 #!/bin/env Rscript
 
 read_data <- function() {
-  readr::read_csv("survey_end.csv", show_col_types = FALSE)
+  readr::read_csv("evaluation_results.csv", show_col_types = FALSE)
 }
 
 t <- read_data()
@@ -186,7 +186,6 @@ t_sessions_taught <- unique(t_tidy$question)
 
 # Cut out sessions if needed
 t_sessions_taught <- stringr::str_subset(t_sessions_taught, "Pandas|Seaborn|matplotlib")
-
 
 testthat::expect_true(all(t_sessions_taught %in% t_tidy$question))
 
