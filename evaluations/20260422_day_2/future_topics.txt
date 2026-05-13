@@ -1,0 +1,6 @@
+Proper instructions and more time for breakout rooms where we can talk to an instructor for help....
+From my perspective it seemed pretty well scoped.
+I would like to learn how to transfer files from dardel, for example, to my work cloud.
+Nextflow, Snakemake, Docker and Singularity (Apptainer) on HPC
+objective oriented programming
+More about how the batch system works

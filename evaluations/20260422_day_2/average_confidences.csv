@@ -1,0 +1,8 @@
+question,mean
+I can check that I am in an interactive session,3.46
+I can determine if a Python package is installed,3.69
+I can find and load a Python package module,3.92
+I can install Python packages,3.62
+I can use a Python IDE,2.75
+I can use the compute nodes interactively,3.15
+"I can work (create, activate, work, deactivate) with a venv virtual environment",3
