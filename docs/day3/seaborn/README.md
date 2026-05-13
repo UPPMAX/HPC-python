@@ -1,6 +1,10 @@
-
+<!-- markdownlint-disable MD041 -->
+<!-- markdownlint-disable MD013 -->
+<!-- MD013 allow these comments and URL to be as long as they need -->
+<!-- MD041 is to allow the first line to be this Sphinx redirective for this page to show up in the Sphinx TOC -->
 <!-- From https://docs.readthedocs.com/platform/stable/guides/cross-referencing-with-sphinx.html#explicit-targets -->
 (seaborn)=
+<!-- markdownlint-enable MD013 -->
 
 # `seaborn`
 

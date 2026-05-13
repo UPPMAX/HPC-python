@@ -28,7 +28,8 @@ Books:
   - [Matplotlib](https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html)
   - [Seaborn](https://jakevdp.github.io/PythonDataScienceHandbook/04.14-visualization-with-seaborn.html)
 
-I will use [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/).
+I will use
+[Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/).
 Note that it cannot be used anymore when this course would have a fee.
 
 ## 2026-03-31
@@ -46,10 +47,10 @@ hpc_cluster |  n|Done
 Dardel      | 30|Yes
 Tetralith   | 10|Yes
 Alvis       |  9|Yes
-COSMOS      |  8|
-Kebnekaise  |  6|
-Bianca      |  4|
+COSMOS      |  8|.
+Kebnekaise  |  6|.
+Bianca      |  4|.
 Pelle       |  3|Yes
-Vera        |  1|
+Vera        |  1|.
 
 Progress: 52 of 71 (i.e. 73%) registrations has a video

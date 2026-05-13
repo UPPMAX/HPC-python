@@ -1,6 +1,10 @@
-
+<!-- markdownlint-disable MD041 -->
+<!-- markdownlint-disable MD013 -->
+<!-- MD013 allow these comments and URL to be as long as they need -->
+<!-- MD041 is to allow the first line to be this Sphinx redirective for this page to show up in the Sphinx TOC -->
 <!-- From https://docs.readthedocs.com/platform/stable/guides/cross-referencing-with-sphinx.html#explicit-targets -->
 (matplotlib)=
+<!-- markdownlint-enable MD013 -->
 
 # `matplotlib`
 
@@ -352,4 +356,7 @@ Go to [the session about `seaborn`](../seaborn/README.md)
 
 ## References
 
-- `[Sial et al., 2021]` Sial, Ali Hassan, Syed Yahya Shah Rashdi, and Abdul Hafeez Khan. "Comparative analysis of data visualization libraries Matplotlib and Seaborn in Python." International Journal 10.1 (2021): 277-281.
+- `[Sial et al., 2021]` Sial, Ali Hassan, Syed Yahya Shah Rashdi,
+  and Abdul Hafeez Khan. "Comparative analysis of data visualization
+  libraries Matplotlib and Seaborn in Python."
+  International Journal 10.1 (2021): 277-281.

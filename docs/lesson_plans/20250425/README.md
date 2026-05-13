@@ -6,28 +6,36 @@ orphan:
 
 Here is the current schedule:
 
-Time        | Topic                          |Teacher
-------------|--------------------------------|-----------------------
-09:00-10:00 | Packages                       | Richel
-10:00-10:15 | Break                          |.
-10:15-11:00 | Isolated environments conda/pip| Björn+Richel (co-teaching)
-11:00-11:15 | Break           |.
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
+Time        | Topic                                                   |Teacher
+------------|---------------------------------------------------------|-----------------------
+09:00-10:00 | Packages                                                | Richel
+10:00-10:15 | Break                                                   |.
+10:15-11:00 | Isolated environments conda/pip                         | Björn+Richel (co-teaching)
+11:00-11:15 | Break                                                   |.
 11:15-12:00 | Basic Slurm and interactive, ?OnDemand,?parallel session|Birgitte
-12:00-13:00 | Break|.
-13:00-14:00 | IDEs: Jupyter/vscode/Spyder [1] |Jayant
-14:00-14:15 | Break|.
-14:15-15:00 | matplotlib 1/2|?Rebecca, else Björn
-15:00-15:15 | Break|.
-15:15-15:45 | matplotlib 2/2|?Rebecca, else Björn
-15:45-16:00 | Evaluation|.
+12:00-13:00 | Break                                                   |.
+13:00-14:00 | IDEs: Jupyter/vscode/Spyder [1]                         |Jayant
+14:00-14:15 | Break                                                   |.
+14:15-15:00 | matplotlib 1/2                                          |?Rebecca, else Björn
+15:00-15:15 | Break                                                   |.
+15:15-15:45 | matplotlib 2/2                                          |?Rebecca, else Björn
+15:45-16:00 | Evaluation                                              |.
+
+<!-- markdownlint-enable MD013 -->
 
 My sessions are:
+
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
 Time        | Topic                          |Teacher
 ------------|--------------------------------|-----------------------
 09:00-10:00 | Packages                       | Richel [Suggest: also co-teach here]
 10:00-10:15 | Break                          |.
 10:15-11:00 | Isolated environments conda/pip| Björn+Richel (co-teaching)
+
+<!-- markdownlint-enable MD013 -->
 
 Status 'Packages':
 
@@ -37,7 +45,7 @@ Status 'Packages':
 
 Status 'Isolated environment':
 
-- Current material can be found [here](https://uppmax.github.io/HPC-python/extra/isolated_deeper.html)
+- [Current material can be found here](https://uppmax.github.io/HPC-python/extra/isolated_deeper.html)
   and is made by Björn
 - Is this really it? It is part of the 'Extra' material, I guess it can/should
   be moved
@@ -139,6 +147,8 @@ From `[Cook & Friend, 1995]`:
 From `[Cook & Friend, 1995]`, Table 1, 'Questions for Creating a Collaborative
 Working Relationship in Co-Teaching':
 
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
 Topic                |Questions
 ---------------------|---------------------------------------------------------------------------------------------------------------
 Instructional beliefs|What are our overriding philosophies about the roles of teachers and teaching, and students and learning?
@@ -164,10 +174,13 @@ Feedback             |What is the best way to give each other feedback?
 Pet Peeves           |What aspects of teaching and classroom life do each of us feel strongly about?
 .                    |How can we identify our pet peeves so as to avoid them?
 
+<!-- markdownlint-enable MD013 -->
+
 From `[Sharon, 2014]`:
 
 > - Achieving effective co-teaching relationships is a complex process'
-> - Obtaining external dimensions is not enough for effective co-teaching partnerships
+> - Obtaining external dimensions is not enough for
+>   effective co-teaching partnerships
 > - Teachers can use individual differences as strengths to overcome challenges
 > - Compatibility can be achieved through being similar or complementary
 > - In an effective co-teaching state, teachers are interdependent of each other
@@ -177,9 +190,11 @@ is not in the academic literature and the website it was at, has moved.
 However, I can find these in `[Simmons & Magiera, 2007]`:
 
 - QI 8 Both Teachers Are Clearly Responsible For Group Instruction
-- QI 11 Accommodations For Students With Disabilities Are Observed In The Classroom
+- QI 11 Accommodations For Students With Disabilities
+  Are Observed In The Classroom
 - QI 14 Both Teachers Provide Substantial Instruction To All Students
-- QI 17 The Process of Learning Is Emphasized Along With The Content Being Learned
+- QI 17 The Process of Learning Is Emphasized Along
+  With The Content Being Learned
 
 From `[Peery, 2019]`, the four pillars of a good co-teaching relationship:
 
@@ -192,11 +207,13 @@ From  `[Conderman et al., 2008]`:
 
 > In our co-teaching partnership:
 >
-> 1. We decide which co-teaching model we are going to use based on the benefits to students and co-teachers
+> 1. We decide which co-teaching model we are going to use based on
+>    the benefits to students and co-teachers
 > 2. We share ideas, information, and materials
 > 3. We identify the resources and talents of the co-teachers
 > 4. We teach different groups of students at the same time
-> 5. We are aware of what our co-teacher(s) is doing even when we are not directly in his or her presence
+> 5. We are aware of what our co-teacher(s) is doing even
+>    when we are not directly in his or her presence
 > 6. We share responsibility for deciding what to teach
 > 7. We agree on the curriculum standards that will be addressed in a lesson
 > 8. We share responsibility for deciding how to teach
@@ -211,7 +228,8 @@ From  `[Conderman et al., 2008]`:
 > 17. We provide feedback to each other on what goes on in the classroom
 > 18. We improve our lessons based on what happens in the classroom
 > 19. We freely communicate our concerns
-> 20. We have a process for resolving disagreements which we use when faced with challenges and conflicts
+> 20. We have a process for resolving disagreements which we use
+>     when faced with challenges and conflicts
 > 21. We celebrate the process, outcomes, and successes of co-teaching
 > 22. We have fun with each other and the students when we co-teach
 > 23. We have regularly scheduled times to meet and discuss our work
@@ -230,30 +248,37 @@ From  `[Conderman et al., 2008]`:
 
 From `[Hepner & Newman, 2010]`:
 
-> WaltherThomas (1996) found five common themes that emerged from her research into
+> WaltherThomas (1996) found five common themes that emerged
+> from her research into
 > how successful co-teachers use their planning time:
 >
-> - `1`. Successful co-teachers trust their partners and rely on their partner’s
+> - `1`. Successful co-teachers trust their partners and rely
+>   on their partner’s
 >   strengths and contributions to facilitate the planning process.
 >   These coteaching partnerships have confidence in each other and delegate
 >   responsibilities, knowing that the work will be done.
-> - `2`. Successful co-teachers use structured learning environments to help them
+> - `2`. Successful co-teachers use structured learning
+>   environments to help them
 >   use their strengths. They use a mix of direct instruction, guided practice,
 >   and individual work with teacher assistance in order to support the needs of
 >   all learners and ensure both co-teachers are equally involved and valued in
 >   the delivering the lesson. Having a structured learning environment to plan
 >   for also allows them to focus their planning time on specific types of
 >   activities.
-> - `3`. Successful co-teachers ensure that both partners’ contributions are valued,
+> - `3`. Successful co-teachers ensure that both partners'
+>   contributions are valued,
 >   both during planning time and during the lesson. There is parity at all
 >   levels, effectively erasing the distinction between the general education
 >   teacher and the special education teacher.
-> - `4`. Successful co-teachers create routines to facilitate their planning. By using
->   their knowledge of each other’s skills, strengths, and styles, in conjunction
+> - `4`. Successful co-teachers create routines to facilitate their planning.
+>   By using
+>   their knowledge of each other’s skills, strengths, and styles,
+>   in conjunction
 >   with planning routines and templates using their limited co-planning time
 >   well.
 > - `5`. Successful co-teachers become more skilled over time. By combining the
->   qualities listed above and through practice, they find their co-planning time
+>   qualities listed above and through practice, they find their co-planning
+>   time
 >   becomes more productive, comfortable and creative as they work at it.
 
 About co-teaching planning templates, from `[Hepner & Newman, 2010]`:
@@ -266,12 +291,15 @@ About co-teaching planning templates, from `[Hepner & Newman, 2010]`:
 >   and the strengths of the various co-teaching models to best meet the needs
 >   of their students.
 > - Identification of the accommodations and modifications students in the class
->   are eligible for. This ensures that co-teachers can plan activities that take
+>   are eligible for. This ensures that co-teachers can plan
+>   activities that take
 >   classroom accommodations into consideration. In addition, it ensures that
 >   any necessary classroom modifications, for instance in content expectations,
 >   are appropriately co-planned for.
-> - Identification of the specific teacher roles. This ensures that both teacher’s
->   strengths and skills are taken into account during planning and used in class.
+> - Identification of the specific teacher roles.
+>   This ensures that both teacher's
+>   strengths and skills are taken into account during planning
+>   and used in class.
 >   By ensuring that both teachers have a specified, active role in the class,
 >   coteachers communicate mutual respect and collaboration.
 
@@ -297,8 +325,10 @@ Reflection for co-teachers, from `[Hepner & Newman, 2010]`:
 - Do we both often present lessons in the class?
 - Are many measures used for grading students?
 - Is humor often used in the classroom?
-- Are modifications of goals for students with special needs fully incorporated into this class?
-- Do we use a variety of classroom management techniques to enhance the learning of all students?
+- Are modifications of goals for students with special needs fully
+  incorporated into this class?
+- Do we use a variety of classroom management techniques to enhance the
+  learning of all students?
 - Am I confident in my partner’s knowledge of the curriculum content?
 - Is time allotted or found for common planning?
 - Do students accept both teachers as equal partners in the learning process?
@@ -307,9 +337,12 @@ Reflection for co-teachers, from `[Hepner & Newman, 2010]`:
 
 From `[Hepner & Newman, 2010]`:
 
-> A template by DeBoer and Fister (1995) asks the teacher to review each of the
-> following points to determine if the team is doing all that they can to encourage
-> students to think deeply, critically and reflectively in the relevant subject area.
+> A template by DeBoer and Fister (1995) asks the teacher to review
+> each of the
+> following points to determine if the team is doing all that they
+> can to encourage
+> students to think deeply, critically and reflectively in the
+> relevant subject area.
 >
 > - `1`. Do we ensure that students process information by allowing students to
 >   ‘chew on’ the information that is presented so that it makes sense to them
@@ -342,7 +375,8 @@ From `[Hepner & Newman, 2010]`:
 >
 > - Are you flexible or able to compromise your beliefs?
 >   Which one(s) will you not compromise?
-> - What skills can you contribute to the co-teaching team that will allow you to
+> - What skills can you contribute to the co-teaching team that
+>   will allow you to
 >   be successful?
 > - How often should co-teachers reflect on their practice? What are some ways
 >   reflection contributes to the co-teaching partnership?
@@ -350,22 +384,28 @@ From `[Hepner & Newman, 2010]`:
 
 From `[Brendle et al, 2017]`:
 
-> The co-teachers’ willingness to share the classroom and instructional responsibilities is
+> The co-teachers’ willingness to share the classroom and instructional
+> responsibilities is
 > key to a positive relationship
 
 From `[Brendle et al, 2017]`:
 
-> The success of a co-teaching partnership is based on the co-teachers’ understanding
+> The success of a co-teaching partnership is based on the co-teachers'
+> understanding
 > and expertise in implementing research-based co-teaching models .
 
 From `[Chapple, 2009]`:
 
 > If co-teachers were not of the
-> same philosophical beliefs -that is, that all children can learn and that inclusion is
-> essential for co-teaching to be successful- then the practice of co-teaching would not be
+> same philosophical beliefs -that is, that all children can
+> learn and that inclusion is
+> essential for co-teaching to be successful- then the practice of
+> co-teaching would not be
 > effective.
 
 From `[Walther-Thomas et al., 1996]`, to discuss at a first meeting:
+
+<!-- markdownlint-disable MD013 --><!-- Verbatim lists cannot be split up over lines, hence will break 80 characters per line -->
 
 > - `1`. What are your expectations for students regarding: Participation? Daily preparation? Written assignments and/or homework completion?
 > - `2`. What are your basic classroom rules? What are the consequences?
@@ -381,6 +421,8 @@ From `[Walther-Thomas et al., 1996]`, to discuss at a first meeting:
 > - `12`. What are your strengths as a teacher? What are your weaknesses? Pet peeves?
 > - `13`. What do you see are our potential roles and responsibilities as co-teachers?
 > - `14`. If we decide to co-teach together, what are your biggest hopes for our work as a team? What are your biggest concerns?
+
+<!-- markdownlint-enable MD013 -->
 
 ## 2025-04-15
 
@@ -414,12 +456,32 @@ time that I don't have.
 
 ## References
 
-- `[Brendle et al, 2017]` Brendle, Joanna, Robert Lock, and Kate Piazza. "A study of co-teaching identifying effective implementation strategies." International Journal of Special Education 32.3 (2017): 538-550.
-- `[Chapple, 2009]` Chapple, James William. Co-teaching: From obstacles to opportunities. Ashland University, 2009.
-- `[Conderman et al., 2008]` Conderman, Greg, et al. Purposeful co-teaching: Real cases and effective strategies. Corwin Press, 2008.
-- `[Cook & Friend, 1995]`    Cook, Lynne, and Marilyn Friend. "Co-teaching: Guidelines for creating effective practices." Focus on exceptional children 28 (1995).
-- `[Hepner & Newman, 2010]` Hepner, Stephanie, and Sarah Newman. "Teaching is teamwork: Preparing for, planning, and implementing effective co-teaching practice." International Schools Journal 29.2 (2010).
-- `[Peery, 2019]` Peery, Angela. The Co-Teacher′ s Playbook: What It Takes to Make Co-Teaching Work for Everyone. Corwin Press, 2019.
-- `[Sharon, 2014]` Pratt, Sharon. "Achieving symbiosis: Working through challenges found in co-teaching to achieve effective co-teaching relationships." Teaching and teacher education 41 (2014): 1-12.
-- `[Simmons & Magiera, 2007]` Simmons, Rhea J., and Kathleen Magiera. "Evaluation of Co-Teaching in Three High Schools within One School District: How Do You Know when You Are TRULY Co-Teaching?." Teaching Exceptional Children Plus 3.3 (2007): n3.
-- `[Walther-Thomas et al., 1996]` Walther-Thomas, Chriss, Mimi Bryant, and Sue Land. "Planning for effective co-teaching the key to successful inclusion: The key to successful inclusion." Remedial and special education 17.4 (1996): 255-264.
+- `[Brendle et al, 2017]`Brendle, Joanna, Robert Lock, and Kate Piazza.
+  "A study of co-teaching identifying effective implementation strategies."
+  International Journal of Special Education 32.3 (2017): 538-550.
+- `[Chapple, 2009]` Chapple, James William.
+  Co-teaching: From obstacles to opportunities. Ashland University, 2009.
+- `[Conderman et al., 2008]` Conderman, Greg, et al.
+  Purposeful co-teaching: Real cases and effective strategies.
+  Corwin Press, 2008.
+- `[Cook & Friend, 1995]`    Cook, Lynne, and Marilyn Friend.
+  "Co-teaching: Guidelines for creating effective practices."
+  Focus on exceptional children 28 (1995).
+- `[Hepner & Newman, 2010]` Hepner, Stephanie, and Sarah Newman.
+  "Teaching is teamwork: Preparing for, planning, and implementing effective
+  co-teaching practice." International Schools Journal 29.2 (2010).
+- `[Peery, 2019]` Peery, Angela.
+  The Co-Teacher's Playbook:
+  What It Takes to Make Co-Teaching Work for Everyone. Corwin Press, 2019.
+- `[Sharon, 2014]` Pratt, Sharon.
+  "Achieving symbiosis: Working through challenges found in co-teaching to
+  achieve effective co-teaching relationships."
+  Teaching and teacher education 41 (2014): 1-12.
+- `[Simmons & Magiera, 2007]` Simmons, Rhea J., and Kathleen Magiera.
+  "Evaluation of Co-Teaching in Three High Schools within One School
+  District: How Do You Know when You Are TRULY Co-Teaching?."
+  Teaching Exceptional Children Plus 3.3 (2007): n3.
+- `[Walther-Thomas et al., 1996]` Walther-Thomas, Chriss, Mimi Bryant,
+  and Sue Land. "Planning for effective co-teaching the key to successful
+  inclusion: The key to successful inclusion."
+  Remedial and special education 17.4 (1996): 255-264.

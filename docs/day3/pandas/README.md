@@ -1,6 +1,10 @@
-
+<!-- markdownlint-disable MD041 -->
+<!-- markdownlint-disable MD013 -->
+<!-- MD013 allow these comments and URL to be as long as they need -->
+<!-- MD041 is to allow the first line to be this Sphinx redirective for this page to show up in the Sphinx TOC -->
 <!-- From https://docs.readthedocs.com/platform/stable/guides/cross-referencing-with-sphinx.html#explicit-targets -->
 (pandas)=
+<!-- markdownlint-enable MD013 -->
 
 # `pandas`
 
@@ -526,6 +530,8 @@ For this use:
 
 Here is the minimal code to do so:
 
+<!-- markdownlint-disable MD013 --><!-- Verbatim code cannot be split up over lines, hence will break 80 characters per line -->
+
 ```python
 import pandas as pd
 table = pd.read_csv("dem_score.csv")
@@ -533,6 +539,8 @@ table = table.melt(id_vars = ["country"])
 table.rename(columns = {"variable": "year", "value": "democratic_score"}, inplace = True)
 table.to_csv("tidy_dem_scores.csv", index = False)
 ```
+
+<!-- markdownlint-enable MD013 -->
 
 :::
 
