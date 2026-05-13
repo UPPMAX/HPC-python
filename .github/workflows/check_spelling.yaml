@@ -25,6 +25,6 @@ jobs:
           rm -rf meeting_notes
           rm $(find . | grep "_old\\.")
           rm docs/day3/seaborn/older/Seaborn-Intro.rst
-          rm docs/evaluations/all_courses_so_far/README.md
+          rm evaluations/all_courses_so_far/README.md
 
       - uses: igsekor/pyspelling-any@v1.0.4
