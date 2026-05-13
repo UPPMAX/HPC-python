@@ -47,7 +47,7 @@
 
 ### [Other comments](comments.txt)
 
-- more cases, like, an oom killed job,
+- more cases, like, an OOM killed job,
   how to seff it and solve the issue to run it properly
 - Use Richèl's teaching style for all topics.
   Keep the amount of content in the course as it is,
@@ -66,7 +66,7 @@
 - Where should we improve? materials, exercises, and structure
 - For me personally, the time spent interacting with the cluster and
   getting familiarised was the most useful.
-  This is personaly though an I'm not sure whether this would be the case
+  This is personal though an I'm not sure whether this would be the case
   across the board.
 - Today (day3), the topics were more of what I expected from an
   Introduction to Python and Using Python in an HPC environment course.

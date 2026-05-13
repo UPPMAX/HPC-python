@@ -108,11 +108,11 @@
 - I didn't fill the other evaluations and day4 i watched as videos so i will
   comment for all days here:
   Pedro has some amazing material and is a great lecturer
-  but i am not intrested in parallel programming.
+  but i am not interested in parallel programming.
   Bjorn was mostly ok but maybe a bit fast (packages).
   Richel should have more advanced material,
   we are smarter than he thinks.
-  Brigitte i didn't get through the sessions as batch is not intresting
+  Brigitte i didn't get through the sessions as batch is not interesting
   but i need it until you install ondemand everywhere.
-  Also the day4 recordings was not up until sunday!!!!!
+  Also the day4 recordings was not up until Sunday!!!!!
   Jayant ok good presentations
