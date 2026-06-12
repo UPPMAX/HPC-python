@@ -15,3 +15,5 @@ Date         |Meeting notes
 2025-04-02   |[Meeting notes](20250402.md)
 2025-04-10   |[Meeting notes](20250410.md)
 2025-04-22   |[Meeting notes](20250422.md)
+2026-02-25   |[Meeting notes](20260225.md)
+2026-06-12   |[Meeting notes](20260612.md)
