@@ -125,6 +125,14 @@ what good teaching is. That is fine, as we do our own thing in our lessons.
 This does make it less useful to evaluate as a team.
 Me, I see no use of this, but I will observe how that goes.
 
+### Observations from evaluation
+
+As far as I interpret it, all suggestions were ignored, except
+adding an extra day. 
+To me, this again confirms my feeling that
+I feel we do not need to bother our learners
+with evaluations, as we do not listen to them anyways.
+
 ## References
 
 - `[Yates et al., 2022]` Yates, Natasha, Suzanne Gough, and Victoria Brazil.
