@@ -167,7 +167,20 @@ seems to have some literature behind it:
   - instructor's teaching skill/style
   - fairness of grading
 
+While searching for a quickscan to assess course quality, I found
+`[Joosten and Cusatis]` with the following top 3 strongest predictors
+of learning: (1) course organisation, (2) student support, (3) student
+interaction with the instructor. Also from that paper:
+
+> It is important here to note
+> that content had the least statistical impact within the model.
+
 ## References
+
+- `[Joosten and Cusatis]` Joosten, Tanya, and Rachel Cusatis.
+  "A Cross-Institutional Study of Instructional Characteristics
+  and Student Outcomes: Are Quality Indicators of Online Courses
+  Able to Predict Student Success?." Online Learning 23.4 (2019): 354-378.
 
 - `[Kember et al., 2002]` Kember, David, Doris YP Leung, and KyP Kwan.
   "Does the use of student feedback questionnaires improve the overall
