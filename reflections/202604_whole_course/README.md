@@ -125,7 +125,7 @@ what good teaching is. That is fine, as we do our own thing in our lessons.
 This does make it less useful to evaluate as a team.
 Me, I see no use of this, but I will observe how that goes.
 
-### Observations from evaluation
+## My observations from evaluation
 
 As far as I interpret it, all suggestions were ignored, except
 adding an extra day. 
@@ -133,8 +133,46 @@ To me, this again confirms my feeling that
 I feel we do not need to bother our learners
 with evaluations, as we do not listen to them anyways.
 
+This does match with some of the literature, for example:
+
+> There is, therefore, no evidence that the use of the questionnaire was
+> making any contribution to improving the overall quality of teaching
+> and learning of the departments, at least as perceived by the
+> students `[Kember et al., 2002]`
+
+On the other hand, [this example survey (PDF)](example_survey.pdf),
+which is discussed at a page dedicated to student feedback at
+[the university of Minnesota's 'Teaching for Learning Center'](https://tlc.missouri.edu/review-of-teaching/evaluating-teaching/student-feedback/).
+seems to have some literature behind it:
+
+- The class was clearly organized
+- I knew what was expected of me in this class
+- I received feedback on class assignments that was helpful
+- The instructor encouraged students to play an active role in the class
+- The instructor prompted students to ask questions
+- I was encouraged to communicate with my instructor outside of class
+- I had opportunities to solve problems in this class
+- The class allowed me to think creatively about issues in the field
+- I can apply knowledge and information from this class to my life
+- This class has helped me develop the skills necessary to work effectively
+  with people from various backgrounds
+- My instructor saw cultural and personal differences as assets
+- My instructor respected the expression of diverse ideas
+- The instructor effectively facilitated interactions among students
+- In-class activities and/or interactions with classmates contributed to my learning.
+- Would you recommend this class to other students regarding...?
+  - class content
+  - class structure (e.g., organization, pacing)
+  - positive learning environment
+  - instructor's teaching skill/style
+  - fairness of grading
+
 ## References
 
+- `[Kember et al., 2002]` Kember, David, Doris YP Leung, and KyP Kwan.
+  "Does the use of student feedback questionnaires improve the overall
+  quality of teaching?." Assessment & Evaluation in Higher
+  Education 27.5 (2002): 411-425.
 - `[Yates et al., 2022]` Yates, Natasha, Suzanne Gough, and Victoria Brazil.
   "Self-assessment: with all its limitations, why are we still measuring
   and teaching it? Lessons from a scoping review."
