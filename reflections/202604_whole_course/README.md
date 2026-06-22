@@ -175,6 +175,16 @@ interaction with the instructor. Also from that paper:
 > It is important here to note
 > that content had the least statistical impact within the model.
 
+There is a rubric shown to work in online course environments
+at `[Foster et al., 2014]`, where these weights are used:
+
+Part                          |Weight
+------------------------------|------
+Content                       |30%
+Design and learning objectives|30%
+Interactivity                 |20%
+Usability                     |20%
+
 ## References
 
 - `[Joosten and Cusatis]` Joosten, Tanya, and Rachel Cusatis.
@@ -190,3 +200,9 @@ interaction with the instructor. Also from that paper:
   "Self-assessment: with all its limitations, why are we still measuring
   and teaching it? Lessons from a scoping review."
   Medical Teacher 44.11 (2022): 1296-1302.
+
+- `[Foster et al., 2014]` Foster, Margaret J., Suzanne Shurtz, 
+  and Catherine Pepper.
+  "Evaluation of best practices in the design of online evidence-based
+  practice instructional modules."
+  Journal of the Medical Library Association: JMLA 102.1 (2014): 31.
