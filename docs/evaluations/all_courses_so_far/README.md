@@ -1,3 +1,7 @@
+---
+orphan:
+---
+
 # Evaluation of all courses so far
 
 - [Analysis script (R)](analyse.R)

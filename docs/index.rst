@@ -222,6 +222,7 @@ Content of the course
    extra/isolated_deeper.rst
    extra/jupyterHPC2N.rst
    evaluations/README.md
+   kebnekaise.rst
    lesson_plans/README.md
    meeting_notes/README.md
    reflections/README.md

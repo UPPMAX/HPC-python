@@ -1,3 +1,7 @@
+---
+orphan:
+---
+
 # Whole course
 
 - Days 1-4

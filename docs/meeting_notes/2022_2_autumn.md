@@ -1,3 +1,7 @@
+---
+orphan:
+---
+
 # Meeting notes autumn 2022 part 2
 
 ## Meeting 7 Sep

@@ -93,6 +93,7 @@ exclude_patterns = [
     '_build',
     'Thumbs.db',
     '.DS_Store',
+    'jupyter_execute/**',
     'day2/interactive_old.rst',
     'day2/jupyter.md',
     'day2/jupyter.rst',
@@ -106,10 +107,20 @@ exclude_patterns = [
     'day3/matplotlib/20251130_rebecca_pits/new-matplotlib-intro.rst',
     'day3/not_used',
     'day3/pandas/20251130_rebecca_pits/pandas.not_rst',
+    'day3/pandas/older/*',
+    'day3/pandas/older/**',
+    'day3/pandas/older/HPC-Pandas-exercises-solutions.ipynb',
+    'day3/pandas/older/HPC-Pandas-exercises.ipynb',
+    'day3/pandas/older/HPC-Pandas-exercises.ipynb',
+    'day3/pandas/older/HPC-Pandas-exercises.ipynb',
+    'day3/pandas/older/HPC-Pandas-exercises-solutions.ipynb',
     'day3/pandas/older/old-pandas.rst',
+    'day3/pandas/older/PandasCodeAlong.ipynb',
     'day3/seaborn/20251130_rebecca_pits/seaborn-new.rst',
     'day3/seaborn/older/Seaborn-Intro.rst'
 ]
+
+
 
 
 # -- Options for HTML output -------------------------------------------------

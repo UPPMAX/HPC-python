@@ -1,3 +1,7 @@
+---
+orphan:
+---
+
 # Evaluation 2026-04
 
 - [Analysis script (R)](analyse.R)

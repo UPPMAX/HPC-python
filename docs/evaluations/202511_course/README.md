@@ -1,3 +1,7 @@
+---
+orphan:
+---
+
 # Evaluation 2025-11
 
 - [analysis.R](analyse.R)

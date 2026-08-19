@@ -1,3 +1,7 @@
+---
+orphan:
+---
+
 # Autumn
 
 - 2-days

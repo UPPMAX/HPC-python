@@ -1,3 +1,7 @@
+---
+orphan:
+---
+
 ## Spring 2023
 
 ### When?

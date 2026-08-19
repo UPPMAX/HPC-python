@@ -1,3 +1,7 @@
+---
+orphan:
+---
+
 ## Autumn 2023
 
 ### Next Meeting 28 Nov
