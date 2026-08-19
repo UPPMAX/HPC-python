@@ -31,7 +31,7 @@ The IDEs
 Prepare environment!
 --------------------
 
-.. admonition::
+.. admonition:: Preparing the environment
 
    - We recommend a desktop environment for speed of the graphics.
    - connecting from local terminal with "ssh -X" (X11 forwarding) can be be used but is slower.
