@@ -1,6 +1,4 @@
----
-orphan:
----
+:orphan:
 
 .. _use-isolated-environments_fall2025:
 

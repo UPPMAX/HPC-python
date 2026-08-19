@@ -1,6 +1,4 @@
----
 orphan:
----
 
 Conda
 =====
@@ -113,7 +111,8 @@ Using Conda
     .. admonition:: The ``mamba`` alternative
         :class: dropdown
 
-  - ``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
+        ``mamba`` is a fast drop-in alternative to conda, using "libsolv" for dependency resolution. It is available from the ``conda`` module.
+
   - Example:
 
           .. prompt:: bash $

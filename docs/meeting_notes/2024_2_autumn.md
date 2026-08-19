@@ -6,16 +6,16 @@ orphan:
 
 - 2-days
 
-### Dates
+## Dates
 
 - On-boarding Tue Dec 3, 1-2pm
 - Thur-Fri Dec 5-6, 9-16
 
-### Content
+## Content
 
 - 2nd day: Pandas more parallel/big data
 
-### Meeting 11 Dec 14.15
+## Meeting 11 Dec 14.15
 
 - Agenda:
   - we have to draw up plans for NAISS training in 2025
@@ -23,9 +23,9 @@ orphan:
   - dates should be given.
   - Joachim was instructed that plans for early in 2025 should be pretty precise. If the planing for the end of 2025 is more vague this would be understandable.
 
-### Meeting 27 Nov at 14
+## Meeting 27 Nov at 14
 
-#### Status
+### Status
 
 - Registrations 59
   - ``OS
@@ -75,12 +75,12 @@ Proficient/expert: 10``
   - pandas
     - add for summary [cheat-sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 
-#### Discuss schedule
+### Discuss schedule
 
 - Too much material?
 - Change timings?
 
-#### ToDos
+### ToDos
 
 - Content
 - Test code
@@ -89,9 +89,9 @@ Proficient/expert: 10``
   - lunarc
   - nsc
 
-### Meeting Nov 20
+## Meeting Nov 20
 
-#### Status
+### Status
 
 - Registrations
   - 40
@@ -124,7 +124,7 @@ Proficient/expert: 10``
   - Big data: start work
   - DL: started
 
-#### Discuss
+### Discuss
 
 - requirements for venvs
   - different for different clusters
@@ -134,7 +134,7 @@ Proficient/expert: 10``
 - Exercise time: At least 25 %
     Votet YES
 
-#### ToDos
+### ToDos
 
 - storage at Cosmos RP
 - mermaid for NSC BC
@@ -147,9 +147,9 @@ Proficient/expert: 10``
 
 next meeting: 14.00 Wednesday 27
 
-### Meeting 13 Nov
+## Meeting 13 Nov
 
-#### Status
+### Status
 
 - Registrations
 - ML
@@ -157,7 +157,7 @@ next meeting: 14.00 Wednesday 27
   - to start from
   - horovod in extra?
 
-#### Discuss
+### Discuss
 
 - ML
   - do not show Theano (old)
@@ -174,14 +174,14 @@ Next meeting
 
 - Wednesday Nov. 20 at 14:00
 
-### Meeting 8 Nov
+## Meeting 8 Nov
 
-#### Agenda
+### Agenda
 
 - Status
 - Possible updates/plans
 
-#### Status
+### Status
 
 - UPPMAX maintenance day before (Wed)
   - Involve Tetralith/Dardel? (must evidently do (this)
@@ -206,7 +206,7 @@ Next meeting
   - Day 2 morning
   - Day 2 afternoon
 
-#### Possible updates/plans
+### Possible updates/plans
 
 - BC: Spyder can be installed in venv
   - need to check more details
@@ -216,21 +216,21 @@ Next meeting
   - RP check vscode how it is run? -Currently only on FE
   - Jayant runs vscode
 
-#### ToDos
+### ToDos
 
 - look up bioconda
   - MIT license(?) it seems
 
-### Meeting Oct 31
+## Meeting Oct 31
 
-#### Agenda
+### Agenda
 
 - Status
 - Evaluation of last sessions
 - Schedules and teachers
 - Possible updates/plans
 
-#### Status
+### Status
 
 - Registrations are ongoing
   - 21
@@ -248,7 +248,7 @@ Next meeting
   - Prerequisites: familiarity with the LINUX command line, basic Python
     - add pandas basics
 
-#### Evaluations
+### Evaluations
 
 **May course HPC-Python**
 
@@ -284,12 +284,12 @@ More links to deeper material!!
 
 **OBS! Above is just the old material**
 
-#### Summary of earlier discussions
+### Summary of earlier discussions
 
 - 1st day: almost like before, shorten basics things
 - 2nd day: Pandas more parallel/big data
 
-##### Discuss the division of the days
+#### Discuss the division of the days
 
 - First day things not requiring batch and ML and GPU
   - ask compute node for interactive work
@@ -305,7 +305,7 @@ More links to deeper material!!
 - Vote NO: BB
   - it is in the info already
 
-### Preliminary schedule
+## Preliminary schedule
 
 Instead
 
@@ -360,7 +360,7 @@ Instead
 - Evaluation of Python day in Oct
 -
 
-#### Lecturer
+### Lecturer
 
 **Day 1**
 
@@ -383,7 +383,7 @@ Summary| X | X | X
 |Session| Björn | Birgitte | Pedro|
 |-------|-------|----------|------|
 
-#### Old schedule **FIX**
+### Old schedule **FIX**
 
 |Session| May 2024 | Suggestions Dec |
 |-------|-------|----------|
@@ -409,7 +409,7 @@ Summary| X | X | X
 16:00 END-OF-DAY
 **sum**| 150|
 
-#### ToDos
+### ToDos
 
 - look into spyder
   - installed on UPPMAX?

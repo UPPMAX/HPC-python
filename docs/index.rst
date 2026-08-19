@@ -217,6 +217,7 @@ Content of the course
    day2/python_bundles.md
    day4/ML_deeper.rst
    evaluations/README.md
+   extra/conda.md
    extra/extra_isolated.md
    extra/interactive_deeper.rst
    extra/isolated_deeper.rst

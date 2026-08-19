@@ -1,5 +1,6 @@
 .. _ides-cmd:
 
+:orphan:
 
 Starting IDEs from command line
 ===============================
