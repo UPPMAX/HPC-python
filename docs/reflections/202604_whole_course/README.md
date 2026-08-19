@@ -128,7 +128,7 @@ Me, I see no use of this, but I will observe how that goes.
 ## My observations from evaluation
 
 As far as I interpret it, all suggestions were ignored, except
-adding an extra day. 
+adding an extra day.
 To me, this again confirms my feeling that
 I feel we do not need to bother our learners
 with evaluations, as we do not listen to them anyways.
@@ -201,7 +201,7 @@ Usability                     |20%
   and teaching it? Lessons from a scoping review."
   Medical Teacher 44.11 (2022): 1296-1302.
 
-- `[Foster et al., 2014]` Foster, Margaret J., Suzanne Shurtz, 
+- `[Foster et al., 2014]` Foster, Margaret J., Suzanne Shurtz,
   and Catherine Pepper.
   "Evaluation of best practices in the design of online evidence-based
   practice instructional modules."
