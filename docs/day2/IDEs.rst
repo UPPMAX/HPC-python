@@ -454,7 +454,7 @@ JupyterLab 🚀
 JupyterLab is the next-generation web-based user interface for Project Jupyter. It provides an interactive development environment for working with notebooks, code, and data. JupyterLab offers a more flexible and powerful interface compared to the classic Jupyter Notebook, allowing users to arrange multiple documents and activities side by side in tabs or split screens.
 
 Jupyter Notebook 📝
-##################
+###################
 
 Jupyter Notebook is a sibling to other notebook authoring applications under the Project Jupyter umbrella, like JupyterLab. Jupyter Notebook offers a lightweight, simplified experience compared to JupyterLab.
 
