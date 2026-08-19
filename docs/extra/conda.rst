@@ -115,13 +115,13 @@ Using Conda
 
   - Example:
 
-          .. prompt:: bash $
+          .. admonition:: bash $
 
         mamba create --name python37-env python=3.7 numpy=1.13.1 matplotlib=2.2.2
 
 4. Activate the conda environment by:
 
-    .. prompt:: bash $
+    .. admonition:: bash $
 
   source activate python36-env
 
