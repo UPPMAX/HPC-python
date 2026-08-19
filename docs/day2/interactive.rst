@@ -80,7 +80,7 @@ Any longer, resource-intensive, or parallel jobs must be run through a **batch s
    - Otherwise the terminal approach will work in all centers.
 
 The different way HPC2N, UPPMAX, LUNARC, NSC, PDC, and C3SE provide for an interactive session
------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
 
 Here we define an interactive session as a session with direct access to a compute node.
 Or alternatively: an interactive session is a session, in which there is no queue before a command is run on a compute node.
