@@ -4,3 +4,4 @@ _build
 *.swo
 wordlist.dic
 hpc_python_venv/
+exoplanets_5250_EarthUnits_fixed.csv

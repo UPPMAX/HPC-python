@@ -103,10 +103,12 @@ exclude_patterns = [
     'day3/batch.rst', # is now day3/batch-new.rst
     'day3/example/chunk_dask.py',
     'day3/example/chunk_np.py',
-    'day3/matplotlib/new-matplotlib-intro.rst',
+    'day3/matplotlib/20251130_rebecca_pits/new-matplotlib-intro.rst',
     'day3/not_used',
-    'day3/pandas/pandas.not_rst',
-    'day3/seaborn/seaborn-new.rst'
+    'day3/pandas/20251130_rebecca_pits/pandas.not_rst',
+    'day3/pandas/older/old-pandas.rst',
+    'day3/seaborn/20251130_rebecca_pits/seaborn-new.rst',
+    'day3/seaborn/older/Seaborn-Intro.rst'
 ]
 
 

@@ -225,6 +225,7 @@ Content of the course
    lesson_plans/README.md
    meeting_notes/README.md
    reflections/README.md
+   uppmax.rst
 
 .. Indices and tables
 .. ==================
