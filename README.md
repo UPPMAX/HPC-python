@@ -55,4 +55,4 @@ sphinx-autobuild . _build/html
 
 ## Others
 
-- [Meeting notes](meeting_notes/README.md)
+- [Meeting notes](docs/meeting_notes/README.md)
