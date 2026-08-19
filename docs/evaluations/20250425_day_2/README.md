@@ -22,7 +22,7 @@ Using local university cluster          |13
 Previously used NAISS/SNIC              |7
 Previously used local/university cluster|8
 Other clusters                          |5
-Never used clusters                    |10
+Never used clusters                     |10
 
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 
@@ -136,7 +136,7 @@ I have a high level of Linux/Unix proficiency                                   
   margins within each session.
   Asking us to do stuff on the breaks is BAD.
   Breaks are needed for food, toilet and looking away from the screen.
-  Can't learn anything if we don't get breaks.  3. Lunch break start and end
+  Can't learn anything if we don't get breaks. 3. Lunch break start and end
   time needs to be confirmed before 12:00. For those of us caught up in
   listening and following along it got cut much too short today.
 - It's good that you record, but could you post the recordings a bit faster
