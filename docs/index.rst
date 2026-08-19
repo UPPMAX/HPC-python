@@ -212,16 +212,17 @@ Content of the course
    :caption: Extra:
 
    acknowledgments.md
-   day2/python_bundles.md
-   extra/extra_isolated.md
-   day4/ML_deeper.rst
    common/other_courses.rst
    common/interactive_ondemand.rst
-   extra/other_courses.rst
-   extra/packages_deeper.rst
+   day2/python_bundles.md
+   day4/ML_deeper.rst
+   evaluations/README.md
+   extra/extra_isolated.md
+   extra/interactive_deeper.rst
    extra/isolated_deeper.rst
    extra/jupyterHPC2N.rst
-   evaluations/README.md
+   extra/other_courses.rst
+   extra/packages_deeper.rst
    kebnekaise.rst
    lesson_plans/README.md
    meeting_notes/README.md
