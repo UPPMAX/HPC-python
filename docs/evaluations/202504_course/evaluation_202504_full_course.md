@@ -1,3 +1,7 @@
+---
+orphan:
+---
+
 # Feedback on HPC-Python course april 2025
 
 NB: On the first day, with Richel, I was mostly in the role of a TA rather
