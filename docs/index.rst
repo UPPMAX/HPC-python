@@ -224,6 +224,7 @@ Content of the course
    extra/jupyterHPC2N.rst
    evaluations/README.md
    lesson_plans/README.md
+   meeting_notes/README.md
    reflections/README.md
 
 .. Indices and tables
