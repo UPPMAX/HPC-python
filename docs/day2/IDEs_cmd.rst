@@ -659,7 +659,7 @@ VS Code can be downloaded and installed on your local machine from the `VS Code 
 However, VS Code is best used on your local machine, as it is a resource-intensive application that can slow down the ThinLinc interface. The VS Code Server can be installed on all the HPCs that give your the ability to run your code on the HPCs but edit it on your local machine.
 Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.
 
-**Installed on HPC **
+Installed on HPC:
 
 - Tetralith: ``VSCode/latest-bdist``
     - Start with ``code``
