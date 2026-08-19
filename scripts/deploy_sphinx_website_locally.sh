@@ -18,6 +18,8 @@ if [[ "$PWD" =~ scripts$ ]]; then
     exit 42
 fi
 
-cd docs
-make html
-xdg-open _build/html/index.html
+sphinx-build docs docs/_build/ --fail-on-warning
+
+# cd docs
+# make html
+xdg-open docs/_build/html/index.html
