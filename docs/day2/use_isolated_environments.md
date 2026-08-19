@@ -883,7 +883,7 @@ Let's make an installation with the latest bug fix version of ``Python 3.12`` an
 
 :::{challenge} (optional) 5. Make a test environment and spread (venv)
 
-   Read [here](../extra/isolated_deeper.rst#creator-developer)
+   Read [here](../extra/isolated_deeper.rst)
 
    1. make a virtual environment with the name ``venv1``. Do not include packages from the the loaded module(s)
    2. activate
