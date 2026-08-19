@@ -1,6 +1,7 @@
 .. _install-packages:
+
 Installing packages
-================
+===================
 
 .. objectives::
 
