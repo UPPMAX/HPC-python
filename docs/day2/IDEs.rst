@@ -676,7 +676,7 @@ Spyder
 
          Spyder is not available centrally on Pelle.
 
-         - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments/#exercises>`_
+         - Use the conda env you created in Exercise 2 in `Use isolated environments <https://uppmax.github.io/HPC-python/day2/use_isolated_environments/exercises>`_
 
          .. code-block:: console
 
