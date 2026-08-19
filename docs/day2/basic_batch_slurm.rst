@@ -1,4 +1,5 @@
 .. _basic-slurm:
+
 Basic batch and Slurm
 =====================
 
@@ -87,7 +88,6 @@ You can find information about the cluster hardware in the https://uppmax.github
 
 What are some important commands regarding batch jobs?
 ------------------------------------------------------
-------------------------------------------------------------------------
 
 This is a brief summary of some of the most important Slurm commands:
 
