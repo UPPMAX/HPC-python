@@ -326,7 +326,7 @@ Starting IDEs
 
 We will look briefly at how to start three IDEs through the Gfx launcher/OpenOnDemand portal. Later sessions will show you how to use the IDEs. 
 
-.. reminder:: "Reminder"
+.. admonition:: "Reminder"
 
    - Jupyter (Lab and/or Notebook) is available as an On-Demand application at all 4 facilities covered on this page. For Cosmos specifically, it can also load custom conda environments (but NOT pip environments).
    - On Alvis, Cosmos and Kebnekaise, VSCode can also be run via On-Demand.
