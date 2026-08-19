@@ -225,7 +225,7 @@ One can choose from different repos, or ``channels``
 
 ``Miniconda`` and ``Miniforge`` are the common software modules at the centres.
 
-:::{admonitions} Conda distributions
+:::{admonition} Conda distributions
    :class: dropdown
 
 - **Anaconda** is a distribution of conda packages made by Anaconda Inc.. When using Anaconda remember to check that your situation abides with their **licensing terms**.

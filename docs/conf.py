@@ -94,6 +94,7 @@ exclude_patterns = [
     'Thumbs.db',
     '.DS_Store',
     'jupyter_execute/**',
+    'day2/fall2025/use_isolated_environments.rst',
     'day2/interactive_old.rst',
     'day2/jupyter.md',
     'day2/jupyter.rst',
