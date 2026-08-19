@@ -222,6 +222,9 @@ Content of the course
    extra/packages_deeper.rst
    extra/isolated_deeper.rst
    extra/jupyterHPC2N.rst
+   evaluations/README.md
+   lesson_plans/README.md
+   reflections/README.md
 
 .. Indices and tables
 .. ==================
