@@ -144,8 +144,7 @@ Using Conda
     - Do a ``conda clean -a`` once in a while to remove unused and unnecessary files
 
 
-- `More info about Conda on UPPMAX
-<https://uppmax.uu.se/support/user-guides/conda-user-guide/>`_
+- `More info about Conda on UPPMAX <https://uppmax.uu.se/support/user-guides/conda-user-guide/>`_
 
 
 Working with Conda environments defined by files

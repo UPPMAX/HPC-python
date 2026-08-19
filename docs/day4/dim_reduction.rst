@@ -45,7 +45,7 @@ visualisation <--> Science
 * We will also see that you can make discoveries in your visualisations!
 
 What is a typical machine learning task?
---------------------------------------
+----------------------------------------
 
 
 * Differ between different classes of features

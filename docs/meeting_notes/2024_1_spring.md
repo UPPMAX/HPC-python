@@ -89,7 +89,7 @@ orphan:
   * BC: First scratch on goals/teaching outcome (with students' perspective)
   * Change Python version to 3.11.8 in text and exercises.
 
-#### Timings
+### Timings
 
 |Session| Dec 2023 | Suggestions May |
 |-------|-------|----------|

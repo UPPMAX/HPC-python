@@ -2,13 +2,13 @@
 orphan:
 ---
 
-## Spring 2023
+# Spring 2023
 
-### When?
+## When?
 
 - Tue 23 May 9-16
 
-### Meeting 7 June 13:00
+## Meeting 7 June 13:00
 
 - Go through evaluation
   - Word document (by Björn) in Slack
@@ -18,7 +18,7 @@ orphan:
   - More time for type-along and exercises (no hurry)
   - Keep silent breakout room all the time
 
-### Meeting Mon 22 May 10:00
+## Meeting Mon 22 May 10:00
 
 - To discuss
   - status
@@ -30,12 +30,12 @@ orphan:
   - Birgitte tests ML extra exercise
   - Birgitte tarballs of exercises
 
-### Meeting Wed 17 May 9:30
+## Meeting Wed 17 May 9:30
 
 - To discuss
   - status
 
-#### Changes of content (Björn's suggestions)
+### Changes of content (Björn's suggestions)
 
 - Extra packages
   - [x] setup.py
@@ -46,7 +46,7 @@ orphan:
 - extra isolated
   - [x] link to course: make own packages
 
-### Meeting Fri 12 May 13:15
+## Meeting Fri 12 May 13:15
 
 - To discuss
   - status
@@ -60,13 +60,13 @@ orphan:
   - reservations
     - magnetic reservation GPU
 
-#### Reservation
+### Reservation
 
 - tell in intro
 - <https://support.naiss.se/Ticket/Display.html?id=274512>
 - ``scontrol -M snowy show res naiss2023-22-500``
 
-#### Topics
+### Topics
 
 - "Syllabus"
   - add: practicals here from Intro
@@ -112,7 +112,7 @@ orphan:
   - mv to extra:
   - comments: merge ML
 
-#### Timings
+### Timings
 
 |Session| Feb23 | Suggestions May23 |
 |-------|-------|----------|
@@ -137,13 +137,13 @@ Sum| |5
 Q/A ||20
 **sum**| 104| 150
 
-### Meeting Thu 4 May 11:00
+## Meeting Thu 4 May 11:00
 
 - To discuss
   - follow up
   - issues
 
-#### Follow up
+### Follow up
 
 - [x] Web pages
 - [x] Invitation by Thu
@@ -175,7 +175,7 @@ Q/A ||20
 
 Q/A page from the R/Julia/Python course: <https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EbHWglWYU_VNpTpdD2CtSfYBlpsAF6DyD_4RMwWCie_B0g?e=UddlVs>
 
-### Meeting Mo 24 Apr 10:30
+## Meeting Mo 24 Apr 10:30
 
 - NAISS
   - course project UPPMAX
@@ -224,7 +224,7 @@ Q/A page from the R/Julia/Python course: <https://umeauniversity.sharepoint.com/
   - Shared document
     - sharepoint 365 (Umeå hosts)
 
-### Lecturer
+## Lecturer
 
 |Session| Björn | Birgitte | Pedro|
 |-------|-------|----------|------|
@@ -241,7 +241,7 @@ Exercises (exercises)| several different rooms |x|x
 Question session (breakout)| X | X | X
 Summary| X | X | X
 
-### Until next time
+## Until next time
 
 - [x] Web pages
 - [x] Invitation by Thu
@@ -264,7 +264,7 @@ Summary| X | X | X
   - integrate from Feb
   -
 
-### Invitation text
+## Invitation text
 
 - [x] Thursday
 
@@ -300,9 +300,9 @@ Where: online.
 
 Course web pages
 
-### Outline
+## Outline
 
-#### Common
+### Common
 
 - Syllabus
 - Intro (incl. very briefly about UPPMAX/HPC2N)
@@ -318,7 +318,7 @@ Course web pages
   - UPPMAX: Conda, venv (exercises),
   - Kebnekaise: virtual env (exercises)
 
-##### LUNCH break
+#### LUNCH break
 
 - Parallel computing general
   - also exercises

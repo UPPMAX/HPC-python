@@ -2,9 +2,9 @@
 orphan:
 ---
 
-## Autumn 2023
+# Autumn 2023
 
-### Next Meeting 28 Nov
+## Next Meeting 28 Nov
 
 - Course:
   - registered: 31
@@ -21,7 +21,7 @@ orphan:
       - Björn checks Dask on Rackham
       - Birgitte checks for the batch session and ML session
 
-### Next meeting 21 Nov
+## Next meeting 21 Nov
 
 - Status:
   - spelling is active
@@ -63,7 +63,7 @@ orphan:
   - Evaluation
     - skip but inform more than usual in the end
 
-### Next meeting 6 Nov 13:00
+## Next meeting 6 Nov 13:00
 
 - Evaluation
 - links to StarPU
@@ -92,7 +92,7 @@ orphan:
     - More to extra reading!
     - More time on code-along and exercises
 
-#### Spring courses
+### Spring courses
 
 - 15-18 Jan UPPMAX intro
 - 18 Jan HPC2N intro
@@ -102,7 +102,7 @@ orphan:
 - May (flexible day) HPC-Python
 - May/June Programming formalisms
 
-### Meeting 30 Oct 13:00
+## Meeting 30 Oct 13:00
 
 - Helpdesk 1 hour, 16-17
 - Have in mind:
@@ -115,7 +115,7 @@ orphan:
   - (zoom recording of oneself, for instance)
   - ToDos: See last meeting
 
-### Meeting 24 Oct 15.15
+## Meeting 24 Oct 15.15
 
 - Suggestions from Björn
   - minimize packages sections
@@ -138,7 +138,7 @@ orphan:
   - embarassingly parallel?
   - [x] Björn updates UPPMAX web
 
-#### Timings
+### Timings
 
 |Session| May23 | Suggestions Dec23 |
 |-------|-------|----------|
@@ -164,7 +164,7 @@ Sum| |
 Q/A | 20 |
 **sum**| 150|
 
-### Lecturer
+## Lecturer
 
 |Session| Björn | Birgitte | Pedro|
 |-------|-------|----------|------|
@@ -182,7 +182,7 @@ Summary| X | X | X
 
 - Invitation
 
-### Next meeting 11 Aug 11-12
+## Next meeting 11 Aug 11-12
 
 - Content changes
   - more HPC!!!
@@ -196,7 +196,7 @@ Summary| X | X | X
   - define prereqs
   - modify content text
 
-### Meeting 15 June 11:00
+## Meeting 15 June 11:00
 
 - Dates (Oct-Dec)
   - py-R-jl
