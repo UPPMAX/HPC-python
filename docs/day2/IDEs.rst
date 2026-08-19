@@ -573,8 +573,8 @@ Jupyter Notebook is a sibling to other notebook authoring applications under the
    - Show available magics and help
       .. code-block:: python
 
-            %magic         # detailed magic help
-            %timeit?       # doc for a specific magic
+          %magic         # detailed magic help
+          %timeit?       # doc for a specific magic
 
 
 .. challenge::
@@ -971,16 +971,14 @@ Main panes and useful panels
    * Establish an SSH connection to the login node of the HPC resource using VSCode remote-SSH extension as described in previous session.
    * You may request an allocation on a compute node BUT VSCode server does not connect to it automatically and your code will still be executed on login node.
    * Load the correct module (or virtual env) on HPC resource that contains the interpreter you want on your VSCode. For example in case you need ML packages and python interpreter on Pelle, do module load python_ML_packages. Check the file path for python interpreter by checking ``which python`` and copy this path. Go to Command Palette Ctrl+Shift+P or F1 on your local VSCode. Search for "interpreter" for python, then paste the path of your interpreter/kernel.
-   * venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server.
-   **NOTE**: Fetching python interpreters from a compute node may or may not work depending on the HPC resource. Develop your code on login node and run it on compute nodes using sbatch scripts.
+   * venv or conda environments are also visible on VSCode when you select interpreter/kernel for python or jupyter server. **NOTE**: Fetching python interpreters from a compute node may or may not work depending on the HPC resource. Develop your code on login node and run it on compute nodes using sbatch scripts.
 
    **For Jupyter Notebooks (and a much safer option)** 🧪
 
    * You need to start the server on the HPC resource first, preferably on a compute node.
    * Copy the jupyter server URL which goes something like ``http://p193.uppmax.uu.se:8888/tree?token=xxx`` (where p193 is Pelle node. Other HPCs will have similar URLs), click on ``Select Kernel`` on VSCode and select ``Existing Jupyter Server``. Past the URL here and confirm your choice.
    * This only works if you have the jupyter extension installed on your local VSCode.
-   * The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser.
-   **NOTE**: Selecting kernels/interpreter does not work currently on HPC2N.
+   * The application will automatically perform port forwarding to your local machine from the compute nodes over certain ports. Check the Terminal->Ports tab to see the correct url to open in your browser. **NOTE**: Selecting kernels/interpreter does not work currently on HPC2N.
 
 .. admonition:: Resources
    :class: dropdown
