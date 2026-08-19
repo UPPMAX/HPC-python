@@ -865,7 +865,7 @@ VS Code
    Similarly, you can also install your faviroute extensions on the HPCs and use them on your local machine. Care should be taken while assigning the correct installation directories for the extensions because otherwise they get installed in home directory and eat up all the space.
 
    On your own computer through SSH tunneling
-   ############################################
+   ------------------------------------------
 
    Install VS Code on your local machine and follow the steps below to connect to the HPC center resources.
 
