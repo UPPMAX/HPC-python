@@ -1,0 +1,1 @@
+more on basic usage with nodes, set up jupyter, environments, loading modules
