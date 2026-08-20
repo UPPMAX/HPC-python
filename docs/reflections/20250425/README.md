@@ -113,7 +113,9 @@ Hour|Lecture (mins)|Dialogue (mins)|Exercises (mins)
 5   |54            |2              |0
 6   |0             |2              |28
 
-### [Pace](../../evaluations/20250425_day_2/pace.txt)
+### Pace
+
+[Pace](../../evaluations/20250425_day_2/pace.txt):
 
 - the pacing was good. I really liked the course material.
 - Fast on the second day
@@ -181,7 +183,9 @@ was time for exercises.
 - okish
 - Suitable
 
-### [Future topics](../../evaluations/20250425_day_2/future_topics.txt)
+### Future topics
+
+[Future topics](../../evaluations/20250425_day_2/future_topics.txt):
 
 - Xarray and dask
 - it is totally enough for me to study this content, and the document is great,
@@ -219,7 +223,9 @@ We could add this indeed.
 
 - [x] Suggest this in a meeting
 
-### [Other comments](../../evaluations/20250425_day_2/comments.txt)
+### Other comments
+
+[Other comments](../../evaluations/20250425_day_2/comments.txt):
 
 - every thing is great for me
 
@@ -298,7 +304,9 @@ material.
 I agree that not everyone needs an IDE. However, Jupyter was needed
 to be able to do the exercises by Anders Hast.
 
-## [Detailed feedback from a learner](../../evaluations/202504_course/evaluation_202504_full_course.md)
+## Detailed feedback from a learner
+
+[Detailed feedback from a learner](../../evaluations/202504_course/evaluation_202504_full_course.md):
 
 > NB: On the first day, with Richel, I was mostly in the role of a TA rather
 > than a learner. I did not fill out the feedback form for that day,
