@@ -8,13 +8,17 @@ orphan:
 - Feedback from a learner:
   [evaluation_202504_full_course.md](evaluation_202504_full_course.md)
 
-## [Analysis](analyse.R)
+## Analysis
+
+- [Analysis](analyse.R)
 
 - The same data as a table: [confidences_course.csv](confidences_course.csv)
 
 ![Confidences per question](confidences_per_question.png)
 
-## [Feedback from a learner](evaluation_202504_full_course.md)
+## Feedback from a learner
+
+[Feedback from a learner](evaluation_202504_full_course.md):
 
 NB: On the first day, with Richel, I was mostly in the role of a TA rather
 than a learner. I did not fill out the feedback form for that day,

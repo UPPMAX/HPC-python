@@ -26,7 +26,10 @@ orphan:
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
-### [Pace](pace.txt)
+### Pace
+
+[Pace](pace.txt):
+
 
 - presentation heavy - limited hands-on.
 - For me it worked and I was able to follow
@@ -50,7 +53,9 @@ orphan:
   and running for the session, so I could not code along
 - Suitable
 
-### [Future topics](future_topics.txt)
+### Future topics
+
+[Future topics](future_topics.txt):
 
 - how to use LLMs to improve/supplement our coding
 - really basic course on programming
@@ -60,7 +65,9 @@ orphan:
 - Maybe a course on batch job optimizing
 - Maybe also more about using R for datascience
 
-### [Other comments](comments.txt)
+### Other comments
+
+[Other comments](comments.txt):
 
 - I think I would really like to have a bit more a hands-on experience on this.
   Also, a big caveat in using all these is understanding the

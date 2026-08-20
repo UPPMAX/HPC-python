@@ -33,7 +33,10 @@ orphan:
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
-### [Pace](pace.txt)
+### Pace
+
+[Pace](pace.txt):
+
 
 - It was very informative and fun
 - a little bit tight
@@ -41,7 +44,9 @@ orphan:
   from the command line did not seem adequate
 - no time for exercise so a bit to fast
 
-### [Future topics](future_topics.txt)
+### Future topics
+
+[Future topics](future_topics.txt):
 
 - Me personally I want more about COSMOS-SENS
   but that is mainly as there is very little documentation at Lunarc about it
@@ -49,7 +54,9 @@ orphan:
 - More advanced practical management of Conda/virtual environments on HPC,
   Workflow systems like Nextflow or Snakemake
 
-### [Other comments](comments.txt)
+### Other comments
+
+[Other comments](comments.txt):
 
 - Exercises were a bit less clear today,
   which ones we should do and when was a little confusing.

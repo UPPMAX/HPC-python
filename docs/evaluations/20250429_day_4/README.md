@@ -26,7 +26,10 @@ orphan:
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
-### [Pace](pace.txt)
+### Pace
+
+[Pace](pace.txt):
+
 
 - It was okay. I was able to follow
 - It was the right pace
@@ -47,7 +50,9 @@ orphan:
 - Good
 - ok
 
-### [Future topics](future_topics.txt)
+### Future topics
+
+[Future topics](future_topics.txt):
 
 - spend more time on GPU and high performance computing and parallelism
   on advanced python script such as fourier transform,
@@ -65,7 +70,9 @@ orphan:
 - How to use JAX
 - batch jobs with pytorch and tensorflow
 
-### [Other comments](comments.txt)
+### Other comments
+
+[Other comments](comments.txt):
 
 - I like the exercises and the course material.
   The course teachers are helpful.

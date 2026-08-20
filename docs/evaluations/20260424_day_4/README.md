@@ -21,7 +21,10 @@ orphan:
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
-### [Pace](pace.txt)
+### Pace
+
+[Pace](pace.txt):
+
 
 - Too fast.
 - Generally good. I think the time given to setup virtual environments
@@ -41,13 +44,17 @@ orphan:
   was more advanced than the previous days
 - ok i think
 
-### [Future topics](future_topics.txt)
+### Future topics
+
+[Future topics](future_topics.txt):
 
 - Pace maybe
 - more on gpus and ml
 - install ondemand on all clusters i don't want to use batch
 
-### [Other comments](comments.txt)
+### Other comments
+
+[Other comments](comments.txt):
 
 - Remove day 4 from the course and insert it into an intermediate or advanced
   "Python in an HPC environment" course.

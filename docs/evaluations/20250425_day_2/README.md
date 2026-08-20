@@ -57,7 +57,9 @@ I have a high level of Linux/Unix proficiency                                   
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
-### [Pace](pace.txt)
+### Pace
+
+[Pace](pace.txt):
 
 - the pacing was good. I really liked the course material.
 - Fast on the second day
@@ -85,7 +87,9 @@ I have a high level of Linux/Unix proficiency                                   
 - okish
 - Suitable
 
-### [Future topics](future_topics.txt)
+### Future topics
+
+[Future topics](future_topics.txt):
 
 - Xarray and dask
 - it is totally enough for me to study this content,
@@ -102,7 +106,9 @@ I have a high level of Linux/Unix proficiency                                   
 - matplotlib from a regular shell/interactive/in compute jobs
 - How to find compatible modules and packages
 
-### [Other comments](comments.txt)
+### Other comments
+
+[Other comments](comments.txt):
 
 - every thing is great for me
 - I think all of the training materials were very clear,

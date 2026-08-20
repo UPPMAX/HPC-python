@@ -10,7 +10,9 @@ orphan:
 
 ![Average confidences per course per day](confidences_per_course_per_day.png)
 
-## [Comments per course per day](comments_per_course_per_day.txt)
+## Comments per course per day
+
+[Comments per course per day](comments_per_course_per_day.txt):
 
 <!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
 

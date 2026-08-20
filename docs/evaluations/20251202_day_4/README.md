@@ -21,7 +21,10 @@ orphan:
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
-### [Pace](pace.txt)
+### Pace
+
+[Pace](pace.txt):
+
 
 - NA
 - a bit to fast for me to really learn by following examples,
@@ -29,11 +32,15 @@ orphan:
 - good
 - NA
 
-### [Future topics](future_topics.txt)
+### Future topics
+
+[Future topics](future_topics.txt):
 
 - more on basic usage with nodes, set up jupyter, environments, loading modules
 
-### [Other comments](comments.txt)
+### Other comments
+
+[Other comments](comments.txt):
 
 - The material is good, but the teaching technique is lacking.
   Richel started off very good with a lot of interaction,

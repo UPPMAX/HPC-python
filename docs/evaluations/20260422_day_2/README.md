@@ -21,7 +21,10 @@ orphan:
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
-### [Pace](pace.txt)
+### Pace
+
+[Pace](pace.txt):
+
 
 - i got lost before the IDE session
 - Not good at all. Not clear, things don't work, could not install an env really,
@@ -45,7 +48,9 @@ orphan:
 - Medium
 - Good pace, just a lot of material. Maybe need to have another day for this?
 
-### [Future topics](future_topics.txt)
+### Future topics
+
+[Future topics](future_topics.txt):
 
 - Proper instructions and more time for breakout rooms
   where we can talk to an instructor for help....
@@ -56,7 +61,9 @@ orphan:
 - objective oriented programming
 - More about how the batch system works
 
-### [Other comments](comments.txt)
+### Other comments
+
+[Other comments](comments.txt):
 
 - A big difference from day 1.
   Sorry, but it needs to be improved a lot

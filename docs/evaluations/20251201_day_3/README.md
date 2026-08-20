@@ -21,7 +21,10 @@ orphan:
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
-### [Pace](pace.txt)
+### Pace
+
+[Pace](pace.txt):
+
 
 - Good
 - Fine for the majority, a bit slow at times
@@ -29,12 +32,16 @@ orphan:
 - relatively fast, but gives good overview
 - Second half was Ok.
 
-### [Future topics](future_topics.txt)
+### Future topics
+
+[Future topics](future_topics.txt):
 
 - I guess that python, pandas, matplotlib and such could be prerequisites
   to the course and instead only focus on big data and hpc specifics
 
-### [Other comments](comments.txt)
+### Other comments
+
+[Other comments](comments.txt):
 
 - Overall a good setup of the course!
   It is hard to do the exercises because environments etc. has to be set,

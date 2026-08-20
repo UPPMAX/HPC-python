@@ -21,7 +21,10 @@ orphan:
 ![Confidences per question](confidences_per_question.png)
 ![Course recommend](recommend.png)
 
-### [Pace](pace.txt)
+### Pace
+
+[Pace](pace.txt):
+
 
 - good
 - good
@@ -39,7 +42,9 @@ orphan:
 - A bit uneven. I think more time is needed
 - OK
 
-### [Future topics](future_topics.txt)
+### Future topics
+
+[Future topics](future_topics.txt):
 
 - We did not even get to practice what is already in the course properly
 - GNNs
@@ -49,7 +54,9 @@ orphan:
   More about finding modules
 - USPEX
 
-### [Other comments](comments.txt)
+### Other comments
+
+[Other comments](comments.txt):
 
 - more cases, like, an OOM killed job,
   how to seff it and solve the issue to run it properly
@@ -99,7 +106,9 @@ orphan:
   is also part of HPC and that there may be some people who still submit jobs
   to batch and doesn't just work in jupyter
 
-## [Any other feedback](any_other_feedback.csv)
+## Any other feedback
+
+[Any other feedback](any_other_feedback.csv):
 
 This was to the hastily-added Google Form:
 
