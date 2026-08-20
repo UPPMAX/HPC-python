@@ -13,6 +13,7 @@ sphinxemoji
 sphinx-copybutton
 sphinxcontrib-mermaid
 sphinxcontrib-plantuml
+sphinx-tabs>=3.4.7
 jupyter
 jupyter_sphinx
 numpy
