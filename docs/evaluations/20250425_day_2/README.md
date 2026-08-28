@@ -6,6 +6,9 @@ orphan:
 
 - Date: 2025-04-25
 - Day: 2
+- [Lesson plan](../../lesson_plans/20250425/README.md)
+- [Evaluation](../../evaluations/20250425_day_2/README.md)
+- [Reflection](../../reflections/20250425/README.md)
 - Number of registrations: 62
 - Number of learners: 16 (26% show up)
 - Number of evaluations: 15 (94% filled in evaluation)

@@ -8,6 +8,8 @@ orphan:
 - Date: 2025-04-25
 - Author: Richel
 - [Lesson plan](../../lesson_plans/20250425/README.md)
+- [Evaluation](../../evaluations/20250425_day_2/README.md)
+- [Reflection](../../reflections/20250425/README.md)
 
 My session went reasonably well. I felt tight on time,
 and there were 2 technical problems,

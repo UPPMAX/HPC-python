@@ -6,6 +6,9 @@ orphan:
 
 - Date: 2026-04-22
 - Day: 2
+- [Lesson plan](../../lesson_plans/20260422/README.md)
+- [Evaluation](../../evaluations/20260422_day_2/README.md)
+- [Reflection](../../reflections/20260422/README.md)
 
 ## Survey at end
 
