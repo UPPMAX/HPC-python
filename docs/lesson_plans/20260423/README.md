@@ -4,6 +4,13 @@ orphan:
 
 # Lesson plan 2026-04-23 by Richel
 
+- Date: 2026-04-23
+- Day: 3
+- Author: Richel
+- [Lesson plan](../../lesson_plans/20260423/README.md)
+- [Evaluation](../../evaluations/20260423_day_3/README.md)
+- [Reflection](../../reflections/20260423/README.md)
+
 - 09:00-10:00 Matplotlib
 - 10:15-11:00 Pandas
 - 11:15-12:00 Pandas, Seaborn
