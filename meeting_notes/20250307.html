@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planning HPC Python at HPC2N and UPPMAX &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrhenius.html">New system Arrhenius</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Installing packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Using isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Gfx launcher/Desktop On Demand including IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas/README.html"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/matplotlib/README.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn/README.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_bundles.html">Python bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluations/README.html">Evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/extra_isolated.html">Extra material about isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson_plans/README.html">Lesson plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Meeting notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reflections/README.html">Reflections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Planning HPC Python at HPC2N and UPPMAX</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/meeting_notes/20250307.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="planning-hpc-python-at-hpc2n-and-uppmax">
+<h1>Planning HPC Python at HPC2N and UPPMAX<a class="headerlink" href="#planning-hpc-python-at-hpc2n-and-uppmax" title="Link to this heading"></a></h1>
+<section id="materials-pages">
+<h2>Materials pages<a class="headerlink" href="#materials-pages" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>material: <a class="reference external" href="https://uppmax.github.io/HPC-python/index.html">https://uppmax.github.io/HPC-python/index.html</a></p></li>
+<li><p>source: <a class="reference external" href="https://github.com/UPPMAX/HPC-python/tree/main/docs">https://github.com/UPPMAX/HPC-python/tree/main/docs</a></p></li>
+</ul>
+</section>
+<section id="dates">
+<h2>Dates<a class="headerlink" href="#dates" title="Link to this heading"></a></h2>
+<p>See <a class="reference external" href="https://uppmax.github.io/HPC-python/schedule.html">the course schedule</a></p>
+<ul class="simple">
+<li><p>Thu-Fri 24-25 Apr</p></li>
+<li><p>Mon-Tue 28-29 Apr</p></li>
+</ul>
+</section>
+<section id="meeting-friday-7th-march-14-00-15-00">
+<h2>Meeting Friday 7th March 14:00-15:00<a class="headerlink" href="#meeting-friday-7th-march-14-00-15-00" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="20250228.html"><span class="std std-doc">Notes from previous meeting</span></a>, <a class="reference external" href="https://uppmax.github.io/HPC-python/schedule.html">link to schedule on course website</a></p>
+<ul class="simple">
+<li><p>Welcome to Anders Hast!</p>
+<ul>
+<li><p>AH will add this course to the IntraVis newsletter</p></li>
+<li><p>JY wil on-board AH</p></li>
+<li><p>AH needs to use scatter plots, RP already uses that in her sessions</p></li>
+<li><p>AH would enjoy to see scatter plots of images, but maybe this is not necessary.
+AH will reach out to RP if needed. BB shared
+<a class="reference external" href="https://stackoverflow.com/questions/22566284/matplotlib-how-to-plot-images-instead-of-points">this SO post</a></p></li>
+</ul>
+</li>
+<li><p>[RB, decision] Let’s decide on the theme we use!</p>
+<ul>
+<li><p>Materials:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.c3se.chalmers.se/">https://www.c3se.chalmers.se/</a></p></li>
+<li><p>NAISS File transfer course</p></li>
+<li><p>Pro:</p>
+<ul>
+<li><p>Deeper table of content</p></li>
+<li><p>Used by some colleagues already</p></li>
+<li><p>Many possible settings</p></li>
+<li><p>CSS could help to make everyone happy (?)</p></li>
+</ul>
+</li>
+<li><p>Con:</p>
+<ul>
+<li><p>not everybody likes the look</p></li>
+</ul>
+</li>
+<li><p>Vote: RB</p></li>
+</ul>
+</li>
+<li><p>ReadTheDocs (style)</p>
+<ul>
+<li><p>Example: <a class="reference external" href="https://hpc2n.github.io/linux-command-line-101/">Linux-command-line-101 course</a></p></li>
+<li><p>Pro:</p></li>
+<li><p>Con:</p>
+<ul>
+<li><p>not everybody likes the look</p></li>
+<li><p>harder to set up (discussion in matrix)</p>
+<ul>
+<li><p>not just to port from sphinx</p></li>
+</ul>
+</li>
+<li><p>Did not work at Chalmers, but maybe this is caused by they using github or gitlab? as a host. HPC2N use gitea         - Vote:</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Let’s wait what NAISS chooses, may be discussed in the NAISS May meeting, or
+Erik Lindahl picks. Use Sphinx until then</p>
+<ul>
+<li><p>[DECIDED!] Vote: BB, RP, JY, BC, PO</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>[RB, decision] I’d love to see the markdown version of the website live,
+as to see my progress. When will replace the Sphinx build by a build that
+uses the just-voted-for theme? Let’s collect suggestions first,
+after which we vote on all suggestions we like</p>
+<ul>
+<li><p>Whenever someone has the time to do so: RB</p></li>
+<li><p>[Other suggestions]</p></li>
+</ul>
+</li>
+<li><p>Course NAISS projects:</p>
+<ul>
+<li><p>HPC2N: applied for</p></li>
+<li><p>LUNARC: RP will do this</p></li>
+<li><p>UPPMAX: BC can do (directory name with <em>uppmax</em> ending or similar)</p></li>
+<li><p>PDC: BB will do this</p></li>
+<li><p>NSC: BB will do this</p></li>
+</ul>
+</li>
+<li><p>Status on registrations</p>
+<ul>
+<li><p>7 March 2025:</p>
+<ul>
+<li><p>18 signed up</p></li>
+<li><p>Connecting with</p>
+<ul>
+<li><p>Win: 8</p></li>
+<li><p>macOS: 5</p></li>
+<li><p>Linux: 7 (2 also can use Win to connect)</p></li>
+</ul>
+</li>
+<li><p>Package interest:</p>
+<ul>
+<li><p>Pandas: 2</p></li>
+<li><p>scanpy: 1 (single-cell analysis)</p></li>
+<li><p>numpy: 4</p></li>
+<li><p>scipy: 2</p></li>
+<li><p>matplotlib: 2</p></li>
+<li><p>pytorch: 1</p></li>
+<li><p>mph: 1</p>
+<ul>
+<li><p>??Pythonic scripting interface for Comsol Multiphysics</p></li>
+</ul>
+</li>
+<li><p>scikit-learn: 2</p></li>
+<li><p>xarray: 1</p></li>
+<li><p>dask: 1</p></li>
+<li><p>pint: 1 (manipulate physical quantities)</p></li>
+<li><p>pySCF: 1 (quantum chemistry)</p></li>
+<li><p>“any”: 1</p></li>
+</ul>
+</li>
+<li><p>Linux knowledge:</p>
+<ul>
+<li><p>none: 2</p></li>
+<li><p>basic: 11</p></li>
+<li><p>intermediate/some shell scripting: 3</p></li>
+<li><p>Advanced knowledge: 2</p></li>
+</ul>
+</li>
+<li><p>Python knowledge:</p>
+<ul>
+<li><p>none: 2</p></li>
+<li><p>basic: 8</p></li>
+<li><p>intermediate: 4</p></li>
+<li><p>advanced: 4</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Maybe add interaction with other tools, e.g. links? E.g COMSOL tool</p></li>
+<li><p>Prefer to use/mention generic (as in, not field-specific) Python packages</p></li>
+<li><p>Discuss portability of scripts? E.g. hard-coded Python version in scripts?</p>
+<ul>
+<li><p>We cover that already</p></li>
+</ul>
+</li>
+<li><p>No show <code class="docutils literal notranslate"><span class="pre">./my_script.py</span></code>, it is more a <code class="docutils literal notranslate"><span class="pre">bash</span></code> thing.</p></li>
+</ul>
+</li>
+</ul>
+<p>Next meeting:</p>
+<ul class="simple">
+<li><p>Wednesday April 2nd 2025 13:00</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

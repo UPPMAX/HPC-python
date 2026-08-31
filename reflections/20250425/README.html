@@ -1,0 +1,907 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025-04-25 &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../../_static/minipres.js?v=a0d29692"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../arrhenius.html">New system Arrhenius</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/install_packages.html">Installing packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_isolated_environments.html">Using isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/ondemand-desktop.html">Gfx launcher/Desktop On Demand including IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/pandas/README.html"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/matplotlib/README.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/seaborn/README.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/python_bundles.html">Python bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../evaluations/README.html">Evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/extra_isolated.html">Extra material about isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson_plans/README.html">Lesson plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../meeting_notes/README.html">Meeting notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Reflections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">2025-04-25</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/reflections/20250425/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>2025-04-25<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Day 2</p></li>
+<li><p>Date: 2025-04-25</p></li>
+<li><p>Author: Richel</p></li>
+<li><p><a class="reference internal" href="../../lesson_plans/20250425/README.html"><span class="std std-doc">Lesson plan</span></a></p></li>
+<li><p><a class="reference internal" href="../../evaluations/20250425_day_2/README.html"><span class="std std-doc">Evaluation</span></a></p></li>
+<li><p><a class="reference internal" href="#"><span class="std std-doc">Reflection</span></a></p></li>
+</ul>
+<p>My session went reasonably well. I felt tight on time,
+and there were 2 technical problems,
+but success rates were high (see below) anyways.</p>
+<p>I’ve seen that a colleague discussed how to get the tarball
+in her session. Maybe it should be moved to her session?
+Nah, it fit fine within mine. Instead, just remind.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox">Remind colleague that I do the tarball exercise</p></li>
+</ul>
+<p>There was a technical problem: my computer partially froze while
+discussing the exercise. Learners said they could still hear
+me. As I was nearly done talking, I just said them to work from
+this clumsy setting. I gave them 5 minute to work individually
+on the exercise. During those 5 minutes, I logged out
+and logged in again. All in time! I was happy with this
+improvisation.</p>
+<p>Due to this, there was another technical problem: my rights
+as host were lost. This meant that I could not create breakout rooms.
+I improvised: I gave the learner and end time, up until they could
+do anything they wanted: I even encouraged them to take off their
+headset, as (1) I want them to work undisturbed, and (2) I would
+take questions in the main room. This worked out reasonably well.
+I was happy again with my improvisation, although it would have been
+more fun/useful for the learners to have worked in groups: it
+also made me more blind of their progress … but, hey, it was
+the best I could do :-)</p>
+<p>In the end, I did ask the progress of the learners:</p>
+<ul class="simple">
+<li><p>13 out of 13 were able to use a Python module</p>
+<ul>
+<li><p>This 1 learner struggled with logging in to Dardel</p></li>
+</ul>
+</li>
+<li><p>12 out of 14 installed the tarball</p>
+<ul>
+<li><p>1 is the 1 learner above</p></li>
+<li><p>For the other learner is unknown why this did not work.
+I forgot to make a note who this was</p></li>
+</ul>
+</li>
+</ul>
+<p>Regardless of the hassle, most learners
+were able to complete the exercises.</p>
+<p>I think the camera recordings do more harm than good,
+as it kills interactivity during class, at the minimal gain
+of people outside of class being able to see these recording:</p>
+<ul class="contains-task-list simple">
+<li><p>Using live recordings as a supplementary tool may not be worth
+it in our settings,
+as ‘No performance advantage was found for viewing recordings
+despite students’
+positive perception of their utility.’
+[Lesser, Melissa, and Lora Packel. “Educational Lessons from a Pandemic:
+Lecture Recording and Learning Outcomes.”
+Internet Journal of Allied Health Sciences and Practice 22.2 (2024): 9.,
+<a class="reference external" href="https://nsuworks.nova.edu/ijahsp/vol22/iss2/9/">Link to paper</a>]</p></li>
+<li><p>‘The main finding is that students using the online lectures
+as a substitute for attending lectures are ultimately
+at a fairly severe disadvantage in terms of their final marks’
+[Williams, Andrew, Elisa Birch, and Phil Hancock. “The impact of online
+lecture recordings on student performance.”
+Australasian Journal of Educational Technology 28.2 (2012),
+<a class="reference external" href="https://ajet.org.au/index.php/AJET/article/view/869">Link to paper</a>].</p></li>
+<li><p>I found most experimental papers do not compare with live recording (it
+is usual pre-recorded versus an unrecorded/live lesson).
+The exception is a paper that does recommend the recording live webinars,
+although it admits that
+‘[Webinars tend] to be less engaging and less interactive for the participant’
+[Dailey-Hebert, Amber. “Maximizing interactivity in online learning:
+Moving beyond discussion boards.” Journal of Educators
+Online 15.3 (2018): n3.,
+<a class="reference external" href="https://eric.ed.gov/?id=EJ1199230">paper</a>].</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Suggest this in a meeting</p></li>
+</ul>
+<p>For the course as a whole, think following the
+pedagogic literature has a bigger impact over reading evaluations.</p>
+<ul class="contains-task-list simple">
+<li><p>For example ‘long lectures and presentations will fail because
+students stop viewing and listening
+after about six minutes’
+[Nilson, Linda B., and Ludwika A. Goodson. Online teaching at its best:
+Merging instructional design with teaching and learning research.
+John Wiley &amp; Sons, 2021].
+From the same book, the 25 principles of learning from cognitive science
+(chapter 4, page 92)
+gives some great pointers, e.g. ‘2. Students learn […] better […]
+by engaging in an activity
+than when they passively watch […] an instructor’,
+‘6. Some qualities […] help students learn […] better […]:
+human faces, […] instructor enthusiasm’.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Suggest this in a meeting</p></li>
+</ul>
+<section id="overview-of-how-time-is-spent">
+<h2>Overview of how time is spent<a class="headerlink" href="#overview-of-how-time-is-spent" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Hour</p></th>
+<th class="head"><p>Lecture (mins)</p></th>
+<th class="head"><p>Dialogue (mins)</p></th>
+<th class="head"><p>Exercises (mins)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>15</p></td>
+<td><p>5</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>35</p></td>
+<td><p>4</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>38</p></td>
+<td><p>5</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>3.75</p></td>
+<td><p>17</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>49</p></td>
+<td><p>11</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>54</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>28</p></td>
+</tr>
+</tbody>
+</table>
+<section id="pace">
+<h3>Pace<a class="headerlink" href="#pace" title="Link to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/8cc2267453b4c462e9f3741326bd9cf1/pace.txt"><span class="xref download myst">Pace</span></a>:</p>
+<ul class="simple">
+<li><p>the pacing was good. I really liked the course material.</p></li>
+<li><p>Fast on the second day</p></li>
+</ul>
+<p>I assume this is not about my session, as 60% of its time there
+was time for exercises.</p>
+<ul class="simple">
+<li><p>great</p></li>
+<li><p>I think it was good, I could keep up and
+take notes during all of the lectures.</p></li>
+<li><p>I feel like it was a bit rushed, good content but a bit too much given
+the amount of time maybe?</p></li>
+</ul>
+<p>I assume this is not about my session, as 60% of its time there
+was time for exercises.</p>
+<ul class="simple">
+<li><p>It was a lot of information to take in.
+However the resources provided are sufficient to catch up if we were
+stuck anywhere.</p></li>
+<li><p>Good</p></li>
+<li><p>It was the right pace</p></li>
+<li><p>I did not feel comfortable during the afternoon session was running too fast,
+just to adjust to the schedule and got few from that and was confused
+because of several concepts in a bunch without explain the practical examples
+I guess it is been assumed that everybody knows all the concepts.</p></li>
+</ul>
+<p>Not my session.</p>
+<ul class="simple">
+<li><p>Too fast to combine explanations and exercises</p></li>
+</ul>
+<p>I assume this is not about my session, as 60% of its time there
+was time for exercises.</p>
+<ul class="simple">
+<li><p>Good pace considering the amount of materials and time.
+Then one needs to practise home by rewatching the YT videos</p></li>
+</ul>
+<p>Hmmm, in general, I find that live recordings have
+‘No performance advantage was found for viewing recordings despite students’
+positive perception of their utility.’
+[Lesser, Melissa, and Lora Packel. “Educational Lessons from a Pandemic:
+Lecture Recording and Learning Outcomes.”
+Internet Journal of Allied Health Sciences and Practice 22.2 (2024): 9.,
+<a class="reference external" href="https://nsuworks.nova.edu/ijahsp/vol22/iss2/9/">Link to paper</a>].
+However, that paper does find positive effects for learners that, like
+here, use it after attending a session.</p>
+<ul class="simple">
+<li><p>Inconsistent - seemed slow much of the time, while some parts passed by
+before they could be properly explained or understood: it seemed to me that
+the time was not spent on the right things. I know enough about Python,
+I do not know enough about the software module system and SLURM
+and any other HPC-specific stuff.</p></li>
+</ul>
+<p>I assume this is not about my session, as 60% of its time there
+was time for exercises.</p>
+<p>However, I will suggest to do more foundational things at Day 2</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Suggest to do more foundational things at Day 2 in a meeting</p></li>
+<li><p>Too fast</p></li>
+</ul>
+<p>I assume this is not about my session, as 60% of its time there
+was time for exercises.</p>
+<ul class="simple">
+<li><p>okish</p></li>
+<li><p>Suitable</p></li>
+</ul>
+</section>
+<section id="future-topics">
+<h3>Future topics<a class="headerlink" href="#future-topics" title="Link to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/d594aa4a64c172a98726bb221d82b161/future_topics.txt"><span class="xref download myst">Future topics</span></a>:</p>
+<ul class="simple">
+<li><p>Xarray and dask</p></li>
+<li><p>it is totally enough for me to study this content, and the document is great,
+I can read the document to revise the lesson</p></li>
+<li><p>It could be helpful to have a lecture about R as well.</p></li>
+</ul>
+<p>I don’t think R should be part of a Python course.
+But hey, I can link to it</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Link to R course</p></li>
+<li><p>More information on the HPC environment within a similar context.
+Maybe focusing on one HPC centre at a time.</p></li>
+<li><p>Topics are ok. Just give more profound and practical demos during the
+sessions.</p></li>
+</ul>
+<p>I assume this is not about my session, as 60% of its time there
+was time for exercises.</p>
+<ul class="simple">
+<li><p>A summary of options in using Python in the HPC, with suggestions and best
+practices. What to do when the default modules are not enough.</p></li>
+</ul>
+<p>The ‘Install packages’ session should cover that.</p>
+<ul class="simple">
+<li><p>This 2nd day and we have not going through ML and Deep learning PyTorch and
+Tensorflow GPU: PINNs, Quantum ML (PennyLane, Qiskit) or small LLM</p></li>
+</ul>
+<p>Sure, we do that on Day 4.</p>
+<ul class="simple">
+<li><p>matplotlib from a regular shell/interactive/in compute jobs</p></li>
+<li><p>How to find compatible modules and packages</p></li>
+</ul>
+<p>We could add this indeed.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Suggest this in a meeting</p></li>
+</ul>
+</section>
+<section id="other-comments">
+<h3>Other comments<a class="headerlink" href="#other-comments" title="Link to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/633526081d08a27f12e5b068e6599dd7/comments.txt"><span class="xref download myst">Other comments</span></a>:</p>
+<ul class="simple">
+<li><p>every thing is great for me</p></li>
+</ul>
+<p>Great!</p>
+<ul class="simple">
+<li><p>I think all of the training materials were very clear, and I liked the amount
+of hands-on exercises. I also really appreciated how supportive all of the
+teachers were, the classes had a very nice atmosphere.</p></li>
+</ul>
+<p>Great!</p>
+<ul class="simple">
+<li><p>Overall, a great session, but it would be great to have more time planned
+into each session for questions.</p></li>
+</ul>
+<p>I assume this is not about my session, as 60% of its time there
+was time for exercises and questions.</p>
+<ul class="simple">
+<li><p>For the matplotlib part: to improve more demonstrations rather than read so
+quickly the content to accomplish the schedule.
+Improve the depth of the course not too superficial to at least catch
+some key points that helps to start.
+The morning session had better demo and I could follow the steps.</p></li>
+</ul>
+<p>Great!</p>
+<ul class="simple">
+<li><p>The written material is quite good and shows the different options,
+but simply going through them during the course takes too long and
+sometimes end up with focus on specific HPC systems that not everyone
+is going to use. There are instructions for each cluster, so maybe the
+topics should be more generic with access to the specific info as needed.
+The IDE section, for example, could only show how to do it to very specific
+cases, while having the cluster instructions and a generic discussion about
+the options could be better.</p></li>
+</ul>
+<p>I assume the ‘focus on specific HPC systems that not everyone is going to use’
+does not apply to me: I directly start from the cluster-specific
+documentation.</p>
+<ul class="simple">
+<li><p>Overall very good docs from each mentors that states pro and contra and
+niche details of each HPC. Infinite for trouble-shooting support especially
+for beginners</p></li>
+</ul>
+<p>Great!</p>
+<ul class="simple">
+<li><p>(did not attend Matplotlib part) 1. Overall the reading/presentation material
+was good to very good, just too far between exercises - as soon as one step
+has been explained, I want to test it and make sure I can do it!
+But some information was outdated and some part or parts had lots of
+spelling errors. 2. Again and again, there was not enough time margins within
+each session. Asking us to do stuff on the breaks is BAD.
+Breaks are needed for food, toilet and looking away from the screen.
+Can’t learn anything if we don’t get breaks. 3. Lunch break
+start and end time needs to be confirmed before 12:00.
+For those of us caught up in listening and following along it
+got cut much too short today.</p></li>
+</ul>
+<p>Fun that the spelling errors are mentioned!</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Mentioned this in a meeting</p></li>
+</ul>
+<p>Indeed, the breaks were not respected.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Mentioned this in a meeting</p></li>
+<li><p>It’s good that you record, but could you post the recordings a bit faster
+so we can go through before the rest of the course?</p></li>
+</ul>
+<p>I assume this does not apply to me, as my recordings are in my course
+material.</p>
+<ul class="simple">
+<li><p>Not fond of the IDEs, I think it’s unnecessarily cumbersome.
+Shell is much easier to work in.
+You don’t have to load a lot of other things, set graphics and fight with
+it :( Why this focus on jupyter or spyder or whatever it was called</p></li>
+</ul>
+<p>I agree that not everyone needs an IDE. However, Jupyter was needed
+to be able to do the exercises by Anders Hast.</p>
+</section>
+</section>
+<section id="detailed-feedback-from-a-learner">
+<h2>Detailed feedback from a learner<a class="headerlink" href="#detailed-feedback-from-a-learner" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../evaluations/202504_course/evaluation_202504_full_course.html"><span class="std std-doc">Detailed feedback from a learner</span></a>:</p>
+<blockquote>
+<div><p>NB: On the first day, with Richel, I was mostly in the role of a TA rather
+than a learner. I did not fill out the feedback form for that day,
+but I had an immediate evaluation meeting with Richel at the end of the day.</p>
+</div></blockquote>
+<p>…</p>
+<blockquote>
+<div><p>NB 2: I did fill out the feedback evaluation form for the three remaining
+days, and did not look back on what I wrote then (or look at the course
+evaluation results at all) while writing this. Therefore this document
+probably duplicates some of that while being feedback from a single
+(and perhaps not the most representative) learner.</p>
+</div></blockquote>
+<p>…</p>
+<blockquote>
+<div><p>NB 3: I did not attend the matplotlib sessions.</p>
+</div></blockquote>
+</section>
+<section id="a-multitude-of-teachers">
+<h2>A multitude of teachers<a class="headerlink" href="#a-multitude-of-teachers" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>This is GREAT! Some variation in perspective, focus and intensity makes a big
+difference and is much appreciated. Anders Hast deserves special mention for
+bringing true researcher enthusiasm, it is great to learn from teachers that
+know and enjoy the subject at hand like that.</p>
+</div></blockquote>
+<p>I agree: I liked Anders’ lecture too! Even though there were 6
+minutes of exercises (on the YouTube video: 28:47-34:02), I do think
+this is worth it.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Mention this in a meeting</p></li>
+</ul>
+<blockquote>
+<div><p>Sometimes a useful connection between two different sessions gets more or
+less lost, e.g. mentioning line-by-line file IO from the first day when
+talking about file formats at the end of day 3 would be easier
+to do well in a traditional one-teacher-per-course format.
+For this course I deem these losses very small and acceptable,
+especially in the light of the advantages mentioned above.</p>
+</div></blockquote>
+<p>I think this will be solved when more exercises are done.</p>
+<blockquote>
+<div><p>However, the contrast between sessions pulls into sharp focus a few things to
+improve upon:</p>
+</div></blockquote>
+<p>…</p>
+<blockquote>
+<div><p>Preparedness is key</p>
+</div></blockquote>
+<p>…</p>
+<blockquote>
+<div><p>Several sessions had examples, code-alongs or exercises that did not work as
+intended without troubleshooting that was not within the focus of the session.
+Learning about modules and packages and handling the dependency hell in
+various ways is very good (I’ll get back to this), but it is not good to
+be interrupted by these things when trying to teach and learn something else.</p>
+</div></blockquote>
+<p>I agree.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Mention this in a meeting</p></li>
+</ul>
+<blockquote>
+<div><p>It would be good if all of the course materials, for all of the clusters,
+was confirmed working as intended before the course.[1] I do realize that this
+is a big undertaking—but make no mistake, this course (with the amount of
+content it currently has) is definitely a big undertaking.</p>
+</div></blockquote>
+<p>I think I already do this, as I’ve checked my course material
+by actually testing this by recording.</p>
+<blockquote>
+<div><p>Too much content, too little time</p>
+</div></blockquote>
+<p>…</p>
+<blockquote>
+<div><p>Full days leave little to zero time
+for going through the exercises on our own.
+Having extra exercises for repeating and/or diving deeper
+after the course is good,
+but all that is truly intended to be part of the course
+needs to be given the time within the course.
+With no time to test and get some confidence that
+one part is understood and doable, open questions and uncertainty
+cause several problems for learners.</p>
+</div></blockquote>
+<p>I assume this is not about my session, as 60% of its time there
+was time for exercises and questions.</p>
+<blockquote>
+<div><p>First, it immediately steals away some focus/brainpower.
+Second, we might not get knowledge/skill presumed
+by later parts of the course.
+Third, the sheer worry of the latter is not to be trifled with!
+I have seen that wreak havoc on learning
+again and again in various lectures and labs.</p>
+</div></blockquote>
+<p>I agree that we should test if our learners got it.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Mention this in a meeting</p></li>
+</ul>
+<blockquote>
+<div><p>The sessions on Pandas and Seaborn especially were much too rushed,
+to the point that they felt close to useless.
+The session on IDEs had barely enough time for
+me to get Jupyter running,
+while I would’ve expected to try VS Code and Spyder
+as well since all of them are in there.
+The course taken as a whole also needs either less content or more time.</p>
+</div></blockquote>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Mention this in a meeting</p></li>
+</ul>
+<blockquote>
+<div><p>To solve this nicely, please consider what content
+is crucial that learners get to try and to ask questions about!
+The rest can be left in extras for the learners
+to look at after the course.
+This is closely related to how general
+a topic is, if there are many other places to ask questions
+and get the right answers.</p>
+</div></blockquote>
+<p>I hope I do this</p>
+<blockquote>
+<div><p>We learn what we do</p>
+</div></blockquote>
+<p>…</p>
+<blockquote>
+<div><p>In some sessions, mainly Parallelism and ML/DL if I recall correctly,
+I was learning about modules and packages and lost track of the lecture as
+I was trying to make the examples work. In some sessions I learned little
+to nothing as I found no time to try anything. In some sessions I got to try
+and learn every single thing that was in the course materials.</p>
+</div></blockquote>
+<p>I hope the latter applies to my sessions, as there was enough time
+for exercises.</p>
+<blockquote>
+<div><p>There seems to be two good ways to have learners actually do stuff in an
+online course.
+One is what Richel does: most of the time in 2-person breakout
+rooms, working through exercises as the main way of learning.</p>
+</div></blockquote>
+<p>Hey, that is me!</p>
+<blockquote>
+<div><p>Another one is to have a well-prepared code notebook with
+demos/examples/exercises to be completed by the learners.
+On desktop screens and larger laptops learners can have their copy of the
+notebook side-by-side with the meeting.
+This method can smoothly intersperse both longer and very short bits of
+hands-on coding into a lecture, akin to how the demos that weren’t working in
+the sessions on Parallel programming should have worked.</p>
+</div></blockquote>
+</section>
+<section id="focus-and-structure">
+<h2>Focus and structure<a class="headerlink" href="#focus-and-structure" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>This course teaches many separate things. This gets a bit too messy,
+both for the learners who do need to learn all of it—these people are new to
+the entirety of this and will not be able to group and separate things—and
+for the learners who only needs selected parts of the course.</p>
+</div></blockquote>
+<p>…</p>
+<blockquote>
+<div><p>It would be easier for both groups (though a bit less efficient,
+for those who both need all of it and are somehow able to efficiently learn
+it the way it is now) if this content was divided between as much as
+four separate courses:</p>
+</div></blockquote>
+<p>…</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Intro to HPC, usage and management of software and code
+(Logging in, LMOD, SLURM; the things that are actually different
+between HPC and a single-user single computer)</p></li>
+<li><p>Intro to Python (this already exists and is day 1)</p></li>
+<li><p>Python coding for big computation, big data and AI (this includes parallell
+and GPU but is not specific to HPC and probably exists elsewhere)</p></li>
+<li><p>Using Python code, packages and environments at NAISS HPC systems
+(LMOD, venv, conda; when to use what and how they interact)</p></li>
+</ul>
+</div></blockquote>
+<p>…</p>
+<blockquote>
+<div><p>Course 1 is general to HPC users, not specific to Python.
+It should probably be provided by NAISS quite often
+and be a prerequisite to all other NAISS courses.
+Courses 2 and 3 are general to Python users,
+not specific to HPC, widely available from elsewhere.
+Course 4 is specific to Python in HPC;
+this is what I, a seasoned learner,
+would expect NAISS to provide in regards to using Python.</p>
+</div></blockquote>
+<p>I enjoy this suggested schedule. I know that ‘Intro to Python’ will get more
+HPCey, among others by adding how to loading Python package modules.
+I feel that is a first step to what the learner wants/needs.</p>
+</section>
+<section id="what-i-expected-or-hoped-to-learn-that-i-did-not-learn">
+<h2>What I expected (or hoped) to learn that I did not learn<a class="headerlink" href="#what-i-expected-or-hoped-to-learn-that-i-did-not-learn" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Essentially the fourth course mentioned above. I have not acquired the one
+skill (AFAIK) that is truly specific to Python on HPC: how to choose how to
+manage the packages.
+Everything else (that was in this course) is shared with
+either other HPC users or other Python users—therefore it is discussed and
+taught by other resources—so this is what I truly wanted from this course.
+I did learn a bit about it but it seemed to happen by accident as much or
+more than as a result of the course truly focussing on this matter.</p>
+</div></blockquote>
+<p>And:</p>
+<blockquote>
+<div><p>The fix would be to make sure every single command that loads a module or
+a python package does specify a specific version.
+Well, for the recurring problem that I do remember,
+but there may have been more problems.</p>
+</div></blockquote>
+<p>As far as I know, my course material has explicit versions.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox">Check that my course material has explicit versions</p></li>
+</ul>
+</section>
+<section id="some-other-feedback">
+<h2>Some other feedback<a class="headerlink" href="#some-other-feedback" title="Link to this heading"></a></h2>
+<p>From <a class="reference download internal" download="" href="../../_downloads/82abb8ac656d5d7dc3d2ca9066543adf/comments.txt"><span class="xref download myst">Day 3</span></a>:</p>
+<blockquote>
+<div><p>This is mostly for the parts last week,
+I’m not so fond of this calling out of people with their names.
+It is stressing.
+I’m here to learn, and I do that better in peace.</p>
+</div></blockquote>
+<p>I assume this applies to me, and maybe to other colleagues as well.
+It is too bad that 16.1% (in range 6.1-25%) of the Swedish population,
+has social anxiety, although ‘Subjects with social phobia who do find their
+way into the university could be described as having predominantly a
+mild form of the disorder’ [Tillfors, Maria, and Tomas Furmark.
+“Social phobia in Swedish university students: prevalence, subgroups and
+avoidant behavior.” Social psychiatry and psychiatric epidemiology
+42 (2007): 79-86.]
+<a class="reference external" href="https://journals.sagepub.com/doi/10.1177/070674370404900910">Source</a>.
+The effect of this is unknown, as here I quote the paper:
+‘future studies should investigate whether sufferers of
+social phobia underachieve or abolish their studies prematurely.’.
+The main solutions given in that paper is
+‘It is an important task to inform students with social phobia that effective
+pharmacological and psychosocial treatments are available.’</p>
+<p>I will keep doing this, as asking people randomly is most effective
+(where raising hands is least effective)
+[Bell, Mike. The fundamentals of teaching: A five-step model to put the
+research evidence into practice. Routledge, 2020, pages 128-129].
+However, I do introduce that I will ask people randomly, giving people
+with social anxiety a way out (by turning off the camera) and demonstrating
+that an incorrect answer or a ‘I don’t know’ is fine too.
+So, I agree with the learners, yet his/her
+solution is not the one I will follow.</p>
+<blockquote>
+<div><p>Also, could you please post the recordings a bit faster next time.
+I saw in the Q/A document that Brigitta lost the recordings for the first day
+so I am happy that Richel at least posted them!
+Would be better to have them in the same youtube list as the rest though</p>
+</div></blockquote>
+<p>I think this is a bit harsh on Brigitte.
+Instead of uploading the video twice, it can be linked to from different
+playlists.
+Alternatively, what about we put the playlist on the website?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox">Suggest to do so in a meeting</p></li>
+</ul>
+</section>
+<section id="meeting-notes">
+<h2>Meeting notes<a class="headerlink" href="#meeting-notes" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Below are the meeting notes of 2025-05-22 with my suggestions.
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>[Jayant] More InfraVis like collabs demoing usecases</p>
+<ul>
+<li><p>[Richel] I agree we should collaborate more!</p></li>
+</ul>
+</li>
+<li><p>[Richel] From the learners, I read
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47"><span class="xref myst">a suggestion to make day 2 ‘Intro to HPC, usage and management of software and code’</span></a>
+and
+<a class="reference download internal" download="" href="../../_downloads/8cc2267453b4c462e9f3741326bd9cf1/pace.txt"><span class="xref download myst">‘it seemed to me that the time was not spent on the right things’</span></a>.
+What about we listen to that? In practice,
+I feel this can mean either</p>
+<ul>
+<li><p>switching ‘matplotlib’ on Day 2 with ‘Slurm and batch jobs’ on Day 3</p></li>
+<li><p>move ‘matplotlib’ on Day 2 for more time for the more foundational things
+(Install packages, Slurm, isolated environments)</p></li>
+</ul>
+</li>
+<li><p>[Richel] From the learners I read the suggested topic
+<a class="reference download internal" download="" href="../../_downloads/d594aa4a64c172a98726bb221d82b161/future_topics.txt"><span class="xref download myst">‘How to find compatible modules and packages’</span></a>.
+That this would be useful is also mentioned by this learner
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L19"><span class="xref myst">‘Learning about modules and packages and handling the dependency hell in various ways is very good’</span></a>
+I think it is great idea to add more time for getting modules to work.
+What about we add it? On the other hand, one learner stated
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L57"><span class="xref myst">‘The fix would be to make sure every single command that loads a module or a</span></a>,
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L57"><span class="xref myst">python package does specify a specific version’</span></a>,
+which would mean to make the course material more version-explicit.
+I am up for both!
+- Add more time for getting modules to work: RB
+- Make all course material version specific: RB
+- Make no changes:</p></li>
+<li><p>[Richel] One learner mentioned
+<a class="reference download internal" download="" href="../../_downloads/633526081d08a27f12e5b068e6599dd7/comments.txt"><span class="xref download myst">‘some part or parts had lots of spelling errors’</span></a>.
+I hope the spell checker (we can get it to
+work when using markdown) will fix that</p></li>
+<li><p>[Richel] One learner mentioned
+<a class="reference download internal" download="" href="../../_downloads/633526081d08a27f12e5b068e6599dd7/comments.txt"><span class="xref download myst">‘Asking us to do stuff on the breaks is BAD’</span></a>.
+What about we stick to our scheduled breaks?</p>
+<ul>
+<li><p>Follow the breaks as in the schedule: RB</p></li>
+<li><p>Ignore breaks:</p></li>
+</ul>
+</li>
+<li><p>[Richel] A learner stated
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11"><span class="xref myst">‘Anders Hast deserves special mention for bringing true researcher</span></a>.
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11"><span class="xref myst">enthusiasm, it is great to learn from teachers that know and enjoy the</span></a>.
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L11"><span class="xref myst">subject at hand like that’</span></a>.
+Could we give Anders more time for his exercise?
+Now there were only 6 minutes of exercises (on the YouTube video: 28:47-34:02)</p>
+<ul>
+<li><p>Give Anders more time: RB</p></li>
+<li><p>Keep the current schedule:</p></li>
+</ul>
+</li>
+<li><p>[Richel] A learner
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L25"><span class="xref myst">exercises should be part of the course under course time</span></a>,
+with the problem that
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L27"><span class="xref myst">‘we might not get knowledge/skill presumed by later parts of the course’</span></a>.
+What about we give our learners the time to do exercises,
+as well as test if indeed they were able to do so?
+Adding more time for a session seems fine be my.</p>
+<ul>
+<li><p>Add more time for exercises and make sure they are ready
+for future sessions: RB</p></li>
+<li><p>Ask learners to work during the breaks or evenings:</p></li>
+</ul>
+</li>
+<li><p>[Richel] A learner stated
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29"><span class="xref myst">‘The session on IDEs had barely enough time for me to get Jupyter running,</span></a>.
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29"><span class="xref myst">while I would’ve expected to try VS Code and Spyder</span></a>.
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L29"><span class="xref myst">as well since all of them are in there’</span></a>.
+What about we give this session more time?</p>
+<ul>
+<li><p>Give IDEs more time: RB</p></li>
+<li><p>Only do Jupyter: RB</p></li>
+<li><p>Keep the schedule as it is:</p></li>
+</ul>
+</li>
+<li><p>[Richel] A learner suggested
+<a class="reference internal" href="#../../evaluations/202504_course/evaluation_202504_full_course.md?plain=1#L47"><span class="xref myst">a 4 day schedule</span></a>.
+I know that ‘Intro to Python’ will get more HPCey,
+among others by adding how to loading
+Python package modules.</p></li>
+<li><p>[Richel] A learners suggested
+<a class="reference download internal" download="" href="../../_downloads/82abb8ac656d5d7dc3d2ca9066543adf/comments.txt"><span class="xref download myst">‘could you please post the recordings a bit faster next time’</span></a>
+and
+<a class="reference download internal" download="" href="../../_downloads/82abb8ac656d5d7dc3d2ca9066543adf/comments.txt"><span class="xref download myst">‘would be better to have them in the same youtube list as the rest though’</span></a>.
+I think the first is a bit harsh.
+The second is doable: just add the existing video to the HPC2N playlist
+(i.e you can do
+that in YouTube).</p>
+<ul>
+<li><p>Link to videos in YouTube playlist: RB</p></li>
+<li><p>Upload videos twice:
+Alternatively, we can put the videos in a table on the website too.</p></li>
+<li><p>Add a table on the website with all link: RB</p></li>
+<li><p>Rely on the YouTube playlists only:</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
