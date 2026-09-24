@@ -32,12 +32,12 @@ Parallel computing with Python
 
       - Start an interactive session:
 
-      ``interactive ``
+      ``interactive -A naiss202X-Y-XYZ-cpu --partition cpu -c 4  -t 04:00:00``
 
       .. code-block:: console
 
          $ ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
-         $ ml 
+         $ ml mpi4py/4.1.0
 
          $ python -m venv /path-to-your-project/vpyenv-python-course
 
@@ -1412,7 +1412,7 @@ example,
          #SBATCH -e error_%j.err    # error messages
 
          ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
-         ml 
+         ml mpi4py/4.1.0
          #ml julia/1.10.11-bdist  # if Julia is needed
 
          source /path-to-your-project/vpyenv-python-course/bin/activate
