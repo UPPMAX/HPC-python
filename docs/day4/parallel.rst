@@ -798,6 +798,7 @@ called ``fortran_function.f90``:
 Then, we need to compile this code and generate the Python module (``myfunction``):
 
 .. warning::
+   :class: dropdown
 
    For UPPMAX you may have to change ``gcc`` version like:
 
