@@ -22,30 +22,28 @@ Parallel computing with Python
 
 .. warning::
 
-   Instructions are updated mainly for the NAISS cluster Tetralith
+   Instructions are updated mainly for the NAISS cluster Arrhenius
 
 - Demo
 
 .. tabs::
 
-   .. tab:: NSC
+   .. tab:: Arrhenius 
 
-      - These guidelines are working for Tetralith:
+      - Start an interactive session:
+
+      ``interactive ``
 
       .. code-block:: console
 
-         $ ml buildenv-gcccuda/12.2.2-gcc11-hpc1
+         $ ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
+         $ ml 
 
          $ python -m venv /path-to-your-project/vpyenv-python-course
 
          $ source /path-to-your-project/vpyenv-python-course/bin/activate
 
-      - For the ``mpi4py`` example add the following modules:
-
-      .. code-block:: console
-
-         $ pip install mpi4py
-
+      - For the ``mpi4py`` example, this package is already installed in the loaded module.
 
       - For the ``numba`` example install the corresponding module:
 
@@ -57,7 +55,7 @@ Parallel computing with Python
 
       .. code-block:: console
 
-         $ ml julia/1.10.2-bdist
+         $ ml julia/1.10.11-bdist
 
          $ pip install JuliaCall
 
@@ -624,16 +622,20 @@ We can run this code on the terminal as follows:
 
 .. warning::
 
-   Although this works on the terminal, having many users doing computations at the same time
-   for this course, could create delays for other users
+   If you are working on a login node this works on the terminal:
 
    .. code-block:: console
 
        $ python integration2d_serial_initial.py
        Integral value is -7.117752e-17, Error is 7.117752e-17
        Time spent: 27.54 sec
+   
+   but remember that there are users on that node and their work will be perturbed. However, 
+   if you are in an interactive session (working in a computing node) this way to run Python
+   scripts is **encouraged**. 
 
-   Because of that, we can use for **short-time** jobs the following command:
+   To run Python scripts while working in a login node, one can use for **short-time** jobs 
+   the following command:
 
    .. code-block:: console
 
@@ -1373,34 +1375,49 @@ More details for the MPI parallelization scheme in Python can be found in a prev
 
 Execution of this code gives the following output:
 
-.. code-block:: console
+.. tabs::
 
-    $ mpirun -np 4 python integration2d_mpi.py
-    Integral value is 4.492851e-12, Error is 4.492851e-12
-    Time spent: 5.76 sec
+   .. tab:: Arrhenius
+
+      .. code-block:: console
+
+         $ export LD_LIBRARY_PATH="$(mpicc --showme:libdirs):$LD_LIBRARY_PATH"
+         $ srun --mpi=pmix -n 4 python integration2d_mpi.py
+         Integral value is 4.492851e-12, Error is 4.492851e-12
+         Time spent: 5.76 sec
+
+   .. tab:: Others
+
+      .. code-block:: console
+
+         $ mpirun -np 4 python integration2d_mpi.py
+         Integral value is 4.492851e-12, Error is 4.492851e-12
+         Time spent: 5.76 sec
 
 For long jobs or MPI jobs, one will need to run in batch mode. Here is an example of a batch script for this MPI
 example,
 
 .. tabs::
 
-   .. tab:: NSC
+   .. tab:: Arrhenius
 
       .. code-block:: sh
 
-         #!/bin/bash -l
+         #!/bin/bash
          #SBATCH -A naiss202X-XY-XYZ
          #SBATCH -t 00:05:00
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
          #SBATCH -e error_%j.err    # error messages
 
-         ml buildenv-gcccuda/12.2.2-gcc11-hpc1
-         #ml julia/1.10.2-bdist  # if Julia is needed
+         ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
+         ml 
+         #ml julia/1.10.11-bdist  # if Julia is needed
 
          source /path-to-your-project/vpyenv-python-course/bin/activate
 
-         mpirun -np 4 python integration2d_mpi.py
+         export LD_LIBRARY_PATH="$(mpicc --showme:libdirs):$LD_LIBRARY_PATH"
+         srun --mpi=pmix -n 4 python integration2d_mpi.py
 
    .. tab:: HPC2N
 
@@ -1507,11 +1524,11 @@ It is recommended to use a batch script for Heat scripts:
 
 .. tabs::
 
-   .. tab:: NSC
+   .. tab:: Arrhenius
 
       .. code-block:: sh
 
-         #!/bin/bash -l
+         #!/bin/bash
          #SBATCH -A naiss202X-XY-XYZ
          #SBATCH -t 00:05:00
          #SBATCH -n 1
@@ -1520,12 +1537,14 @@ It is recommended to use a batch script for Heat scripts:
          #SBATCH -o output_%j.out   # output file
          #SBATCH -e error_%j.err    # error messages
 
-         ml buildenv-gcccuda/12.2.2-gcc11-hpc1
-         #ml julia/1.10.2-bdist  # if Julia is needed
+         ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
+         ml 
+         #ml julia/1.10.11-bdist  # if Julia is needed
 
          source /path-to-your-project/vpyenv-python-course/bin/activate
 
-         mpirun --oversubscribe -np 2 python heat_datatypes.py
+         export LD_LIBRARY_PATH="$(mpicc --showme:libdirs):$LD_LIBRARY_PATH"
+         srun --mpi=pmix -n 2 python heat_datatypes.py
 
    .. tab:: HPC2N
 
@@ -1547,13 +1566,13 @@ It is recommended to use a batch script for Heat scripts:
 
          mpirun -np 2 python heat_datatypes.py
 
+      On Kebnekaise, the ``srun`` command also works:
 
+      .. code-block:: console
 
-On Kebnekaise, the ``srun`` command also works:
+         $ srun -A projectID -t 00:08:00 -n 2 python heat_datatypes.py
 
 .. code-block:: console
-
-    $ srun -A projectID -t 00:08:00 -n 2 python heat_datatypes.py
 
     Output:
        (10,)
@@ -1744,11 +1763,11 @@ Exercises
 
       .. tabs::
 
-         .. tab:: NSC
+         .. tab:: Arrhenius
 
                .. code-block:: sh
 
-                  #!/bin/bash -l
+                  #!/bin/bash
                   #SBATCH -A naiss202X-XY-XYZ     # your project_ID
                   #SBATCH -J job-serial           # name of the job
                   #SBATCH -N 1
@@ -1758,7 +1777,8 @@ Exercises
                   #SBATCH --output=job.%J.out     # output file
 
                   # Load any required modules
-                  ml buildenv-gcccuda/12.2.2-gcc11-hpc1
+                  ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
+                  ml 
 
                   python integration2d_multiprocessing.py
 
@@ -1917,7 +1937,7 @@ Exercises
 
    .. tabs::
 
-      .. tab:: NSC
+      .. tab:: Arrhenius
 
             .. code-block:: sh
 
@@ -1930,7 +1950,8 @@ Exercises
                #SBATCH --output=job.%J.out     # output file
 
                # Load any required modules
-               ml buildenv-gcccuda/12.2.2-gcc11-hpc1
+               ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
+               ml 
                source vpyenv-python-course/bin/activate
 
                python script-df.py
