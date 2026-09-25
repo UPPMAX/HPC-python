@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planning HPC Python at HPC2N and UPPMAX &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrhenius.html">New system Arrhenius</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/install_packages.html">Installing packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/use_isolated_environments.html">Using isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/ondemand-desktop.html">Gfx launcher/Desktop On Demand including IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day3/pandas/README.html"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/matplotlib/README.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/seaborn/README.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day2/python_bundles.html">Python bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluations/README.html">Evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/extra_isolated.html">Extra material about isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson_plans/README.html">Lesson plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Meeting notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reflections/README.html">Reflections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Planning HPC Python at HPC2N and UPPMAX</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/meeting_notes/20251107.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="planning-hpc-python-at-hpc2n-and-uppmax">
+<h1>Planning HPC Python at HPC2N and UPPMAX<a class="headerlink" href="#planning-hpc-python-at-hpc2n-and-uppmax" title="Link to this heading"></a></h1>
+<section id="materials-pages">
+<h2>Materials pages<a class="headerlink" href="#materials-pages" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>material: <a class="reference external" href="https://uppmax.github.io/HPC-python/index.html">https://uppmax.github.io/HPC-python/index.html</a></p></li>
+<li><p>source: <a class="reference external" href="https://github.com/UPPMAX/HPC-python/tree/main/docs">https://github.com/UPPMAX/HPC-python/tree/main/docs</a></p></li>
+</ul>
+</section>
+<section id="dates-autumn-2025">
+<h2>Dates autumn 2025<a class="headerlink" href="#dates-autumn-2025" title="Link to this heading"></a></h2>
+<p>See <a class="reference internal" href="../schedule.html"><span class="std std-doc">the course schedule</span></a></p>
+<ul class="simple">
+<li><p>27-28 Nov and 1-2 Dec</p></li>
+</ul>
+</section>
+<section id="meeting-friday-7-nov-13-00-14-00">
+<h2>Meeting Friday 7 Nov 13:00-14:00<a class="headerlink" href="#meeting-friday-7-nov-13-00-14-00" title="Link to this heading"></a></h2>
+<section id="agenda">
+<h3>Agenda<a class="headerlink" href="#agenda" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Decisions reviewed</p></li>
+<li><p>Schedule</p></li>
+<li><p>Admin</p></li>
+</ul>
+</section>
+<section id="decisions-reviewed">
+<h3>Decisions reviewed<a class="headerlink" href="#decisions-reviewed" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>RB: <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blame/main/docs/meeting_notes/20251017.md#L28">It was decided</a> to delay converting the course website to May 2025. Can we start converting to MkDocs?</p>
+<ul>
+<li><p>Yes: RB</p></li>
+<li><p>[RESULT] No, delay again: 251017 we decided <strong>spring 2026!</strong> Sorry for not being clear</p></li>
+</ul>
+</li>
+<li><p>RB: <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blame/main/docs/meeting_notes/20251104.md#L30">It was decided</a> to ‘have more time for packages (either taken from first hour or continuing after 11’. Taking this away from the first hour is a bad idea: I need that time :-)</p>
+<ul>
+<li><p>[DECIDED] OK! Let’s look at timings for Day 2</p></li>
+</ul>
+</li>
+<li><p>RB: reminder that downloading the tarball is <a class="reference external" href="https://uppmax.github.io/HPC-python/day2/intro.html#exercise-2-downloading-and-extracting-the-exercises">an exercise that I do in the first hour and have scheduled the time for</a>. In general, you can assume all learners present have done so.</p></li>
+<li><p>RB: as mentioned <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blame/main/docs/meeting_notes/20251104.md#L32">in last meeting</a> ‘batch jobs are really supposed to be on this day, but when? after IDEs or directly?’, but there was nothing decided. I hope we can vote on some suggestions:</p>
+<ul>
+<li><p>Move batch jobs to day 3 (as <a class="reference external" href="https://github.com/UPPMAX/HPC-python/blob/main/docs/schedule.rst#day-3-batch-jobs-and-big-data">day 3 has ‘batch jobs’ in its tile</a>):</p></li>
+<li><p>Move batch jobs after IDEs, let course end after 16:00:</p></li>
+<li><p>Keep batch jobs before IDEs, let course end after 16:00:</p></li>
+<li><p>Schedule 1 hour for IDEs (instead of 2): RB</p></li>
+<li><p>[DECIDED I guess…] BC: I do think we have short intro before interactive</p></li>
+</ul>
+</li>
+<li><p>BC Suggestion: Can we use 2024a/2024.X toolchains for all python bundles (Python 3.12.3)?</p>
+<ul>
+<li><p>BC can ask NSC if they can install extra.</p></li>
+</ul>
+</li>
+<li><p>PO: For the Parallelism session, I want to change the questions in the evaluation:</p></li>
+</ul>
+<p>“I can start a script that uses parallel code” -&gt; “I know the basics of the different parallelization tools in Python”</p>
+<p>“I can measure the effect of using more nodes for parallel code” -&gt; “I know how a simple for loop can be parallelized with Multiprocessing and how it can run on multiple cores”</p>
+</section>
+<section id="schedule">
+<h3>Schedule<a class="headerlink" href="#schedule" title="Link to this heading"></a></h3>
+<section id="day2">
+<h4>Day2<a class="headerlink" href="#day2" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Install packages/envs needs to expand after 11. Hence we need to change timings.</p></li>
+<li><p>How much more? 15</p></li>
+<li><p><a class="reference external" href="https://github.com/UPPMAX/HPC-python/blob/main/docs/schedule.rst#day-2-packages-and-basic-analysis">Active schedule</a></p></li>
+</ul>
+</section>
+<section id="proposed-schedule">
+<h4>Proposed schedule<a class="headerlink" href="#proposed-schedule" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Envs +15 m</p></li>
+<li><p>Slurm 45</p></li>
+<li><p>interactive 45</p>
+<ul>
+<li><p>from terminal</p></li>
+<li><p>CPU/GPU terminal on demand</p></li>
+</ul>
+</li>
+<li><p>IDEs1: starting only 45</p>
+<ul>
+<li><p>demos+instructions 30</p></li>
+<li><p>exercise 15 m</p></li>
+</ul>
+</li>
+<li><p>IDEs2: using 45</p>
+<ul>
+<li><p>theory about different IDEs plus</p></li>
+<li><p>some demoing</p></li>
+<li><p>using environments</p></li>
+<li><p>exercises</p>
+<ul>
+<li><p>script</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Time</p></th>
+<th class="head"><p>Topic</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>09:00-9:50</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">use-packages</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>9:50-10:05</p></td>
+<td><p>Break</p></td>
+</tr>
+<tr class="row-even"><td><p>10:05-10:55</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">install-packages</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">use-isolated-environments</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>10:55-11:10</p></td>
+<td><p>Break</p></td>
+</tr>
+<tr class="row-odd"><td><p>11:10-11:30</p></td>
+<td><p>use-isolated-environments cont’d</p></td>
+</tr>
+<tr class="row-even"><td><p>11:30-12:00</p></td>
+<td><p>Basic batch/Slurm</p></td>
+</tr>
+<tr class="row-odd"><td><p>13:00-13:50</p></td>
+<td><p>Interactive/On-Demand terminals</p></td>
+</tr>
+<tr class="row-even"><td><p>13:50-14:05</p></td>
+<td><p>Break</p></td>
+</tr>
+<tr class="row-odd"><td><p>14:05-14:40</p></td>
+<td><p>IDEs 1: On-Demand/Interactive?</p></td>
+</tr>
+<tr class="row-even"><td><p>14:40-14:55</p></td>
+<td><p>IDEs 2a: Jupyter/vscode/Spyder (demo)</p></td>
+</tr>
+<tr class="row-odd"><td><p>15:10-15:45</p></td>
+<td><p>IDEs 2b: Jupyter/vscode/Spyder (exercise)</p></td>
+</tr>
+<tr class="row-even"><td><p>15:45-16:00</p></td>
+<td><p>Evaluation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="content-of-afternoon-sessions">
+<h4>Content of afternoon sessions<a class="headerlink" href="#content-of-afternoon-sessions" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Basic batch/slurm (Birgitte) 30 m</p>
+<ul>
+<li><p>some batch here</p></li>
+</ul>
+</li>
+<li><p>Interactive through terminal / ondemand and then starting terminal through it 50</p>
+<ul>
+<li><p>Birgitte does interactive terminal intro + brief ondemand intro (20m)</p></li>
+<li><p>Björn present starting IDEs from terminal on compute node (30)</p></li>
+</ul>
+</li>
+<li><p>IDES1  (Rebecca)</p>
+<ul>
+<li><p>starting 3 IDEs &amp; interactive terminal via on demand (no Spyder on HPC2N) (20m + 20m)</p></li>
+</ul>
+</li>
+<li><p>IDES2 (Jayant)</p>
+<ul>
+<li><p>working in IDEs</p></li>
+<li><p>presentation of differences demo</p></li>
+<li><p>choose one for exercise</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="new-clusters">
+<h3>New clusters<a class="headerlink" href="#new-clusters" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Pelle!</p></li>
+<li><p>Berzelius</p>
+<ul>
+<li><p>not this time</p></li>
+</ul>
+</li>
+<li><p>Also not Sigma</p></li>
+</ul>
+<section id="admin">
+<h4>Admin<a class="headerlink" href="#admin" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Course projects</p>
+<ul>
+<li><p>numbers</p>
+<ul>
+<li><p>Alvis, Tetralith, Dardel: naiss2025-22-934</p></li>
+</ul>
+</li>
+<li><p>local</p>
+<ul>
+<li><p>Kebnekaise: hpc2n2025-151</p></li>
+<li><p>Cosmos:</p></li>
+<li><p>Pelle: uppmax2025-2-393</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Registered</p>
+<ul>
+<li><p>21</p></li>
+<li><p>do we ask for which day? (add in future?)</p>
+<ul>
+<li><p>in future YES</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Lower limit?</p>
+<ul>
+<li><p>BC: related to number of course hours? 3(4) x 6 hrs = 18(24) hrs</p>
+<ul>
+<li><p>ALT: count on daily basis</p></li>
+</ul>
+</li>
+<li><p>If lower than 50%(?) one week before, cancel?</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id1">
+<h4>New clusters<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Berzelius?</p>
+<ul>
+<li><p>Björn just got access…</p></li>
+<li><p>Peter Münger has now added the default allocation on Berzelius to the NAISS support staff project NAISS 2025/22-395 (Project Title: Test allocation for access for NAISS support staff).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="notes-from-previous-meeting">
+<h2><a class="reference internal" href="20251104.html"><span class="std std-doc">Notes from previous meeting</span></a><a class="headerlink" href="#notes-from-previous-meeting" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

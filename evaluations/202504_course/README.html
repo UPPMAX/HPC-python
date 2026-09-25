@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluation 2025-04 &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../../_static/minipres.js?v=a0d29692"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../arrhenius.html">New system Arrhenius</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/install_packages.html">Installing packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_isolated_environments.html">Using isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/ondemand-desktop.html">Gfx launcher/Desktop On Demand including IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/pandas/README.html"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/matplotlib/README.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/seaborn/README.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/python_bundles.html">Python bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/extra_isolated.html">Extra material about isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson_plans/README.html">Lesson plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../meeting_notes/README.html">Meeting notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reflections/README.html">Reflections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Evaluation 2025-04</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/evaluations/202504_course/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="evaluation-2025-04">
+<h1>Evaluation 2025-04<a class="headerlink" href="#evaluation-2025-04" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../../_downloads/c54f6b2a3e099d8382a5bf43d629c52a/analyse.R"><span class="xref download myst">analysis.R</span></a></p></li>
+<li><p>Feedback from a learner:
+<a class="reference internal" href="evaluation_202504_full_course.html"><span class="std std-doc">evaluation_202504_full_course.md</span></a></p></li>
+</ul>
+<section id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../../_downloads/c54f6b2a3e099d8382a5bf43d629c52a/analyse.R"><span class="xref download myst">Analysis</span></a></p></li>
+<li><p>The same data as a table: <a class="reference download internal" download="" href="../../_downloads/54c819b4e6c4a4d6f63c21aaa631ce4e/confidences_course.csv"><span class="xref download myst">confidences_course.csv</span></a></p></li>
+</ul>
+<p><img alt="Confidences per question" src="../../_images/confidences_per_question3.png" /></p>
+</section>
+<section id="feedback-from-a-learner">
+<h2>Feedback from a learner<a class="headerlink" href="#feedback-from-a-learner" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="evaluation_202504_full_course.html"><span class="std std-doc">Feedback from a learner</span></a>:</p>
+<p>NB: On the first day, with Richel, I was mostly in the role of a TA rather
+than a learner. I did not fill out the feedback form for that day,
+but I had an immediate evaluation meeting with Richel at the end of the day.</p>
+<p>NB 2: I did fill out the feedback evaluation form for the three remaining days,
+and did not look back on what I wrote then (or look at the course evaluation
+results at all) while writing this. Therefore this document probably duplicates
+some of that while being feedback from a single (and perhaps not the most
+representative) learner.</p>
+<p>NB 3: I did not attend the matplotlib sessions.</p>
+</section>
+<section id="a-multitude-of-teachers">
+<h2>A multitude of teachers<a class="headerlink" href="#a-multitude-of-teachers" title="Link to this heading"></a></h2>
+<p>This is GREAT! Some variation in perspective, focus and intensity makes a big
+difference and is much appreciated. Anders Hast deserves special mention for
+bringing true researcher enthusiasm, it is great to learn from teachers that
+know and enjoy the subject at hand like that.</p>
+<p>Sometimes a useful connection between two different sessions gets more or less
+lost, e.g. mentioning line-by-line file IO from the first day when talking
+about file formats at the end of day 3 would be easier to do well in a
+traditional one-teacher-per-course format.
+For this course I deem these losses very small and acceptable,
+especially in the light of the advantages mentioned above.</p>
+<p>However, the contrast between sessions pulls into sharp focus a few things to
+improve upon:</p>
+<p>Preparedness is key</p>
+<p>Several sessions had examples, code-alongs or exercises that did not work as
+intended without troubleshooting that was not within the focus of the session.
+Learning about modules and packages and handling the dependency hell in various
+ways is very good (I’ll get back to this), but it is not good to be
+interrupted by these things when trying to teach and learn something else.</p>
+<p>It would be good if all of the course materials, for all of the clusters,
+was confirmed working as intended before the course.[1] I do realize that this
+is a big undertaking—but make no mistake, this course (with the amount of
+content it currently has) is definitely a big undertaking.</p>
+<p>Too much content, too little time</p>
+<p>Full days leave little to zero time for going through the exercises on our own.
+Having extra exercises for repeating and/or diving deeper after the course is
+good, but all that is truly intended to be part of the course needs to be given
+the time within the course. With no time to test and get some confidence that
+one part is understood and doable, open questions and uncertainty cause
+several problems for learners.</p>
+<p>First, it immediately steals away some focus/brainpower. Second, we might not
+get knowledge/skill presumed by later parts of the course. Third, the sheer
+worry of the latter is not to be trifled with! I have seen that wreak havoc
+on learning again and again in various lectures and labs.</p>
+<p>The sessions on Pandas and Seaborn especially were much too rushed, to the point
+that they felt close to useless. The session on IDEs had barely enough time for
+me to get Jupyter running, while I would’ve expected to try VS Code and Spyder
+as well since all of them are in there. The course taken as a whole also needs
+either less content or more time.</p>
+<p>To solve this nicely, please consider what content is crucial that learners get
+to try and to ask questions about! The rest can be left in extras for the
+learners to look at after the course. This is closely related to how general
+a topic is, if there are many other places to ask questions
+and get the right answers.</p>
+<p>We learn what we do</p>
+<p>In some sessions, mainly Parallelism and ML/DL if I recall correctly,
+I was learning about modules and packages and lost track of the lecture as
+I was trying to make the examples work. In some sessions I learned little
+to nothing as I found no time to try anything. In some sessions I got to try
+and learn every single thing that was in the course materials.</p>
+<p>There seems to be two good ways to have learners actually do stuff in an
+online course. One is what Richel does: most of the time in 2-person breakout
+rooms, working through exercises as the main way of learning.</p>
+<p>Another one is to have a well-prepared code notebook with
+demos/examples/exercises to be completed by the learners.
+On desktop screens and larger laptops learners can have their copy of the
+notebook side-by-side with the meeting.
+This method can smoothly intersperse both longer and very short bits of
+hands-on coding into a lecture, akin to how the demos that weren’t working in
+the sessions on Parallel programming should have worked.</p>
+</section>
+<section id="focus-and-structure">
+<h2>Focus and structure<a class="headerlink" href="#focus-and-structure" title="Link to this heading"></a></h2>
+<p>This course teaches many separate things. This gets a bit too messy,
+both for the learners who do need to learn all of it—these people are new to
+the entirety of this and will not be able to group and separate things—and
+for the learners who only needs selected parts of the course.</p>
+<p>It would be easier for both groups (though a bit less efficient,
+for those who both need all of it and are somehow able to efficiently learn
+it the way it is now) if this content was divided between as much as
+four separate courses:</p>
+<ul class="simple">
+<li><p>Intro to HPC, usage and management of software and code
+(Logging in, LMOD, SLURM; the things that are actually different
+between HPC and a single-user single computer)</p></li>
+<li><p>Intro to Python (this already exists and is day 1)</p></li>
+<li><p>Python coding for big computation, big data and AI (this includes parallel
+and GPU but is not specific to HPC and probably exists elsewhere)</p></li>
+<li><p>Using Python code, packages and environments at NAISS HPC systems
+(LMOD, venv, conda; when to use what and how they interact)</p></li>
+</ul>
+<p>Course 1 is general to HPC users, not specific to Python.
+It should probably be provided by NAISS quite often and
+be a prerequisite to all other NAISS courses.
+Courses 2 and 3 are general to Python users, not specific to HPC,
+widely available from elsewhere. Course 4 is specific to Python in HPC;
+this is what I, a seasoned learner,
+would expect NAISS to provide in regards to using Python.</p>
+</section>
+<section id="what-i-expected-or-hoped-to-learn-that-i-did-not-learn">
+<h2>What I expected (or hoped) to learn that I did not learn<a class="headerlink" href="#what-i-expected-or-hoped-to-learn-that-i-did-not-learn" title="Link to this heading"></a></h2>
+<p>Essentially the fourth course mentioned above. I have not acquired the one
+skill (AFAIK) that is truly specific to Python on HPC: how to choose how to
+manage the packages. Everything else (that was in this course) is shared with
+either other HPC users or other Python users—therefore it is discussed and
+taught by other resources—so this is what I truly wanted from this course.
+I did learn a bit about it but it seemed to happen by accident as much or
+more than as a result of the course truly focussing on this matter.</p>
+<p>The fix would be to make sure every single command that loads a module
+or a python package does specify a specific version.
+Well, for the recurring problem that I do remember,
+but there may have been more problems.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

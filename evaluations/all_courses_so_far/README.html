@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluation of all courses so far &mdash; Using Python in an HPC environment 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom_theme.css?v=7da4766e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../../_static/minipres.js?v=a0d29692"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Using Python in an HPC environment
+              <img src="../../_static/hpc2n-lunarc-uppmax-hpc-course.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Pre-requirements:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../prereqs.html">Pre-requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preparations.html">Prepare the environment</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Common:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/login.html">Log in and other preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_tarball.html">Use the tarball with exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/use_text_editor.html">Use a text editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/understanding_clusters.html">HPC clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/naiss_projects_overview.html">NAISS projects overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../arrhenius.html">New system Arrhenius</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 1 (Intro to Python):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../common/day1.html">Link to Day 1 (Intro to Python)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 2 (packages and analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_packages.html">Using packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/install_packages.html">Installing packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/use_isolated_environments.html">Using isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/basic_batch_slurm.html">Basic batch and Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/interactive.html">Interactive work on the compute nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/ondemand-desktop.html">Gfx launcher/Desktop On Demand including IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/IDEs.html">Using IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary2.html">Summary day 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/python_at_hpc_centers.html">Python documentations at the different HPC centres</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 3 (advanced analysis):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/pandas/README.html"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/matplotlib/README.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/seaborn/README.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/big_data.html">Big data with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/batch-new.html">Running Python in batch mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary3.html">Summary day 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day3/evaluation.html">Evaluation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lessons day 4 (parallel and ML):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/parallel.html">Parallel computing with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/gpu.html">Using GPUs with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ml.html">Machine Learning and Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/dim_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../summary4.html">Summary day 4</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/interactive_ondemand.html">Interactive sessions and Desktop On-Demand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day2/python_bundles.html">Python bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day4/ML_deeper.html">More about ML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Evaluations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/extra_isolated.html">Extra material about isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/interactive_deeper.html">More about interactive work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/isolated_deeper.html">Developing in isolated environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/jupyterHPC2N.html">Jupyter at Kebnekaise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/other_courses.html">Other courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extra/packages_deeper.html">More about packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kebnekaise.html">On Kebnekaise cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson_plans/README.html">Lesson plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../meeting_notes/README.html">Meeting notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reflections/README.html">Reflections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uppmax.html">On UPPMAX clusters</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Using Python in an HPC environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Evaluation of all courses so far</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/UPPMAX/HPC-python/blob/main/docs/evaluations/all_courses_so_far/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="evaluation-of-all-courses-so-far">
+<h1>Evaluation of all courses so far<a class="headerlink" href="#evaluation-of-all-courses-so-far" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../../_downloads/6766fe4800c9c0380ca2c117e390fdef/analyse.R"><span class="xref download myst">Analysis script ®</span></a></p></li>
+</ul>
+<section id="average-confidences-per-course-per-day">
+<h2>Average confidences per course per day<a class="headerlink" href="#average-confidences-per-course-per-day" title="Link to this heading"></a></h2>
+<p><img alt="Average confidences per course per day" src="../../_images/confidences_per_course_per_day.png" /></p>
+</section>
+<section id="comments-per-course-per-day">
+<h2>Comments per course per day<a class="headerlink" href="#comments-per-course-per-day" title="Link to this heading"></a></h2>
+<p><a class="reference download internal" download="" href="../../_downloads/e75c3325ac303e30d7525023f23c34fb/comments_per_course_per_day.txt"><span class="xref download myst">Comments per course per day</span></a>:</p>
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>course</p></th>
+<th class="head text-right"><p>day</p></th>
+<th class="head text-left"><p>comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Great energy from the teacher! It did feel though that the course could be split between pure Python basics and what is the correct way to set up and use it in the HPC cluster. Maybe that is in fact the case, but it was not clear to me. Giving the option to sign up to only specific days after checkign the content of each one could be an idea for better organization.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Very useful lesson, it was a bit difficult at the beginning to log into the cluster, but then I could follow up easily because the website is well done</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>I really liked the setup of the lectures, going through the exercises in breakout rooms was very helpful and I learned a lot from the other people on the course. Thank you for a great course!</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Very good tutor,  both engaging and good at explaining. Keep up the good work! :)</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Great course, I love the energy which was really motivating and helped maintaining morale and interest. I liked the exercises, I liked that you direct us to the book and gets us used to ‘googling’ it rather than you presenting, great idea to make study groups, and have someone to bounce ideas with. I would recommend this to anyone that is interested in learning Python.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>It was very helpful that we already had access to the terminal, and we were ready to go. For someone that is their first time in the interface, have no idea of basic Linux commands and how to use the terminal, would be substantially harder. For more feedback:</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Using the Python interpreter - Exercise 3:</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>I was uncertain what is an interpreter, which interpreter to use, what did it mean, and how you would run python and the file you wanted.  I ‘m still not sure btw. In my mind I was thinking ‘Pytorch’, ‘Notepad++’. So what’s the difference with a text editor?</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Variables, expressions and statements: user input - Exercise 1:</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>It was a bit confusing what we were to read and what we were to apply. Maybe stress that we focus on the function input() ? Maybe have a skeleton key here for guidance?</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Files - Exercise 2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>your answer says xs = reversed(xs)</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>the manual gives xs.sort() which I ‘ve changed to xs.reverse() before checking your answer. Maybe add this as a note somewhere?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Command-line arguments - Exercise 1</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>I was NOT getting what’s the point of sys.argv even after reading the documentation, asking Copilot the following: ‘The list of command line arguments passed to a Python script. argv[0] is the script name (it is operating system dependent whether this is a full pathname or not). If the command was executed using the -c command line option to the interpreter, argv[0] is set to the string ‘-c’. If no script name was passed to the Python interpreter, argv[0] is the empty string.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>To loop over the standard input, or the list of files given on the command line, see the fileinput module. &lt;- explain to me what does that do as if I ‘m 12 years old’</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>and talking with my collague. The coin dropped only after seeing this in a different example. Maybe you could add an extra example here? Maybe with a math equation where you see the outcome a bit more in your face?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>every thing is great for me</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>I think all of the training materials were very clear, and I liked the amount of hands-on exercises. I also really appreciated how supportive all of the teachers were, the classes had a very nice atmosphere.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>Overall, a great session, but it would be great to have more time plannned into each session for questions.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>For the matplotlib part: to improve more demonstrations rather than read so quickly the content to accomplish the schedule. Improve the depth of the course not too superficial to at least catch some key points that helps to start.  The morning session had better demo and I could follow the steps.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>The written material is quite good and shows the different options, but simply going through them during the course takes too long and sometimes end up with focus on specific HPC systems that not everyone is going to use. There are instructions for each cluster, so maybe the topics should be more generic with access to the specific info as needed. The IDE section, for example, could only show how to do it to very specific cases, while having the cluster instructions and a generic discussion about the options could be better.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>Overall very good docs from each mentors that states pro and contro and niche details of each HPC. Infinite for trouble-shooting support especially for beginners</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>(did not attend Matplotlib part) 1. Overall the reading/presentation material was good to very good, just too far between exercises - as soon as one step has been explained, I want to test it and make sure I can do it! But some information was outdated and some part or parts had lots of spelling errors.  2. Again and again, there was not enough time margins within each session. Asking us to do stuff on the breaks is BAD. Breaks are needed for food, toilet and looking away from the screen. Can’t learn anything if we don’t get breaks.  3. Lunch break start and end time needs to be confirmed before 12:00. For those of us caught up in listening and following along it got cut much too short today.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>It’s good that you record, but could you post the recordings a bit faster so we can go through before the rest of the course?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>Not fond of the IDEs, I think it’s unnecessarily cumbersome. Shell is much easier to work in. You don’t have to load a lot of other things, set graphics and fight with it :( Why this focus on jupyter or spyder or whatever it was called</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>I think I would really like to have a bit more a hands-on experience on this. Also, a big caveat in using all these is understanding the documentation/jargon. It would be useful to have that as part of this. As in any other language, you ‘d need to refer to the documentation, so it would be good to know how to navigate it. The session where we were typing along was excellent! Very nicely paced, and the message was clear. Also tied together things we worked on last week. Maybe it would be useful to start with a type-along exercise so as people follow an exact example, and then build on that to discuss details. e.g. input + analysis + graph (then discuss types of input, types of analysis and functions, types of graph)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>I really like that a lot of resources are provided with additional links to extra material. It will be really helpful to have this on hand when I’m working on my own data.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>This course is HPC environments and Python data science tools mixed up into one (with a starting day of HPC access and Python coding basics) and it’s too chaotic for good learning, in my not so humble opinion. There are better Python courses elsewhere, without HPC complications - this course might be better with a focus on all the HPC intricacies.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>The pandas section was too fast with too much information, it was hard to follow without being able to try some of the commands. It might be more interesting to be able to try some basic functions and then have access to the documents where there are more examples and commands.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>Which HPC have good Documentations, Exercises and recorded videos. What TO DO and not TO DO in Documentation and video lectures like tips and tricks</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>This is mostly for the parts last week, I’m not so fond of this calling out of people with their names. It is stressing. I’m here to learn, and I do that better in peace. Also, could you please post the recordings a bit faster next time. I saw in the Q/A document that Brigitta lost the recordings for the first day so I am happy that Ricel at least posted them! Would be better to have them in the same youtube list as the rest though</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>Please say ahead of the session that we should start up a jupyter or spider so we are ready to type along. It takes time to start up</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>I like the exercises and the course material. The course teachers are helpful.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>As aforementioned, add practical applications and implementations are the most valuable asset of this course to encourage students and researchers to exploit and explore novel areas out of our research field or comfort zone</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>The parts involving parallelism and Machine learning needed different approaches for different clusters, and it was not always clear what we had to do, as setting interactive jobs and batches are different between them. It was hard to see the point of the Machine Learning part and how it should be done or work in the HPC. It was really good to see the final presentation on Dimensionality reduction with examples from someone else, could maybe be done for other topics to introduce us to them with maybe a more dedicated course.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>We learn that which we end up doing. Today, in the multiprocessing part, the examples were not working and I did not learn Python multiprocessing - instead I learned a few more things about the module system and had continued failures with Python venvs. On the other hand, in the section on GPUs, the examples were working and I learned very little about using GPUs, but I did learn a few things about SLURM and using Snowy. In order to learn I guess we should have incomplete example code that requires us to type in the crucial parts that we need to be learning. It is nice to do this interspersed in the lecture, for really short/safe bits in the main room and for larger pieces where more discussion results in breakout rooms. Now it seems that we have a couple days worth of exercises still to do, but all the teachers and co-learners are not there anymore. This is not fun. I might add that it is stressful trying to get both a cup of tea and a bathroom break into 15 minutes and there is ZERO margin for overtime when the breaks are that short. Please plan your sessions with more time margins, so that discussions can be had and breaks be accomplished and perhaps even catching up when something did not work right could be possible. Far too often we ended up with no time for exercises - maybe some exercises for later is a good idea, but should in that case be clearly marked as such and the examples that are in the material we really should be able to get hands on with in every session. Right now it seems like I need to go back to almost every session from this course for some reason or the other. Finally, I note that Richel from the first day and Anders from the very end are the two teachers that seemed happy about and interested in the topics that they were teaching. That helps a lot, so that is the right teachers at the right parts.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>Why are you talking about julia when it is about python? Please focus on python!</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>Very happy that u recorded but could you also record the first day and put with the others?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Great teaching!</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Great work with creating engagement</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>Exercises were a bit less clear today, which ones we should do and when was a little confusing. Content was very good though :)</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>Because each hpc has different setup it is a bit uninteresting to walk through them alla when I’m only concerned with the one I’m using</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>Overall a good setup of the course! It is hard to do the excersices because environments etc. has to be set, so I will have to go back later to finish.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>The first half of today’s training covered important material, but I personally found the delivery less engaging. It felt more like a reading of the manual, and I didn’t gain much from it. Demonstrating everything with actual code and a more hands-on approach would be essential to better understand the core concepts. The second half of the training, however, was satisfactory.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>The material is good, but the teaching technique is lacking. Richel started off very good with a lot of interaction, breakout rooms and time for questions and doing things yourself. I liked this and that the exercises were part of the teaching, not meant to do during breaks, then you would never get breaks. I and some other seemed to be lost already at ondemand, and interactive work. So maybe you should make that session more interactive. Then it would have been easier to follow the other sessions after that.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Great course, thanks!</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Very good and concise yet cheerful and helpful teaching.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>All good I think, I like the pace</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>Great experience! I needed some time to catch up, but it was good to practice. I believe that I can learn Python! Thank You</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-left"><p>The first day of the Python course was really good. Richèl is a great teacher and made the course very enjoyable. I really appreciated that he provided the Python textbook, which was very helpful for learning more and completing the exercises.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>A big difference from day 1. Sorry, but it needs to be improved a lot</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>Day 2 was much more disorganised and less pedagogical than day 1. I would recommend either a) keep the course a 4-day course and remove content from Day 2, or b) keep the amount of content in the course but spread it over 5 days instead of 4 days. There were times when there was not enough time to do exercises or lectures dragged on into breaks.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>Hands-ons and demonstrations: too few</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>The teaching overall is moving in a good pace, but would prefer more time for exercises, and perhaps some exercises summary with teachers/lecturers</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>Joining participants in the rooms by cluster affiliation for practicing was not optimal for me, I would prefer to start with to work alone. Partially because of that after ca exercise 4 I got lost. Starting IDE and particularly Jupiter part was completely messed for me, I simply did not get it to work :(  Would like to have more time for practical moments and consultation with teacher(s). Thanks anyway!</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>I think the morning session about packages, installing packages, and environments was important. However, all the interaction with the HPC (sending jobs, Slurm, interactive work…) could have been a pre-course assignment because it is different for every server (and not Python at all). I think all that time could have been better spent properly explaining IDEs, how to set them up, and how to use Python with them. Also, the material seems to need an update according to the specific servers being used.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>exercises were nice</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-left"><p>Lots of technical problems, but this was not the fault of the teachers. I liked the intro to the batch system and how to submit a job, this was very important for how I will run my python codes, but maybe it is different if you are someone who likes only use graphics/IDEs.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>more cases, like, an oom killed job , how to seff it and solve the issue to run it properly</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>Where should we improve? materials, exercises, and structure</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>For me personally, the time spent interacting with the cluster and getting familiarised was the most useful. This is personaly though an I’m not sure whether this would be the case across the board.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>Today (day3), the topics were more of what I expected from an Introduction to Python and Using Python in an HPC environment course. The morning session about pandas, matplotlib and seaborn was interesting, as well as the big data with python. I will probably use Dask in the future so it was a good explanation of how Dask works. I still don’t understand the time spent talking about bash and sending jobs. We could use that time learning and using common python packages in an HPC cluster.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>It think that we need more documentation about Dardel. Also, we need more hands-ons and demonstrations.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>I feel some exercises are not in “step-by-step” format that makes difficult to complete it.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>I think there is very little material on the pandas/matplotlib/seaborn part and would like there to be more so I can redo it later myself. This just tells you were to go look for the info and that could be put in a box at the bottom. I am not fond of the way Richel teaches (sorry - he is very nice). I prefer to have more theory and material to read and then also show some demos. Maybe if there was more time for this course. I really think you should have it a full week.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-left"><p>At first I didn’t understand why we need to learn about batch since most people use IDEs now but I realized that batch is also part of HPC and that there may be some people who still submit jobs to batch and doesn’t just work in jupyter</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>Remove day 4 from the course and insert it into an intermediate or advanced “Python in an HPC environment” course. The course attendees need more time to practice the skills learned during days 1-3 instead.  Pedro’s teaching style was good, slow and methodical, and thereby easy to follow. The only thing I would ask Pedro to do is speak up a bit more or change his microphone settings, as it was hard to hear what he was saying.  Jayant’s sections need shorter lectures with less content in each and exercises more often in between. Overall, while I think that the course has some good parts and some teachers were very good and pedagogical, the course still goes too fast for the most part, assumes that attendees know more prerequisites than they actually need in order to attend, and several of the teachers need to improve their teaching skills. If these issues are fixed, the course would, in my opinion, be very much improved.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>Generally very good. For me personally, the content and exercises related to interaction with the cluster were of more interest than the pure python parts. Improvement, just the point I made above about allowing a bit more time to setup the examples (venvs, module loading, checking compatibility etc). Organisation was great, I signed up late (past the deadline) and was still added to the project so better than I could reasonably expect. Teachers were all good, although Richèl stood out (positively).</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>I do like the course materials; they are easy to follow at one’s own pace.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>ML/DL section could be as additional reading that could allow to release more time for exercises/training sessions in other chapters. ML/DL exercises were too complicated. Exercises on-the-go (5-, 10-minutes) in the middle of the lectures are a bit stressful: it would be better for learning to discuss in the break out rooms with peers as was done on previous days.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>I think the course has potential, but it could benefit from more interaction with the students. In a Zoom course, it is difficult to stay focused listening to the same person for more than 10–15 minutes (let alone 45–60, as in some sessions), especially if the instructor is basically reading from the course material.  Another suggestion would be to create connected exercises instead of just running scripts. The lectures could be divided into small exercises all related to the same script (where, in every exercise, the students add a new block of code). Then, the final exercise would involve running the whole script using all the concepts from that section and previous ones.  Finally, I would suggest removing the section on how to connect to the HPC clusters. Since this is a course about Python and Python in HPC clusters, connecting to the cluster should be a prerequisite; alternatively, it could be sent as a pre-course exercise before the program starts. The course should remain focused on Python and its application within HPC clusters.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>The course jumps pretty quickly from basic Python on day one to advanced machine learning by the last day. It can work well for beginners at the start, and more experienced people will likely get the most out of the final day</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-left"><p>I didn’t fill the other evaluations and day4 i watched as videos so i will comment for all days here: Pedro has some amazing material and is a great lecturer but i am not intrested in parallel programming. Bjorn was mostly ok but maybe a bit fast (packages). Rachel should have more advanced material, we are smarter than he thinks. Brigitte i didn’t get through the sessions as batch is not intresting but i need it until you install ondemand everywhere. Also the day4 recordings was not up until sunday!!! Jayant ok good presentations</p></td>
+</tr>
+</tbody>
+</table>
+<!-- markdownlint-enable MD013 -->
+</section>
+<section id="wordcloud">
+<h2>Wordcloud<a class="headerlink" href="#wordcloud" title="Link to this heading"></a></h2>
+<p>A wordcloud of all the words in the comments.</p>
+<p><img alt="Wordcloud" src="../../_images/wordcloud.png" /></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, UPPMAX/HPC2N/LUNARC/InfraVis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
