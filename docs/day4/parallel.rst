@@ -32,7 +32,7 @@ Parallel computing with Python
 
       - Start an interactive session:
 
-      ``interactive -A naiss202X-Y-XYZ-cpu --partition cpu -c 4  -t 04:00:00``
+      ``interactive -A naiss202X-Y-XYZ-cpu --partition cpu -c 1  -t 00:20:00``
 
       .. code-block:: console
 
@@ -1382,7 +1382,6 @@ Execution of this code gives the following output:
 
       .. code-block:: console
 
-         $ export LD_LIBRARY_PATH="$(mpicc --showme:libdirs):$LD_LIBRARY_PATH"
          $ srun --mpi=pmix -n 4 python integration2d_mpi.py
          Integral value is 4.492851e-12, Error is 4.492851e-12
          Time spent: 5.76 sec
@@ -1407,6 +1406,7 @@ example,
          #!/bin/bash
          #SBATCH -A naiss202X-XY-XYZ
          #SBATCH -t 00:05:00
+         #SBATCH -p cpu
          #SBATCH -n 4
          #SBATCH -o output_%j.out   # output file
          #SBATCH -e error_%j.err    # error messages
@@ -1417,7 +1417,6 @@ example,
 
          source /path-to-your-project/vpyenv-python-course/bin/activate
 
-         export LD_LIBRARY_PATH="$(mpicc --showme:libdirs):$LD_LIBRARY_PATH"
          srun --mpi=pmix -n 4 python integration2d_mpi.py
 
    .. tab:: HPC2N
@@ -1532,19 +1531,17 @@ It is recommended to use a batch script for Heat scripts:
          #!/bin/bash
          #SBATCH -A naiss202X-XY-XYZ
          #SBATCH -t 00:05:00
-         #SBATCH -n 1
-         #SBATCH -c 32
-         #SBATCH --gpus-per-task=1
+         #SBATCH -p cpu
+         #SBATCH -n 2
          #SBATCH -o output_%j.out   # output file
          #SBATCH -e error_%j.err    # error messages
 
          ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
-         ml 
+         ml mpi4py/4.1.0
          #ml julia/1.10.11-bdist  # if Julia is needed
 
          source /path-to-your-project/vpyenv-python-course/bin/activate
 
-         export LD_LIBRARY_PATH="$(mpicc --showme:libdirs):$LD_LIBRARY_PATH"
          srun --mpi=pmix -n 2 python heat_datatypes.py
 
    .. tab:: HPC2N
@@ -1771,7 +1768,7 @@ Exercises
                   #!/bin/bash
                   #SBATCH -A naiss202X-XY-XYZ     # your project_ID
                   #SBATCH -J job-serial           # name of the job
-                  #SBATCH -N 1
+                  #SBATCH -p cpu                  # partition 
                   #SBATCH -c *FIXME*              # nr. coresw
                   #SBATCH --time=00:20:00         # requested time
                   #SBATCH --error=job.%J.err      # error file
@@ -1779,7 +1776,7 @@ Exercises
 
                   # Load any required modules
                   ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
-                  ml 
+                  ml mpi4py/4.1.0
 
                   python integration2d_multiprocessing.py
 
@@ -1882,14 +1879,12 @@ Exercises
 
    .. warning::
 
-      For Tetralith you will need to install ``pandas``:
+      For Arrhenius you will need to install ``pandas``:
 
       .. code-block:: sh
 
-         ml buildenv-gcccuda/12.2.2-gcc11-hpc1
          source vpyenv-python-course/bin/activate
          pip install pandas
-
 
       Pandas is available in the following combo ``ml GCC/12.3.0 SciPy-bundle/2023.07`` (HPC2N) and
       ``ml python/3.11.8`` (UPPMAX).
@@ -1945,6 +1940,7 @@ Exercises
                #!/bin/bash -l
                #SBATCH -A naiss202X-XY-XYZ     # your project_ID
                #SBATCH -J job-serial           # name of the job
+               #SBATCH -p cpu                  # partition
                #SBATCH -n 4                    # nr. tasks/coresw
                #SBATCH --time=00:20:00         # requested time
                #SBATCH --error=job.%J.err      # error file
@@ -1952,7 +1948,7 @@ Exercises
 
                # Load any required modules
                ml buildtool-easybuild/5.2.1-hpca3ef7d197 GCCcore/14.3.0 Compiler/GCC/14.3.0/OpenMPI/5.0.8
-               ml 
+               ml mpi4py/4.1.0
                source vpyenv-python-course/bin/activate
 
                python script-df.py
