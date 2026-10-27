@@ -1,4 +1,0 @@
--
-Pace maybe
-more on gpus and ml
-install ondemand on all clusters i don't want to use batch
