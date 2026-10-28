@@ -1,0 +1,8 @@
+question,mean
+I can determine which ML and DL modules are installed at a center,3.25
+I can load a Python (machine learning) module,4
+I can measure the effect of using more nodes for parallel code,2.78
+I can run a Python code that uses PyTorch,3.5
+I can run a Python code that uses TensorFlow,3.2
+I can start a script that uses parallel code,3.11
+I can write a batch script that uses GPUs,3.57

@@ -1,0 +1,6 @@
+how to use LLMs to improve/supplement our coding
+really basic course on programming
+How to work with data that has 3 or more dimensions. How to treat it and plot results, what plot strategies one can use.
+Polars DataFrame together with Pandas would be very interesting
+Maybe a course on batch job optimizing
+Maybe also more about using R for datascience

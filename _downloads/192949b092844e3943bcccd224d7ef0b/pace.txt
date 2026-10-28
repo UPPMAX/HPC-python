@@ -1,0 +1,10 @@
+It was okay. I was able to follow
+It was the right pace
+fast
+A bit fast
+considering the time, overall was very well structured and we were well supported by an excellent coordination of the Staff
+The Machine Learning part was hard to follow if you do not have a background on the topic, not clear what the objective was.
+First sections, on multiprocessing, had problems with the exercises and seemed to go by quickly - but I'm not too sure as I was caught up in debugging the environment problems. The section on GPUs, with Brigitte, went smoothly at a nice pace. ML with Jayant also worked well as he took the time to interact with the learners and adapt to how quickly we were able to get through.
+uneven
+Good
+ok

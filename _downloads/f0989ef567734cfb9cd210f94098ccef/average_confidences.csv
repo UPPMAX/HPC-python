@@ -1,0 +1,8 @@
+question,mean
+I can determine which ML and DL modules are installed at a center,2
+I can load a Python (machine learning) module,3
+I can run a Python code that uses PyTorch,2.25
+I can run a Python code that uses TensorFlow,2.5
+I can write a batch script that uses GPUs,2.75
+I know how a simple for loop can be parallelized with Multiprocessing and how it can run on multiple cores,3
+I know the basics of using the different parallelization tools in Python,2.75

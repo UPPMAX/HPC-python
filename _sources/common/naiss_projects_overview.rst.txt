@@ -1,0 +1,68 @@
+.. _common-naiss-projects-overview:
+
+NAISS projects overview
+=======================
+
+These are the NAISS course projects:
+
++------------+--------------------------+
+| HPC cluster| Course project           |
++============+==========================+
+| COSMOS     | :code:`lu2026-7-57` `[1]`|
++------------+--------------------------+
+| Dardel     | :code:`naiss2026-4-66`   |
++------------+--------------------------+
+| Kebnekaise | :code:`hpc2n2026-002`    |
++------------+--------------------------+
+| Pelle      | :code:`uppmax2025-2-393` |
++------------+--------------------------+
+| Tetralith  | :code:`naiss2026-4-66`   |
++------------+--------------------------+
+| Alvis      | :code:`naiss2026-4-66`   |
++------------+--------------------------+
+
+- `[1]` This project is in the proposal stage
+
+Storage spaces for this workshop:
+
++------------+------------------------------------------------------------+
+| HPC cluster| Course project                                             |
++============+============================================================+
+| Alvis      | :code:`/mimer/NOBACKUP/groups/spring-courses-naiss`        |
++------------+------------------------------------------------------------+
+| Bianca     | None. Use ``/proj/[your_project_code]``                    |
++------------+------------------------------------------------------------+
+| COSMOS     | :code:`/lunarc/nobackup/projects/lu2026-7-57` `[1]`        |
++------------+------------------------------------------------------------+
+| Dardel     | :code:`/cfs/klemming/projects/supr/spring-courses-naiss`   |
++------------+------------------------------------------------------------+
+| Kebnekaise | :code:`/proj/nobackup/spring-courses`                      |
++------------+------------------------------------------------------------+
+| LUMI       | None. Use ``/project/[your_project_code]``                 |
++------------+------------------------------------------------------------+
+| Pelle      | :code:`/proj/hpc-python-uppmax`                            |
++------------+------------------------------------------------------------+
+| Tetralith  | :code:`/proj/spring-courses-naiss/users/`                  |
++------------+------------------------------------------------------------+
+
+- `[1]` This project is in the proposal stage
+
+.. admonition:: Reservations
+
+   Include in slurm scripts with ``#SBATCH --reservation==<reservation-name>`` at most centers. (On UPPMAX it is "magnetic" and so follows the project ID without you having to add the reservation name.)
+
+   **NOTE:** as there is only one/a few nodes reserved, you should NOT use the reservations for long jobs as this will block their use for everyone else. Using them for short test jobs is what they are for.
+
+   - UPPMAX
+       -
+
+   - HPC2N
+       - ``hpc-python-wed`` for one AMD Zen4 cpu on Wednesday
+       - ``hpc-python-thu`` for one AMD Zen4 cpu on Thursday
+       - ``hpc-python-fri`` for two L40s gpus on Friday
+       - it is magnetic, so will be used automatically
+
+   - LUNARC
+       - ``python_april26`` for the GPU and ML sessions on Friday
+         - NOTE: it is in the gpua40i partition.   Nodes have Intel processors (32 cores) and a40 cards.   
+       - **Note**: for On-Demand apps, click the gear icon next to "Resource" in GfxLauncher popup to see additional options, which should include a box to include a reservation. Ticking that box will reveal a dropdown menu with the list of reservations associated with the project.

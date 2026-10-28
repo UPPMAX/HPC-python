@@ -1,0 +1,1 @@
+I guess that python, pandas, matplotlib and such could be prerequisites to the course and instead only focus on big data and hpc specifics
