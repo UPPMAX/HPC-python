@@ -1,0 +1,8 @@
+"Timestamp","Give you confidence levels of the following statements below: [I can find and load a Python package module]","Give you confidence levels of the following statements below: [I can determine if a Python package is installed]","Give you confidence levels of the following statements below: [I can use an isolated environment]","Give you confidence levels of the following statements below: [I can install Python packages]","Give you confidence levels of the following statements below: [I can write and submit batch job scripts]","Give you confidence levels of the following statements below: [I can use the compute nodes interactively]","Give you confidence levels of the following statements below: [I can use a Python IDE]"
+"2025/11/28 9:03:52 am CET","2","2","2","2","0","0","4"
+"2025/11/28 9:04:34 am CET","4","3","3","4","5","4","4"
+"2025/11/28 9:04:37 am CET","5","5","5","5","1","1","5"
+"2025/11/28 9:04:38 am CET","3","3","1","2","3","3","3"
+"2025/11/28 9:05:02 am CET","2","1","2","5","5","5","3"
+"2025/11/28 9:05:21 am CET","5","3","5","5","5","2","5"
+"2025/11/28 9:08:16 am CET","4","5","3","5","3","2","4"

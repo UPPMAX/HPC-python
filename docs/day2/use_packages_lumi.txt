@@ -1,0 +1,440 @@
+bilderbe@uan01:~> module load cray-python/3.11.7
+bilderbe@uan01:~> python
+Python 3.11.7 (main, Feb  8 2024, 20:49:32) [GCC 12.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+bilderbe@uan01:~> ls
+bilderbe@uan01:~> pip list
+Package            Version
+------------------ --------
+atomicwrites       1.4.1
+beniget            0.4.1
+click              8.1.7
+cloudpickle        3.0.0
+Cython             0.29.36
+dask               2023.6.1
+fsspec             2024.2.0
+gast               0.5.3
+importlib-metadata 7.0.1
+iniconfig          2.0.0
+locket             1.0.0
+meson              1.3.1
+meson-python       0.12.1
+mpi4py             3.1.4
+numpy              1.24.4
+packaging          23.2
+pandas             1.5.3
+partd              1.4.1
+pip                23.2.1
+pluggy             1.4.0
+ply                3.11
+py                 1.11.0
+pybind11           2.11.1
+pyparsing          3.1.1
+pyproject-metadata 0.7.1
+pytest             8.0.0
+python-dateutil    2.8.2
+pythran            0.12.2
+pytz               2024.1
+PyYAML             6.0.1
+scipy              1.10.1
+setuptools         69.0.3
+setuptools-scm     8.0.4
+six                1.16.0
+toml               0.10.2
+toolz              0.12.1
+typing_extensions  4.9.0
+wcwidth            0.2.13
+zipp               3.17.0
+
+[notice] A new release of pip is available: 23.2.1 -> 25.0.1
+[notice] To update, run: pip install --upgrade pip
+bilderbe@uan01:~> 
+
+
+
+
+
+
+
+bilderbe@uan01:~> singularity pull docker://matplotlib/mpl-docker
+INFO:    Converting OCI blobs to SIF format
+INFO:    Starting build...
+INFO:    Fetching OCI image...
+7.4MiB / 7.4MiB [=====================================================] 100 % 33.9 MiB/s 0s
+49.4MiB / 49.4MiB [===================================================] 100 % 33.9 MiB/s 0s
+48.1MiB / 48.1MiB [===================================================] 100 % 33.9 MiB/s 0s
+5.9MiB / 5.9MiB [=====================================================] 100 % 33.9 MiB/s 0s
+9.5MiB / 9.5MiB [=====================================================] 100 % 33.9 MiB/s 0s
+183.4MiB / 183.4MiB [=================================================] 100 % 33.9 MiB/s 0s
+17.3MiB / 17.3MiB [===================================================] 100 % 33.9 MiB/s 0s
+2.0MiB / 2.0MiB [=====================================================] 100 % 33.9 MiB/s 0s
+86.8MiB / 86.8MiB [===================================================] 100 % 33.9 MiB/s 0s
+358.8MiB / 358.8MiB [=================================================] 100 % 33.9 MiB/s 0s
+INFO:    Extracting OCI image...
+INFO:    Inserting Singularity configuration...
+INFO:    Creating SIF file...
+bilderbe@uan01:~> ls
+mpl-docker_latest.sif
+bilderbe@uan01:~> ./mpl-docker_latest.sif pip list
+Package                        Version
+------------------------------ ---------
+alabaster                      0.7.12
+apipkg                         1.5
+argon2-cffi                    20.1.0
+async-generator                1.10
+attrs                          20.2.0
+Babel                          2.8.0
+backcall                       0.2.0
+bleach                         3.2.1
+certifi                        2020.6.20
+cffi                           1.14.3
+chardet                        3.0.4
+colorspacious                  1.1.2
+coverage                       5.3
+cycler                         0.10.0
+decorator                      4.4.2
+defusedxml                     0.6.0
+docutils                       0.16
+entrypoints                    0.3
+execnet                        1.7.1
+idna                           2.10
+imagesize                      1.2.0
+iniconfig                      1.1.1
+ipykernel                      5.3.4
+ipython                        7.19.0
+ipython-genutils               0.2.0
+ipywidgets                     7.5.1
+jedi                           0.17.2
+Jinja2                         2.11.2
+jsonschema                     3.2.0
+jupyter-client                 6.1.7
+jupyter-core                   4.6.3
+jupyterlab-pygments            0.1.2
+kiwisolver                     1.2.0
+MarkupSafe                     1.1.1
+mistune                        0.8.4
+nbclient                       0.5.1
+nbconvert                      6.0.7
+nbformat                       5.0.8
+nest-asyncio                   1.4.2
+notebook                       6.1.4
+numpy                          1.19.3
+numpydoc                       1.1.0
+packaging                      20.4
+pandocfilters                  1.4.3
+parso                          0.7.1
+pexpect                        4.8.0
+pickleshare                    0.7.5
+Pillow                         8.0.1
+pip                            20.2.4
+pluggy                         0.13.1
+prometheus-client              0.8.0
+prompt-toolkit                 3.0.8
+ptyprocess                     0.6.0
+py                             1.9.0
+pycparser                      2.20
+Pygments                       2.7.2
+pyparsing                      2.4.7
+pyrsistent                     0.17.3
+pytest                         6.1.2
+pytest-cov                     2.10.1
+pytest-forked                  1.3.0
+pytest-rerunfailures           9.1.1
+pytest-timeout                 1.4.2
+pytest-xdist                   2.1.0
+python-dateutil                2.8.1
+pytz                           2020.1
+pyzmq                          19.0.2
+requests                       2.24.0
+scipy                          1.5.3
+Send2Trash                     1.5.0
+setuptools                     50.3.2
+six                            1.15.0
+snowballstemmer                2.0.0
+Sphinx                         3.2.1
+sphinx-copybutton              0.3.0
+sphinx-gallery                 0.8.1
+sphinxcontrib-applehelp        1.0.2
+sphinxcontrib-devhelp          1.0.2
+sphinxcontrib-htmlhelp         1.0.3
+sphinxcontrib-jsmath           1.0.1
+sphinxcontrib-qthelp           1.0.3
+sphinxcontrib-serializinghtml  1.1.4
+sphinxcontrib-svg2pdfconverter 1.1.0
+terminado                      0.9.1
+testpath                       0.4.4
+toml                           0.10.1
+tornado                        6.1
+traitlets                      5.0.5
+urllib3                        1.25.11
+wcwidth                        0.2.5
+webencodings                   0.5.1
+wheel                          0.35.1
+widgetsnbextension             3.5.1
+WARNING: You are using pip version 20.2.4; however, version 25.0.1 is available.
+You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
+bilderbe@uan01:~> 
+
+
+
+
+bilderbe@uan01:~> singularity pull docker://aaron465/matplotlib
+INFO:    Converting OCI blobs to SIF format
+INFO:    Starting build...
+INFO:    Fetching OCI image...
+41.0MiB / 41.0MiB [===================================================] 100 % 27.3 MiB/s 0s
+54.2MiB / 54.2MiB [===================================================] 100 % 27.3 MiB/s 0s
+162.1MiB / 162.1MiB [=================================================] 100 % 27.3 MiB/s 0s
+INFO:    Extracting OCI image...
+2025/04/16 16:34:47  warn rootless{dev/agpgart} creating empty file in place of device 10:175
+2025/04/16 16:34:47  warn rootless{dev/audio} creating empty file in place of device 14:4
+2025/04/16 16:34:47  warn rootless{dev/audio1} creating empty file in place of device 14:20
+2025/04/16 16:34:47  warn rootless{dev/audio2} creating empty file in place of device 14:36
+2025/04/16 16:34:47  warn rootless{dev/audio3} creating empty file in place of device 14:52
+2025/04/16 16:34:47  warn rootless{dev/audioctl} creating empty file in place of device 14:7
+2025/04/16 16:34:47  warn rootless{dev/console} creating empty file in place of device 5:1
+2025/04/16 16:34:47  warn rootless{dev/dsp} creating empty file in place of device 14:3
+2025/04/16 16:34:47  warn rootless{dev/dsp1} creating empty file in place of device 14:19
+2025/04/16 16:34:47  warn rootless{dev/dsp2} creating empty file in place of device 14:35
+2025/04/16 16:34:47  warn rootless{dev/dsp3} creating empty file in place of device 14:51
+2025/04/16 16:34:47  warn rootless{dev/full} creating empty file in place of device 1:7
+2025/04/16 16:34:47  warn rootless{dev/kmem} creating empty file in place of device 1:2
+2025/04/16 16:34:47  warn rootless{dev/loop0} creating empty file in place of device 7:0
+2025/04/16 16:34:47  warn rootless{dev/loop1} creating empty file in place of device 7:1
+2025/04/16 16:34:47  warn rootless{dev/loop2} creating empty file in place of device 7:2
+2025/04/16 16:34:47  warn rootless{dev/loop3} creating empty file in place of device 7:3
+2025/04/16 16:34:47  warn rootless{dev/loop4} creating empty file in place of device 7:4
+2025/04/16 16:34:47  warn rootless{dev/loop5} creating empty file in place of device 7:5
+2025/04/16 16:34:47  warn rootless{dev/loop6} creating empty file in place of device 7:6
+2025/04/16 16:34:47  warn rootless{dev/loop7} creating empty file in place of device 7:7
+2025/04/16 16:34:47  warn rootless{dev/mem} creating empty file in place of device 1:1
+2025/04/16 16:34:47  warn rootless{dev/midi0} creating empty file in place of device 35:0
+2025/04/16 16:34:47  warn rootless{dev/midi00} creating empty file in place of device 14:2
+2025/04/16 16:34:47  warn rootless{dev/midi01} creating empty file in place of device 14:18
+2025/04/16 16:34:47  warn rootless{dev/midi02} creating empty file in place of device 14:34
+2025/04/16 16:34:47  warn rootless{dev/midi03} creating empty file in place of device 14:50
+2025/04/16 16:34:47  warn rootless{dev/midi1} creating empty file in place of device 35:1
+2025/04/16 16:34:47  warn rootless{dev/midi2} creating empty file in place of device 35:2
+2025/04/16 16:34:47  warn rootless{dev/midi3} creating empty file in place of device 35:3
+2025/04/16 16:34:47  warn rootless{dev/mixer} creating empty file in place of device 14:0
+2025/04/16 16:34:47  warn rootless{dev/mixer1} creating empty file in place of device 14:16
+2025/04/16 16:34:47  warn rootless{dev/mixer2} creating empty file in place of device 14:32
+2025/04/16 16:34:47  warn rootless{dev/mixer3} creating empty file in place of device 14:48
+2025/04/16 16:34:47  warn rootless{dev/mpu401data} creating empty file in place of device 31:0
+2025/04/16 16:34:47  warn rootless{dev/mpu401stat} creating empty file in place of device 31:1
+2025/04/16 16:34:47  warn rootless{dev/null} creating empty file in place of device 1:3
+2025/04/16 16:34:47  warn rootless{dev/port} creating empty file in place of device 1:4
+2025/04/16 16:34:47  warn rootless{dev/ram0} creating empty file in place of device 1:0
+2025/04/16 16:34:47  warn rootless{dev/ram1} creating empty file in place of device 1:1
+2025/04/16 16:34:47  warn rootless{dev/ram10} creating empty file in place of device 1:10
+2025/04/16 16:34:47  warn rootless{dev/ram11} creating empty file in place of device 1:11
+2025/04/16 16:34:47  warn rootless{dev/ram12} creating empty file in place of device 1:12
+2025/04/16 16:34:47  warn rootless{dev/ram13} creating empty file in place of device 1:13
+2025/04/16 16:34:47  warn rootless{dev/ram14} creating empty file in place of device 1:14
+2025/04/16 16:34:47  warn rootless{dev/ram15} creating empty file in place of device 1:15
+2025/04/16 16:34:47  warn rootless{dev/ram16} creating empty file in place of device 1:16
+2025/04/16 16:34:47  warn rootless{dev/ram2} creating empty file in place of device 1:2
+2025/04/16 16:34:47  warn rootless{dev/ram3} creating empty file in place of device 1:3
+2025/04/16 16:34:47  warn rootless{dev/ram4} creating empty file in place of device 1:4
+2025/04/16 16:34:47  warn rootless{dev/ram5} creating empty file in place of device 1:5
+2025/04/16 16:34:47  warn rootless{dev/ram6} creating empty file in place of device 1:6
+2025/04/16 16:34:47  warn rootless{dev/ram7} creating empty file in place of device 1:7
+2025/04/16 16:34:47  warn rootless{dev/ram8} creating empty file in place of device 1:8
+2025/04/16 16:34:47  warn rootless{dev/ram9} creating empty file in place of device 1:9
+2025/04/16 16:34:47  warn rootless{dev/random} creating empty file in place of device 1:8
+2025/04/16 16:34:47  warn rootless{dev/rmidi0} creating empty file in place of device 35:64
+2025/04/16 16:34:47  warn rootless{dev/rmidi1} creating empty file in place of device 35:65
+2025/04/16 16:34:47  warn rootless{dev/rmidi2} creating empty file in place of device 35:66
+2025/04/16 16:34:47  warn rootless{dev/rmidi3} creating empty file in place of device 35:67
+2025/04/16 16:34:47  warn rootless{dev/sequencer} creating empty file in place of device 14:1
+2025/04/16 16:34:47  warn rootless{dev/smpte0} creating empty file in place of device 35:128
+2025/04/16 16:34:47  warn rootless{dev/smpte1} creating empty file in place of device 35:129
+2025/04/16 16:34:47  warn rootless{dev/smpte2} creating empty file in place of device 35:130
+2025/04/16 16:34:47  warn rootless{dev/smpte3} creating empty file in place of device 35:131
+2025/04/16 16:34:47  warn rootless{dev/sndstat} creating empty file in place of device 14:6
+2025/04/16 16:34:47  warn rootless{dev/tty} creating empty file in place of device 5:0
+2025/04/16 16:34:47  warn rootless{dev/tty0} creating empty file in place of device 4:0
+2025/04/16 16:34:47  warn rootless{dev/tty1} creating empty file in place of device 4:1
+2025/04/16 16:34:47  warn rootless{dev/tty2} creating empty file in place of device 4:2
+2025/04/16 16:34:47  warn rootless{dev/tty3} creating empty file in place of device 4:3
+2025/04/16 16:34:47  warn rootless{dev/tty4} creating empty file in place of device 4:4
+2025/04/16 16:34:47  warn rootless{dev/tty5} creating empty file in place of device 4:5
+2025/04/16 16:34:47  warn rootless{dev/tty6} creating empty file in place of device 4:6
+2025/04/16 16:34:47  warn rootless{dev/tty7} creating empty file in place of device 4:7
+2025/04/16 16:34:47  warn rootless{dev/tty8} creating empty file in place of device 4:8
+2025/04/16 16:34:47  warn rootless{dev/tty9} creating empty file in place of device 4:9
+2025/04/16 16:34:47  warn rootless{dev/urandom} creating empty file in place of device 1:9
+2025/04/16 16:34:47  warn rootless{dev/zero} creating empty file in place of device 1:5
+INFO:    Inserting Singularity configuration...
+INFO:    Creating SIF file...
+bilderbe@uan01:~> ls
+matplotlib_latest.sif  mpl-docker_latest.sif
+bilderbe@uan01:~> ./matplotlib_latest.sif pip list
+Traceback (most recent call last):
+  File "/usr/bin/pip", line 11, in <module>
+    sys.exit(main())
+  File "/usr/lib/python2.7/dist-packages/pip/__init__.py", line 215, in main
+    locale.setlocale(locale.LC_ALL, '')
+  File "/usr/lib/python2.7/locale.py", line 581, in setlocale
+    return _setlocale(category, locale)
+locale.Error: unsupported locale setting
+
+
+
+https://hub.docker.com/r/thanard/matplotlib
+
+
+
+
+
+bilderbe@uan01:~> singularity pull docker://thanard/matplotlib
+INFO:    Converting OCI blobs to SIF format
+INFO:    Starting build...
+INFO:    Fetching OCI image...
+454.8MiB / 454.8MiB [=================================================] 100 % 19.2 MiB/s 0s
+41.0MiB / 41.0MiB [===================================================] 100 % 19.2 MiB/s 0s
+358.1KiB / 358.1KiB [=================================================] 100 % 19.2 MiB/s 0s
+558.3MiB / 558.3MiB [=================================================] 100 % 19.2 MiB/s 0s
+15.0MiB / 15.0MiB [===================================================] 100 % 19.2 MiB/s 0s
+409.8MiB / 409.8MiB [=================================================] 100 % 19.2 MiB/s 0s
+54.7MiB / 54.7MiB [===================================================] 100 % 19.2 MiB/s 0s
+308.6MiB / 308.6MiB [=================================================] 100 % 19.2 MiB/s 0s
+458.0MiB / 458.0MiB [=================================================] 100 % 19.2 MiB/s 0s
+382.7MiB / 382.7MiB [=================================================] 100 % 19.2 MiB/s 0s
+6.4MiB / 6.4MiB [=====================================================] 100 % 19.2 MiB/s 0s
+27.1MiB / 27.1MiB [===================================================] 100 % 19.2 MiB/s 0s
+INFO:    Extracting OCI image...
+2025/04/16 16:38:01  warn rootless{dev/agpgart} creating empty file in place of device 10:175
+2025/04/16 16:38:01  warn rootless{dev/audio} creating empty file in place of device 14:4
+2025/04/16 16:38:01  warn rootless{dev/audio1} creating empty file in place of device 14:20
+2025/04/16 16:38:01  warn rootless{dev/audio2} creating empty file in place of device 14:36
+2025/04/16 16:38:01  warn rootless{dev/audio3} creating empty file in place of device 14:52
+2025/04/16 16:38:01  warn rootless{dev/audioctl} creating empty file in place of device 14:7
+2025/04/16 16:38:01  warn rootless{dev/console} creating empty file in place of device 5:1
+2025/04/16 16:38:01  warn rootless{dev/dsp} creating empty file in place of device 14:3
+2025/04/16 16:38:01  warn rootless{dev/dsp1} creating empty file in place of device 14:19
+2025/04/16 16:38:01  warn rootless{dev/dsp2} creating empty file in place of device 14:35
+2025/04/16 16:38:01  warn rootless{dev/dsp3} creating empty file in place of device 14:51
+2025/04/16 16:38:01  warn rootless{dev/full} creating empty file in place of device 1:7
+2025/04/16 16:38:01  warn rootless{dev/kmem} creating empty file in place of device 1:2
+2025/04/16 16:38:01  warn rootless{dev/loop0} creating empty file in place of device 7:0
+2025/04/16 16:38:01  warn rootless{dev/loop1} creating empty file in place of device 7:1
+2025/04/16 16:38:01  warn rootless{dev/loop2} creating empty file in place of device 7:2
+2025/04/16 16:38:01  warn rootless{dev/loop3} creating empty file in place of device 7:3
+2025/04/16 16:38:01  warn rootless{dev/loop4} creating empty file in place of device 7:4
+2025/04/16 16:38:01  warn rootless{dev/loop5} creating empty file in place of device 7:5
+2025/04/16 16:38:01  warn rootless{dev/loop6} creating empty file in place of device 7:6
+2025/04/16 16:38:01  warn rootless{dev/loop7} creating empty file in place of device 7:7
+2025/04/16 16:38:01  warn rootless{dev/mem} creating empty file in place of device 1:1
+2025/04/16 16:38:01  warn rootless{dev/midi0} creating empty file in place of device 35:0
+2025/04/16 16:38:01  warn rootless{dev/midi00} creating empty file in place of device 14:2
+2025/04/16 16:38:01  warn rootless{dev/midi01} creating empty file in place of device 14:18
+2025/04/16 16:38:01  warn rootless{dev/midi02} creating empty file in place of device 14:34
+2025/04/16 16:38:01  warn rootless{dev/midi03} creating empty file in place of device 14:50
+2025/04/16 16:38:01  warn rootless{dev/midi1} creating empty file in place of device 35:1
+2025/04/16 16:38:01  warn rootless{dev/midi2} creating empty file in place of device 35:2
+2025/04/16 16:38:01  warn rootless{dev/midi3} creating empty file in place of device 35:3
+2025/04/16 16:38:01  warn rootless{dev/mixer} creating empty file in place of device 14:0
+2025/04/16 16:38:01  warn rootless{dev/mixer1} creating empty file in place of device 14:16
+2025/04/16 16:38:01  warn rootless{dev/mixer2} creating empty file in place of device 14:32
+2025/04/16 16:38:01  warn rootless{dev/mixer3} creating empty file in place of device 14:48
+2025/04/16 16:38:01  warn rootless{dev/mpu401data} creating empty file in place of device 31:0
+2025/04/16 16:38:01  warn rootless{dev/mpu401stat} creating empty file in place of device 31:1
+2025/04/16 16:38:01  warn rootless{dev/null} creating empty file in place of device 1:3
+2025/04/16 16:38:01  warn rootless{dev/port} creating empty file in place of device 1:4
+2025/04/16 16:38:01  warn rootless{dev/ram0} creating empty file in place of device 1:0
+2025/04/16 16:38:01  warn rootless{dev/ram1} creating empty file in place of device 1:1
+2025/04/16 16:38:01  warn rootless{dev/ram10} creating empty file in place of device 1:10
+2025/04/16 16:38:01  warn rootless{dev/ram11} creating empty file in place of device 1:11
+2025/04/16 16:38:01  warn rootless{dev/ram12} creating empty file in place of device 1:12
+2025/04/16 16:38:01  warn rootless{dev/ram13} creating empty file in place of device 1:13
+2025/04/16 16:38:01  warn rootless{dev/ram14} creating empty file in place of device 1:14
+2025/04/16 16:38:01  warn rootless{dev/ram15} creating empty file in place of device 1:15
+2025/04/16 16:38:01  warn rootless{dev/ram16} creating empty file in place of device 1:16
+2025/04/16 16:38:01  warn rootless{dev/ram2} creating empty file in place of device 1:2
+2025/04/16 16:38:01  warn rootless{dev/ram3} creating empty file in place of device 1:3
+2025/04/16 16:38:01  warn rootless{dev/ram4} creating empty file in place of device 1:4
+2025/04/16 16:38:01  warn rootless{dev/ram5} creating empty file in place of device 1:5
+2025/04/16 16:38:01  warn rootless{dev/ram6} creating empty file in place of device 1:6
+2025/04/16 16:38:01  warn rootless{dev/ram7} creating empty file in place of device 1:7
+2025/04/16 16:38:01  warn rootless{dev/ram8} creating empty file in place of device 1:8
+2025/04/16 16:38:01  warn rootless{dev/ram9} creating empty file in place of device 1:9
+2025/04/16 16:38:01  warn rootless{dev/random} creating empty file in place of device 1:8
+2025/04/16 16:38:01  warn rootless{dev/rmidi0} creating empty file in place of device 35:64
+2025/04/16 16:38:01  warn rootless{dev/rmidi1} creating empty file in place of device 35:65
+2025/04/16 16:38:01  warn rootless{dev/rmidi2} creating empty file in place of device 35:66
+2025/04/16 16:38:01  warn rootless{dev/rmidi3} creating empty file in place of device 35:67
+2025/04/16 16:38:01  warn rootless{dev/sequencer} creating empty file in place of device 14:1
+2025/04/16 16:38:01  warn rootless{dev/smpte0} creating empty file in place of device 35:128
+2025/04/16 16:38:01  warn rootless{dev/smpte1} creating empty file in place of device 35:129
+2025/04/16 16:38:01  warn rootless{dev/smpte2} creating empty file in place of device 35:130
+2025/04/16 16:38:01  warn rootless{dev/smpte3} creating empty file in place of device 35:131
+2025/04/16 16:38:01  warn rootless{dev/sndstat} creating empty file in place of device 14:6
+2025/04/16 16:38:01  warn rootless{dev/tty} creating empty file in place of device 5:0
+2025/04/16 16:38:01  warn rootless{dev/tty0} creating empty file in place of device 4:0
+2025/04/16 16:38:01  warn rootless{dev/tty1} creating empty file in place of device 4:1
+2025/04/16 16:38:01  warn rootless{dev/tty2} creating empty file in place of device 4:2
+2025/04/16 16:38:01  warn rootless{dev/tty3} creating empty file in place of device 4:3
+2025/04/16 16:38:01  warn rootless{dev/tty4} creating empty file in place of device 4:4
+2025/04/16 16:38:01  warn rootless{dev/tty5} creating empty file in place of device 4:5
+2025/04/16 16:38:01  warn rootless{dev/tty6} creating empty file in place of device 4:6
+l2025/04/16 16:38:01  warn rootless{dev/tty7} creating empty file in place of device 4:7
+2025/04/16 16:38:01  warn rootless{dev/tty8} creating empty file in place of device 4:8
+2025/04/16 16:38:01  warn rootless{dev/tty9} creating empty file in place of device 4:9
+2025/04/16 16:38:01  warn rootless{dev/urandom} creating empty file in place of device 1:9
+2025/04/16 16:38:01  warn rootless{dev/zero} creating empty file in place of device 1:5
+INFO:    Inserting Singularity configuration...
+INFO:    Creating SIF file...
+bilderbe@uan01:~> ls
+matplotlib_latest.sif
+bilderbe@uan01:~> ./matplotlib_latest.sif pip list
+DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.
+asn1crypto (0.24.0)
+certifi (2018.1.18)
+cffi (1.11.4)
+chardet (3.0.4)
+conda (4.4.10)
+cryptography (2.1.4)
+cycler (0.10.0)
+decorator (4.2.1)
+idna (2.6)
+ipython (6.2.1)
+ipython-genutils (0.2.0)
+jedi (0.11.1)
+kiwisolver (1.0.1)
+matplotlib (2.2.0)
+numpy (1.14.1)
+parso (0.1.1)
+pexpect (4.4.0)
+pickleshare (0.7.4)
+Pillow (5.0.0)
+pip (9.0.1)
+prompt-toolkit (1.0.15)
+ptyprocess (0.5.2)
+pycosat (0.6.3)
+pycparser (2.18)
+Pygments (2.2.0)
+pyOpenSSL (17.5.0)
+pyparsing (2.2.0)
+PySocks (1.6.7)
+python-dateutil (2.6.1)
+pytz (2018.3)
+PyYAML (3.12)
+requests (2.18.4)
+ruamel-yaml (0.15.35)
+scipy (1.0.0)
+setuptools (38.4.0)
+simplegeneric (0.8.1)
+six (1.11.0)
+torch (0.4.0a0+582d045)
+torchvision (0.2.0)
+tornado (5.0)
+traitlets (4.3.2)
+urllib3 (1.22)
+wcwidth (0.1.7)
+wheel (0.30.0)
+You are using pip version 9.0.1, however version 25.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+bilderbe@uan01:~> 
+

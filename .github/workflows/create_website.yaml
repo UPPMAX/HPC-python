@@ -1,0 +1,74 @@
+name: Create website
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  create_website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+
+      # Install plantuml
+      - name: Install OS package dependencies
+        run: |
+          sudo apt update
+          sudo apt install plantuml
+          #sudo apt install npm
+          #npm install mermaid
+          npm install -g @mermaid-js/mermaid-cli
+          #docker pull minlag/mermaid-cli
+          #npm install markmap
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: remove unused folders and files
+        run: |
+          rm -rf docs/*/not_used
+          rm -rf docs/*/may2024
+          rm -rf docs/*/May23
+          rm -rf docs/feb23_course
+          rm -rf docs/may2024
+          rm -rf docs/May23
+          rm -rf docs/May_24
+          rm docs/day2/jupyter.md
+          rm docs/day2/use_isolated_environments_old.rst
+          rm docs/day2/jupyter.rst
+          rm -rf docs/day3/matplotlib/20251130_rebecca_pits
+          rm -rf docs/day3/not_used
+          rm docs/day3/big_data_old.rst
+          rm docs/day3/batch.rst # is now day3/batch-new.rst
+          rm -rf docs/day3/seaborn/20251130_rebecca_pits
+          rm -rf docs/day3/seaborn/older
+          rm -rf docs/day3/pandas/20251130_rebecca_pits
+          rm -rf docs/day3/pandas/older
+          rm docs/day3/example/chunk_dask.py
+          rm docs/day3/example/chunk_np.py
+
+      - name: Sphinx build
+        run: |
+          sphinx-build docs _build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _build/
+          force_orphan: true
+
+      - name: Install linter
+        run: pip install sphinx-lint
+
+      - name: Run linter, will never give an error
+        run: sphinx-lint docs || true
+

@@ -1,0 +1,15 @@
+ID,Start time,Completion time,Email,Name,I know the basics of using the different parallelization tools in Python,I know how a simple for loop can be parallelized with Multiprocessing and how it can run on multiple cores,I can write a batch script that uses GPUs,I can determine which ML and DL modules are installed at a center,I can load a Python (machine learning) module,I can run a Python code that uses PyTorch,I can run a Python code that uses TensorFlow,"Overall, how would you rate this training event?","What do you think about the pace of teaching overall today? 
+
+","Would you recommend this course to your colleagues?
+","Which future training topics would you like to be provided by the training host(s)?
+","Do you have any additional comments?
+
+Suggestions/ideas:
+
+- What did you like best? (materials, exercises, structure)
+- Where should we improve? (materials, exercises, structure)
+- Training organi...",Last modified time
+1,12/2/25 15:50:58,12/2/25 15:51:59,anonymous,,I have some confidence I can do this,I have some confidence I can do this,I have good confidence I can do this,I have low confidence I can do this,I have good confidence I can do this,I have no confidence I can do this,I have no confidence I can do this,7,,Yes,,,
+2,12/2/25 15:50:52,12/2/25 15:53:36,anonymous,,I have low confidence I can do this,I have low confidence I can do this,I have no confidence I can do this,I have no confidence I can do this,I have some confidence I can do this,I have good confidence I can do this,I have good confidence I can do this,3,"a bit to fast for me to really learn by following examples, to uncertain with setting up environments, connectin et c",Not sure,"more on basic usage with nodes, set up jupyter, environments, loading modules",,
+3,12/2/25 15:52:46,12/2/25 15:54:32,anonymous,,I have good confidence I can do this,I can absolutely do this!,I can absolutely do this!,I have good confidence I can do this,I have some confidence I can do this,I have some confidence I can do this,I have good confidence I can do this,8,good,Yes,,,
+4,12/2/25 15:54:58,12/2/25 16:01:05,anonymous,,I have low confidence I can do this,I have low confidence I can do this,I have no confidence I can do this,I have no confidence I can do this,I have low confidence I can do this,I have no confidence I can do this,I have no confidence I can do this,3,,No,,"The material is good, but the teaching technique is lacking. Richel started off very good with a lot of interaction, breakout rooms and time for questions and doing things yourself. I liked this and that the exercises were part of the teaching, not meant to do during breaks, then you would never get breaks. I and some other seemed to be lost already at ondemand, and interactive work. So maybe you should make that session more interactive. Then it would have been easier to follow the other sessions after that. ",
